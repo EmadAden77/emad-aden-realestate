@@ -474,7 +474,7 @@
 
         async function fetchGeminiResponse(userText) {
             if (!apiKey) {
-                return "مرحباً! أنا حالياً في وضع التجربة. الرجاء إضافة مفتاح Gemini API في كود الموقع لكي أتمكن من الرد على استفساراتك بشكل كامل.";
+                return "مرحباً! أنا حالياً في وضع التجربة. الرجاء إضافة مفتاح API لكي أتمكن من الرد.";
             }
 
             const prompt = `أنت مساعد ذكي واسمك 'مساعد عماد' تعمل لدى 'مكتب عماد عدن العقاري'. 
@@ -485,10 +485,10 @@
             أجب على سؤال المستخدم التالي باختصار واحترافية وبلهجة ودية يمنية/سعودية بيضاء:
             سؤال المستخدم: ${userText}`;
 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
-            const maxRetries = 5;
-            const delays = [1000, 2000, 4000, 8000, 16000];
+            const maxRetries = 3;
+            const delays = [1000, 2000, 4000];
 
             for (let i = 0; i < maxRetries; i++) {
                 try {
