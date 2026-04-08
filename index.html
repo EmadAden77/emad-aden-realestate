@@ -10,83 +10,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #0a0a0a; color: #fff; font-family: 'Tajawal', sans-serif; }
-        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-fill-color: transparent; -webkit-background-clip: text; }
         .bg-gold-gradient { background: linear-gradient(135deg, #AA8C2C 0%, #D4AF37 50%, #F5D061 100%); }
-        .glass-panel { background: rgba(23, 23, 23, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.2); }
-        #chat-window { transition: all 0.3s ease; }
-        .chat-closed { opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none; }
-        .chat-open { opacity: 1; transform: translateY(0) scale(1); }
-        .loader { border: 2px solid #171717; border-top: 2px solid #D4AF37; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .glass-panel { background: rgba(23, 23, 23, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.2); }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
-
-    <nav class="fixed w-full z-50 glass-panel border-b border-gold/30 h-20 flex items-center px-6">
-        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="IMG_5.jpg" class="w-12 h-12 rounded-full border-2 border-gold-500 shadow-lg">
-                <div class="flex flex-col">
-                    <span class="font-black text-xl">مكتب <span class="gold-gradient">عماد عدن</span></span>
-                    <span class="text-[10px] text-gold-400 font-bold">عقارات • استثمار • عدن</span>
-                </div>
-            </div>
-            <a href="https://wa.me/967773571889" class="bg-gold-gradient text-black px-5 py-2 rounded-full font-bold text-sm">واتساب</a>
+    <nav class="fixed w-full z-50 glass-panel border-b border-gold/30 h-20 flex items-center px-6 justify-between">
+        <div class="flex items-center gap-4">
+            <img src="IMG_5.jpg" class="w-12 h-12 rounded-full border-2 border-gold-500 shadow-lg">
+            <span class="font-black text-xl">مكتب <span class="gold-gradient">عماد عدن</span></span>
         </div>
+        <a href="https://wa.me/967773571889" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-bold text-sm shadow-xl">تواصل معنا</a>
     </nav>
 
-    <section class="pt-48 pb-32 text-center px-4 relative">
-        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">عقاراتك في <br><span class="gold-gradient">أمان ومصداقية</span></h1>
-        <p class="text-gray-400 max-w-2xl mx-auto mb-12 text-lg">الخيار الأول لبيع وشراء وتثمين العقارات في عدن. خبرة تضمن لك أفضل استثمار.</p>
-        <button onclick="toggleChat()" class="bg-gold-gradient text-black px-10 py-4 rounded-full font-black text-lg shadow-xl">تحدث مع المساعد الذكي</button>
+    <section class="pt-52 pb-32 text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">عقارات عدن بين <br><span class="gold-gradient">يديك الآن</span></h1>
+        <button onclick="toggleChat()" class="bg-gold-gradient text-black px-12 py-4 rounded-full font-black text-xl shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform">اسأل المساعد الذكي</button>
     </section>
 
-    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
-        <div id="chat-window" class="chat-closed w-[320px] sm:w-[400px] glass-panel rounded-2xl mb-4 overflow-hidden flex flex-col shadow-2xl h-[500px]">
-            <div class="bg-gold-gradient p-4 flex justify-between items-center text-black">
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end">
+        <div id="chat-window" class="hidden w-[350px] sm:w-[420px] glass-panel rounded-3xl mb-5 overflow-hidden flex flex-col shadow-2xl h-[550px] border-gold/40">
+            <div class="bg-gold-gradient p-5 flex justify-between items-center text-black font-black">
                 <div class="flex items-center gap-3">
                     <img src="IMG_5.jpg" class="w-10 h-10 rounded-full border border-black/20">
-                    <h4 class="font-black text-sm">مساعد عماد</h4>
+                    <span>مساعد عماد العدني</span>
                 </div>
-                <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChat()" class="text-xl"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col gap-4 bg-[#0d0d0d]">
-                <div class="bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start text-sm shadow-sm">
-                    يا حيا بك في مكتب عماد عدن!🏠 أنا مساعدك الذكي، تسألني عن أي عقار في عدن؟
-                </div>
+            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-[#0d0d0d]">
+                <div class="bg-dark-800 p-4 rounded-2xl rounded-tr-none text-sm border border-gold/10 leading-relaxed shadow-inner">يا حيا بك يا غالي! أنا مساعد عماد العدني فزعتك في عقارات عدن أيش تبي تعرف اليوم؟</div>
             </div>
             <div class="p-4 bg-[#141414] border-t border-gold/10 flex gap-3">
-                <input type="text" id="chat-input" placeholder="اكتب سؤالك..." class="flex-1 bg-black/40 text-white rounded-xl px-4 py-2 text-sm focus:outline-none border border-gray-800" onkeypress="if(event.key==='Enter')sendMessage()">
-                <button onclick="sendMessage()" class="w-12 h-12 rounded-xl bg-gold-gradient text-black flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-paper-plane rtl:-scale-x-100"></i>
+                <input type="text" id="chat-input" placeholder="اكتب سؤالك يا وحش..." class="flex-1 bg-black/50 text-white rounded-2xl px-5 py-3 text-sm border border-gray-800 focus:border-gold-500 outline-none transition-all" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()" class="w-14 h-14 rounded-2xl bg-gold-gradient text-black flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                    <i class="fa-solid fa-paper-plane text-lg rtl:-scale-x-100"></i>
                 </button>
             </div>
         </div>
-        <button onclick="toggleChat()" class="w-16 h-16 rounded-full bg-gold-gradient p-1 shadow-2xl">
+        <button onclick="toggleChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1.5 shadow-[0_10px_40px_rgba(212,175,55,0.4)] hover:scale-110 transition-transform relative">
+            <div class="absolute top-0 right-0 w-6 h-6 bg-red-600 rounded-full border-2 border-black flex items-center justify-center text-[10px] font-bold">1</div>
             <img src="IMG_5.jpg" class="rounded-full w-full h-full object-cover">
         </button>
     </div>
 
     <script>
-        let isChatOpen = false;
-        const chatWindow = document.getElementById('chat-window');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-
         function toggleChat() {
-            isChatOpen = !isChatOpen;
-            chatWindow.className = isChatOpen ? 'chat-open w-[320px] sm:w-[400px] glass-panel rounded-2xl mb-4 overflow-hidden flex flex-col shadow-2xl h-[500px]' : 'chat-closed w-[320px] sm:w-[400px] glass-panel rounded-2xl mb-4 overflow-hidden flex flex-col shadow-2xl h-[500px]';
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('hidden');
         }
 
         async function sendMessage() {
-            const text = chatInput.value.trim();
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
             if (!text) return;
             addMsg(text, true);
-            chatInput.value = '';
+            input.value = '';
             const loader = document.createElement('div');
-            loader.className = 'loader self-start my-2';
-            chatMessages.appendChild(loader);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            loader.className = 'bg-dark-800 p-3 rounded-xl self-start text-xs text-gold-500 animate-pulse border border-gold/10';
+            loader.textContent = 'جاري التفكير...';
+            document.getElementById('chat-messages').appendChild(loader);
 
             try {
                 const response = await fetch('/api/chat', {
@@ -99,16 +82,17 @@
                 addMsg(data.reply, false);
             } catch (e) {
                 loader.remove();
-                addMsg("يا حيا بك، يبدو في مشكلة بالاتصال. تأكد انك فاتح الموقع من رابط فيرسيل الجديد.", false);
+                addMsg("يا حيا بك حصل مشكلة بسيطة بالاتصال تأكد إنك سويت Deploy جديد في فيرسيل بعد ما أضفت المجلد", false);
             }
         }
 
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl self-end max-w-[85%] text-sm' : 'bg-dark-800 text-white p-3 rounded-xl self-start max-w-[85%] text-sm border border-gold/10';
+            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-2xl rounded-tl-none self-end max-w-[85%] text-sm shadow-md' : 'bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start max-w-[85%] text-sm shadow-sm leading-relaxed';
             d.textContent = t;
-            chatMessages.appendChild(d);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            const chat = document.getElementById('chat-messages');
+            chat.appendChild(d);
+            chat.scrollTop = chat.scrollHeight;
         }
     </script>
 </body>
