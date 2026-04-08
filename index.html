@@ -21,7 +21,7 @@
             <img src="IMG_5.jpg" class="w-12 h-12 rounded-full border-2 border-gold-500 shadow-lg">
             <span class="font-black text-xl md:text-2xl">مكتب <span class="gold-gradient">عماد عدن</span></span>
         </div>
-        <a href="https://wa.me/967773571889" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-bold text-sm">واتساب</a>
+        <a href="https://wa.me/967773571889" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-bold text-sm shadow-xl">تواصل معنا</a>
     </nav>
 
     <section class="pt-52 pb-32 text-center px-4">
@@ -39,16 +39,16 @@
                 <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-[#0d0d0d]">
-                <div class="bg-dark-800 p-4 rounded-2xl rounded-tr-none text-sm border border-gold/10">يا حيا بك يابو عماد! فزعتك موجودة أيش تبي تعرف اليوم؟</div>
+                <div class="bg-dark-800 p-4 rounded-2xl rounded-tr-none text-sm border border-gold/10 leading-relaxed shadow-inner">يا حيا بك يابو عماد! فزعتك موجودة أيش تبي تعرف اليوم؟</div>
             </div>
             <div class="p-4 bg-[#141414] border-t border-gold/10 flex gap-3">
                 <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="flex-1 bg-black/50 text-white rounded-2xl px-5 py-3 text-sm border border-gray-800 outline-none" onkeypress="if(event.key==='Enter')sendMessage()">
-                <button onclick="sendMessage()" class="w-14 h-14 rounded-2xl bg-gold-gradient text-black flex items-center justify-center shadow-lg">
+                <button onclick="sendMessage()" class="w-14 h-14 rounded-2xl bg-gold-gradient text-black flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95 transition-all">
                     <i class="fa-solid fa-paper-plane text-lg rtl:-scale-x-100"></i>
                 </button>
             </div>
         </div>
-        <button onclick="toggleChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1 shadow-2xl hover:scale-110 transition-transform">
+        <button onclick="toggleChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1 shadow-2xl hover:scale-110 transition-transform relative">
             <img src="IMG_5.jpg" class="rounded-full w-full h-full object-cover">
         </button>
     </div>
@@ -65,12 +65,12 @@
             input.value = '';
             
             const loader = document.createElement('div');
-            loader.className = 'bg-dark-800 p-3 rounded-xl self-start text-xs text-gold-500 animate-pulse';
+            loader.className = 'bg-dark-800 p-3 rounded-xl self-start text-xs text-gold-500 animate-pulse border border-gold/10';
             loader.textContent = 'جاري الرد...';
             chatMessages.appendChild(loader);
 
             try {
-                // الحين بيكلم السيرفر اللي داخل مجلد api
+                // الكود بيكلم السيرفر اللي داخل مجلد api في فيرسيل
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -81,13 +81,13 @@
                 addMsg(data.reply, false);
             } catch (e) {
                 loader.remove();
-                addMsg("يا حيا بك، في مشكلة بالاتصال. تأكد إنك حذفت الملف القديم وحطيت الجديد داخل مجلد api وسويت Redeploy.", false);
+                addMsg("يا حيا بك في قروشة بالاتصال تأكد إنك سويت الـ Redeploy في فيرسيل خبطة واحدة ياشنب", false);
             }
         }
 
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-2xl rounded-tl-none self-end max-w-[85%] text-sm' : 'bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start max-w-[85%] text-sm';
+            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-2xl rounded-tl-none self-end max-w-[85%] text-sm shadow-md' : 'bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start max-w-[85%] text-sm';
             d.textContent = t;
             const chat = document.getElementById('chat-messages');
             chat.appendChild(d);
