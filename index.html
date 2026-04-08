@@ -421,9 +421,9 @@
             });
         });
 
-        const p1 = "gsk_u5wJK5JNFd5";
-        const p2 = "R9ZK2XPC6WGdyb3F";
-        const p3 = "Y0nH7TvMGRbdUJyyCs4lToCk2";
+        const p1 = "gsk_nCmQGUeGnW5e";
+        const p2 = "FTTEMZxWWGdyb3FY";
+        const p3 = "p0P1GhPyDsdpUd2ioAMuavIr";
         const apiKey = p1 + p2 + p3;
         
         const chatWindow = document.getElementById('chat-window');
@@ -498,7 +498,7 @@
                         'Authorization': `Bearer ${apiKey}`
                     },
                     body: JSON.stringify({
-                        model: "gemma-7b-it", // غيرت لك الموديل لواحد اسرع واخف عندهم
+                        model: "llama3-8b-8192", 
                         messages: [
                             { role: "system", content: systemPrompt },
                             { role: "user", content: userText }
