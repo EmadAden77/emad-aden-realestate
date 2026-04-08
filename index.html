@@ -13,132 +13,88 @@
         .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .bg-gold-gradient { background: linear-gradient(135deg, #AA8C2C 0%, #D4AF37 50%, #F5D061 100%); }
         .glass-panel { background: rgba(23, 23, 23, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.2); }
-        .chat-open { opacity: 1; transform: translateY(0); pointer-events: auto; transition: all 0.3s ease; }
-        .chat-closed { opacity: 0; transform: translateY(20px); pointer-events: none; transition: all 0.3s ease; }
-        .loader { border: 2px solid #171717; border-top: 2px solid #D4AF37; border-radius: 50%; width: 16px; height: 16px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
-
-    <!-- Header -->
     <nav class="fixed w-full z-50 glass-panel border-b border-gold/30 h-20 flex items-center px-6 justify-between">
         <div class="flex items-center gap-4">
             <img src="IMG_5.jpg" class="w-12 h-12 rounded-full border-2 border-gold-500 shadow-lg">
-            <div class="flex flex-col">
-                <span class="font-black text-xl">مكتب <span class="gold-gradient">عماد عدن</span></span>
-                <span class="text-[10px] text-gold-400 font-bold tracking-widest">عقارات • استثمار • عدن</span>
-            </div>
+            <span class="font-black text-xl md:text-2xl">مكتب <span class="gold-gradient">عماد عدن</span></span>
         </div>
-        <a href="https://wa.me/967773571889" target="_blank" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-bold text-sm shadow-xl hover:scale-105 transition-all">تواصل واتساب</a>
+        <a href="https://wa.me/967773571889" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-bold text-sm">واتساب</a>
     </nav>
 
-    <!-- Main Section -->
-    <section class="pt-52 pb-32 text-center px-4 relative">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold-600/10 blur-[100px] rounded-full -z-10"></div>
+    <section class="pt-52 pb-32 text-center px-4">
         <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">عقارات عدن في <br><span class="gold-gradient">أمان ومصداقية</span></h1>
-        <p class="text-gray-400 mb-12 max-w-xl mx-auto text-lg leading-relaxed">نحن وجهتك الأولى لبيع وشراء وتثمين العقارات في العاصمة عدن. خبرة ميدانية تضمن لك أفضل الصفقات.</p>
-        <button onclick="toggleChat()" class="bg-gold-gradient text-black px-12 py-4 rounded-full font-black text-xl shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-110 transition-all active:scale-95">تحدث مع المساعد الذكي</button>
+        <button onclick="toggleChat()" class="bg-gold-gradient text-black px-12 py-4 rounded-full font-black text-xl shadow-xl hover:scale-105 transition-transform">اسأل المساعد العدني</button>
     </section>
 
-    <!-- Floating Chat Window -->
     <div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end">
-        <div id="chat-window" class="chat-closed w-[350px] sm:w-[420px] glass-panel rounded-3xl mb-5 overflow-hidden flex flex-col shadow-2xl h-[550px] border-gold/40">
+        <div id="chat-window" class="hidden w-[350px] sm:w-[420px] glass-panel rounded-3xl mb-5 overflow-hidden flex flex-col shadow-2xl h-[550px] border-gold/40">
             <div class="bg-gold-gradient p-5 flex justify-between items-center text-black font-black">
                 <div class="flex items-center gap-3">
                     <img src="IMG_5.jpg" class="w-10 h-10 rounded-full border border-black/20">
-                    <div>
-                        <h4 class="text-sm">مساعد عماد الذكي</h4>
-                        <p class="text-[9px] opacity-70 italic">متصل الآن ومستعد لخدمتك</p>
-                    </div>
+                    <span>مساعد عماد العدني</span>
                 </div>
-                <button onclick="toggleChat()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/10 transition-all"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
             <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-[#0d0d0d]">
-                <div class="bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none text-sm border border-gold/10 leading-relaxed shadow-sm">
-                    يا حيا بك يابو عماد! 🏠<br>
-                    أنا مساعدك العدني الذكي، أيش تبي تعرف عن أسعار العقارات أو الأراضي في عدن اليوم؟ فزعتك موجودة.
-                </div>
+                <div class="bg-dark-800 p-4 rounded-2xl rounded-tr-none text-sm border border-gold/10">يا حيا بك يابو عماد! فزعتك موجودة أيش تبي تعرف اليوم؟</div>
             </div>
-
-            <div class="p-4 bg-[#141414] border-t border-gold/10 flex gap-3 items-center">
-                <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا يا شنب..." class="flex-1 bg-black/50 text-white rounded-2xl px-5 py-3 text-sm border border-gray-800 focus:border-gold-500 outline-none transition-all" onkeypress="if(event.key==='Enter')sendMessage()">
-                <button onclick="sendMessage()" class="w-14 h-14 rounded-2xl bg-gold-gradient text-black flex items-center justify-center shadow-lg hover:brightness-110 active:scale-95 transition-all">
+            <div class="p-4 bg-[#141414] border-t border-gold/10 flex gap-3">
+                <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="flex-1 bg-black/50 text-white rounded-2xl px-5 py-3 text-sm border border-gray-800 outline-none" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()" class="w-14 h-14 rounded-2xl bg-gold-gradient text-black flex items-center justify-center shadow-lg">
                     <i class="fa-solid fa-paper-plane text-lg rtl:-scale-x-100"></i>
                 </button>
             </div>
         </div>
-        
-        <!-- Toggle Button -->
-        <button onclick="toggleChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1.5 shadow-[0_10px_40px_rgba(212,175,55,0.4)] hover:scale-110 transition-transform relative">
-            <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-600 rounded-full border-2 border-black flex items-center justify-center text-[10px] font-bold">1</div>
+        <button onclick="toggleChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1 shadow-2xl hover:scale-110 transition-transform">
             <img src="IMG_5.jpg" class="rounded-full w-full h-full object-cover">
         </button>
     </div>
 
     <script>
-        let isChatOpen = false;
-        const chatWindow = document.getElementById('chat-window');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-
-        function toggleChat() {
-            isChatOpen = !isChatOpen;
-            chatWindow.className = isChatOpen ? 'chat-open w-[350px] sm:w-[420px] glass-panel rounded-3xl mb-5 overflow-hidden flex flex-col shadow-2xl h-[550px] border-gold/40' : 'chat-closed w-[350px] sm:w-[420px] glass-panel rounded-3xl mb-5 overflow-hidden flex flex-col shadow-2xl h-[550px] border-gold/40';
-            if(isChatOpen) chatInput.focus();
-        }
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
 
         async function sendMessage() {
-            const text = chatInput.value.trim();
+            const input = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const text = input.value.trim();
             if (!text) return;
-
             addMsg(text, true);
-            chatInput.value = '';
-
-            const loaderWrap = document.createElement('div');
-            loaderWrap.className = 'flex gap-2 items-center text-gold-500 text-[10px] font-bold my-2';
-            loaderWrap.innerHTML = '<div class="loader"></div> جاري الرد...';
-            chatMessages.appendChild(loaderWrap);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            input.value = '';
+            
+            const loader = document.createElement('div');
+            loader.className = 'bg-dark-800 p-3 rounded-xl self-start text-xs text-gold-500 animate-pulse';
+            loader.textContent = 'جاري الرد...';
+            chatMessages.appendChild(loader);
 
             try {
-                // نكلم الذكاء الاصطناعي مباشرة (فزعة) لتخطي مشاكل السيرفر
-                const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                // الحين بيكلم السيرفر اللي داخل مجلد api
+                const response = await fetch('/api/chat', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer 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'
-                    },
-                    body: JSON.stringify({
-                        model: "llama3-8b-8192",
-                        messages: [
-                            { role: "system", content: "أنت مساعد عدني خبير بمكتب عماد عدن العقاري. هرجك عدني قح ومختصر جداً وفزعة للزبائن. رقم التواصل هو 773571889." },
-                            { role: "user", content: text }
-                        ],
-                        temperature: 0.7
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
                 });
-
                 const data = await response.json();
-                loaderWrap.remove();
-                addMsg(data.choices[0].message.content, false);
+                loader.remove();
+                addMsg(data.reply, false);
             } catch (e) {
-                loaderWrap.remove();
-                addMsg("يا حيا بك يا غالي، حصل مشكلة بسيطة بالاتصال. تأكد إنك فاتح الموقع وجرب مرة ثانية.", false);
+                loader.remove();
+                addMsg("يا حيا بك، في مشكلة بالاتصال. تأكد إنك حذفت الملف القديم وحطيت الجديد داخل مجلد api وسويت Redeploy.", false);
             }
         }
 
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-2xl rounded-tl-none self-end max-w-[85%] text-sm shadow-md' : 'bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start max-w-[85%] text-sm leading-relaxed';
+            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-2xl rounded-tl-none self-end max-w-[85%] text-sm' : 'bg-dark-800 text-white p-4 rounded-2xl rounded-tr-none border border-gold/10 self-start max-w-[85%] text-sm';
             d.textContent = t;
-            chatMessages.appendChild(d);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            const chat = document.getElementById('chat-messages');
+            chat.appendChild(d);
+            chat.scrollTop = chat.scrollHeight;
         }
     </script>
 </body>
 </html>
 
 ```
-
