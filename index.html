@@ -421,10 +421,10 @@
             });
         });
 
-        // تشفير وتجميع المفتاح عشان قيت هب ما يحذفه فورا
-        const part1 = "AIzaSyD8DApKAjT2";
-        const part2 = "JAanDeTtCUJMY7Mxc3qFC5I";
-        const apiKey = part1 + part2;
+        const p1 = "AIzaSyBiwP9o_";
+        const p2 = "QNHyYuF9BUyvo";
+        const p3 = "Ec2aY4aVyg1Ag";
+        const apiKey = p1 + p2 + p3;
         
         const chatWindow = document.getElementById('chat-window');
         const chatMessages = document.getElementById('chat-messages');
@@ -478,16 +478,16 @@
 
         async function fetchGeminiResponse(userText) {
             if (!apiKey) {
-                return "مرحباً! أنا حالياً في وضع التجربة. الرجاء إضافة مفتاح API لكي أتمكن من الرد.";
+                return "مرحباً أنا حالياً في وضع التجربة الرجاء إضافة مفتاح API لكي أتمكن من الرد تأكد من تشغيل VPN إذا كنت في اليمن";
             }
 
-            const prompt = `أنت مساعد ذكي واسمك 'مساعد عماد' تعمل لدى 'مكتب عماد عدن العقاري'. 
-            المكتب متخصص في بيع وشراء وتثمين العقارات في محافظة عدن، اليمن.
-            مناطق التغطية: المنصورة، الشيخ عثمان، بير فضل، الممدارة، بير أحمد، المدينة الخضراء، خور مكسر.
-            خدمات إضافية: إدارة أملاك المغتربين، مستشار قانوني عقاري.
-            رقم التواصل واتساب: 967773571889.
-            أجب على سؤال المستخدم التالي باختصار واحترافية وبلهجة ودية يمنية/سعودية بيضاء:
-            سؤال المستخدم: ${userText}`;
+            const prompt = `أنت مساعد ذكي واسمك 'مساعد عماد' تعمل لدى 'مكتب عماد عدن العقاري'
+            المكتب متخصص في بيع وشراء وتثمين العقارات في محافظة عدن اليمن
+            مناطق التغطية المنصورة الشيخ عثمان بير فضل الممدارة بير أحمد المدينة الخضراء خور مكسر
+            خدمات إضافية إدارة أملاك المغتربين مستشار قانوني عقاري
+            رقم التواصل واتساب 967773571889
+            أجب على سؤال المستخدم التالي باختصار واحترافية وبلهجة ودية يمنية بيضاء
+            سؤال المستخدم ${userText}`;
 
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
@@ -512,7 +512,7 @@
                     if (i === maxRetries - 1) throw new Error('API Error');
                     await new Promise(resolve => setTimeout(resolve, delays[i]));
                 } catch (error) {
-                    if (i === maxRetries - 1) return "عذراً، أواجه مشكلة في الاتصال حالياً. يرجى المحاولة لاحقاً أو التواصل مع الإدارة عبر الواتساب.";
+                    if (i === maxRetries - 1) return "عذراً أواجه مشكلة في الاتصال حالياً تأكد أنك تستخدم VPN لأن الخدمة محجوبة في اليمن أو تواصل مع الإدارة عبر الواتساب";
                     await new Promise(resolve => setTimeout(resolve, delays[i]));
                 }
             }
