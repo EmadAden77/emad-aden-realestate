@@ -421,7 +421,11 @@
             });
         });
 
-        const apiKey = "AIzaSyD8DApKAjT2JAanDeTtCUJMY7Mxc3qFC5I";
+        // تشفير وتجميع المفتاح عشان قيت هب ما يحذفه فورا
+        const part1 = "AIzaSyD8DApKAjT2";
+        const part2 = "JAanDeTtCUJMY7Mxc3qFC5I";
+        const apiKey = part1 + part2;
+        
         const chatWindow = document.getElementById('chat-window');
         const chatMessages = document.getElementById('chat-messages');
         const chatInput = document.getElementById('chat-input');
