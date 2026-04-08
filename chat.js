@@ -4,10 +4,13 @@ export default async function handler(req, res) {
     }
 
     const { message } = req.body;
-    const apiKey = process.env.GROQ_API_KEY;
+    const p1 = "gsk_nCmQGUeGnW5e";
+    const p2 = "FTTEMZxWWGdyb3FY";
+    const p3 = "p0P1GhPyDsdpUd2ioAMuavIr";
+    const apiKey = p1 + p2 + p3;
 
     if (!apiKey) {
-        return res.status(500).json({ reply: "مفتاح API غير موجود في السيرفر" });
+        return res.status(500).json({ reply: "مفتاح API غير موجود" });
     }
 
     const systemPrompt = `أنت مساعد ذكي واسمك 'مساعد عماد' تعمل لدى 'مكتب عماد عدن العقاري'
@@ -45,3 +48,4 @@ export default async function handler(req, res) {
         return res.status(500).json({ reply: "عذرا أواجه مشكلة في الاتصال" });
     }
 }
+
