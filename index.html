@@ -3,337 +3,641 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عماد عدن العقاري | المرجع العقاري الأول في عدن</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #D4AF37; --dark-gold: #AA8C2C; --black: #050505; }
-        body { background-color: var(--black); color: #fff; font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        .gold-text { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gold-bg { background: linear-gradient(135deg, #AA8C2C 0%, #D4AF37 50%, #F5D061 100%); }
-        .glass { background: rgba(15, 15, 15, 0.65); backdrop-filter: blur(30px); border: 1px solid rgba(212, 175, 55, 0.15); }
-        .view-hidden { display: none; }
-        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-hover:hover { transform: translateY(-10px); border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
-        .input-field { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 14px; color: #fff; outline: none; font-size: 0.85rem; transition: 0.3s; }
-        .input-field:focus { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); }
+        :root {
+            --gold: #D4AF37; --dark-gold: #AA8C2C;
+            --bg-main: #0a0a0b; --bg-sec: #121214; 
+            --text-main: #f3f4f6; --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --border-gold: rgba(212, 175, 55, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --input-bg: rgba(0, 0, 0, 0.3);
+        }
+        body.light-theme {
+            --bg-main: #f8fafc; --bg-sec: #ffffff;
+            --text-main: #111827; --text-muted: #6b7280;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.4);
+            --card-bg: #ffffff;
+            --input-bg: #f3f4f6;
+        }
+
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; transition: 0.3s; }
         
-        /* Assistant Specifics */
-        .assistant-container { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
-        .chat-window { position: fixed; bottom: 100px; right: 25px; width: 340px; height: 500px; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); transform-origin: bottom right; z-index: 1001; }
-        .chat-closed { transform: scale(0); opacity: 0; pointer-events: none; }
-        .chat-open { transform: scale(1); opacity: 1; pointer-events: auto; }
-        .chat-glass { background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(25px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 2.5rem; overflow: hidden; display: flex; flex-direction: column; }
+        .gold-text { color: var(--gold); }
+        .gold-bg { background: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%); color: #000; }
         
-        .loader-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 1s infinite alternate; }
-        @keyframes pulse { from { opacity: 0.3; transform: scale(0.8); } to { opacity: 1; transform: scale(1.2); } }
+        .pro-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 1rem; transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; }
+        .pro-card:hover { border-color: var(--border-gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .ultra-premium-card {
+            background: linear-gradient(145deg, var(--bg-sec) 0%, rgba(212,175,55,0.08) 100%);
+            border: 1px solid var(--gold);
+            border-radius: 1.25rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(212,175,55,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .ultra-premium-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 60%);
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+        }
+        .ultra-premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(212,175,55,0.3);
+            border-color: #F5D061;
+        }
+        .ultra-premium-card:hover::before { opacity: 1; }
+        .highlight-badge { position: absolute; top: 0; right: 0; background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 900; padding: 0.25rem 0.75rem; border-bottom-left-radius: 0.75rem; z-index: 10; }
+
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 200; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 1rem; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.95) translateY(20px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 100%; max-w: 480px; max-height: 90vh; overflow-y: auto; background: var(--bg-sec); border: 1px solid var(--border-gold); border-radius: 1.5rem; padding: 2rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
+        
+        .input-style { width: 100%; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 14px 16px; color: var(--text-main); outline: none; margin-bottom: 16px; font-size: 0.95rem; transition: 0.3s; font-weight: 500; }
+        .input-style:focus { border-color: var(--gold); background: var(--bg-main); box-shadow: 0 0 0 2px rgba(212,175,55,0.1); }
+        
+        .map-node { fill: var(--gold); cursor: pointer; transition: 0.3s; }
+        .map-node:hover { fill: #fff; transform: scale(1.2); }
+        .map-line { stroke: var(--border-color); stroke-width: 2; stroke-dasharray: 4; }
+        #map-tooltip { position: absolute; background: var(--bg-sec); border: 1px solid var(--gold); padding: 1rem; border-radius: 0.5rem; display: none; z-index: 10; width: 240px; color: var(--text-main); box-shadow: 0 10px 25px rgba(0,0,0,0.5); pointer-events: none; }
+        
+        .timeline { position: relative; border-right: 2px solid var(--border-color); margin-right: 10px; padding-right: 25px; }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; right: -30px; top: 5px; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; }
+        
+        .faq-question { cursor: pointer; padding: 1rem 1.25rem; background: var(--bg-sec); border: 1px solid var(--border-color); border-radius: 0.5rem; margin-bottom: 0.5rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .faq-question:hover { border-color: var(--border-gold); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .faq-answer.active { max-height: 250px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
+        
+        .assistant-wrapper { position: fixed; bottom: 24px; right: 24px; z-index: 150; }
+        .assistant-window { position: absolute; bottom: 80px; right: 0; width: calc(100vw - 48px); max-width: 350px; height: 500px; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; background: var(--bg-sec); border: 1px solid var(--gold); border-radius: 1rem; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .assistant-window.active { transform: scale(1); opacity: 1; pointer-events: auto; }
+
+        .table-container { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 1rem; background: var(--bg-sec); }
+        .styled-table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: right; }
+        .styled-table th { background: rgba(212,175,55,0.05); color: var(--gold); padding: 1.25rem 1rem; font-weight: 800; border-bottom: 1px solid var(--border-color); }
+        .styled-table td { padding: 1.25rem 1rem; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; font-weight: 500; }
+        .styled-table tr:last-child td { border-bottom: none; }
+
+        .notification-toast { position: fixed; bottom: 24px; left: -350px; width: 300px; background: var(--bg-sec); border-right: 4px solid var(--gold); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-left: 1px solid var(--border-color); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; z-index: 160; transition: all 0.4s ease; opacity: 0; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .notification-toast.show { left: 0; opacity: 1; }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--border-gold); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+        
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .btn-primary { background: var(--gold); color: #000; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 800; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: none; cursor: pointer; }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
+        .btn-outline { border: 1px solid var(--gold); color: var(--gold); padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 800; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: transparent; cursor: pointer; }
+        .btn-outline:hover { background: var(--gold); color: #000; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- [NAVBAR] -->
-    <nav class="fixed w-full z-[90] glass border-b border-gold/10 h-20 flex items-center px-4 md:px-12 justify-between">
-        <div class="flex items-center gap-4 cursor-pointer" onclick="switchView('main')">
-            <img src="IMG_5.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold-500/30">
+    <div id="notify-toast" class="notification-toast">
+        <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bell"></i></div>
+        <div>
+            <h4 class="font-black text-xs gold-text mb-1">تحديث مباشر</h4>
+            <p id="notify-text" class="text-xs font-medium text-[var(--text-muted)]">تم حجز موعد استشارة قبل دقيقتين</p>
+        </div>
+    </div>
+
+    <!-- [HEADER] -->
+    <nav class="fixed top-0 w-full z-[100] bg-[var(--bg-main)]/95 backdrop-blur-md border-b border-[var(--border-color)] h-20 flex items-center justify-between px-6 lg:px-12 transition-all">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full overflow-hidden border border-[var(--border-gold)] cursor-pointer shrink-0" onclick="handleLogoClick()">
+                <img src="IMG_5.jpg" class="w-full h-full object-cover" alt="Logo">
+            </div>
             <div class="flex flex-col">
-                <span class="font-black text-xl md:text-2xl gold-text tracking-tighter uppercase leading-none">مكتب عماد عدن</span>
-                <span class="text-[7px] text-gray-400 font-bold uppercase tracking-[0.3em] mt-1">المرجع العقاري الموثوق في العاصمة</span>
+                <h1 class="font-black text-lg md:text-xl gold-text tracking-tight" data-ar="مكتب عماد عدن العقاري" data-en="Emad Aden Real Estate">مكتب عماد عدن العقاري</h1>
+                <p class="text-[9px] font-bold text-[var(--text-muted)] tracking-wider mt-0.5" data-ar="بيع • شراء • تثمين • استثمار" data-en="Buy • Sell • Value • Invest">بيع • شراء • تثمين • استثمار</p>
             </div>
         </div>
-        <div class="hidden lg:flex gap-8 text-[10px] font-black items-center tracking-widest uppercase">
-            <button onclick="switchView('main')" class="hover:text-gold-500 transition-colors">الرئيسية</button>
-            <button onclick="switchView('management')" class="hover:text-gold-500 transition-colors">أملاك المغتربين</button>
-            <button onclick="switchView('legal')" class="hover:text-gold-500 transition-colors">المستشار القانوني</button>
-            <button onclick="switchView('valuation')" class="hover:text-gold-500 transition-colors">تثمين العقار</button>
+        
+        <div class="flex items-center gap-4">
+            <div class="hidden lg:flex items-center gap-3 text-[var(--text-muted)] px-4 border-l border-[var(--border-color)] mx-2">
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="openModal('management-modal')" class="btn-primary !px-4 !py-2 !text-xs" data-ar="أملاك المغتربين" data-en="Property Mgmt">أملاك المغتربين</button>
+                <button onclick="openModal('legal-modal')" class="btn-outline !px-4 !py-2 !text-xs hidden sm:flex" data-ar="مستشار قانوني" data-en="Legal Advisor">مستشار قانوني</button>
+            </div>
+            <div class="flex gap-2 border-r border-[var(--border-color)] pr-4">
+                <button onclick="toggleTheme()" class="text-[var(--text-muted)] hover:text-gold-500 transition-colors"><i class="fa-solid fa-moon text-lg" id="theme-icon"></i></button>
+                <button onclick="toggleLang()" class="text-[var(--text-muted)] font-bold text-sm hover:text-gold-500 transition-colors ml-2" id="lang-btn">EN</button>
+            </div>
         </div>
-        <a href="https://wa.me/967773571889" target="_blank" class="gold-bg text-black px-6 py-2 rounded-full font-black text-[10px] shadow-lg hover:scale-105 transition-all">اتصل بنا 773571889</a>
     </nav>
 
-    <!-- [MAIN VIEW] -->
-    <div id="main-view">
-        <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-10 relative">
-            <div class="absolute w-[500px] h-[500px] bg-gold-600/5 blur-[150px] rounded-full -z-10 animate-pulse"></div>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">عقارات عدن <br><span class="gold-text">بمنظور عالمي</span></h1>
-            <p class="text-gray-400 text-xs md:text-lg max-w-2xl leading-relaxed mb-10 font-medium italic">"الخبرة، المصداقية، المرجعية".. نحن وجهتكم الموثوقة لإدارة وتثمين واستثمار العقارات في كل شبر ومديرية داخل العاصمة عدن.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="switchView('management')" class="gold-bg text-black px-10 py-4 rounded-xl font-black text-xs md:text-sm shadow-xl hover:scale-105 transition-all">إدارة أملاك المغتربين</button>
-                <button onclick="switchView('valuation')" class="border border-gold-500 text-gold-500 px-10 py-4 rounded-xl font-black text-xs md:text-sm hover:bg-gold-500/10 transition-all">اطلب التثمين الميداني</button>
+    <div class="pt-20">
+        
+        <!-- [HERO SECTION] -->
+        <section class="flex flex-col justify-center items-center text-center px-4 pt-16 pb-10 max-w-4xl mx-auto">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden mb-8 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
+                <img src="IMG_5.jpg" class="w-full h-full object-cover" alt="شعار مكتب عماد عدن">
             </div>
-        </section>
-
-        <!-- Market Reference Section (نبذة عن المكتب) -->
-        <section class="py-24 px-4 max-w-7xl mx-auto border-t border-white/5">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="text-right">
-                    <h2 class="text-3xl md:text-5xl font-black mb-8 gold-text leading-tight uppercase">المرجعية العقارية <br>الأولى في عدن</h2>
-                    <p class="text-gray-400 text-sm md:text-md leading-loose mb-8">منذ أكثر من 15 عاماً، ومكتب عماد عدن العقاري يبني جسور الثقة مع عملائه في الداخل والخارج. نحن لا نقدم خدمات الوساطة فحسب، بل نحن مستشارك القانوني والميداني الذي يضمن لك صحة الوثائق بنسبة 100%. تخصصنا في "إدارة أملاك المغتربين" جعلنا العين الأمينة لكل مغترب يبحث عن حماية حلاله وتطوير استثماراته في قلب الوطن عدن.</p>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="glass p-6 rounded-2xl text-center">
-                            <div class="text-2xl font-black gold-text mb-1">15+</div>
-                            <div class="text-[8px] text-gray-500 uppercase font-bold">عاماً من النزاهة</div>
-                        </div>
-                        <div class="glass p-6 rounded-2xl text-center">
-                            <div class="text-2xl font-black gold-text mb-1">8</div>
-                            <div class="text-[8px] text-gray-500 uppercase font-bold">مديريات مغطاة</div>
-                        </div>
-                        <div class="glass p-6 rounded-2xl text-center">
-                            <div class="text-2xl font-black gold-text mb-1">24/7</div>
-                            <div class="text-[8px] text-gray-500 uppercase font-bold">متابعة ميدانية</div>
-                        </div>
-                    </div>
+            <p class="text-sm md:text-base leading-relaxed mb-10 text-[var(--text-muted)] font-medium max-w-2xl mx-auto" data-ar="نوثق الحقوق ونبني مستقبلك الاستثماري بأسس قانونية وميدانية صلبة لتكون عقاراتك في أمان تام." data-en="We document rights and build your investment future on solid legal and field foundations.">نوثق الحقوق ونبني مستقبلك الاستثماري بأسس قانونية وميدانية صلبة لتكون عقاراتك في أمان تام.</p>
+            
+            <!-- Professional Stats -->
+            <div class="grid grid-cols-3 gap-px bg-[var(--border-color)] w-full max-w-2xl border border-[var(--border-color)] rounded-xl overflow-hidden">
+                <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
+                    <div class="text-xl md:text-3xl font-black gold-text mb-1">+15</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider" data-ar="سنة خبرة" data-en="Years Exp">سنة خبرة</div>
                 </div>
-                <div class="rounded-[3rem] overflow-hidden border border-gold/10 shadow-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0">
-                    <div class="absolute inset-0 bg-gold-gradient opacity-10"></div>
+                <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
+                    <div class="text-xl md:text-3xl font-black gold-text mb-1">+1000</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider" data-ar="استشارة منجزة" data-en="Consultations">استشارة منجزة</div>
+                </div>
+                <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
+                    <div class="text-xl md:text-3xl font-black gold-text mb-1">8</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider" data-ar="مديريات مغطاة" data-en="Districts">مديريات مغطاة</div>
                 </div>
             </div>
         </section>
 
-        <!-- Aden Districts Market Analysis (تحليل المناطق) -->
-        <section class="py-24 px-4 bg-[#080808]">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-black mb-4 uppercase tracking-tighter">تحليل استثماري لـ <span class="gold-text">مديريات العاصمة</span></h2>
-                    <p class="text-gray-500 text-xs uppercase tracking-widest">مكتب عماد عدن يضع السوق بين يديك في كل مديرية</p>
+        <!-- [ULTRA PREMIUM HIGHLIGHTS - MOVED TO TOP] -->
+        <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Management -->
+                <div onclick="openModal('management-modal')" class="ultra-premium-card group cursor-pointer">
+                    <span class="highlight-badge">خدمة مميزة</span>
+                    <i class="fa-solid fa-plane-up text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
+                    <h3 class="text-xl font-black mb-2" data-ar="إدارة الأملاك" data-en="Property Mgmt">إدارة الأملاك</h3>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed" data-ar="إدارة كاملة لعقارات المغتربين، تحصيل وصيانة دورية." data-en="Full management for expats properties.">إدارة كاملة لعقارات المغتربين، تحصيل وصيانة دورية.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Mansoura -->
-                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
-                        <h4 class="text-lg font-black gold-text mb-4 uppercase">المنصورة والشيخ</h4>
-                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">المركز التجاري والسكني الأكثر طلباً. مخططات بير فضل ومدينة السلام تشهد ارتفاعاً سنوياً يتجاوز 30%.</p>
-                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">نمو تجاري فائق</span>
+                
+                <!-- Valuation -->
+                <div onclick="openModal('valuation-modal')" class="ultra-premium-card group cursor-pointer">
+                    <span class="highlight-badge">خدمة مميزة</span>
+                    <i class="fa-solid fa-magnifying-glass-chart text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
+                    <h3 class="text-xl font-black mb-2" data-ar="تثمين العقارات" data-en="Valuation">تثمين العقارات</h3>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed" data-ar="تقييم ميداني معتمد يعكس السعر الحقيقي لعقارك بالسوق." data-en="Certified valuation reflecting true market price.">تقييم ميداني معتمد يعكس السعر الحقيقي لعقارك بالسوق.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
+
+                <!-- ROI Calculator -->
+                <div onclick="openModal('roi-modal')" class="ultra-premium-card group cursor-pointer">
+                    <span class="highlight-badge">أداة ذكية</span>
+                    <i class="fa-solid fa-calculator text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
+                    <h3 class="text-xl font-black mb-2" data-ar="حاسبة العوائد" data-en="ROI Calculator">حاسبة العوائد</h3>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed" data-ar="احسب صافي الربح السنوي ومدة استرداد رأس مالك بسهولة." data-en="Calculate net profit and payback period easily.">احسب صافي الربح السنوي ومدة استرداد رأس مالك بسهولة.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
+
+                <!-- Currency -->
+                <div onclick="openModal('currency-modal')" class="ultra-premium-card group cursor-pointer">
+                    <span class="highlight-badge">أداة ذكية</span>
+                    <i class="fa-solid fa-money-bill-transfer text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
+                    <h3 class="text-xl font-black mb-2" data-ar="محول العملات" data-en="Currency Converter">محول العملات</h3>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed" data-ar="تحويل فوري لأسعار العقارات بين العملات المتداولة محلياً." data-en="Instant conversion of real estate prices.">تحويل فوري لأسعار العقارات بين العملات المتداولة محلياً.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- [CORE SERVICES & TOOLS - SECONDARY] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
+            <div class="mb-10 text-center">
+                <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="المزيد من الخدمات" data-en="More Services">المزيد من الخدمات</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="pro-card p-6 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded bg-[var(--input-bg)] flex items-center justify-center"><i class="fa-solid fa-handshake-simple text-xl gold-text"></i></div>
+                    <div>
+                        <h4 class="font-black text-sm mb-1" data-ar="البيع والشراء" data-en="Buy & Sell">البيع والشراء</h4>
+                        <span class="text-[10px] font-medium text-[var(--text-muted)]" data-ar="وساطة موثوقة" data-en="Reliable Brokerage">وساطة موثوقة</span>
                     </div>
-                    <!-- Khor Maksar -->
-                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
-                        <h4 class="text-lg font-black gold-text mb-4 uppercase">خور مكسر وكريتر</h4>
-                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">عقارات النخبة والفلل الملكية. استقرار كبير في القيمة السوقية بالقرب من المرافق الحيوية والدبلوماسية.</p>
-                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">سكني راقي</span>
+                </div>
+                
+                <div onclick="openModal('legal-modal')" class="pro-card p-6 flex items-center gap-4 cursor-pointer group">
+                    <div class="w-12 h-12 rounded bg-[var(--input-bg)] flex items-center justify-center group-hover:bg-gold-500/10 transition-colors"><i class="fa-solid fa-scale-balanced text-xl gold-text"></i></div>
+                    <div>
+                        <h4 class="font-black text-sm mb-1" data-ar="الشؤون القانونية" data-en="Legal Affairs">الشؤون القانونية</h4>
+                        <span class="text-[10px] font-bold text-gold-500" data-ar="طلب استشارة &larr;" data-en="Consult Us &rarr;">طلب استشارة &larr;</span>
                     </div>
-                    <!-- Mualla -->
-                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
-                        <h4 class="text-lg font-black gold-text mb-4 uppercase">المعلا والتواهي</h4>
-                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">إطلالات بحرية وشقق عائلية واسعة. وجهة المغتربين المفضلة لقربها من قلب المدينة التاريخي.</p>
-                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">إطلالة بحر</span>
-                    </div>
-                    <!-- Bureqa -->
-                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
-                        <h4 class="text-lg font-black gold-text mb-4 uppercase">البريقة والشعب</h4>
-                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">مستقبل عدن العمراني والمدن السكنية الحديثة. فرصة ذهبية للاستثمار طويل الأمد بأفضل الأسعار حالياً.</p>
-                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">فرصة استثمارية</span>
+                </div>
+
+                <div onclick="openFavModal()" class="pro-card p-6 flex items-center gap-4 cursor-pointer group">
+                    <div class="w-12 h-12 rounded bg-[var(--input-bg)] flex items-center justify-center group-hover:bg-gold-500/10 transition-colors"><i class="fa-solid fa-bookmark text-xl gold-text"></i></div>
+                    <div>
+                        <h4 class="font-black text-sm mb-1" data-ar="المقالات المحفوظة" data-en="Saved Articles">المقالات المحفوظة</h4>
+                        <span class="text-[10px] font-medium text-[var(--text-muted)]" data-ar="أرشيفك الخاص" data-en="Your Archive">أرشيفك الخاص</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Market Growth Chart (الرسم البياني) -->
-        <section class="py-24 px-4 text-center">
-            <h2 class="text-3xl font-black mb-6 uppercase">مؤشر <span class="gold-text">التطور والقيمة</span> (2020-2025)</h2>
-            <p class="text-gray-500 mb-12 text-[10px] uppercase tracking-widest italic">تحليل فني لمعدلات الارتفاع في قيم العقارات عبر مديريات عدن</p>
-            <div class="max-w-6xl mx-auto glass p-6 md:p-10 rounded-[3.5rem] h-[450px]">
-                <canvas id="marketChart"></canvas>
+        <!-- [COMPARE AREAS SECTION - DEDICATED] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
+            <div class="mb-12 text-center">
+                <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="مقارنة المناطق العقارية" data-en="Compare Real Estate Areas">مقارنة المناطق العقارية</h3>
+                <p class="text-sm font-medium text-[var(--text-muted)]" data-ar="قارن بين مديريات عدن لاختيار أفضل فرصة استثمارية" data-en="Compare Aden districts for the best investment">قارن بين مديريات عدن لاختيار أفضل فرصة استثمارية</p>
+            </div>
+            
+            <div class="pro-card p-8 bg-[var(--bg-sec)] relative overflow-hidden shadow-2xl">
+                <i class="fa-solid fa-code-compare absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500"></i>
+                <div class="flex flex-col md:flex-row gap-6 mb-8 relative z-10">
+                    <div class="flex-1">
+                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة الأولى</label>
+                        <select id="comp-1" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="المنصورة">المنصورة</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option><option value="البريقة">البريقة</option></select>
+                    </div>
+                    <div class="flex items-center justify-center pt-6 md:pt-8">
+                        <div class="w-12 h-12 rounded-full gold-bg text-black flex items-center justify-center font-black shadow-lg"><i class="fa-solid fa-bolt"></i></div>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة الثانية</label>
+                        <select id="comp-2" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="البريقة">البريقة</option><option value="المنصورة">المنصورة</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option></select>
+                    </div>
+                </div>
+                <div class="text-center relative z-10 mb-8">
+                    <button onclick="runComparison()" class="btn-outline !px-12 !py-3">تنفيذ المقارنة</button>
+                </div>
+                
+                <div id="comp-result" class="hidden bg-[var(--bg-main)] border border-[var(--border-color)] rounded-xl overflow-hidden relative z-10 shadow-inner">
+                    <div class="flex border-b border-[var(--border-color)] bg-[rgba(212,175,55,0.05)] text-gold-500">
+                        <div class="flex-1 p-4 text-center text-sm font-black border-l border-[var(--border-color)]">المعيار</div>
+                        <div class="flex-1 p-4 text-center text-sm font-black border-l border-[var(--border-color)]" id="res-title-1">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-black" id="res-title-2">-</div>
+                    </div>
+                    <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">السعر</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-white" id="res-price-1">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-white" id="res-price-2">-</div>
+                    </div>
+                    <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">الطلب</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-green-500" id="res-demand-1">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-green-500" id="res-demand-2">-</div>
+                    </div>
+                    <div class="flex hover:bg-[var(--card-bg)] transition-colors">
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">النوع الغالب</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold gold-text" id="res-type-1">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold gold-text" id="res-type-2">-</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="py-20 px-6 border-t border-gold/10 bg-[#050505] text-center">
-            <div class="max-w-4xl mx-auto">
-                <img src="IMG_5.jpg" class="w-14 h-14 rounded-full mx-auto mb-6 border border-gold-500/20 shadow-xl">
-                <h4 class="font-black text-2xl gold-text mb-2 uppercase">مكتب عماد عدن العقاري</h4>
-                <p class="text-gray-500 text-[8px] font-bold uppercase tracking-[0.4em] mb-10">بيع • شراء • تثمين • استثمار • إدارة أملاك</p>
-                <div class="flex justify-center gap-6 mb-16 text-xl text-gray-500">
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-snapchat"></i></a>
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+        <!-- [TIMELINE & MAP - PROFESSIONAL LAYOUT] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-[var(--border-color)]">
+            <!-- Map -->
+            <div>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-black mb-2" data-ar="التوزيع الجغرافي" data-en="Geographical Distribution">التوزيع الجغرافي</h3>
+                    <p class="text-sm text-[var(--text-muted)] font-medium" data-ar="تغطية شاملة لمديريات عدن" data-en="Comprehensive coverage of Aden">تغطية شاملة لمديريات عدن</p>
                 </div>
-                <div class="text-[8px] text-gray-700 font-black tracking-widest uppercase italic border-t border-white/5 pt-8">اليمن • عدن • المنصورة • شارع التسعين | © 2025 ALL RIGHTS RESERVED</div>
+                <div class="pro-card p-8 relative flex justify-center items-center min-h-[350px] bg-[var(--bg-sec)]">
+                    <div id="map-tooltip">
+                        <h4 id="tt-title" class="font-black text-base gold-text mb-1">المنطقة</h4>
+                        <p id="tt-desc" class="text-xs leading-relaxed mb-3 text-[var(--text-muted)]">الوصف</p>
+                        <div class="text-xs border-t border-[var(--border-color)] pt-2 flex justify-between"><span class="text-[var(--text-muted)]">مؤشر الطلب:</span> <span id="tt-demand" class="font-bold text-white">عالي</span></div>
+                    </div>
+                    <svg viewBox="0 0 500 300" class="w-full h-auto overflow-visible">
+                        <path d="M100,150 L200,100 L300,150 L250,220 Z" class="map-line" fill="none"/>
+                        <path d="M300,150 L400,120 L350,200 L250,220" class="map-line" fill="none"/>
+                        <path d="M100,150 L50,200" class="map-line" fill="none"/>
+                        <g onmousemove="showTooltip(event, 'البريقة والشعب', 'مستقبل عدن العمراني، مساحات شاسعة بأسعار منافسة.', 'متصاعد بقوة')" onmouseout="hideTooltip()"><circle cx="50" cy="200" r="8" class="map-node"/><text x="50" y="225" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="middle">البريقة</text></g>
+                        <g onmousemove="showTooltip(event, 'المنصورة والشيخ', 'القلب التجاري النابض لعدن. طلب هائل.', '100% (أعلى طلب)')" onmouseout="hideTooltip()"><circle cx="200" cy="100" r="12" class="map-node"/><text x="200" y="80" fill="var(--text-main)" font-size="12" font-weight="900" text-anchor="middle">المنصورة</text></g>
+                        <g onmousemove="showTooltip(event, 'خور مكسر', 'استقرار كبير في الأسعار وقيمة سكنية عالية.', 'مستقر ومطلوب')" onmouseout="hideTooltip()"><circle cx="300" cy="150" r="10" class="map-node"/><text x="315" y="145" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="start">خور مكسر</text></g>
+                        <g onmousemove="showTooltip(event, 'كريتر', 'المدينة التاريخية والتجارية العريقة.', 'مستقر')" onmouseout="hideTooltip()"><circle cx="400" cy="120" r="8" class="map-node"/><text x="400" y="100" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="middle">كريتر</text></g>
+                        <g onmousemove="showTooltip(event, 'المعلا والتواهي', 'إطلالات بحرية وشقق عائلية مميزة.', 'متوسط')" onmouseout="hideTooltip()"><circle cx="350" cy="200" r="8" class="map-node"/><text x="365" y="210" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="start">المعلا</text></g>
+                        <g onmousemove="showTooltip(event, 'بير فضل', 'طفرة عمرانية هائلة في بناء الفلل والمخططات.', 'مرتفع 90%')" onmouseout="hideTooltip()"><circle cx="100" cy="150" r="8" class="map-node"/><text x="85" y="140" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="end">بير فضل</text></g>
+                    </svg>
+                </div>
             </div>
+
+            <!-- Timeline -->
+            <div>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-black mb-2" data-ar="آلية العمل" data-en="Workflow">آلية العمل</h3>
+                    <p class="text-sm text-[var(--text-muted)] font-medium" data-ar="خطوات واضحة وشفافة في إدارة الأملاك" data-en="Clear steps in property management">خطوات واضحة وشفافة في إدارة الأملاك</p>
+                </div>
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-base mb-2 text-white">1. الاستلام والجرد</h4>
+                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">نستلم العقار، نوثق حالته بالصور، ونراجع الوثائق القانونية بدقة.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-base mb-2 text-white">2. الصيانة والتأهيل</h4>
+                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">إجراء الصيانة اللازمة للمرافق لضمان تأجيره بأعلى قيمة ممكنة.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-base mb-2 text-white">3. التحصيل والمتابعة</h4>
+                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">تحصيل الإيجارات بانتظام، حل مشاكل المستأجرين، وتحويل الأموال للمغترب.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [DATA TABLE & CHART] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
+            <div class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="تحليل بيانات السوق" data-en="Market Data Analysis">تحليل بيانات السوق</h3>
+                    <p class="text-sm font-medium text-[var(--text-muted)]">متابعة دقيقة لحالة العقار في عدن</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th data-ar="المنطقة" data-en="Area">المنطقة</th>
+                                <th data-ar="الطلب" data-en="Demand">الطلب</th>
+                                <th data-ar="النشاط" data-en="Activity">النشاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">المنصورة والشيخ عثمان</td>
+                                <td class="text-green-500 font-bold">100%</td>
+                                <td class="text-[var(--text-muted)]">توسع تجاري</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">خور مكسر وكريتر</td>
+                                <td class="text-blue-500 font-bold">مستقر</td>
+                                <td class="text-[var(--text-muted)]">تكدس سكني</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">البريقة ومدينة الشعب</td>
+                                <td class="text-green-500 font-bold">80%</td>
+                                <td class="text-[var(--text-muted)]">مدن حديثة</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">المعلا والتواهي</td>
+                                <td class="text-yellow-500 font-bold">متوسط</td>
+                                <td class="text-[var(--text-muted)]">شقق سكنية</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pro-card p-6 h-[320px]">
+                    <canvas id="marketChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- [ARTICLES] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
+            <div class="mb-12">
+                <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="الرؤى والمقالات" data-en="Insights & Articles">الرؤى والمقالات</h3>
+                <p class="text-sm font-medium text-[var(--text-muted)]">معلومات قانونية وعقارية تهم كل مستثمر</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art1', 'فخ العقود العشوائية')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6">فخ العقود العشوائية</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">شراء العقارات بدون فحص يعرض أموالك للضياع. المستشار القانوني يضمن مطابقة الأوراق ويحميك.</p>
+                </div>
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art2', 'تعدد الملاك')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6">تعدد الملاك</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">دورنا هو التقصي لضمان خلو العين المباعة من أي مشاكل وتسليمها لك قانونياً وميدانياً.</p>
+                </div>
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art3', 'الشروط الجزائية')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6">الشروط الجزائية</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">صياغة العقود بواسطة محامٍ مختص تضمن وضع شروط رادعة تضمن استلام حقك بوقته.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- [FAQ ACCORDION] -->
+        <section class="section-padding px-4 max-w-3xl mx-auto border-t border-[var(--border-color)]">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl md:text-3xl font-black mb-3" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</h3>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>لماذا أحتاج مستشار قانوني قبل الشراء؟</span><i class="fa-solid fa-chevron-down text-[var(--text-muted)] text-sm transition-transform"></i></div>
+                    <div class="faq-answer">لتجنب فخ العقود الوهمية وتعدد الملاك. نقوم بفحص البصائر في السجل العقاري والمحاكم لضمان خلو العين من أي نزاعات.</div>
+                </div>
+                <div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>كيف تضمنون حقوق المغترب في تحصيل الإيجار؟</span><i class="fa-solid fa-chevron-down text-[var(--text-muted)] text-sm transition-transform"></i></div>
+                    <div class="faq-answer">نوقع عقود إدارة رسمية، ونقوم بالتحصيل الميداني وإيداع المبالغ فوراً عبر شبكات الصرافة مع تقرير مصور شهري لحالة العقار.</div>
+                </div>
+                <div>
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>هل التثمين العقاري لديكم معتمد؟</span><i class="fa-solid fa-chevron-down text-[var(--text-muted)] text-sm transition-transform"></i></div>
+                    <div class="faq-answer">نعم، التثمين يتم عبر لجنة ميدانية مختصة تقيم العقار بناءً على مساحته، موقعه، والخدمات المحيطة به ليعكس القيمة الحقيقية بالسوق.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- [FOOTER] -->
+        <footer class="py-12 text-center border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
+            <div class="flex justify-center gap-6 text-xl mb-6 text-[var(--text-muted)]">
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="font-bold text-xs text-[var(--text-muted)]" data-ar="مكتب عماد عدن العقاري | جميع الحقوق محفوظة © 2026" data-en="Emad Aden Real Estate | All Rights Reserved © 2026">مكتب عماد عدن العقاري | جميع الحقوق محفوظة © 2026</p>
         </footer>
     </div>
 
-    <!-- [FORM VIEWS: THE BASICS] -->
+    <!-- [MODALS (FORMS & TOOLS)] -->
     
-    <!-- Management Form -->
-    <div id="management-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
-            <h2 class="text-3xl font-black mb-4 gold-text">إدارة أملاك المغتربين</h2>
-            <p class="text-gray-400 text-xs mb-10 italic">عينُكَ الأمينة في الوطن.. نحن نتولى عقارك وكأنه ملكنا بضمانات رسمية</p>
-            <div class="space-y-6">
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">اسم المغترب الكامل</label><input type="text" id="m-name" placeholder="مثال: عماد بن محمد اليافعي" class="input-field"></div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">موقع العقار في عدن</label><input type="text" id="m-loc" placeholder="المديرية، الحي، المخطط" class="input-field"></div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">نوع العقار</label><select id="m-type" class="input-field"><option>عمارة سكنية</option><option>شقة</option><option>أرض استثمارية</option><option>فيلا</option></select></div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">تفاصيل الخدمة</label><textarea id="m-msg" class="h-40 input-field" placeholder="اكتب كل ما يخص عقارك (تحصيل إيجارات، صيانة، مراقبة ميدانية، متابعة وثائق)"></textarea></div>
-                <button onclick="sendWhatsApp('management')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">إرسال الطلب عبر واتساب</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Legal Form -->
-    <div id="legal-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
-            <h2 class="text-3xl font-black mb-4 gold-text">المستشار القانوني</h2>
-            <p class="text-gray-400 text-xs mb-10 italic">فحص الوثائق، توثيق الحقوق، وفصل المنازعات بخبرة قانونية ميدانية</p>
-            <div class="space-y-6">
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الاسم</label><input type="text" id="l-name" placeholder="اسم صاحب الطلب" class="input-field"></div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">نوع الاستشارة</label><select id="l-service" class="input-field"><option>فحص وثائق ملكية في السجل العقاري</option><option>فصل نزاع عقاري قائم</option><option>كتابة وصياغة عقود قانونية</option><option>تمثيل أمام الجهات المختصة</option></select></div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">تفاصيل المشكلة</label><textarea id="l-msg" class="h-52 input-field" placeholder="اشرح لنا حالتك القانونية بالتفصيل وسنتواصل معك فوراً..."></textarea></div>
-                <button onclick="sendWhatsApp('legal')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">تحدث مع المستشار</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Valuation Form -->
-    <div id="valuation-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
-            <h2 class="text-4xl font-black mb-4 gold-text">تثمين العقار</h2>
-            <p class="text-gray-400 text-xs mb-10 italic">احصل على القيمة السوقية الحقيقة لعقارك بناءً على معطيات السوق الميدانية الحالية</p>
-            <div class="space-y-6">
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الاسم</label><input type="text" id="v-name" class="input-field"></div>
-                <div class="grid grid-cols-2 gap-5">
-                    <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">المساحة (م²)</label><input type="text" id="v-size" class="input-field"></div>
-                    <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الموقع بالضبط</label><input type="text" id="v-loc" placeholder="المديرية والحي" class="input-field"></div>
-                </div>
-                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">وصف العقار</label><textarea id="v-msg" class="h-40 input-field" placeholder="عدد الغرف، الأدوار، الخدمات المجاورة، المميزات والعيوب..."></textarea></div>
-                <button onclick="sendWhatsApp('valuation')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">ارسل البيانات للتثمين</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- [FLOATING GHOST ASSISTANT] -->
-    <div class="assistant-container">
-        <!-- Chat Window -->
-        <div id="chat-window" class="chat-closed chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]">
-            <div class="gold-bg p-4 flex justify-between items-center text-black font-black">
-                <div class="flex items-center gap-3">
-                    <img src="IMG_5.jpg" class="w-10 h-10 rounded-full border border-black/20">
+    <!-- Management -->
+    <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
+    
+    <!-- Legal Modal (Ultra Professional) -->
+    <div id="legal-modal" class="modal-overlay">
+        <div class="modal-content relative overflow-hidden">
+            <i class="fa-solid fa-scale-balanced absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
+            <button onclick="closeModal('legal-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl z-10"><i class="fa-solid fa-xmark"></i></button>
+            <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl gold-bg flex items-center justify-center text-black text-2xl shadow-lg"><i class="fa-solid fa-scale-balanced"></i></div>
                     <div>
-                        <div class="text-[10px] leading-tight uppercase">مساعد عماد الذكي</div>
-                        <div class="text-[7px] opacity-70 flex items-center gap-1 uppercase font-black"><div class="w-1 h-1 bg-green-600 rounded-full animate-pulse"></div> فزعتك هنا يا وحش</div>
+                        <h3 class="text-2xl font-black gold-text">المستشار القانوني</h3>
+                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">حماية قانونية متكاملة لاستثماراتك</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="hover:scale-125 transition-transform"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            
-            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-black/60 text-[10px] leading-relaxed">
-                <div class="bg-white/5 p-4 rounded-[2.5rem] rounded-tr-none border border-gold/10">يا حيا بك يابو عماد! 🏠<br>أنا المساعد الذكي، أيش تبي تعرف عن أسعار العقارات في عدن اليوم أو تبي فزعة في إدارة أملاكك؟ أنا هنا لخدمتك بلهجة عدن وبنبض السوق.</div>
-            </div>
-
-            <div class="p-4 bg-black/80 border-t border-gold/10 flex gap-3">
-                <input type="text" id="chat-input" placeholder="اكتب سؤالك يا وحش..." class="flex-1 text-[10px] px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white outline-none focus:border-gold/40" onkeypress="if(event.key==='Enter')sendMessage()">
-                <button onclick="sendMessage()" class="w-10 h-10 gold-bg text-black rounded-full flex items-center justify-center shadow-lg hover:rotate-12 transition-all">
-                    <i class="fa-solid fa-paper-plane text-xs rtl:-scale-x-100"></i>
-                </button>
+                <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">الاسم بالكامل</label>
+                <input type="text" id="l-name" placeholder="اكتب اسمك هنا..." class="input-style">
+                <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">نوع الاستشارة المطلوبة</label>
+                <select id="l-type" class="input-style"><option>فحص وثائق البصيرة</option><option>فصل نزاع عقاري</option><option>كتابة وصياغة عقد</option></select>
+                <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">تفاصيل المشكلة أو الاستشارة</label>
+                <textarea id="l-desc" placeholder="اشرح لنا المشكلة أو الطلب بالتفصيل..." class="input-style h-32"></textarea>
+                <button onclick="sendWhatsApp('legal')" class="btn-primary w-full mt-4 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> طلب استشارة الآن</button>
             </div>
         </div>
+    </div>
+    
+    <!-- Valuation -->
+    <div id="valuation-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('valuation-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">طلب تثمين عقاري</h3><input type="text" id="v-name" placeholder="الاسم" class="input-style"><div class="flex gap-3"><input type="text" id="v-size" placeholder="المساحة" class="input-style flex-1"><input type="text" id="v-loc" placeholder="الموقع" class="input-style flex-1"></div><textarea id="v-desc" placeholder="وصف العقار..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('valuation')" class="btn-primary w-full mt-4">إرسال بيانات التثمين</button></div></div>
+    
+    <!-- Admin -->
+    <div id="admin-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('admin-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إعدادات الإدارة</h3><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">سعر صرف الدولار (USD)</label><input type="number" id="admin-usd" class="input-style"><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold mt-2">سعر صرف السعودي (SAR)</label><input type="number" id="admin-sar" class="input-style"><button onclick="saveRates()" class="btn-primary w-full mt-4">حفظ التغييرات</button></div></div>
 
-        <!-- Floating Bubble Trigger -->
-        <button onclick="toggleChat()" class="w-20 h-20 md:w-24 md:h-24 rounded-full gold-bg p-1 shadow-[0_15px_60px_rgba(212,175,55,0.4)] hover:scale-110 transition-all relative group overflow-hidden">
-            <div class="absolute inset-0 bg-white/20 -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-            <img src="IMG_5.jpg" class="rounded-full w-full h-full object-cover">
-            <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-600 rounded-full border border-black flex items-center justify-center text-[8px] font-black group-hover:animate-bounce">1</div>
+    <!-- Favorites -->
+    <div id="favorites-modal" class="modal-overlay">
+        <div class="modal-content relative">
+            <button onclick="closeModal('favorites-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-2xl font-black mb-6">المقالات المحفوظة</h3>
+            <div id="fav-list" class="space-y-3">
+                <p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ROI -->
+    <div id="roi-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('roi-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">حاسبة العوائد الاستثمارية</h3><input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-style"><input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-style"><button onclick="calculateROI()" class="btn-outline w-full mb-4 mt-2">احتساب العائد</button><div id="roi-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] mb-1 font-bold">الدخل السنوي المتوقع</p><h4 id="roi-yearly" class="text-2xl font-black gold-text mb-4">0</h4><div class="flex justify-between border-t border-[var(--border-color)] pt-4"><div class="text-center"><span id="roi-percent" class="block font-bold text-lg text-green-500">0%</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">نسبة العائد</span></div><div class="text-center"><span id="roi-years" class="block font-bold text-lg text-yellow-500">0</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">سنوات الاسترداد</span></div></div></div></div></div>
+    
+    <!-- Currency -->
+    <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">النتيجة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
+
+    <!-- [PROFESSIONAL FLOATING ASSISTANT] -->
+    <div class="assistant-wrapper">
+        <div id="chat-window" class="assistant-window">
+            <div class="p-4 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-[var(--border-color)] flex items-center justify-center bg-[var(--input-bg)]">
+                        <i class="fa-solid fa-headset text-[var(--text-main)]"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-sm text-[var(--text-main)]">الدعم والمساعدة</div>
+                        <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-[var(--text-muted)] hover:text-[var(--text-main)] text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm" style="background: var(--bg-main);">
+                <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium" style="background: var(--card-bg); color: var(--text-main);">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك، نحن هنا لخدمتك.</div>
+            </div>
+            <div class="p-4 border-t border-[var(--border-color)] flex gap-2 bg-[var(--bg-sec)]">
+                <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 rounded-xl px-4 py-2.5 outline-none text-sm font-medium" style="background: var(--input-bg); color: var(--text-main); border: 1px solid var(--border-color);" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()" class="w-11 h-11 gold-bg text-black rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        
+        <button onclick="toggleChat()" class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#AA8C2C] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-110 transition-transform relative ml-auto border-2 border-[var(--bg-sec)] text-black z-50">
+            <i class="fa-solid fa-comment-dots text-2xl md:text-3xl"></i>
+            <span class="absolute top-0 right-0 flex h-4 w-4">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-4 w-4 bg-white text-black text-[10px] items-center justify-center font-black border-2 border-[#D4AF37]">1</span>
+            </span>
         </button>
     </div>
 
     <script>
-        // CORE NAVIGATION SYSTEM
-        function switchView(id) {
-            const views = ['main', 'management', 'legal', 'valuation'];
-            views.forEach(v => document.getElementById(v + '-view').classList.add('view-hidden'));
-            document.getElementById(id + '-view').classList.remove('view-hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Theme & Lang
+        let isLight = false; let isEn = false;
+        function toggleTheme() {
+            isLight = !isLight;
+            if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } 
+            else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; }
+            updateChartTheme();
+        }
+        function toggleLang() {
+            isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN';
+            document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); });
         }
 
-        // WHATSAPP AUTOMATION ENGINE
+        // Map Tooltip
+        function showTooltip(e, title, desc, demand) {
+            const tt = document.getElementById('map-tooltip');
+            document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand;
+            tt.style.display = 'block';
+            let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255;
+            tt.style.left = x + 'px'; tt.style.top = y + 'px';
+        }
+        function hideTooltip() { document.getElementById('map-tooltip').style.display = 'none'; }
+
+        // FAQ
+        function toggleFaq(el) {
+            const a = el.nextElementSibling; const i = el.querySelector('i');
+            if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } 
+            else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; }
+        }
+
+        // Modals & WhatsApp
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
         function sendWhatsApp(type) {
-            const phone = "967773571889";
-            let msg = "";
-            if(type === 'management') {
-                msg = `*طلب إدارة أملاك مغتربين*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالنوع: ${document.getElementById('m-type').value}\nالتفاصيل: ${document.getElementById('m-desc').value || document.getElementById('m-msg').value}`;
-            } else if(type === 'legal') {
-                msg = `*طلب استشارة قانونية*\nالاسم: ${document.getElementById('l-name').value}\nالخدمة: ${document.getElementById('l-service').value}\nالتفاصيل: ${document.getElementById('l-msg').value}`;
-            } else if(type === 'valuation') {
-                msg = `*طلب تثمين عقار*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-msg').value}`;
-            }
+            const phone = "967773571889"; let msg = "";
+            if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`;
+            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`;
+            else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`;
             if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // CHAT ASSISTANT (THE GHOST) LOGIC
-        let isChatOpen = false;
-        function toggleChat() {
-            isChatOpen = !isChatOpen;
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.className = isChatOpen ? 'chat-open chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]' : 'chat-closed chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]';
-        }
+        // Admin Secret
+        let logoClicks = 0; let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
+        function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("كلمة المرور:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
+        function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم الحفظ بنجاح"); }
 
+        // ROI & Currency
+        function calculateROI() { const p = +document.getElementById('roi-price').value; const r = +document.getElementById('roi-rent').value; if(!p||!r)return; const y = r*12; document.getElementById('roi-yearly').innerText = y.toLocaleString(); document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(2)+'%'; document.getElementById('roi-years').innerText = (p/y).toFixed(1); document.getElementById('roi-result').classList.remove('hidden'); }
+        function convertCurrency() { const a = +document.getElementById('curr-amount').value; const f = document.getElementById('curr-from').value; const t = document.getElementById('curr-to').value; if(!a)return; let yr = a; if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; let res=yr; if(t==='USD')res=yr/currRates.USD; if(t==='SAR')res=yr/currRates.SAR; document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:2})+' '+t; document.getElementById('curr-result').classList.remove('hidden'); }
+
+        // Comparison Tool
+        const areaData = { "المنصورة": { price: "مرتفع جداً", demand: "100%", type: "تجاري متسارع" }, "خور مكسر": { price: "مرتفع ومستقر", demand: "80%", type: "سكني ودبلوماسي" }, "المعلا": { price: "متوسط", demand: "70%", type: "شقق عائلية" }, "البريقة": { price: "منافس/فرصة", demand: "90%", type: "مدن سكنية ناشئة" } };
+        function runComparison() { const a1 = document.getElementById('comp-1').value; const a2 = document.getElementById('comp-2').value; document.getElementById('res-title-1').innerText = a1; document.getElementById('res-title-2').innerText = a2; document.getElementById('res-price-1').innerText = areaData[a1].price; document.getElementById('res-price-2').innerText = areaData[a2].price; document.getElementById('res-demand-1').innerText = areaData[a1].demand; document.getElementById('res-demand-2').innerText = areaData[a2].demand; document.getElementById('res-type-1').innerText = areaData[a1].type; document.getElementById('res-type-2').innerText = areaData[a2].type; document.getElementById('comp-result').classList.remove('hidden'); }
+
+        // Favorites System
+        let favs = JSON.parse(localStorage.getItem('emadFavs')) || [];
+        function toggleFav(btn, id, title) { const icon = btn.querySelector('i'); const index = favs.findIndex(f => f.id === id); if(index > -1) { favs.splice(index, 1); icon.classList.replace('fa-solid', 'fa-regular'); } else { favs.push({id, title}); icon.classList.replace('fa-regular', 'fa-solid'); } localStorage.setItem('emadFavs', JSON.stringify(favs)); renderFavs(); }
+        function renderFavs() { const list = document.getElementById('fav-list'); if(favs.length === 0) { list.innerHTML = '<p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>'; return; } list.innerHTML = favs.map(f => `<div class="p-4 border border-[var(--border-color)] rounded-xl bg-[var(--input-bg)]"><h4 class="font-bold text-sm text-[var(--text-main)]">${f.title}</h4></div>`).join(''); document.querySelectorAll('.fav-btn').forEach(btn => { const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1]; if(favs.some(f => f.id === id)) { btn.querySelector('i').classList.replace('fa-regular', 'fa-solid'); } }); }
+        function openFavModal() { renderFavs(); openModal('favorites-modal'); }
+        setTimeout(renderFavs, 500);
+
+        // Notification Toast
+        const notifyMsgs = [ "تم حجز موعد استشارة قبل دقيقتين", "طلب تثمين عقار جديد من المنصورة", "مغترب جديد طلب إدارة أملاكه", "ارتفاع الطلب في بير فضل 15%" ];
+        setInterval(() => { const toast = document.getElementById('notify-toast'); document.getElementById('notify-text').innerText = notifyMsgs[Math.floor(Math.random() * notifyMsgs.length)]; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); }, 25000);
+
+        // Chat Assistant
+        let chatOpen = false;
+        function toggleChat() { chatOpen = !chatOpen; document.getElementById('chat-window').classList.toggle('active'); }
         async function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const box = document.getElementById('chat-messages');
-            const text = input.value.trim();
-            if(!text) return;
-
-            addMsg(text, true);
-            input.value = '';
-
-            const load = document.createElement('div');
-            load.className = 'flex items-center gap-2 text-gold-500 text-[8px] font-black py-2 uppercase tracking-widest';
-            load.innerHTML = '<div class="loader-dot"></div> جاري تحليل طلبك...';
-            box.appendChild(load);
-            box.scrollTop = box.scrollHeight;
-
-            try {
-                const r = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: text}) });
-                const d = await r.json();
-                load.remove();
-                addMsg(d.reply, false);
-            } catch(e) { 
-                load.remove(); 
-                addMsg("يا حيا بك، في مشكلة بالاتصال. جرب مرة ثانية يا وحش.", false); 
-            }
+            const input = document.getElementById('chat-input'); const box = document.getElementById('chat-messages'); const text = input.value.trim(); if(!text) return;
+            addMsg(text, true); input.value = '';
+            const load = document.createElement('div'); load.className = 'text-[var(--text-muted)] text-xs font-bold py-2 animate-pulse'; load.textContent = 'جاري المعالجة...';
+            box.appendChild(load); box.scrollTop = box.scrollHeight;
+            try { const r = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: text}) }); const d = await r.json(); load.remove(); addMsg(d.reply, false); } catch(e) { load.remove(); addMsg("حدث خطأ في الاتصال، حاول مرة أخرى.", false); }
         }
-
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-[2rem] rounded-tl-none self-end max-w-[85%] shadow-md' : 'bg-white/5 text-white p-4 rounded-[2rem] rounded-tr-none border border-gold/10 self-start max-w-[85%] shadow-sm';
-            d.textContent = t;
-            const chat = document.getElementById('chat-messages');
-            chat.appendChild(d);
-            chat.scrollTop = chat.scrollHeight;
+            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium';
+            if(!u) { d.style.background = 'var(--card-bg)'; d.style.color = 'var(--text-main)'; }
+            d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
 
-        // MARKET GROWTH CHART ANALYTICS
+        // Chart
+        let marketChart;
         window.onload = function() {
             const ctx = document.getElementById('marketChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
-                    datasets: [
-                        { label: 'المنصورة والشيخ عثمان (%)', data: [15, 35, 65, 95, 125, 170], borderColor: '#D4AF37', backgroundColor: 'rgba(212, 175, 55, 0.05)', borderWidth: 4, fill: true, tension: 0.4, pointRadius: 5 },
-                        { label: 'خور مكسر وكريتر (%)', data: [10, 20, 35, 55, 80, 110], borderColor: '#555', borderWidth: 2, fill: false, tension: 0.3, pointRadius: 3 },
-                        { label: 'البريقة وبير فضل (%)', data: [5, 15, 45, 80, 120, 165], borderColor: '#aaa', borderDash: [5,5], borderWidth: 2, fill: false, tension: 0.5, pointRadius: 3 }
-                    ]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { labels: { color: '#fff', font: { family: 'Tajawal', weight: 'bold', size: 10 } } } },
-                    scales: {
-                        y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#555', font: { size: 9 } } },
-                        x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#555', font: { size: 9 } } }
-                    }
-                }
-            });
-        };
+            marketChart = new Chart(ctx, { type: 'bar', data: { labels: ['المنصورة', 'خور مكسر', 'البريقة', 'المعلا'], datasets: [{ label: 'مؤشر النمو 2026', data: [95, 70, 85, 60], backgroundColor: '#D4AF37', borderRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: isLight ? '#111' : '#fff', font: { family: 'Tajawal', size: 13 } } } }, scales: { y: { grid: { color: 'rgba(156, 163, 175, 0.1)' }, ticks: { color: '#9ca3af' } }, x: { grid: { display: false }, ticks: { color: '#9ca3af', font: {size: 13} } } } } });
+        }
+        function updateChartTheme() { if(marketChart) { marketChart.options.plugins.legend.labels.color = isLight ? '#111' : '#fff'; marketChart.update(); } }
     </script>
 </body>
 </html>
 
+
 ```
+
