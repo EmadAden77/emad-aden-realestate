@@ -85,7 +85,7 @@
         .faq-question:hover { border-color: var(--border-gold); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
         .faq-answer.active { max-height: 250px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
-
+        
         .table-container { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 1rem; background: var(--bg-sec); }
         .styled-table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: right; }
         .styled-table th { background: rgba(212,175,55,0.05); color: var(--gold); padding: 1.25rem 1rem; font-weight: 800; border-bottom: 1px solid var(--border-color); }
@@ -567,14 +567,14 @@
                     <i class="fa-solid fa-headset text-[var(--text-main)]"></i>
                 </div>
                 <div>
-                    <div class="font-bold text-sm text-[var(--text-main)]">الدعم والمساعدة</div>
+                    <div class="font-bold text-sm text-[var(--text-main)]">المساعد الذكي</div>
                     <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
                 </div>
             </div>
             <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--input-bg)] text-[var(--text-muted)] hover:text-red-500 transition-colors"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
-            <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك، نحن هنا لخدمتك.</div>
+            <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك عن الأسعار والمناطق، نحن هنا لخدمتك.</div>
         </div>
         <div class="p-4 border-t border-[var(--border-color)] flex gap-3 bg-[var(--bg-sec)]/50 items-center">
             <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="input-style !mb-0" style="flex: 1; padding: 12px 16px; background: var(--input-bg); color: var(--text-main);" onkeypress="if(event.key==='Enter')sendMessage()">
@@ -693,13 +693,41 @@
             else { cw.classList.remove('translate-x-0'); cw.classList.add('translate-x-full'); }
         }
         
-        async function sendMessage() {
-            const input = document.getElementById('chat-input'); const box = document.getElementById('chat-messages'); const text = input.value.trim(); if(!text) return;
-            addMsg(text, true); input.value = '';
-            const load = document.createElement('div'); load.className = 'text-[var(--text-muted)] text-xs font-bold py-2 animate-pulse'; load.textContent = 'جاري المعالجة...';
-            box.appendChild(load); box.scrollTop = box.scrollHeight;
-            try { const r = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: text}) }); const d = await r.json(); load.remove(); addMsg(d.reply, false); } catch(e) { load.remove(); addMsg("حدث خطأ في الاتصال، حاول مرة أخرى.", false); }
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if(!text) return;
+            
+            addMsg(text, true);
+            input.value = '';
+            
+            const load = document.createElement('div');
+            load.className = 'text-[var(--text-muted)] text-xs font-bold py-2 animate-pulse';
+            load.textContent = 'جاري البحث في العروض...';
+            box.appendChild(load);
+            box.scrollTop = box.scrollHeight;
+            
+            setTimeout(() => {
+                load.remove();
+                let reply = "مرحباً! أنا المساعد الذكي لمكتب عماد. تتوفر لدينا عروض مميزة في درة عدن، مدينة الشعب، وبئر أحمد. حدد طلبك (شراء، إيجار، أرض، فيلا) لمساعدتك بشكل أفضل.";
+                
+                if (text.includes('بئر احمد') || text.includes('بير احمد') || text.includes('بير أحمد')) {
+                    reply = "في بئر أحمد، متوفر بيت شعبي جاهز للسكن (ماء وكهرباء)، مساحته 12×15 يتكون من غرفتين وديوان وحمام ومطبخ وحوش عائلي كبير. السعر المطلوب 130 ألف ريال سعودي (قابل للتفاوض).";
+                } else if (text.includes('الشعب') || text.includes('مدينة الشعب')) {
+                    reply = "في مدينة الشعب، تتوفر أرضية بمخطط القياديين (رسمي إسكان) مساحة 20×25 قريبة من مدينة الوالي، وحدة جوار 573. السعر 220 ألف ريال سعودي.";
+                } else if (text.includes('درة عدن') || text.includes('انماء')) {
+                    reply = "في درة عدن (بجانب إنماء الجديدة)، تتوفر فيلا دورين مساحة 364 متر (اتجاه بحري) تشطيب ممتاز، تتكون من 7 غرف و 5 حمامات مع ملحق وصالونين. السعر 450 ألف دولار.";
+                } else if (text.includes('ايجار') || text.includes('شقة') || text.includes('ايجارات')) {
+                    reply = "بالنسبة للإيجارات في مناطق مثل عبد العزيز، المنصورة، والكثيري، تتراوح أسعار الشقق (4 إلى 5 غرف) في الدور الأول أو الثاني بحدود 800 ريال سعودي شهرياً تقريباً.";
+                } else if (text.includes('سعر') || text.includes('اسعار') || text.includes('عقار')) {
+                    reply = "الأسعار تختلف حسب المنطقة. مثلاً الأراضي في مدينة الشعب بحدود 220 ألف سعودي، والبيوت الشعبية في بئر أحمد بـ 130 ألف سعودي، والفلل في درة عدن بحدود 450 ألف دولار. ماهي المنطقة التي تهمك؟";
+                }
+                
+                addMsg(reply, false);
+            }, 1200);
         }
+        
         function addMsg(t, u) {
             const d = document.createElement('div');
             d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md';
@@ -719,4 +747,3 @@
 
 
 ```
-
