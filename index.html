@@ -86,7 +86,6 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
         .faq-answer.active { max-height: 250px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
         
-        .assistant-wrapper { position: fixed; bottom: 24px; right: 24px; z-index: 150; }
         .assistant-window { position: absolute; bottom: 80px; right: 0; width: calc(100vw - 48px); max-width: 350px; height: 500px; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; background: var(--bg-sec); border: 1px solid var(--gold); border-radius: 1rem; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
         .assistant-window.active { transform: scale(1); opacity: 1; pointer-events: auto; }
 
@@ -139,10 +138,6 @@
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <div class="flex gap-2">
-                <button onclick="openModal('management-modal')" class="btn-primary !px-4 !py-2 !text-xs" data-ar="أملاك المغتربين" data-en="Property Mgmt">أملاك المغتربين</button>
-                <button onclick="openModal('legal-modal')" class="btn-outline !px-4 !py-2 !text-xs hidden sm:flex" data-ar="مستشار قانوني" data-en="Legal Advisor">مستشار قانوني</button>
-            </div>
             <div class="flex gap-2 border-r border-[var(--border-color)] pr-4">
                 <button onclick="toggleTheme()" class="text-[var(--text-muted)] hover:text-gold-500 transition-colors"><i class="fa-solid fa-moon text-lg" id="theme-icon"></i></button>
                 <button onclick="toggleLang()" class="text-[var(--text-muted)] font-bold text-sm hover:text-gold-500 transition-colors ml-2" id="lang-btn">EN</button>
@@ -159,8 +154,7 @@
             </div>
             <p class="text-sm md:text-base leading-relaxed mb-10 text-[var(--text-muted)] font-medium max-w-2xl mx-auto" data-ar="نوثق الحقوق ونبني مستقبلك الاستثماري بأسس قانونية وميدانية صلبة لتكون عقاراتك في أمان تام." data-en="We document rights and build your investment future on solid legal and field foundations.">نوثق الحقوق ونبني مستقبلك الاستثماري بأسس قانونية وميدانية صلبة لتكون عقاراتك في أمان تام.</p>
             
-            <!-- Professional Stats -->
-            <div class="grid grid-cols-3 gap-px bg-[var(--border-color)] w-full max-w-2xl border border-[var(--border-color)] rounded-xl overflow-hidden">
+            <div class="grid grid-cols-3 gap-px w-full max-w-2xl border border-[var(--border-color)] rounded-xl overflow-hidden bg-[var(--border-color)]">
                 <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
                     <div class="text-xl md:text-3xl font-black gold-text mb-1">+15</div>
                     <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider" data-ar="سنة خبرة" data-en="Years Exp">سنة خبرة</div>
@@ -176,7 +170,7 @@
             </div>
         </section>
 
-        <!-- [ULTRA PREMIUM HIGHLIGHTS - MOVED TO TOP] -->
+        <!-- [ULTRA PREMIUM HIGHLIGHTS] -->
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Management -->
@@ -337,15 +331,15 @@
                 </div>
                 <div class="timeline mt-4">
                     <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-white">1. الاستلام والجرد</h4>
+                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">1. الاستلام والجرد</h4>
                         <p class="text-sm leading-relaxed text-[var(--text-muted)]">نستلم العقار، نوثق حالته بالصور، ونراجع الوثائق القانونية بدقة.</p>
                     </div>
                     <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-white">2. الصيانة والتأهيل</h4>
+                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">2. الصيانة والتأهيل</h4>
                         <p class="text-sm leading-relaxed text-[var(--text-muted)]">إجراء الصيانة اللازمة للمرافق لضمان تأجيره بأعلى قيمة ممكنة.</p>
                     </div>
                     <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-white">3. التحصيل والمتابعة</h4>
+                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">3. التحصيل والمتابعة</h4>
                         <p class="text-sm leading-relaxed text-[var(--text-muted)]">تحصيل الإيجارات بانتظام، حل مشاكل المستأجرين، وتحويل الأموال للمغترب.</p>
                     </div>
                 </div>
@@ -464,7 +458,7 @@
     <!-- Management -->
     <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
     
-    <!-- Legal Modal (Ultra Professional) -->
+    <!-- Legal Modal -->
     <div id="legal-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-scale-balanced absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -511,108 +505,84 @@
     <!-- Currency -->
     <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">النتيجة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
 
-    <!-- [PROFESSIONAL FLOATING ASSISTANT] -->
-    <div class="assistant-wrapper">
-        <div id="chat-window" class="assistant-window">
-            <div class="p-4 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full border-2 border-[var(--border-color)] flex items-center justify-center bg-[var(--input-bg)]">
-                        <i class="fa-solid fa-headset text-[var(--text-main)]"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold text-sm text-[var(--text-main)]">الدعم والمساعدة</div>
-                        <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
-                    </div>
-                </div>
-                <button onclick="toggleChat()" class="text-[var(--text-muted)] hover:text-[var(--text-main)] text-xl"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm" style="background: var(--bg-main);">
-                <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium" style="background: var(--card-bg); color: var(--text-main);">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك، نحن هنا لخدمتك.</div>
-            </div>
-            <div class="p-4 border-t border-[var(--border-color)] flex gap-2 bg-[var(--bg-sec)]">
-                <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 rounded-xl px-4 py-2.5 outline-none text-sm font-medium" style="background: var(--input-bg); color: var(--text-main); border: 1px solid var(--border-color);" onkeypress="if(event.key==='Enter')sendMessage()">
-                <button onclick="sendMessage()" class="w-11 h-11 gold-bg text-black rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-        
-        <button onclick="toggleChat()" class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#AA8C2C] flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:scale-110 transition-transform relative ml-auto border-2 border-[var(--bg-sec)] text-black z-50">
-            <i class="fa-solid fa-comment-dots text-2xl md:text-3xl"></i>
-            <span class="absolute top-0 right-0 flex h-4 w-4">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-4 w-4 bg-white text-black text-[10px] items-center justify-center font-black border-2 border-[#D4AF37]">1</span>
+    <!-- [PROFESSIONAL ASSISTANT BUTTON] -->
+    <button onclick="toggleChat()" class="fixed bottom-8 right-8 z-[150] bg-[var(--bg-sec)] border border-[var(--gold)] px-5 py-3 rounded-full flex items-center gap-3 shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform group">
+        <div class="relative">
+            <i class="fa-solid fa-headset gold-text text-2xl group-hover:animate-pulse"></i>
+            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border border-[var(--bg-sec)]"></span>
             </span>
-        </button>
+        </div>
+        <div class="flex flex-col text-right">
+            <span class="text-[var(--text-main)] text-sm font-black tracking-wide" data-ar="الدعم المباشر" data-en="Live Support">الدعم المباشر</span>
+            <span class="text-[var(--text-muted)] text-[9px] font-bold uppercase tracking-widest" data-ar="متاح الآن" data-en="Online">متاح الآن</span>
+        </div>
+    </button>
+
+    <div id="chat-window" class="fixed top-0 right-0 h-full w-full sm:w-96 max-w-[85vw] bg-[var(--bg-main)]/70 backdrop-blur-xl border-l border-[var(--border-gold)] z-[200] translate-x-full transition-transform duration-500 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]/50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-[var(--border-gold)] flex items-center justify-center bg-[var(--input-bg)]">
+                    <i class="fa-solid fa-headset text-[var(--text-main)]"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-sm text-[var(--text-main)]">الدعم والمساعدة</div>
+                    <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--input-bg)] text-[var(--text-muted)] hover:text-red-500 transition-colors"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
+            <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك، نحن هنا لخدمتك.</div>
+        </div>
+        <div class="p-4 border-t border-[var(--border-color)] flex gap-2 bg-[var(--bg-sec)]/50">
+            <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 rounded-lg px-4 py-3 outline-none text-sm font-medium bg-[var(--input-bg)]/80 text-[var(--text-main)] border border-[var(--border-color)]" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-12 h-12 gold-bg text-black rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.3)]"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
     </div>
 
     <script>
-        // Theme & Lang
         let isLight = false; let isEn = false;
-        function toggleTheme() {
-            isLight = !isLight;
-            if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } 
-            else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; }
-            updateChartTheme();
-        }
-        function toggleLang() {
-            isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN';
-            document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); });
-        }
+        function toggleTheme() { isLight = !isLight; if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; } updateChartTheme(); }
+        function toggleLang() { isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN'; document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); }); }
 
-        // Map Tooltip
-        function showTooltip(e, title, desc, demand) {
-            const tt = document.getElementById('map-tooltip');
-            document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand;
-            tt.style.display = 'block';
-            let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255;
-            tt.style.left = x + 'px'; tt.style.top = y + 'px';
-        }
+        function showTooltip(e, title, desc, demand) { const tt = document.getElementById('map-tooltip'); document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand; tt.style.display = 'block'; let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255; tt.style.left = x + 'px'; tt.style.top = y + 'px'; }
         function hideTooltip() { document.getElementById('map-tooltip').style.display = 'none'; }
 
-        // FAQ
-        function toggleFaq(el) {
-            const a = el.nextElementSibling; const i = el.querySelector('i');
-            if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } 
-            else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; }
-        }
+        function toggleFaq(el) { const a = el.nextElementSibling; const i = el.querySelector('i'); if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; } }
 
-        // Modals & WhatsApp
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-        function sendWhatsApp(type) {
-            const phone = "967773571889"; let msg = "";
-            if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`;
-            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`;
-            else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`;
-            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
+        function sendWhatsApp(type) { const phone = "967773571889"; let msg = ""; if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`; else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`; else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`; if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank'); }
 
-        // Admin Secret
         let logoClicks = 0; let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
         function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("كلمة المرور:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
         function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم الحفظ بنجاح"); }
 
-        // ROI & Currency
         function calculateROI() { const p = +document.getElementById('roi-price').value; const r = +document.getElementById('roi-rent').value; if(!p||!r)return; const y = r*12; document.getElementById('roi-yearly').innerText = y.toLocaleString(); document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(2)+'%'; document.getElementById('roi-years').innerText = (p/y).toFixed(1); document.getElementById('roi-result').classList.remove('hidden'); }
         function convertCurrency() { const a = +document.getElementById('curr-amount').value; const f = document.getElementById('curr-from').value; const t = document.getElementById('curr-to').value; if(!a)return; let yr = a; if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; let res=yr; if(t==='USD')res=yr/currRates.USD; if(t==='SAR')res=yr/currRates.SAR; document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:2})+' '+t; document.getElementById('curr-result').classList.remove('hidden'); }
 
-        // Comparison Tool
         const areaData = { "المنصورة": { price: "مرتفع جداً", demand: "100%", type: "تجاري متسارع" }, "خور مكسر": { price: "مرتفع ومستقر", demand: "80%", type: "سكني ودبلوماسي" }, "المعلا": { price: "متوسط", demand: "70%", type: "شقق عائلية" }, "البريقة": { price: "منافس/فرصة", demand: "90%", type: "مدن سكنية ناشئة" } };
         function runComparison() { const a1 = document.getElementById('comp-1').value; const a2 = document.getElementById('comp-2').value; document.getElementById('res-title-1').innerText = a1; document.getElementById('res-title-2').innerText = a2; document.getElementById('res-price-1').innerText = areaData[a1].price; document.getElementById('res-price-2').innerText = areaData[a2].price; document.getElementById('res-demand-1').innerText = areaData[a1].demand; document.getElementById('res-demand-2').innerText = areaData[a2].demand; document.getElementById('res-type-1').innerText = areaData[a1].type; document.getElementById('res-type-2').innerText = areaData[a2].type; document.getElementById('comp-result').classList.remove('hidden'); }
 
-        // Favorites System
         let favs = JSON.parse(localStorage.getItem('emadFavs')) || [];
         function toggleFav(btn, id, title) { const icon = btn.querySelector('i'); const index = favs.findIndex(f => f.id === id); if(index > -1) { favs.splice(index, 1); icon.classList.replace('fa-solid', 'fa-regular'); } else { favs.push({id, title}); icon.classList.replace('fa-regular', 'fa-solid'); } localStorage.setItem('emadFavs', JSON.stringify(favs)); renderFavs(); }
         function renderFavs() { const list = document.getElementById('fav-list'); if(favs.length === 0) { list.innerHTML = '<p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>'; return; } list.innerHTML = favs.map(f => `<div class="p-4 border border-[var(--border-color)] rounded-xl bg-[var(--input-bg)]"><h4 class="font-bold text-sm text-[var(--text-main)]">${f.title}</h4></div>`).join(''); document.querySelectorAll('.fav-btn').forEach(btn => { const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1]; if(favs.some(f => f.id === id)) { btn.querySelector('i').classList.replace('fa-regular', 'fa-solid'); } }); }
         function openFavModal() { renderFavs(); openModal('favorites-modal'); }
         setTimeout(renderFavs, 500);
 
-        // Notification Toast
         const notifyMsgs = [ "تم حجز موعد استشارة قبل دقيقتين", "طلب تثمين عقار جديد من المنصورة", "مغترب جديد طلب إدارة أملاكه", "ارتفاع الطلب في بير فضل 15%" ];
         setInterval(() => { const toast = document.getElementById('notify-toast'); document.getElementById('notify-text').innerText = notifyMsgs[Math.floor(Math.random() * notifyMsgs.length)]; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); }, 25000);
 
-        // Chat Assistant
         let chatOpen = false;
-        function toggleChat() { chatOpen = !chatOpen; document.getElementById('chat-window').classList.toggle('active'); }
+        function toggleChat() { 
+            chatOpen = !chatOpen; 
+            const cw = document.getElementById('chat-window');
+            if(chatOpen) { cw.classList.remove('translate-x-full'); cw.classList.add('translate-x-0'); }
+            else { cw.classList.remove('translate-x-0'); cw.classList.add('translate-x-full'); }
+        }
+        
         async function sendMessage() {
             const input = document.getElementById('chat-input'); const box = document.getElementById('chat-messages'); const text = input.value.trim(); if(!text) return;
             addMsg(text, true); input.value = '';
@@ -622,12 +592,10 @@
         }
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium';
-            if(!u) { d.style.background = 'var(--card-bg)'; d.style.color = 'var(--text-main)'; }
+            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md';
             d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
 
-        // Chart
         let marketChart;
         window.onload = function() {
             const ctx = document.getElementById('marketChart').getContext('2d');
