@@ -85,7 +85,7 @@
         .faq-question:hover { border-color: var(--border-gold); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
         .faq-answer.active { max-height: 250px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
-        
+
         .table-container { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 1rem; background: var(--bg-sec); }
         .styled-table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: right; }
         .styled-table th { background: rgba(212,175,55,0.05); color: var(--gold); padding: 1.25rem 1rem; font-weight: 800; border-bottom: 1px solid var(--border-color); }
@@ -113,6 +113,7 @@
 </head>
 <body class="antialiased">
 
+    <!-- [LIVE UPDATE TOAST] -->
     <div id="notify-toast" class="notification-toast" onclick="handleToastClick()">
         <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bolt"></i></div>
         <div class="flex-1">
@@ -122,6 +123,7 @@
         </div>
     </div>
 
+    <!-- [HEADER] -->
     <nav class="fixed top-0 w-full z-[100] bg-[var(--bg-main)]/95 backdrop-blur-md border-b border-[var(--border-color)] h-20 flex items-center justify-between px-6 lg:px-12 transition-all">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-full overflow-hidden border border-[var(--border-gold)] cursor-pointer shrink-0" onclick="handleLogoClick()">
@@ -152,6 +154,7 @@
 
     <div class="pt-20">
         
+        <!-- [HERO SECTION] -->
         <section class="flex flex-col justify-center items-center text-center px-4 pt-16 pb-10 max-w-4xl mx-auto">
             <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden mb-8 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
                 <img src="IMG_5.jpg" class="w-full h-full object-cover" alt="شعار مكتب عماد عدن">
@@ -174,8 +177,10 @@
             </div>
         </section>
 
+        <!-- [ULTRA PREMIUM HIGHLIGHTS] -->
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Management -->
                 <div onclick="openModal('management-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">خدمة مميزة</span>
                     <i class="fa-solid fa-plane-up text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -184,6 +189,7 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
                 
+                <!-- Valuation -->
                 <div onclick="openModal('valuation-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">خدمة مميزة</span>
                     <i class="fa-solid fa-magnifying-glass-chart text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -192,6 +198,7 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
+                <!-- ROI Calculator -->
                 <div onclick="openModal('roi-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">أداة ذكية</span>
                     <i class="fa-solid fa-calculator text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -200,6 +207,7 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
+                <!-- Currency -->
                 <div onclick="openModal('currency-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">أداة ذكية</span>
                     <i class="fa-solid fa-money-bill-transfer text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -210,6 +218,7 @@
             </div>
         </section>
 
+        <!-- [SELL PROPERTY BANNER] -->
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="sell-banner p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
                 <div class="text-center md:text-right flex-1">
@@ -222,6 +231,7 @@
             </div>
         </section>
 
+        <!-- [CORE SERVICES & TOOLS - SECONDARY] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-10 text-center">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="المزيد من الخدمات" data-en="More Services">المزيد من الخدمات</h3>
@@ -254,6 +264,7 @@
             </div>
         </section>
 
+        <!-- [COMPARE AREAS SECTION] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 text-center">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="مقارنة المناطق العقارية" data-en="Compare Real Estate Areas">مقارنة المناطق العقارية</h3>
@@ -304,7 +315,9 @@
             </div>
         </section>
 
+        <!-- [TIMELINE & MAP] -->
         <section class="section-padding px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-[var(--border-color)]">
+            <!-- Map -->
             <div>
                 <div class="mb-8">
                     <h3 class="text-2xl font-black mb-2" data-ar="التوزيع الجغرافي" data-en="Geographical Distribution">التوزيع الجغرافي</h3>
@@ -330,6 +343,7 @@
                 </div>
             </div>
 
+            <!-- Timeline -->
             <div>
                 <div class="mb-8">
                     <h3 class="text-2xl font-black mb-2" data-ar="آلية العمل" data-en="Workflow">آلية العمل</h3>
@@ -352,6 +366,7 @@
             </div>
         </section>
 
+        <!-- [DATA TABLE & CHART] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
@@ -401,6 +416,7 @@
             </div>
         </section>
 
+        <!-- [ARTICLES] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
             <div class="mb-12">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="الرؤى والمقالات" data-en="Insights & Articles">الرؤى والمقالات</h3>
@@ -425,6 +441,7 @@
             </div>
         </section>
 
+        <!-- [FAQ ACCORDION] -->
         <section class="section-padding px-4 max-w-3xl mx-auto border-t border-[var(--border-color)]">
             <div class="text-center mb-10">
                 <h3 class="text-2xl md:text-3xl font-black mb-3" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</h3>
@@ -445,6 +462,7 @@
             </div>
         </section>
 
+        <!-- [FOOTER] -->
         <footer class="py-12 text-center border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
             <div class="flex justify-center gap-6 text-xl mb-6 text-[var(--text-muted)]">
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
@@ -455,6 +473,9 @@
         </footer>
     </div>
 
+    <!-- [MODALS (FORMS & TOOLS)] -->
+    
+    <!-- Sell Property -->
     <div id="sell-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-house-chimney-window absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -482,8 +503,10 @@
         </div>
     </div>
 
+    <!-- Management -->
     <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
     
+    <!-- Legal Modal -->
     <div id="legal-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-scale-balanced absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -507,10 +530,13 @@
         </div>
     </div>
     
+    <!-- Valuation -->
     <div id="valuation-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('valuation-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">طلب تثمين عقاري</h3><input type="text" id="v-name" placeholder="الاسم" class="input-style"><div class="flex gap-3"><input type="text" id="v-size" placeholder="المساحة" class="input-style flex-1"><input type="text" id="v-loc" placeholder="الموقع" class="input-style flex-1"></div><textarea id="v-desc" placeholder="وصف العقار..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('valuation')" class="btn-primary w-full mt-4">إرسال بيانات التثمين</button></div></div>
     
+    <!-- Admin -->
     <div id="admin-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('admin-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إعدادات الإدارة</h3><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">سعر صرف الدولار (USD)</label><input type="number" id="admin-usd" class="input-style"><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold mt-2">سعر صرف السعودي (SAR)</label><input type="number" id="admin-sar" class="input-style"><button onclick="saveRates()" class="btn-primary w-full mt-4">حفظ التغييرات</button></div></div>
 
+    <!-- Favorites -->
     <div id="favorites-modal" class="modal-overlay">
         <div class="modal-content relative">
             <button onclick="closeModal('favorites-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -521,15 +547,19 @@
         </div>
     </div>
     
+    <!-- ROI -->
     <div id="roi-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('roi-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">حاسبة العوائد الاستثمارية</h3><input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-style"><input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-style"><button onclick="calculateROI()" class="btn-outline w-full mb-4 mt-2">احتساب العائد</button><div id="roi-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] mb-1 font-bold">الدخل السنوي المتوقع</p><h4 id="roi-yearly" class="text-2xl font-black gold-text mb-4">0</h4><div class="flex justify-between border-t border-[var(--border-color)] pt-4"><div class="text-center"><span id="roi-percent" class="block font-bold text-lg text-green-500">0%</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">نسبة العائد</span></div><div class="text-center"><span id="roi-years" class="block font-bold text-lg text-yellow-500">0</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">سنوات الاسترداد</span></div></div></div></div></div>
     
+    <!-- Currency -->
     <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">النتيجة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
 
+    <!-- [TRANSPARENT SLIDING ASSISTANT] -->
     <button onclick="toggleChat()" class="fixed right-0 top-1/2 -translate-y-1/2 z-[150] bg-[var(--bg-sec)]/80 backdrop-blur-md border border-[var(--border-gold)] border-r-0 rounded-l-xl px-2 py-6 flex flex-col items-center justify-center gap-2 shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:bg-[var(--card-bg)] transition-colors">
         <i class="fa-solid fa-headset gold-text text-xl"></i>
         <span class="text-[var(--text-main)] text-[10px] font-bold" style="writing-mode: vertical-rl; text-orientation: mixed;">المساعد</span>
     </button>
 
+    <!-- [CHAT WINDOW] -->
     <div id="chat-window" class="fixed top-0 right-0 h-full w-full sm:w-96 max-w-[85vw] bg-[var(--bg-main)]/70 backdrop-blur-xl border-l border-[var(--border-gold)] z-[200] translate-x-full transition-transform duration-500 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
         <div class="p-5 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]/50">
             <div class="flex items-center gap-3">
@@ -546,49 +576,76 @@
         <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
             <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك، نحن هنا لخدمتك.</div>
         </div>
-        <div class="p-4 border-t border-[var(--border-color)] flex gap-2 bg-[var(--bg-sec)]/50">
-            <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 rounded-lg px-4 py-3 outline-none text-sm font-medium bg-[var(--input-bg)]/80 text-[var(--text-main)] border border-[var(--border-color)]" onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()" class="w-12 h-12 gold-bg text-black rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.3)]"><i class="fa-solid fa-paper-plane"></i></button>
+        <div class="p-4 border-t border-[var(--border-color)] flex gap-3 bg-[var(--bg-sec)]/50 items-center">
+            <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="input-style !mb-0" style="flex: 1; padding: 12px 16px; background: var(--input-bg); color: var(--text-main);" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-12 h-12 shrink-0 gold-bg text-black rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.3)]"><i class="fa-solid fa-paper-plane text-lg"></i></button>
         </div>
     </div>
 
     <script>
+        // Theme & Lang
         let isLight = false; let isEn = false;
-        function toggleTheme() { isLight = !isLight; if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; } updateChartTheme(); }
-        function toggleLang() { isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN'; document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); }); }
-
-        function showTooltip(e, title, desc, demand) { const tt = document.getElementById('map-tooltip'); document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand; tt.style.display = 'block'; let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255; tt.style.left = x + 'px'; tt.style.top = y + 'px'; }
-        function hideTooltip() { document.getElementById('map-tooltip').style.display = 'none'; }
-
-        function toggleFaq(el) { const a = el.nextElementSibling; const i = el.querySelector('i'); if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; } }
-
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-        function sendWhatsApp(type) { 
-            const phone = "967773571889"; let msg = ""; 
-            if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`; 
-            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`; 
-            else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`; 
-            else if(type === 'sell') msg = `*عرض عقار للبيع*\nالاسم والرقم: ${document.getElementById('s-name').value}\nالنوع: ${document.getElementById('s-type').value}\nالموقع: ${document.getElementById('s-loc').value}\nالمساحة: ${document.getElementById('s-size').value}\nالسعر: ${document.getElementById('s-price').value}\nالتفاصيل: ${document.getElementById('s-desc').value}`;
-            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank'); 
+        function toggleTheme() {
+            isLight = !isLight;
+            if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } 
+            else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; }
+            updateChartTheme();
+        }
+        function toggleLang() {
+            isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN';
+            document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); });
         }
 
+        // Map Tooltip
+        function showTooltip(e, title, desc, demand) {
+            const tt = document.getElementById('map-tooltip');
+            document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand;
+            tt.style.display = 'block';
+            let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255;
+            tt.style.left = x + 'px'; tt.style.top = y + 'px';
+        }
+        function hideTooltip() { document.getElementById('map-tooltip').style.display = 'none'; }
+
+        // FAQ
+        function toggleFaq(el) {
+            const a = el.nextElementSibling; const i = el.querySelector('i');
+            if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } 
+            else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; }
+        }
+
+        // Modals & WhatsApp
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function sendWhatsApp(type) {
+            const phone = "967773571889"; let msg = "";
+            if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`;
+            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`;
+            else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`;
+            else if(type === 'sell') msg = `*عرض عقار للبيع*\nالاسم والرقم: ${document.getElementById('s-name').value}\nالنوع: ${document.getElementById('s-type').value}\nالموقع: ${document.getElementById('s-loc').value}\nالمساحة: ${document.getElementById('s-size').value}\nالسعر: ${document.getElementById('s-price').value}\nالتفاصيل: ${document.getElementById('s-desc').value}`;
+            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // Admin Secret
         let logoClicks = 0; let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
         function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("كلمة المرور:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
         function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم الحفظ بنجاح"); }
 
+        // ROI & Currency
         function calculateROI() { const p = +document.getElementById('roi-price').value; const r = +document.getElementById('roi-rent').value; if(!p||!r)return; const y = r*12; document.getElementById('roi-yearly').innerText = y.toLocaleString(); document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(2)+'%'; document.getElementById('roi-years').innerText = (p/y).toFixed(1); document.getElementById('roi-result').classList.remove('hidden'); }
         function convertCurrency() { const a = +document.getElementById('curr-amount').value; const f = document.getElementById('curr-from').value; const t = document.getElementById('curr-to').value; if(!a)return; let yr = a; if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; let res=yr; if(t==='USD')res=yr/currRates.USD; if(t==='SAR')res=yr/currRates.SAR; document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:2})+' '+t; document.getElementById('curr-result').classList.remove('hidden'); }
 
+        // Comparison Tool
         const areaData = { "المنصورة": { price: "مرتفع جداً", demand: "100%", type: "تجاري متسارع" }, "خور مكسر": { price: "مرتفع ومستقر", demand: "80%", type: "سكني ودبلوماسي" }, "المعلا": { price: "متوسط", demand: "70%", type: "شقق عائلية" }, "البريقة": { price: "منافس/فرصة", demand: "90%", type: "مدن سكنية ناشئة" } };
         function runComparison() { const a1 = document.getElementById('comp-1').value; const a2 = document.getElementById('comp-2').value; document.getElementById('res-title-1').innerText = a1; document.getElementById('res-title-2').innerText = a2; document.getElementById('res-price-1').innerText = areaData[a1].price; document.getElementById('res-price-2').innerText = areaData[a2].price; document.getElementById('res-demand-1').innerText = areaData[a1].demand; document.getElementById('res-demand-2').innerText = areaData[a2].demand; document.getElementById('res-type-1').innerText = areaData[a1].type; document.getElementById('res-type-2').innerText = areaData[a2].type; document.getElementById('comp-result').classList.remove('hidden'); }
 
+        // Favorites System
         let favs = JSON.parse(localStorage.getItem('emadFavs')) || [];
         function toggleFav(btn, id, title) { const icon = btn.querySelector('i'); const index = favs.findIndex(f => f.id === id); if(index > -1) { favs.splice(index, 1); icon.classList.replace('fa-solid', 'fa-regular'); } else { favs.push({id, title}); icon.classList.replace('fa-regular', 'fa-solid'); } localStorage.setItem('emadFavs', JSON.stringify(favs)); renderFavs(); }
         function renderFavs() { const list = document.getElementById('fav-list'); if(favs.length === 0) { list.innerHTML = '<p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>'; return; } list.innerHTML = favs.map(f => `<div class="p-4 border border-[var(--border-color)] rounded-xl bg-[var(--input-bg)]"><h4 class="font-bold text-sm text-[var(--text-main)]">${f.title}</h4></div>`).join(''); document.querySelectorAll('.fav-btn').forEach(btn => { const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1]; if(favs.some(f => f.id === id)) { btn.querySelector('i').classList.replace('fa-regular', 'fa-solid'); } }); }
         function openFavModal() { renderFavs(); openModal('favorites-modal'); }
         setTimeout(renderFavs, 500);
 
+        // Notification Toast
         const notifyMsgs = [ 
             { text: "هل تريد إدارة أملاكك وأنت مرتاح؟", action: "اضغط هنا", modal: "management-modal" },
             { text: "تم عرض فيلا للبيع في خور مكسر قبل لحظات", action: "اعرض عقارك الآن", modal: "sell-modal" },
@@ -627,6 +684,7 @@
             setTimeout(() => toast.classList.remove('show'), 6000); 
         }, 18000);
 
+        // Chat Assistant
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
@@ -648,6 +706,7 @@
             d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
 
+        // Chart
         let marketChart;
         window.onload = function() {
             const ctx = document.getElementById('marketChart').getContext('2d');
@@ -660,3 +719,4 @@
 
 
 ```
+
