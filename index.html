@@ -4,303 +4,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب عماد عدن العقاري | بيع - شراء - تثمين - استثمار</title>
+    <title>مكتب عماد عدن العقاري | المرجع العقاري الأول في عدن</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #fff; font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; }
-        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .bg-gold-gradient { background: linear-gradient(135deg, #AA8C2C 0%, #D4AF37 50%, #F5D061 100%); }
-        .glass-panel { background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.2); }
+        :root { --gold: #D4AF37; --dark-gold: #AA8C2C; --black: #050505; }
+        body { background-color: var(--black); color: #fff; font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        .gold-text { background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #AA8C2C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-bg { background: linear-gradient(135deg, #AA8C2C 0%, #D4AF37 50%, #F5D061 100%); }
+        .glass { background: rgba(15, 15, 15, 0.65); backdrop-filter: blur(30px); border: 1px solid rgba(212, 175, 55, 0.15); }
         .view-hidden { display: none; }
-        .card-hover:hover { border-color: #D4AF37; transform: translateY(-5px); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(212,175,55,0.15); }
-        .input-style { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.2); border-radius: 1rem; padding: 1rem; color: #fff; outline: none; }
-        .input-style:focus { border-color: #D4AF37; background: rgba(255,255,255,0.1); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover:hover { transform: translateY(-10px); border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+        .input-field { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 14px; color: #fff; outline: none; font-size: 0.85rem; transition: 0.3s; }
+        .input-field:focus { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); }
+        
+        /* Assistant Specifics */
+        .assistant-container { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
+        .chat-window { position: fixed; bottom: 100px; right: 25px; width: 340px; height: 500px; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); transform-origin: bottom right; z-index: 1001; }
+        .chat-closed { transform: scale(0); opacity: 0; pointer-events: none; }
+        .chat-open { transform: scale(1); opacity: 1; pointer-events: auto; }
+        .chat-glass { background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(25px); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 2.5rem; overflow: hidden; display: flex; flex-direction: column; }
+        
+        .loader-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 1s infinite alternate; }
+        @keyframes pulse { from { opacity: 0.3; transform: scale(0.8); } to { opacity: 1; transform: scale(1.2); } }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-[100] glass-panel h-20 flex items-center px-4 md:px-12 justify-between border-b border-gold/20">
+    <!-- [NAVBAR] -->
+    <nav class="fixed w-full z-[90] glass border-b border-gold/10 h-20 flex items-center px-4 md:px-12 justify-between">
         <div class="flex items-center gap-4 cursor-pointer" onclick="switchView('main')">
-            <img src="IMG_5.jpg" class="w-12 h-12 rounded-full border-2 border-gold-500 shadow-lg">
+            <img src="IMG_5.jpg" class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold-500/30">
             <div class="flex flex-col">
-                <span class="font-black text-xl md:text-2xl tracking-tight">مكتب <span class="gold-gradient">عماد عدن</span></span>
-                <span class="text-[9px] text-gold-400 font-bold tracking-widest uppercase">بيع • شراء • تثمين • استثمار</span>
+                <span class="font-black text-xl md:text-2xl gold-text tracking-tighter uppercase leading-none">مكتب عماد عدن</span>
+                <span class="text-[7px] text-gray-400 font-bold uppercase tracking-[0.3em] mt-1">المرجع العقاري الموثوق في العاصمة</span>
             </div>
         </div>
-        <div class="hidden lg:flex gap-8 text-sm font-bold items-center">
-            <a href="javascript:void(0)" onclick="switchView('main')" class="hover:text-gold-500 transition-all">الرئيسية</a>
-            <a href="javascript:void(0)" onclick="switchView('management')" class="hover:text-gold-500 transition-all">أملاك المغتربين</a>
-            <a href="javascript:void(0)" onclick="switchView('legal')" class="hover:text-gold-500 transition-all">المستشار القانوني</a>
-            <a href="javascript:void(0)" onclick="switchView('valuation')" class="hover:text-gold-500 transition-all">تثمين العقار</a>
-            <a href="https://wa.me/967773571889" target="_blank" class="bg-gold-gradient text-black px-6 py-2 rounded-full font-black shadow-xl hover:scale-105 transition-all">773571889</a>
+        <div class="hidden lg:flex gap-8 text-[10px] font-black items-center tracking-widest uppercase">
+            <button onclick="switchView('main')" class="hover:text-gold-500 transition-colors">الرئيسية</button>
+            <button onclick="switchView('management')" class="hover:text-gold-500 transition-colors">أملاك المغتربين</button>
+            <button onclick="switchView('legal')" class="hover:text-gold-500 transition-colors">المستشار القانوني</button>
+            <button onclick="switchView('valuation')" class="hover:text-gold-500 transition-colors">تثمين العقار</button>
         </div>
+        <a href="https://wa.me/967773571889" target="_blank" class="gold-bg text-black px-6 py-2 rounded-full font-black text-[10px] shadow-lg hover:scale-105 transition-all">اتصل بنا 773571889</a>
     </nav>
 
-    <!-- MAIN VIEW -->
+    <!-- [MAIN VIEW] -->
     <div id="main-view">
         <!-- Hero Section -->
-        <section class="pt-52 pb-24 text-center px-4 relative">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold-600/10 blur-[100px] rounded-full -z-10"></div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">عقارات عدن في <br><span class="gold-gradient">أمان ومصداقية</span></h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">نحن فزعتكم وخياركم الأول في العاصمة عدن لكل ما يخص البيع والشراء والاستثمار العقاري بإدارة وخبرة عماد عدن</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <button onclick="switchView('management')" class="bg-gold-gradient text-black px-12 py-5 rounded-2xl font-black text-xl shadow-2xl hover:scale-105 transition-all">إدارة أملاك المغتربين</button>
-                <button onclick="switchView('valuation')" class="border-2 border-gold-500 text-gold-500 px-12 py-5 rounded-2xl font-black text-xl hover:bg-gold-500/10 transition-all">اطلب تثمين عقارك</button>
+        <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-10 relative">
+            <div class="absolute w-[500px] h-[500px] bg-gold-600/5 blur-[150px] rounded-full -z-10 animate-pulse"></div>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">عقارات عدن <br><span class="gold-text">بمنظور عالمي</span></h1>
+            <p class="text-gray-400 text-xs md:text-lg max-w-2xl leading-relaxed mb-10 font-medium italic">"الخبرة، المصداقية، المرجعية".. نحن وجهتكم الموثوقة لإدارة وتثمين واستثمار العقارات في كل شبر ومديرية داخل العاصمة عدن.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="switchView('management')" class="gold-bg text-black px-10 py-4 rounded-xl font-black text-xs md:text-sm shadow-xl hover:scale-105 transition-all">إدارة أملاك المغتربين</button>
+                <button onclick="switchView('valuation')" class="border border-gold-500 text-gold-500 px-10 py-4 rounded-xl font-black text-xs md:text-sm hover:bg-gold-500/10 transition-all">اطلب التثمين الميداني</button>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-24 px-4 max-w-6xl mx-auto">
-            <div class="glass-panel p-8 md:p-16 rounded-[3rem] grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Market Reference Section (نبذة عن المكتب) -->
+        <section class="py-24 px-4 max-w-7xl mx-auto border-t border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="text-right">
-                    <h2 class="text-4xl font-black mb-6 gold-gradient leading-snug">نبذة عن مكتب<br>عماد عدن العقاري</h2>
-                    <p class="text-gray-300 leading-relaxed mb-8">من قلب المنصورة وفي كل شوارع عدن، نخدم عملائنا بصدق وأمانة. متخصصون في البيع والشراء وإدارة العقارات للمغتربين مع ضمان كامل للحقوق والوثائق القانونية. مكتبنا ليس مجرد وسيط، بل هو شريكك الاستراتيجي في نجاح استثمارك.</p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white/5 p-4 rounded-2xl border border-gold/10">
-                            <span class="text-2xl font-black gold-gradient">15+</span>
-                            <p class="text-[10px] text-gray-500 font-bold uppercase">سنة خبرة</p>
+                    <h2 class="text-3xl md:text-5xl font-black mb-8 gold-text leading-tight uppercase">المرجعية العقارية <br>الأولى في عدن</h2>
+                    <p class="text-gray-400 text-sm md:text-md leading-loose mb-8">منذ أكثر من 15 عاماً، ومكتب عماد عدن العقاري يبني جسور الثقة مع عملائه في الداخل والخارج. نحن لا نقدم خدمات الوساطة فحسب، بل نحن مستشارك القانوني والميداني الذي يضمن لك صحة الوثائق بنسبة 100%. تخصصنا في "إدارة أملاك المغتربين" جعلنا العين الأمينة لكل مغترب يبحث عن حماية حلاله وتطوير استثماراته في قلب الوطن عدن.</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="glass p-6 rounded-2xl text-center">
+                            <div class="text-2xl font-black gold-text mb-1">15+</div>
+                            <div class="text-[8px] text-gray-500 uppercase font-bold">عاماً من النزاهة</div>
                         </div>
-                        <div class="bg-white/5 p-4 rounded-2xl border border-gold/10">
-                            <span class="text-2xl font-black gold-gradient">1000+</span>
-                            <p class="text-[10px] text-gray-500 font-bold uppercase">عميل سعيد</p>
+                        <div class="glass p-6 rounded-2xl text-center">
+                            <div class="text-2xl font-black gold-text mb-1">8</div>
+                            <div class="text-[8px] text-gray-500 uppercase font-bold">مديريات مغطاة</div>
+                        </div>
+                        <div class="glass p-6 rounded-2xl text-center">
+                            <div class="text-2xl font-black gold-text mb-1">24/7</div>
+                            <div class="text-[8px] text-gray-500 uppercase font-bold">متابعة ميدانية</div>
                         </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=800&q=80" class="rounded-[2.5rem] shadow-2xl border border-gold/20">
+                <div class="rounded-[3rem] overflow-hidden border border-gold/10 shadow-2xl relative group">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gold-gradient opacity-10"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Market Chart Section -->
-        <section id="market" class="py-24 px-4 bg-[#080808]">
-            <div class="max-w-6xl mx-auto text-center">
-                <h2 class="text-4xl font-black mb-4"><span class="gold-gradient">رسم بياني</span> لتطور الأسعار في عدن</h2>
-                <p class="text-gray-500 mb-16">مؤشر الارتفاع العمراني والقيمة السوقية (المنصورة - خور مكسر - الشيخ عثمان)</p>
-                <div class="glass-panel p-6 md:p-10 rounded-[3rem] h-[450px]">
-                    <canvas id="adenChart"></canvas>
+        <!-- Aden Districts Market Analysis (تحليل المناطق) -->
+        <section class="py-24 px-4 bg-[#080808]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-black mb-4 uppercase tracking-tighter">تحليل استثماري لـ <span class="gold-text">مديريات العاصمة</span></h2>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">مكتب عماد عدن يضع السوق بين يديك في كل مديرية</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Mansoura -->
+                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
+                        <h4 class="text-lg font-black gold-text mb-4 uppercase">المنصورة والشيخ</h4>
+                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">المركز التجاري والسكني الأكثر طلباً. مخططات بير فضل ومدينة السلام تشهد ارتفاعاً سنوياً يتجاوز 30%.</p>
+                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">نمو تجاري فائق</span>
+                    </div>
+                    <!-- Khor Maksar -->
+                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
+                        <h4 class="text-lg font-black gold-text mb-4 uppercase">خور مكسر وكريتر</h4>
+                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">عقارات النخبة والفلل الملكية. استقرار كبير في القيمة السوقية بالقرب من المرافق الحيوية والدبلوماسية.</p>
+                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">سكني راقي</span>
+                    </div>
+                    <!-- Mualla -->
+                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
+                        <h4 class="text-lg font-black gold-text mb-4 uppercase">المعلا والتواهي</h4>
+                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">إطلالات بحرية وشقق عائلية واسعة. وجهة المغتربين المفضلة لقربها من قلب المدينة التاريخي.</p>
+                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">إطلالة بحر</span>
+                    </div>
+                    <!-- Bureqa -->
+                    <div class="glass p-8 rounded-[2.5rem] card-hover border-gold/5">
+                        <h4 class="text-lg font-black gold-text mb-4 uppercase">البريقة والشعب</h4>
+                        <p class="text-gray-400 text-[10px] leading-relaxed mb-6">مستقبل عدن العمراني والمدن السكنية الحديثة. فرصة ذهبية للاستثمار طويل الأمد بأفضل الأسعار حالياً.</p>
+                        <span class="text-[9px] font-black gold-bg text-black px-3 py-1 rounded-full uppercase">فرصة استثمارية</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="py-24 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div onclick="switchView('management')" class="glass-panel p-10 rounded-[2.5rem] card-hover cursor-pointer text-center">
-                <i class="fa-solid fa-plane-departure text-5xl gold-gradient mb-6"></i>
-                <h3 class="text-2xl font-black mb-4">أملاك المغتربين</h3>
-                <p class="text-gray-400 text-sm mb-6">ندير عقارك في عدن وأنت في أي مكان في العالم بضمان وأمانة.</p>
-                <span class="text-gold-500 font-bold">عرض التفاصيل ←</span>
-            </div>
-            <div onclick="switchView('legal')" class="glass-panel p-10 rounded-[2.5rem] card-hover cursor-pointer text-center">
-                <i class="fa-solid fa-scale-balanced text-5xl gold-gradient mb-6"></i>
-                <h3 class="text-2xl font-black mb-4">المستشار القانوني</h3>
-                <p class="text-gray-400 text-sm mb-6">فحص الوثائق وفصل المنازعات العقارية باحترافية تامة.</p>
-                <span class="text-gold-500 font-bold">عرض التفاصيل ←</span>
-            </div>
-            <div onclick="switchView('valuation')" class="glass-panel p-10 rounded-[2.5rem] card-hover cursor-pointer text-center">
-                <i class="fa-solid fa-money-bill-trend-up text-5xl gold-gradient mb-6"></i>
-                <h3 class="text-2xl font-black mb-4">تثمين العقار</h3>
-                <p class="text-gray-400 text-sm mb-6">اعرف القيمة الحقيقية لعقارك في السوق العدني الحالي.</p>
-                <span class="text-gold-500 font-bold">عرض التفاصيل ←</span>
+        <!-- Market Growth Chart (الرسم البياني) -->
+        <section class="py-24 px-4 text-center">
+            <h2 class="text-3xl font-black mb-6 uppercase">مؤشر <span class="gold-text">التطور والقيمة</span> (2020-2025)</h2>
+            <p class="text-gray-500 mb-12 text-[10px] uppercase tracking-widest italic">تحليل فني لمعدلات الارتفاع في قيم العقارات عبر مديريات عدن</p>
+            <div class="max-w-6xl mx-auto glass p-6 md:p-10 rounded-[3.5rem] h-[450px]">
+                <canvas id="marketChart"></canvas>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="py-20 px-6 border-t border-gold/10 bg-[#050505]">
-            <div class="max-w-6xl mx-auto text-center">
-                <h4 class="font-black text-2xl gold-gradient mb-8 tracking-tighter">مكتب عماد عدن العقاري</h4>
-                <div class="flex justify-center gap-6 mb-12">
-                    <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-gold-500 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-gold-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-gold-500 transition-all"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-gold-500 transition-all"><i class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/967773571889" class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-xl hover:text-gold-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+        <footer class="py-20 px-6 border-t border-gold/10 bg-[#050505] text-center">
+            <div class="max-w-4xl mx-auto">
+                <img src="IMG_5.jpg" class="w-14 h-14 rounded-full mx-auto mb-6 border border-gold-500/20 shadow-xl">
+                <h4 class="font-black text-2xl gold-text mb-2 uppercase">مكتب عماد عدن العقاري</h4>
+                <p class="text-gray-500 text-[8px] font-bold uppercase tracking-[0.4em] mb-10">بيع • شراء • تثمين • استثمار • إدارة أملاك</p>
+                <div class="flex justify-center gap-6 mb-16 text-xl text-gray-500">
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-all"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
-                <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">عدن • المنصورة • شارع التسعين</p>
-                <p class="text-gray-600 mt-4 text-[10px]">جميع الحقوق محفوظة © 2025 | مكتب عماد عدن العقاري</p>
+                <div class="text-[8px] text-gray-700 font-black tracking-widest uppercase italic border-t border-white/5 pt-8">اليمن • عدن • المنصورة • شارع التسعين | © 2025 ALL RIGHTS RESERVED</div>
             </div>
         </footer>
     </div>
 
-    <!-- FORM VIEWS -->
+    <!-- [FORM VIEWS: THE BASICS] -->
     
     <!-- Management Form -->
     <div id="management-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass-panel p-8 md:p-12 rounded-[3rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-bold mb-8 flex items-center gap-2 hover:translate-x-2 transition-all"><i class="fa-solid fa-arrow-right"></i> رجوع للرئيسية</button>
-            <h2 class="text-4xl font-black mb-4 gold-gradient">إدارة أملاك المغتربين</h2>
-            <p class="text-gray-400 mb-10">املأ بيانات عقارك وسنتواصل معك فوراً لاستلام الإدارة</p>
+        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
+            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
+            <h2 class="text-3xl font-black mb-4 gold-text">إدارة أملاك المغتربين</h2>
+            <p class="text-gray-400 text-xs mb-10 italic">عينُكَ الأمينة في الوطن.. نحن نتولى عقارك وكأنه ملكنا بضمانات رسمية</p>
             <div class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">اسم المغترب بالكامل</label>
-                    <input type="text" id="m-name" placeholder="اكتب اسمك هنا..." class="input-style">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">موقع العقار في عدن</label>
-                    <input type="text" id="m-loc" placeholder="المنصورة، خور مكسر، ريمي..." class="input-style">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">نوع العقار</label>
-                    <select id="m-type" class="input-style appearance-none">
-                        <option>عمارة سكنية</option>
-                        <option>شقة</option>
-                        <option>أرض استثمارية</option>
-                        <option>فيلا</option>
-                        <option>محل تجاري</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">تفاصيل إضافية</label>
-                    <textarea id="m-details" placeholder="تحصيل إيجار، بيع، صيانة، حراسة..." class="input-style h-32"></textarea>
-                </div>
-                <button onclick="sendWhatsApp('management')" class="w-full bg-gold-gradient text-black py-5 rounded-2xl font-black text-xl shadow-2xl hover:brightness-110 active:scale-95 transition-all">إرسال الطلب عبر واتساب</button>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">اسم المغترب الكامل</label><input type="text" id="m-name" placeholder="مثال: عماد بن محمد اليافعي" class="input-field"></div>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">موقع العقار في عدن</label><input type="text" id="m-loc" placeholder="المديرية، الحي، المخطط" class="input-field"></div>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">نوع العقار</label><select id="m-type" class="input-field"><option>عمارة سكنية</option><option>شقة</option><option>أرض استثمارية</option><option>فيلا</option></select></div>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">تفاصيل الخدمة</label><textarea id="m-msg" class="h-40 input-field" placeholder="اكتب كل ما يخص عقارك (تحصيل إيجارات، صيانة، مراقبة ميدانية، متابعة وثائق)"></textarea></div>
+                <button onclick="sendWhatsApp('management')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">إرسال الطلب عبر واتساب</button>
             </div>
         </div>
     </div>
 
     <!-- Legal Form -->
     <div id="legal-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass-panel p-8 md:p-12 rounded-[3rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-bold mb-8 flex items-center gap-2 hover:translate-x-2 transition-all"><i class="fa-solid fa-arrow-right"></i> رجوع للرئيسية</button>
-            <h2 class="text-4xl font-black mb-4 gold-gradient">المستشار القانوني</h2>
-            <p class="text-gray-400 mb-10">نضمن لك صحة الوثائق وحماية حقك من أي تلاعب</p>
+        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
+            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
+            <h2 class="text-3xl font-black mb-4 gold-text">المستشار القانوني</h2>
+            <p class="text-gray-400 text-xs mb-10 italic">فحص الوثائق، توثيق الحقوق، وفصل المنازعات بخبرة قانونية ميدانية</p>
             <div class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">الاسم</label>
-                    <input type="text" id="l-name" placeholder="اسمك بالكامل..." class="input-style">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">نوع الخدمة القانونية</label>
-                    <select id="l-type" class="input-style appearance-none">
-                        <option>فحص وثائق ملكية</option>
-                        <option>فض نزاع عقاري</option>
-                        <option>كتابة عقد بيع وشراء</option>
-                        <option>استشارة عامة</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">اشرح لنا التفاصيل</label>
-                    <textarea id="l-details" placeholder="اكتب تفاصيل استشارتك هنا..." class="input-style h-48"></textarea>
-                </div>
-                <button onclick="sendWhatsApp('legal')" class="w-full bg-gold-gradient text-black py-5 rounded-2xl font-black text-xl shadow-2xl hover:brightness-110 active:scale-95 transition-all">تحدث مع المستشار الآن</button>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الاسم</label><input type="text" id="l-name" placeholder="اسم صاحب الطلب" class="input-field"></div>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">نوع الاستشارة</label><select id="l-service" class="input-field"><option>فحص وثائق ملكية في السجل العقاري</option><option>فصل نزاع عقاري قائم</option><option>كتابة وصياغة عقود قانونية</option><option>تمثيل أمام الجهات المختصة</option></select></div>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">تفاصيل المشكلة</label><textarea id="l-msg" class="h-52 input-field" placeholder="اشرح لنا حالتك القانونية بالتفصيل وسنتواصل معك فوراً..."></textarea></div>
+                <button onclick="sendWhatsApp('legal')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">تحدث مع المستشار</button>
             </div>
         </div>
     </div>
 
     <!-- Valuation Form -->
     <div id="valuation-view" class="view-hidden min-h-screen pt-32 px-6 pb-20">
-        <div class="max-w-3xl mx-auto glass-panel p-8 md:p-12 rounded-[3rem]">
-            <button onclick="switchView('main')" class="text-gold-500 font-bold mb-8 flex items-center gap-2 hover:translate-x-2 transition-all"><i class="fa-solid fa-arrow-right"></i> رجوع للرئيسية</button>
-            <h2 class="text-4xl font-black mb-4 gold-gradient">تثمين العقار</h2>
-            <p class="text-gray-400 mb-10">احصل على السعر الحقيقي لعقارك بناءً على دراسة السوق الميدانية</p>
+        <div class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[4rem]">
+            <button onclick="switchView('main')" class="text-gold-500 font-black mb-10 flex items-center gap-2 text-[10px] uppercase tracking-widest"><i class="fa-solid fa-arrow-right"></i> الرئيسية</button>
+            <h2 class="text-4xl font-black mb-4 gold-text">تثمين العقار</h2>
+            <p class="text-gray-400 text-xs mb-10 italic">احصل على القيمة السوقية الحقيقة لعقارك بناءً على معطيات السوق الميدانية الحالية</p>
             <div class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">الاسم</label>
-                    <input type="text" id="v-name" placeholder="اسم صاحب العقار..." class="input-style">
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الاسم</label><input type="text" id="v-name" class="input-field"></div>
+                <div class="grid grid-cols-2 gap-5">
+                    <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">المساحة (م²)</label><input type="text" id="v-size" class="input-field"></div>
+                    <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">الموقع بالضبط</label><input type="text" id="v-loc" placeholder="المديرية والحي" class="input-field"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">مساحة العقار</label>
-                        <input type="text" id="v-size" placeholder="بالمتر المربع..." class="input-style">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">الموقع بالضبط</label>
-                        <input type="text" id="v-loc" placeholder="المنطقة والشارع..." class="input-style">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">السعر المتوقع (اختياري)</label>
-                    <input type="text" id="v-price" placeholder="سعرك المطلوب حالياً..." class="input-style">
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2 mr-2 text-gold-500">وصف العقار</label>
-                    <textarea id="v-details" placeholder="عدد الغرف، الأدوار، المميزات، الخدمات المجاورة..." class="input-style h-32"></textarea>
-                </div>
-                <button onclick="sendWhatsApp('valuation')" class="w-full bg-gold-gradient text-black py-5 rounded-2xl font-black text-xl shadow-2xl hover:brightness-110 active:scale-95 transition-all">ارسل البيانات للتثمين</button>
+                <div><label class="text-[9px] font-black gold-text uppercase mb-2 block mr-2">وصف العقار</label><textarea id="v-msg" class="h-40 input-field" placeholder="عدد الغرف، الأدوار، الخدمات المجاورة، المميزات والعيوب..."></textarea></div>
+                <button onclick="sendWhatsApp('valuation')" class="w-full gold-bg text-black py-4 rounded-xl font-black text-lg shadow-2xl hover:brightness-110 active:scale-95 transition-all">ارسل البيانات للتثمين</button>
             </div>
         </div>
     </div>
 
-    <!-- Floating Assistant Icon -->
-    <div class="fixed bottom-6 right-6 z-[200]">
-        <button onclick="toggleFloatingChat()" class="w-20 h-20 rounded-full bg-gold-gradient p-1 shadow-[0_10px_40px_rgba(212,175,55,0.4)] hover:scale-110 transition-transform relative">
-            <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-600 rounded-full border-2 border-black text-[10px] font-bold flex items-center justify-center">1</div>
+    <!-- [FLOATING GHOST ASSISTANT] -->
+    <div class="assistant-container">
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-closed chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]">
+            <div class="gold-bg p-4 flex justify-between items-center text-black font-black">
+                <div class="flex items-center gap-3">
+                    <img src="IMG_5.jpg" class="w-10 h-10 rounded-full border border-black/20">
+                    <div>
+                        <div class="text-[10px] leading-tight uppercase">مساعد عماد الذكي</div>
+                        <div class="text-[7px] opacity-70 flex items-center gap-1 uppercase font-black"><div class="w-1 h-1 bg-green-600 rounded-full animate-pulse"></div> فزعتك هنا يا وحش</div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="hover:scale-125 transition-transform"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-black/60 text-[10px] leading-relaxed">
+                <div class="bg-white/5 p-4 rounded-[2.5rem] rounded-tr-none border border-gold/10">يا حيا بك يابو عماد! 🏠<br>أنا المساعد الذكي، أيش تبي تعرف عن أسعار العقارات في عدن اليوم أو تبي فزعة في إدارة أملاكك؟ أنا هنا لخدمتك بلهجة عدن وبنبض السوق.</div>
+            </div>
+
+            <div class="p-4 bg-black/80 border-t border-gold/10 flex gap-3">
+                <input type="text" id="chat-input" placeholder="اكتب سؤالك يا وحش..." class="flex-1 text-[10px] px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white outline-none focus:border-gold/40" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()" class="w-10 h-10 gold-bg text-black rounded-full flex items-center justify-center shadow-lg hover:rotate-12 transition-all">
+                    <i class="fa-solid fa-paper-plane text-xs rtl:-scale-x-100"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Bubble Trigger -->
+        <button onclick="toggleChat()" class="w-20 h-20 md:w-24 md:h-24 rounded-full gold-bg p-1 shadow-[0_15px_60px_rgba(212,175,55,0.4)] hover:scale-110 transition-all relative group overflow-hidden">
+            <div class="absolute inset-0 bg-white/20 -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
             <img src="IMG_5.jpg" class="rounded-full w-full h-full object-cover">
+            <div class="absolute -top-1 -right-1 w-6 h-6 bg-red-600 rounded-full border border-black flex items-center justify-center text-[8px] font-black group-hover:animate-bounce">1</div>
         </button>
     </div>
 
     <script>
-        // View Switching Logic
-        function switchView(viewId) {
-            const views = ['main-view', 'management-view', 'legal-view', 'valuation-view'];
-            views.forEach(v => document.getElementById(v).classList.add('view-hidden'));
-            document.getElementById(viewId + '-view').classList.remove('view-hidden');
+        // CORE NAVIGATION SYSTEM
+        function switchView(id) {
+            const views = ['main', 'management', 'legal', 'valuation'];
+            views.forEach(v => document.getElementById(v + '-view').classList.add('view-hidden'));
+            document.getElementById(id + '-view').classList.remove('view-hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // WhatsApp Messaging Logic
+        // WHATSAPP AUTOMATION ENGINE
         function sendWhatsApp(type) {
             const phone = "967773571889";
-            let message = "";
-
+            let msg = "";
             if(type === 'management') {
-                const name = document.getElementById('m-name').value;
-                const loc = document.getElementById('m-loc').value;
-                const pType = document.getElementById('m-type').value;
-                const details = document.getElementById('m-details').value;
-                message = `*طلب إدارة أملاك مغتربين*\n\nالاسم: ${name}\nالموقع: ${loc}\nنوع العقار: ${pType}\nالتفاصيل: ${details}`;
+                msg = `*طلب إدارة أملاك مغتربين*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالنوع: ${document.getElementById('m-type').value}\nالتفاصيل: ${document.getElementById('m-desc').value || document.getElementById('m-msg').value}`;
             } else if(type === 'legal') {
-                const name = document.getElementById('l-name').value;
-                const lType = document.getElementById('l-type').value;
-                const details = document.getElementById('l-details').value;
-                message = `*طلب استشارة قانونية*\n\nالاسم: ${name}\nنوع الاستشارة: ${lType}\nالتفاصيل: ${details}`;
+                msg = `*طلب استشارة قانونية*\nالاسم: ${document.getElementById('l-name').value}\nالخدمة: ${document.getElementById('l-service').value}\nالتفاصيل: ${document.getElementById('l-msg').value}`;
             } else if(type === 'valuation') {
-                const name = document.getElementById('v-name').value;
-                const size = document.getElementById('v-size').value;
-                const loc = document.getElementById('v-loc').value;
-                const price = document.getElementById('v-price').value;
-                const details = document.getElementById('v-details').value;
-                message = `*طلب تثمين عقار*\n\nالاسم: ${name}\nالموقع: ${loc}\nالمساحة: ${size}\nالسعر المتوقع: ${price}\nالوصف: ${details}`;
+                msg = `*طلب تثمين عقار*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-msg').value}`;
             }
-
-            if(message) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // Floating Chat Placeholder
-        function toggleFloatingChat() {
-            // This can open a separate chat window or just redirect to whatsapp
-            window.open('https://wa.me/967773571889?text=يا حيا بك مكتب عماد عدن، عندي استفسار عاجل', '_blank');
+        // CHAT ASSISTANT (THE GHOST) LOGIC
+        let isChatOpen = false;
+        function toggleChat() {
+            isChatOpen = !isChatOpen;
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.className = isChatOpen ? 'chat-open chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]' : 'chat-closed chat-glass chat-window shadow-[0_20px_100px_rgba(0,0,0,0.9)]';
         }
 
-        // Chart Configuration
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if(!text) return;
+
+            addMsg(text, true);
+            input.value = '';
+
+            const load = document.createElement('div');
+            load.className = 'flex items-center gap-2 text-gold-500 text-[8px] font-black py-2 uppercase tracking-widest';
+            load.innerHTML = '<div class="loader-dot"></div> جاري تحليل طلبك...';
+            box.appendChild(load);
+            box.scrollTop = box.scrollHeight;
+
+            try {
+                const r = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: text}) });
+                const d = await r.json();
+                load.remove();
+                addMsg(d.reply, false);
+            } catch(e) { 
+                load.remove(); 
+                addMsg("يا حيا بك، في مشكلة بالاتصال. جرب مرة ثانية يا وحش.", false); 
+            }
+        }
+
+        function addMsg(t, u) {
+            const d = document.createElement('div');
+            d.className = u ? 'bg-gold-500 text-black font-black p-4 rounded-[2rem] rounded-tl-none self-end max-w-[85%] shadow-md' : 'bg-white/5 text-white p-4 rounded-[2rem] rounded-tr-none border border-gold/10 self-start max-w-[85%] shadow-sm';
+            d.textContent = t;
+            const chat = document.getElementById('chat-messages');
+            chat.appendChild(d);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // MARKET GROWTH CHART ANALYTICS
         window.onload = function() {
-            const ctx = document.getElementById('adenChart').getContext('2d');
+            const ctx = document.getElementById('marketChart').getContext('2d');
             new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
-                    datasets: [{
-                        label: 'ارتفاع الأسعار في عدن (%)',
-                        data: [20, 35, 50, 75, 95, 125],
-                        borderColor: '#D4AF37',
-                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
-                        borderWidth: 4,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: '#fff'
-                    }]
+                    datasets: [
+                        { label: 'المنصورة والشيخ عثمان (%)', data: [15, 35, 65, 95, 125, 170], borderColor: '#D4AF37', backgroundColor: 'rgba(212, 175, 55, 0.05)', borderWidth: 4, fill: true, tension: 0.4, pointRadius: 5 },
+                        { label: 'خور مكسر وكريتر (%)', data: [10, 20, 35, 55, 80, 110], borderColor: '#555', borderWidth: 2, fill: false, tension: 0.3, pointRadius: 3 },
+                        { label: 'البريقة وبير فضل (%)', data: [5, 15, 45, 80, 120, 165], borderColor: '#aaa', borderDash: [5,5], borderWidth: 2, fill: false, tension: 0.5, pointRadius: 3 }
+                    ]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { labels: { color: '#fff', font: { family: 'Tajawal', weight: 'bold' } } } },
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#fff', font: { family: 'Tajawal', weight: 'bold', size: 10 } } } },
                     scales: {
-                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
-                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } }
+                        y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#555', font: { size: 9 } } },
+                        x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#555', font: { size: 9 } } }
                     }
                 }
             });
@@ -310,4 +337,3 @@
 </html>
 
 ```
-
