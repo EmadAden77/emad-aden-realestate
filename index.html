@@ -95,8 +95,9 @@
         .styled-table td { padding: 1.25rem 1rem; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; font-weight: 500; }
         .styled-table tr:last-child td { border-bottom: none; }
 
-        .notification-toast { position: fixed; bottom: 24px; left: -350px; width: 300px; background: var(--bg-sec); border-right: 4px solid var(--gold); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-left: 1px solid var(--border-color); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; z-index: 160; transition: all 0.4s ease; opacity: 0; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .notification-toast { position: fixed; bottom: 24px; left: -350px; width: 320px; background: var(--bg-sec); border-right: 4px solid var(--gold); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-left: 1px solid var(--border-color); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; z-index: 160; transition: all 0.4s ease; opacity: 0; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer; }
         .notification-toast.show { left: 0; opacity: 1; }
+        .notification-toast:hover { background: var(--card-bg); border-color: var(--gold); }
         
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-main); }
@@ -108,15 +109,20 @@
         .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
         .btn-outline { border: 1px solid var(--gold); color: var(--gold); padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 800; transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: transparent; cursor: pointer; }
         .btn-outline:hover { background: var(--gold); color: #000; }
+        
+        .sell-banner { background: linear-gradient(135deg, var(--bg-sec) 0%, rgba(212, 175, 55, 0.1) 100%); border: 1px solid var(--border-gold); border-radius: 1.25rem; position: relative; overflow: hidden; }
+        .sell-banner::after { content: '\f015'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: -20px; bottom: -40px; font-size: 15rem; color: var(--gold); opacity: 0.03; pointer-events: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="notify-toast" class="notification-toast">
-        <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bell"></i></div>
-        <div>
+    <!-- [LIVE UPDATE TOAST] -->
+    <div id="notify-toast" class="notification-toast" onclick="handleToastClick()">
+        <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bolt"></i></div>
+        <div class="flex-1">
             <h4 class="font-black text-xs gold-text mb-1">تحديث مباشر</h4>
-            <p id="notify-text" class="text-xs font-medium text-[var(--text-muted)]">تم حجز موعد استشارة قبل دقيقتين</p>
+            <p id="notify-text" class="text-[11px] font-bold text-[var(--text-main)] leading-relaxed">جاري التحديث...</p>
+            <span id="notify-action" class="text-[10px] gold-text font-black mt-1 hidden">اضغط هنا &larr;</span>
         </div>
     </div>
 
@@ -137,6 +143,10 @@
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="openModal('sell-modal')" class="btn-primary !px-4 !py-2 !text-xs hidden sm:flex" data-ar="اعرض عقارك" data-en="Sell Property">اعرض عقارك</button>
+                <button onclick="openModal('management-modal')" class="btn-outline !px-4 !py-2 !text-xs" data-ar="أملاك المغتربين" data-en="Property Mgmt">أملاك المغتربين</button>
             </div>
             <div class="flex gap-2 border-r border-[var(--border-color)] pr-4">
                 <button onclick="toggleTheme()" class="text-[var(--text-muted)] hover:text-gold-500 transition-colors"><i class="fa-solid fa-moon text-lg" id="theme-icon"></i></button>
@@ -211,6 +221,19 @@
             </div>
         </section>
 
+        <!-- [SELL PROPERTY BANNER] -->
+        <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
+            <div class="sell-banner p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+                <div class="text-center md:text-right flex-1">
+                    <h3 class="text-3xl md:text-4xl font-black gold-text mb-4" data-ar="تريد بيع عقارك؟" data-en="Want to sell your property?">تريد بيع عقارك؟</h3>
+                    <p class="text-sm md:text-base font-medium text-[var(--text-main)] leading-relaxed max-w-2xl" data-ar="اعرض عقارك للبيع عبر شبكتنا الواسعة من المستثمرين والمشترين الجادين، نضمن لك أفضل الأسعار وسرعة في إتمام الإجراءات القانونية." data-en="List your property for sale through our wide network of serious buyers.">اعرض عقارك للبيع عبر شبكتنا الواسعة من المستثمرين والمشترين الجادين، نضمن لك أفضل الأسعار وسرعة في إتمام الإجراءات القانونية.</p>
+                </div>
+                <div class="shrink-0 w-full md:w-auto">
+                    <button onclick="openModal('sell-modal')" class="btn-primary w-full md:w-auto !px-8 !py-4 !text-lg shadow-[0_10px_25px_rgba(212,175,55,0.4)]" data-ar="أضف تفاصيل عقارك الآن <i class='fa-solid fa-arrow-left mr-2'></i>" data-en="Add Property Details <i class='fa-solid fa-arrow-right ml-2'></i>">أضف تفاصيل عقارك الآن <i class="fa-solid fa-arrow-left mr-2"></i></button>
+                </div>
+            </div>
+        </section>
+
         <!-- [CORE SERVICES & TOOLS - SECONDARY] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-10 text-center">
@@ -244,7 +267,7 @@
             </div>
         </section>
 
-        <!-- [COMPARE AREAS SECTION - DEDICATED] -->
+        <!-- [COMPARE AREAS SECTION] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 text-center">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="مقارنة المناطق العقارية" data-en="Compare Real Estate Areas">مقارنة المناطق العقارية</h3>
@@ -278,8 +301,8 @@
                     </div>
                     <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
                         <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">السعر</div>
-                        <div class="flex-1 p-4 text-center text-sm font-bold text-white" id="res-price-1">-</div>
-                        <div class="flex-1 p-4 text-center text-sm font-bold text-white" id="res-price-2">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-[var(--text-main)]" id="res-price-1">-</div>
+                        <div class="flex-1 p-4 text-center text-sm font-bold text-[var(--text-main)]" id="res-price-2">-</div>
                     </div>
                     <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
                         <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">الطلب</div>
@@ -295,7 +318,7 @@
             </div>
         </section>
 
-        <!-- [TIMELINE & MAP - PROFESSIONAL LAYOUT] -->
+        <!-- [TIMELINE & MAP] -->
         <section class="section-padding px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-[var(--border-color)]">
             <!-- Map -->
             <div>
@@ -455,6 +478,34 @@
 
     <!-- [MODALS (FORMS & TOOLS)] -->
     
+    <!-- Sell Property -->
+    <div id="sell-modal" class="modal-overlay">
+        <div class="modal-content relative overflow-hidden">
+            <i class="fa-solid fa-house-chimney-window absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
+            <button onclick="closeModal('sell-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl z-10"><i class="fa-solid fa-xmark"></i></button>
+            <div class="relative z-10">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl gold-bg flex items-center justify-center text-black text-2xl shadow-lg"><i class="fa-solid fa-key"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-black gold-text">عرض عقار للبيع</h3>
+                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">ارسل التفاصيل وسنتواصل معك فوراً</p>
+                    </div>
+                </div>
+                <input type="text" id="s-name" placeholder="الاسم ورقم التواصل" class="input-style">
+                <div class="flex gap-3">
+                    <select id="s-type" class="input-style flex-1"><option>أرضية</option><option>فيلا</option><option>شقة</option><option>عمارة تجارية</option></select>
+                    <input type="text" id="s-loc" placeholder="الموقع/المديرية" class="input-style flex-1">
+                </div>
+                <div class="flex gap-3">
+                    <input type="text" id="s-size" placeholder="المساحة" class="input-style flex-1">
+                    <input type="text" id="s-price" placeholder="السعر المطلوب" class="input-style flex-1">
+                </div>
+                <textarea id="s-desc" placeholder="تفاصيل العقار، الإطلالة، المرفقات..." class="input-style h-24"></textarea>
+                <button onclick="sendWhatsApp('sell')" class="btn-primary w-full mt-2 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> إرسال تفاصيل العقار</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Management -->
     <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
     
@@ -543,6 +594,7 @@
     </div>
 
     <script>
+        // Theme & Lang
         let isLight = false; let isEn = false;
         function toggleTheme() { isLight = !isLight; if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; } updateChartTheme(); }
         function toggleLang() { isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN'; document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); }); }
@@ -554,7 +606,14 @@
 
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-        function sendWhatsApp(type) { const phone = "967773571889"; let msg = ""; if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`; else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`; else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`; if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank'); }
+        function sendWhatsApp(type) { 
+            const phone = "967773571889"; let msg = ""; 
+            if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`; 
+            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`; 
+            else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`; 
+            else if(type === 'sell') msg = `*عرض عقار للبيع*\nالاسم والرقم: ${document.getElementById('s-name').value}\nالنوع: ${document.getElementById('s-type').value}\nالموقع: ${document.getElementById('s-loc').value}\nالمساحة: ${document.getElementById('s-size').value}\nالسعر: ${document.getElementById('s-price').value}\nالتفاصيل: ${document.getElementById('s-desc').value}`;
+            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank'); 
+        }
 
         let logoClicks = 0; let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
         function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("كلمة المرور:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
@@ -572,8 +631,43 @@
         function openFavModal() { renderFavs(); openModal('favorites-modal'); }
         setTimeout(renderFavs, 500);
 
-        const notifyMsgs = [ "تم حجز موعد استشارة قبل دقيقتين", "طلب تثمين عقار جديد من المنصورة", "مغترب جديد طلب إدارة أملاكه", "ارتفاع الطلب في بير فضل 15%" ];
-        setInterval(() => { const toast = document.getElementById('notify-toast'); document.getElementById('notify-text').innerText = notifyMsgs[Math.floor(Math.random() * notifyMsgs.length)]; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 5000); }, 25000);
+        const notifyMsgs = [ 
+            { text: "هل تريد إدارة أملاكك وأنت مرتاح؟", action: "اضغط هنا", modal: "management-modal" },
+            { text: "تم عرض فيلا للبيع في خور مكسر قبل لحظات", action: "اعرض عقارك الآن", modal: "sell-modal" },
+            { text: "تم حجز موعد استشارة قبل دقيقتين", action: "", modal: "" },
+            { text: "ارتفاع الطلب في بير فضل 15%", action: "", modal: "" }
+        ];
+        
+        function handleToastClick() {
+            const toast = document.getElementById('notify-toast');
+            const targetModal = toast.getAttribute('data-target');
+            if (targetModal) {
+                toast.classList.remove('show');
+                openModal(targetModal);
+            }
+        }
+
+        setInterval(() => { 
+            const toast = document.getElementById('notify-toast');
+            const actionSpan = document.getElementById('notify-action');
+            const msgObj = notifyMsgs[Math.floor(Math.random() * notifyMsgs.length)];
+            
+            document.getElementById('notify-text').innerText = msgObj.text;
+            
+            if (msgObj.action) {
+                actionSpan.innerText = msgObj.action + ' \u2190';
+                actionSpan.classList.remove('hidden');
+                toast.setAttribute('data-target', msgObj.modal);
+                toast.style.cursor = 'pointer';
+            } else {
+                actionSpan.classList.add('hidden');
+                toast.removeAttribute('data-target');
+                toast.style.cursor = 'default';
+            }
+            
+            toast.classList.add('show'); 
+            setTimeout(() => toast.classList.remove('show'), 6000); 
+        }, 18000);
 
         let chatOpen = false;
         function toggleChat() { 
@@ -608,4 +702,3 @@
 
 
 ```
-
