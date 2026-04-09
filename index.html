@@ -86,9 +86,6 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
         .faq-answer.active { max-height: 250px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
         
-        .assistant-window { position: absolute; bottom: 80px; right: 0; width: calc(100vw - 48px); max-width: 350px; height: 500px; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; background: var(--bg-sec); border: 1px solid var(--gold); border-radius: 1rem; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-        .assistant-window.active { transform: scale(1); opacity: 1; pointer-events: auto; }
-
         .table-container { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 1rem; background: var(--bg-sec); }
         .styled-table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: right; }
         .styled-table th { background: rgba(212,175,55,0.05); color: var(--gold); padding: 1.25rem 1rem; font-weight: 800; border-bottom: 1px solid var(--border-color); }
@@ -116,7 +113,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- [LIVE UPDATE TOAST] -->
     <div id="notify-toast" class="notification-toast" onclick="handleToastClick()">
         <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bolt"></i></div>
         <div class="flex-1">
@@ -126,7 +122,6 @@
         </div>
     </div>
 
-    <!-- [HEADER] -->
     <nav class="fixed top-0 w-full z-[100] bg-[var(--bg-main)]/95 backdrop-blur-md border-b border-[var(--border-color)] h-20 flex items-center justify-between px-6 lg:px-12 transition-all">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-full overflow-hidden border border-[var(--border-gold)] cursor-pointer shrink-0" onclick="handleLogoClick()">
@@ -157,7 +152,6 @@
 
     <div class="pt-20">
         
-        <!-- [HERO SECTION] -->
         <section class="flex flex-col justify-center items-center text-center px-4 pt-16 pb-10 max-w-4xl mx-auto">
             <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden mb-8 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
                 <img src="IMG_5.jpg" class="w-full h-full object-cover" alt="شعار مكتب عماد عدن">
@@ -180,10 +174,8 @@
             </div>
         </section>
 
-        <!-- [ULTRA PREMIUM HIGHLIGHTS] -->
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Management -->
                 <div onclick="openModal('management-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">خدمة مميزة</span>
                     <i class="fa-solid fa-plane-up text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -192,7 +184,6 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
                 
-                <!-- Valuation -->
                 <div onclick="openModal('valuation-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">خدمة مميزة</span>
                     <i class="fa-solid fa-magnifying-glass-chart text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -201,7 +192,6 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
-                <!-- ROI Calculator -->
                 <div onclick="openModal('roi-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">أداة ذكية</span>
                     <i class="fa-solid fa-calculator text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -210,7 +200,6 @@
                     <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full" data-ar="اضغط هنا <i class='fa-solid fa-arrow-left'></i>" data-en="Click Here <i class='fa-solid fa-arrow-right'></i>">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
-                <!-- Currency -->
                 <div onclick="openModal('currency-modal')" class="ultra-premium-card group cursor-pointer">
                     <span class="highlight-badge">أداة ذكية</span>
                     <i class="fa-solid fa-money-bill-transfer text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
@@ -221,7 +210,6 @@
             </div>
         </section>
 
-        <!-- [SELL PROPERTY BANNER] -->
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="sell-banner p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
                 <div class="text-center md:text-right flex-1">
@@ -234,7 +222,6 @@
             </div>
         </section>
 
-        <!-- [CORE SERVICES & TOOLS - SECONDARY] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-10 text-center">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="المزيد من الخدمات" data-en="More Services">المزيد من الخدمات</h3>
@@ -267,7 +254,6 @@
             </div>
         </section>
 
-        <!-- [COMPARE AREAS SECTION] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 text-center">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="مقارنة المناطق العقارية" data-en="Compare Real Estate Areas">مقارنة المناطق العقارية</h3>
@@ -318,9 +304,7 @@
             </div>
         </section>
 
-        <!-- [TIMELINE & MAP] -->
         <section class="section-padding px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-[var(--border-color)]">
-            <!-- Map -->
             <div>
                 <div class="mb-8">
                     <h3 class="text-2xl font-black mb-2" data-ar="التوزيع الجغرافي" data-en="Geographical Distribution">التوزيع الجغرافي</h3>
@@ -330,7 +314,7 @@
                     <div id="map-tooltip">
                         <h4 id="tt-title" class="font-black text-base gold-text mb-1">المنطقة</h4>
                         <p id="tt-desc" class="text-xs leading-relaxed mb-3 text-[var(--text-muted)]">الوصف</p>
-                        <div class="text-xs border-t border-[var(--border-color)] pt-2 flex justify-between"><span class="text-[var(--text-muted)]">مؤشر الطلب:</span> <span id="tt-demand" class="font-bold text-white">عالي</span></div>
+                        <div class="text-xs border-t border-[var(--border-color)] pt-2 flex justify-between"><span class="text-[var(--text-muted)]">مؤشر الطلب:</span> <span id="tt-demand" class="font-bold text-[var(--text-main)]">عالي</span></div>
                     </div>
                     <svg viewBox="0 0 500 300" class="w-full h-auto overflow-visible">
                         <path d="M100,150 L200,100 L300,150 L250,220 Z" class="map-line" fill="none"/>
@@ -346,7 +330,6 @@
                 </div>
             </div>
 
-            <!-- Timeline -->
             <div>
                 <div class="mb-8">
                     <h3 class="text-2xl font-black mb-2" data-ar="آلية العمل" data-en="Workflow">آلية العمل</h3>
@@ -369,7 +352,6 @@
             </div>
         </section>
 
-        <!-- [DATA TABLE & CHART] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
@@ -419,7 +401,6 @@
             </div>
         </section>
 
-        <!-- [ARTICLES] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
             <div class="mb-12">
                 <h3 class="text-2xl md:text-3xl font-black mb-2" data-ar="الرؤى والمقالات" data-en="Insights & Articles">الرؤى والمقالات</h3>
@@ -444,7 +425,6 @@
             </div>
         </section>
 
-        <!-- [FAQ ACCORDION] -->
         <section class="section-padding px-4 max-w-3xl mx-auto border-t border-[var(--border-color)]">
             <div class="text-center mb-10">
                 <h3 class="text-2xl md:text-3xl font-black mb-3" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</h3>
@@ -465,7 +445,6 @@
             </div>
         </section>
 
-        <!-- [FOOTER] -->
         <footer class="py-12 text-center border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
             <div class="flex justify-center gap-6 text-xl mb-6 text-[var(--text-muted)]">
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
@@ -476,9 +455,6 @@
         </footer>
     </div>
 
-    <!-- [MODALS (FORMS & TOOLS)] -->
-    
-    <!-- Sell Property -->
     <div id="sell-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-house-chimney-window absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -506,10 +482,8 @@
         </div>
     </div>
 
-    <!-- Management -->
     <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
     
-    <!-- Legal Modal -->
     <div id="legal-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-scale-balanced absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -533,13 +507,10 @@
         </div>
     </div>
     
-    <!-- Valuation -->
     <div id="valuation-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('valuation-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">طلب تثمين عقاري</h3><input type="text" id="v-name" placeholder="الاسم" class="input-style"><div class="flex gap-3"><input type="text" id="v-size" placeholder="المساحة" class="input-style flex-1"><input type="text" id="v-loc" placeholder="الموقع" class="input-style flex-1"></div><textarea id="v-desc" placeholder="وصف العقار..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('valuation')" class="btn-primary w-full mt-4">إرسال بيانات التثمين</button></div></div>
     
-    <!-- Admin -->
     <div id="admin-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('admin-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إعدادات الإدارة</h3><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">سعر صرف الدولار (USD)</label><input type="number" id="admin-usd" class="input-style"><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold mt-2">سعر صرف السعودي (SAR)</label><input type="number" id="admin-sar" class="input-style"><button onclick="saveRates()" class="btn-primary w-full mt-4">حفظ التغييرات</button></div></div>
 
-    <!-- Favorites -->
     <div id="favorites-modal" class="modal-overlay">
         <div class="modal-content relative">
             <button onclick="closeModal('favorites-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -550,25 +521,13 @@
         </div>
     </div>
     
-    <!-- ROI -->
     <div id="roi-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('roi-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">حاسبة العوائد الاستثمارية</h3><input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-style"><input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-style"><button onclick="calculateROI()" class="btn-outline w-full mb-4 mt-2">احتساب العائد</button><div id="roi-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] mb-1 font-bold">الدخل السنوي المتوقع</p><h4 id="roi-yearly" class="text-2xl font-black gold-text mb-4">0</h4><div class="flex justify-between border-t border-[var(--border-color)] pt-4"><div class="text-center"><span id="roi-percent" class="block font-bold text-lg text-green-500">0%</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">نسبة العائد</span></div><div class="text-center"><span id="roi-years" class="block font-bold text-lg text-yellow-500">0</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">سنوات الاسترداد</span></div></div></div></div></div>
     
-    <!-- Currency -->
     <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">النتيجة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
 
-    <!-- [PROFESSIONAL ASSISTANT BUTTON] -->
-    <button onclick="toggleChat()" class="fixed bottom-8 right-8 z-[150] bg-[var(--bg-sec)] border border-[var(--gold)] px-5 py-3 rounded-full flex items-center gap-3 shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform group">
-        <div class="relative">
-            <i class="fa-solid fa-headset gold-text text-2xl group-hover:animate-pulse"></i>
-            <span class="absolute -top-1 -right-1 flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border border-[var(--bg-sec)]"></span>
-            </span>
-        </div>
-        <div class="flex flex-col text-right">
-            <span class="text-[var(--text-main)] text-sm font-black tracking-wide" data-ar="الدعم المباشر" data-en="Live Support">الدعم المباشر</span>
-            <span class="text-[var(--text-muted)] text-[9px] font-bold uppercase tracking-widest" data-ar="متاح الآن" data-en="Online">متاح الآن</span>
-        </div>
+    <button onclick="toggleChat()" class="fixed right-0 top-1/2 -translate-y-1/2 z-[150] bg-[var(--bg-sec)]/80 backdrop-blur-md border border-[var(--border-gold)] border-r-0 rounded-l-xl px-2 py-6 flex flex-col items-center justify-center gap-2 shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:bg-[var(--card-bg)] transition-colors">
+        <i class="fa-solid fa-headset gold-text text-xl"></i>
+        <span class="text-[var(--text-main)] text-[10px] font-bold" style="writing-mode: vertical-rl; text-orientation: mixed;">المساعد</span>
     </button>
 
     <div id="chat-window" class="fixed top-0 right-0 h-full w-full sm:w-96 max-w-[85vw] bg-[var(--bg-main)]/70 backdrop-blur-xl border-l border-[var(--border-gold)] z-[200] translate-x-full transition-transform duration-500 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
@@ -594,7 +553,6 @@
     </div>
 
     <script>
-        // Theme & Lang
         let isLight = false; let isEn = false;
         function toggleTheme() { isLight = !isLight; if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; } updateChartTheme(); }
         function toggleLang() { isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN'; document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); }); }
