@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
+    <title>مكتب عماد عدن العقاري | استشارات وحماية عقارية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -116,9 +116,9 @@
 
     <!-- [LIVE UPDATE TOAST] -->
     <div id="notify-toast" class="notification-toast" onclick="handleToastClick()">
-        <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-bolt"></i></div>
+        <div class="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
         <div class="flex-1">
-            <h4 class="font-black text-xs gold-text mb-1">تحديث مباشر</h4>
+            <h4 class="font-black text-xs gold-text mb-1">نصيحة استشارية</h4>
             <p id="notify-text" class="text-[11px] font-bold text-[var(--text-main)] leading-relaxed">جاري التحديث...</p>
             <span id="notify-action" class="text-[10px] gold-text font-black mt-1 hidden">اضغط هنا &larr;</span>
         </div>
@@ -132,7 +132,7 @@
             </div>
             <div class="flex flex-col">
                 <h1 class="font-black text-lg md:text-xl gold-text tracking-tight">مكتب عماد عدن العقاري</h1>
-                <p class="text-[9px] font-bold text-[var(--text-muted)] tracking-wider mt-0.5">بيع • شراء • تثمين • استثمار</p>
+                <p class="text-[9px] font-bold text-[var(--text-muted)] tracking-wider mt-0.5">مؤسسة استشارية وحماية عقارية</p>
             </div>
         </div>
         
@@ -143,8 +143,8 @@
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
             </div>
             <div class="flex gap-2">
-                <button onclick="openModal('sell-modal')" class="btn-primary !px-4 !py-2 !text-xs hidden sm:flex">اعرض عقارك</button>
-                <button onclick="openModal('management-modal')" class="btn-outline !px-4 !py-2 !text-xs">أملاك المغتربين</button>
+                <button onclick="openModal('sell-modal')" class="btn-primary !px-4 !py-2 !text-xs hidden sm:flex">عرض بيانات عقارك</button>
+                <button onclick="openModal('management-modal')" class="btn-outline !px-4 !py-2 !text-xs">إدارة الأملاك</button>
             </div>
             <div class="flex gap-2 border-r border-[var(--border-color)] pr-4">
                 <button onclick="toggleTheme()" class="text-[var(--text-muted)] hover:text-gold-500 transition-colors"><i class="fa-solid fa-moon text-lg" id="theme-icon"></i></button>
@@ -159,20 +159,20 @@
             <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden mb-8 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
                 <img src="IMG_5.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/D4AF37?text=LOGO'" alt="شعار مكتب عماد عدن">
             </div>
-            <p class="text-sm md:text-base leading-relaxed mb-10 text-[var(--text-muted)] font-medium max-w-2xl mx-auto">نوثق الحقوق ونبني مستقبلك الاستثماري بأسس قانونية وميدانية صلبة لتكون عقاراتك في أمان تام.</p>
+            <p class="text-sm md:text-base leading-relaxed mb-10 text-[var(--text-muted)] font-medium max-w-3xl mx-auto">منصة استشارية متكاملة تهدف إلى تقديم الحماية المعرفية والقانونية للمستثمرين نوثق الحقوق وفق مخططات وحدات الجوار الرسمية ونبني مستقبلك الاستثماري بأسس صلبة بعيداً عن العشوائيات</p>
             
             <div class="grid grid-cols-3 gap-px w-full max-w-2xl border border-[var(--border-color)] rounded-xl overflow-hidden bg-[var(--border-color)]">
                 <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
                     <div class="text-xl md:text-3xl font-black gold-text mb-1">+15</div>
-                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">سنة خبرة</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">سنة خبرة استشارية</div>
                 </div>
                 <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
                     <div class="text-xl md:text-3xl font-black gold-text mb-1">+1000</div>
-                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">استشارة منجزة</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">حالة توثيق وفحص</div>
                 </div>
                 <div class="bg-[var(--bg-sec)] p-4 md:p-6 text-center">
                     <div class="text-xl md:text-3xl font-black gold-text mb-1">8</div>
-                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">مديريات مغطاة</div>
+                    <div class="text-[9px] md:text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">تغطية قانونية شاملة</div>
                 </div>
             </div>
         </section>
@@ -181,48 +181,35 @@
         <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div onclick="openModal('management-modal')" class="ultra-premium-card group cursor-pointer">
-                    <span class="highlight-badge">خدمة مميزة</span>
+                    <span class="highlight-badge">موثوقية تامة</span>
                     <i class="fa-solid fa-plane-up text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
                     <h3 class="text-xl font-black mb-2">إدارة الأملاك</h3>
-                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">إدارة كاملة لعقارات المغتربين، تحصيل وصيانة دورية.</p>
-                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">حماية كاملة لعقارات المغتربين، تحصيل مالي وصيانة دورية لضمان القيمة.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">طلب الخدمة <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
                 
                 <div onclick="openModal('valuation-modal')" class="ultra-premium-card group cursor-pointer">
-                    <span class="highlight-badge">خدمة مميزة</span>
+                    <span class="highlight-badge">لجنة متخصصة</span>
                     <i class="fa-solid fa-magnifying-glass-chart text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
-                    <h3 class="text-xl font-black mb-2">تثمين العقارات</h3>
-                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">تقييم ميداني معتمد يعكس السعر الحقيقي لعقارك بالسوق.</p>
-                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                    <h3 class="text-xl font-black mb-2">التثمين المعتمد</h3>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">تقييم دقيق بناءً على المخططات الرسمية يعكس القيمة الحقيقية للعقار.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">طلب تقييم <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
                 <div onclick="openModal('roi-modal')" class="ultra-premium-card group cursor-pointer">
-                    <span class="highlight-badge">أداة ذكية</span>
+                    <span class="highlight-badge">تحليل استثماري</span>
                     <i class="fa-solid fa-calculator text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
                     <h3 class="text-xl font-black mb-2">حاسبة العوائد</h3>
-                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">احسب صافي الربح السنوي ومدة استرداد رأس مالك بسهولة.</p>
-                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">أداة رقمية لاحتساب صافي الأرباح ومدة استرداد رأس المال ببيانات دقيقة.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">ابدأ الحساب <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
 
                 <div onclick="openModal('currency-modal')" class="ultra-premium-card group cursor-pointer">
-                    <span class="highlight-badge">أداة ذكية</span>
+                    <span class="highlight-badge">دقة مالية</span>
                     <i class="fa-solid fa-money-bill-transfer text-4xl gold-text mb-4 group-hover:scale-125 transition-transform duration-500"></i>
                     <h3 class="text-xl font-black mb-2">محول العملات</h3>
-                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">تحويل فوري لأسعار العقارات بين العملات المتداولة محلياً.</p>
-                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- [SELL PROPERTY BANNER] -->
-        <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10">
-            <div class="sell-banner p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
-                <div class="text-center md:text-right flex-1">
-                    <h3 class="text-3xl md:text-4xl font-black gold-text mb-4">تريد بيع عقارك؟</h3>
-                    <p class="text-sm md:text-base font-medium text-[var(--text-main)] leading-relaxed max-w-2xl">اعرض عقارك للبيع عبر شبكتنا الواسعة من المستثمرين والمشترين الجادين، نضمن لك أفضل الأسعار وسرعة في إتمام الإجراءات القانونية.</p>
-                </div>
-                <div class="shrink-0 w-full md:w-auto">
-                    <button onclick="openModal('sell-modal')" class="btn-primary w-full md:w-auto !px-8 !py-4 !text-lg shadow-[0_10px_25px_rgba(212,175,55,0.4)]">أضف تفاصيل عقارك الآن <i class="fa-solid fa-arrow-left mr-2"></i></button>
+                    <p class="text-xs text-[var(--text-muted)] mb-5 leading-relaxed">تحديث فوري لأسعار العقارات وارتباطها بالعملات المتداولة محلياً.</p>
+                    <span class="btn-primary !px-5 !py-1.5 !text-xs !rounded-full w-full">تنفيذ تحويل <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
             </div>
         </section>
@@ -230,21 +217,21 @@
         <!-- [DATA CENTER: NEIGHBORHOOD UNITS & REAL ESTATE OFFERS] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 text-center">
-                <h3 class="text-3xl md:text-4xl font-black mb-3 gold-text"><i class="fa-solid fa-database mr-2"></i> مركز البيانات العقارية</h3>
-                <p class="text-base font-medium text-[var(--text-muted)]">معلومات دقيقة مستخرجة من المخططات الإدارية وأحدث العروض في السوق</p>
+                <h3 class="text-3xl md:text-4xl font-black mb-3 gold-text"><i class="fa-solid fa-database mr-2"></i> مركز البيانات والمخططات</h3>
+                <p class="text-base font-medium text-[var(--text-muted)]">معلومات دقيقة مستخرجة من السجلات الإدارية لضمان استثمار آمن</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <!-- Table 1: Neighborhood Units -->
                 <div class="flex flex-col">
-                    <h4 class="text-xl font-black mb-4 flex items-center gap-2"><i class="fa-solid fa-map-location-dot gold-text"></i> وحدات الجوار والمخططات (عدن)</h4>
+                    <h4 class="text-xl font-black mb-4 flex items-center gap-2"><i class="fa-solid fa-map-location-dot gold-text"></i> وحدات الجوار الإدارية المعتمدة</h4>
                     <div class="table-container flex-1">
                         <table class="styled-table">
                             <thead>
                                 <tr>
                                     <th>المديرية / المنطقة</th>
                                     <th>وحدة الجوار</th>
-                                    <th>التصنيف</th>
+                                    <th>التصنيف الحضري</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -255,18 +242,18 @@
                                 </tr>
                                 <tr>
                                     <td class="font-bold text-white">البريقة - بئر أحمد</td>
-                                    <td class="text-gold-500 font-bold">مناطق متعددة</td>
-                                    <td class="text-[var(--text-muted)]">مساكن شعبية وأراضي واسعة</td>
+                                    <td class="text-gold-500 font-bold">توسع معتمد</td>
+                                    <td class="text-[var(--text-muted)]">مساكن شعبية وأراضي حضرية</td>
                                 </tr>
                                 <tr>
                                     <td class="font-bold text-white">البريقة - درة عدن</td>
                                     <td class="text-gold-500 font-bold">بجانب إنماء</td>
-                                    <td class="text-[var(--text-muted)]">فلل سكنية راقية وإطلالات</td>
+                                    <td class="text-[var(--text-muted)]">مخطط فلل سكنية راقية</td>
                                 </tr>
                                 <tr>
                                     <td class="font-bold text-white">المنصورة / عبد العزيز</td>
                                     <td class="text-gold-500 font-bold">أحياء معتمدة</td>
-                                    <td class="text-[var(--text-muted)]">شقق وعمائر استثمارية</td>
+                                    <td class="text-[var(--text-muted)]">توسع شقق وعمائر استثمارية</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -275,14 +262,14 @@
 
                 <!-- Table 2: Live Prices & Offers -->
                 <div class="flex flex-col">
-                    <h4 class="text-xl font-black mb-4 flex items-center gap-2"><i class="fa-solid fa-tags gold-text"></i> أحدث العروض والأسعار الحية</h4>
+                    <h4 class="text-xl font-black mb-4 flex items-center gap-2"><i class="fa-solid fa-tags gold-text"></i> مؤشرات السوق والعروض الموثقة</h4>
                     <div class="table-container flex-1">
                         <table class="styled-table">
                             <thead>
                                 <tr>
                                     <th>نوع العقار</th>
-                                    <th>الموقع والتفاصيل</th>
-                                    <th>السعر التقريبي</th>
+                                    <th>الموقع والبيانات</th>
+                                    <th>مؤشر السعر</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -292,18 +279,18 @@
                                     <td class="text-green-400 font-black">220,000 ر.س</td>
                                 </tr>
                                 <tr>
-                                    <td class="font-bold text-white">بيت شعبي</td>
-                                    <td class="text-[var(--text-muted)] text-sm">بئر أحمد، 12×15 متر، غرفتين وحوش</td>
+                                    <td class="font-bold text-white">منزل شعبي</td>
+                                    <td class="text-[var(--text-muted)] text-sm">بئر أحمد، 12×15 متر، مكتمل الخدمات</td>
                                     <td class="text-green-400 font-black">130,000 ر.س</td>
                                 </tr>
                                 <tr>
-                                    <td class="font-bold text-white">فيلا دورين</td>
+                                    <td class="font-bold text-white">فيلا فاخرة</td>
                                     <td class="text-[var(--text-muted)] text-sm">درة عدن، 364 متر، 7 غرف، إطلالة بحرية</td>
                                     <td class="text-green-400 font-black">450,000 دولار</td>
                                 </tr>
                                 <tr>
-                                    <td class="font-bold text-white">شقة للإيجار</td>
-                                    <td class="text-[var(--text-muted)] text-sm">المنصورة/عبدالعزيز، 4-5 غرف</td>
+                                    <td class="font-bold text-white">استثمار إيجاري</td>
+                                    <td class="text-[var(--text-muted)] text-sm">المنصورة/عبدالعزيز، شقق 4-5 غرف</td>
                                     <td class="text-yellow-400 font-black">800 ر.س / شهر</td>
                                 </tr>
                             </tbody>
@@ -313,50 +300,63 @@
             </div>
         </section>
 
+        <!-- [SELL PROPERTY BANNER] -->
+        <section class="pb-16 px-4 max-w-7xl mx-auto relative z-10 mt-10">
+            <div class="sell-banner p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+                <div class="text-center md:text-right flex-1">
+                    <h3 class="text-3xl md:text-4xl font-black gold-text mb-4">عرض العقارات للتوثيق والبيع</h3>
+                    <p class="text-sm md:text-base font-medium text-[var(--text-main)] leading-relaxed max-w-2xl">نستقبل بيانات عقارك لعرضها ضمن شبكتنا الاستثمارية الموثوقة بعد التأكد من مطابقتها لوحدات الجوار والمخططات السليمة لضمان حقوق كافة الأطراف.</p>
+                </div>
+                <div class="shrink-0 w-full md:w-auto">
+                    <button onclick="openModal('sell-modal')" class="btn-primary w-full md:w-auto !px-8 !py-4 !text-lg shadow-[0_10px_25px_rgba(212,175,55,0.4)]">إرسال بيانات العقار <i class="fa-solid fa-arrow-left mr-2"></i></button>
+                </div>
+            </div>
+        </section>
+
         <!-- [COMPARE AREAS SECTION] -->
         <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)]">
             <div class="mb-12 text-center">
-                <h3 class="text-2xl md:text-3xl font-black mb-2">مقارنة المناطق العقارية</h3>
-                <p class="text-sm font-medium text-[var(--text-muted)]">قارن بين مديريات عدن لاختيار أفضل فرصة استثمارية</p>
+                <h3 class="text-2xl md:text-3xl font-black mb-2">التحليل والمقارنة الاستثمارية</h3>
+                <p class="text-sm font-medium text-[var(--text-muted)]">أداة بحثية متقدمة للمقارنة بين مديريات عدن والمخططات المختلفة</p>
             </div>
             
             <div class="pro-card p-8 bg-[var(--bg-sec)] relative overflow-hidden shadow-2xl">
                 <i class="fa-solid fa-code-compare absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500"></i>
                 <div class="flex flex-col md:flex-row gap-6 mb-8 relative z-10">
                     <div class="flex-1">
-                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة الأولى</label>
-                        <select id="comp-1" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="المنصورة">المنصورة</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option><option value="البريقة">البريقة</option><option value="مدينة الشعب">مدينة الشعب</option></select>
+                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة / المخطط الأول</label>
+                        <select id="comp-1" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="المنصورة">المنصورة (أحياء تجارية)</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option><option value="البريقة">البريقة</option><option value="مدينة الشعب">مدينة الشعب (وحدة 573)</option></select>
                     </div>
                     <div class="flex items-center justify-center pt-6 md:pt-8">
                         <div class="w-12 h-12 rounded-full gold-bg text-black flex items-center justify-center font-black shadow-lg"><i class="fa-solid fa-bolt"></i></div>
                     </div>
                     <div class="flex-1">
-                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة الثانية</label>
-                        <select id="comp-2" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="البريقة">البريقة</option><option value="مدينة الشعب">مدينة الشعب</option><option value="المنصورة">المنصورة</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option></select>
+                        <label class="block text-xs mb-3 text-[var(--text-muted)] font-bold">المنطقة / المخطط الثاني</label>
+                        <select id="comp-2" class="input-style !mb-0 !bg-[var(--bg-main)]"><option value="البريقة">البريقة</option><option value="مدينة الشعب">مدينة الشعب (وحدة 573)</option><option value="المنصورة">المنصورة (أحياء تجارية)</option><option value="خور مكسر">خور مكسر</option><option value="المعلا">المعلا</option></select>
                     </div>
                 </div>
                 <div class="text-center relative z-10 mb-8">
-                    <button onclick="runComparison()" class="btn-outline !px-12 !py-3">تنفيذ المقارنة</button>
+                    <button onclick="runComparison()" class="btn-outline !px-12 !py-3">إجراء التحليل والمقارنة</button>
                 </div>
                 
                 <div id="comp-result" class="hidden bg-[var(--bg-main)] border border-[var(--border-color)] rounded-xl overflow-hidden relative z-10 shadow-inner">
                     <div class="flex border-b border-[var(--border-color)] bg-[rgba(212,175,55,0.05)] text-gold-500">
-                        <div class="flex-1 p-4 text-center text-sm font-black border-l border-[var(--border-color)]">المعيار</div>
+                        <div class="flex-1 p-4 text-center text-sm font-black border-l border-[var(--border-color)]">معيار التقييم</div>
                         <div class="flex-1 p-4 text-center text-sm font-black border-l border-[var(--border-color)]" id="res-title-1">-</div>
                         <div class="flex-1 p-4 text-center text-sm font-black" id="res-title-2">-</div>
                     </div>
                     <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
-                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">السعر</div>
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">الموثوقية والمخطط</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold text-[var(--text-main)]" id="res-price-1">-</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold text-[var(--text-main)]" id="res-price-2">-</div>
                     </div>
                     <div class="flex border-b border-[var(--border-color)] hover:bg-[var(--card-bg)] transition-colors">
-                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">الطلب</div>
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">مؤشر الاستثمار</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold text-green-500" id="res-demand-1">-</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold text-green-500" id="res-demand-2">-</div>
                     </div>
                     <div class="flex hover:bg-[var(--card-bg)] transition-colors">
-                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">النوع الغالب</div>
+                        <div class="flex-1 p-4 text-center text-xs font-bold text-[var(--text-muted)] border-l border-[var(--border-color)]">الطبيعة الاستثمارية</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold gold-text" id="res-type-1">-</div>
                         <div class="flex-1 p-4 text-center text-sm font-bold gold-text" id="res-type-2">-</div>
                     </div>
@@ -364,53 +364,27 @@
             </div>
         </section>
 
-        <!-- [TIMELINE & MAP] -->
-        <section class="section-padding px-4 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-[var(--border-color)]">
-            <!-- Map -->
-            <div>
-                <div class="mb-8">
-                    <h3 class="text-2xl font-black mb-2">التوزيع الجغرافي</h3>
-                    <p class="text-sm text-[var(--text-muted)] font-medium">تغطية شاملة لمديريات عدن</p>
-                </div>
-                <div class="pro-card p-8 relative flex justify-center items-center min-h-[350px] bg-[var(--bg-sec)]">
-                    <div id="map-tooltip">
-                        <h4 id="tt-title" class="font-black text-base gold-text mb-1">المنطقة</h4>
-                        <p id="tt-desc" class="text-xs leading-relaxed mb-3 text-[var(--text-muted)]">الوصف</p>
-                        <div class="text-xs border-t border-[var(--border-color)] pt-2 flex justify-between"><span class="text-[var(--text-muted)]">مؤشر الطلب:</span> <span id="tt-demand" class="font-bold text-[var(--text-main)]">عالي</span></div>
-                    </div>
-                    <svg viewBox="0 0 500 300" class="w-full h-auto overflow-visible">
-                        <path d="M100,150 L200,100 L300,150 L250,220 Z" class="map-line" fill="none"/>
-                        <path d="M300,150 L400,120 L350,200 L250,220" class="map-line" fill="none"/>
-                        <path d="M100,150 L50,200" class="map-line" fill="none"/>
-                        <g onmousemove="showTooltip(event, 'مدينة الشعب / القياديين', 'مخططات رسمية (وحدة جوار 573) بأسعار 220 ألف ريال سعودي.', 'عالي جداً')" onmouseout="hideTooltip()"><circle cx="50" cy="200" r="8" class="map-node"/><text x="50" y="225" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="middle">مدينة الشعب</text></g>
-                        <g onmousemove="showTooltip(event, 'المنصورة والشيخ', 'القلب التجاري النابض لعدن. طلب هائل للشقق الإيجار.', '100% (أعلى طلب)')" onmouseout="hideTooltip()"><circle cx="200" cy="100" r="12" class="map-node"/><text x="200" y="80" fill="var(--text-main)" font-size="12" font-weight="900" text-anchor="middle">المنصورة</text></g>
-                        <g onmousemove="showTooltip(event, 'خور مكسر', 'استقرار كبير في الأسعار وقيمة سكنية عالية.', 'مستقر ومطلوب')" onmouseout="hideTooltip()"><circle cx="300" cy="150" r="10" class="map-node"/><text x="315" y="145" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="start">خور مكسر</text></g>
-                        <g onmousemove="showTooltip(event, 'كريتر', 'المدينة التاريخية والتجارية العريقة.', 'مستقر')" onmouseout="hideTooltip()"><circle cx="400" cy="120" r="8" class="map-node"/><text x="400" y="100" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="middle">كريتر</text></g>
-                        <g onmousemove="showTooltip(event, 'المعلا والتواهي', 'إطلالات بحرية وشقق عائلية مميزة.', 'متوسط')" onmouseout="hideTooltip()"><circle cx="350" cy="200" r="8" class="map-node"/><text x="365" y="210" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="start">المعلا</text></g>
-                        <g onmousemove="showTooltip(event, 'بئر أحمد', 'بيوت شعبية جاهزة وأحواش واسعة تبدأ من 130 ألف سعودي.', 'مرتفع 90%')" onmouseout="hideTooltip()"><circle cx="100" cy="150" r="8" class="map-node"/><text x="85" y="140" fill="var(--text-main)" font-size="11" font-weight="bold" text-anchor="end">بئر أحمد</text></g>
-                    </svg>
-                </div>
+        <!-- [ARTICLES - KNOWLEDGE BASE] -->
+        <section class="section-padding px-4 max-w-7xl mx-auto border-t border-[var(--border-color)] bg-[var(--bg-sec)]">
+            <div class="mb-12 flex flex-col items-center">
+                <h3 class="text-2xl md:text-3xl font-black mb-2">قاعدة الحماية المعرفية</h3>
+                <p class="text-sm font-medium text-[var(--text-muted)] text-center max-w-2xl">بناء السلطة المرجعية عبر تزويد المستثمر بالمعلومات القانونية والعقارية لتجنب المخاطر وضمان أمان الاستثمار في عدن.</p>
             </div>
-
-            <!-- Timeline -->
-            <div>
-                <div class="mb-8">
-                    <h3 class="text-2xl font-black mb-2">آلية العمل</h3>
-                    <p class="text-sm text-[var(--text-muted)] font-medium">خطوات واضحة وشفافة في إدارة الأملاك</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art1', 'أهمية وحدات الجوار المعتمدة')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6 gold-text">أهمية وحدات الجوار المعتمدة</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">يعتبر تخطيط وحدات الجوار في عدن صمام الأمان لأي استثمار. الشراء ضمن مخططات معتمدة يضمن لك بنية تحتية سليمة وتسجيلاً قانونياً خالياً من النزاعات العشوائية.</p>
                 </div>
-                <div class="timeline mt-4">
-                    <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">1. الاستلام والجرد</h4>
-                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">نستلم العقار، نوثق حالته بالصور، ونراجع الوثائق القانونية بدقة.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">2. الصيانة والتأهيل</h4>
-                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">إجراء الصيانة اللازمة للمرافق لضمان تأجيره بأعلى قيمة ممكنة.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="font-bold text-base mb-2 text-[var(--text-main)]">3. التحصيل والمتابعة</h4>
-                        <p class="text-sm leading-relaxed text-[var(--text-muted)]">تحصيل الإيجارات بانتظام، حل مشاكل المستأجرين، وتحويل الأموال للمغترب.</p>
-                    </div>
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art2', 'كيف تتجنب الفخاخ والعقود العشوائية')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6 gold-text">تجنب العقود العشوائية</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">الاستثمار الآمن يبدأ بالفحص القانوني المعمق. يجب مطابقة أوراق الملكية والتأكد من خلو العقار من تعدد الملاك والنزاعات قبل الشروع في إبرام أي اتفاقيات مالية.</p>
+                </div>
+                <div class="pro-card p-6 relative">
+                    <button class="fav-btn" onclick="toggleFav(this, 'art3', 'التوثيق القانوني والشروط الجزائية')"><i class="fa-regular fa-bookmark"></i></button>
+                    <h4 class="font-black text-base mb-3 pt-6 gold-text">التوثيق والشروط الجزائية</h4>
+                    <p class="text-sm leading-relaxed text-[var(--text-muted)]">صياغة العقود بشكل احترافي ليست مجرد إجراء شكلي، بل هي الحماية الفعلية لأموالك. يجب تضمين شروط جزائية رادعة تضمن حقوقك وتسليم العقار في موعده وبالمواصفات المتفق عليها.</p>
                 </div>
             </div>
         </section>
@@ -422,13 +396,12 @@
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-twitter"></i></a>
                 <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <p class="font-bold text-xs text-[var(--text-muted)]">مكتب عماد عدن العقاري | جميع الحقوق محفوظة © 2026</p>
+            <p class="font-bold text-xs text-[var(--text-muted)]">مكتب عماد عدن العقاري | مؤسسة استشارية معتمدة © 2026</p>
         </footer>
     </div>
 
     <!-- [MODALS (FORMS & TOOLS)] -->
     
-    <!-- Sell Property -->
     <div id="sell-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-house-chimney-window absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -437,29 +410,27 @@
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl gold-bg flex items-center justify-center text-black text-2xl shadow-lg"><i class="fa-solid fa-key"></i></div>
                     <div>
-                        <h3 class="text-2xl font-black gold-text">عرض عقار للبيع</h3>
-                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">ارسل التفاصيل وسنتواصل معك فوراً</p>
+                        <h3 class="text-2xl font-black gold-text">توثيق وعرض عقار</h3>
+                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">يرجى التأكد من توفر المخططات الرسمية للعقار</p>
                     </div>
                 </div>
                 <input type="text" id="s-name" placeholder="الاسم ورقم التواصل" class="input-style">
                 <div class="flex gap-3">
-                    <select id="s-type" class="input-style flex-1"><option>أرضية</option><option>فيلا</option><option>شقة</option><option>عمارة تجارية</option></select>
-                    <input type="text" id="s-loc" placeholder="الموقع/المديرية" class="input-style flex-1">
+                    <select id="s-type" class="input-style flex-1"><option>أرضية مخطط</option><option>فيلا معتمدة</option><option>شقة سكنية</option><option>عمارة استثمارية</option></select>
+                    <input type="text" id="s-loc" placeholder="وحدة الجوار / المنطقة" class="input-style flex-1">
                 </div>
                 <div class="flex gap-3">
-                    <input type="text" id="s-size" placeholder="المساحة" class="input-style flex-1">
+                    <input type="text" id="s-size" placeholder="المساحة بالمتر المربع" class="input-style flex-1">
                     <input type="text" id="s-price" placeholder="السعر المطلوب" class="input-style flex-1">
                 </div>
-                <textarea id="s-desc" placeholder="تفاصيل العقار، الإطلالة، المرفقات..." class="input-style h-24"></textarea>
-                <button onclick="sendWhatsApp('sell')" class="btn-primary w-full mt-2 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> إرسال تفاصيل العقار</button>
+                <textarea id="s-desc" placeholder="وصف حالة الأوراق والمخطط وأي تفاصيل أخرى..." class="input-style h-24"></textarea>
+                <button onclick="sendWhatsApp('sell')" class="btn-primary w-full mt-2 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> إرسال البيانات للتدقيق</button>
             </div>
         </div>
     </div>
 
-    <!-- Management -->
     <div id="management-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('management-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إدارة أملاك المغتربين</h3><input type="text" id="m-name" placeholder="الاسم الكامل" class="input-style"><input type="text" id="m-loc" placeholder="موقع العقارات" class="input-style"><textarea id="m-desc" placeholder="اشرح التفاصيل (تأجير، تحصيل، صيانة)..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('management')" class="btn-primary w-full mt-4">إرسال الطلب عبر الواتساب</button></div></div>
     
-    <!-- Legal Modal -->
     <div id="legal-modal" class="modal-overlay">
         <div class="modal-content relative overflow-hidden">
             <i class="fa-solid fa-scale-balanced absolute -left-10 -bottom-10 text-9xl opacity-5 text-gold-500 pointer-events-none"></i>
@@ -468,147 +439,117 @@
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl gold-bg flex items-center justify-center text-black text-2xl shadow-lg"><i class="fa-solid fa-scale-balanced"></i></div>
                     <div>
-                        <h3 class="text-2xl font-black gold-text">المستشار القانوني</h3>
-                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">حماية قانونية متكاملة لاستثماراتك</p>
+                        <h3 class="text-2xl font-black gold-text">الاستشارات والحماية المعرفية</h3>
+                        <p class="text-xs text-[var(--text-muted)] font-bold mt-1">حماية قانونية متكاملة لقراراتك الاستثمارية</p>
                     </div>
                 </div>
                 <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">الاسم بالكامل</label>
                 <input type="text" id="l-name" placeholder="اكتب اسمك هنا..." class="input-style">
-                <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">نوع الاستشارة المطلوبة</label>
-                <select id="l-type" class="input-style"><option>فحص وثائق وحدات الجوار</option><option>فصل نزاع عقاري</option><option>كتابة وصياغة عقد</option></select>
+                <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">نوع الخدمة المعرفية</label>
+                <select id="l-type" class="input-style"><option>التأكد من وحدات الجوار وصحة المخطط</option><option>فحص وثائق الملكية والبصيرة</option><option>صياغة عقد يضمن الحماية التامة</option></select>
                 <label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">تفاصيل المشكلة أو الاستشارة</label>
-                <textarea id="l-desc" placeholder="اشرح لنا المشكلة أو الطلب بالتفصيل..." class="input-style h-32"></textarea>
-                <button onclick="sendWhatsApp('legal')" class="btn-primary w-full mt-4 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> طلب استشارة الآن</button>
+                <textarea id="l-desc" placeholder="اشرح لنا طبيعة الاستشارة التي تحتاجها..." class="input-style h-32"></textarea>
+                <button onclick="sendWhatsApp('legal')" class="btn-primary w-full mt-4 text-base"><i class="fa-brands fa-whatsapp mr-2 text-xl"></i> طلب استشارة مختصة</button>
             </div>
         </div>
     </div>
     
-    <!-- Valuation -->
     <div id="valuation-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('valuation-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">طلب تثمين عقاري</h3><input type="text" id="v-name" placeholder="الاسم" class="input-style"><div class="flex gap-3"><input type="text" id="v-size" placeholder="المساحة" class="input-style flex-1"><input type="text" id="v-loc" placeholder="الموقع" class="input-style flex-1"></div><textarea id="v-desc" placeholder="وصف العقار..." class="input-style h-28"></textarea><button onclick="sendWhatsApp('valuation')" class="btn-primary w-full mt-4">إرسال بيانات التثمين</button></div></div>
     
-    <!-- Admin -->
     <div id="admin-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('admin-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-2xl font-black mb-6">إعدادات الإدارة</h3><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold">سعر صرف الدولار (USD)</label><input type="number" id="admin-usd" class="input-style"><label class="block text-xs mb-2 text-[var(--text-muted)] font-bold mt-2">سعر صرف السعودي (SAR)</label><input type="number" id="admin-sar" class="input-style"><button onclick="saveRates()" class="btn-primary w-full mt-4">حفظ التغييرات</button></div></div>
 
-    <!-- Favorites -->
     <div id="favorites-modal" class="modal-overlay">
         <div class="modal-content relative">
             <button onclick="closeModal('favorites-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-2xl font-black mb-6">المقالات المحفوظة</h3>
+            <h3 class="text-2xl font-black mb-6">المقالات والمراجع المحفوظة</h3>
             <div id="fav-list" class="space-y-3">
-                <p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>
+                <p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد سجلات محفوظة حالياً.</p>
             </div>
         </div>
     </div>
     
-    <!-- ROI -->
-    <div id="roi-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('roi-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">حاسبة العوائد الاستثمارية</h3><input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-style"><input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-style"><button onclick="calculateROI()" class="btn-outline w-full mb-4 mt-2">احتساب العائد</button><div id="roi-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] mb-1 font-bold">الدخل السنوي المتوقع</p><h4 id="roi-yearly" class="text-2xl font-black gold-text mb-4">0</h4><div class="flex justify-between border-t border-[var(--border-color)] pt-4"><div class="text-center"><span id="roi-percent" class="block font-bold text-lg text-green-500">0%</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">نسبة العائد</span></div><div class="text-center"><span id="roi-years" class="block font-bold text-lg text-yellow-500">0</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">سنوات الاسترداد</span></div></div></div></div></div>
+    <div id="roi-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('roi-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">حاسبة العوائد الاستثمارية</h3><input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-style"><input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-style"><button onclick="calculateROI()" class="btn-outline w-full mb-4 mt-2">إجراء التحليل المالي</button><div id="roi-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] mb-1 font-bold">الدخل السنوي المتوقع</p><h4 id="roi-yearly" class="text-2xl font-black gold-text mb-4">0</h4><div class="flex justify-between border-t border-[var(--border-color)] pt-4"><div class="text-center"><span id="roi-percent" class="block font-bold text-lg text-green-500">0%</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">نسبة العائد الاستثماري</span></div><div class="text-center"><span id="roi-years" class="block font-bold text-lg text-yellow-500">0</span><span class="text-[10px] text-[var(--text-muted)] font-bold mt-1 block">سنوات الاسترداد</span></div></div></div></div></div>
     
-    <!-- Currency -->
-    <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">النتيجة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
+    <div id="currency-modal" class="modal-overlay"><div class="modal-content relative"><button onclick="closeModal('currency-modal')" class="absolute top-5 left-5 text-[var(--text-muted)] hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-xl font-black mb-6">محول العملات العقاري</h3><input type="number" id="curr-amount" placeholder="المبلغ" class="input-style" value="1"><div class="flex gap-3 mb-6"><select id="curr-from" class="input-style flex-1 !mb-0"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select><select id="curr-to" class="input-style flex-1 !mb-0"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select></div><button onclick="convertCurrency()" class="btn-outline w-full mb-4">تنفيذ التحويل</button><div id="curr-result" class="hidden text-center mt-2 border border-[var(--border-color)] bg-[var(--input-bg)] p-6 rounded-xl"><p class="text-xs text-[var(--text-muted)] font-bold mb-2">القيمة المعادلة</p><h4 id="curr-value" class="text-2xl font-black gold-text">0</h4></div></div></div>
 
     <!-- [TRANSPARENT SLIDING ASSISTANT] -->
-    <button onclick="toggleChat()" class="fixed right-0 top-1/2 -translate-y-1/2 z-[150] bg-[var(--bg-sec)]/80 backdrop-blur-md border border-[var(--border-gold)] border-r-0 rounded-l-xl px-2 py-6 flex flex-col items-center justify-center gap-2 shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:bg-[var(--card-bg)] transition-colors">
+    <button onclick="toggleChat()" class="fixed right-0 top-1/2 -translate-y-1/2 z-[150] bg-[var(--bg-sec)]/80 backdrop-blur-md border border-[var(--border-gold)] border-r-0 rounded-l-xl px-2 py-6 flex flex-col items-center justify-center gap-2 shadow-[0_0_15px_rgba(212,175,55,0.2)] hover:bg-[var(--card-bg)] transition-colors cursor-pointer">
         <i class="fa-solid fa-headset gold-text text-xl"></i>
-        <span class="text-[var(--text-main)] text-[10px] font-bold" style="writing-mode: vertical-rl; text-orientation: mixed;">المساعد</span>
+        <span class="text-[var(--text-main)] text-[10px] font-bold" style="writing-mode: vertical-rl; text-orientation: mixed;">استشارة فورية</span>
     </button>
 
     <!-- [CHAT WINDOW] -->
-    <div id="chat-window" class="fixed top-0 right-0 h-full w-full sm:w-96 max-w-[85vw] bg-[var(--bg-main)]/70 backdrop-blur-xl border-l border-[var(--border-gold)] z-[200] translate-x-full transition-transform duration-500 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
-        <div class="p-5 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]/50">
+    <div id="chat-window" class="fixed top-0 right-0 h-full w-full sm:w-[400px] max-w-[85vw] bg-[var(--bg-main)]/80 backdrop-blur-xl border-l border-[var(--border-gold)] z-[200] translate-x-full transition-transform duration-500 ease-in-out flex flex-col shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--border-color)] bg-[var(--bg-sec)]/80">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full border border-[var(--border-gold)] flex items-center justify-center bg-[var(--input-bg)]">
-                    <i class="fa-solid fa-headset text-[var(--text-main)]"></i>
+                    <i class="fa-solid fa-scale-balanced text-[var(--gold)]"></i>
                 </div>
                 <div>
-                    <div class="font-bold text-sm text-[var(--text-main)]">المساعد الذكي</div>
-                    <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                    <div class="font-bold text-sm text-[var(--text-main)]">المستشار الفكري والعقاري</div>
+                    <div class="text-[9px] text-green-500 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> مستعد لتقديم الحماية المعرفية</div>
                 </div>
             </div>
             <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--input-bg)] text-[var(--text-muted)] hover:text-red-500 transition-colors"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
-            <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md">مرحباً بك في مكتب عماد عدن العقاري. تفضل بطرح استفسارك عن الأسعار والمناطق، نحن هنا لخدمتك بمعلومات دقيقة.</div>
+            <div class="p-4 rounded-xl rounded-tr-none border border-[var(--border-color)] leading-relaxed font-medium bg-[var(--card-bg)] text-[var(--text-main)]">مرحباً بك في المنصة الاستشارية لمكتب عماد. نحن هنا لتقديم الإرشاد المعرفي وتوجيهك للاستثمار ضمن المخططات المعتمدة ووحدات الجوار الآمنة. تفضل بطرح استفسارك.</div>
         </div>
-        <div class="p-4 border-t border-[var(--border-color)] flex gap-3 bg-[var(--bg-sec)]/50 items-center">
-            <input type="text" id="chat-input" placeholder="اكتب رسالتك هنا..." class="input-style !mb-0" style="flex: 1; padding: 12px 16px; background: var(--input-bg); color: var(--text-main);" onkeypress="if(event.key==='Enter')sendMessage()">
+        <div class="p-4 border-t border-[var(--border-color)] flex gap-3 bg-[var(--bg-sec)]/80 items-center">
+            <input type="text" id="chat-input" placeholder="اطلب استشارتك هنا..." class="input-style !mb-0" style="flex: 1; padding: 12px 16px; background: var(--input-bg); color: var(--text-main);" onkeypress="if(event.key==='Enter')sendMessage()">
             <button onclick="sendMessage()" class="w-12 h-12 shrink-0 gold-bg text-black rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.3)]"><i class="fa-solid fa-paper-plane text-lg"></i></button>
         </div>
     </div>
 
     <script>
-        // Theme & Lang
         let isLight = false; let isEn = false;
-        function toggleTheme() {
-            isLight = !isLight;
-            if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } 
-            else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; }
-        }
-        function toggleLang() {
-            isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN';
-            document.querySelectorAll('[data-ar]').forEach(el => { el.innerHTML = isEn && el.getAttribute('data-en') ? el.getAttribute('data-en') : el.getAttribute('data-ar'); });
-        }
+        function toggleTheme() { isLight = !isLight; if(isLight) { document.body.classList.add('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-sun'; } else { document.body.classList.remove('light-theme'); document.getElementById('theme-icon').className = 'fa-solid fa-moon'; } }
+        function toggleLang() { isEn = !isEn; document.documentElement.dir = isEn ? 'ltr' : 'rtl'; document.getElementById('lang-btn').innerText = isEn ? 'AR' : 'EN'; }
 
-        // Map Tooltip
-        function showTooltip(e, title, desc, demand) {
-            const tt = document.getElementById('map-tooltip');
-            document.getElementById('tt-title').innerText = title; document.getElementById('tt-desc').innerText = desc; document.getElementById('tt-demand').innerText = demand;
-            tt.style.display = 'block';
-            let x = e.clientX + 15; let y = e.clientY + 15; if(x + 240 > window.innerWidth) x = e.clientX - 255;
-            tt.style.left = x + 'px'; tt.style.top = y + 'px';
-        }
-        function hideTooltip() { document.getElementById('map-tooltip').style.display = 'none'; }
-
-        // FAQ
         function toggleFaq(el) {
             const a = el.nextElementSibling; const i = el.querySelector('i');
             if(a.classList.contains('active')){ a.classList.remove('active'); i.style.transform = 'rotate(0deg)'; } 
             else { document.querySelectorAll('.faq-answer').forEach(x => x.classList.remove('active')); document.querySelectorAll('.faq-question i').forEach(x => x.style.transform = 'rotate(0deg)'); a.classList.add('active'); i.style.transform = 'rotate(180deg)'; }
         }
 
-        // Modals & WhatsApp
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
         function sendWhatsApp(type) {
             const phone = "967773571889"; let msg = "";
             if(type === 'management') msg = `*طلب إدارة*\nالاسم: ${document.getElementById('m-name').value}\nالموقع: ${document.getElementById('m-loc').value}\nالتفاصيل: ${document.getElementById('m-desc').value}`;
-            else if(type === 'legal') msg = `*استشارة*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`;
+            else if(type === 'legal') msg = `*استشارة وحماية قانونية*\nالاسم: ${document.getElementById('l-name').value}\nالنوع: ${document.getElementById('l-type').value}\nالتفاصيل: ${document.getElementById('l-desc').value}`;
             else if(type === 'valuation') msg = `*تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nالموقع: ${document.getElementById('v-loc').value}\nالوصف: ${document.getElementById('v-desc').value}`;
-            else if(type === 'sell') msg = `*عرض عقار للبيع*\nالاسم والرقم: ${document.getElementById('s-name').value}\nالنوع: ${document.getElementById('s-type').value}\nالموقع: ${document.getElementById('s-loc').value}\nالمساحة: ${document.getElementById('s-size').value}\nالسعر: ${document.getElementById('s-price').value}\nالتفاصيل: ${document.getElementById('s-desc').value}`;
+            else if(type === 'sell') msg = `*عرض عقار موثق*\nالاسم والرقم: ${document.getElementById('s-name').value}\nالنوع: ${document.getElementById('s-type').value}\nوحدة الجوار/الموقع: ${document.getElementById('s-loc').value}\nالمساحة: ${document.getElementById('s-size').value}\nالسعر: ${document.getElementById('s-price').value}\nتفاصيل المخطط: ${document.getElementById('s-desc').value}`;
             if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // Admin Secret
         let logoClicks = 0; let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
-        function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("كلمة المرور:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
-        function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم الحفظ بنجاح"); }
+        function handleLogoClick() { logoClicks++; if (logoClicks >= 3) { let pwd = prompt("رمز المرور للمشرف:"); if (pwd === "admin") { document.getElementById('admin-usd').value = currRates.USD; document.getElementById('admin-sar').value = currRates.SAR; openModal('admin-modal'); } logoClicks = 0; } }
+        function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم تحديث أسعار الصرف"); }
 
-        // ROI & Currency
         function calculateROI() { const p = +document.getElementById('roi-price').value; const r = +document.getElementById('roi-rent').value; if(!p||!r)return; const y = r*12; document.getElementById('roi-yearly').innerText = y.toLocaleString(); document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(2)+'%'; document.getElementById('roi-years').innerText = (p/y).toFixed(1); document.getElementById('roi-result').classList.remove('hidden'); }
         function convertCurrency() { const a = +document.getElementById('curr-amount').value; const f = document.getElementById('curr-from').value; const t = document.getElementById('curr-to').value; if(!a)return; let yr = a; if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; let res=yr; if(t==='USD')res=yr/currRates.USD; if(t==='SAR')res=yr/currRates.SAR; document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:2})+' '+t; document.getElementById('curr-result').classList.remove('hidden'); }
 
-        // Comparison Tool
         const areaData = { 
-            "المنصورة": { price: "مرتفع جداً (تجاري)", demand: "100%", type: "محلات وعمائر" }, 
-            "خور مكسر": { price: "مرتفع ومستقر", demand: "80%", type: "سكني ودبلوماسي" }, 
-            "المعلا": { price: "متوسط إلى مرتفع", demand: "70%", type: "شقق عائلية" }, 
-            "البريقة": { price: "منافس/فرصة", demand: "90%", type: "أراضي استثمارية" },
-            "مدينة الشعب": { price: "220 ألف للأراضي", demand: "95%", type: "مخططات رسمية (جوار 573)" }
+            "المنصورة": { price: "مخطط تجاري معتمد", demand: "100%", type: "محلات وعمائر مرخصة" }, 
+            "خور مكسر": { price: "مخططات مستقرة", demand: "80%", type: "سكني ودبلوماسي آمن" }, 
+            "المعلا": { price: "مخطط حضري قديم", demand: "70%", type: "شقق ووحدات سكنية" }, 
+            "البريقة": { price: "توسع قانوني", demand: "90%", type: "أراضي استثمارية" },
+            "مدينة الشعب": { price: "وحدة جوار 573", demand: "95%", type: "إسكان قياديين (رسمي)" }
         };
         function runComparison() { const a1 = document.getElementById('comp-1').value; const a2 = document.getElementById('comp-2').value; document.getElementById('res-title-1').innerText = a1; document.getElementById('res-title-2').innerText = a2; document.getElementById('res-price-1').innerText = areaData[a1].price; document.getElementById('res-price-2').innerText = areaData[a2].price; document.getElementById('res-demand-1').innerText = areaData[a1].demand; document.getElementById('res-demand-2').innerText = areaData[a2].demand; document.getElementById('res-type-1').innerText = areaData[a1].type; document.getElementById('res-type-2').innerText = areaData[a2].type; document.getElementById('comp-result').classList.remove('hidden'); }
 
-        // Favorites System
         let favs = JSON.parse(localStorage.getItem('emadFavs')) || [];
         function toggleFav(btn, id, title) { const icon = btn.querySelector('i'); const index = favs.findIndex(f => f.id === id); if(index > -1) { favs.splice(index, 1); icon.classList.replace('fa-solid', 'fa-regular'); } else { favs.push({id, title}); icon.classList.replace('fa-regular', 'fa-solid'); } localStorage.setItem('emadFavs', JSON.stringify(favs)); renderFavs(); }
-        function renderFavs() { const list = document.getElementById('fav-list'); if(favs.length === 0) { list.innerHTML = '<p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مقالات محفوظة حالياً.</p>'; return; } list.innerHTML = favs.map(f => `<div class="p-4 border border-[var(--border-color)] rounded-xl bg-[var(--input-bg)]"><h4 class="font-bold text-sm text-[var(--text-main)]">${f.title}</h4></div>`).join(''); document.querySelectorAll('.fav-btn').forEach(btn => { const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1]; if(favs.some(f => f.id === id)) { btn.querySelector('i').classList.replace('fa-regular', 'fa-solid'); } }); }
+        function renderFavs() { const list = document.getElementById('fav-list'); if(favs.length === 0) { list.innerHTML = '<p class="text-sm text-[var(--text-muted)] text-center font-medium">لا توجد مراجع محفوظة حالياً.</p>'; return; } list.innerHTML = favs.map(f => `<div class="p-4 border border-[var(--border-color)] rounded-xl bg-[var(--input-bg)]"><h4 class="font-bold text-sm text-[var(--text-main)]">${f.title}</h4></div>`).join(''); document.querySelectorAll('.fav-btn').forEach(btn => { const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1]; if(favs.some(f => f.id === id)) { btn.querySelector('i').classList.replace('fa-regular', 'fa-solid'); } }); }
         function openFavModal() { renderFavs(); openModal('favorites-modal'); }
         setTimeout(renderFavs, 500);
 
-        // Notification Toast
         const notifyMsgs = [ 
-            { text: "هل تريد إدارة أملاكك وأنت مرتاح؟", action: "اضغط هنا", modal: "management-modal" },
-            { text: "فرصة: أرض مخطط القياديين وحدة جوار 573", action: "التفاصيل", modal: "legal-modal" },
-            { text: "تم عرض فيلا للبيع في درة عدن بـ 450 ألف$", action: "اعرض عقارك الآن", modal: "sell-modal" },
-            { text: "متوفر بيت شعبي ببئر أحمد بـ 130 ألف ر.س", action: "", modal: "" }
+            { text: "نصيحة: تأكد من وحدة الجوار في هيئة الأراضي قبل الشراء.", action: "استشرنا الآن", modal: "legal-modal" },
+            { text: "متاح: أرض بمخطط القياديين (وحدة 573) المعتمد رسمياً.", action: "التفاصيل", modal: "legal-modal" },
+            { text: "نصيحة: تجنب العقود العشوائية وطالب بفحص البصيرة قانونياً.", action: "اقرأ المزيد", modal: "favorites-modal" },
+            { text: "هل تملك عقاراً بمخطط رسمي؟ يمكنك عرضه لدينا.", action: "توثيق العقار", modal: "sell-modal" }
         ];
         
         function handleToastClick() {
@@ -639,10 +580,9 @@
             }
             
             toast.classList.add('show'); 
-            setTimeout(() => toast.classList.remove('show'), 6000); 
-        }, 18000);
+            setTimeout(() => toast.classList.remove('show'), 8000); 
+        }, 20000);
 
-        // Chat Assistant
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
@@ -662,27 +602,24 @@
             
             const load = document.createElement('div');
             load.className = 'text-[var(--text-muted)] text-xs font-bold py-2 animate-pulse';
-            load.textContent = 'جاري البحث في قاعدة البيانات المعتمدة...';
+            load.textContent = 'جاري تحليل القواعد المعرفية والبيانات...';
             box.appendChild(load);
             box.scrollTop = box.scrollHeight;
             
             setTimeout(() => {
                 load.remove();
-                let reply = "مرحباً بك! يتوفر لدينا عروض ممتازة في درة عدن، مدينة الشعب (مخطط القياديين)، وبئر أحمد. تفضل بتحديد طلبك لخدمتك بأفضل شكل.";
+                let reply = "مرحباً. بصفتنا جهة استشارية مرجعية، نؤكد دائماً على أهمية الشراء ضمن مخططات وحدات الجوار المعتمدة. كيف يمكنني تقديم الحماية المعرفية لك اليوم؟";
                 
-                // Advanced Intelligence extracted from user files
-                if (text.includes('بئر احمد') || text.includes('بير احمد') || text.includes('بير أحمد') || text.includes('شعبي')) {
-                    reply = "يتوفر لدينا في بئر أحمد بيت شعبي جاهز للسكن (متوفر ماء وكهرباء)، المساحة 12×15 متر. يتكون من غرفتين (4.5×4.5)، ديوان مفتوح، حمام ومطبخ مبلط، وحوش عائلي كبير. السعر المطلوب: 130 ألف ريال سعودي (قابل للتفاوض).";
-                } else if (text.includes('الشعب') || text.includes('مدينة الشعب') || text.includes('القياديين') || text.includes('573')) {
-                    reply = "يوجد لدينا في مدينة الشعب أرضية بمخطط القياديين (إسكان رسمي)، مساحة 20×25 متر، موقع استراتيجي قريب جداً من مدينة الوالي (وحدة جوار 573). السعر المطلوب: 220 ألف ريال سعودي.";
-                } else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فيلا') || text.includes('فلل')) {
-                    reply = "تتوفر لدينا في درة عدن (بجانب إنماء الجديدة) فيلا راقية جداً من دورين، مساحة 364 متر مربع (إطلالة بحرية). تشطيب ممتاز، تتكون من 7 غرف، 5 حمامات، ملحق، وصالونين. السعر المطلوب: 450 ألف دولار أمريكي.";
-                } else if (text.includes('ايجار') || text.includes('شقة') || text.includes('شقق') || text.includes('المنصورة') || text.includes('عبدالعزيز')) {
-                    reply = "بالنسبة للإيجارات في مناطق مثل عبد العزيز، المنصورة، وحي الكثيري: تتوفر شقق (4 إلى 5 غرف مع مجلس) في الدور الأول أو الثاني، بمتوسط إيجار يبلغ حوالي 800 ريال سعودي شهرياً، مع ضمان توفر الخدمات الأساسية.";
-                } else if (text.includes('وحدة جوار') || text.includes('وحدات الجوار') || text.includes('مخطط')) {
-                    reply = "وحدات الجوار هي التقسيم الحضري الرسمي والمعتمد من هيئة الأراضي في عدن. الشراء في وحدة جوار معتمدة (مثل وحدة 573 في مدينة الشعب) يضمن لك سلامة المخطط قانونياً ويحميك من النزاعات العشوائية. نحن نضمن لك مطابقة الأوراق رسمياً.";
-                } else if (text.includes('سعر') || text.includes('اسعار') || text.includes('بكم')) {
-                    reply = "الأسعار تختلف حسب العقار: أراضي مدينة الشعب بحدود 220 ألف ريال سعودي، البيوت الشعبية في بئر أحمد بـ 130 ألف ريال سعودي، والفلل في درة عدن بـ 450 ألف دولار. ماهو طلبك بالتحديد؟";
+                if (text.includes('نصيحة') || text.includes('استثمار') || text.includes('عشوائي')) {
+                    reply = "نصيحتنا القانونية الدائمة هي الابتعاد المطلق عن العقارات غير الموثقة في السجلات أو غير التابعة لوحدات جوار معتمدة. الحماية المعرفية والقانونية هي حجر الأساس قبل أي التزام مالي.";
+                } else if (text.includes('بئر احمد') || text.includes('بير احمد') || text.includes('شعبي')) {
+                    reply = "وفقاً للسجلات الحالية، يتوفر في التوسع المعتمد لبئر أحمد منزل شعبي جاهز (12×15 م) بقيمة 130 ألف ريال سعودي. نحث على مراجعة وثائقه القانونية عبر مستشارنا قبل الإجراء.";
+                } else if (text.includes('الشعب') || text.includes('وحدة') || text.includes('القياديين')) {
+                    reply = "تخطيطياً، تعتبر وحدة الجوار 573 (مخطط القياديين) من المخططات الآمنة والرسمية في مدينة الشعب. تتوفر بها أراضٍ (20×25 م) بمتوسط سعر 220 ألف ريال سعودي.";
+                } else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فيلا')) {
+                    reply = "درة عدن تتميز بتخطيط حضري سليم. لدينا علم بفيلا ذات إطلالة بحرية مساحتها 364 م² بسعر 450 ألف دولار. يمكننا تقديم المشورة لضمان خلوها من أي موانع إجرائية.";
+                } else if (text.includes('سعر') || text.includes('اسعار')) {
+                    reply = "الأسعار مرتبطة بصحة التخطيط. الأراضي في وحدة جوار 573 بمدينة الشعب تقارب 220 ألف سعودي، والبيوت المعتمدة في بئر أحمد تقارب 130 ألف. هل ترغب بتحليل مالي لمنطقة محددة؟";
                 }
                 
                 addMsg(reply, false);
@@ -691,10 +628,9 @@
         
         function addMsg(t, u) {
             const d = document.createElement('div');
-            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium bg-[var(--card-bg)]/80 text-[var(--text-main)] backdrop-blur-md';
+            d.className = u ? 'bg-gold-500 text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%]' : 'p-3 rounded-xl rounded-tr-none border border-[var(--border-color)] self-start max-w-[85%] leading-relaxed font-medium bg-[var(--card-bg)] text-[var(--text-main)] border-l-2 border-l-[var(--gold)]';
             d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
-
     </script>
 </body>
 </html>
