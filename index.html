@@ -443,6 +443,29 @@
         </div>
     </div>
 
+    <!-- نافذة دردشة المساعد الشخصي المحدثة بالمعلومات العقارية -->
+    <div id="chat-window" class="chat-panel">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--border-glass)] bg-black/60">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black shadow-[0_0_10px_rgba(229,192,123,0.3)]">
+                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
+                </div>
+                <div>
+                    <div class="font-black text-sm text-white">المساعد الشخصي</div>
+                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
+            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--border-glass)] leading-relaxed font-medium bg-black/50 text-white text-xs shadow-sm">أهلاً بك يا أبو عماد أنا مساعدك الشخصي الخبير بعقارات عدن كلها، تفضل اسألني عن أي منطقة وتفاصيل أسعارها.</div>
+        </div>
+        <div class="p-4 border-t border-[var(--border-glass)] flex gap-2 bg-black/60 items-center">
+            <input type="text" id="chat-input" placeholder="اكتب سؤالك..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <!-- النوافذ المتبقية -->
     <div id="prop-modal" class="modal-container" onclick="if(event.target===this) closeModal('prop-modal')">
         <div class="modal-box text-center">
@@ -489,29 +512,6 @@
             <h3 class="text-lg font-black text-white mb-2">تفويض إدارة أملاك</h3>
             <p class="text-xs text-[var(--text-muted)] mb-5">نتولى الإدارة والتحصيل نيابة عنك بعقود صارمة وبسرية مالية مطلقة لا تُمس.</p>
             <button onclick="sendManagementAuth()" class="btn-gold w-full !py-3 !text-sm">طلب استلام النماذج والبدء</button>
-        </div>
-    </div>
-
-    <!-- نافذة دردشة المساعد الشخصي -->
-    <div id="chat-window" class="chat-panel">
-        <div class="p-5 flex justify-between items-center border-b border-[var(--border-glass)] bg-black/60">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black shadow-[0_0_10px_rgba(229,192,123,0.3)]">
-                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
-                </div>
-                <div>
-                    <div class="font-black text-sm text-white">المساعد الشخصي</div>
-                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
-                </div>
-            </div>
-            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
-            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--border-glass)] leading-relaxed font-medium bg-black/50 text-white text-xs shadow-sm">أهلاً بك يا أبو عماد أنا مساعدك الشخصي جاهز للرد على استفساراتك</div>
-        </div>
-        <div class="p-4 border-t border-[var(--border-glass)] flex gap-2 bg-black/60 items-center">
-            <input type="text" id="chat-input" placeholder="اكتب سؤالك..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -577,15 +577,41 @@
             if(!text) return;
             addMsg(text, true);
             input.value = '';
+            
             const load = document.createElement('div');
             load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 animate-pulse';
-            load.textContent = 'جاري المعالجة...';
+            load.textContent = 'جاري البحث في السجلات العقارية...';
             box.appendChild(load);
             box.scrollTop = box.scrollHeight;
+            
             setTimeout(() => {
                 load.remove();
-                addMsg('أبشر براجع طلبك وأرد عليك بأقرب وقت', false);
-            }, 1000);
+                let reply = "أهلاً بك. للرد بدقة، حدد اسم المنطقة في عدن (مثل المنصورة، بئر أحمد، مدينة الشعب، درة عدن، بئر فضل، الممدارة).";
+                
+                if (text.includes('بئر احمد') || text.includes('بير احمد') || text.includes('شعبي')) {
+                    reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. المنطقة ممتازة للتوسع بس لازم تفحص البصيرة قانونياً قبل كل شي.";
+                } else if (text.includes('الشعب') || text.includes('القياديين')) {
+                    reply = "مخطط القياديين في مدينة الشعب (وحدة جوار 573) من المناطق الآمنة جداً. الأراضي هناك مساحة 20×25 متوسط سعرها 220 ألف ريال سعودي.";
+                } else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل') || text.includes('فيلا')) {
+                    reply = "درة عدن جنب إنماء الجديدة منطقة فاخرة. الفلل الكبيرة مساحة 364 متر اتجاه بحري وتشطيب ممتاز (7 غرف) سعرها يوصل 450 ألف دولار تقريباً.";
+                } else if (text.includes('المنصورة') || text.includes('عبدالعزيز') || text.includes('الكثيري') || text.includes('ايجار')) {
+                    reply = "المنصورة ومحيطها (عبدالعزيز والكثيري) طلبها عالي جداً. إيجارات الشقق العائلية (4-5 غرف) تتراوح حول 800 ريال سعودي شهرياً.";
+                } else if (text.includes('الممدارة') || text.includes('الشيخ عثمان')) {
+                    reply = "الشيخ عثمان والممدارة تشهد توسع قوي، فيها وحدات جوار معتمدة مثل 699 و 644 وتعتبر حيوية جداً للسكن والأعمال.";
+                } else if (text.includes('دار سعد') || text.includes('بئر فضل') || text.includes('بير فضل')) {
+                    reply = "بئر فضل في دار سعد تضم بلوكات مميزة زي بلوك 10 وبلوك 8 التابع للجيش، تتوفر فيها أراضي مساحاتها 15×15 و 15×30 ومطلوبة جداً بالسوق.";
+                } else if (text.includes('خور مكسر') || text.includes('العريش') || text.includes('ساحل ابين')) {
+                    reply = "خور مكسر فيها العريش وساحل أبين وحدات جوار 614 و 619، تتميز بإطلالات بحرية واستقرار قوي في الطلب الاستثماري.";
+                } else if (text.includes('عشوائي') || text.includes('بناء') || text.includes('مخاطر')) {
+                    reply = "انتبه من المخططات العشوائية أو خارج وحدات الجوار، التسجيل القانوني مستحيل وتعرض نفسك للإزالة. خلك دايماً بالمخططات الرسمية وبس.";
+                } else if (text.includes('اسعار') || text.includes('سعر')) {
+                    reply = "الأسعار حسب المنطقة: بيوت بئر أحمد بـ 130 ألف سعودي، أراضي الشعب بـ 220 ألف سعودي، فلل درة عدن بـ 450 ألف دولار، وإيجارات المنصورة بـ 800 سعودي. حدد لي طلبك بالضبط.";
+                } else if (text.includes('ادارة') || text.includes('املاك')) {
+                    reply = "نوفر لك حماية إدارية ومالية لأملاكك وتحصيل مستحقاتك وصيانتها بعقود صارمة وسرية تامة.";
+                }
+                
+                addMsg(reply, false);
+            }, 1200);
         }
         
         function addMsg(t, u) {
@@ -596,7 +622,6 @@
     </script>
 </body>
 </html>
-
 
 
 ```
