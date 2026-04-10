@@ -3,6 +3,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="ZV0zKGZYz91i4jc1nsD9Brk0jwvzPraW0E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>مكتب عماد عدن العقاري - بيع شراء تثمين استثمار</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -586,7 +587,6 @@
 
         let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
         
-        // الدالة الجديدة للزر المخفي
         function openAdminModalSecretly() {
             let pwd = prompt("رمز المرور المخصص للإدارة:");
             if (pwd === "admin") {
@@ -653,7 +653,6 @@
             d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
 
-        // Scroll Logic for Floating Elements
         let scrollTimer;
         const floatingEls = document.querySelectorAll('.floating-elements');
         
