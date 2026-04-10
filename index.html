@@ -281,7 +281,7 @@
         <section id="sell-section" class="section-padding px-4 max-w-4xl mx-auto border-t border-white/5">
             <div class="mb-10 text-center">
                 <h3 class="text-2xl font-black mb-3 gold-text-gradient"><i class="fa-solid fa-file-shield mr-2"></i> منصة استقبال الطلبات والتوثيق</h3>
-                <p class="text-xs text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">ارفع مخططات وأوراق عقارك لتدقيقها هندسياً وقانونياً لعرضها ضمن شبكتنا المغلقة بضمان السرية المطلقة.</p>
+                <p class="text-xs text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">ارفع مخططات وأوراق عقارك لتدقيقها هندسياً وقانونياً לעرضها ضمن شبكتنا المغلقة بضمان السرية المطلقة.</p>
             </div>
             
             <div class="bg-[rgba(15,15,18,0.6)] border border-white/5 p-6 rounded-2xl">
@@ -407,3 +407,255 @@
         <button onclick="openModal('roi-modal')" class="glass-tool-btn">
             <i class="fa-solid fa-calculator text-[var(--gold)]"></i> حاسبة العوائد
         </button>
+        <button onclick="openModal('currency-modal')" class="glass-tool-btn">
+            <i class="fa-solid fa-money-bill-transfer text-[var(--gold)]"></i> محول العملات
+        </button>
+    </div>
+
+    <div class="assistant-wrapper floating-elements">
+        <div class="assistant-tooltip">
+            المستشار الذكي متصل <br><span class="text-[9px] font-normal text-green-400 mt-1 block">تفضل باستشارتك للحماية</span>
+        </div>
+        <button onclick="toggleChat()" class="assistant-pulse">
+            <i class="fa-solid fa-robot text-black text-xl"></i>
+        </button>
+    </div>
+
+    <div id="legal-modal" class="modal-container">
+        <div class="modal-box">
+            <button onclick="closeModal('legal-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl transition-transform hover:scale-110"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-black border border-[var(--gold)] flex items-center justify-center text-[var(--gold)] text-lg"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3 class="text-lg font-black text-[var(--gold)]">المستشار القانوني</h3>
+            </div>
+            <p class="text-xs text-white/80 leading-relaxed mb-5 border-b border-white/10 pb-4">
+                الفحص القانوني هو حجر الأساس لأي استثمار آمن. نقوم بمطابقة وثائق الملكية مع السجلات الرسمية والتأكد من سلامة وحدات الجوار لحمايتك من النزاعات والعقود العشوائية.
+            </p>
+            <input type="text" id="l-name" placeholder="الاسم الكريم" class="input-glass !py-2.5">
+            <select id="l-type" class="input-glass !py-2.5">
+                <option>التأكد من وحدات الجوار وصحة المخطط</option>
+                <option>فحص وثائق الملكية وتسلسل البصيرة</option>
+                <option>صياغة عقد بيع/شراء يحفظ الحقوق</option>
+            </select>
+            <textarea id="l-desc" placeholder="التفاصيل المطلوب بحثها..." class="input-glass h-20 !py-2.5"></textarea>
+            <button onclick="sendWhatsApp('legal')" class="btn-gold w-full mt-2 text-sm !py-2.5"><i class="fa-brands fa-whatsapp mr-2"></i> تقديم طلب استشارة</button>
+        </div>
+    </div>
+    
+    <div id="valuation-modal" class="modal-container">
+        <div class="modal-box">
+            <button onclick="closeModal('valuation-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl transition-transform hover:scale-110"><i class="fa-solid fa-xmark"></i></button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--gold)] to-[var(--dark-gold)] flex items-center justify-center text-black text-lg"><i class="fa-solid fa-file-contract"></i></div>
+                <h3 class="text-lg font-black text-white">لجنة التثمين الهندسي</h3>
+            </div>
+            <p class="text-xs text-white/80 leading-relaxed mb-5 border-b border-white/10 pb-4">
+                التثمين دراسة هندسية وميدانية متكاملة تعتمد على تحليل موقع العقار ضمن المخططات الرسمية ومقارنة الصفقات الفعلية لتحديد القيمة العادلة المعتمدة بعيداً عن التخمين.
+            </p>
+            <input type="text" id="v-name" placeholder="الاسم الكريم" class="input-glass !py-2.5">
+            <div class="flex gap-3">
+                <input type="text" id="v-size" placeholder="المساحة" class="input-glass !py-2.5 flex-1">
+                <input type="text" id="v-loc" placeholder="المنطقة" class="input-glass !py-2.5 flex-1">
+            </div>
+            <textarea id="v-desc" placeholder="بيانات العقار..." class="input-glass h-20 mt-3"></textarea>
+            <button onclick="sendWhatsApp('valuation')" class="btn-gold w-full mt-2 text-sm !py-2.5">تحويل الطلب للجنة</button>
+        </div>
+    </div>
+    
+    <div id="roi-modal" class="modal-container">
+        <div class="modal-box !max-w-[450px]">
+            <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl transition-transform hover:scale-110"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-black mb-4 text-white flex items-center gap-2"><i class="fa-solid fa-calculator text-[var(--gold)]"></i> حاسبة العوائد</h3>
+            <p class="text-[11px] text-white/70 leading-relaxed mb-5 border-b border-white/10 pb-4">
+                أداة تحليلية لقياس الجدوى الاستثمارية للعقار. تساعدك في معرفة الدخل السنوي، ونسبة العائد على رأس المال، وعدد السنوات المطلوبة لاسترداد الأصل بالكامل.
+            </p>
+            <input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-glass !py-2.5">
+            <input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-glass !py-2.5 mt-2">
+            <button onclick="calculateROI()" class="btn-glass w-full mb-4 mt-3 !py-2.5 text-xs hover:bg-[var(--gold)]">حساب المؤشرات</button>
+            <div id="roi-result" class="hidden text-center mt-2 bg-black/40 p-4 rounded-xl border border-white/5">
+                <p class="text-[10px] text-white/60 mb-1 font-bold">العائد السنوي المتوقع</p>
+                <h4 id="roi-yearly" class="text-xl font-black gold-text-gradient mb-3">0</h4>
+                <div class="flex justify-between border-t border-white/10 pt-3 px-2">
+                    <div class="text-center"><span id="roi-percent" class="block font-bold text-sm text-green-400">0%</span><span class="text-[9px] text-white/60 block mt-1">النسبة</span></div>
+                    <div class="text-center"><span id="roi-years" class="block font-bold text-sm text-yellow-400">0</span><span class="text-[9px] text-white/60 block mt-1">سنوات الاسترداد</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="currency-modal" class="modal-container">
+        <div class="modal-box !max-w-[450px]">
+            <button onclick="closeModal('currency-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl transition-transform hover:scale-110"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-black mb-4 text-white flex items-center gap-2"><i class="fa-solid fa-money-bill-transfer text-[var(--gold)]"></i> محول العملات</h3>
+            <p class="text-[11px] text-white/70 leading-relaxed mb-5 border-b border-white/10 pb-4">
+                تتبع تأثير تقلبات أسعار الصرف على القيمة الحقيقية لأصولك العقارية، لتتمكن من اتخاذ قرارات استثمارية مبنية على قيم مالية دقيقة ومحدثة.
+            </p>
+            <input type="number" id="curr-amount" placeholder="المبلغ" class="input-glass !py-2.5" value="1">
+            <div class="flex gap-2 mb-4 mt-2">
+                <select id="curr-from" class="input-glass flex-1 !mb-0 !py-2.5 text-xs"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option><option value="YER">ريال يمني</option></select>
+                <select id="curr-to" class="input-glass flex-1 !mb-0 !py-2.5 text-xs"><option value="YER">ريال يمني</option><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select>
+            </div>
+            <button onclick="convertCurrency()" class="btn-glass w-full mb-3 !py-2.5 text-xs hover:bg-[var(--gold)]">تنفيذ التحويل</button>
+            <div id="curr-result" class="hidden text-center mt-2 bg-black/40 p-4 rounded-xl border border-white/5">
+                <p class="text-[10px] text-white/60 font-bold mb-1">القيمة المعادلة</p>
+                <h4 id="curr-value" class="text-xl font-black gold-text-gradient">0</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal-container hidden" style="display: none !important;"><div class="modal-box !max-w-[400px]"><button onclick="closeModal('admin-modal')" class="absolute top-4 left-4 text-white hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button><h3 class="text-lg font-black mb-4 text-white">إعدادات الإدارة</h3><label class="block text-[10px] mb-1 font-bold text-white/70">سعر (USD)</label><input type="number" id="admin-usd" class="input-glass !py-2"><label class="block text-[10px] mb-1 font-bold mt-3 text-white/70">سعر (SAR)</label><input type="number" id="admin-sar" class="input-glass !py-2"><button onclick="saveRates()" class="btn-gold w-full mt-4 !py-2 text-sm">حفظ التحديث</button></div></div>
+
+    <div id="chat-window" class="chat-panel">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--border-glass)] bg-black/60">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black shadow-[0_0_10px_rgba(229,192,123,0.3)]">
+                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
+                </div>
+                <div>
+                    <div class="font-black text-sm text-white">المستشار الفكري</div>
+                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_5px_#22c55e]"></span> الدعم الاستشاري متاح</div>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
+            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--border-glass)] leading-relaxed font-medium bg-black/50 text-white text-xs shadow-sm">أهلاً بك في المنصة الاستشارية لمكتب عماد عدن العقاري. تقديم الإرشاد المعرفي والقانوني هو أولويتنا. تفضل بطرح استفسارك بخصوص التوثيق أو المناطق المعتمدة.</div>
+        </div>
+        <div class="p-4 border-t border-[var(--border-glass)] flex gap-2 bg-black/60 items-center">
+            <input type="text" id="chat-input" placeholder="اطلب الاستشارة..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform shadow-sm"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() { document.body.classList.toggle('light-theme'); }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        
+        function closeModal(id) { 
+            document.getElementById(id).classList.remove('active'); 
+            if(id === 'admin-modal') {
+                setTimeout(() => {
+                    const m = document.getElementById('admin-modal');
+                    m.style.setProperty('display', 'none', 'important');
+                    m.classList.add('hidden');
+                }, 400);
+            }
+        }
+        
+        function submitSecureRequest() {
+            const name = document.getElementById('req-name').value;
+            const phone = document.getElementById('req-phone').value;
+            const type = document.getElementById('req-type').value;
+            const desc = document.getElementById('req-desc').value;
+            if(!name || !phone) { alert('الرجاء إكمال البيانات الأساسية (الاسم ورقم التواصل).'); return; }
+            const msg = `*طلب موجه للإدارة (سري)*\nالاسم: ${name}\nرقم التواصل: ${phone}\nالخدمة المطلوبة: ${type}\nالبيانات: ${desc}\n\n*إشعار:* سيتم إرسال المخططات والوثائق في الرسالة التالية لضمان السرية.`;
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function sendManagementAuth() {
+            const msg = `*طلب تفويض لإدارة الأملاك (طلب سري)*\nأرغب في تفويض مكتبكم لإدارة أملاكي بشكل رسمي مع ضمان الالتزام بميثاق السرية التامة للمعلومات المادية. الرجاء تزويدي بنماذج العقود المعتمدة.`;
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function sendWhatsApp(type) {
+            const phone = "967773571889"; let msg = "";
+            if(type === 'legal') msg = `*استشارة استقصائية وقانونية*\nالاسم: ${document.getElementById('l-name').value}\nنوع التدقيق: ${document.getElementById('l-type').value}\nالمعطيات: ${document.getElementById('l-desc').value}`;
+            else if(type === 'valuation') msg = `*طلب إيفاد لجنة تثمين*\nالاسم: ${document.getElementById('v-name').value}\nالمساحة: ${document.getElementById('v-size').value}\nنطاق وحدة الجوار: ${document.getElementById('v-loc').value}\nتفصيل الموقع: ${document.getElementById('v-desc').value}`;
+            if(msg) window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        let currRates = JSON.parse(localStorage.getItem('emadRates')) || { USD: 2000, SAR: 530, YER: 1 };
+        
+        function openAdminModalSecretly() {
+            let pwd = prompt("رمز المرور المخصص للإدارة:");
+            if (pwd === "admin") {
+                document.getElementById('admin-usd').value = currRates.USD;
+                document.getElementById('admin-sar').value = currRates.SAR;
+                const modal = document.getElementById('admin-modal');
+                modal.style.display = 'flex';
+                modal.classList.remove('hidden');
+                setTimeout(() => openModal('admin-modal'), 10);
+            }
+        }
+
+        function saveRates() { currRates.USD = parseFloat(document.getElementById('admin-usd').value); currRates.SAR = parseFloat(document.getElementById('admin-sar').value); localStorage.setItem('emadRates', JSON.stringify(currRates)); closeModal('admin-modal'); alert("تم حفظ المعطيات بنجاح."); }
+
+        function calculateROI() { const p = +document.getElementById('roi-price').value; const r = +document.getElementById('roi-rent').value; if(!p||!r)return; const y = r*12; document.getElementById('roi-yearly').innerText = y.toLocaleString(); document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(2)+'%'; document.getElementById('roi-years').innerText = (p/y).toFixed(1); document.getElementById('roi-result').classList.remove('hidden'); }
+        function convertCurrency() { const a = +document.getElementById('curr-amount').value; const f = document.getElementById('curr-from').value; const t = document.getElementById('curr-to').value; if(!a)return; let yr = a; if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; let res=yr; if(t==='USD')res=yr/currRates.USD; if(t==='SAR')res=yr/currRates.SAR; document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:2})+' '+t; document.getElementById('curr-result').classList.remove('hidden'); }
+
+        let chatOpen = false;
+        function toggleChat() { chatOpen = !chatOpen; const cw = document.getElementById('chat-window'); if(chatOpen) cw.classList.add('active'); else cw.classList.remove('active'); }
+        
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if(!text) return;
+            
+            addMsg(text, true);
+            input.value = '';
+            
+            const load = document.createElement('div');
+            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 animate-pulse';
+            load.textContent = 'جاري التحليل المعرفي للرد...';
+            box.appendChild(load);
+            box.scrollTop = box.scrollHeight;
+            
+            setTimeout(() => {
+                load.remove();
+                let reply = "بصفتنا جهة استشارية مرجعية لمكتب عماد عدن العقاري، نؤكد دائماً على حتمية الشراء ضمن نطاق وحدات الجوار المعتمدة. كيف يمكننا توفير الحماية القانونية لقرارك اليوم؟";
+                
+                if (text.includes('عشوائي') || text.includes('بناء') || text.includes('مخاطر')) {
+                    reply = "توجيهاتنا القانونية الصارمة تقضي بالابتعاد التام عن أي أصول لا تخضع للتخطيط الحضري المعتمد (العشوائيات)، حيث يستحيل تسجيلها قانونياً في السجل العقاري.";
+                } else if (text.includes('الشعب') || text.includes('مخطط') || text.includes('القياديين')) {
+                    reply = "تخطيطياً، تُصنف وحدة الجوار 573 (مخطط القياديين) في مدينة الشعب كمنطقة استثمارية آمنة، وتتوفر أراضي بمساحات 20×25 بمتوسط سعر 220 ألف ريال سعودي.";
+                } else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل') || text.includes('فيلا')) {
+                    reply = "في منطقة درة عدن (محيط إنماء الجديدة)، تتوفر فلل راقية للبيع بمساحات واسعة (مثل 364 متر بحري) بمتوسط سعر 450 ألف دولار.";
+                } else if (text.includes('بئر احمد') || text.includes('بير احمد') || text.includes('شعبي')) {
+                    reply = "في بئر أحمد يتوفر نطاق للتوسع المعتمد، ومتوسط أسعار البيوت الشعبية الجاهزة (12×15) حوالي 130 ألف ريال سعودي، ويلزم فحص قانوني دقيق للبصائر قبل الشراء.";
+                } else if (text.includes('المنصورة') || text.includes('عبدالعزيز') || text.includes('الكثيري') || text.includes('ايجار') || text.includes('شقق')) {
+                    reply = "بالنسبة للإيجارات في مناطق المنصورة، عبدالعزيز، والكثيري، يتوفر طلب وعرض لشقق عائلية واسعة (4 إلى 5 غرف) بمتوسط إيجار 800 ريال سعودي شهرياً.";
+                } else if (text.includes('ادارة') || text.includes('املاك')) {
+                    reply = "نوفر حماية إدارية ومالية لأملاك المغتربين، تتضمن تحصيل المستحقات وإجراء أعمال الصيانة بموجب تعاقد يضمن السرية المطلقة لبيانات المالك.";
+                } else if (text.includes('سعر') || text.includes('اسعار') || text.includes('أسعار')) {
+                    reply = "الأسعار في عدن تتباين: أراضي مدينة الشعب بحدود 220 ألف ريال سعودي، وبيوت بئر أحمد بـ 130 ألف سعودي، وفلل درة عدن بـ 450 ألف دولار. نعتمد دائماً على الفحص القانوني أولاً.";
+                } else if (text.includes('خدمات') || text.includes('الخدمات')) {
+                    reply = "نقدم 3 خدمات أساسية: المستشار القانوني (فحص المخططات والبصائر)، لجنة التثمين (تقييم هندسي)، وإدارة الأملاك (تحصيل وصيانة للمغتربين بسرية تامة).";
+                }
+                addMsg(reply, false);
+            }, 1200);
+        }
+        
+        function addMsg(t, u) {
+            const d = document.createElement('div');
+            d.className = u ? 'bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-white/10 self-start max-w-[85%] leading-relaxed font-medium bg-black/50 text-white border-l-2 border-l-[var(--gold)] shadow-sm text-xs';
+            d.textContent = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        }
+
+        let scrollTimer;
+        const floatingEls = document.querySelectorAll('.floating-elements');
+        
+        function handleScroll() {
+            floatingEls.forEach(el => el.classList.add('visible'));
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                let hovered = false;
+                floatingEls.forEach(el => { if (el.matches(':hover')) hovered = true; });
+                if (!hovered) {
+                    floatingEls.forEach(el => el.classList.remove('visible'));
+                }
+            }, 2000);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        
+        floatingEls.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                clearTimeout(scrollTimer);
+                el.classList.add('visible');
+            });
+            el.addEventListener('mouseleave', handleScroll);
+        });
+    </script>
+</body>
+</html>
