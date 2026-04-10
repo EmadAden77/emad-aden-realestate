@@ -25,11 +25,52 @@
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             color: var(--text-main);
-            font-family: 'Arial', 'Tajawal', sans-serif;
+            font-family: 'Tajawal', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        /* --- النوافذ الجانبية العائمة (Floating Side Tabs - Mobile First Glassmorphism) --- */
+        .side-tabs-container {
+            position: fixed;
+            right: 0;
+            top: 15%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-tab {
+            background-color: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 0.5px solid var(--gold);
+            border-right: none;
+            border-radius: 12px 0 0 12px;
+            color: var(--gold);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: -2px 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .side-tab-text {
+            font-weight: 800;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .side-tab:hover, .side-tab:active {
+            transform: translateX(-6px);
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        /* --- الأنماط الأساسية للموقع --- */
         .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-panel { background: rgba(15, 15, 18, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(229, 192, 123, 0.1); border-radius: 1rem; transition: all 0.3s ease; }
@@ -47,7 +88,7 @@
         .app-view.active { display: block; }
         @keyframes fadeIn { to { opacity: 1; } }
 
-        .modal-container { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 9999; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s ease; padding: 1rem; }
+        .modal-container { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s ease; padding: 1rem; }
         .modal-container.active { opacity: 1; pointer-events: auto; }
         .modal-box { transform: scale(0.95) translateY(10px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 100%; max-width: 450px; background: rgba(15, 15, 18, 0.8); backdrop-filter: blur(25px); border: 1px solid rgba(229, 192, 123, 0.2); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8); border-radius: 1.5rem; padding: 2rem; position: relative; }
         .modal-container.active .modal-box { transform: scale(1) translateY(0); }
@@ -65,61 +106,18 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--bg-deep); }
         ::-webkit-scrollbar-thumb { background: rgba(229, 192, 123, 0.3); border-radius: 10px; }
-
-        .chat-panel { position: fixed; top: 0; left: 0; height: 100%; width: 100%; max-width: 380px; background: rgba(5,5,5,0.9); backdrop-filter: blur(25px); border-l: 1px solid rgba(229,192,123,0.2); z-index: 9999; transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.8); }
-        .chat-panel.active { transform: translateX(0); }
-
-        /* --- الأدوات العائمة (نفس الصورة تماماً) --- */
-        .glass-tool-btn {
-            background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--gold);
-            color: var(--text-main); border-radius: 2rem; padding: 0.75rem 1.5rem; font-size: 0.85rem; font-weight: 800;
-            display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); width: 100%;
-        }
-        .glass-tool-btn:hover { background: rgba(229,192,123,0.2); color: #fff; transform: scale(1.05); }
-
-        .assistant-tooltip {
-            background: rgba(15, 15, 18, 0.95); backdrop-filter: blur(10px); border: 1px solid var(--gold);
-            color: var(--text-main); padding: 0.75rem 1.25rem; border-radius: 1rem; font-size: 0.8rem; font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative; text-align: center; animation: pulse-soft 2s infinite;
-            margin-bottom: 0.5rem;
-        }
-        .assistant-tooltip::after {
-            content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%) rotate(45deg);
-            width: 12px; height: 12px; background: rgba(15, 15, 18, 0.95);
-            border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold);
-        }
-        .assistant-pulse {
-            width: 4rem; height: 4rem; border-radius: 1.25rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(229, 192, 123, 0.5); border: 2px solid rgba(255,255,255,0.2);
-        }
-        .assistant-pulse:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(229, 192, 123, 0.6); }
-        @keyframes pulse-soft { 0%, 100% { opacity: 1; transform: translateY(0); } 50% { opacity: 0.8; transform: translateY(-3px); } }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- الأدوات العائمة يمين الشاشة نفس الصورة -->
-    <div class="fixed bottom-6 right-6 z-[990] flex flex-col items-center gap-3 w-56">
-        <!-- المستشار الذكي -->
-        <div class="flex flex-col items-center w-full mb-2">
-            <div class="assistant-tooltip w-full">
-                المستشار الذكي متصل <br><span class="text-[10px] font-normal text-green-400 mt-1 block">تفضل باستشارتك للحماية</span>
-            </div>
-            <button onclick="toggleChat()" class="assistant-pulse">
-                <i class="fa-solid fa-robot text-black text-2xl"></i>
-            </button>
+    <!-- النوافذ الجانبية العائمة بنمط زجاجي (Glassmorphism) -->
+    <div class="side-tabs-container">
+        <div class="side-tab" onclick="switchView('legal')">
+            <div class="side-tab-text">المستشار القانوني</div>
         </div>
-        <!-- حاسبة العوائد -->
-        <button onclick="openModal('roi-modal')" class="glass-tool-btn">
-            <i class="fa-solid fa-calculator text-[var(--gold)]"></i> حاسبة العوائد
-        </button>
-        <!-- محول العملات -->
-        <button onclick="openModal('currency-modal')" class="glass-tool-btn">
-            <i class="fa-solid fa-money-bill-transfer text-[var(--gold)]"></i> محول العملات
-        </button>
+        <div class="side-tab" onclick="openModal('roi-modal')">
+            <div class="side-tab-text">حاسبة العوائد</div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -322,13 +320,6 @@
                         <p class="text-[11px] text-green-400 font-bold"><i class="fa-solid fa-circle-check mr-2"></i> توجيه للمستثمر: اختيار العقار داخل وحدات جوار مخططة هيكلياً يضمن خدمة أطول وبنية تحتية أفضل، مما يعكس إيجاباً على قيمة العقار بمرور الزمن.</p>
                     </div>
                 </div>
-
-                <div class="glass-panel p-6 text-center">
-                    <h3 class="text-xl font-black text-white mb-3">5. الاستشارات السريعة</h3>
-                    <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-6 max-w-2xl mx-auto">
-                        إذا كنت ترغب في استشارة سريعة عن موضع عقار في منطقة محددة، استخدم 'المستشار الذكي' من القائمة الجانبية، أو احجز جلسة.
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -427,7 +418,7 @@
     </main>
 
     <!-- ========================================== -->
-    <!-- Modals (النوافذ المنبثقة المستقلة للادوات العائمة) -->
+    <!-- Modals -->
     <!-- ========================================== -->
 
     <!-- نافذة حاسبة العوائد -->
@@ -449,48 +440,7 @@
         </div>
     </div>
 
-    <!-- نافذة محول العملات -->
-    <div id="currency-modal" class="modal-container" onclick="if(event.target===this) closeModal('currency-modal')">
-        <div class="modal-box !max-w-[450px]">
-            <button onclick="closeModal('currency-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-lg font-black mb-4 text-white flex items-center gap-2"><i class="fa-solid fa-money-bill-transfer text-[var(--gold)]"></i> محول العملات</h3>
-            <input type="number" id="curr-amount" placeholder="المبلغ" class="input-glass !py-2.5" value="1000">
-            <div class="flex gap-2 mb-4 mt-2">
-                <select id="curr-from" class="input-glass flex-1 !mb-0 !py-2.5 text-xs"><option value="SAR">سعودي</option><option value="USD">دولار</option><option value="YER">يمني</option></select>
-                <select id="curr-to" class="input-glass flex-1 !mb-0 !py-2.5 text-xs"><option value="YER">يمني</option><option value="USD">دولار</option><option value="SAR">سعودي</option></select>
-            </div>
-            <button onclick="convertCurrency()" class="btn-glass w-full mb-3 !py-2.5 text-xs hover:bg-[var(--gold)]">تنفيذ التحويل</button>
-            <div id="curr-result" class="hidden text-center mt-2 bg-black/40 p-4 rounded-xl border border-white/5">
-                <p class="text-[10px] text-white/60 font-bold mb-1">القيمة المعادلة</p>
-                <h4 id="curr-value" class="text-xl font-black gold-text-gradient">0</h4>
-            </div>
-        </div>
-    </div>
-
-    <!-- نافذة دردشة المستشار الذكي -->
-    <div id="chat-window" class="chat-panel">
-        <div class="p-5 flex justify-between items-center border-b border-[var(--border-glass)] bg-black/60">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black shadow-[0_0_10px_rgba(229,192,123,0.3)]">
-                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
-                </div>
-                <div>
-                    <div class="font-black text-sm text-white">المستشار الفكري</div>
-                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> الدعم الاستشاري متاح</div>
-                </div>
-            </div>
-            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
-            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--border-glass)] leading-relaxed font-medium bg-black/50 text-white text-xs shadow-sm">أهلاً بك في المنصة الاستشارية لمكتب عماد عدن العقاري. تفضل بطرح استفسارك بخصوص التوثيق، المناطق المعتمدة، أو اتجاهات التطور العمراني.</div>
-        </div>
-        <div class="p-4 border-t border-[var(--border-glass)] flex gap-2 bg-black/60 items-center">
-            <input type="text" id="chat-input" placeholder="اطلب الاستشارة..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <!-- النوافذ المتبقية لباقي الصفحات -->
+    <!-- النوافذ المتبقية -->
     <div id="prop-modal" class="modal-container" onclick="if(event.target===this) closeModal('prop-modal')">
         <div class="modal-box text-center">
             <button onclick="closeModal('prop-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -541,7 +491,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // --- Core Site JS ---
         function switchView(viewId) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
@@ -576,46 +525,6 @@
             districts.forEach(d => L.marker(d.coords, {icon: customIcon}).addTo(map).bindPopup(`<div style="direction:rtl; font-family:Arial; font-weight:bold; color:black;">${d.title}</div>`));
         }
 
-        // --- الأدوات المنبثقة JS ---
-        let chatOpen = false;
-        function toggleChat() { 
-            chatOpen = !chatOpen; 
-            const cw = document.getElementById('chat-window'); 
-            if(chatOpen) cw.classList.add('active'); 
-            else cw.classList.remove('active'); 
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const box = document.getElementById('chat-messages');
-            const text = input.value.trim();
-            if(!text) return;
-            
-            addMsg(text, true);
-            input.value = '';
-            
-            const load = document.createElement('div');
-            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 animate-pulse';
-            load.textContent = 'جاري التحليل المعرفي...';
-            box.appendChild(load);
-            box.scrollTop = box.scrollHeight;
-            
-            setTimeout(() => {
-                load.remove();
-                let reply = "بصفتنا جهة استشارية مرجعية، نؤكد دائماً على حتمية الشراء ضمن نطاق وحدات الجوار المعتمدة. كيف يمكننا توفير الحماية القانونية لقرارك اليوم؟";
-                if (text.includes('عشوائي') || text.includes('بناء') || text.includes('مخاطر')) reply = "توجيهاتنا الصارمة تقضي بالابتعاد التام عن العشوائيات، يستحيل تسجيلها بالسجل العقاري.";
-                else if (text.includes('اين استثمر') || text.includes('تطور') || text.includes('نمو')) reply = "لأفضل قرار استثماري يمكنك قراءة مقال عن اتجاهات النمو العمراني في عدن بقسم 'التطور العمراني'.";
-                else if (text.includes('ادارة') || text.includes('املاك')) reply = "نوفر حماية إدارية ومالية لأملاك المغتربين بتحصيل المستحقات وإجراء أعمال الصيانة بسرية تامة.";
-                addMsg(reply, false);
-            }, 1000);
-        }
-        
-        function addMsg(t, u) {
-            const d = document.createElement('div');
-            d.className = u ? 'bg-[var(--gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-white/10 self-start max-w-[85%] leading-relaxed font-medium bg-black/50 text-white border-l-2 border-l-[var(--gold)] shadow-sm text-xs';
-            d.innerHTML = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-        }
-
         function calculateROI() { 
             const p = +document.getElementById('roi-price').value; 
             const r = +document.getElementById('roi-rent').value; 
@@ -626,24 +535,12 @@
             document.getElementById('roi-years').innerText = (p/y).toFixed(1); 
             document.getElementById('roi-result').classList.remove('hidden'); 
         }
-
-        let currRates = { USD: 2000, SAR: 530, YER: 1 };
-        function convertCurrency() { 
-            const a = +document.getElementById('curr-amount').value; 
-            const f = document.getElementById('curr-from').value; 
-            const t = document.getElementById('curr-to').value; 
-            if(!a) return; 
-            let yr = a; 
-            if(f==='USD') yr=a*currRates.USD; if(f==='SAR') yr=a*currRates.SAR; 
-            let res=yr; 
-            if(t==='USD') res=yr/currRates.USD; if(t==='SAR') res=yr/currRates.SAR; 
-            document.getElementById('curr-value').innerText = res.toLocaleString(undefined,{maximumFractionDigits:1}) + ' ' + t; 
-            document.getElementById('curr-result').classList.remove('hidden'); 
-        }
     </script>
 </body>
 </html>
 
 
-```
 
+
+
+```
