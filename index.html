@@ -38,7 +38,7 @@
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .side-tab {
@@ -47,9 +47,9 @@
             -webkit-backdrop-filter: blur(15px);
             border: 0.5px solid var(--gold);
             border-right: none;
-            border-radius: 12px 0 0 12px;
+            border-radius: 10px 0 0 10px;
             color: var(--gold);
-            padding: 10px 14px;
+            padding: 7px 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,7 +60,7 @@
 
         .side-tab-text {
             font-weight: 800;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             white-space: nowrap;
             text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
@@ -106,14 +106,17 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--bg-deep); }
         ::-webkit-scrollbar-thumb { background: rgba(229, 192, 123, 0.3); border-radius: 10px; }
+
+        .chat-panel { position: fixed; top: 0; left: 0; height: 100%; width: 100%; max-width: 380px; background: rgba(5,5,5,0.9); backdrop-filter: blur(25px); border-l: 1px solid rgba(229,192,123,0.2); z-index: 10001; transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.8); }
+        .chat-panel.active { transform: translateX(0); }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- النوافذ الجانبية العائمة بنمط زجاجي (Glassmorphism) -->
     <div class="side-tabs-container">
-        <div class="side-tab" onclick="switchView('legal')">
-            <div class="side-tab-text">المستشار القانوني</div>
+        <div class="side-tab" onclick="toggleChat()">
+            <div class="side-tab-text">المساعد الشخصي</div>
         </div>
         <div class="side-tab" onclick="openModal('roi-modal')">
             <div class="side-tab-text">حاسبة العوائد</div>
@@ -489,6 +492,29 @@
         </div>
     </div>
 
+    <!-- نافذة دردشة المساعد الشخصي -->
+    <div id="chat-window" class="chat-panel">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--border-glass)] bg-black/60">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black shadow-[0_0_10px_rgba(229,192,123,0.3)]">
+                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
+                </div>
+                <div>
+                    <div class="font-black text-sm text-white">المساعد الشخصي</div>
+                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-white hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm">
+            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--border-glass)] leading-relaxed font-medium bg-black/50 text-white text-xs shadow-sm">أهلاً بك يا أبو عماد أنا مساعدك الشخصي جاهز للرد على استفساراتك</div>
+        </div>
+        <div class="p-4 border-t border-[var(--border-glass)] flex gap-2 bg-black/60 items-center">
+            <input type="text" id="chat-input" placeholder="اكتب سؤالك..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-gradient-to-tr from-[var(--gold)] to-[var(--dark-gold)] text-black rounded-lg flex items-center justify-center hover:scale-105 transition-transform"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         function switchView(viewId) {
@@ -535,11 +561,41 @@
             document.getElementById('roi-years').innerText = (p/y).toFixed(1); 
             document.getElementById('roi-result').classList.remove('hidden'); 
         }
+
+        let chatOpen = false;
+        function toggleChat() { 
+            chatOpen = !chatOpen; 
+            const cw = document.getElementById('chat-window'); 
+            if(chatOpen) cw.classList.add('active'); 
+            else cw.classList.remove('active'); 
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if(!text) return;
+            addMsg(text, true);
+            input.value = '';
+            const load = document.createElement('div');
+            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 animate-pulse';
+            load.textContent = 'جاري المعالجة...';
+            box.appendChild(load);
+            box.scrollTop = box.scrollHeight;
+            setTimeout(() => {
+                load.remove();
+                addMsg('أبشر براجع طلبك وأرد عليك بأقرب وقت', false);
+            }, 1000);
+        }
+        
+        function addMsg(t, u) {
+            const d = document.createElement('div');
+            d.className = u ? 'bg-[var(--gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-white/10 self-start max-w-[85%] leading-relaxed font-medium bg-black/50 text-white border-l-2 border-l-[var(--gold)] shadow-sm text-xs';
+            d.innerHTML = t; document.getElementById('chat-messages').appendChild(d); document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+        }
     </script>
 </body>
 </html>
-
-
 
 
 
