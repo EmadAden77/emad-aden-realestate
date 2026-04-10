@@ -1,13 +1,20 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="ZV0zKGZYz91i4jc1nsD9Brk0jwlBc2iMgxwvzPraW0E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مكتب عماد عدن العقاري - بيع شراء تثمين استثمار</title>
+    <title>مكتب عماد عدن العقاري | دليل وحدات الجوار في عدن | تقسيم رسمي + خرائط</title>
+    <meta name="description" content="دليل وحدات الجوار في عدن | تقسيم رسمي، خرائط تفاعلية، إجراءات التسجيل العقاري وفق القانون 39/1991، وعرض شامل للمخططات والمديريات.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
     <style>
         :root {
             --gold: #E5C07B;
@@ -103,7 +110,7 @@
 
         .table-wrapper { overflow-x: auto; border-radius: 1rem; border: 1px solid var(--border-glass); background: rgba(20,20,22,0.8); backdrop-filter: blur(10px); }
         .modern-table { width: 100%; border-collapse: collapse; text-align: right; min-width: 600px; }
-        .modern-table th { padding: 1rem; font-weight: 800; color: var(--gold); border-bottom: 1px solid rgba(229, 192, 123, 0.2); background: rgba(0,0,0,0.5); font-size: 0.95rem; }
+        .modern-table th { padding: 1rem; font-weight: 800; color: var(--gold); border-bottom: 1px solid rgba(229, 192, 123, 0.2); background: rgba(0,0,0,0.5); font-size: 0.95rem; white-space: nowrap; }
         .modern-table td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 500; font-size: 0.9rem; }
         .modern-table tr:hover td { background: rgba(229, 192, 123, 0.05); }
         .modern-table tr:last-child td { border-bottom: none; }
@@ -168,14 +175,39 @@
         ::-webkit-scrollbar-thumb { background: rgba(229, 192, 123, 0.3); border-radius: 10px; }
         
         .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+
+        /* Map styling fixes */
+        .leaflet-container { background: #1a1a1c; outline: none; font-family: 'Tajawal', sans-serif;}
+        .leaflet-popup-content-wrapper { background: rgba(15,15,18,0.9); backdrop-filter: blur(10px); color: white; border: 1px solid var(--gold); border-radius: 0.75rem;}
+        .leaflet-popup-tip { background: rgba(15,15,18,0.9); border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+        .leaflet-popup-content h4 { color: var(--gold); font-weight: bold; margin-bottom: 5px;}
+
+        /* Accordion */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        
+        /* Filter Table */
+        .filter-btn.active { background: var(--gold); color: black; border-color: var(--gold); }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "التخطيط العمراني والهيكلي لوحدات الجوار في محافظة عدن",
+      "publisher": {
+        "@type": "Organization",
+        "name": "مكتب عماد عدن العقاري"
+      }
+    }
+    </script>
 </head>
 <body class="antialiased">
 
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.8)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)]">
-                <img src="IMG_5.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/E5C07B?text=LOGO'">
+                <img src="IMG_5.jpg" alt="شعار مكتب عماد العقاري" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/E5C07B?text=LOGO'">
             </div>
             <div class="flex flex-col">
                 <h1 class="font-black text-sm md:text-base text-white tracking-wide">مكتب عماد عدن العقاري</h1>
@@ -186,14 +218,16 @@
             <a href="#core-services" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">الخدمات الأساسية</a>
             <a href="#management-section" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">إدارة الأملاك</a>
             <a href="#sell-section" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">منصة الطلبات</a>
+            <a href="#neighborhood-guide" class="text-xs font-black text-[var(--gold)] border-b border-[var(--gold)] pb-1 transition-colors">دليل وحدات الجوار</a>
         </div>
     </nav>
 
     <div class="pt-16">
         
+        <!-- الكود الأصلي: الأقسام كما هي بدون تغيير -->
         <section class="flex flex-col justify-center items-center text-center px-4 py-16 max-w-3xl mx-auto">
             <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-[var(--gold)] overflow-hidden mb-6 shadow-[0_0_30px_rgba(229,192,123,0.15)]">
-                <img src="IMG_5.jpg" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/200/000000/E5C07B?text=LOGO'">
+                <img src="IMG_5.jpg" alt="الشعار الرئيسي" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/200/000000/E5C07B?text=LOGO'">
             </div>
             <h2 class="text-2xl md:text-4xl font-black mb-4 leading-tight tracking-tight">
                 المرجعية الاستشارية المعتمدة <br><span class="gold-text-gradient mt-2 block">في التوثيق والحماية العقارية</span>
@@ -281,7 +315,7 @@
         <section id="sell-section" class="section-padding px-4 max-w-4xl mx-auto border-t border-white/5">
             <div class="mb-10 text-center">
                 <h3 class="text-2xl font-black mb-3 gold-text-gradient"><i class="fa-solid fa-file-shield mr-2"></i> منصة استقبال الطلبات والتوثيق</h3>
-                <p class="text-xs text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">ارفع مخططات وأوراق عقارك لتدقيقها هندسياً وقانونياً לעرضها ضمن شبكتنا المغلقة بضمان السرية المطلقة.</p>
+                <p class="text-xs text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed">ارفع مخططات وأوراق عقارك لتدقيقها هندسياً وقانونياً لعرضها ضمن شبكتنا المغلقة بضمان السرية المطلقة.</p>
             </div>
             
             <div class="bg-[rgba(15,15,18,0.6)] border border-white/5 p-6 rounded-2xl">
@@ -321,6 +355,199 @@
             </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- بداية الإضافات الجديدة (الدليل الشامل)     -->
+        <!-- ========================================== -->
+        
+        <section id="neighborhood-guide" class="section-padding px-4 max-w-6xl mx-auto border-t border-white/5">
+            <div class="text-center mb-12">
+                <span class="inline-block py-1 px-3 rounded-full bg-[rgba(229,192,123,0.1)] border border-[var(--gold)] text-[var(--gold)] text-[10px] font-bold mb-4">المرجع الرسمي 2026</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-4 text-white">دليل وحدات الجوار والإدارية <span class="gold-text-gradient">في محافظة عدن</span></h2>
+                <p class="text-xs md:text-sm text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
+                    يعتبر نظام وحدات الجوار الأداة القانونية الأساسية لتنظيم الملكيات العقارية. نستعرض هنا المخطط الهيكلي المعتمد للمديريات الثماني، وأرقام وحدات الجوار الموثقة، لتكون دليلك الآمن قبل الشراء.
+                </p>
+                <div class="mt-6 flex justify-center gap-3">
+                    <a href="#" class="btn-glass !py-2 !text-xs" onclick="alert('جاري تجهيز النسخة المحدثة للتحميل المباشر.')"><i class="fa-solid fa-file-pdf"></i> تحميل التقرير (PDF)</a>
+                </div>
+            </div>
+
+            <!-- 1. الإطار الإداري (جدول المديريات) -->
+            <div class="mb-16">
+                <h3 class="text-xl font-black mb-6 text-[var(--gold)] flex items-center gap-2">
+                    <i class="fa-solid fa-map-location-dot"></i> الإطار الإداري والديموغرافي لمديريات عدن
+                </h3>
+                <div class="table-wrapper">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>المديرية</th>
+                                <th>المساحة (كم²)</th>
+                                <th>إجمالي السكان</th>
+                                <th>توزيع (ذكور/إناث)</th>
+                                <th>الكثافة العمرانية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="font-bold text-white">المنصورة</td><td>88</td><td>214,710</td><td class="text-xs text-[var(--text-muted)]">109,206 / 105,504</td><td class="text-[var(--gold)] text-xs">توسع مستمر</td></tr>
+                            <tr><td class="font-bold text-white">الشيخ عثمان</td><td>42</td><td>218,269</td><td class="text-xs text-[var(--text-muted)]">111,016 / 107,253</td><td class="text-[var(--gold)] text-xs">توسع مستمر</td></tr>
+                            <tr><td class="font-bold text-white">دار سعد</td><td>37</td><td>194,871</td><td class="text-xs text-[var(--text-muted)]">99,115 / 95,756</td><td class="text-red-400 font-bold text-xs">عالية</td></tr>
+                            <tr><td class="font-bold text-white">البريقة</td><td>486</td><td>152,824</td><td class="text-xs text-[var(--text-muted)]">77,730 / 75,094</td><td class="text-green-400 font-bold text-xs">منخفضة (توسع مستقبلي)</td></tr>
+                            <tr><td class="font-bold text-white">خور مكسر</td><td>61</td><td>96,743</td><td class="text-xs text-[var(--text-muted)]">49,339 / 47,404</td><td class="text-[var(--gold)] text-xs">مستقرة</td></tr>
+                            <tr><td class="font-bold text-white">كريتر (صيرة)</td><td>13</td><td>156,899</td><td class="text-xs text-[var(--text-muted)]">80,018 / 76,881</td><td class="text-red-500 font-bold text-xs">عالية جداً</td></tr>
+                            <tr><td class="font-bold text-white">التواهي</td><td>10</td><td>110,816</td><td class="text-xs text-[var(--text-muted)]">56,366 / 54,450</td><td class="text-red-400 font-bold text-xs">عالية</td></tr>
+                            <tr><td class="font-bold text-white">المعلا</td><td>4</td><td>103,096</td><td class="text-xs text-[var(--text-muted)]">50,659 / 52,437</td><td class="text-red-500 font-black text-xs">أعلى كثافة مساحية</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2. الخريطة التفاعلية -->
+            <div class="mb-16">
+                <div class="flex justify-between items-end mb-6">
+                    <h3 class="text-xl font-black text-[var(--gold)] flex items-center gap-2">
+                        <i class="fa-solid fa-earth-asia"></i> خريطة التوزيع العمراني
+                    </h3>
+                </div>
+                <div id="adenMap" class="w-full h-[450px] rounded-2xl border border-[var(--border-glass)] z-0 relative shadow-lg"></div>
+            </div>
+
+            <!-- 3. المخطط التفصيلي لوحدات الجوار (نظام فلترة) -->
+            <div class="mb-16">
+                <h3 class="text-xl font-black mb-6 text-[var(--gold)] flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group"></i> المخطط التفصيلي لوحدات الجوار
+                </h3>
+                
+                <!-- أزرار التبويب -->
+                <div class="flex flex-wrap gap-2 mb-6" id="district-filters">
+                    <button class="filter-btn active btn-glass !py-2 !text-xs" onclick="filterTable('all')">الكل</button>
+                    <button class="filter-btn btn-glass !py-2 !text-xs" onclick="filterTable('دار سعد')">دار سعد (بئر فضل)</button>
+                    <button class="filter-btn btn-glass !py-2 !text-xs" onclick="filterTable('الشيخ عثمان')">الشيخ عثمان (الممدارة)</button>
+                    <button class="filter-btn btn-glass !py-2 !text-xs" onclick="filterTable('المنصورة')">المنصورة</button>
+                    <button class="filter-btn btn-glass !py-2 !text-xs" onclick="filterTable('خور مكسر')">خور مكسر</button>
+                    <button class="filter-btn btn-glass !py-2 !text-xs" onclick="filterTable('البريقة')">البريقة</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="modern-table" id="neighborhood-table">
+                        <thead>
+                            <tr>
+                                <th>المديرية / المنطقة</th>
+                                <th>رقم وحدة الجوار</th>
+                                <th>التفاصيل والمخططات</th>
+                                <th>الإجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- دار سعد -->
+                            <tr data-district="دار سعد"><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">537</td><td class="text-xs">تضم بلوك 10 ، وتتميز بقطع بمساحات (15×15)</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="دار سعد"><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">523</td><td class="text-xs">بلوك 8 (بلوك الجيش) وتضم قطعاً بمساحات (15×30)</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="دار سعد"><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">525 / 547</td><td class="text-xs">مخصصة للسكن المدني، وتشمل بلوك 3 وبلوك 26</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="دار سعد"><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">526 / 471 / 442</td><td class="text-xs">خلف الدفاع الجوي، البساتين، وإسكان البلوكات</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <!-- الشيخ عثمان -->
+                            <tr data-district="الشيخ عثمان"><td class="font-bold text-white">الشيخ عثمان / الممدارة</td><td class="gold-text-gradient font-black">699</td><td class="text-xs">بلوك 1، النفاذ لشارع التسعين</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="الشيخ عثمان"><td class="font-bold text-white">الشيخ عثمان / الممدارة</td><td class="gold-text-gradient font-black">644 / 691</td><td class="text-xs">بلوكات 2 و 5 (مخطط الشرطة)</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="الشيخ عثمان"><td class="font-bold text-white">الشيخ عثمان / الممدارة</td><td class="gold-text-gradient font-black">61D2 / 692</td><td class="text-xs">خلف الصالة الرياضية (شارع الخمسين) وقطاع 12</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="الشيخ عثمان"><td class="font-bold text-white">الشيخ عثمان / القاهرة</td><td class="gold-text-gradient font-black">518</td><td class="text-xs">بلوك 12، أراضي سكنية وتجارية</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <!-- المنصورة -->
+                            <tr data-district="المنصورة"><td class="font-bold text-white">المنصورة / حاشد</td><td class="gold-text-gradient font-black">3405</td><td class="text-xs">مخصصة لجمعيات سكنية</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="المنصورة"><td class="font-bold text-white">المنصورة / الدرين</td><td class="gold-text-gradient font-black">6102</td><td class="text-xs">وحدات ذات طابع صناعي وتجاري (نظام تأجير)</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <!-- خور مكسر -->
+                            <tr data-district="خور مكسر"><td class="font-bold text-white">خور مكسر / العريش</td><td class="gold-text-gradient font-black">614 / 697</td><td class="text-xs">بلوك 4، وبلوكات 7 و 8</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="خور مكسر"><td class="font-bold text-white">خور مكسر / ساحل أبين</td><td class="gold-text-gradient font-black">619</td><td class="text-xs">مطلة على البحر، استثمار وسكن فاخر</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <!-- البريقة -->
+                            <tr data-district="البريقة"><td class="font-bold text-white">البريقة / مدينة الشعب</td><td class="gold-text-gradient font-black">576</td><td class="text-xs">العقارات (3، 3ب، 3ج) قرب المجمع الجامعي</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                            <tr data-district="البريقة"><td class="font-bold text-white">البريقة / بئر أحمد</td><td class="gold-text-gradient font-black">58-B2 / 447</td><td class="text-xs">مخطط شباب بئر أحمد والمراحل الجديدة</td><td><button onclick="document.getElementById('sell-section').scrollIntoView()" class="btn-glass !py-1.5 !px-3 !text-[10px]"><i class="fa-solid fa-magnifying-glass"></i> عرض العقارات</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4. النماذج المعمارية -->
+            <div class="mb-16">
+                <h3 class="text-xl font-black mb-6 text-[var(--gold)] flex items-center gap-2">
+                    <i class="fa-solid fa-building"></i> النماذج المعمارية والمواصفات الفنية (Prototypes)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-[rgba(15,15,18,0.8)] border border-[var(--border-glass)] p-6 rounded-2xl text-center hover:border-[var(--gold)] transition-colors">
+                        <i class="fa-solid fa-store text-3xl text-[var(--gold)] mb-4"></i>
+                        <h4 class="font-black text-lg text-white mb-2">النموذج A</h4>
+                        <p class="text-[11px] text-[var(--text-muted)] mb-3">شقق سكنية (غرفتان - ثلاث) مع محلات تجارية في الدور الأرضي.</p>
+                        <span class="block text-[10px] font-bold text-blue-400 bg-blue-400/10 rounded-full py-1">الاستخدام: سكني / تجاري</span>
+                    </div>
+                    <div class="bg-[rgba(15,15,18,0.8)] border border-[var(--border-glass)] p-6 rounded-2xl text-center hover:border-[var(--gold)] transition-colors">
+                        <i class="fa-solid fa-house-user text-3xl text-[var(--gold)] mb-4"></i>
+                        <h4 class="font-black text-lg text-white mb-2">النموذج B</h4>
+                        <p class="text-[11px] text-[var(--text-muted)] mb-3">شقق سكنية فقط، تركز على الخصوصية والمساحات الواسعة الهادئة.</p>
+                        <span class="block text-[10px] font-bold text-green-400 bg-green-400/10 rounded-full py-1">الاستخدام: سكني خاص</span>
+                    </div>
+                    <div class="bg-[rgba(15,15,18,0.8)] border border-[var(--border-glass)] p-6 rounded-2xl text-center hover:border-[var(--gold)] transition-colors">
+                        <i class="fa-solid fa-city text-3xl text-[var(--gold)] mb-4"></i>
+                        <h4 class="font-black text-lg text-white mb-2">النموذج AD</h4>
+                        <p class="text-[11px] text-[var(--text-muted)] mb-3">نماذج أبراج سكنية حديثة مزودة بمصاعد وخدمات مركزية متكاملة.</p>
+                        <span class="block text-[10px] font-bold text-purple-400 bg-purple-400/10 rounded-full py-1">الاستخدام: سكني فاخر</span>
+                    </div>
+                    <div class="bg-[rgba(15,15,18,0.8)] border border-[var(--border-glass)] p-6 rounded-2xl text-center hover:border-[var(--gold)] transition-colors">
+                        <i class="fa-solid fa-house-chimney text-3xl text-[var(--gold)] mb-4"></i>
+                        <h4 class="font-black text-lg text-white mb-2">النموذج CT</h4>
+                        <p class="text-[11px] text-[var(--text-muted)] mb-3">وحدات سكنية منفصلة بمساحات تتراوح بين 200 إلى 500 متر مربع.</p>
+                        <span class="block text-[10px] font-bold text-yellow-400 bg-yellow-400/10 rounded-full py-1">الاستخدام: فلل مستقلة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. الإجراءات القانونية والأسئلة الشائعة -->
+            <div>
+                <h3 class="text-xl font-black mb-6 text-[var(--gold)] flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question"></i> الإجراءات القانونية والأسئلة الشائعة (FAQ)
+                </h3>
+                <div class="space-y-3">
+                    
+                    <div class="bg-[rgba(15,15,18,0.6)] border border-white/5 rounded-xl overflow-hidden">
+                        <button class="w-full text-right p-4 text-sm font-bold text-white flex justify-between items-center hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                            ما هي إجراءات تسجيل عقار ضمن وحدات الجوار (قانون 39/1991)؟
+                            <i class="fa-solid fa-chevron-down text-[var(--gold)] transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-black/30">
+                            <div class="p-4 pt-0 text-xs text-[var(--text-muted)] leading-relaxed border-t border-white/5">
+                                <ul class="list-disc list-inside space-y-1 mt-2">
+                                    <li><strong class="text-white">الإعلان العام:</strong> تنشر الهيئة العامة للأراضي إعلاناً في الصحف الرسمية يفيد بتقدم شخص للتسجيل.</li>
+                                    <li><strong class="text-white">فترة الاعتراض:</strong> يُمنح ذوو الشأن 30 يوماً لتقديم الاعتراضات للهيئة.</li>
+                                    <li><strong class="text-white">التوثيق النهائي:</strong> في حال عدم وجود اعتراض، تُصدر شهادة تمليك تحدد رقم وحدة الجوار والبلوك والقطعة.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[rgba(15,15,18,0.6)] border border-white/5 rounded-xl overflow-hidden">
+                        <button class="w-full text-right p-4 text-sm font-bold text-white flex justify-between items-center hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                            ما هي مخاطر البناء العشوائي خارج وحدات الجوار المعتمدة؟
+                            <i class="fa-solid fa-chevron-down text-[var(--gold)] transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content bg-black/30">
+                            <div class="p-4 pt-0 text-xs text-[var(--text-muted)] leading-relaxed border-t border-white/5">
+                                البناء خارج المخططات العمرانية يعني استحالة تسجيل وثائق ملكية رسمية بالدولة، وانعدام البنية التحتية والخدمات العامة، بالإضافة إلى كون العقار عرضة للإزالة الفورية والمصادرة من قبل الجهات المعنية بلا تعويض.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button onclick="openModal('legal-modal')" class="btn-gold !py-3 px-8 text-sm"><i class="fa-solid fa-scale-balanced mr-2"></i> استشارة تسجيل عقاري مجانية</button>
+                </div>
+            </div>
+
+            <!-- المصادر -->
+            <div class="mt-16 pt-8 border-t border-white/5 text-center">
+                <p class="text-[10px] text-[var(--text-muted)] mb-2">المصادر والمراجع: الهيئة العامة للأراضي والمساحة والتخطيط الحضري - السجل العقاري (قانون 39/1991) - إعلانات صحيفة 14 أكتوبر الرسمية.</p>
+                <p class="text-[10px] text-[var(--gold)] font-bold">آخر تحديث للبيانات: 10 أبريل 2026</p>
+            </div>
+        </section>
+
+        <!-- نهاية الإضافات الجديدة -->
+        <!-- ========================================== -->
+
+        <!-- الكود الأصلي: بقية الأقسام -->
         <section class="section-padding px-4 max-w-5xl mx-auto border-t border-white/5">
             <div class="mb-8 text-center">
                 <h3 class="text-2xl font-black mb-3 gold-text-gradient"><i class="fa-solid fa-chart-line mr-2"></i> مؤشرات السوق وتقييم الأمان</h3>
@@ -401,6 +628,7 @@
         </footer>
     </div>
 
+    <!-- العناصر العائمة والموديلز الأصلية -->
     <div onclick="openAdminModalSecretly()" class="fixed bottom-0 left-0 w-16 h-16 z-[9999] cursor-default"></div>
 
     <div class="glass-tools-bar floating-elements">
@@ -527,7 +755,88 @@
         </div>
     </div>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <script>
+        // --- سكربتات الدليل الجديدة --- //
+        
+        // تفعيل فلترة الجدول
+        function filterTable(district) {
+            // تحديث حالة الأزرار
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // فلترة الصفوف
+            const rows = document.querySelectorAll('#neighborhood-table tbody tr');
+            rows.forEach(row => {
+                if (district === 'all' || row.getAttribute('data-district') === district) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // تفعيل الأسئلة الشائعة (Accordion)
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+
+        // تهيئة خريطة عدن
+        document.addEventListener("DOMContentLoaded", function() {
+            // إحداثيات عدن التقريبية
+            const map = L.map('adenMap').setView([12.825, 44.975], 11);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            // نقاط المديريات مع النافذة المنبثقة
+            const districts = [
+                { name: "المنصورة", coords: [12.855, 44.965], units: "3405, 6102, مدينة إنماء" },
+                { name: "الشيخ عثمان", coords: [12.872, 44.981], units: "الممدارة: 699, 644, 691, القاهرة: 518" },
+                { name: "دار سعد", coords: [12.898, 44.976], units: "بئر فضل: 537, 523, 525, 547" },
+                { name: "خور مكسر", coords: [12.816, 45.020], units: "العريش: 614, 697, 619" },
+                { name: "البريقة", coords: [12.766, 44.832], units: "مدينة الشعب: 576, بئر أحمد: 447" },
+                { name: "كريتر", coords: [12.780, 45.034], units: "نطاق تاريخي ومرتفعات" },
+                { name: "التواهي", coords: [12.791, 44.983], units: "نطاق سياحي واستثماري" },
+                { name: "المعلا", coords: [12.793, 45.006], units: "كثافة سكانية عالية" }
+            ];
+
+            const customIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#E5C07B; width:12px; height:12px; border-radius:50%; border:2px solid #000; box-shadow:0 0 10px #E5C07B;'></div>",
+                iconSize: [12, 12],
+                iconAnchor: [6, 6]
+            });
+
+            districts.forEach(d => {
+                L.marker(d.coords, {icon: customIcon}).addTo(map)
+                    .bindPopup(`
+                        <div class="text-right" style="direction: rtl;">
+                            <h4>${d.name}</h4>
+                            <p class="text-xs text-gray-300 mb-2">أهم وحدات الجوار: ${d.units}</p>
+                            <button onclick="document.getElementById('sell-section').scrollIntoView()" class="bg-[#E5C07B] text-black text-[10px] font-bold py-1 px-2 rounded hover:bg-[#B8860B] transition-colors w-full text-center">
+                                عرض العقارات المتوفرة
+                            </button>
+                        </div>
+                    `);
+            });
+        });
+
+        // --- السكربتات الأصلية للموقع --- //
         function toggleTheme() { document.body.classList.toggle('light-theme'); }
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         
@@ -659,3 +968,6 @@
     </script>
 </body>
 </html>
+
+
+```
