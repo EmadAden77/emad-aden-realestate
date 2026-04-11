@@ -37,28 +37,36 @@
             --error-red: #ef4444;
         }
 
-        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة */
+        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة باحترافية */
         body {
+            background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             color: var(--text-main);
             font-family: 'Tajawal', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            transition: background-color 0.6s ease;
+            transition: background 0.8s ease, background-color 0.8s ease;
         }
         
-        body.theme-home  { background-color: #050505; } 
-        body.theme-expat { background-color: #0B132B; } 
-        body.theme-sales { background-color: #061F14; } 
-        body.theme-legal { background-color: #2A0808; } 
-        body.theme-urban { background-color: #1A0B2E; } 
-        body.theme-guide { background-color: #0D1B2A; } 
+        body.theme-home  { background: radial-gradient(circle at top center, #1a1a1a, #050505); } 
+        body.theme-expat { background: radial-gradient(circle at top left, #0A192F, #02050f); } 
+        body.theme-sales { background: radial-gradient(circle at top right, #062E1F, #010a05); } 
+        body.theme-legal { background: radial-gradient(circle at bottom center, #3A0CA3, #0a0101); } 
+        body.theme-urban { background: radial-gradient(circle at bottom right, #2E0B27, #05020a); } 
+        body.theme-guide { background: radial-gradient(circle at center, #0D1B2A, #03080f); } 
+
+        /* تأثيرات الإطارات الزجاجية حسب الثيم */
+        .theme-expat .glass-panel { border-color: rgba(58, 134, 255, 0.2); box-shadow: 0 10px 30px rgba(58, 134, 255, 0.1); }
+        .theme-sales .glass-panel { border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
+        .theme-legal .glass-panel { border-color: rgba(168, 85, 247, 0.2); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
+        .theme-urban .glass-panel { border-color: rgba(236, 72, 153, 0.2); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1); }
+        .theme-guide .glass-panel { border-color: rgba(14, 165, 233, 0.2); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1); }
 
         #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s; }
 
         .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-panel { background: rgba(15, 15, 18, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .glass-panel { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: border-color 0.5s ease; }
         .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(229, 192, 123, 0.1); border-radius: 1rem; transition: all 0.3s ease; }
         .glass-card:hover { background: rgba(229, 192, 123, 0.05); border-color: rgba(229, 192, 123, 0.3); transform: translateY(-2px); }
 
@@ -113,7 +121,6 @@
         .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* طباعة العقود المولدة */
         @media print {
             body * { visibility: hidden; }
             #printable-contract, #printable-contract * { visibility: visible; }
@@ -181,7 +188,7 @@
 
     <main id="app-container" class="no-print">
 
-        <!-- البوابة الرئيسية (ثابتة بالأقسام فقط) -->
+        <!-- البوابة الرئيسية -->
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-20">
             <div class="text-center mb-12 mt-10">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
@@ -237,43 +244,79 @@
             </div>
         </section>
 
-        <!-- إدارة الأملاك -->
+        <!-- إدارة الأملاك وبوابة الملاك السرية -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-20">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div class="flex items-center gap-2">
-                    <div>
-                        <h2 class="text-2xl font-black text-white flex items-center gap-3"><i class="fa-solid fa-grip text-[var(--gold)]"></i> لوحة إدارة الأملاك</h2>
-                        <p class="text-xs text-[var(--text-muted)] mt-1">متابعة دقيقة، تحصيل موثق، وتقارير دورية</p>
-                    </div>
-                    <!-- بوابة الملاك السرية -->
-                    <button onclick="unlockPortal()" class="mr-4 w-8 h-8 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] hover:bg-[var(--gold)] hover:text-black transition-all" title="دخول الملاك"><i class="fa-solid fa-lock"></i></button>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-3"><i class="fa-solid fa-grip text-[var(--gold)]"></i> لوحة إدارة الأملاك</h2>
+                    <p class="text-xs text-[var(--text-muted)] mt-1">متابعة دقيقة، تحصيل موثق، وتقارير دورية</p>
                 </div>
                 <button onclick="openModal('auth-modal')" class="btn-gold !py-2 !text-xs"><i class="fa-solid fa-file-contract"></i> طلب تفويض إدارة جديد</button>
             </div>
 
-            <!-- اللوحة المخفية للملاك (تظهر بعد إدخال الرمز 2026) -->
-            <div id="secret-portal" class="hidden glass-panel p-6 mb-8 border-green-500/30">
-                <h3 class="text-lg font-black text-green-400 mb-3"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظتك الخاصة - أهلاً بك</h3>
-                <p class="text-xs text-gray-300 mb-4">كافة تقارير التحصيل والصيانة لشهر مارس 2026 تم تدقيقها وهي جاهزة للتحميل.</p>
-                <button onclick="alert('جاري تحميل التقرير بصيغة PDF...')" class="btn-glass !text-xs !py-2"><i class="fa-solid fa-download mr-2"></i> تحميل التقرير الشهري (PDF)</button>
+            <!-- بوابة الملاك السرية الواضحة -->
+            <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto mb-10 border-[var(--gold)]">
+                <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] flex items-center justify-center text-2xl mx-auto mb-4 border border-[var(--gold)]/30">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-xl font-black text-white mb-2">بوابة الملاك السرية</h3>
+                <p class="text-xs text-gray-400 mb-6">أدخل رمز المرور الخاص بك للوصول إلى تقاريرك المالية والإدارية</p>
+                <input type="password" id="owner-password" placeholder="الرمز السري" class="input-glass !py-3 !text-center mb-4 tracking-widest text-lg">
+                <button onclick="checkOwnerPassword()" class="btn-gold w-full !py-3">دخول آمن <i class="fa-solid fa-arrow-left mr-2"></i></button>
+                <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="glass-panel p-5 text-center">
-                    <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">إجمالي الأصول</div>
-                    <div class="text-2xl font-black text-white">4</div>
+            <!-- اللوحة المخفية للملاك (تظهر بعد تسجيل الدخول) -->
+            <div id="secret-portal" class="hidden">
+                <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
+                    <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظتك الخاصة - تم التحقق</h3>
+                    <button onclick="logoutOwner()" class="text-xs text-red-400 hover:text-red-500 font-bold"><i class="fa-solid fa-right-from-bracket ml-1"></i> تسجيل خروج</button>
                 </div>
-                <div class="glass-panel p-5 text-center">
-                    <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">تحصيلات (الشهر)</div>
-                    <div class="text-2xl font-black text-[var(--gold)]">8,500 <span class="text-[10px]">ر.س</span></div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="glass-panel p-5 text-center">
+                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">إجمالي الأصول</div>
+                        <div class="text-2xl font-black text-white">4</div>
+                    </div>
+                    <div class="glass-panel p-5 text-center">
+                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">تحصيلات (الشهر)</div>
+                        <div class="text-2xl font-black text-[var(--gold)]">8,500 <span class="text-[10px]">ر.س</span></div>
+                    </div>
+                    <div class="glass-panel p-5 text-center">
+                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">العقود النشطة</div>
+                        <div class="text-2xl font-black text-green-400">3</div>
+                    </div>
+                    <div class="glass-panel p-5 text-center">
+                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">طلبات صيانة</div>
+                        <div class="text-2xl font-black text-red-400">1</div>
+                    </div>
                 </div>
-                <div class="glass-panel p-5 text-center">
-                    <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">العقود النشطة</div>
-                    <div class="text-2xl font-black text-green-400">3</div>
-                </div>
-                <div class="glass-panel p-5 text-center">
-                    <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">طلبات صيانة</div>
-                    <div class="text-2xl font-black text-red-400">1</div>
+
+                <div class="glass-panel p-6">
+                    <h3 class="text-lg font-bold text-white mb-4">محفظة العقارات</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div onclick="openPropertyModal('prop1')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-green-500/30 border-l-4">
+                            <div class="flex justify-between">
+                                <h4 class="font-bold text-sm text-white">فيلا درة عدن</h4>
+                                <span class="badge-rented text-[10px] font-bold px-2 py-0.5 rounded">مؤجر</span>
+                            </div>
+                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> وحدة جوار معتمدة | بلوك 4</p>
+                        </div>
+                        <div onclick="openPropertyModal('prop2')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-yellow-500/30 border-l-4">
+                            <div class="flex justify-between">
+                                <h4 class="font-bold text-sm text-white">معرض تجاري</h4>
+                                <span class="badge-vacant text-[10px] font-bold px-2 py-0.5 rounded">شاغر</span>
+                            </div>
+                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> المنصورة | شارع التسعين</p>
+                        </div>
+                        <div onclick="openPropertyModal('prop3')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-red-500/30 border-l-4">
+                            <div class="flex justify-between">
+                                <h4 class="font-bold text-sm text-white">شقة عائلية</h4>
+                                <span class="badge-maintenance text-[10px] font-bold px-2 py-0.5 rounded">تحت الصيانة</span>
+                            </div>
+                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> الممدارة | وحدة جوار 699</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -357,6 +400,18 @@
                     <span class="btn-glass !py-1.5 !px-4 !text-[10px]">طلب تثمين رسمي</span>
                 </div>
             </div>
+
+            <div class="glass-panel p-6">
+                <h3 class="text-lg font-black text-white mb-4"><i class="fa-solid fa-circle-question text-[var(--gold)]"></i> أسئلة شائعة قانونية</h3>
+                <details>
+                    <summary>ما هي إجراءات تسجيل عقار ضمن وحدات الجوار المعتمدة؟</summary>
+                    <div class="details-content">يتم الإعلان العام في الصحف، ثم تمنح فترة اعتراض، وفي حال السليم يتم إصدار شهادة التمليك الرسمية.</div>
+                </details>
+                <details>
+                    <summary>ما هي مخاطر البناء العشوائي خارج المخطط؟</summary>
+                    <div class="details-content">استحالة توثيق الملكية في الدولة، وانعدام الخدمات الأساسية، والتعرض لخطر الإزالة.</div>
+                </details>
+            </div>
         </section>
 
         <!-- التطور العمراني -->
@@ -403,6 +458,7 @@
                         <tr><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">537 / 523</td><td class="text-xs text-gray-400">بلوك 10، وبلوك 8 مساحات (15×30)</td></tr>
                         <tr><td class="font-bold text-white">الشيخ عثمان / الممدارة</td><td class="gold-text-gradient font-black">699 / 644</td><td class="text-xs text-gray-400">بلوك 1، وبلوك 2</td></tr>
                         <tr><td class="font-bold text-white">المنصورة / حاشد</td><td class="gold-text-gradient font-black">3405</td><td class="text-xs text-gray-400">مخصصة لجمعيات سكنية</td></tr>
+                        <tr><td class="font-bold text-white">خور مكسر / العريش</td><td class="gold-text-gradient font-black">614 / 697</td><td class="text-xs text-gray-400">بلوك 4، وبلوكات 7 و 8</td></tr>
                         <tr><td class="font-bold text-white">البريقة / مدينة الشعب</td><td class="gold-text-gradient font-black">576</td><td class="text-xs text-gray-400">العقارات قرب المجمع الجامعي</td></tr>
                     </tbody>
                 </table>
@@ -501,6 +557,21 @@
         </div>
     </div>
 
+    <!-- نافذة العقار -->
+    <div id="prop-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('prop-modal')">
+        <div class="modal-box text-center">
+            <button onclick="closeModal('prop-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="pm-title" class="text-lg font-black text-white mb-1">تفاصيل العقار</h3>
+            <p id="pm-desc" class="text-xs text-[var(--text-muted)] mb-5 pb-4 border-b border-white/10">موقع وبيانات</p>
+            <div class="bg-black/30 rounded-xl p-4 mb-6 border border-white/5 text-right space-y-3">
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">الحالة الإدارية</span> <span id="pm-status" class="text-xs font-bold text-green-400">مؤجر</span></div>
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">تاريخ آخر تحصيل</span> <span class="text-xs text-white">01 أبريل 2026</span></div>
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">ملاحظات الصيانة</span> <span class="text-xs text-white">لا يوجد بلاغات</span></div>
+            </div>
+            <button onclick="closeModal('prop-modal')" class="btn-gold w-full !py-3 !text-sm">تحميل التقرير الشهري</button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // إعداد History API للإبقاء على الموقع وعدم الخروج عند الرجوع
@@ -539,15 +610,22 @@
             }
         }
 
-        // البوابة السرية للملاك
-        function unlockPortal() {
-            const pass = prompt("الرجاء إدخال رمز المرور الخاص بالملاك:");
-            if (pass === "2026") {
+        // بوابة الملاك السرية
+        function checkOwnerPassword() {
+            const pass = document.getElementById('owner-password').value;
+            if(pass === '2026') {
+                document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
-                alert("تم تسجيل الدخول بنجاح لمحفظتك السرية.");
-            } else if(pass !== null) {
-                alert("رمز المرور غير صحيح.");
+                document.getElementById('owner-password').value = '';
+                document.getElementById('owner-error').classList.add('hidden');
+            } else {
+                document.getElementById('owner-error').classList.remove('hidden');
             }
+        }
+        
+        function logoutOwner() {
+            document.getElementById('secret-portal').classList.add('hidden');
+            document.getElementById('owner-login-section').classList.remove('hidden');
         }
 
         // توليد عقد للطباعة أو الـ PDF
@@ -682,6 +760,16 @@
             const districts = [ { coords: [12.855, 44.965], title: "المنصورة" }, { coords: [12.872, 44.981], title: "الشيخ عثمان" }, { coords: [12.898, 44.976], title: "دار سعد (بئر فضل)" }, { coords: [12.766, 44.832], title: "البريقة" } ];
             const customIcon = L.divIcon({ className: 'custom-div-icon', html: "<div style='background-color:#E5C07B; width:12px; height:12px; border-radius:50%; box-shadow:0 0 10px #E5C07B;'></div>", iconSize: [12, 12] });
             districts.forEach(d => L.marker(d.coords, {icon: customIcon}).addTo(map).bindPopup(`<div style="direction:rtl; font-family:Tajawal; font-weight:bold; color:black;">${d.title}</div>`));
+        }
+
+        function openPropertyModal(propId) {
+            const title = document.getElementById('pm-title');
+            const desc = document.getElementById('pm-desc');
+            const status = document.getElementById('pm-status');
+            if(propId === 'prop1') { title.innerText = "فيلا درة عدن"; desc.innerText = "وحدة جوار معتمدة | بلوك 4"; status.className = "text-xs font-bold text-green-400"; status.innerText = "مؤجر"; }
+            else if(propId === 'prop2') { title.innerText = "معرض تجاري - المنصورة"; desc.innerText = "شارع التسعين"; status.className = "text-xs font-bold text-yellow-400"; status.innerText = "شاغر"; }
+            else { title.innerText = "شقة عائلية - الممدارة"; desc.innerText = "وحدة جوار 699"; status.className = "text-xs font-bold text-red-400"; status.innerText = "تحت الصيانة"; }
+            openModal('prop-modal');
         }
 
         function sendManagementAuth() { window.open(`https://wa.me/967773571889?text=${encodeURIComponent('طلب تفويض لإدارة الأملاك بشكل سري ومؤسسي')}`, '_blank'); closeModal('auth-modal'); }
