@@ -48,12 +48,12 @@
             transition: background-color 0.6s ease;
         }
         
-        body.theme-home  { background-color: #050505; } /* أسود عميق */
-        body.theme-expat { background-color: #0B132B; } /* أزرق داكن ملكي */
-        body.theme-sales { background-color: #061F14; } /* أخضر زمردي داكن */
-        body.theme-legal { background-color: #2A0808; } /* أحمر عنابي داكن */
-        body.theme-urban { background-color: #1A0B2E; } /* بنفسجي داكن */
-        body.theme-guide { background-color: #0D1B2A; } /* كحلي داكن */
+        body.theme-home  { background-color: #050505; } 
+        body.theme-expat { background-color: #0B132B; } 
+        body.theme-sales { background-color: #061F14; } 
+        body.theme-legal { background-color: #2A0808; } 
+        body.theme-urban { background-color: #1A0B2E; } 
+        body.theme-guide { background-color: #0D1B2A; } 
 
         #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s; }
 
@@ -112,13 +112,45 @@
         
         .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* طباعة العقود المولدة */
+        @media print {
+            body * { visibility: hidden; }
+            #printable-contract, #printable-contract * { visibility: visible; }
+            #printable-contract { position: absolute; left: 0; top: 0; width: 100%; background: white; color: black; padding: 2rem; direction: rtl; }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
 <body class="antialiased theme-home">
 
+    <!-- منطقة طباعة العقد الآلي (مخفية) -->
+    <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
+        <div class="text-center mb-10 border-b-2 border-black pb-4">
+            <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
+            <p class="text-sm">بيع - شراء - تثمين - استثمار</p>
+            <h2 class="text-xl font-bold mt-4 underline">عقد تفويض إداري (توليد إلكتروني)</h2>
+        </div>
+        <div class="mb-6 leading-loose text-lg">
+            <p>إنه في يوم: <span id="print-date" class="font-bold"></span></p>
+            <p>أقر أنا المالك/ـة: <span id="print-name" class="font-bold border-b border-black inline-block min-w-[200px]"></span></p>
+            <p>بتفويض "مكتب عماد عدن العقاري" بإدارة أملاكي وتحصيل الإيجارات الخاصة بي بصفتهم الوكيل المعتمد، وذلك وفقاً للشروط المبرمة والسرية التامة المحفوظة للطرفين.</p>
+        </div>
+        <div class="mt-20 flex justify-between px-10">
+            <div class="text-center">
+                <p class="font-bold mb-8">توقيع المالك</p>
+                <p>_________________</p>
+            </div>
+            <div class="text-center">
+                <p class="font-bold mb-8">ختم المكتب المعتمد</p>
+                <p>_________________</p>
+            </div>
+        </div>
+    </div>
+
     <div id="scroll-progress"></div>
 
-    <div class="side-tabs-container">
+    <div class="side-tabs-container no-print">
         <div class="side-tab" onclick="toggleChat()">
             <div class="side-tab-text">المساعد الشخصي</div>
         </div>
@@ -127,7 +159,7 @@
         </div>
     </div>
 
-    <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all">
+    <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)]">
                 <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/E5C07B?text=LOGO'">
@@ -147,7 +179,7 @@
         <button class="md:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
     </nav>
 
-    <main id="app-container">
+    <main id="app-container" class="no-print">
 
         <!-- البوابة الرئيسية (ثابتة بالأقسام فقط) -->
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-20">
@@ -208,11 +240,22 @@
         <!-- إدارة الأملاك -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-20">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <div>
-                    <h2 class="text-2xl font-black text-white flex items-center gap-3"><i class="fa-solid fa-grip text-[var(--gold)]"></i> لوحة إدارة الأملاك</h2>
-                    <p class="text-xs text-[var(--text-muted)] mt-1">متابعة دقيقة، تحصيل موثق، وتقارير دورية</p>
+                <div class="flex items-center gap-2">
+                    <div>
+                        <h2 class="text-2xl font-black text-white flex items-center gap-3"><i class="fa-solid fa-grip text-[var(--gold)]"></i> لوحة إدارة الأملاك</h2>
+                        <p class="text-xs text-[var(--text-muted)] mt-1">متابعة دقيقة، تحصيل موثق، وتقارير دورية</p>
+                    </div>
+                    <!-- بوابة الملاك السرية -->
+                    <button onclick="unlockPortal()" class="mr-4 w-8 h-8 rounded-full bg-white/5 border border-white/10 text-[var(--gold)] hover:bg-[var(--gold)] hover:text-black transition-all" title="دخول الملاك"><i class="fa-solid fa-lock"></i></button>
                 </div>
                 <button onclick="openModal('auth-modal')" class="btn-gold !py-2 !text-xs"><i class="fa-solid fa-file-contract"></i> طلب تفويض إدارة جديد</button>
+            </div>
+
+            <!-- اللوحة المخفية للملاك (تظهر بعد إدخال الرمز 2026) -->
+            <div id="secret-portal" class="hidden glass-panel p-6 mb-8 border-green-500/30">
+                <h3 class="text-lg font-black text-green-400 mb-3"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظتك الخاصة - أهلاً بك</h3>
+                <p class="text-xs text-gray-300 mb-4">كافة تقارير التحصيل والصيانة لشهر مارس 2026 تم تدقيقها وهي جاهزة للتحميل.</p>
+                <button onclick="alert('جاري تحميل التقرير بصيغة PDF...')" class="btn-glass !text-xs !py-2"><i class="fa-solid fa-download mr-2"></i> تحميل التقرير الشهري (PDF)</button>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -231,33 +274,6 @@
                 <div class="glass-panel p-5 text-center">
                     <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">طلبات صيانة</div>
                     <div class="text-2xl font-black text-red-400">1</div>
-                </div>
-            </div>
-
-            <div class="glass-panel p-6">
-                <h3 class="text-lg font-bold text-white mb-4">محفظة العقارات</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div onclick="openPropertyModal('prop1')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-green-500/30 border-l-4">
-                        <div class="flex justify-between">
-                            <h4 class="font-bold text-sm text-white">فيلا درة عدن</h4>
-                            <span class="badge-rented text-[10px] font-bold px-2 py-0.5 rounded">مؤجر</span>
-                        </div>
-                        <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> وحدة جوار معتمدة | بلوك 4</p>
-                    </div>
-                    <div onclick="openPropertyModal('prop2')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-yellow-500/30 border-l-4">
-                        <div class="flex justify-between">
-                            <h4 class="font-bold text-sm text-white">معرض تجاري</h4>
-                            <span class="badge-vacant text-[10px] font-bold px-2 py-0.5 rounded">شاغر</span>
-                        </div>
-                        <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> المنصورة | شارع التسعين</p>
-                    </div>
-                    <div onclick="openPropertyModal('prop3')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-red-500/30 border-l-4">
-                        <div class="flex justify-between">
-                            <h4 class="font-bold text-sm text-white">شقة عائلية</h4>
-                            <span class="badge-maintenance text-[10px] font-bold px-2 py-0.5 rounded">تحت الصيانة</span>
-                        </div>
-                        <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> الممدارة | وحدة جوار 699</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -309,12 +325,12 @@
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية (المنطقة، وحدة الجوار، المساحة)</label>
+                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة لضمان سرعة المعالجة..." class="input-glass h-24 resize-none"></textarea>
                     </div>
                     <div class="flex gap-3">
                         <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
-                        <button onclick="submitSecureRequest()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-solid fa-lock mr-2"></i></button>
+                        <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2"></i></button>
                     </div>
                 </div>
             </div>
@@ -328,11 +344,11 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="glass-card p-6 text-center cursor-pointer" onclick="openModal('legal-modal')">
+                <div class="glass-card p-6 text-center">
                     <i class="fa-solid fa-file-contract text-3xl text-[var(--gold)] mb-3"></i>
                     <h3 class="font-bold text-lg text-white mb-2">المستشار القانوني</h3>
-                    <p class="text-xs text-gray-400 mb-4">فحص البصائر، مطابقة المخططات مع السجل العقاري.</p>
-                    <span class="btn-glass !py-1.5 !px-4 !text-[10px]">طلب فحص بصيرة</span>
+                    <p class="text-xs text-gray-400 mb-4">توليد مسودة عقد تفويض إداري بشكل فوري وآلي.</p>
+                    <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-1.5 !px-4 !text-[10px]">إصدار عقد آلي</button>
                 </div>
                 <div class="glass-card p-6 text-center cursor-pointer" onclick="openModal('valuation-modal')">
                     <i class="fa-solid fa-calculator text-3xl text-[var(--gold)] mb-3"></i>
@@ -340,18 +356,6 @@
                     <p class="text-xs text-gray-400 mb-4">تقييم عقاري هندسي دقيق يعتمد على الأسعار الفعلي.</p>
                     <span class="btn-glass !py-1.5 !px-4 !text-[10px]">طلب تثمين رسمي</span>
                 </div>
-            </div>
-
-            <div class="glass-panel p-6">
-                <h3 class="text-lg font-black text-white mb-4"><i class="fa-solid fa-circle-question text-[var(--gold)]"></i> أسئلة شائعة قانونية</h3>
-                <details>
-                    <summary>ما هي إجراءات تسجيل عقار ضمن وحدات الجوار المعتمدة؟</summary>
-                    <div class="details-content">يتم الإعلان العام في الصحف، ثم تمنح فترة اعتراض، وفي حال السليم يتم إصدار شهادة التمليك الرسمية.</div>
-                </details>
-                <details>
-                    <summary>ما هي مخاطر البناء العشوائي خارج المخطط؟</summary>
-                    <div class="details-content">استحالة توثيق الملكية في الدولة، وانعدام الخدمات الأساسية، والتعرض لخطر الإزالة.</div>
-                </details>
             </div>
         </section>
 
@@ -408,9 +412,23 @@
 
     </main>
 
-    <!-- النوافذ المنبثقة -->
+    <!-- ========================================== -->
+    <!-- النوافذ المنبثقة (Modals) -->
+    <!-- ========================================== -->
 
-    <div id="roi-modal" class="modal-container" onclick="if(event.target===this) closeModal('roi-modal')">
+    <!-- توليد عقد PDF -->
+    <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
+        <div class="modal-box">
+            <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-xl font-black text-white mb-2 text-center">إصدار عقد تفويض آلي</h2>
+            <p class="text-[10px] text-gray-400 text-center mb-5">أدخل اسم المالك لإنشاء مسودة العقد الجاهزة للطباعة أو الحفظ كـ PDF.</p>
+            <input type="text" id="contract-owner-name" placeholder="اسم المالك الرباعي" class="input-glass mb-4 !py-2.5">
+            <button onclick="generatePrintableContract()" class="btn-gold w-full !py-3 text-sm">توليد وطباعة العقد <i class="fa-solid fa-print mr-2"></i></button>
+        </div>
+    </div>
+
+    <!-- حاسبة العوائد -->
+    <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')">
         <div class="modal-box !max-w-[450px]">
             <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-xl font-black mb-4 text-white flex items-center gap-2"><i class="fa-solid fa-calculator text-[var(--gold)]"></i> حاسبة العوائد</h2>
@@ -430,15 +448,15 @@
                 <p class="text-[10px] text-white/60 mb-1 font-bold">العائد السنوي المتوقع</p>
                 <h3 id="roi-yearly" class="text-2xl font-black gold-text-gradient mb-3">0</h3>
                 <div class="flex justify-between border-t border-white/10 pt-3 px-2 mb-3">
-                    <div class="text-center"><span id="roi-percent" class="block font-bold text-sm text-green-400">0%</span><span class="text-[9px] text-white/60 block mt-1">النسبة</span></div>
-                    <div class="text-center"><span id="roi-years" class="block font-bold text-sm text-yellow-400">0</span><span class="text-[9px] text-white/60 block mt-1">سنوات</span></div>
+                    <div class="text-center"><span id="roi-percent" class="block font-bold text-sm text-green-400">0%</span><span class="text-[9px] text-white/60 block mt-1">النسبة السنوية</span></div>
+                    <div class="text-center"><span id="roi-years" class="block font-bold text-sm text-yellow-400">0</span><span class="text-[9px] text-white/60 block mt-1">سنوات الاسترداد</span></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- نافذة المساعد الشخصي -->
-    <div id="chat-window" class="chat-panel">
+    <div id="chat-window" class="chat-panel no-print">
         <div class="p-5 flex justify-between items-center border-b border-[var(--gold)] bg-black/80">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black">
@@ -461,24 +479,18 @@
     </div>
 
     <!-- تفويض الإدارة -->
-    <div id="auth-modal" class="modal-container" onclick="if(event.target===this) closeModal('auth-modal')">
+    <div id="auth-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('auth-modal')">
         <div class="modal-box text-center">
             <button onclick="closeModal('auth-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] border border-[var(--gold)]/30 flex items-center justify-center text-2xl mx-auto mb-4"><i class="fa-solid fa-file-signature"></i></div>
             <h2 class="text-xl font-black text-white mb-2">تفويض إدارة أملاك</h2>
+            <p class="text-xs text-[var(--text-muted)] mb-5">الإدارة والتحصيل بعقود صارمة وسرية مطلقة.</p>
             <button onclick="sendManagementAuth()" class="btn-gold w-full !py-3 text-sm">التواصل عبر الواتساب للاعتماد</button>
         </div>
     </div>
     
-    <div id="legal-modal" class="modal-container" onclick="if(event.target===this) closeModal('legal-modal')">
-        <div class="modal-box">
-            <button onclick="closeModal('legal-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black text-white mb-2 text-center">طلب فحص بصيرة</h2>
-            <input type="text" id="leg-num" placeholder="رقم البصيرة / وحدة الجوار" class="input-glass mb-3">
-            <button onclick="submitLegal()" id="btn-leg" class="btn-gold w-full !py-3 text-sm">إرسال للمستشار</button>
-        </div>
-    </div>
-
-    <div id="valuation-modal" class="modal-container" onclick="if(event.target===this) closeModal('valuation-modal')">
+    <!-- التثمين -->
+    <div id="valuation-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('valuation-modal')">
         <div class="modal-box">
             <button onclick="closeModal('valuation-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="text-lg font-black text-white mb-2 text-center">طلب تثمين أصول</h3>
@@ -486,19 +498,6 @@
                 <input type="text" placeholder="المنطقة" class="input-glass flex-1 !text-xs !py-2.5">
             </div>
             <button onclick="closeModal('valuation-modal'); alert('تم رفع الطلب للجنة')" class="btn-gold w-full !py-3 !text-sm">طلب إيفاد اللجنة</button>
-        </div>
-    </div>
-
-    <!-- نافذة العقار -->
-    <div id="prop-modal" class="modal-container" onclick="if(event.target===this) closeModal('prop-modal')">
-        <div class="modal-box text-center">
-            <button onclick="closeModal('prop-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 id="pm-title" class="text-lg font-black text-white mb-1">تفاصيل العقار</h3>
-            <p id="pm-desc" class="text-xs text-[var(--text-muted)] mb-5 pb-4 border-b border-white/10">موقع وبيانات</p>
-            <div class="bg-black/30 rounded-xl p-4 mb-6 border border-white/5 text-right space-y-3">
-                <div class="flex justify-between"><span class="text-[10px] text-gray-400">الحالة الإدارية</span> <span id="pm-status" class="text-xs font-bold text-green-400">مؤجر</span></div>
-            </div>
-            <button onclick="closeModal('prop-modal')" class="btn-gold w-full !py-3 !text-sm">تحميل التقرير الشهري</button>
         </div>
     </div>
 
@@ -540,11 +539,41 @@
             }
         }
 
+        // البوابة السرية للملاك
+        function unlockPortal() {
+            const pass = prompt("الرجاء إدخال رمز المرور الخاص بالملاك:");
+            if (pass === "2026") {
+                document.getElementById('secret-portal').classList.remove('hidden');
+                alert("تم تسجيل الدخول بنجاح لمحفظتك السرية.");
+            } else if(pass !== null) {
+                alert("رمز المرور غير صحيح.");
+            }
+        }
+
+        // توليد عقد للطباعة أو الـ PDF
+        function generatePrintableContract() {
+            const ownerName = document.getElementById('contract-owner-name').value;
+            if(!ownerName.trim()) {
+                document.getElementById('contract-owner-name').classList.add('input-error');
+                return;
+            }
+            document.getElementById('contract-owner-name').classList.remove('input-error');
+            
+            document.getElementById('print-name').innerText = ownerName;
+            document.getElementById('print-date').innerText = new Date().toLocaleDateString('ar-EG');
+            
+            closeModal('contract-generator-modal');
+            
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        }
+
         // إدارة النوافذ
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        // نموذج الطلبات المتدرج
+        // نموذج الطلبات المتدرج والواتساب الذكي
         function nextFormStep() {
             const name = document.getElementById('req-name');
             const phone = document.getElementById('req-phone');
@@ -565,25 +594,22 @@
             document.getElementById('step2-ind').className = 'bg-black border border-white/20 text-white px-3 py-1 rounded-full z-10';
             document.getElementById('step1-ind').className = 'bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10';
         }
-        function submitSecureRequest() {
-            const btn = event.currentTarget;
-            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
-            setTimeout(() => {
-                alert('تم التشفير بنجاح. سيتم تحويلك للواتساب لإكمال الإرسال.');
-                btn.innerHTML = 'إرسال للإدارة <i class="fa-solid fa-lock ml-2"></i>';
-                window.open(`https://wa.me/967773571889?text=طلب%20جديد`, '_blank');
-            }, 1000);
-        }
 
-        function submitLegal() {
-            const btn = document.getElementById('btn-leg');
-            if(!document.getElementById('leg-num').value) { document.getElementById('leg-num').classList.add('input-error'); return; }
-            btn.innerHTML = '<span class="loader-spinner"></span>';
+        function submitSecureWhatsapp() {
+            const btn = event.currentTarget;
+            const name = document.getElementById('req-name').value;
+            const phone = document.getElementById('req-phone').value;
+            const type = document.querySelector('input[name="rtype"]:checked').value;
+            const desc = document.getElementById('req-desc').value || "لم يكتب تفاصيل إضافية.";
+
+            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
+            
+            const message = `*طلب جديد من المنصة*%0A👤 الاسم: ${name}%0A📞 الجوال: ${phone}%0A🏷️ نوع الإجراء: ${type}%0A📝 التفاصيل: ${desc}`;
+
             setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> تم إرسال الطلب للمستشار';
-                btn.classList.add('bg-green-500');
-                setTimeout(()=> closeModal('legal-modal'), 1500);
-            }, 800);
+                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
+                window.open(`https://wa.me/967773571889?text=${message}`, '_blank');
+            }, 1000);
         }
 
         // حاسبة العوائد
@@ -656,16 +682,6 @@
             const districts = [ { coords: [12.855, 44.965], title: "المنصورة" }, { coords: [12.872, 44.981], title: "الشيخ عثمان" }, { coords: [12.898, 44.976], title: "دار سعد (بئر فضل)" }, { coords: [12.766, 44.832], title: "البريقة" } ];
             const customIcon = L.divIcon({ className: 'custom-div-icon', html: "<div style='background-color:#E5C07B; width:12px; height:12px; border-radius:50%; box-shadow:0 0 10px #E5C07B;'></div>", iconSize: [12, 12] });
             districts.forEach(d => L.marker(d.coords, {icon: customIcon}).addTo(map).bindPopup(`<div style="direction:rtl; font-family:Tajawal; font-weight:bold; color:black;">${d.title}</div>`));
-        }
-
-        function openPropertyModal(propId) {
-            const title = document.getElementById('pm-title');
-            const desc = document.getElementById('pm-desc');
-            const status = document.getElementById('pm-status');
-            if(propId === 'prop1') { title.innerText = "فيلا درة عدن"; desc.innerText = "وحدة جوار معتمدة | بلوك 4"; status.className = "text-xs font-bold text-green-400"; status.innerText = "مؤجر"; }
-            else if(propId === 'prop2') { title.innerText = "معرض تجاري - المنصورة"; desc.innerText = "شارع التسعين"; status.className = "text-xs font-bold text-yellow-400"; status.innerText = "شاغر"; }
-            else { title.innerText = "شقة عائلية - الممدارة"; desc.innerText = "وحدة جوار 699"; status.className = "text-xs font-bold text-red-400"; status.innerText = "تحت الصيانة"; }
-            openModal('prop-modal');
         }
 
         function sendManagementAuth() { window.open(`https://wa.me/967773571889?text=${encodeURIComponent('طلب تفويض لإدارة الأملاك بشكل سري ومؤسسي')}`, '_blank'); closeModal('auth-modal'); }
