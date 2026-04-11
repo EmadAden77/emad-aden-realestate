@@ -7,7 +7,6 @@
     <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
     <meta name="description" content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك التثمين الاستشارات القانونية وبيع وشراء العقارات في عدن ضمن وحدات الجوار المعتمدة.">
     
-    <!-- بيانات منظمة SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -23,27 +22,6 @@
       "telephone": "+967773571889"
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "ما هي إجراءات تسجيل عقار ضمن وحدات الجوار؟",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "وفقاً لقانون 39 لسنة 1991 يتم الإعلان العام ثم فترة الاعتراض ثم التوثيق النهائي وإصدار شهادة التمليك."
-        }
-      },{
-        "@type": "Question",
-        "name": "ما هي مخاطر البناء العشوائي؟",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "استحالة تسجيل وثائق ملكية رسمية وانعدام البنية التحتية وتعرض العقار للإزالة الفورية."
-        }
-      }]
-    }
-    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,33 +32,30 @@
         :root {
             --gold: #E5C07B;
             --dark-gold: #B8860B;
-            --bg-deep: #050505;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --error-red: #ef4444;
         }
 
+        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة */
         body {
-            background-color: var(--bg-deep);
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             color: var(--text-main);
             font-family: 'Tajawal', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            transition: background-color 0.6s ease;
         }
+        
+        body.theme-home  { background-color: #050505; } /* أسود عميق */
+        body.theme-expat { background-color: #0B132B; } /* أزرق داكن ملكي */
+        body.theme-sales { background-color: #061F14; } /* أخضر زمردي داكن */
+        body.theme-legal { background-color: #2A0808; } /* أحمر عنابي داكن */
+        body.theme-urban { background-color: #1A0B2E; } /* بنفسجي داكن */
+        body.theme-guide { background-color: #0D1B2A; } /* كحلي داكن */
 
-        /* شريط التقدم */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--dark-gold));
-            z-index: 99999;
-            transition: width 0.1s;
-        }
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s; }
 
         .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-panel { background: rgba(15, 15, 18, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -100,7 +75,6 @@
         .app-view.active { display: block; }
         @keyframes fadeIn { to { opacity: 1; } }
 
-        /* الأكورديون (الأسئلة الشائعة) */
         details { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; margin-bottom: 0.5rem; }
         summary { padding: 1rem; cursor: pointer; font-weight: 700; color: var(--gold); font-size: 0.9rem; list-style: none; outline: none; display: flex; justify-content: space-between; align-items: center; }
         summary::-webkit-details-marker { display: none; }
@@ -108,19 +82,16 @@
         details[open] summary::after { transform: rotate(180deg); }
         .details-content { padding: 0 1rem 1rem 1rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
 
-        /* Tooltips للمصطلحات */
         .term-tooltip { position: relative; cursor: help; border-bottom: 1px dashed var(--gold); color: var(--gold); }
         .term-tooltip::before { content: attr(data-tip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid var(--gold); z-index: 10; pointer-events: none; }
         .term-tooltip:hover::before { opacity: 1; visibility: visible; }
 
-        /* الراديو بتون للنماذج */
         .radio-group { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
         .radio-label { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: 0.3s; }
         .radio-label:hover { background: rgba(229,192,123,0.1); border-color: var(--gold); }
         .radio-input:checked + .radio-label { background: rgba(229,192,123,0.2); border-color: var(--gold); color: var(--gold); font-weight: bold; }
         .radio-input { display: none; }
 
-        /* الجداول الأفقية */
         .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(15,15,18,0.4); backdrop-filter: blur(10px); }
         .modern-table { width: 100%; border-collapse: collapse; text-align: right; min-width: 600px; }
         .modern-table th { padding: 1rem; font-weight: 800; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; white-space: nowrap; }
@@ -143,7 +114,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased theme-home">
 
     <div id="scroll-progress"></div>
 
@@ -178,7 +149,7 @@
 
     <main id="app-container">
 
-        <!-- البوابة الرئيسية -->
+        <!-- البوابة الرئيسية (ثابتة بالأقسام فقط) -->
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-20">
             <div class="text-center mb-12 mt-10">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
@@ -212,7 +183,6 @@
                 </div>
             </div>
 
-            <!-- قسم لماذا نحن -->
             <div class="glass-panel p-8 border-t-4 border-t-[var(--gold)]">
                 <h2 class="text-2xl font-black text-white mb-6 text-center">لماذا تختار مكتب عماد عدن العقاري؟</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -292,7 +262,7 @@
             </div>
         </section>
 
-        <!-- منصة استقبال الطلبات (نماذج متدرجة) -->
+        <!-- منصة استقبال الطلبات -->
         <section id="view-sales" class="app-view px-4 max-w-3xl mx-auto pb-20">
             <div class="text-center mb-8">
                 <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-file-shield text-[var(--gold)] mr-2"></i> منصة الصفقات والتوثيق</h2>
@@ -300,7 +270,6 @@
             </div>
             
             <div class="glass-panel p-8 relative overflow-hidden">
-                <!-- شريط تقدم النموذج -->
                 <div class="flex justify-between text-[10px] font-bold text-gray-500 mb-6 relative">
                     <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -z-10"></div>
                     <div id="step1-ind" class="bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10">البيانات الشخصية</div>
@@ -345,7 +314,7 @@
                     </div>
                     <div class="text-[9px] text-green-400 mb-6 flex items-start gap-2 bg-green-500/10 p-2 rounded border border-green-500/20">
                         <i class="fa-solid fa-shield-halved mt-0.5"></i>
-                        <span>سياسة الخصوصية: كافة بياناتك والوثائق المرفقة تخضع لتشفير تام (End-to-End Encryption) ولا تُشارك مع أي طرف دون تفويضك.</span>
+                        <span>سياسة الخصوصية: كافة بياناتك والوثائق المرفقة تخضع لتشفير تام ولا تُشارك مع أي طرف دون تفويضك.</span>
                     </div>
                     <div class="flex gap-3">
                         <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
@@ -381,16 +350,40 @@
                 <h3 class="text-lg font-black text-white mb-4"><i class="fa-solid fa-circle-question text-[var(--gold)]"></i> أسئلة شائعة قانونية</h3>
                 <details>
                     <summary>ما هي إجراءات تسجيل عقار ضمن وحدات الجوار المعتمدة؟</summary>
-                    <div class="details-content">وفقاً لقانون السجل العقاري رقم (39) لسنة 1991، يتم الإعلان العام في الصحف، ثم تمنح فترة اعتراض، وفي حال السليم يتم إصدار شهادة التمليك الرسمية. <a href="#" class="text-[var(--gold)] underline text-[10px] ml-2">مرجع القانون</a></div>
+                    <div class="details-content">وفقاً لقانون السجل العقاري رقم (39) لسنة 1991، يتم الإعلان العام في الصحف، ثم تمنح فترة اعتراض، وفي حال السليم يتم إصدار شهادة التمليك الرسمية.</div>
                 </details>
                 <details>
                     <summary>ما هي مخاطر البناء العشوائي خارج المخطط؟</summary>
                     <div class="details-content">استحالة توثيق الملكية في الدولة، انعدام الخدمات الأساسية، والتعرض لخطر الإزالة الفورية والمصادرة دون تعويض مادي.</div>
                 </details>
                 <details>
-                    <summary>كيف أتأكد من صحة البصيرة (عقد الملكية)؟</summary>
+                    <summary>كيف أتأكد من صحة البصيرة؟</summary>
                     <div class="details-content">يجب مطابقة الإسقاط الهندسي الحديث لأرض الواقع، وتتبع تسلسل الملكية في السجلات والمحاكم عبر مستشارنا القانوني قبل دفع أي مبلغ.</div>
                 </details>
+            </div>
+        </section>
+
+        <!-- التطور العمراني -->
+        <section id="view-urban" class="app-view px-4 max-w-5xl mx-auto pb-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black mb-4 text-white">التطور العمراني الهيكلي</h2>
+                <p class="text-sm text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed bg-[rgba(15,15,18,0.6)] p-6 rounded-2xl border border-white/5 shadow-lg">
+                    تُقدّم هذه الصفحة نظرة عامة على التطوّر العمراني لمدينة عدن، لمساعدة المغتربين ومستثمري العقارات على اتّخاذ قرارات استثمارية وأمنية أكثر استنارة.
+                </p>
+            </div>
+            
+            <div class="glass-panel p-6 mb-8">
+                <h3 class="text-xl font-black text-white mb-3">التوسع الديموغرافي</h3>
+                <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-6">
+                    شهدت عدن طفرة في التوسع العمراني، حيث تضاعفت مساحة العمران وتزايد الطلب في مناطق النمو الحديثة كالمنصورة ودرة عدن وبئر أحمد.
+                </p>
+                <div class="bg-black/30 rounded-xl p-6 border border-white/5">
+                    <div class="flex items-end justify-around h-40 border-b border-white/20 pb-2">
+                        <div class="flex flex-col items-center group"><div class="w-16 bg-white/10 h-12 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2004</span></div>
+                        <div class="flex flex-col items-center group"><div class="w-16 bg-[var(--gold)]/50 h-24 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2013</span></div>
+                        <div class="flex flex-col items-center group"><div class="w-16 bg-[var(--gold)] h-36 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2022</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -503,6 +496,35 @@
         </div>
     </div>
 
+    <!-- نافذة العقار -->
+    <div id="prop-modal" class="modal-container" onclick="if(event.target===this) closeModal('prop-modal')">
+        <div class="modal-box text-center">
+            <button onclick="closeModal('prop-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="pm-title" class="text-lg font-black text-white mb-1">تفاصيل العقار</h3>
+            <p id="pm-desc" class="text-xs text-[var(--text-muted)] mb-5 pb-4 border-b border-white/10">موقع وبيانات</p>
+            <div class="bg-black/30 rounded-xl p-4 mb-6 border border-white/5 text-right space-y-3">
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">الحالة الإدارية</span> <span id="pm-status" class="text-xs font-bold text-green-400">مؤجر</span></div>
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">تاريخ آخر تحصيل</span> <span class="text-xs text-white">01 أبريل 2026</span></div>
+                <div class="flex justify-between"><span class="text-[10px] text-gray-400">ملاحظات الصيانة</span> <span class="text-xs text-white">لا يوجد بلاغات</span></div>
+            </div>
+            <button onclick="closeModal('prop-modal')" class="btn-gold w-full !py-3 !text-sm">تحميل التقرير الشهري</button>
+        </div>
+    </div>
+
+    <!-- التثمين -->
+    <div id="valuation-modal" class="modal-container" onclick="if(event.target===this) closeModal('valuation-modal')">
+        <div class="modal-box">
+            <button onclick="closeModal('valuation-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-black text-white mb-2 text-center">طلب تثمين أصول</h3>
+            <p class="text-[10px] text-gray-400 text-center mb-5">لجنة التثمين تعتمد على الأسعار الموثقة بالسوق الفعلي</p>
+            <div class="flex gap-2 mb-3">
+                <input type="text" placeholder="المنطقة" class="input-glass flex-1 !text-xs !py-2.5">
+                <input type="text" placeholder="المساحة" class="input-glass w-1/3 !text-xs !py-2.5">
+            </div>
+            <button onclick="closeModal('valuation-modal'); alert('تم رفع الطلب للجنة')" class="btn-gold w-full !py-3 !text-sm">طلب إيفاد اللجنة</button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // شريط التقدم
@@ -513,21 +535,22 @@
             document.getElementById("scroll-progress").style.width = scrolled + "%";
         };
 
-        // إدارة التنقل
+        // إدارة التنقل والخلفيات المستقلة
         function switchView(viewId) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
+            
+            document.body.className = 'antialiased theme-' + viewId;
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
             if(viewId === 'guide' && !window.mapInitialized) {
                 initMap(); window.mapInitialized = true;
             }
         }
 
-        // إدارة النوافذ
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        // نموذج الطلبات المتدرج (التحقق الفوري)
         function nextFormStep() {
             const name = document.getElementById('req-name');
             const phone = document.getElementById('req-phone');
@@ -548,6 +571,7 @@
             document.getElementById('step2-ind').className = 'bg-black border border-white/20 text-white px-3 py-1 rounded-full z-10';
             document.getElementById('step1-ind').className = 'bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10';
         }
+
         function submitSecureRequest() {
             const btn = event.currentTarget;
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
@@ -569,7 +593,6 @@
             }, 800);
         }
 
-        // حاسبة العوائد مع تحميل
         function calculateROI() { 
             const p = +document.getElementById('roi-price').value; 
             const r = +document.getElementById('roi-rent').value; 
@@ -590,7 +613,6 @@
             }, 600);
         }
 
-        // المساعد الشخصي
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
@@ -613,7 +635,7 @@
             
             setTimeout(() => {
                 load.remove();
-                let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة (مثل درة عدن، بئر أحمد، المنصورة، مدينة الشعب) لأعطيك التفاصيل والأسعار.";
+                let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة لأعطيك التفاصيل والأسعار.";
                 
                 if (text.includes('بئر احمد') || text.includes('بير احمد')) reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. ممتاز للتوسع بس لازم نفحص لك البصيرة.";
                 else if (text.includes('الشعب') || text.includes('القياديين')) reply = "مخطط القياديين (وحدة جوار 573) بمدينة الشعب آمن جداً. الأراضي مساحة 20×25 متوسط سعرها 220 ألف سعودي.";
@@ -640,6 +662,18 @@
             const customIcon = L.divIcon({ className: 'custom-div-icon', html: "<div style='background-color:#E5C07B; width:12px; height:12px; border-radius:50%; box-shadow:0 0 10px #E5C07B;'></div>", iconSize: [12, 12] });
             districts.forEach(d => L.marker(d.coords, {icon: customIcon}).addTo(map).bindPopup(`<div style="direction:rtl; font-family:Tajawal; font-weight:bold; color:black;">${d.title}</div>`));
         }
+
+        function openPropertyModal(propId) {
+            const title = document.getElementById('pm-title');
+            const desc = document.getElementById('pm-desc');
+            const status = document.getElementById('pm-status');
+            if(propId === 'prop1') { title.innerText = "فيلا درة عدن"; desc.innerText = "وحدة جوار معتمدة | بلوك 4"; status.className = "text-xs font-bold text-green-400"; status.innerText = "مؤجر"; }
+            else if(propId === 'prop2') { title.innerText = "معرض تجاري - المنصورة"; desc.innerText = "شارع التسعين"; status.className = "text-xs font-bold text-yellow-400"; status.innerText = "شاغر"; }
+            else { title.innerText = "شقة عائلية - الممدارة"; desc.innerText = "وحدة جوار 699"; status.className = "text-xs font-bold text-red-400"; status.innerText = "تحت الصيانة"; }
+            openModal('prop-modal');
+        }
+
+        function sendManagementAuth() { window.open(`https://wa.me/967773571889?text=${encodeURIComponent('طلب تفويض لإدارة الأملاك بشكل سري ومؤسسي')}`, '_blank'); closeModal('auth-modal'); }
     </script>
 </body>
 </html>
