@@ -37,7 +37,6 @@
             --error-red: #ef4444;
         }
 
-        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة باحترافية */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -56,7 +55,6 @@
         body.theme-urban { background: radial-gradient(circle at bottom right, #2E0B27, #05020a); } 
         body.theme-guide { background: radial-gradient(circle at center, #0D1B2A, #03080f); } 
 
-        /* تأثيرات الإطارات الزجاجية حسب الثيم */
         .theme-expat .glass-panel { border-color: rgba(58, 134, 255, 0.2); box-shadow: 0 10px 30px rgba(58, 134, 255, 0.1); }
         .theme-sales .glass-panel { border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
         .theme-legal .glass-panel { border-color: rgba(168, 85, 247, 0.2); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
@@ -266,29 +264,29 @@
                 <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
             </div>
 
-            <!-- اللوحة المخفية للملاك (تظهر بعد تسجيل الدخول) -->
+            <!-- اللوحة المخفية للملاك (تظهر بعد تسجيل الدخول الصحيح) -->
             <div id="secret-portal" class="hidden">
                 <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
-                    <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظتك الخاصة - تم التحقق</h3>
-                    <button onclick="logoutOwner()" class="text-xs text-red-400 hover:text-red-500 font-bold"><i class="fa-solid fa-right-from-bracket ml-1"></i> تسجيل خروج</button>
+                    <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
+                    <button onclick="logoutOwner()" class="text-xs text-red-400 hover:text-red-500 font-bold"><i class="fa-solid fa-right-from-bracket ml-1"></i> خروج</button>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <div class="glass-panel p-5 text-center">
                         <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">إجمالي الأصول</div>
-                        <div class="text-2xl font-black text-white">4</div>
+                        <div class="text-2xl font-black text-white" id="client-assets-display">0</div>
                     </div>
                     <div class="glass-panel p-5 text-center">
                         <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">تحصيلات (الشهر)</div>
-                        <div class="text-2xl font-black text-[var(--gold)]">8,500 <span class="text-[10px]">ر.س</span></div>
+                        <div class="text-2xl font-black text-[var(--gold)]"><span id="client-rent-display">0</span> <span class="text-[10px]">ر.س</span></div>
                     </div>
                     <div class="glass-panel p-5 text-center">
                         <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">العقود النشطة</div>
-                        <div class="text-2xl font-black text-green-400">3</div>
+                        <div class="text-2xl font-black text-green-400" id="client-contracts-display">0</div>
                     </div>
                     <div class="glass-panel p-5 text-center">
                         <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">طلبات صيانة</div>
-                        <div class="text-2xl font-black text-red-400">1</div>
+                        <div class="text-2xl font-black text-red-400" id="client-maintenance-display">0</div>
                     </div>
                 </div>
 
@@ -610,14 +608,33 @@
             }
         }
 
-        // بوابة الملاك السرية
+        // قاعدة بيانات مصغرة للعملاء (يمكنك إضافة أو تعديل العملاء هنا)
+        const clientsDB = {
+            "2026": { name: "أبو عماد", assets: 4, rent: "8,500", contracts: 3, maintenance: 1 },
+            "1234": { name: "سالم محمد", assets: 1, rent: "2,000", contracts: 1, maintenance: 0 },
+            "9999": { name: "عبدالله صالح", assets: 12, rent: "35,000", contracts: 10, maintenance: 2 }
+        };
+
+        // بوابة الملاك السرية مع المصفوفة
         function checkOwnerPassword() {
             const pass = document.getElementById('owner-password').value;
-            if(pass === '2026') {
+            
+            // يبحث في قاعدة البيانات المصغرة
+            if(clientsDB[pass]) {
+                // يعبي البيانات في الواجهة
+                document.getElementById('client-name-display').innerText = clientsDB[pass].name;
+                document.getElementById('client-assets-display').innerText = clientsDB[pass].assets;
+                document.getElementById('client-rent-display').innerText = clientsDB[pass].rent;
+                document.getElementById('client-contracts-display').innerText = clientsDB[pass].contracts;
+                document.getElementById('client-maintenance-display').innerText = clientsDB[pass].maintenance;
+
+                // يفتح اللوحة
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
                 document.getElementById('owner-password').value = '';
                 document.getElementById('owner-error').classList.add('hidden');
+                
+                alert("تم تسجيل الدخول بنجاح لمحفظتك السرية يا " + clientsDB[pass].name);
             } else {
                 document.getElementById('owner-error').classList.remove('hidden');
             }
