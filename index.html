@@ -14,6 +14,7 @@
     <meta property="og:url" content="https://emad-aden-realestate.vercel.app/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <!-- نهاية أكواد المشاركة -->
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E5C07B">
@@ -175,7 +176,7 @@
     <div id="scroll-progress"></div>
 
     <div class="side-tabs-container no-print">
-        <!-- 2. تمت إضافة زر المشاركة في النوافذ الجانبية بنفس التنسيق -->
+        <!-- 2. زر المشاركة الذكية مضاف هنا -->
         <div class="side-tab" onclick="shareNativeWebsite()">
             <div class="side-tab-text">شارك الموقع</div>
         </div>
@@ -282,6 +283,7 @@
                     </div>
                     <div class="flex gap-3">
                         <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
+                        <!-- زر الإرسال المربوط بدالة الواتساب المتقدمة -->
                         <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2"></i></button>
                     </div>
                 </div>
@@ -452,22 +454,27 @@
             document.getElementById('form-step-1').classList.remove('hidden');
         }
 
-        // 3. دالة تنسيق رسائل الواتساب المتقدمة (WhatsApp URL Encoding)
+        // 3. دالة تنسيق رسائل الواتساب المتقدمة
         function submitSecureWhatsapp() {
             const btn = event.currentTarget;
             const name = document.getElementById('req-name').value;
             const phone = document.getElementById('req-phone').value;
             const type = document.querySelector('input[name="rtype"]:checked').value;
-            const desc = document.getElementById('req-desc').value || "لم يكتب تفاصيل إضافية.";
+            const desc = document.getElementById('req-desc').value || "بدون تفاصيل إضافية";
 
-            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
+            // إضافة تأثير التحميل الوهمي لزر الإرسال
+            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             
-            // ترتيب البيانات بفواصل أسطر حقيقية وتشفيرها برمجياً لتدعم الواتساب
+            // ترتيب الرسالة بفواصل أسطر حقيقية تناسب قراءة الواتساب
             const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}`;
+            
+            // تشفير النص (URI Encoding) ليكون آمن كجزء من رابط
             const encodedMessage = encodeURIComponent(rawMessage);
 
+            // تفريغ المسودة بعد عملية الإرسال الناجحة
             localStorage.removeItem('salesFormDraft');
             
+            // توجيه العميل لتطبيق الواتساب بعد ثانية واحدة لإعطاء شعور بالاحترافية
             setTimeout(() => {
                 btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
                 window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
@@ -476,15 +483,15 @@
 
         // 2. دالة برمجة واجهة المشاركة الأصلية للموقع
         function shareNativeWebsite() {
+            // فحص هل متصفح العميل يدعم ميزة المشاركة الأساسية للهاتف
             if (navigator.share) {
                 navigator.share({
                     title: 'مكتب عماد عدن العقاري',
-                    text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية.',
+                    text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية',
                     url: window.location.href
-                }).catch(console.error);
+                }).catch(console.error); // التقاط أي خطأ في حال تراجع العميل عن المشاركة
             } else {
-                // بديل للمتصفحات التي لا تدعم الميزة
-                alert('عذراً، متصفحك لا يدعم ميزة المشاركة المباشرة. يمكنك نسخ رابط الموقع يدوياً.');
+                alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً');
             }
         }
     </script>
