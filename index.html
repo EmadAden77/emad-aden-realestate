@@ -5,27 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 1. أكواد تحسين محركات البحث وعلامات المشاركة (Open Graph) -->
+    <!-- 7. إعداد التحليل الصامت Google Analytics 4 (بدل G-XXXXXXXXXX بمعرف التتبع حقك) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
     <meta name="description" content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن وحدات الجوار المعتمدة">
     <meta property="og:title" content="مكتب عماد عدن العقاري | فخامة وأمان استثمارك">
     <meta property="og:description" content="المرجع الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن المخططات الرسمية">
-    <meta property="og:image" content="IMG_5.jpg">
     <meta property="og:url" content="https://emad-aden-realestate.vercel.app/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- نهاية أكواد المشاركة -->
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E5C07B">
-    <link rel="apple-touch-icon" href="IMG_5.jpg">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
       "name": "مكتب عماد عدن العقاري",
-      "image": "IMG_5.jpg",
       "description": "إدارة أملاك المغتربين، تثمين عقاري، واستشارات قانونية في عدن",
       "address": {
         "@type": "PostalAddress",
@@ -107,10 +111,6 @@
         summary { padding: 1rem; cursor: pointer; font-weight: 700; color: var(--gold); font-size: 0.9rem; list-style: none; outline: none; display: flex; justify-content: space-between; align-items: center; }
         .details-content { padding: 0 1rem 1rem 1rem; color: var(--text-muted); font-size: 0.85rem; }
 
-        .term-tooltip { position: relative; cursor: help; border-bottom: 1px dashed var(--gold); color: var(--gold); }
-        .term-tooltip::before { content: attr(data-tip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid var(--gold); z-index: 10; pointer-events: none; }
-        .term-tooltip:hover::before { opacity: 1; visibility: visible; }
-
         .radio-group { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
         .radio-label { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: 0.3s; }
         .radio-label:hover { background: rgba(229,192,123,0.1); border-color: var(--gold); }
@@ -176,7 +176,6 @@
     <div id="scroll-progress"></div>
 
     <div class="side-tabs-container no-print">
-        <!-- 2. زر المشاركة الذكية مضاف هنا -->
         <div class="side-tab" onclick="shareNativeWebsite()">
             <div class="side-tab-text">شارك الموقع</div>
         </div>
@@ -190,8 +189,8 @@
 
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
-            <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)]">
-                <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
+            <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)] flex justify-center items-center bg-black">
+                <i class="fa-solid fa-building text-[var(--gold)] text-xl"></i>
             </div>
             <div class="flex flex-col">
                 <h1 class="font-black text-sm md:text-base text-white tracking-wide">مكتب عماد عدن العقاري</h1>
@@ -211,7 +210,7 @@
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-20">
             <div class="text-center mb-12 mt-10">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
-                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل <span class="term-tooltip" data-tip="نطاق تخطيطي رسمي معتمد">وحدات الجوار</span> المعتمدة.</p>
+                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div onclick="switchView('expat')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
@@ -262,10 +261,12 @@
                         </div>
                         <div>
                             <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">رقم التواصل (واتساب) <span class="text-red-500">*</span></label>
-                            <input type="tel" id="req-phone" placeholder="مثال: +9677..." class="input-glass" oninput="this.classList.remove('input-error')">
+                            <input type="tel" id="req-phone" placeholder="مثال: 77XXXXXXX" class="input-glass" oninput="this.classList.remove('input-error')">
                         </div>
                     </div>
                     <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي</button>
+                    <!-- رسالة الخطأ لنظام التحقق -->
+                    <p id="form-error" class="text-red-500 text-xs mt-3 hidden font-bold text-center"></p>
                 </div>
 
                 <div id="form-step-2" class="hidden">
@@ -280,10 +281,12 @@
                     <div class="mb-4">
                         <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
+                        
+                        <!-- 4. حماية النماذج بصمت (Honeypot Anti-Spam) مخفي عن العميل ومكشوف للروبوتات -->
+                        <input type="text" id="req-bot" class="hidden" tabindex="-1" autocomplete="off">
                     </div>
                     <div class="flex gap-3">
                         <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
-                        <!-- زر الإرسال المربوط بدالة الواتساب المتقدمة -->
                         <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2"></i></button>
                     </div>
                 </div>
@@ -300,8 +303,35 @@
             </div>
         </section>
 
-        <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-20"></section>
-        <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20"></section>
+        <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-white mb-4">التخطيط الحضري ووحدات الجوار في عدن</h2>
+                <div class="h-1 w-24 bg-[var(--gold)] mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="glass-panel p-8 mb-10 border-green-500/30">
+                <h3 class="text-xl font-black text-green-400 mb-6 flex items-center gap-3"><i class="fa-solid fa-money-bill-trend-up"></i>مؤشرات السوق العقاري (جلب حي من ملف البيانات)</h3>
+                <div class="table-wrapper">
+                    <table class="modern-table">
+                        <thead>
+                            <tr class="bg-green-500/10">
+                                <th>المنطقة الجغرافية</th>
+                                <th>نوع العقار</th>
+                                <th>السعر المتداول</th>
+                            </tr>
+                        </thead>
+                        <!-- 1. المكان المخصص لعرض البيانات المفصولة (JSON Data) -->
+                        <tbody id="market-data-body">
+                            <!-- سيتم تعبئة الجداول تلقائياً من الجافاسكريبت -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20">
+            <div class="h-80 w-full rounded-2xl border border-white/10 overflow-hidden relative z-0" id="adenMap"></div>
+        </section>
 
     </main>
 
@@ -314,11 +344,24 @@
         </div>
     </div>
 
-    <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')"></div>
+    <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')">
+        <div class="modal-box !max-w-[450px]">
+            <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-xl font-black mb-4 text-white">حاسبة العوائد</h2>
+            <input type="number" id="roi-price" placeholder="قيمة العقار" class="input-glass mb-3">
+            <input type="number" id="roi-rent" placeholder="الإيجار الشهري" class="input-glass mb-4">
+            <button onclick="calculateROI()" class="btn-gold w-full">حساب</button>
+            <div id="roi-result" class="hidden mt-4 bg-black/40 p-4 rounded-xl">
+                <p id="roi-yearly" class="text-2xl font-black text-[var(--gold)]">0</p>
+            </div>
+        </div>
+    </div>
+    
     <div id="chat-window" class="chat-panel no-print"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        // 6. تفعيل وضع عدم الاتصال (Service Worker)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js');
@@ -336,6 +379,36 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // 1 & 2. جلب البيانات من JSON وتنسيق الأرقام تلقائياً
+        function formatNumber(num) {
+            // دالة تنسيق الأرقام (تضيف فواصل الألوف)
+            return Number(num).toLocaleString('en-US');
+        }
+
+        async function loadMarketData() {
+            try {
+                // جلب الداتا من الملف الخارجي
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const tbody = document.getElementById('market-data-body');
+                if(!tbody) return;
+                
+                tbody.innerHTML = ''; // تنظيف الجدول قبل الإضافة
+                
+                // حلقة للمرور على البيانات وإضافتها للجدول
+                data.forEach(item => {
+                    // التحقق إذا كان السعر رقم لعمل التنسيق، وإلا يعرض النص كما هو
+                    const priceFormatted = isNaN(item.price) ? item.price : formatNumber(item.price);
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${item.region}</td><td>${item.type}</td><td class="font-bold text-[var(--gold)]">${priceFormatted} ${item.currency}</td>`;
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error('خطأ في جلب بيانات السوق:', e);
+            }
+        }
+
+        // نظام حماية بوابة الملاك والتوقيف ٦٠ ثانية
         const clientsDB = { "2026": { name: "أبو عماد", assets: 4, rent: "8,500" } };
         let lockoutTimer = null;
 
@@ -430,6 +503,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadFormData();       
             handleOwnerLockout(); 
+            loadMarketData(); // استدعاء دالة جلب البيانات عند تحميل الصفحة
         });
 
         function generatePrintableContract() {
@@ -445,54 +519,87 @@
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
+        // 3. نظام التحقق الصارم من الحقول قبل الانتقال للخطوة الثانية
         function nextFormStep() {
+            const nameEl = document.getElementById('req-name');
+            const phoneEl = document.getElementById('req-phone');
+            const errEl = document.getElementById('form-error');
+            
+            const name = nameEl.value.trim();
+            const phone = phoneEl.value.trim();
+            
+            // تحقق من تعبئة الحقول
+            if (!name || !phone) {
+                errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+            
+            // تحقق من أن رقم الهاتف يحتوي على أرقام فقط (مع السماح بعلامة + والمسافات)
+            if (!/^[0-9+\s]+$/.test(phone)) {
+                errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+            
+            errEl.classList.add('hidden'); // إخفاء الخطأ إذا كانت البيانات سليمة
             document.getElementById('form-step-1').classList.add('hidden');
             document.getElementById('form-step-2').classList.remove('hidden');
         }
+        
         function prevFormStep() {
             document.getElementById('form-step-2').classList.add('hidden');
             document.getElementById('form-step-1').classList.remove('hidden');
         }
 
-        // 3. دالة تنسيق رسائل الواتساب المتقدمة
+        // إرسال رسالة واتساب مع الطابع الزمني وحماية النماذج
         function submitSecureWhatsapp() {
             const btn = event.currentTarget;
-            const name = document.getElementById('req-name').value;
-            const phone = document.getElementById('req-phone').value;
-            const type = document.querySelector('input[name="rtype"]:checked').value;
-            const desc = document.getElementById('req-desc').value || "بدون تفاصيل إضافية";
+            
+            // 4. حماية النماذج بصمت (Honeypot) - إذا تعبأ الحقل المخفي معناه هذا روبوت ونوقف الإرسال
+            const honeypot = document.getElementById('req-bot').value;
+            if (honeypot) return; 
 
-            // إضافة تأثير التحميل الوهمي لزر الإرسال
+            const name = document.getElementById('req-name').value.trim();
+            const phone = document.getElementById('req-phone').value.trim();
+            const type = document.querySelector('input[name="rtype"]:checked').value;
+            const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
+
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             
-            // ترتيب الرسالة بفواصل أسطر حقيقية تناسب قراءة الواتساب
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}`;
+            // 5. الطابع الزمني المبرمج للواتساب
+            const now = new Date();
+            const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
             
-            // تشفير النص (URI Encoding) ليكون آمن كجزء من رابط
+            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
             const encodedMessage = encodeURIComponent(rawMessage);
 
-            // تفريغ المسودة بعد عملية الإرسال الناجحة
             localStorage.removeItem('salesFormDraft');
             
-            // توجيه العميل لتطبيق الواتساب بعد ثانية واحدة لإعطاء شعور بالاحترافية
             setTimeout(() => {
                 btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
                 window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
             }, 1000);
         }
 
-        // 2. دالة برمجة واجهة المشاركة الأصلية للموقع
         function shareNativeWebsite() {
-            // فحص هل متصفح العميل يدعم ميزة المشاركة الأساسية للهاتف
             if (navigator.share) {
                 navigator.share({
                     title: 'مكتب عماد عدن العقاري',
                     text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية',
                     url: window.location.href
-                }).catch(console.error); // التقاط أي خطأ في حال تراجع العميل عن المشاركة
+                }).catch(console.error);
             } else {
                 alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً');
             }
+        }
+
+        function calculateROI() { 
+            const p = +document.getElementById('roi-price').value; 
+            const r = +document.getElementById('roi-rent').value; 
+            if(!p||!r) return; 
+            document.getElementById('roi-yearly').innerText = formatNumber(r*12) + " ر.س";
+            document.getElementById('roi-result').classList.remove('hidden');
         }
     </script>
 </body>
@@ -500,3 +607,4 @@
 
 
 ```
+
