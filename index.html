@@ -37,6 +37,7 @@
             --error-red: #ef4444;
         }
 
+        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -129,7 +130,7 @@
 </head>
 <body class="antialiased theme-home">
 
-    <!-- منطقة طباعة العقد الآلي (مخفية) -->
+    <!-- منطقة طباعة العقد الآلي -->
     <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
         <div class="text-center mb-10 border-b-2 border-black pb-4">
             <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
@@ -242,7 +243,7 @@
             </div>
         </section>
 
-        <!-- إدارة الأملاك وبوابة الملاك السرية -->
+        <!-- إدارة الأملاك -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-20">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
@@ -252,7 +253,7 @@
                 <button onclick="openModal('auth-modal')" class="btn-gold !py-2 !text-xs"><i class="fa-solid fa-file-contract"></i> طلب تفويض إدارة جديد</button>
             </div>
 
-            <!-- بوابة الملاك السرية الواضحة -->
+            <!-- بوابة الملاك السرية -->
             <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto mb-10 border-[var(--gold)]">
                 <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] flex items-center justify-center text-2xl mx-auto mb-4 border border-[var(--gold)]/30">
                     <i class="fa-solid fa-lock"></i>
@@ -264,7 +265,6 @@
                 <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
             </div>
 
-            <!-- اللوحة المخفية للملاك -->
             <div id="secret-portal" class="hidden">
                 <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
                     <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
@@ -419,6 +419,53 @@
                 <p class="text-sm text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed bg-[rgba(15,15,18,0.6)] p-6 rounded-2xl border border-white/5 shadow-lg">
                     تُقدّم هذه الصفحة نظرة عامة على التطوّر العمراني لمدينة عدن، لمساعدة المغتربين على اتّخاذ قرارات استثمارية أكثر استنارة.
                 </p>
+            </div>
+            
+            <div class="glass-panel p-6 mb-8 border-t-4 border-[var(--gold)]">
+                <div class="text-center mb-6">
+                    <span class="inline-block py-1 px-3 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-[10px] font-bold mb-2">تحليل عقاري شامل</span>
+                    <h3 class="text-2xl font-black text-white">واقع القطاع العقاري: الإشكاليات واستراتيجيات التعافي</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h4 class="font-black text-white border-b border-white/10 pb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-red-500"></i> التحديات والتشوهات الهيكلية</h4>
+                        
+                        <div class="bg-black/40 p-4 rounded-xl border border-white/5 hover:border-red-500/30 transition-colors">
+                            <h5 class="font-bold text-[var(--gold)] text-sm mb-1">دولرة القطاع وتضخم الأسعار</h5>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">تحول العقار إلى وعاء آمن لحفظ القيمة في ظل الأزمات، مما أدى لربط الإيجارات والبيع بالدولار، وخلق فجوة هائلة بين العرض والطلب المحلي.</p>
+                        </div>
+                        
+                        <div class="bg-black/40 p-4 rounded-xl border border-white/5 hover:border-red-500/30 transition-colors">
+                            <h5 class="font-bold text-[var(--gold)] text-sm mb-1">خطر البناء العشوائي</h5>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">التوسع خارج المخططات يهدد الهوية الحضرية ويضاعف الضغط على البنية التحتية، مما يعرض هذه العقارات لخطر الإزالة لانعدام التوثيق القانوني.</p>
+                        </div>
+
+                        <div class="bg-black/40 p-4 rounded-xl border border-white/5 hover:border-red-500/30 transition-colors">
+                            <h5 class="font-bold text-[var(--gold)] text-sm mb-1">النزاعات والجذور التاريخية</h5>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">النزاعات العقارية ناتجة عن تراكمات سياسية وضعف المنظومة المؤسسية وتداخل الصلاحيات الإدارية في تسجيل الملكيات.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-black text-white border-b border-white/10 pb-2 flex items-center gap-2"><i class="fa-solid fa-lightbulb text-green-500"></i> استراتيجيات الحل والتعافي</h4>
+                        
+                        <div class="bg-black/40 p-4 rounded-xl border border-white/5 hover:border-green-500/30 transition-colors">
+                            <h5 class="font-bold text-green-400 text-sm mb-1">التنمية الحضرية المستدامة</h5>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">توجيه الاستثمارات العقارية نحو المخططات المعتمدة (وحدات الجوار) التي توفر بيئة آمنة تتماشى مع المعايير وتضمن استقرار السوق.</p>
+                        </div>
+                        
+                        <div class="bg-black/40 p-4 rounded-xl border border-white/5 hover:border-green-500/30 transition-colors">
+                            <h5 class="font-bold text-green-400 text-sm mb-1">الحزم المؤسسي والتشريعي</h5>
+                            <p class="text-[11px] text-gray-400 leading-relaxed">التشديد على تطبيق قوانين السجل العقاري لإنهاء الازدواجية في الملكيات وإعادة الثقة والاستقرار للمستثمرين في عدن.</p>
+                        </div>
+                        
+                        <div class="bg-[var(--gold)]/10 p-4 rounded-xl border border-[var(--gold)]/30 mt-4">
+                            <h5 class="font-bold text-[var(--gold)] text-sm mb-1"><i class="fa-solid fa-shield-halved mr-1"></i> دورنا كمرجعية قانونية</h5>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">نواجه في مكتب عماد عدن هذه التحديات بتطبيق معايير صارمة في الفحص القانوني والهندسي لتأمين أملاك عملائنا بعيداً عن مخاطر العشوائيات.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- معلومات من ملفات الـ PDF -->
@@ -826,3 +873,4 @@
 
 
 ```
+
