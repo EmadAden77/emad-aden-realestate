@@ -37,7 +37,6 @@
             --error-red: #ef4444;
         }
 
-        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة باحترافية */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -55,11 +54,9 @@
         body.theme-legal { background: radial-gradient(circle at bottom center, #3A0CA3, #0a0101); } 
         body.theme-guide { background: radial-gradient(circle at center, #0D1B2A, #03080f); } 
 
-        /* =========================================================
-           ثيم التطور العمراني الإبداعي (المخطط الهولوغرامي / Blueprint)
-           ========================================================= */
+        /* ثيم التطور العمراني الهولوغرامي */
         body.theme-urban { 
-            --gold: #00e5ff; /* تحويل الذهبي إلى سيان نيون */
+            --gold: #00e5ff; 
             --dark-gold: #0077ff; 
             background-color: #01060e;
             background-image: 
@@ -67,57 +64,25 @@
                 linear-gradient(90deg, rgba(0, 229, 255, 0.07) 1px, transparent 1px);
             background-size: 30px 30px;
         }
-        body.theme-urban::before {
-            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, transparent 10%, #01060e 100%);
-            pointer-events: none; z-index: -1;
-        }
         .theme-urban .glass-panel { 
             border: 1px solid rgba(0, 229, 255, 0.3); 
-            background: rgba(1, 6, 14, 0.75);
-            box-shadow: 0 0 25px rgba(0, 229, 255, 0.1), inset 0 0 20px rgba(0, 229, 255, 0.05); 
-            position: relative; overflow: hidden;
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            background: rgba(1, 6, 14, 0.8);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.1); 
         }
-        /* شعاع مسح هندسي يمر على اللوحات في التطور العمراني */
-        .theme-urban .glass-panel::after {
-            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
-            transform: skewX(-20deg); animation: urbanShine 6s infinite; pointer-events: none;
-        }
-        @keyframes urbanShine { 0% { left: -150%; } 20% { left: 200%; } 100% { left: 200%; } }
-        
-        /* تأثيرات نيون للنصوص والجداول في هذا القسم فقط */
-        .theme-urban h2, .theme-urban h3 { text-shadow: 0 0 10px rgba(0, 229, 255, 0.4); }
-        .theme-urban .bg-black\/30, .theme-urban .bg-black\/40 { background: rgba(0, 229, 255, 0.03); border-color: rgba(0, 229, 255, 0.15); box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.02); }
-        .theme-urban .modern-table th { border-bottom: 1px solid rgba(0, 229, 255, 0.3); color: var(--gold); }
-        .theme-urban .modern-table td { border-bottom: 1px dashed rgba(0, 229, 255, 0.1); }
-        .theme-urban .modern-table tr:hover td { background: rgba(0, 229, 255, 0.05); }
-        /* ========================================================= */
 
-        .theme-expat .glass-panel { border-color: rgba(58, 134, 255, 0.2); box-shadow: 0 10px 30px rgba(58, 134, 255, 0.1); }
-        .theme-sales .glass-panel { border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
-        .theme-legal .glass-panel { border-color: rgba(168, 85, 247, 0.2); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
-        .theme-guide .glass-panel { border-color: rgba(14, 165, 233, 0.2); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1); }
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s; }
 
-        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s, background 0.8s ease; }
-
-        .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: background 0.8s ease; }
-        
-        /* الأنماط الافتراضية لباقي الأقسام */
-        body:not(.theme-urban) .glass-panel { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: border-color 0.5s ease; }
-        
+        .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-panel { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(229, 192, 123, 0.1); border-radius: 1rem; transition: all 0.3s ease; }
         .glass-card:hover { background: rgba(229, 192, 123, 0.05); border-color: rgba(229, 192, 123, 0.3); transform: translateY(-2px); }
 
         .btn-gold { background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); color: #000; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(229, 192, 123, 0.2); }
         .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(229, 192, 123, 0.4); }
         .btn-glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(229, 192, 123, 0.2); color: var(--gold); padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.3s ease; cursor: pointer; backdrop-filter: blur(10px); }
-        .btn-glass:hover { background: rgba(229, 192, 123, 0.1); border-color: var(--gold); color: #FFF; }
 
         .input-glass { width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 0.85rem 1rem; color: #FFF; outline: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.9rem; }
-        .input-glass:focus { border-color: var(--gold); background: rgba(0, 0, 0, 0.7); }
-        .input-error { border-color: var(--error-red) !important; box-shadow: 0 0 5px rgba(239,68,68,0.3); }
+        .input-error { border-color: var(--error-red) !important; }
 
         .app-view { display: none; opacity: 0; animation: fadeIn 0.4s ease forwards; padding-top: 6rem; min-height: 100vh; }
         .app-view.active { display: block; }
@@ -125,35 +90,24 @@
 
         details { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; margin-bottom: 0.5rem; }
         summary { padding: 1rem; cursor: pointer; font-weight: 700; color: var(--gold); font-size: 0.9rem; list-style: none; outline: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; transition: 0.3s; }
-        details[open] summary::after { transform: rotate(180deg); }
-        .details-content { padding: 0 1rem 1rem 1rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+        .details-content { padding: 0 1rem 1rem 1rem; color: var(--text-muted); font-size: 0.85rem; }
 
         .term-tooltip { position: relative; cursor: help; border-bottom: 1px dashed var(--gold); color: var(--gold); }
         .term-tooltip::before { content: attr(data-tip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid var(--gold); z-index: 10; pointer-events: none; }
         .term-tooltip:hover::before { opacity: 1; visibility: visible; }
 
-        .radio-group { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
-        .radio-label { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: 0.3s; }
-        .radio-label:hover { background: rgba(229,192,123,0.1); border-color: var(--gold); }
-        .radio-input:checked + .radio-label { background: rgba(229,192,123,0.2); border-color: var(--gold); color: var(--gold); font-weight: bold; }
-        .radio-input { display: none; }
-
-        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(15,15,18,0.4); backdrop-filter: blur(10px); }
+        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(15,15,18,0.4); backdrop-filter: blur(10px); margin-bottom: 2rem; }
         .modern-table { width: 100%; border-collapse: collapse; text-align: right; min-width: 600px; }
-        .modern-table th { padding: 1rem; font-weight: 800; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; white-space: nowrap; }
-        .modern-table td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.02); font-weight: 500; font-size: 0.85rem; }
+        .modern-table th { padding: 1rem; font-weight: 800; color: var(--gold); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; white-space: nowrap; background: rgba(255,255,255,0.02); }
+        .modern-table td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.02); font-weight: 500; font-size: 0.85rem; color: #ccc; }
 
         .side-tabs-container { position: fixed; right: 0; top: 15%; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
-        .side-tab { background-color: rgba(0, 0, 0, 0.35); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 0.5px solid var(--gold); border-right: none; border-radius: 10px 0 0 10px; color: var(--gold); padding: 7px 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.8s ease, color 0.8s ease; box-shadow: -2px 4px 10px rgba(0,0,0,0.4); }
+        .side-tab { background-color: rgba(0, 0, 0, 0.35); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 0.5px solid var(--gold); border-right: none; border-radius: 10px 0 0 10px; color: var(--gold); padding: 7px 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; box-shadow: -2px 4px 10px rgba(0,0,0,0.4); }
         .side-tab-text { font-weight: 800; font-size: 0.65rem; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
-        .side-tab:hover, .side-tab:active { transform: translateX(-6px); background-color: rgba(0, 0, 0, 0.75); }
 
         .modal-container { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s ease; padding: 1rem; }
         .modal-container.active { opacity: 1; pointer-events: auto; }
         .modal-box { transform: scale(0.95) translateY(10px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 100%; max-width: 450px; background: rgba(15, 15, 18, 0.9); backdrop-filter: blur(25px); border: 1px solid var(--gold); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8); border-radius: 1.5rem; padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; }
-        .modal-container.active .modal-box { transform: scale(1) translateY(0); }
 
         .chat-panel { position: fixed; top: 0; left: 0; height: 100%; width: 100%; max-width: 380px; background: rgba(5,5,5,0.95); backdrop-filter: blur(25px); border-l: 1px solid var(--gold); z-index: 10001; transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.8); }
         .chat-panel.active { transform: translateX(0); }
@@ -167,37 +121,19 @@
             #printable-contract { position: absolute; left: 0; top: 0; width: 100%; background: white; color: black; padding: 2rem; direction: rtl; }
             .no-print { display: none !important; }
         }
-        
-        /* تأثيرات إضافية للرسوم البيانية */
-        .bar-chart-col { position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100%; }
-        .bar-chart-fill { width: 80%; border-radius: 4px 4px 0 0; transition: height 1s ease-out; position: relative; }
-        .bar-chart-fill span { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.8); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--gold); color: white;}
-        .bar-chart-col:hover .bar-chart-fill span { opacity: 1; }
     </style>
 </head>
 <body class="antialiased theme-home">
 
-    <!-- منطقة طباعة العقد الآلي -->
-    <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
+    <div id="printable-contract" class="hidden">
         <div class="text-center mb-10 border-b-2 border-black pb-4">
             <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
-            <p class="text-sm">بيع - شراء - تثمين - استثمار</p>
-            <h2 class="text-xl font-bold mt-4 underline">عقد تفويض إداري (توليد إلكتروني)</h2>
+            <h2 class="text-xl font-bold mt-4 underline">عقد تفويض إداري</h2>
         </div>
         <div class="mb-6 leading-loose text-lg">
             <p>إنه في يوم: <span id="print-date" class="font-bold"></span></p>
             <p>أقر أنا المالك/ـة: <span id="print-name" class="font-bold border-b border-black inline-block min-w-[200px]"></span></p>
-            <p>بتفويض "مكتب عماد عدن العقاري" بإدارة أملاكي وتحصيل الإيجارات الخاصة بي بصفتهم الوكيل المعتمد، وذلك وفقاً للشروط المبرمة والسرية التامة المحفوظة للطرفين.</p>
-        </div>
-        <div class="mt-20 flex justify-between px-10">
-            <div class="text-center">
-                <p class="font-bold mb-8">توقيع المالك</p>
-                <p>_________________</p>
-            </div>
-            <div class="text-center">
-                <p class="font-bold mb-8">ختم المكتب المعتمد</p>
-                <p>_________________</p>
-            </div>
+            <p>بتفويض "مكتب عماد عدن العقاري" بإدارة أملاكي وتحصيل الإيجارات الخاصة بي.</p>
         </div>
     </div>
 
@@ -215,7 +151,7 @@
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)]">
-                <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150/000000/E5C07B?text=LOGO'">
+                <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col">
                 <h1 class="font-black text-sm md:text-base text-white tracking-wide">مكتب عماد عدن العقاري</h1>
@@ -229,7 +165,6 @@
             <button onclick="switchView('urban')" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">التطور العمراني</button>
             <button onclick="switchView('guide')" class="text-xs font-bold text-[var(--gold)] bg-[var(--gold)]/10 px-3 py-1.5 rounded-lg border border-[var(--gold)]/30 hover:bg-[var(--gold)]/20 transition-all">دليل وحدات الجوار</button>
         </div>
-        <button class="md:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
     </nav>
 
     <main id="app-container" class="no-print">
@@ -238,389 +173,222 @@
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-20">
             <div class="text-center mb-12 mt-10">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
-                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً في كل صفقة داخل <span class="term-tooltip" data-tip="نطاق تخطيطي رسمي معتمد من هيئة الأراضي">وحدات الجوار</span> المعتمدة.</p>
+                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل <span class="term-tooltip" data-tip="نطاق تخطيطي رسمي معتمد">وحدات الجوار</span> المعتمدة.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div onclick="switchView('expat')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
                     <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--gold)] to-[var(--dark-gold)] mx-auto flex items-center justify-center text-black text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-building-shield"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">إدارة أملاك المغتربين</h3>
-                    <p class="text-[11px] text-[var(--text-muted)] leading-relaxed mb-6">لوحة تحكم لمتابعة عقاراتك، التحصيلات، والصيانة بسرية تامة.</p>
-                    <span class="text-[10px] font-bold text-[var(--gold)]">الدخول للوحة الإدارة &larr;</span>
                 </div>
                 <div onclick="switchView('sales')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-file-signature"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">استقبال الطلبات</h3>
-                    <p class="text-[11px] text-[var(--text-muted)] leading-relaxed mb-6">تقديم طلبات البيع والشراء وتدقيق المخططات لعرضها بأمان.</p>
-                    <span class="text-[10px] font-bold text-[var(--gold)]">تقديم طلب جديد &larr;</span>
                 </div>
                 <div onclick="switchView('legal')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">المستشار القانوني</h3>
-                    <p class="text-[11px] text-[var(--text-muted)] leading-relaxed mb-6">فحص <span class="term-tooltip" data-tip="وثيقة الملكية الرسمية للعقار">البصائر</span> والتثمين وحمايتك من التخبط العشوائي.</p>
-                    <span class="text-[10px] font-bold text-[var(--gold)]">طلب استشارة &larr;</span>
                 </div>
                 <div onclick="switchView('urban')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-city"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">التطور العمراني</h3>
-                    <p class="text-[11px] text-[var(--text-muted)] leading-relaxed mb-6">مسار التطور الهيكلي ومقالات توجه قرارك الاستثماري بنجاح.</p>
-                    <span class="text-[10px] font-bold text-[var(--gold)]">استكشف التطور &larr;</span>
-                </div>
-            </div>
-
-            <div class="glass-panel p-8 border-t-4 border-t-[var(--gold)]">
-                <h2 class="text-2xl font-black text-white mb-6 text-center">لماذا تختار مكتب عماد عدن العقاري؟</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-full bg-[var(--gold)] text-black font-black text-lg flex items-center justify-center mx-auto mb-3">1</div>
-                        <h3 class="font-bold text-[var(--gold)] text-sm mb-2">مرجعية قانونية صارمة</h3>
-                        <p class="text-xs text-gray-400">لا نتعامل إلا ضمن وحدات الجوار المعتمدة ونقوم بفحص البصائر هندسياً وقانونياً.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-full bg-[var(--gold)] text-black font-black text-lg flex items-center justify-center mx-auto mb-3">2</div>
-                        <h3 class="font-bold text-[var(--gold)] text-sm mb-2">إدارة أملاك موثوقة</h3>
-                        <p class="text-xs text-gray-400">نظام تحصيل وصيانة متكامل للمغتربين مع ضمان أقصى درجات السرية المالية.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-10 h-10 rounded-full bg-[var(--gold)] text-black font-black text-lg flex items-center justify-center mx-auto mb-3">3</div>
-                        <h3 class="font-bold text-[var(--gold)] text-sm mb-2">تثمين احترافي</h3>
-                        <p class="text-xs text-gray-400">لجنة مختصة تعتمد على بيانات السوق الفعلية والموقع لتقديم تقييم عادل للعقار.</p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- إدارة الأملاك وبوابة الملاك السرية -->
+        <!-- إدارة الأملاك -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-20">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                <div>
-                    <h2 class="text-2xl font-black text-white flex items-center gap-3"><i class="fa-solid fa-grip text-[var(--gold)]"></i> لوحة إدارة الأملاك</h2>
-                    <p class="text-xs text-[var(--text-muted)] mt-1">متابعة دقيقة، تحصيل موثق، وتقارير دورية</p>
-                </div>
-                <button onclick="openModal('auth-modal')" class="btn-gold !py-2 !text-xs"><i class="fa-solid fa-file-contract"></i> طلب تفويض إدارة جديد</button>
+            <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto border-[var(--gold)]">
+                <h3 class="text-xl font-black text-white mb-6">بوابة الملاك السرية</h3>
+                <input type="password" id="owner-password" placeholder="الرمز السري" class="input-glass !py-3 !text-center mb-4 text-lg">
+                <button onclick="checkOwnerPassword()" class="btn-gold w-full !py-3">دخول آمن</button>
             </div>
-
-            <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto mb-10 border-[var(--gold)]">
-                <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] flex items-center justify-center text-2xl mx-auto mb-4 border border-[var(--gold)]/30">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <h3 class="text-xl font-black text-white mb-2">بوابة الملاك السرية</h3>
-                <p class="text-xs text-gray-400 mb-6">أدخل رمز المرور الخاص بك للوصول إلى تقاريرك المالية والإدارية</p>
-                <input type="password" id="owner-password" placeholder="الرمز السري" class="input-glass !py-3 !text-center mb-4 tracking-widest text-lg">
-                <button onclick="checkOwnerPassword()" class="btn-gold w-full !py-3">دخول آمن <i class="fa-solid fa-arrow-left mr-2"></i></button>
-                <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
-            </div>
-
             <div id="secret-portal" class="hidden">
-                <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
-                    <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
-                    <button onclick="logoutOwner()" class="text-xs text-red-400 hover:text-red-500 font-bold"><i class="fa-solid fa-right-from-bracket ml-1"></i> خروج</button>
-                </div>
-
+                <h3 class="text-lg font-black text-green-400 mb-6">محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div class="glass-panel p-5 text-center">
-                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">إجمالي الأصول</div>
-                        <div class="text-2xl font-black text-white" id="client-assets-display">0</div>
-                    </div>
-                    <div class="glass-panel p-5 text-center">
-                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">تحصيلات (الشهر)</div>
-                        <div class="text-2xl font-black text-[var(--gold)]"><span id="client-rent-display">0</span> <span class="text-[10px]">ر.س</span></div>
-                    </div>
-                    <div class="glass-panel p-5 text-center">
-                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">العقود النشطة</div>
-                        <div class="text-2xl font-black text-green-400" id="client-contracts-display">0</div>
-                    </div>
-                    <div class="glass-panel p-5 text-center">
-                        <div class="text-[10px] text-[var(--text-muted)] mb-1 font-bold">طلبات صيانة</div>
-                        <div class="text-2xl font-black text-red-400" id="client-maintenance-display">0</div>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6">
-                    <h3 class="text-lg font-bold text-white mb-4">محفظة العقارات</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div onclick="openPropertyModal('prop1')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-green-500/30 border-l-4">
-                            <div class="flex justify-between">
-                                <h4 class="font-bold text-sm text-white">فيلا درة عدن</h4>
-                                <span class="badge-rented text-[10px] font-bold px-2 py-0.5 rounded">مؤجر</span>
-                            </div>
-                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> وحدة جوار معتمدة | بلوك 4</p>
-                        </div>
-                        <div onclick="openPropertyModal('prop2')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-yellow-500/30 border-l-4">
-                            <div class="flex justify-between">
-                                <h4 class="font-bold text-sm text-white">معرض تجاري</h4>
-                                <span class="badge-vacant text-[10px] font-bold px-2 py-0.5 rounded">شاغر</span>
-                            </div>
-                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> المنصورة | شارع التسعين</p>
-                        </div>
-                        <div onclick="openPropertyModal('prop3')" class="glass-card p-4 flex flex-col gap-3 cursor-pointer border-red-500/30 border-l-4">
-                            <div class="flex justify-between">
-                                <h4 class="font-bold text-sm text-white">شقة عائلية</h4>
-                                <span class="badge-maintenance text-[10px] font-bold px-2 py-0.5 rounded">تحت الصيانة</span>
-                            </div>
-                            <p class="text-[10px] text-[var(--text-muted)]"><i class="fa-solid fa-location-dot"></i> الممدارة | وحدة جوار 699</p>
-                        </div>
-                    </div>
+                    <div class="glass-panel p-5 text-center"><div class="text-[10px] text-gray-400">الأصول</div><div class="text-2xl font-black text-white" id="client-assets-display">0</div></div>
+                    <div class="glass-panel p-5 text-center"><div class="text-[10px] text-gray-400">التحصيلات</div><div class="text-2xl font-black text-[var(--gold)]" id="client-rent-display">0</div></div>
                 </div>
             </div>
         </section>
 
-        <!-- منصة استقبال الطلبات -->
-        <section id="view-sales" class="app-view px-4 max-w-3xl mx-auto pb-20">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-file-shield text-[var(--gold)] mr-2"></i> منصة الصفقات والتوثيق</h2>
-                <p class="text-xs text-[var(--text-muted)] mt-2">تقديم آمن خطوة بخطوة لمعالجة طلبك بسرية.</p>
-            </div>
-            
-            <div class="glass-panel p-8 relative overflow-hidden">
-                <div class="flex justify-between text-[10px] font-bold text-gray-500 mb-6 relative">
-                    <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -z-10"></div>
-                    <div id="step1-ind" class="bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10">البيانات الشخصية</div>
-                    <div id="step2-ind" class="bg-black border border-white/20 text-white px-3 py-1 rounded-full z-10">تفاصيل العقار</div>
-                </div>
-
-                <div id="form-step-1">
-                    <div class="grid grid-cols-1 gap-4 mb-6">
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">الاسم الكريم <span class="text-red-500">*</span></label>
-                            <input type="text" id="req-name" placeholder="الاسم ثلاثي" class="input-glass" oninput="this.classList.remove('input-error')">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">رقم التواصل (واتساب) <span class="text-red-500">*</span></label>
-                            <input type="tel" id="req-phone" placeholder="مثال: +9677..." class="input-glass" oninput="this.classList.remove('input-error')">
-                        </div>
-                    </div>
-                    <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي <i class="fa-solid fa-arrow-left mr-2"></i></button>
-                </div>
-
-                <div id="form-step-2" class="hidden">
-                    <div class="mb-4">
-                        <label class="block text-[11px] mb-2 text-gray-300 font-bold">طبيعة الإجراء <span class="text-red-500">*</span></label>
-                        <div class="radio-group md:grid-cols-3">
-                            <div>
-                                <input type="radio" name="rtype" id="rt1" value="بيع" class="radio-input" checked>
-                                <label for="rt1" class="radio-label"><i class="fa-solid fa-tag"></i> عرض للبيع</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="rtype" id="rt2" value="شراء" class="radio-input">
-                                <label for="rt2" class="radio-label"><i class="fa-solid fa-cart-shopping"></i> طلب شراء</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="rtype" id="rt3" value="توثيق" class="radio-input">
-                                <label for="rt3" class="radio-label"><i class="fa-solid fa-file-contract"></i> توثيق قانوني</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
-                        <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة لضمان سرعة المعالجة..." class="input-glass h-24 resize-none"></textarea>
-                    </div>
-                    <div class="flex gap-3">
-                        <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
-                        <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- المستشار والتثمين -->
-        <section id="view-legal" class="app-view px-4 max-w-4xl mx-auto pb-20">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-scale-balanced text-[var(--gold)] mr-2"></i> الحماية القانونية و التثمين</h2>
-                <p class="text-xs text-[var(--text-muted)] mt-2">نحميك قانونياً ونضمن لك القيمة العادلة في السوق.</p>
+        <!-- التطور العمراني (الإبداعي والتفصيلي) -->
+        <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black text-white mb-4">التخطيط الحضري ووحدات الجوار في عدن</h2>
+                <div class="h-1 w-24 bg-[var(--gold)] mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="glass-card p-6 text-center">
-                    <i class="fa-solid fa-file-contract text-3xl text-[var(--gold)] mb-3"></i>
-                    <h3 class="font-bold text-lg text-white mb-2">المستشار القانوني</h3>
-                    <p class="text-xs text-gray-400 mb-4">توليد مسودة عقد تفويض إداري بشكل فوري وآلي.</p>
-                    <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-1.5 !px-4 !text-[10px]">إصدار عقد آلي</button>
-                </div>
-                <div class="glass-card p-6 text-center cursor-pointer" onclick="openModal('valuation-modal')">
-                    <i class="fa-solid fa-calculator text-3xl text-[var(--gold)] mb-3"></i>
-                    <h3 class="font-bold text-lg text-white mb-2">لجنة التثمين</h3>
-                    <p class="text-xs text-gray-400 mb-4">تقييم عقاري هندسي دقيق يعتمد على الأسعار الفعلي.</p>
-                    <span class="btn-glass !py-1.5 !px-4 !text-[10px]">طلب تثمين رسمي</span>
-                </div>
-            </div>
-
-            <div class="glass-panel p-6">
-                <h3 class="text-lg font-black text-white mb-4"><i class="fa-solid fa-circle-question text-[var(--gold)]"></i> أسئلة شائعة قانونية</h3>
-                <details>
-                    <summary>ما هي إجراءات تسجيل عقار ضمن وحدات الجوار المعتمدة؟</summary>
-                    <div class="details-content">يتم الإعلان العام في الصحف، ثم تمنح فترة اعتراض، وفي حال السليم يتم إصدار شهادة التمليك الرسمية.</div>
-                </details>
-                <details>
-                    <summary>ما هي مخاطر البناء العشوائي خارج المخطط؟</summary>
-                    <div class="details-content">استحالة توثيق الملكية في الدولة، وانعدام الخدمات الأساسية، والتعرض لخطر الإزالة.</div>
-                </details>
-            </div>
-        </section>
-
-        <!-- التطور العمراني (ثيم المخطط الهندسي الهولوغرامي المخصص فقط لهذا القسم) -->
-        <section id="view-urban" class="app-view px-4 max-w-5xl mx-auto pb-20">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-black mb-4 text-white">التطور العمراني الهيكلي</h2>
-                <p class="text-sm text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed bg-[rgba(15,15,18,0.6)] p-6 rounded-2xl border border-white/5 shadow-lg">
-                    تُقدّم هذه الصفحة تحليلاً عميقاً لواقع القطاع العقاري والتخطيط الحضري في مدينة عدن، مستعرضة التحديات الهيكلية والحلول الاستراتيجية لضمان تنمية مستدامة وآمنة لاستثماراتك.
-                </p>
-            </div>
-
-            <div class="glass-panel p-8 mb-8 border-t-4 border-[var(--gold)]">
-                <h3 class="text-xl font-black text-white mb-8 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-[var(--gold)]"></i> مؤشرات الأزمة العقارية والتشوهات الهيكلية في عدن</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="bg-black/30 rounded-xl p-6 border border-white/5 h-72 flex flex-col justify-end relative">
-                        <div class="absolute top-4 left-4 text-[10px] text-gray-500 font-bold border border-gray-700 px-2 py-1 rounded">معدل التأثير %</div>
-                        <div class="flex items-end justify-around w-full h-full pt-10 border-b border-gray-700">
-                            <div class="bar-chart-col">
-                                <div class="bar-chart-fill bg-red-500/80 hover:bg-red-400" style="height: 85%;"><span>85%</span></div>
-                                <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">دولرة العقار</span>
-                            </div>
-                            <div class="bar-chart-col">
-                                <div class="bar-chart-fill bg-orange-500/80 hover:bg-orange-400" style="height: 75%;"><span>75%</span></div>
-                                <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">البناء العشوائي</span>
-                            </div>
-                            <div class="bar-chart-col">
-                                <div class="bar-chart-fill bg-[var(--gold)]/80 hover:bg-[var(--gold)]" style="height: 60%;"><span>60%</span></div>
-                                <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">تداخل مؤسسي</span>
-                            </div>
-                            <div class="bar-chart-col">
-                                <div class="bar-chart-fill bg-blue-500/80 hover:bg-blue-400" style="height: 90%;"><span>90%</span></div>
-                                <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">تضخم الأسعار</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-black/30 rounded-xl p-6 border border-white/5 flex flex-col justify-center gap-6 h-72">
-                        <div>
-                            <div class="flex justify-between text-[11px] mb-2 font-bold text-gray-300"><span>ضعف منظومة السجل العقاري</span><span class="text-red-400">80%</span></div>
-                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden shadow-inner"><div class="h-full bg-gradient-to-r from-red-700 to-red-500" style="width: 80%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[11px] mb-2 font-bold text-gray-300"><span>تآكل الأراضي الرطبة والجبال</span><span class="text-orange-400">70%</span></div>
-                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden shadow-inner"><div class="h-full bg-gradient-to-r from-orange-700 to-orange-500" style="width: 70%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[11px] mb-2 font-bold text-gray-300"><span>غياب المخطط الحضري الموحد</span><span class="text-yellow-400">85%</span></div>
-                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden shadow-inner"><div class="h-full bg-gradient-to-r from-yellow-700 to-yellow-500" style="width: 85%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-[11px] mb-2 font-bold text-gray-300"><span>نسبة الاستقرار في وحدات الجوار المعتمدة</span><span class="text-green-400">40%</span></div>
-                            <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden shadow-inner"><div class="h-full bg-gradient-to-r from-green-700 to-green-500" style="width: 40%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-panel p-6 mb-8">
-                <h3 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-table-list text-[var(--gold)]"></i> مصفوفة التشخيص الاستراتيجي والمعالجات العقارية</h3>
+            <!-- 1. الإطار الإداري والديموغرافي -->
+            <div class="glass-panel p-8 mb-10">
+                <h3 class="text-xl font-black text-white mb-6 flex items-center gap-3"><i class="fa-solid fa-chart-pie text-[var(--gold)]"></i> 1. الإطار الإداري والديموغرافي</h3>
                 <div class="table-wrapper">
                     <table class="modern-table">
                         <thead>
                             <tr>
-                                <th class="text-red-400 bg-red-900/20 w-1/2"><i class="fa-solid fa-triangle-exclamation mr-2"></i> المشكلة / التحدي الهيكلي</th>
-                                <th class="text-green-400 bg-green-900/20 w-1/2"><i class="fa-solid fa-shield-halved mr-2"></i> استراتيجية التعافي والحل المقترح</th>
+                                <th>المديرية</th>
+                                <th>المساحة (كم²)</th>
+                                <th>إجمالي السكان</th>
+                                <th>الكثافة السكانية</th>
+                                <th>ملاحظات استراتيجية</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="hover:bg-white/5 transition-colors">
-                                <td class="border-r-2 border-red-500/50 align-top">
-                                    <strong class="block text-white mb-2 text-sm">دولرة القطاع وتضخم الأسعار</strong>
-                                    <p class="text-xs text-gray-400 leading-relaxed">تحول العقار لوعاء حفظ قيمة بسبب الانهيار الاقتصادي، وربط الإيجارات وقيمة الأصول بالعملة الصعبة مما فاقم الأزمة وخلق فجوة هائلة بين العرض والطلب المحلي.</p>
-                                </td>
-                                <td class="border-r-2 border-green-500/50 align-top bg-green-900/5">
-                                    <strong class="block text-[var(--gold)] mb-2 text-sm">تنظيم الاستثمار والأسعار</strong>
-                                    <p class="text-xs text-gray-300 leading-relaxed">تفعيل الرقابة المالية الصارمة، وتوجيه السيولة النقدية نحو مشاريع التنمية الحضرية المستدامة بدلاً من المضاربات التي ترهق المواطن وترفع معدلات التضخم.</p>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/5 transition-colors">
-                                <td class="border-r-2 border-red-500/50 align-top">
-                                    <strong class="block text-white mb-2 text-sm">تنامي ظاهرة البناء العشوائي</strong>
-                                    <p class="text-xs text-gray-400 leading-relaxed">توسع ديموغرافي غير مخطط أدى للبناء خارج النطاقات الرسمية، مما يهدد هوية المدينة الحضرية ويعرض كافة هذه العقارات لخطر الإزالة لعدم توثيقها.</p>
-                                </td>
-                                <td class="border-r-2 border-green-500/50 align-top bg-green-900/5">
-                                    <strong class="block text-[var(--gold)] mb-2 text-sm">توجيه البناء نحو وحدات الجوار</strong>
-                                    <p class="text-xs text-gray-300 leading-relaxed">الالتزام الصارم بالبناء وتوجيه الاستثمارات حصرياً داخل وحدات الجوار المعتمدة من هيئة الأراضي، لضمان أمان الملكية واستدامة البنية التحتية.</p>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-white/5 transition-colors">
-                                <td class="border-r-2 border-red-500/50 align-top">
-                                    <strong class="block text-white mb-2 text-sm">النزاعات وتداخل الصلاحيات المؤسسية</strong>
-                                    <p class="text-xs text-gray-400 leading-relaxed">ضعف منظومة السجل العقاري وازدواجية صرف وثائق الأراضي من جهات متعددة مما يخلق نزاعات قانونية معقدة وجذور تاريخية تعطل التنمية.</p>
-                                </td>
-                                <td class="border-r-2 border-green-500/50 align-top bg-green-900/5">
-                                    <strong class="block text-[var(--gold)] mb-2 text-sm">الحزم التشريعي والتدقيق المسبق</strong>
-                                    <p class="text-xs text-gray-300 leading-relaxed">توحيد جهات التوثيق العقاري، والاعتماد على مستشارين قانونيين لفحص البصائر وتتبع تسلسل الملكية بدقة قبل إتمام أي صفقات عقارية لحماية رأس المال.</p>
-                                </td>
-                            </tr>
+                            <tr><td>البريقة</td><td>486</td><td>152,824</td><td>منخفضة</td><td>أكبر مديرية، عمق استراتيجي للتوسع</td></tr>
+                            <tr><td>المنصورة</td><td>88</td><td>214,710</td><td>متوسطة</td><td>تستوعب 22% من سكان عدن</td></tr>
+                            <tr><td>الشيخ عثمان</td><td>42</td><td>218,269</td><td>عالية</td><td>مركز تجاري وسكني كثيف</td></tr>
+                            <tr><td>دار سعد</td><td>37</td><td>194,871</td><td>عالية</td><td>محور توسع شمالي (بئر فضل)</td></tr>
+                            <tr><td>خور مكسر</td><td>61</td><td>96,743</td><td>متوسطة</td><td>حلقة وصل مع المطار</td></tr>
+                            <tr><td>صيرة (كريتر)</td><td>13</td><td>156,899</td><td>عالية جداً</td><td>مركز تاريخي محصور بالجبال</td></tr>
+                            <tr><td>التواهي</td><td>10</td><td>110,816</td><td>عالية</td><td>شبه جزيرة جبلية</td></tr>
+                            <tr><td>المعلا</td><td>4</td><td>103,096</td><td>الأعلى</td><td>شريط ساحلي ضيق</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
-                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-map-location-dot text-[var(--gold)] ml-2"></i>الإطار الإداري والتخطيط الحضري</h3>
-                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
-                        تتألف عدن إدارياً من ثماني مديريات رئيسية وتعتمد على نظام "وحدات الجوار" كأداة أساسية لتنظيم التوسع الحضري وتوزيع الأراضي وتسجيل الملكيات العقارية. هذا النظام يضمن استدامة البنية التحتية ويعتبر المعيار الأول لتوثيق العقارات بشكل رسمي وقانوني بعيداً عن العشوائيات.
-                    </p>
+            <!-- 2. فلسفة وحدات الجوار -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="glass-panel p-6">
+                    <h3 class="text-xl font-black text-white mb-4"><i class="fa-solid fa-microchip text-[var(--gold)] ml-2"></i> فلسفة نظام وحدات الجوار</h3>
+                    <ul class="text-xs text-gray-400 space-y-3 leading-relaxed">
+                        <li><i class="fa-solid fa-check text-[var(--gold)] ml-2"></i> أصغر وحدة تخطيطية متكاملة الخدمات الأساسية.</li>
+                        <li><i class="fa-solid fa-check text-[var(--gold)] ml-2"></i> تشمل: شوارع معتمدة، مساحات خضراء، مدارس، مساجد، مراكز صحية.</li>
+                        <li><i class="fa-solid fa-check text-[var(--gold)] ml-2"></i> ترقيم رقمي دقيق لتسهيل الأرشفة العقارية الرسمية.</li>
+                        <li><i class="fa-solid fa-check text-[var(--gold)] ml-2"></i> شهدت المناطق المفتوحة توسعاً كبيراً منذ عام 1990 كبئر فضل والممدارة.</li>
+                    </ul>
                 </div>
-                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
-                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-mountain-sun text-[var(--gold)] ml-2"></i>الطبوغرافيا والتحديات الجغرافية</h3>
-                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
-                        طبيعة عدن الجغرافية فريدة حيث تأسست المدينة التاريخية داخل فوهة بركان خامد (الخليج الأمامي) مما فرض قيوداً هيكلية عميقة على التوسع. هذا التكوين المعقد مع أشباه الجزر والسلاسل الجبلية جعل التمدد يتركز في مناطق محددة لتلبية الانفجار الديموغرافي المتسارع مما رفع قيمة العقارات المخططة.
-                    </p>
+                <div class="glass-panel p-6 border-red-500/20">
+                    <h3 class="text-xl font-black text-red-400 mb-4"><i class="fa-solid fa-triangle-exclamation ml-2"></i> 4. التحديات العقارية الراهنة</h3>
+                    <ul class="text-xs text-gray-400 space-y-3 leading-relaxed">
+                        <li><strong class="text-white">البسط العشوائي:</strong> اعتداءات على المخططات مثل وحدة 526 في بئر فضل.</li>
+                        <li><strong class="text-white">العوائق الطبوغرافية:</strong> الجبال والبحر تفرض اختناقاً عمرانياً حاداً.</li>
+                        <li><strong class="text-white">تقادم المخططات:</strong> الحاجة الماسة لأعمال الشق والتسوية قبل البدء بالبناء.</li>
+                        <li><strong class="text-white">ازدواجية الوثائق:</strong> وجود أكثر من صك ملكية (بصيرة) لنفس البقعة.</li>
+                        <li><strong class="text-white">العسكرة:</strong> تأثير السيطرة العسكرية على استقرار السوق العقاري.</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="glass-panel p-6 mb-8">
-                 <h3 class="text-xl font-black text-white mb-4"><i class="fa-solid fa-layer-group text-[var(--gold)] ml-2"></i>توزيع وحدات الجوار في المديريات</h3>
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">دار سعد (بئر فضل)</h4>
-                         <p class="text-[10px] text-gray-400">تعد من أهم مناطق التوسع تشمل وحدات جوار بارزة مثل 537 و 523 وتتميز ببلوكات استراتيجية كـ بلوك 10 وبلوك 8 (بلوك الجيش).</p>
-                     </div>
-                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">الشيخ عثمان (الممدارة)</h4>
-                         <p class="text-[10px] text-gray-400">منطقة نمو حضري سريع تضم وحدات جوار معتمدة مثل 699 و 644 مع نفاذ مباشر لخطوط رئيسية كشارع التسعين.</p>
-                     </div>
-                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">المنصورة (حاشد وغيرها)</h4>
-                         <p class="text-[10px] text-gray-400">تمثل العصب التجاري والسكني الحديث وتضم وحدات جوار مثل 3405 مخصصة للجمعيات السكنية ومشاريع كبرى.</p>
-                     </div>
-                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
-                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">البريقة (مدينة الشعب)</h4>
-                         <p class="text-[10px] text-gray-400">تحتوي على مخططات إسكان رسمي مثل مخطط القياديين بوحدة جوار 573 ومناطق قريبة من المجمع الجامعي تتميز بالهدوء والأمان.</p>
-                     </div>
-                 </div>
+            <!-- 3. المخططات التفصيلية -->
+            <div class="glass-panel p-8 mb-10">
+                <h3 class="text-xl font-black text-white mb-8 text-center"><i class="fa-solid fa-map-location-dot text-[var(--gold)] ml-2"></i> 3. المخططات التفصيلية لوحدات الجوار</h3>
+                
+                <div class="space-y-12">
+                    <!-- دار سعد -->
+                    <div>
+                        <h4 class="text-lg font-bold text-[var(--gold)] mb-4 border-r-4 border-[var(--gold)] pr-3">دار سعد – بئر فضل</h4>
+                        <div class="table-wrapper">
+                            <table class="modern-table">
+                                <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                                <tbody>
+                                    <tr><td>537</td><td>بئر فضل</td><td>بلوك 10، قطع نموذجية 15×15</td></tr>
+                                    <tr><td>523</td><td>بئر فضل</td><td>بلوك الجيش، قطع استثمارية 15×30</td></tr>
+                                    <tr><td>525</td><td>بئر فضل</td><td>بلوك 3، مخصص للسكن المدني</td></tr>
+                                    <tr><td>547</td><td>بئر فضل</td><td>تضم العقارات المرجعية 525 و 526</td></tr>
+                                    <tr><td>526</td><td>بئر فضل</td><td>خلف معسكر الدفاع الجوي (تحتاج تدقيق)</td></tr>
+                                    <tr><td>471</td><td>بئر فضل</td><td>بلوك 1 إسكان</td></tr>
+                                    <tr><td>442</td><td>بئر فضل</td><td>بلوك 10 (مخططات حديثة)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- الشيخ عثمان -->
+                    <div>
+                        <h4 class="text-lg font-bold text-[var(--gold)] mb-4 border-r-4 border-[var(--gold)] pr-3">الشيخ عثمان – الممدارة</h4>
+                        <div class="table-wrapper">
+                            <table class="modern-table">
+                                <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات</th></tr></thead>
+                                <tbody>
+                                    <tr><td>699</td><td>الممدارة</td><td>خلف محطة بن لعماء (استثمارية)</td></tr>
+                                    <tr><td>644</td><td>الممدارة</td><td>بلوك 2 (نمو سريع)</td></tr>
+                                    <tr><td>691</td><td>الممدارة</td><td>مخطط الشرطة المعتمد</td></tr>
+                                    <tr><td>61D2</td><td>الممدارة</td><td>خلف الصالة الرياضية</td></tr>
+                                    <tr><td>666</td><td>الممدارة</td><td>وحدة جوار مشتركة مع العريش</td></tr>
+                                    <tr><td>518</td><td>القاهرة</td><td>أراضٍ سكنية وتجارية مزدوجة</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- البريقة -->
+                    <div>
+                        <h4 class="text-lg font-bold text-[var(--gold)] mb-4 border-r-4 border-[var(--gold)] pr-3">البريقة – مدينة الشعب وبئر أحمد</h4>
+                        <div class="table-wrapper">
+                            <table class="modern-table">
+                                <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات</th></tr></thead>
+                                <tbody>
+                                    <tr><td>576</td><td>مدينة الشعب</td><td>قرب المجمع الجامعي (قيمة عالية)</td></tr>
+                                    <tr><td>222</td><td>كود النمر</td><td>مقابل السنترال</td></tr>
+                                    <tr><td>58-B2</td><td>بئر أحمد</td><td>مخطط شباب بئر أحمد</td></tr>
+                                    <tr><td>447/448</td><td>بئر أحمد</td><td>توسعات المرحلة الجديدة</td></tr>
+                                    <tr><td>إنماء</td><td>أبو حربة / الحسوة</td><td>مجمعات متكاملة (أبراج، فلل، مولات)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+
+            <!-- 5. السوق العقاري والإيجارات -->
+            <div class="glass-panel p-8 mb-10 border-green-500/30">
+                <h3 class="text-xl font-black text-green-400 mb-6 flex items-center gap-3"><i class="fa-solid fa-money-bill-trend-up"></i> 5. مؤشرات السوق العقاري والإيجارات (2026)</h3>
+                <div class="table-wrapper">
+                    <table class="modern-table">
+                        <thead>
+                            <tr class="bg-green-500/10">
+                                <th>المنطقة الجغرافية</th>
+                                <th>نوع العقار</th>
+                                <th>السعر المتداول</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>الممدارة الجديدة</td><td>شقق مفروشة (4 غرف)</td><td>785 دولار أمريكي / شهرياً</td></tr>
+                            <tr><td>مدينة إنماء</td><td>شقة دور أرضي</td><td>500 – 700 ريال سعودي / شهرياً</td></tr>
+                            <tr><td>مديرية المنصورة</td><td>شقتان عائليتان</td><td>1300 ريال سعودي / شهرياً</td></tr>
+                            <tr><td>الشيخ عثمان</td><td>شقق صغيرة / غرف</td><td>100 – 125 ألف ريال يمني / شهرياً</td></tr>
+                            <tr><td class="font-black text-white">بئر فضل</td><td class="font-black text-white">عمارة سكنية كاملة (للبيع)</td><td class="font-black text-[var(--gold)]">2,500,000 ريال سعودي</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 6. الحلول المقترحة -->
+            <div class="glass-panel p-8 border-[var(--gold)]">
+                <h3 class="text-xl font-black text-white mb-6"><i class="fa-solid fa-lightbulb text-[var(--gold)] ml-2"></i> 6. الحلول الاستراتيجية المقترحة</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <span class="w-6 h-6 rounded-full bg-[var(--gold)] text-black text-[10px] font-bold flex items-center justify-center shrink-0">1</span>
+                        <p class="text-xs text-gray-300">تعزيز التوسع العمراني في المحور الشمالي والغربي (البريقة، بئر أحمد، دار سعد).</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <span class="w-6 h-6 rounded-full bg-[var(--gold)] text-black text-[10px] font-bold flex items-center justify-center shrink-0">2</span>
+                        <p class="text-xs text-gray-300">تثبيت ملكيات بئر فضل قانونياً وحمايتها من البسط العشوائي لضمان حقوق الملاك.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <span class="w-6 h-6 rounded-full bg-[var(--gold)] text-black text-[10px] font-bold flex items-center justify-center shrink-0">3</span>
+                        <p class="text-xs text-gray-300">تحديث السجل العقاري الرقمي وربطه بنظام الخرائط الجغرافية (GIS) لمنع الازدواجية.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-black/40 p-4 rounded-xl border border-white/5">
+                        <span class="w-6 h-6 rounded-full bg-[var(--gold)] text-black text-[10px] font-bold flex items-center justify-center shrink-0">4</span>
+                        <p class="text-xs text-gray-300">سن تشريعات حديثة تنظم العلاقة بين المؤجر والمستأجر وتعتمد العملة الوطنية كمرجع.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- دليل وحدات الجوار -->
         <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20">
              <div class="text-center mb-8">
                 <h2 class="text-2xl md:text-3xl font-black mb-3 text-white">دليل وحدات الجوار بعدن</h2>
-                <p class="text-xs text-[var(--text-muted)] max-w-2xl mx-auto">المخطط الهيكلي المعتمد للمديريات وأرقام الوحدات.</p>
             </div>
-
             <div class="table-wrapper mb-8">
                 <table class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>المديرية / المنطقة</th>
-                            <th>رقم وحدة الجوار</th>
-                            <th>التفاصيل والمخططات</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>المديرية</th><th>رقم الوحدة</th><th>التفاصيل</th></tr></thead>
                     <tbody>
-                        <tr><td class="font-bold text-white">دار سعد / بئر فضل</td><td class="gold-text-gradient font-black">537 / 523</td><td class="text-xs text-gray-400">بلوك 10، وبلوك 8 مساحات (15×30)</td></tr>
-                        <tr><td class="font-bold text-white">الشيخ عثمان / الممدارة</td><td class="gold-text-gradient font-black">699 / 644</td><td class="text-xs text-gray-400">بلوك 1، وبلوك 2</td></tr>
-                        <tr><td class="font-bold text-white">المنصورة / حاشد</td><td class="gold-text-gradient font-black">3405</td><td class="text-xs text-gray-400">مخصصة لجمعيات سكنية</td></tr>
-                        <tr><td class="font-bold text-white">خور مكسر / العريش</td><td class="gold-text-gradient font-black">614 / 697</td><td class="text-xs text-gray-400">بلوك 4، وبلوكات 7 و 8</td></tr>
-                        <tr><td class="font-bold text-white">البريقة / مدينة الشعب</td><td class="gold-text-gradient font-black">576</td><td class="text-xs text-gray-400">العقارات قرب المجمع الجامعي</td></tr>
+                        <tr><td>دار سعد</td><td>537 / 523</td><td>بئر فضل بلوك 10 و 8</td></tr>
+                        <tr><td>الشيخ عثمان</td><td>699 / 644</td><td>الممدارة خلف بن لعماء</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -629,291 +397,64 @@
 
     </main>
 
-    <!-- ========================================== -->
     <!-- النوافذ المنبثقة (Modals) -->
-    <!-- ========================================== -->
-
-    <!-- توليد عقد PDF -->
-    <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
-        <div class="modal-box">
-            <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black text-white mb-2 text-center">إصدار عقد تفويض آلي</h2>
-            <p class="text-[10px] text-gray-400 text-center mb-5">أدخل اسم المالك لإنشاء مسودة العقد الجاهزة للطباعة أو الحفظ كـ PDF.</p>
-            <input type="text" id="contract-owner-name" placeholder="اسم المالك الرباعي" class="input-glass mb-4 !py-2.5">
-            <button onclick="generatePrintableContract()" class="btn-gold w-full !py-3 text-sm">توليد وطباعة العقد <i class="fa-solid fa-print mr-2"></i></button>
-        </div>
-    </div>
-
-    <!-- حاسبة العوائد -->
     <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')">
         <div class="modal-box !max-w-[450px]">
-            <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black mb-4 text-white flex items-center gap-2"><i class="fa-solid fa-calculator text-[var(--gold)]"></i> حاسبة العوائد</h2>
-            <div class="space-y-3 mb-4">
-                <div>
-                    <label class="text-[10px] text-gray-400 font-bold px-1">رأس المال المستثمر</label>
-                    <input type="number" id="roi-price" placeholder="قيمة العقار الإجمالية" class="input-glass">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-400 font-bold px-1">الدخل الشهري</label>
-                    <input type="number" id="roi-rent" placeholder="الإيجار الشهري المتوقع" class="input-glass">
-                </div>
+            <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-xl font-black mb-4 text-white">حاسبة العوائد</h2>
+            <input type="number" id="roi-price" placeholder="قيمة العقار" class="input-glass mb-3">
+            <input type="number" id="roi-rent" placeholder="الإيجار الشهري" class="input-glass mb-4">
+            <button onclick="calculateROI()" class="btn-gold w-full">حساب</button>
+            <div id="roi-result" class="hidden mt-4 bg-black/40 p-4 rounded-xl">
+                <p id="roi-yearly" class="text-2xl font-black text-[var(--gold)]">0</p>
             </div>
-            <button onclick="calculateROI()" id="btn-calc-roi" class="btn-glass w-full !py-3 text-sm hover:bg-[var(--gold)]">حساب المؤشرات <i class="fa-solid fa-chart-pie mr-2"></i></button>
-            
-            <div id="roi-result" class="hidden text-center mt-4 bg-black/40 p-4 rounded-xl border border-white/5">
-                <p class="text-[10px] text-white/60 mb-1 font-bold">العائد السنوي المتوقع</p>
-                <h3 id="roi-yearly" class="text-2xl font-black gold-text-gradient mb-3">0</h3>
-                <div class="flex justify-between border-t border-white/10 pt-3 px-2 mb-3">
-                    <div class="text-center"><span id="roi-percent" class="block font-bold text-sm text-green-400">0%</span><span class="text-[9px] text-white/60 block mt-1">النسبة السنوية</span></div>
-                    <div class="text-center"><span id="roi-years" class="block font-bold text-sm text-yellow-400">0</span><span class="text-[9px] text-white/60 block mt-1">سنوات الاسترداد</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- نافذة المساعد الشخصي -->
-    <div id="chat-window" class="chat-panel no-print">
-        <div class="p-5 flex justify-between items-center border-b border-[var(--gold)] bg-black/80">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black">
-                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-sm text-white">المساعد الشخصي</h2>
-                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
-                </div>
-            </div>
-            <button onclick="toggleChat()" class="text-white hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm bg-black/50">
-            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/30 font-medium bg-black/60 text-white text-xs shadow-sm">مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك</div>
-        </div>
-        <div class="p-4 border-t border-[var(--gold)]/30 flex gap-2 bg-black/80 items-center">
-            <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-[var(--gold)] text-black rounded-lg flex items-center justify-center hover:scale-105"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <!-- تفويض الإدارة -->
-    <div id="auth-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('auth-modal')">
-        <div class="modal-box text-center">
-            <button onclick="closeModal('auth-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] border border-[var(--gold)]/30 flex items-center justify-center text-2xl mx-auto mb-4"><i class="fa-solid fa-file-signature"></i></div>
-            <h2 class="text-xl font-black text-white mb-2">تفويض إدارة أملاك</h2>
-            <p class="text-xs text-[var(--text-muted)] mb-5">الإدارة والتحصيل بعقود صارمة وسرية مطلقة.</p>
-            <button onclick="sendManagementAuth()" class="btn-gold w-full !py-3 text-sm">التواصل عبر الواتساب للاعتماد</button>
-        </div>
-    </div>
-    
-    <!-- التثمين -->
-    <div id="valuation-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('valuation-modal')">
-        <div class="modal-box">
-            <button onclick="closeModal('valuation-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-lg font-black text-white mb-2 text-center">طلب تثمين أصول</h3>
-            <div class="flex gap-2 mb-3">
-                <input type="text" placeholder="المنطقة" class="input-glass flex-1 !text-xs !py-2.5">
-            </div>
-            <button onclick="closeModal('valuation-modal'); alert('تم رفع الطلب للجنة')" class="btn-gold w-full !py-3 !text-sm">طلب إيفاد اللجنة</button>
-        </div>
-    </div>
-
-    <!-- نافذة العقار -->
-    <div id="prop-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('prop-modal')">
-        <div class="modal-box text-center">
-            <button onclick="closeModal('prop-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 id="pm-title" class="text-lg font-black text-white mb-1">تفاصيل العقار</h3>
-            <p id="pm-desc" class="text-xs text-[var(--text-muted)] mb-5 pb-4 border-b border-white/10">موقع وبيانات</p>
-            <div class="bg-black/30 rounded-xl p-4 mb-6 border border-white/5 text-right space-y-3">
-                <div class="flex justify-between"><span class="text-[10px] text-gray-400">الحالة الإدارية</span> <span id="pm-status" class="text-xs font-bold text-green-400">مؤجر</span></div>
-                <div class="flex justify-between"><span class="text-[10px] text-gray-400">تاريخ آخر تحصيل</span> <span class="text-xs text-white">01 أبريل 2026</span></div>
-                <div class="flex justify-between"><span class="text-[10px] text-gray-400">ملاحظات الصيانة</span> <span class="text-xs text-white">لا يوجد بلاغات</span></div>
-            </div>
-            <button onclick="closeModal('prop-modal')" class="btn-gold w-full !py-3 !text-sm">تحميل التقرير الشهري</button>
         </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         window.history.replaceState({ view: 'home' }, '', '#home');
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.view) {
-                switchView(event.state.view, false);
-            } else {
-                switchView('home', false);
-            }
-        });
-
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress").style.width = scrolled + "%";
-        };
+        window.addEventListener('popstate', (e) => switchView(e.state?.view || 'home', false));
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
             document.getElementById('view-' + viewId).classList.add('active');
             document.body.className = 'antialiased theme-' + viewId;
-            if (pushState) { window.history.pushState({ view: viewId }, '', '#' + viewId); }
+            if (pushState) window.history.pushState({ view: viewId }, '', '#' + viewId);
             window.scrollTo({ top: 0, behavior: 'smooth' });
             if(viewId === 'guide' && !window.mapInitialized) { initMap(); window.mapInitialized = true; }
         }
 
-        const clientsDB = {
-            "2026": { name: "أبو عماد", assets: 4, rent: "8,500", contracts: 3, maintenance: 1 },
-            "1234": { name: "سالم محمد", assets: 1, rent: "2,000", contracts: 1, maintenance: 0 },
-            "9999": { name: "عبدالله صالح", assets: 12, rent: "35,000", contracts: 10, maintenance: 2 }
-        };
-
+        const clientsDB = { "2026": { name: "أبو عماد", assets: 4, rent: "8,500" } };
         function checkOwnerPassword() {
             const pass = document.getElementById('owner-password').value;
             if(clientsDB[pass]) {
                 document.getElementById('client-name-display').innerText = clientsDB[pass].name;
                 document.getElementById('client-assets-display').innerText = clientsDB[pass].assets;
                 document.getElementById('client-rent-display').innerText = clientsDB[pass].rent;
-                document.getElementById('client-contracts-display').innerText = clientsDB[pass].contracts;
-                document.getElementById('client-maintenance-display').innerText = clientsDB[pass].maintenance;
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
-                document.getElementById('owner-password').value = '';
-                document.getElementById('owner-error').classList.add('hidden');
-                alert("تم تسجيل الدخول بنجاح لمحفظتك السرية يا " + clientsDB[pass].name);
-            } else {
-                document.getElementById('owner-error').classList.remove('hidden');
-            }
-        }
-        
-        function logoutOwner() {
-            document.getElementById('secret-portal').classList.add('hidden');
-            document.getElementById('owner-login-section').classList.remove('hidden');
-        }
-
-        function generatePrintableContract() {
-            const ownerName = document.getElementById('contract-owner-name').value;
-            if(!ownerName.trim()) { document.getElementById('contract-owner-name').classList.add('input-error'); return; }
-            document.getElementById('contract-owner-name').classList.remove('input-error');
-            document.getElementById('print-name').innerText = ownerName;
-            document.getElementById('print-date').innerText = new Date().toLocaleDateString('ar-EG');
-            closeModal('contract-generator-modal');
-            setTimeout(() => { window.print(); }, 300);
-        }
-
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-        function nextFormStep() {
-            const name = document.getElementById('req-name');
-            const phone = document.getElementById('req-phone');
-            let valid = true;
-            if(!name.value.trim()) { name.classList.add('input-error'); valid = false; }
-            if(!phone.value.trim()) { phone.classList.add('input-error'); valid = false; }
-            if(valid) {
-                document.getElementById('form-step-1').classList.add('hidden');
-                document.getElementById('form-step-2').classList.remove('hidden');
-                document.getElementById('step1-ind').className = 'bg-black border border-[var(--gold)] text-[var(--gold)] px-3 py-1 rounded-full z-10';
-                document.getElementById('step2-ind').className = 'bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10';
-            }
-        }
-        function prevFormStep() {
-            document.getElementById('form-step-2').classList.add('hidden');
-            document.getElementById('form-step-1').classList.remove('hidden');
-            document.getElementById('step2-ind').className = 'bg-black border border-white/20 text-white px-3 py-1 rounded-full z-10';
-            document.getElementById('step1-ind').className = 'bg-[var(--gold)] text-black px-3 py-1 rounded-full z-10';
-        }
-
-        function submitSecureWhatsapp() {
-            const btn = event.currentTarget;
-            const name = document.getElementById('req-name').value;
-            const phone = document.getElementById('req-phone').value;
-            const type = document.querySelector('input[name="rtype"]:checked').value;
-            const desc = document.getElementById('req-desc').value || "لم يكتب تفاصيل إضافية.";
-            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
-            const message = `*طلب جديد من المنصة*%0A👤 الاسم: ${name}%0A📞 الجوال: ${phone}%0A🏷️ نوع الإجراء: ${type}%0A📝 التفاصيل: ${desc}`;
-            setTimeout(() => {
-                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
-                window.open(`https://wa.me/967773571889?text=${message}`, '_blank');
-            }, 1000);
+            } else { alert("خطأ!"); }
         }
 
         function calculateROI() { 
             const p = +document.getElementById('roi-price').value; 
             const r = +document.getElementById('roi-rent').value; 
             if(!p||!r) return; 
-            const btn = document.getElementById('btn-calc-roi');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<span class="loader-spinner"></span> جاري التحليل...';
-            document.getElementById('roi-result').classList.add('hidden');
-            setTimeout(() => {
-                const y = r*12; 
-                document.getElementById('roi-yearly').innerText = y.toLocaleString(); 
-                document.getElementById('roi-percent').innerText = ((y/p)*100).toFixed(1)+'%'; 
-                document.getElementById('roi-years').innerText = (p/y).toFixed(1); 
-                document.getElementById('roi-result').classList.remove('hidden'); 
-                btn.innerHTML = originalText;
-            }, 600);
+            document.getElementById('roi-yearly').innerText = (r*12).toLocaleString() + " ر.س";
+            document.getElementById('roi-result').classList.remove('hidden');
         }
 
-        let chatOpen = false;
-        function toggleChat() { 
-            chatOpen = !chatOpen; 
-            document.getElementById('chat-window').classList.toggle('active', chatOpen); 
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const box = document.getElementById('chat-messages');
-            const text = input.value.trim();
-            if(!text) return;
-            addMsg(text, true);
-            input.value = '';
-            const load = document.createElement('div');
-            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 flex items-center gap-2';
-            load.innerHTML = '<span class="loader-spinner" style="width:12px;height:12px;border-width:2px;"></span> يبحث في الداتا...';
-            box.appendChild(load);
-            box.scrollTop = box.scrollHeight;
-            setTimeout(() => {
-                load.remove();
-                let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة لأعطيك التفاصيل والأسعار.";
-                if (text.includes('بئر احمد') || text.includes('بير احمد')) reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. ممتاز للتوسع بس لازم نفحص لك البصيرة.";
-                else if (text.includes('الشعب') || text.includes('القياديين')) reply = "مخطط القياديين (وحدة جوار 573) بمدينة الشعب آمن جداً. الأراضي مساحة 20×25 متوسط سعرها 220 ألف سعودي.";
-                else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل')) reply = "درة عدن فاخرة جداً. الفلل الكبيرة 364 متر اتجاه بحري وتشطيب سوبر (7 غرف) سعرها حول 450 ألف دولار.";
-                else if (text.includes('المنصورة')) reply = "المنصورة طلبها عالي! إيجارات الشقق العائلية (4-5 غرف) حول 800 ريال سعودي.";
-                else if (text.includes('دار سعد') || text.includes('بئر فضل')) reply = "بئر فضل فيها بلوكات مطلوبة زي بلوك 10 وبلوك 8 (الجيش)، المساحات المتوفرة 15×15 و 15×30.";
-                addMsg(reply, false);
-            }, 1000);
-        }
-        
-        function addMsg(t, u) {
-            const d = document.createElement('div');
-            d.className = u ? 'bg-[var(--gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/50 self-start max-w-[85%] leading-relaxed font-medium bg-black/60 text-white shadow-sm text-xs';
-            d.innerHTML = t; 
-            document.getElementById('chat-messages').appendChild(d); 
-            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-        }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
         function initMap() {
             const map = L.map('adenMap').setView([12.825, 44.975], 11);
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
-            const districts = [ { coords: [12.855, 44.965], title: "المنصورة" }, { coords: [12.872, 44.981], title: "الشيخ عثمان" }, { coords: [12.898, 44.976], title: "دار سعد (بئر فضل)" }, { coords: [12.766, 44.832], title: "البريقة" } ];
-            const customIcon = L.divIcon({ className: 'custom-div-icon', html: "<div style='background-color:#E5C07B; width:12px; height:12px; border-radius:50%; box-shadow:0 0 10px #E5C07B;'></div>", iconSize: [12, 12] });
-            districts.forEach(d => L.marker(d.coords, {icon: customIcon}).addTo(map).bindPopup(`<div style="direction:rtl; font-family:Tajawal; font-weight:bold; color:black;">${d.title}</div>`));
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
         }
-
-        function openPropertyModal(propId) {
-            const title = document.getElementById('pm-title');
-            const desc = document.getElementById('pm-desc');
-            const status = document.getElementById('pm-status');
-            if(propId === 'prop1') { title.innerText = "فيلا درة عدن"; desc.innerText = "وحدة جوار معتمدة | بلوك 4"; status.className = "text-xs font-bold text-green-400"; status.innerText = "مؤجر"; }
-            else if(propId === 'prop2') { title.innerText = "معرض تجاري - المنصورة"; desc.innerText = "شارع التسعين"; status.className = "text-xs font-bold text-yellow-400"; status.innerText = "شاغر"; }
-            else { title.innerText = "شقة عائلية - الممدارة"; desc.innerText = "وحدة جوار 699"; status.className = "text-xs font-bold text-red-400"; status.innerText = "تحت الصيانة"; }
-            openModal('prop-modal');
-        }
-
-        function sendManagementAuth() { window.open(`https://wa.me/967773571889?text=${encodeURIComponent('طلب تفويض لإدارة الأملاك بشكل سري ومؤسسي')}`, '_blank'); closeModal('auth-modal'); }
     </script>
 </body>
 </html>
 
-
 ```
+
