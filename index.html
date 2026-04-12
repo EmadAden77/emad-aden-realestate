@@ -37,6 +37,7 @@
             --error-red: #ef4444;
         }
 
+        /* الثيمات وألوان الخلفيات المستقلة لكل صفحة باحترافية */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -45,26 +46,67 @@
             font-family: 'Tajawal', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            transition: background 0.8s ease, background-color 0.8s ease;
+            transition: background 0.8s ease, background-color 0.8s ease, --gold 0.8s ease;
         }
         
         body.theme-home  { background: radial-gradient(circle at top center, #1a1a1a, #050505); } 
         body.theme-expat { background: radial-gradient(circle at top left, #0A192F, #02050f); } 
         body.theme-sales { background: radial-gradient(circle at top right, #062E1F, #010a05); } 
         body.theme-legal { background: radial-gradient(circle at bottom center, #3A0CA3, #0a0101); } 
-        body.theme-urban { background: radial-gradient(circle at bottom right, #2E0B27, #05020a); } 
         body.theme-guide { background: radial-gradient(circle at center, #0D1B2A, #03080f); } 
+
+        /* =========================================================
+           ثيم التطور العمراني الإبداعي (المخطط الهولوغرامي / Blueprint)
+           ========================================================= */
+        body.theme-urban { 
+            --gold: #00e5ff; /* تحويل الذهبي إلى سيان نيون */
+            --dark-gold: #0077ff; 
+            background-color: #01060e;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.07) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(0, 229, 255, 0.07) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        body.theme-urban::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 10%, #01060e 100%);
+            pointer-events: none; z-index: -1;
+        }
+        .theme-urban .glass-panel { 
+            border: 1px solid rgba(0, 229, 255, 0.3); 
+            background: rgba(1, 6, 14, 0.75);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.1), inset 0 0 20px rgba(0, 229, 255, 0.05); 
+            position: relative; overflow: hidden;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+        /* شعاع مسح هندسي يمر على اللوحات في التطور العمراني */
+        .theme-urban .glass-panel::after {
+            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+            transform: skewX(-20deg); animation: urbanShine 6s infinite; pointer-events: none;
+        }
+        @keyframes urbanShine { 0% { left: -150%; } 20% { left: 200%; } 100% { left: 200%; } }
+        
+        /* تأثيرات نيون للنصوص والجداول في هذا القسم فقط */
+        .theme-urban h2, .theme-urban h3 { text-shadow: 0 0 10px rgba(0, 229, 255, 0.4); }
+        .theme-urban .bg-black\/30, .theme-urban .bg-black\/40 { background: rgba(0, 229, 255, 0.03); border-color: rgba(0, 229, 255, 0.15); box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.02); }
+        .theme-urban .modern-table th { border-bottom: 1px solid rgba(0, 229, 255, 0.3); color: var(--gold); }
+        .theme-urban .modern-table td { border-bottom: 1px dashed rgba(0, 229, 255, 0.1); }
+        .theme-urban .modern-table tr:hover td { background: rgba(0, 229, 255, 0.05); }
+        /* ========================================================= */
 
         .theme-expat .glass-panel { border-color: rgba(58, 134, 255, 0.2); box-shadow: 0 10px 30px rgba(58, 134, 255, 0.1); }
         .theme-sales .glass-panel { border-color: rgba(16, 185, 129, 0.2); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
         .theme-legal .glass-panel { border-color: rgba(168, 85, 247, 0.2); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1); }
-        .theme-urban .glass-panel { border-color: rgba(236, 72, 153, 0.2); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1); }
         .theme-guide .glass-panel { border-color: rgba(14, 165, 233, 0.2); box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1); }
 
-        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s; }
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--gold), var(--dark-gold)); z-index: 99999; transition: width 0.1s, background 0.8s ease; }
 
-        .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-panel { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: border-color 0.5s ease; }
+        .gold-text-gradient { background: linear-gradient(135deg, #FFF 0%, var(--gold) 50%, var(--dark-gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: background 0.8s ease; }
+        
+        /* الأنماط الافتراضية لباقي الأقسام */
+        body:not(.theme-urban) .glass-panel { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: border-color 0.5s ease; }
+        
         .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(229, 192, 123, 0.1); border-radius: 1rem; transition: all 0.3s ease; }
         .glass-card:hover { background: rgba(229, 192, 123, 0.05); border-color: rgba(229, 192, 123, 0.3); transform: translateY(-2px); }
 
@@ -104,7 +146,7 @@
         .modern-table td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.02); font-weight: 500; font-size: 0.85rem; }
 
         .side-tabs-container { position: fixed; right: 0; top: 15%; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
-        .side-tab { background-color: rgba(0, 0, 0, 0.35); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 0.5px solid var(--gold); border-right: none; border-radius: 10px 0 0 10px; color: var(--gold); padding: 7px 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; box-shadow: -2px 4px 10px rgba(0,0,0,0.4); }
+        .side-tab { background-color: rgba(0, 0, 0, 0.35); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 0.5px solid var(--gold); border-right: none; border-radius: 10px 0 0 10px; color: var(--gold); padding: 7px 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.8s ease, color 0.8s ease; box-shadow: -2px 4px 10px rgba(0,0,0,0.4); }
         .side-tab-text { font-weight: 800; font-size: 0.65rem; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
         .side-tab:hover, .side-tab:active { transform: translateX(-6px); background-color: rgba(0, 0, 0, 0.75); }
 
@@ -129,7 +171,7 @@
         /* تأثيرات إضافية للرسوم البيانية */
         .bar-chart-col { position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; width: 100%; height: 100%; }
         .bar-chart-fill { width: 80%; border-radius: 4px 4px 0 0; transition: height 1s ease-out; position: relative; }
-        .bar-chart-fill span { position: absolute; -top: 25px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.8); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--gold); color: white;}
+        .bar-chart-fill span { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: bold; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.8); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--gold); color: white;}
         .bar-chart-col:hover .bar-chart-fill span { opacity: 1; }
     </style>
 </head>
@@ -258,7 +300,6 @@
                 <button onclick="openModal('auth-modal')" class="btn-gold !py-2 !text-xs"><i class="fa-solid fa-file-contract"></i> طلب تفويض إدارة جديد</button>
             </div>
 
-            <!-- بوابة الملاك السرية الواضحة -->
             <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto mb-10 border-[var(--gold)]">
                 <div class="w-16 h-16 rounded-full bg-[var(--gold)]/10 text-[var(--gold)] flex items-center justify-center text-2xl mx-auto mb-4 border border-[var(--gold)]/30">
                     <i class="fa-solid fa-lock"></i>
@@ -270,7 +311,6 @@
                 <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
             </div>
 
-            <!-- اللوحة المخفية للملاك -->
             <div id="secret-portal" class="hidden">
                 <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
                     <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
@@ -418,7 +458,7 @@
             </div>
         </section>
 
-        <!-- التطور العمراني (تمت إضافة الرسوم والجداول الإبداعية هنا فقط) -->
+        <!-- التطور العمراني (ثيم المخطط الهندسي الهولوغرامي المخصص فقط لهذا القسم) -->
         <section id="view-urban" class="app-view px-4 max-w-5xl mx-auto pb-20">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-black mb-4 text-white">التطور العمراني الهيكلي</h2>
@@ -427,41 +467,32 @@
                 </p>
             </div>
 
-            <!-- الرسوم البيانية الإبداعية -->
             <div class="glass-panel p-8 mb-8 border-t-4 border-[var(--gold)]">
                 <h3 class="text-xl font-black text-white mb-8 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-[var(--gold)]"></i> مؤشرات الأزمة العقارية والتشوهات الهيكلية في عدن</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    
-                    <!-- رسم بياني شريطي (Bar Chart) -->
                     <div class="bg-black/30 rounded-xl p-6 border border-white/5 h-72 flex flex-col justify-end relative">
                         <div class="absolute top-4 left-4 text-[10px] text-gray-500 font-bold border border-gray-700 px-2 py-1 rounded">معدل التأثير %</div>
                         <div class="flex items-end justify-around w-full h-full pt-10 border-b border-gray-700">
-                            
                             <div class="bar-chart-col">
                                 <div class="bar-chart-fill bg-red-500/80 hover:bg-red-400" style="height: 85%;"><span>85%</span></div>
                                 <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">دولرة العقار</span>
                             </div>
-
                             <div class="bar-chart-col">
                                 <div class="bar-chart-fill bg-orange-500/80 hover:bg-orange-400" style="height: 75%;"><span>75%</span></div>
                                 <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">البناء العشوائي</span>
                             </div>
-
                             <div class="bar-chart-col">
                                 <div class="bar-chart-fill bg-[var(--gold)]/80 hover:bg-[var(--gold)]" style="height: 60%;"><span>60%</span></div>
                                 <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">تداخل مؤسسي</span>
                             </div>
-                            
                             <div class="bar-chart-col">
                                 <div class="bar-chart-fill bg-blue-500/80 hover:bg-blue-400" style="height: 90%;"><span>90%</span></div>
                                 <span class="text-[9px] font-bold mt-3 text-gray-400 text-center w-full">تضخم الأسعار</span>
                             </div>
-                            
                         </div>
                     </div>
 
-                    <!-- رسم بياني أفقي (Horizontal Progress) -->
                     <div class="bg-black/30 rounded-xl p-6 border border-white/5 flex flex-col justify-center gap-6 h-72">
                         <div>
                             <div class="flex justify-between text-[11px] mb-2 font-bold text-gray-300"><span>ضعف منظومة السجل العقاري</span><span class="text-red-400">80%</span></div>
@@ -480,11 +511,9 @@
                             <div class="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden shadow-inner"><div class="h-full bg-gradient-to-r from-green-700 to-green-500" style="width: 40%"></div></div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- جدول المشاكل والحلول الإبداعي -->
             <div class="glass-panel p-6 mb-8">
                 <h3 class="text-xl font-black text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-table-list text-[var(--gold)]"></i> مصفوفة التشخيص الاستراتيجي والمعالجات العقارية</h3>
                 <div class="table-wrapper">
@@ -530,20 +559,44 @@
                     </table>
                 </div>
             </div>
-            
-            <div class="glass-panel p-6 mb-8">
-                <h3 class="text-xl font-black text-white mb-3">التوسع الديموغرافي السريع</h3>
-                <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-6">
-                    شهدت عدن طفرة في التوسع العمراني خلال العقدين الأخيرين، حيث تضاعفت مساحة العمران وتزايد الطلب في مناطق النمو الحديثة.
-                </p>
-                <div class="bg-black/30 rounded-xl p-6 border border-white/5">
-                    <div class="flex items-end justify-around h-40 border-b border-white/20 pb-2">
-                        <div class="flex flex-col items-center group"><div class="w-16 bg-white/10 h-12 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2004</span></div>
-                        <div class="flex flex-col items-center group"><div class="w-16 bg-[var(--gold)]/50 h-24 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2013</span></div>
-                        <div class="flex flex-col items-center group"><div class="w-16 bg-[var(--gold)] h-36 rounded-t-md"></div><span class="text-xs font-bold mt-3 text-white">2022</span></div>
-                    </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
+                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-map-location-dot text-[var(--gold)] ml-2"></i>الإطار الإداري والتخطيط الحضري</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                        تتألف عدن إدارياً من ثماني مديريات رئيسية وتعتمد على نظام "وحدات الجوار" كأداة أساسية لتنظيم التوسع الحضري وتوزيع الأراضي وتسجيل الملكيات العقارية. هذا النظام يضمن استدامة البنية التحتية ويعتبر المعيار الأول لتوثيق العقارات بشكل رسمي وقانوني بعيداً عن العشوائيات.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
+                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-mountain-sun text-[var(--gold)] ml-2"></i>الطبوغرافيا والتحديات الجغرافية</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                        طبيعة عدن الجغرافية فريدة حيث تأسست المدينة التاريخية داخل فوهة بركان خامد (الخليج الأمامي) مما فرض قيوداً هيكلية عميقة على التوسع. هذا التكوين المعقد مع أشباه الجزر والسلاسل الجبلية جعل التمدد يتركز في مناطق محددة لتلبية الانفجار الديموغرافي المتسارع مما رفع قيمة العقارات المخططة.
+                    </p>
                 </div>
             </div>
+
+            <div class="glass-panel p-6 mb-8">
+                 <h3 class="text-xl font-black text-white mb-4"><i class="fa-solid fa-layer-group text-[var(--gold)] ml-2"></i>توزيع وحدات الجوار في المديريات</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">دار سعد (بئر فضل)</h4>
+                         <p class="text-[10px] text-gray-400">تعد من أهم مناطق التوسع تشمل وحدات جوار بارزة مثل 537 و 523 وتتميز ببلوكات استراتيجية كـ بلوك 10 وبلوك 8 (بلوك الجيش).</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">الشيخ عثمان (الممدارة)</h4>
+                         <p class="text-[10px] text-gray-400">منطقة نمو حضري سريع تضم وحدات جوار معتمدة مثل 699 و 644 مع نفاذ مباشر لخطوط رئيسية كشارع التسعين.</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">المنصورة (حاشد وغيرها)</h4>
+                         <p class="text-[10px] text-gray-400">تمثل العصب التجاري والسكني الحديث وتضم وحدات جوار مثل 3405 مخصصة للجمعيات السكنية ومشاريع كبرى.</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">البريقة (مدينة الشعب)</h4>
+                         <p class="text-[10px] text-gray-400">تحتوي على مخططات إسكان رسمي مثل مخطط القياديين بوحدة جوار 573 ومناطق قريبة من المجمع الجامعي تتميز بالهدوء والأمان.</p>
+                     </div>
+                 </div>
+            </div>
+            
         </section>
 
         <!-- دليل وحدات الجوار -->
