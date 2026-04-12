@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
-    <meta name="description" content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك التثمين الاستشارات القانونية وبيع وشراء العقارات في عدن ضمن وحدات الجوار المعتمدة.">
     
-    <!-- ربط ملفات تطبيق الويب التقدمي PWA -->
+    <!-- 1. أكواد تحسين محركات البحث وعلامات المشاركة (Open Graph) -->
+    <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
+    <meta name="description" content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن وحدات الجوار المعتمدة">
+    <meta property="og:title" content="مكتب عماد عدن العقاري | فخامة وأمان استثمارك">
+    <meta property="og:description" content="المرجع الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن المخططات الرسمية">
+    <meta property="og:image" content="IMG_5.jpg">
+    <meta property="og:url" content="https://emad-aden-realestate.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E5C07B">
     <link rel="apple-touch-icon" href="IMG_5.jpg">
@@ -128,7 +135,6 @@
         .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* تنسيق الطباعة لعقد المستشار بحيث تظهر الورقة رسمية بيضاء والموقع يختفي */
         @media print {
             @page { size: A4; margin: 20mm; }
             body { background: #FFF !important; color: #000 !important; }
@@ -143,7 +149,6 @@
 </head>
 <body class="antialiased theme-home">
 
-    <!-- العقد الجاهز للطباعة بيطلع بس وقت الطباعة -->
     <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
         <div class="text-center mb-10 border-b-2 border-black pb-4">
             <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
@@ -170,6 +175,10 @@
     <div id="scroll-progress"></div>
 
     <div class="side-tabs-container no-print">
+        <!-- 2. تمت إضافة زر المشاركة في النوافذ الجانبية بنفس التنسيق -->
+        <div class="side-tab" onclick="shareNativeWebsite()">
+            <div class="side-tab-text">شارك الموقع</div>
+        </div>
         <div class="side-tab" onclick="toggleChat()">
             <div class="side-tab-text">المساعد الشخصي</div>
         </div>
@@ -223,7 +232,6 @@
             </div>
         </section>
 
-        <!-- إدارة الأملاك نظام الحماية مضاف هنا -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-20">
             <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto border-[var(--gold)]">
                 <h3 class="text-xl font-black text-white mb-6">بوابة الملاك السرية</h3>
@@ -240,7 +248,6 @@
             </div>
         </section>
 
-        <!-- الطلبات نظام الحفظ التلقائي مضاف هنا -->
         <section id="view-sales" class="app-view px-4 max-w-3xl mx-auto pb-20">
             <div class="text-center mb-8">
                 <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-file-shield text-[var(--gold)] mr-2"></i> منصة الصفقات والتوثيق</h2>
@@ -291,13 +298,11 @@
             </div>
         </section>
 
-        <!-- التطور العمراني ودليل وحدات الجوار تركته زي ما هو لك -->
         <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-20"></section>
         <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20"></section>
 
     </main>
 
-    <!-- النوافذ المنبثقة -->
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -307,13 +312,11 @@
         </div>
     </div>
 
-    <!-- باقي المودالز موجودة ومخفية لا تشيل هم -->
     <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')"></div>
     <div id="chat-window" class="chat-panel no-print"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // تسجيل الـ PWA عشان يثبت الموقع تطبيق بالجوال
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js');
@@ -331,7 +334,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // نظام حماية بوابة الملاك والتوقيف ٦٠ ثانية
         const clientsDB = { "2026": { name: "أبو عماد", assets: 4, rent: "8,500" } };
         let lockoutTimer = null;
 
@@ -399,9 +401,7 @@
             }
         }
 
-        // الحفظ التلقائي للطلبات بالـ LocalStorage
         const formFieldsIds = ['req-name', 'req-phone', 'req-desc'];
-        
         function saveFormData() {
             const data = {};
             formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
@@ -430,7 +430,6 @@
             handleOwnerLockout(); 
         });
 
-        // طباعة العقد
         function generatePrintableContract() {
             const ownerName = document.getElementById('contract-owner-name').value;
             if(!ownerName.trim()) { document.getElementById('contract-owner-name').classList.add('input-error'); return; }
@@ -453,9 +452,40 @@
             document.getElementById('form-step-1').classList.remove('hidden');
         }
 
+        // 3. دالة تنسيق رسائل الواتساب المتقدمة (WhatsApp URL Encoding)
         function submitSecureWhatsapp() {
+            const btn = event.currentTarget;
+            const name = document.getElementById('req-name').value;
+            const phone = document.getElementById('req-phone').value;
+            const type = document.querySelector('input[name="rtype"]:checked').value;
+            const desc = document.getElementById('req-desc').value || "لم يكتب تفاصيل إضافية.";
+
+            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والإرسال...';
+            
+            // ترتيب البيانات بفواصل أسطر حقيقية وتشفيرها برمجياً لتدعم الواتساب
+            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}`;
+            const encodedMessage = encodeURIComponent(rawMessage);
+
             localStorage.removeItem('salesFormDraft');
-            setTimeout(() => { window.open(`https://wa.me/967773571889?text=طلب%20جديد`, '_blank'); }, 1000);
+            
+            setTimeout(() => {
+                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
+                window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
+            }, 1000);
+        }
+
+        // 2. دالة برمجة واجهة المشاركة الأصلية للموقع
+        function shareNativeWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'مكتب عماد عدن العقاري',
+                    text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية.',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                // بديل للمتصفحات التي لا تدعم الميزة
+                alert('عذراً، متصفحك لا يدعم ميزة المشاركة المباشرة. يمكنك نسخ رابط الموقع يدوياً.');
+            }
         }
     </script>
 </body>
@@ -463,4 +493,3 @@
 
 
 ```
-
