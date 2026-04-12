@@ -1,0 +1,22 @@
+{
+  "name": "مكتب عماد العقاري",
+  "short_name": "عماد للعقار",
+  "description": "منصتك الأولى لإدارة واستثمار العقارات في عدن",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#E5C07B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "IMG_5.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "IMG_5.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
