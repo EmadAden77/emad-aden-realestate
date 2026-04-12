@@ -264,7 +264,7 @@
                 <p id="owner-error" class="text-red-500 text-xs mt-3 hidden">الرمز غير صحيح، حاول مرة أخرى.</p>
             </div>
 
-            <!-- اللوحة المخفية للملاك (تظهر بعد تسجيل الدخول الصحيح) -->
+            <!-- اللوحة المخفية للملاك -->
             <div id="secret-portal" class="hidden">
                 <div class="flex justify-between items-center mb-6 bg-green-500/10 p-4 rounded-xl border border-green-500/30">
                     <h3 class="text-lg font-black text-green-400"><i class="fa-solid fa-unlock-keyhole mr-2"></i> محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
@@ -419,6 +419,44 @@
                 <p class="text-sm text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed bg-[rgba(15,15,18,0.6)] p-6 rounded-2xl border border-white/5 shadow-lg">
                     تُقدّم هذه الصفحة نظرة عامة على التطوّر العمراني لمدينة عدن، لمساعدة المغتربين على اتّخاذ قرارات استثمارية أكثر استنارة.
                 </p>
+            </div>
+
+            <!-- معلومات من ملفات الـ PDF -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
+                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-map-location-dot text-[var(--gold)] ml-2"></i>الإطار الإداري والتخطيط الحضري</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                        تتألف عدن إدارياً من ثماني مديريات رئيسية وتعتمد على نظام "وحدات الجوار" كأداة أساسية لتنظيم التوسع الحضري وتوزيع الأراضي وتسجيل الملكيات العقارية. هذا النظام يضمن استدامة البنية التحتية ويعتبر المعيار الأول لتوثيق العقارات بشكل رسمي وقانوني بعيداً عن العشوائيات.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 border-t-4 border-[var(--gold)]">
+                    <h3 class="text-lg font-black text-white mb-3"><i class="fa-solid fa-mountain-sun text-[var(--gold)] ml-2"></i>الطبوغرافيا والتحديات الجغرافية</h3>
+                    <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                        طبيعة عدن الجغرافية فريدة حيث تأسست المدينة التاريخية داخل فوهة بركان خامد (الخليج الأمامي) مما فرض قيوداً هيكلية عميقة على التوسع. هذا التكوين المعقد مع أشباه الجزر والسلاسل الجبلية جعل التمدد يتركز في مناطق محددة لتلبية الانفجار الديموغرافي المتسارع مما رفع قيمة العقارات المخططة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 mb-8">
+                 <h3 class="text-xl font-black text-white mb-4"><i class="fa-solid fa-layer-group text-[var(--gold)] ml-2"></i>توزيع وحدات الجوار في المديريات</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">دار سعد (بئر فضل)</h4>
+                         <p class="text-[10px] text-gray-400">تعد من أهم مناطق التوسع تشمل وحدات جوار بارزة مثل 537 و 523 وتتميز ببلوكات استراتيجية كـ بلوك 10 وبلوك 8 (بلوك الجيش).</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">الشيخ عثمان (الممدارة)</h4>
+                         <p class="text-[10px] text-gray-400">منطقة نمو حضري سريع تضم وحدات جوار معتمدة مثل 699 و 644 مع نفاذ مباشر لخطوط رئيسية كشارع التسعين.</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">المنصورة (حاشد وغيرها)</h4>
+                         <p class="text-[10px] text-gray-400">تمثل العصب التجاري والسكني الحديث وتضم وحدات جوار مثل 3405 مخصصة للجمعيات السكنية ومشاريع كبرى.</p>
+                     </div>
+                     <div class="bg-black/30 p-4 rounded-xl border border-white/5">
+                         <h4 class="font-bold text-[var(--gold)] text-sm mb-2">البريقة (مدينة الشعب)</h4>
+                         <p class="text-[10px] text-gray-400">تحتوي على مخططات إسكان رسمي مثل مخطط القياديين بوحدة جوار 573 ومناطق قريبة من المجمع الجامعي تتميز بالهدوء والأمان.</p>
+                     </div>
+                 </div>
             </div>
             
             <div class="glass-panel p-6 mb-8">
@@ -608,7 +646,7 @@
             }
         }
 
-        // قاعدة بيانات مصغرة للعملاء (يمكنك إضافة أو تعديل العملاء هنا)
+        // قاعدة بيانات مصغرة للعملاء 
         const clientsDB = {
             "2026": { name: "أبو عماد", assets: 4, rent: "8,500", contracts: 3, maintenance: 1 },
             "1234": { name: "سالم محمد", assets: 1, rent: "2,000", contracts: 1, maintenance: 0 },
@@ -619,16 +657,13 @@
         function checkOwnerPassword() {
             const pass = document.getElementById('owner-password').value;
             
-            // يبحث في قاعدة البيانات المصغرة
             if(clientsDB[pass]) {
-                // يعبي البيانات في الواجهة
                 document.getElementById('client-name-display').innerText = clientsDB[pass].name;
                 document.getElementById('client-assets-display').innerText = clientsDB[pass].assets;
                 document.getElementById('client-rent-display').innerText = clientsDB[pass].rent;
                 document.getElementById('client-contracts-display').innerText = clientsDB[pass].contracts;
                 document.getElementById('client-maintenance-display').innerText = clientsDB[pass].maintenance;
 
-                // يفتح اللوحة
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
                 document.getElementById('owner-password').value = '';
@@ -645,7 +680,6 @@
             document.getElementById('owner-login-section').classList.remove('hidden');
         }
 
-        // توليد عقد للطباعة أو الـ PDF
         function generatePrintableContract() {
             const ownerName = document.getElementById('contract-owner-name').value;
             if(!ownerName.trim()) {
@@ -664,11 +698,9 @@
             }, 300);
         }
 
-        // إدارة النوافذ
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        // نموذج الطلبات المتدرج والواتساب الذكي
         function nextFormStep() {
             const name = document.getElementById('req-name');
             const phone = document.getElementById('req-phone');
@@ -707,7 +739,6 @@
             }, 1000);
         }
 
-        // حاسبة العوائد
         function calculateROI() { 
             const p = +document.getElementById('roi-price').value; 
             const r = +document.getElementById('roi-rent').value; 
@@ -728,7 +759,6 @@
             }, 600);
         }
 
-        // المساعد الشخصي
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
