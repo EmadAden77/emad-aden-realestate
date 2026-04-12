@@ -14,19 +14,16 @@
       gtag('config', 'G-XXXXXXXXXX');
     </script>
     
-    <!-- أكواد تحسين محركات البحث وعلامات المشاركة -->
     <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
     <meta name="description" content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن وحدات الجوار المعتمدة">
     <meta property="og:title" content="مكتب عماد عدن العقاري | فخامة وأمان استثمارك">
     <meta property="og:description" content="المرجع الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن المخططات الرسمية">
     <meta property="og:url" content="https://emad-aden-realestate.vercel.app/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="IMG_5.jpg">
     <meta name="twitter:card" content="summary_large_image">
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E5C07B">
-    <link rel="apple-touch-icon" href="IMG_5.jpg">
     
     <script type="application/ld+json">
     {
@@ -57,7 +54,6 @@
             --error-red: #ef4444;
         }
 
-        /* تثبيت الفوتر أسفل الصفحة دايم */
         body {
             background-color: #050505;
             background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -80,7 +76,7 @@
 
         .app-view.active {
             display: block;
-            flex: 1; /* يدف الفوتر للأسفل */
+            flex: 1;
         }
 
         body.theme-home  { background: radial-gradient(circle at top center, #1a1a1a, #050505); } 
@@ -146,6 +142,12 @@
         .modal-container { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s ease; padding: 1rem; }
         .modal-container.active { opacity: 1; pointer-events: auto; }
         .modal-box { transform: scale(0.95) translateY(10px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 100%; max-width: 450px; background: rgba(15, 15, 18, 0.9); backdrop-filter: blur(25px); border: 1px solid var(--gold); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8); border-radius: 1.5rem; padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; }
+
+        .chat-panel { position: fixed; top: 0; left: 0; height: 100%; width: 100%; max-width: 380px; background: rgba(5,5,5,0.95); backdrop-filter: blur(25px); border-l: 1px solid var(--gold); z-index: 10001; transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; box-shadow: 10px 0 30px rgba(0,0,0,0.8); }
+        .chat-panel.active { transform: translateX(0); }
+        
+        .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* تنسيقات غرفة العمليات الهندسية - التطور العمراني */
         .holo-container {
@@ -230,7 +232,7 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin-top: auto; /* لتثبيت الفوتر بالأسفل */
+            margin-top: auto;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 50;
@@ -311,6 +313,9 @@
         <div class="side-tab" onclick="shareNativeWebsite()">
             <div class="side-tab-text">شارك الموقع</div>
         </div>
+        <div class="side-tab" onclick="toggleChat()">
+            <div class="side-tab-text">المساعد الشخصي</div>
+        </div>
         <div class="side-tab" onclick="openModal('roi-modal')">
             <div class="side-tab-text">حاسبة العوائد</div>
         </div>
@@ -319,7 +324,7 @@
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)] flex justify-center items-center bg-black">
-                <!-- صورة شعار المكتب المطلوبة -->
+                <!-- الشعار المستعاد -->
                 <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col">
@@ -424,7 +429,7 @@
             </div>
         </section>
 
-        <!-- قسم المستشار -->
+        <!-- قسم المستشار القانوني -->
         <section id="view-legal" class="app-view px-4 max-w-4xl mx-auto pb-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div class="glass-card p-6 text-center">
@@ -435,7 +440,7 @@
             </div>
         </section>
 
-        <!-- قسم التطور العمراني (الهولوغرام) -->
+        <!-- قسم التطور العمراني الهولوغرامي -->
         <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-10">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-black text-white mb-4">التخطيط الحضري ووحدات الجوار في عدن</h2>
@@ -523,7 +528,7 @@
                             <tr><td>مدينة إنماء</td><td>كابوتا</td><td>نماذج وحدات متكاملة بمواصفات تخطيطية حديثة</td></tr>
                             <tr><td>3405 (إيجار)</td><td>حاشد الغربية</td><td>مخصصة لجمعيات سكنية</td></tr>
                             <tr><td>6102 (إيجار)</td><td>الدرين</td><td>وحدات جوار ذات طابع صناعي وتجاري</td></tr>
-                            <tr><td>وديع حداد</td><td>المنصورة</td><td>مجمع عمارات سكنية متعددة الطوابق</td></tr>
+                            <tr><td>وديع حداد</td><td>المنصورة</td><td>مجمع عمارات سكنية متعدد الطوابق</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -647,7 +652,7 @@
         <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
     </footer>
 
-    <!-- النوافذ المنبثقة -->
+    <!-- النوافذ المنبثقة المستعادة -->
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -667,6 +672,29 @@
             <div id="roi-result" class="hidden mt-4 bg-black/40 p-4 rounded-xl">
                 <p id="roi-yearly" class="text-2xl font-black text-[var(--gold)]">0</p>
             </div>
+        </div>
+    </div>
+    
+    <!-- المساعد الشخصي المستعاد -->
+    <div id="chat-window" class="chat-panel no-print">
+        <div class="p-5 flex justify-between items-center border-b border-[var(--gold)] bg-black/80">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black">
+                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
+                </div>
+                <div>
+                    <h2 class="font-black text-sm text-white">المساعد الشخصي</h2>
+                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="text-white hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm bg-black/50">
+            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/30 font-medium bg-black/60 text-white text-xs shadow-sm">مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك</div>
+        </div>
+        <div class="p-4 border-t border-[var(--gold)]/30 flex gap-2 bg-black/80 items-center">
+            <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
+            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-[var(--gold)] text-black rounded-lg flex items-center justify-center hover:scale-105"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -898,6 +926,49 @@
             if(!p||!r) return; 
             document.getElementById('roi-yearly').innerText = formatNumber(r*12) + " ر.س";
             document.getElementById('roi-result').classList.remove('hidden');
+        }
+
+        /* دوال المساعد الشخصي المستعادة */
+        let chatOpen = false;
+        function toggleChat() { 
+            chatOpen = !chatOpen; 
+            document.getElementById('chat-window').classList.toggle('active', chatOpen); 
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if(!text) return;
+            addMsg(text, true);
+            input.value = '';
+            
+            const load = document.createElement('div');
+            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 flex items-center gap-2';
+            load.innerHTML = '<span class="loader-spinner" style="width:12px;height:12px;border-width:2px;"></span> يبحث في الداتا...';
+            box.appendChild(load);
+            box.scrollTop = box.scrollHeight;
+            
+            setTimeout(() => {
+                load.remove();
+                let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة لأعطيك التفاصيل والأسعار.";
+                
+                if (text.includes('بئر احمد') || text.includes('بير احمد')) reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. ممتاز للتوسع بس لازم نفحص لك البصيرة.";
+                else if (text.includes('الشعب') || text.includes('القياديين')) reply = "مخطط القياديين (وحدة جوار 573) بمدينة الشعب آمن جداً. الأراضي مساحة 20×25 متوسط سعرها 220 ألف سعودي.";
+                else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل')) reply = "درة عدن فاخرة جداً. الفلل الكبيرة 364 متر اتجاه بحري وتشطيب سوبر (7 غرف) سعرها حول 450 ألف دولار.";
+                else if (text.includes('المنصورة')) reply = "المنصورة طلبها عالي! إيجارات الشقق العائلية (4-5 غرف) حول 800 ريال سعودي.";
+                else if (text.includes('دار سعد') || text.includes('بئر فضل')) reply = "بئر فضل فيها بلوكات مطلوبة زي بلوك 10 وبلوك 8 (الجيش)، المساحات المتوفرة 15×15 و 15×30.";
+                
+                addMsg(reply, false);
+            }, 1000);
+        }
+        
+        function addMsg(t, u) {
+            const d = document.createElement('div');
+            d.className = u ? 'bg-[var(--gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/50 self-start max-w-[85%] leading-relaxed font-medium bg-black/60 text-white shadow-sm text-xs';
+            d.innerHTML = t; 
+            document.getElementById('chat-messages').appendChild(d); 
+            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
     </script>
 </body>
