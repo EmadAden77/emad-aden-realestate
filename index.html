@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -109,11 +110,9 @@
         summary { padding: 1rem; cursor: pointer; font-weight: 700; color: var(--gold); font-size: 0.9rem; list-style: none; outline: none; display: flex; justify-content: space-between; align-items: center; }
         .details-content { padding: 0 1rem 1rem 1rem; color: var(--text-muted); font-size: 0.85rem; }
 
-        .radio-group { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
-        .radio-label { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; transition: 0.3s; }
-        .radio-label:hover { background: rgba(229,192,123,0.1); border-color: var(--gold); }
-        .radio-input:checked + .radio-label { background: rgba(229,192,123,0.2); border-color: var(--gold); color: var(--gold); font-weight: bold; }
-        .radio-input { display: none; }
+        .term-tooltip { position: relative; cursor: help; border-bottom: 1px dashed var(--gold); color: var(--gold); }
+        .term-tooltip::before { content: attr(data-tip); position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.9); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid var(--gold); z-index: 10; pointer-events: none; }
+        .term-tooltip:hover::before { opacity: 1; visibility: visible; }
 
         .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(15,15,18,0.4); backdrop-filter: blur(10px); margin-bottom: 2rem; }
         .modern-table { width: 100%; border-collapse: collapse; text-align: right; min-width: 600px; }
@@ -143,6 +142,83 @@
             .modal-container { background: transparent !important; backdrop-filter: none !important; position: static !important; display: block !important; opacity: 1 !important; padding: 0 !important;}
             #contract-generator-modal { display: none !important; }
             #printable-contract { display: block !important; position: static !important; width: 100% !important; background: white !important; color: black !important; padding: 0 !important; }
+        }
+
+        /* تنسيقات غرفة العمليات الهندسية - التطور العمراني المضافة */
+        .holo-container {
+            direction: rtl;
+            font-family: inherit;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        .holo-title {
+            color: #00ffcc;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+            border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+
+        .holo-subtitle {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            border-right: 3px solid #00ffcc;
+            padding-right: 10px;
+        }
+
+        .holo-table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 5px;
+            background: rgba(10, 25, 47, 0.5); 
+        }
+
+        .holo-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            min-width: 600px; 
+        }
+
+        .holo-table th, .holo-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        .holo-table th {
+            background: rgba(0, 255, 204, 0.1);
+            color: #00ffcc;
+            font-weight: bold;
+        }
+
+        .holo-table tr:hover td {
+            background: rgba(0, 255, 204, 0.05);
+            color: #fff;
+        }
+
+        .holo-list {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .holo-list li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 10px;
+        }
+
+        .holo-list li::before {
+            content: '⯌'; 
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #00ffcc;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
         }
     </style>
 </head>
@@ -265,7 +341,6 @@
                     <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي</button>
                     <p id="form-error" class="text-red-500 text-xs mt-3 hidden font-bold text-center"></p>
                 </div>
-
                 <div id="form-step-2" class="hidden">
                     <div class="mb-4">
                         <label class="block text-[11px] mb-2 text-gray-300 font-bold">طبيعة الإجراء <span class="text-red-500">*</span></label>
@@ -278,7 +353,6 @@
                     <div class="mb-4">
                         <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
-                        
                         <input type="text" id="req-bot" class="hidden" tabindex="-1" autocomplete="off">
                     </div>
                     <div class="flex gap-3">
@@ -304,6 +378,160 @@
                 <h2 class="text-4xl font-black text-white mb-4">التخطيط الحضري ووحدات الجوار في عدن</h2>
                 <div class="h-1 w-24 bg-[var(--gold)] mx-auto rounded-full"></div>
             </div>
+
+            <div class="holo-container">
+                <h2 class="holo-title">1. الإطار الإداري والديموغرافي</h2>
+                <p>توزيع المديريات حسب المساحة والكثافة السكانية في العاصمة عدن:</p>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead>
+                            <tr>
+                                <th>المديرية</th>
+                                <th>المساحة (كم²)</th>
+                                <th>إجمالي السكان</th>
+                                <th>الكثافة السكانية</th>
+                                <th>ملاحظات استراتيجية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>البريقة</td><td>486</td><td>152,824</td><td>منخفضة</td><td>أكبر مديرية، تمثل عمقاً استراتيجياً للتوسع وتشكل 60% من المحافظة</td></tr>
+                            <tr><td>المنصورة</td><td>88</td><td>214,710</td><td>متوسطة</td><td>تستوعب 22% من سكان عدن في أراض منبسطة</td></tr>
+                            <tr><td>الشيخ عثمان</td><td>42</td><td>218,269</td><td>عالية</td><td>مركز تجاري وسكني كثيف</td></tr>
+                            <tr><td>دار سعد</td><td>37</td><td>194,871</td><td>عالية</td><td>محور توسع شمالي مهم (بئر فضل واللحوم)</td></tr>
+                            <tr><td>خور مكسر</td><td>61</td><td>96,743</td><td>متوسطة</td><td>حلقة وصل مع المطار والبر الرئيسي</td></tr>
+                            <tr><td>صيرة (كريتر)</td><td>13</td><td>156,899</td><td>عالية جداً</td><td>مركز تاريخي محصور بالجبال والأودية</td></tr>
+                            <tr><td>التواهي</td><td>10</td><td>110,816</td><td>عالية</td><td>شبه جزيرة جبلية</td></tr>
+                            <tr><td>المعلا</td><td>4</td><td>103,096</td><td>الأعلى</td><td>شريط ساحلي ضيق يعاني من اختناق مساحي</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="holo-title">2. فلسفة نظام وحدات الجوار</h2>
+                <ul class="holo-list">
+                    <li>أصغر وحدة تخطيطية متكاملة الخدمات.</li>
+                    <li>تشمل: شوارع، مساحات خضراء، مدارس، مساجد، مراكز صحية.</li>
+                    <li>ترقيم رقمي لتسهيل الأرشفة العقارية وتسجيل الملكيات.</li>
+                    <li>توسع كبير بعد الوحدة اليمنية (1990) في مناطق مثل بئر فضل والممدارة لتلبية طلبات الموظفين ومنتسبي القوات المسلحة.</li>
+                    <li>ارتبط هذا المفهوم عالمياً بـ "كلارنس بيري" لخلق جزر حضرية آمنة، وتم توطينه محلياً عبر الهيئة العامة للأراضي لضبط عمليات التوسع.</li>
+                </ul>
+
+                <h2 class="holo-title">3. المخططات التفصيلية حسب المديريات</h2>
+                
+                <h3 class="holo-subtitle">دار سعد – بئر فضل</h3>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                        <tbody>
+                            <tr><td>537</td><td>بئر فضل</td><td>بلوك 10، قطع بمساحة 15×15</td></tr>
+                            <tr><td>523</td><td>بئر فضل</td><td>بلوك 8 (الجيش)، قطع بمساحة 15×30</td></tr>
+                            <tr><td>525</td><td>بئر فضل</td><td>بلوك 3، مخصصة للسكن المدني (12×15)</td></tr>
+                            <tr><td>547</td><td>بئر فضل</td><td>تضم العقارات المرتبطة بالوحدتين 525 و526</td></tr>
+                            <tr><td>526</td><td>بئر فضل</td><td>موقع حيوي خلف معسكر الدفاع الجوي، تعرضت لمحاولات استيلاء رغم تخصيصها للقوات المسلحة</td></tr>
+                            <tr><td>471</td><td>بئر فضل</td><td>تتبع بلوك 1 إسكان</td></tr>
+                            <tr><td>442</td><td>بئر فضل</td><td>بلوك 10 (ضمن المخططات الأحدث)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="holo-subtitle">الشيخ عثمان – الممدارة</h3>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                        <tbody>
+                            <tr><td>699</td><td>الممدارة</td><td>خلف محطة بن لعماء بنفاذ لشارع التسعين</td></tr>
+                            <tr><td>644</td><td>الممدارة</td><td>تشمل بلوك 2 (بقع سكنية كالبقعة 51)</td></tr>
+                            <tr><td>691</td><td>الممدارة</td><td>مخطط الشرطة المتوزع على عدة بلوكات</td></tr>
+                            <tr><td>61D2</td><td>الممدارة</td><td>خلف الصالة الرياضية، قيمة عالية لنفاذها لشارع الخمسين</td></tr>
+                            <tr><td>692</td><td>الممدارة</td><td>تشمل بلوك 4 قطاع 12</td></tr>
+                            <tr><td>656</td><td>الممدارة</td><td>وحدة جوار سكنية تقع في بلوك 12</td></tr>
+                            <tr><td>666</td><td>الممدارة</td><td>وحدة مشتركة جغرافياً مع منطقة العريش</td></tr>
+                            <tr><td>3A68</td><td>الممدارة</td><td>تتبع مخطط التركيبات بجوار مصنع هائل</td></tr>
+                            <tr><td>518</td><td>القاهرة الجديدة</td><td>أراضٍ سكنية وتجارية ضمن بلوك 12</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="holo-subtitle">المنصورة – كابوتا والمنطقة الصناعية</h3>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead><tr><th>رقم الوحدة / المشروع</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                        <tbody>
+                            <tr><td>مدينة إنماء</td><td>كابوتا</td><td>نماذج وحدات متكاملة بمواصفات تخطيطية حديثة</td></tr>
+                            <tr><td>3405 (إيجار)</td><td>حاشد الغربية</td><td>مخصصة لجمعيات سكنية</td></tr>
+                            <tr><td>6102 (إيجار)</td><td>الدرين</td><td>وحدات جوار ذات طابع صناعي وتجاري</td></tr>
+                            <tr><td>وديع حداد</td><td>المنصورة</td><td>مجمع عمارات سكنية متعددة الطوابق</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="holo-subtitle">خور مكسر – العريش وساحل أبين</h3>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                        <tbody>
+                            <tr><td>614</td><td>العريش</td><td>تقع في بلوك 4 المجموعة 4</td></tr>
+                            <tr><td>697B</td><td>العريش</td><td>تضم بلوكات 7 و 8</td></tr>
+                            <tr><td>647</td><td>العريش</td><td>مشتركة في التخطيط مع تخوم الممدارة</td></tr>
+                            <tr><td>611</td><td>العريش</td><td>تضم بقعاً سكنية هامة (مثل 170-172)</td></tr>
+                            <tr><td>619</td><td>ساحل أبين</td><td>مطلة على البحر، مخصصة للاستثمار الفاخر</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="holo-subtitle">البريقة – مدينة الشعب وبئر أحمد</h3>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead><tr><th>رقم الوحدة / المشروع</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
+                        <tbody>
+                            <tr><td>576</td><td>مدينة الشعب</td><td>قرب المجمع الجامعي، ذات قيمة استراتيجية عالية</td></tr>
+                            <tr><td>222</td><td>كود النمر</td><td>موقع مميز مقابل السنترال في البريقة الصغرى</td></tr>
+                            <tr><td>58-B2</td><td>بئر أحمد</td><td>تتبع مخطط شباب بئر أحمد</td></tr>
+                            <tr><td>447 / 448</td><td>بئر أحمد</td><td>مناطق توسعات عمرانية حديثة</td></tr>
+                            <tr><td>مشروع إنماء</td><td>أبو حربة</td><td>تضم أبراجاً وفللاً ومولاً تجارياً</td></tr>
+                            <tr><td>مشروع إنماء</td><td>الحسوة</td><td>تشمل نماذج شقق وفللاً متنوعة ضمن مجمعات خاصة</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="holo-title">4. التحديات العقارية في عدن</h2>
+                <ul class="holo-list">
+                    <li><strong>البسط العشوائي:</strong> تداخل الصلاحيات والتعدي على أراضي الدولة، مثل الاستيلاء على وحدة 526 في بئر فضل.</li>
+                    <li><strong>العوائق الطوبوغرافية:</strong> انحصار الجبال والبحر يسبب اختناقاً عمرانياً حاداً وكثافة مفرطة في مديريات كريتر والمعلا.</li>
+                    <li><strong>تقادم المخططات:</strong> نشوء بناء عشوائي داخل مسارات الشوارع لعدم إجراء أعمال الشق والتسوية قبل البناء.</li>
+                    <li><strong>ازدواجية الوثائق العقارية:</strong> غياب الأرشفة السليمة وظهور أكثر من صك ملكية لنفس الأرض، مما يرهق المحاكم ويقوض الاستثمار.</li>
+                    <li><strong>عسكرة العقارات:</strong> تحول القوة المسلحة بعد 2015 كأداة لفرض السيطرة وتجاوز سلطة القضاء.</li>
+                </ul>
+
+                <h2 class="holo-title">5. السوق العقاري والإيجارات (تحديث 2026)</h2>
+                <p><em>ملاحظة استراتيجية:</em> يعاني السوق العقاري في عدن من ظاهرة "الدولرة"، حيث يتم تسعير الإيجارات والأصول بالعملات الأجنبية للتحوط ضد تضخم العملة المحلية.</p>
+                <div class="holo-table-wrapper">
+                    <table class="holo-table">
+                        <thead>
+                            <tr>
+                                <th>المنطقة</th>
+                                <th>نوع العقار المرجعي</th>
+                                <th>متوسط السعر المعروض</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>الممدارة الجديدة</td><td>شقق مفروشة 4 غرف</td><td>785 دولار أمريكي / شهرياً</td></tr>
+                            <tr><td>مدينة إنماء</td><td>شقة دور أرضي</td><td>500 – 700 ريال سعودي / شهرياً</td></tr>
+                            <tr><td>المنصورة</td><td>شقتان للإيجار</td><td>1,300 ريال سعودي / شهرياً</td></tr>
+                            <tr><td>الشيخ عثمان</td><td>شقق صغيرة (طابع شعبي)</td><td>100,000 – 125,000 ريال يمني / شهرياً</td></tr>
+                            <tr><td>بئر فضل</td><td>عمارة للبيع</td><td>2,500,000 ريال سعودي (بيع أصول)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="holo-title">6. الحلول والتوصيات الاستراتيجية</h2>
+                <ul class="holo-list">
+                    <li>تعزيز وتوجيه التوسع في البريقة ودار سعد لخلق توازن بيئي وعمراني.</li>
+                    <li>تثبيت ملكيات بئر فضل قانونياً ومنع التعديات لضمان تنفيذ الشوارع والخدمات الأساسية.</li>
+                    <li>تعميم نموذج "مدينة إنماء" بالشراكة مع القطاع الخاص لتطوير وحدات سكنية متكاملة في الحسوة وغيرها.</li>
+                    <li>تحديث السجل العقاري عبر تطبيق نظام التسجيل العيني للعقار (Cadastral System) وربطه بتقنية الـ GIS لدرء التلاعب.</li>
+                    <li>سن قوانين حديثة وتشريعات برلمانية تنظم العلاقة بين المؤجر والمستأجر وتكبح التضخم الإيجاري.</li>
+                </ul>
+            </div>
             
             <div class="glass-panel p-8 mb-10 border-green-500/30">
                 <h3 class="text-xl font-black text-green-400 mb-6 flex items-center gap-3"><i class="fa-solid fa-money-bill-trend-up"></i>مؤشرات السوق العقاري (جلب حي من ملف البيانات)</h3>
@@ -326,7 +554,6 @@
         <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20">
             <div class="h-80 w-full rounded-2xl border border-white/10 overflow-hidden relative z-0" id="adenMap"></div>
         </section>
-
     </main>
 
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
@@ -355,13 +582,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 6. تفعيل وضع عدم الاتصال (Service Worker)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js');
-            });
-        }
-
+        if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js'); }); }
         window.history.replaceState({ view: 'home' }, '', '#home');
         window.addEventListener('popstate', (e) => switchView(e.state?.view || 'home', false));
 
@@ -373,80 +594,52 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 1 & 2. جلب البيانات من JSON وتنسيق الأرقام تلقائياً
-        function formatNumber(num) {
-            // دالة تنسيق الأرقام (تضيف فواصل الألوف)
-            return Number(num).toLocaleString('en-US');
-        }
+        function formatNumber(num) { return Number(num).toLocaleString('en-US'); }
 
         async function loadMarketData() {
             try {
-                // جلب الداتا من الملف الخارجي
                 const response = await fetch('data.json');
                 const data = await response.json();
                 const tbody = document.getElementById('market-data-body');
                 if(!tbody) return;
-                
-                tbody.innerHTML = ''; // تنظيف الجدول قبل الإضافة
-                
-                // حلقة للمرور على البيانات وإضافتها للجدول
+                tbody.innerHTML = '';
                 data.forEach(item => {
-                    // التحقق إذا كان السعر رقم لعمل التنسيق، وإلا يعرض النص كما هو
                     const priceFormatted = isNaN(item.price) ? item.price : formatNumber(item.price);
                     const tr = document.createElement('tr');
                     tr.innerHTML = `<td>${item.region}</td><td>${item.type}</td><td class="font-bold text-[var(--gold)]">${priceFormatted} ${item.currency}</td>`;
                     tbody.appendChild(tr);
                 });
-            } catch (e) {
-                console.error('خطأ في جلب بيانات السوق:', e);
-            }
+            } catch (e) { console.error('خطأ في جلب بيانات السوق:', e); }
         }
 
-        // نظام حماية بوابة الملاك والتوقيف ٦٠ ثانية
         const clientsDB = { "2026": { name: "أبو عماد", assets: 4, rent: "8,500" } };
         let lockoutTimer = null;
 
         function handleOwnerLockout() {
             const lockoutUntil = localStorage.getItem('ownerLockoutUntil');
             const now = new Date().getTime();
-            if (lockoutUntil && now < lockoutUntil) {
-                const remaining = Math.ceil((lockoutUntil - now) / 1000);
-                disableOwnerLogin(remaining);
-            } else {
-                localStorage.removeItem('ownerLockoutUntil');
-                localStorage.removeItem('ownerFailedAttempts');
-            }
+            if (lockoutUntil && now < lockoutUntil) { disableOwnerLogin(Math.ceil((lockoutUntil - now) / 1000)); }
         }
 
         function disableOwnerLogin(seconds) {
             const btn = document.getElementById('btn-owner-login');
             const input = document.getElementById('owner-password');
             const err = document.getElementById('owner-error');
-            
             btn.disabled = true; input.disabled = true; err.classList.remove('hidden');
             let timeLeft = seconds;
-            err.innerText = `تم تعليق الدخول مؤقتاً. المحاولة بعد ${timeLeft} ثانية.`;
-            
-            clearInterval(lockoutTimer);
             lockoutTimer = setInterval(() => {
-                timeLeft--;
-                err.innerText = `تم تعليق الدخول مؤقتاً. المحاولة بعد ${timeLeft} ثانية.`;
+                err.innerText = `تم تعليق الدخول مؤقتاً. المحاولة بعد ${--timeLeft} ثانية.`;
                 if (timeLeft <= 0) {
                     clearInterval(lockoutTimer);
                     btn.disabled = false; input.disabled = false; err.classList.add('hidden');
                     localStorage.removeItem('ownerLockoutUntil');
-                    localStorage.removeItem('ownerFailedAttempts');
                 }
             }, 1000);
         }
 
         function checkOwnerPassword() {
-            const lockoutUntil = localStorage.getItem('ownerLockoutUntil');
-            if (lockoutUntil && new Date().getTime() < lockoutUntil) return; 
-
             const pass = document.getElementById('owner-password').value;
             const err = document.getElementById('owner-error');
-
             if(clientsDB[pass]) {
                 localStorage.removeItem('ownerFailedAttempts');
                 document.getElementById('client-name-display').innerText = clientsDB[pass].name;
@@ -455,16 +648,13 @@
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
             } else {
-                let attempts = parseInt(localStorage.getItem('ownerFailedAttempts') || '0');
-                attempts++;
+                let attempts = parseInt(localStorage.getItem('ownerFailedAttempts') || '0') + 1;
                 if (attempts >= 3) {
-                    const lockTime = new Date().getTime() + 60000; 
-                    localStorage.setItem('ownerLockoutUntil', lockTime);
-                    localStorage.setItem('ownerFailedAttempts', attempts);
+                    localStorage.setItem('ownerLockoutUntil', new Date().getTime() + 60000);
                     disableOwnerLogin(60);
                 } else {
                     localStorage.setItem('ownerFailedAttempts', attempts);
-                    err.innerText = `الرمز غير صحيح (متبقي لك ${3 - attempts} محاولات)`;
+                    err.innerText = `الرمز غير صحيح (متبقي ${3 - attempts} محاولات)`;
                     err.classList.remove('hidden');
                 }
             }
@@ -473,37 +663,23 @@
         const formFieldsIds = ['req-name', 'req-phone', 'req-desc'];
         function saveFormData() {
             const data = {};
-            formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
-            const selectedRadio = document.querySelector('input[name="rtype"]:checked');
-            if (selectedRadio) data['rtype'] = selectedRadio.value;
+            formFieldsIds.forEach(id => data[id] = document.getElementById(id).value);
+            data['rtype'] = document.querySelector('input[name="rtype"]:checked')?.value;
             localStorage.setItem('salesFormDraft', JSON.stringify(data));
         }
 
         function loadFormData() {
-            const saved = localStorage.getItem('salesFormDraft');
-            if (saved) {
-                const data = JSON.parse(saved);
-                formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el && data[id]) el.value = data[id]; });
-                if (data['rtype']) {
-                    const radio = document.querySelector(`input[name="rtype"][value="${data['rtype']}"]`);
-                    if (radio) radio.checked = true;
-                }
-            }
+            const saved = JSON.parse(localStorage.getItem('salesFormDraft') || '{}');
+            formFieldsIds.forEach(id => document.getElementById(id).value = saved[id] || '');
+            if (saved['rtype']) document.querySelector(`input[name="rtype"][value="${saved['rtype']}"]`).checked = true;
         }
 
-        formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', saveFormData); });
-        document.querySelectorAll('.radio-input').forEach(radio => radio.addEventListener('change', saveFormData));
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFormData();       
-            handleOwnerLockout(); 
-            loadMarketData(); // استدعاء دالة جلب البيانات عند تحميل الصفحة
-        });
+        formFieldsIds.forEach(id => document.getElementById(id).addEventListener('input', saveFormData));
+        document.addEventListener('DOMContentLoaded', () => { loadFormData(); handleOwnerLockout(); loadMarketData(); });
 
         function generatePrintableContract() {
             const ownerName = document.getElementById('contract-owner-name').value;
             if(!ownerName.trim()) { document.getElementById('contract-owner-name').classList.add('input-error'); return; }
-            document.getElementById('contract-owner-name').classList.remove('input-error');
             document.getElementById('print-name').innerText = ownerName;
             document.getElementById('print-date').innerText = new Date().toLocaleDateString('ar-EG');
             closeModal('contract-generator-modal');
@@ -512,89 +688,43 @@
 
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-        // 3. نظام التحقق الصارم من الحقول قبل الانتقال للخطوة الثانية
         function nextFormStep() {
-            const nameEl = document.getElementById('req-name');
-            const phoneEl = document.getElementById('req-phone');
-            const errEl = document.getElementById('form-error');
-            
-            const name = nameEl.value.trim();
-            const phone = phoneEl.value.trim();
-            
-            // تحقق من تعبئة الحقول
-            if (!name || !phone) {
-                errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً.";
-                errEl.classList.remove('hidden');
-                return;
+            if(!document.getElementById('req-name').value || !document.getElementById('req-phone').value) {
+                document.getElementById('form-error').innerText = "عبئ الاسم والجوال أولاً.";
+                document.getElementById('form-error').classList.remove('hidden'); return;
             }
-            
-            // تحقق من أن رقم الهاتف يحتوي على أرقام فقط (مع السماح بعلامة + والمسافات)
-            if (!/^[0-9+\s]+$/.test(phone)) {
-                errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط.";
-                errEl.classList.remove('hidden');
-                return;
-            }
-            
-            errEl.classList.add('hidden'); // إخفاء الخطأ إذا كانت البيانات سليمة
             document.getElementById('form-step-1').classList.add('hidden');
             document.getElementById('form-step-2').classList.remove('hidden');
         }
-        
-        function prevFormStep() {
-            document.getElementById('form-step-2').classList.add('hidden');
-            document.getElementById('form-step-1').classList.remove('hidden');
-        }
+        function prevFormStep() { document.getElementById('form-step-2').classList.add('hidden'); document.getElementById('form-step-1').classList.remove('hidden'); }
 
-        // إرسال رسالة واتساب مع الطابع الزمني وحماية النماذج
         function submitSecureWhatsapp() {
-            const btn = event.currentTarget;
-            
-            // 4. حماية النماذج بصمت (Honeypot) - إذا تعبأ الحقل المخفي معناه هذا روبوت ونوقف الإرسال
-            const honeypot = document.getElementById('req-bot').value;
-            if (honeypot) return; 
-
-            const name = document.getElementById('req-name').value.trim();
-            const phone = document.getElementById('req-phone').value.trim();
+            if (document.getElementById('req-bot').value) return;
+            const name = document.getElementById('req-name').value;
+            const phone = document.getElementById('req-phone').value;
             const type = document.querySelector('input[name="rtype"]:checked').value;
-            const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
-
-            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
-            
-            // 5. الطابع الزمني المبرمج للواتساب
-            const now = new Date();
-            const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
-            const encodedMessage = encodeURIComponent(rawMessage);
-
+            const desc = document.getElementById('req-desc').value || "لا يوجد";
+            const ts = new Date().toLocaleString('ar-SA');
+            const msg = `*طلب جديد*\n👤 الاسم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع: ${type}\n📝 تفاصيل:\n${desc}\n⏱️ ${ts}`;
             localStorage.removeItem('salesFormDraft');
-            
-            setTimeout(() => {
-                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
-                window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
-            }, 1000);
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
         function shareNativeWebsite() {
             if (navigator.share) {
-                navigator.share({
-                    title: 'مكتب عماد عدن العقاري',
-                    text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية',
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً');
-            }
+                navigator.share({ title: 'مكتب عماد العقاري', text: 'عقارات عدن الآمنة', url: window.location.href });
+            } else { alert('انسخ الرابط يدوياً'); }
         }
 
         function calculateROI() { 
-            const p = +document.getElementById('roi-price').value; 
-            const r = +document.getElementById('roi-rent').value; 
-            if(!p||!r) return; 
+            const p = +document.getElementById('roi-price').value, r = +document.getElementById('roi-rent').value;
+            if(!p||!r) return;
             document.getElementById('roi-yearly').innerText = formatNumber(r*12) + " ر.س";
             document.getElementById('roi-result').classList.remove('hidden');
         }
     </script>
 </body>
 </html>
+
+
+```
