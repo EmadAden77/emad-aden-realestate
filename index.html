@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 7. إعداد التحليل الصامت Google Analytics 4 (بدل G-XXXXXXXXXX بمعرف التتبع حقك) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -190,7 +188,7 @@
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)] flex justify-center items-center bg-black">
-                <i class="fa-solid fa-building text-[var(--gold)] text-xl"></i>
+                <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col">
                 <h1 class="font-black text-sm md:text-base text-white tracking-wide">مكتب عماد عدن العقاري</h1>
@@ -265,7 +263,6 @@
                         </div>
                     </div>
                     <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي</button>
-                    <!-- رسالة الخطأ لنظام التحقق -->
                     <p id="form-error" class="text-red-500 text-xs mt-3 hidden font-bold text-center"></p>
                 </div>
 
@@ -282,7 +279,6 @@
                         <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
                         
-                        <!-- 4. حماية النماذج بصمت (Honeypot Anti-Spam) مخفي عن العميل ومكشوف للروبوتات -->
                         <input type="text" id="req-bot" class="hidden" tabindex="-1" autocomplete="off">
                     </div>
                     <div class="flex gap-3">
@@ -320,10 +316,8 @@
                                 <th>السعر المتداول</th>
                             </tr>
                         </thead>
-                        <!-- 1. المكان المخصص لعرض البيانات المفصولة (JSON Data) -->
                         <tbody id="market-data-body">
-                            <!-- سيتم تعبئة الجداول تلقائياً من الجافاسكريبت -->
-                        </tbody>
+                            </tbody>
                     </table>
                 </div>
             </div>
@@ -604,7 +598,3 @@
     </script>
 </body>
 </html>
-
-
-```
-
