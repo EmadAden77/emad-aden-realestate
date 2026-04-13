@@ -381,7 +381,7 @@
 
     <main id="app-container" class="no-print">
         
-        <section id="view-home" class="app-view px-4 max-w-6xl mx-auto flex flex-col justify-center pb-10">
+        <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-10">
             <div class="text-center mb-12 mt-10">
                 <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
                 <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
@@ -419,18 +419,62 @@
                 <button onclick="switchView('home')" class="text-[#00ffcc] text-sm mt-6 hover:underline"><i class="fa-solid fa-arrow-right mr-1"></i> عودة للرئيسية</button>
             </div>
             
-            <div id="secret-portal" class="hidden max-w-2xl mx-auto mt-10">
-                <div class="bank-panel p-8 rounded-2xl mb-8 border border-[#00ffcc]">
-                    <h3 class="text-2xl font-black text-[#00ffcc] mb-6 text-center border-b border-[#00ffcc]/30 pb-4">بيانات الملاك المستخلصة</h3>
-                    <ul class="space-y-6 text-white text-lg leading-loose">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-map-location-dot text-[var(--gold)] text-2xl w-8 text-center"></i> <strong>رقم وحدة الجوار:</strong> <span class="text-[#00ffcc] font-bold">77A</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-scale-balanced text-[var(--gold)] text-2xl w-8 text-center"></i> <strong>الحالة القانونية:</strong> <span class="text-[#00ffcc] font-bold">مسجل بالسجل العيني (وفق القانون 39 لعام 1991)</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-building text-[var(--gold)] text-2xl w-8 text-center"></i> <strong>نوع النموذج المعماري:</strong> <span class="text-[#00ffcc] font-bold">A أو CT (معتمدة رسمياً)</span></li>
+            <div id="secret-portal" class="hidden max-w-4xl mx-auto mt-10 space-y-10">
+                <!-- 1. تتبع حالة العقار (Text Status) -->
+                <div class="bank-panel p-8 rounded-2xl border border-[#00ffcc]/30">
+                    <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-binoculars"></i> نظام تتبع حالة العقارات</h3>
+                    <div class="holo-table-wrapper">
+                        <table class="holo-table">
+                            <thead>
+                                <tr>
+                                    <th>نوع العقار المدار</th>
+                                    <th>الحالة الحالية</th>
+                                    <th>آخر فحص ميداني</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>عمارة تجارية - بئر فضل</td><td><span class="text-green-400 font-bold">مؤجر (ملتزم)</span></td><td>10 أبريل 2026</td></tr>
+                                <tr><td>شقة سكنية - المنصورة</td><td><span class="text-yellow-400 font-bold">تحت الصيانة</span></td><td>12 أبريل 2026</td></tr>
+                                <tr><td>أرض مسورة - الممدارة</td><td><span class="text-blue-400 font-bold">شاغر (مراقب)</span></td><td>05 أبريل 2026</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2. سجل دفعات الإيجار والتنبيهات -->
+                <div class="bank-panel p-8 rounded-2xl border-r-8 border-green-500">
+                    <h3 class="text-xl font-black text-green-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-money-bill-transfer"></i> سجل التحصيلات والتنبيهات</h3>
+                    <div class="space-y-4 text-white text-md">
+                        <p class="flex justify-between border-b border-white/5 pb-2"><span>إجمالي التحصيلات (الدورة الحالية):</span> <span class="text-green-400 font-black">2,500$</span></p>
+                        <p class="flex justify-between border-b border-white/5 pb-2"><span>حالة التحويل للمالك:</span> <span class="text-[#00ffcc]">تم التحويل بتاريخ 5 أبريل</span></p>
+                        <p class="p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm font-bold italic">⚠️ تنبيه: عقد شقة المنصورة ينتهي بعد 45 يوماً (يُرجى اتخاذ قرار التجديد).</p>
+                    </div>
+                </div>
+
+                <!-- 3. نموذج طلب صيانة عاجل -->
+                <div class="bank-panel p-8 rounded-2xl">
+                    <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-hammer"></i> طلب صيانة أو استفسار عاجل</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="maint-subject" placeholder="عنوان الطلب (مثال: عطل سباكة عمارة بئر فضل)" class="input-glass bank-input">
+                        <textarea id="maint-details" placeholder="اشرح العطل أو استفسارك هنا..." class="input-glass bank-input h-32"></textarea>
+                        <button onclick="sendMaintenanceRequest()" class="btn-gold bank-btn w-full !py-4 font-black">إرسال الطلب للمكتب فوراً <i class="fa-brands fa-whatsapp ml-2"></i></button>
+                    </div>
+                </div>
+
+                <!-- 4. ركن القوانين والبيانات المستخلصة -->
+                <div class="glass-panel p-8 border-l-8 border-[var(--gold)]">
+                    <h3 class="text-xl font-black text-[var(--gold)] mb-6 flex items-center gap-3"><i class="fa-solid fa-scale-balanced"></i> ركن البيانات القانونية (عدن)</h3>
+                    <ul class="holo-list space-y-4 text-gray-300 text-sm leading-relaxed">
+                        <li><strong>وحدة الجوار المعتمدة:</strong> تم استخلاص بيانات ملاك وحدة 77A ومطابقتها رسمياً.</li>
+                        <li><strong>السجل العيني:</strong> العقارات مسجلة وفق مقتضيات القانون رقم 39 لعام 1991 لضمان الملكية المطلقة.</li>
+                        <li><strong>الهوية المعمارية:</strong> يلتزم المكتب بالنماذج المعمارية (A و CT) في كافة أعمال الإنشاء والترميم لضمان التجانس الحضري.</li>
+                        <li><strong>حقوق المالك:</strong> نضمن لك تحصيل الإيجارات بالعملة المتفق عليها (الدولار/السعودي) لحماية مدخراتك من التضخم.</li>
                     </ul>
                 </div>
-                <div class="text-center mt-8">
-                    <button onclick="switchView('home')" class="btn-glass !py-3 !px-8 !rounded-xl text-md font-bold hover:bg-[#00ffcc]/10 hover:border-[#00ffcc] hover:text-[#00ffcc] transition-all">
-                        <i class="fa-solid fa-arrow-right mr-2"></i> عودة للرئيسية
+
+                <div class="text-center pt-10">
+                    <button onclick="switchView('home')" class="btn-glass !px-10 !py-4 !rounded-2xl text-lg font-black hover:text-[#00ffcc] hover:border-[#00ffcc] transition-all">
+                        <i class="fa-solid fa-house-chimney mr-2"></i> عودة للواجهة الرئيسية
                     </button>
                 </div>
             </div>
@@ -819,6 +863,14 @@
             }
         }
 
+        function sendMaintenanceRequest() {
+            const subject = document.getElementById('maint-subject').value.trim();
+            const details = document.getElementById('maint-details').value.trim();
+            if(!subject || !details) return;
+            const rawMessage = `*طلب صيانة عاجل (بوابة الملاك)*\n\n📌 الموضوع: ${subject}\n📝 التفاصيل:\n${details}`;
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(rawMessage)}`, '_blank');
+        }
+
         const formFieldsIds = ['req-name', 'req-phone', 'req-desc'];
         function saveFormData() {
             const data = {};
@@ -846,8 +898,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadFormData();       
             loadMarketData(); 
-            
-            // هذي اللي تعدلت عشان غصب يفتح الرئيسية اول ما تدخل الموقع
             window.history.replaceState({ view: 'home' }, '', '#home');
             switchView('home', false);
         });
@@ -869,22 +919,10 @@
             const nameEl = document.getElementById('req-name');
             const phoneEl = document.getElementById('req-phone');
             const errEl = document.getElementById('form-error');
-            
             const name = nameEl.value.trim();
             const phone = phoneEl.value.trim();
-            
-            if (!name || !phone) {
-                errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً.";
-                errEl.classList.remove('hidden');
-                return;
-            }
-            
-            if (!/^[0-9+\s]+$/.test(phone)) {
-                errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط.";
-                errEl.classList.remove('hidden');
-                return;
-            }
-            
+            if (!name || !phone) { errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً."; errEl.classList.remove('hidden'); return; }
+            if (!/^[0-9+\s]+$/.test(phone)) { errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط."; errEl.classList.remove('hidden'); return; }
             errEl.classList.add('hidden'); 
             document.getElementById('form-step-1').classList.add('hidden');
             document.getElementById('form-step-2').classList.remove('hidden');
@@ -897,25 +935,18 @@
 
         function submitSecureWhatsapp() {
             const btn = event.currentTarget;
-            
             const honeypot = document.getElementById('req-bot').value;
             if (honeypot) return; 
-
             const name = document.getElementById('req-name').value.trim();
             const phone = document.getElementById('req-phone').value.trim();
             const type = document.querySelector('input[name="rtype"]:checked').value;
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
-
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
-            
             const now = new Date();
             const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            
             const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
             const encodedMessage = encodeURIComponent(rawMessage);
-
             localStorage.removeItem('salesFormDraft');
-            
             setTimeout(() => {
                 btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
                 window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
@@ -924,14 +955,8 @@
 
         function shareNativeWebsite() {
             if (navigator.share) {
-                navigator.share({
-                    title: 'مكتب عماد عدن العقاري',
-                    text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية',
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً');
-            }
+                navigator.share({ title: 'مكتب عماد عدن العقاري', text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية', url: window.location.href }).catch(console.error);
+            } else { alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً'); }
         }
 
         function calculateROI() { 
@@ -955,23 +980,19 @@
             if(!text) return;
             addMsg(text, true);
             input.value = '';
-            
             const load = document.createElement('div');
             load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 flex items-center gap-2';
             load.innerHTML = '<span class="loader-spinner" style="width:12px;height:12px;border-width:2px;"></span> يبحث في الداتا...';
             box.appendChild(load);
             box.scrollTop = box.scrollHeight;
-            
             setTimeout(() => {
                 load.remove();
                 let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة لأعطيك التفاصيل والأسعار.";
-                
                 if (text.includes('بئر احمد') || text.includes('بير احمد')) reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. ممتاز للتوسع بس لازم نفحص لك البصيرة.";
                 else if (text.includes('الشعب') || text.includes('القياديين')) reply = "مخطط القياديين (وحدة جوار 573) بمدينة الشعب آمن جداً. الأراضي مساحة 20×25 متوسط سعرها 220 ألف سعودي.";
                 else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل')) reply = "درة عدن فاخرة جداً. الفلل الكبيرة 364 متر اتجاه بحري وتشطيب سوبر (7 غرف) سعرها حول 450 ألف دولار.";
                 else if (text.includes('المنصورة')) reply = "المنصورة طلبها عالي! إيجارات الشقق العائلية (4-5 غرف) حول 800 ريال سعودي.";
                 else if (text.includes('دار سعد') || text.includes('بئر فضل')) reply = "بئر فضل فيها بلوكات مطلوبة زي بلوك 10 وبلوك 8 (الجيش)، المساحات المتوفرة 15×15 و 15×30.";
-                
                 addMsg(reply, false);
             }, 1000);
         }
@@ -986,7 +1007,6 @@
     </script>
 </body>
 </html>
-
 
 ```
 
