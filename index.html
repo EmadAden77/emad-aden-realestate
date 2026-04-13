@@ -406,18 +406,29 @@
             </div>
         </section>
 
-        <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-10">
-            <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl mt-10">
-                <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)]">
-                    <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
-                </div>
-                <h3 class="text-xl font-black bank-title mb-2">الخزنة الرقمية للأملاك</h3>
-                <p class="text-xs text-gray-400 mb-8">يرجى إدخال رمز التحقق الخاص بك للوصول للبيانات</p>
-                <input type="password" id="owner-password" placeholder="أدخل الرمز (2026)" class="input-glass bank-input !py-4 !text-center mb-6 text-xl tracking-[0.5em] rounded-xl">
-                <button id="btn-owner-login" onclick="checkOwnerPassword()" class="btn-gold bank-btn w-full !py-3 !rounded-xl font-bold text-lg">مصادقة آمنة <i class="fa-solid fa-fingerprint mr-2"></i></button>
-                <p id="owner-error" class="text-red-500 text-xs mt-4 hidden font-bold"></p>
-                <button onclick="switchView('home')" class="text-[#00ffcc] text-sm mt-6 hover:underline"><i class="fa-solid fa-arrow-right mr-1"></i> عودة للرئيسية</button>
-            </div>
+        // دالة إرسال استفسار المغتربين
+function sendExpatQuery() {
+    const query = document.getElementById('expat-query').value.trim();
+    if(!query) return;
+    const msg = `*استفسار من بوابة المغتربين*\n\nالرسالة:\n${query}`;
+    window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// تعديل بسيط على دالة الحساب عشان تعطي تفصيل أكثر
+function calculateROI() { 
+    const p = +document.getElementById('roi-price').value; 
+    const r = +document.getElementById('roi-rent').value; 
+    if(!p||!r) return; 
+    const yearly = r * 12;
+    const percent = ((yearly / p) * 100).toFixed(1);
+    document.getElementById('roi-yearly').innerHTML = `
+        <div class="text-sm text-gray-400">العائد السنوي المتوقع:</div>
+        <div>${formatNumber(yearly)} ر.س</div>
+        <div class="text-xs text-green-400 mt-2">نسبة الأرباح السنوية: ${percent}%</div>
+    `;
+    document.getElementById('roi-result').classList.remove('hidden');
+}
+
             
             <div id="secret-portal" class="hidden max-w-4xl mx-auto mt-10 space-y-10">
                 <!-- 1. تتبع حالة العقار (Text Status) -->
