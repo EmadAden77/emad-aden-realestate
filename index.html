@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- إعداد التحليل الصامت Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,10 +19,12 @@
     <meta property="og:description" content="المرجع الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن المخططات الرسمية">
     <meta property="og:url" content="https://emad-aden-realestate.vercel.app/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="IMG_5.jpg">
     <meta name="twitter:card" content="summary_large_image">
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E5C07B">
+    <link rel="apple-touch-icon" href="IMG_5.jpg">
     
     <script type="application/ld+json">
     {
@@ -148,6 +149,37 @@
         
         .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* تنسيقات بوابة إدارة الأملاك (البنك النيوني) */
+        .bank-panel {
+            background: rgba(10, 25, 47, 0.95) !important;
+            border: 1px solid #00ffcc !important;
+            box-shadow: inset 0 0 20px rgba(0, 255, 204, 0.05), 0 0 15px rgba(0, 255, 204, 0.1) !important;
+        }
+        .bank-title {
+            color: #00ffcc;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+        }
+        .bank-btn {
+            background: transparent !important;
+            border: 1px solid #00ffcc !important;
+            color: #00ffcc !important;
+            transition: all 0.3s ease !important;
+        }
+        .bank-btn:hover {
+            background: rgba(0, 255, 204, 0.2) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+        .bank-input {
+            background: rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid rgba(0, 255, 204, 0.4) !important;
+            color: #00ffcc !important;
+        }
+        .bank-input:focus {
+            border-color: #00ffcc !important;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3) !important;
+        }
 
         /* تنسيقات غرفة العمليات الهندسية - التطور العمراني */
         .holo-container {
@@ -324,7 +356,7 @@
     <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
             <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)] flex justify-center items-center bg-black">
-                <!-- الشعار المستعاد -->
+                <!-- صورة شعار المكتب المطلوبة -->
                 <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
             </div>
             <div class="flex flex-col">
@@ -369,19 +401,55 @@
             </div>
         </section>
 
-        <!-- قسم إدارة الأملاك -->
+        <!-- قسم إدارة الأملاك المغتربين (محدث بثيم بنكي/نيون) -->
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-10">
-            <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto border-[var(--gold)]">
-                <h3 class="text-xl font-black text-white mb-6">بوابة الملاك السرية</h3>
-                <input type="password" id="owner-password" placeholder="الرمز السري" class="input-glass !py-3 !text-center mb-4 text-lg">
-                <button id="btn-owner-login" onclick="checkOwnerPassword()" class="btn-gold w-full !py-3">دخول آمن</button>
-                <p id="owner-error" class="text-red-500 text-xs mt-3 hidden font-bold"></p>
+            <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl">
+                <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)]">
+                    <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-black bank-title mb-2">الخزنة الرقمية للأملاك</h3>
+                <p class="text-xs text-gray-400 mb-8">يرجى إدخال رمز التحقق الخاص بك (PIN)</p>
+                <input type="password" id="owner-password" placeholder="****" class="input-glass bank-input !py-4 !text-center mb-6 text-3xl tracking-[1em] rounded-xl" maxlength="4">
+                <button id="btn-owner-login" onclick="checkOwnerPassword()" class="btn-gold bank-btn w-full !py-3 !rounded-xl font-bold text-lg">مصادقة آمنة <i class="fa-solid fa-fingerprint mr-2"></i></button>
+                <p id="owner-error" class="text-red-500 text-xs mt-4 hidden font-bold"></p>
             </div>
+            
             <div id="secret-portal" class="hidden">
-                <h3 class="text-lg font-black text-green-400 mb-6">محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div class="glass-panel p-5 text-center"><div class="text-[10px] text-gray-400">الأصول</div><div class="text-2xl font-black text-white" id="client-assets-display">0</div></div>
-                    <div class="glass-panel p-5 text-center"><div class="text-[10px] text-gray-400">التحصيلات</div><div class="text-2xl font-black text-[var(--gold)]" id="client-rent-display">0</div></div>
+                <div class="bank-panel p-6 rounded-2xl mb-8 flex justify-between items-center flex-wrap gap-4">
+                    <div>
+                        <h3 class="text-lg font-black bank-title">محفظة المالك: <span id="client-name-display" class="text-white"></span></h3>
+                        <p class="text-xs text-gray-400 mt-1">حالة الحساب: <span class="text-green-400">نشط <i class="fa-solid fa-circle-check"></i></span></p>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-center"><div class="text-[10px] text-gray-400">الأصول العقارية</div><div class="text-3xl font-black text-white" id="client-assets-display">0</div></div>
+                        <div class="text-center"><div class="text-[10px] text-gray-400">إجمالي التحصيلات</div><div class="text-3xl font-black text-[#00ffcc]" id="client-rent-display">0</div></div>
+                    </div>
+                </div>
+
+                <h4 class="bank-title text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-list-check"></i> تفاصيل الأصول الجارية</h4>
+                <div class="holo-table-wrapper mb-8">
+                    <table class="holo-table">
+                        <thead>
+                            <tr>
+                                <th>رقم وحدة الجوار / المخطط</th>
+                                <th>المنطقة / المديرية</th>
+                                <th>حالة العقار</th>
+                                <th>قيمة العائد (الدورة الحالية)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>وحدة 526 (بلوك 3)</td><td>بئر فضل - دار سعد</td><td><span class="text-green-400">مؤجر (تجاري)</span></td><td class="font-bold text-[#00ffcc]">2,500 ر.س</td></tr>
+                            <tr><td>وحدة 699 (بلوك 2)</td><td>الممدارة - الشيخ عثمان</td><td><span class="text-green-400">مؤجر (سكني)</span></td><td class="font-bold text-[#00ffcc]">1,200 ر.س</td></tr>
+                            <tr><td>مدينة إنماء (المرحلة 4)</td><td>كابوتا - المنصورة</td><td><span class="text-green-400">مؤجر (شقة)</span></td><td class="font-bold text-[#00ffcc]">500 دولار</td></tr>
+                            <tr><td>وحدة 619 (ساحل أبين)</td><td>العريش - خور مكسر</td><td><span class="text-yellow-400">شاغر (قيد الصيانة)</span></td><td class="font-bold text-gray-500">0.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-center mt-10">
+                    <button onclick="requestAccountStatement()" class="btn-gold bank-btn !px-8 !py-4 !rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(0,255,204,0.2)]">
+                        <i class="fa-brands fa-whatsapp text-xl ml-2"></i> طلب كشف حساب مفصل بصيغة PDF
+                    </button>
                 </div>
             </div>
         </section>
@@ -908,6 +976,13 @@
             }, 1000);
         }
 
+        function requestAccountStatement() {
+            const ownerName = document.getElementById('client-name-display').innerText || "عميل النظام";
+            const message = `*طلب كشف حساب عقاري*\n\nالمالك: ${ownerName}\nالرمز الآلي: 2026\n\nالرجاء تزويدي بكشف الحساب المفصل للعقارات المدرجة ضمن محفظتي وصورة من سندات القبض للدورة الحالية.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
+        }
+
         function shareNativeWebsite() {
             if (navigator.share) {
                 navigator.share({
@@ -928,7 +1003,6 @@
             document.getElementById('roi-result').classList.remove('hidden');
         }
 
-        /* دوال المساعد الشخصي المستعادة */
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
