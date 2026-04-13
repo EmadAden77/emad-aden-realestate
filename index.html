@@ -890,7 +890,9 @@
                 window.history.pushState({ view: viewId }, '', '#' + viewId);
             }
             
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
             
             if (viewId !== 'expat') {
                 const passInput = document.getElementById('owner-password');
@@ -1051,7 +1053,6 @@
             document.getElementById('roi-result').classList.remove('hidden');
         }
 
-        /* دوال قسم المغتربين والنافذة المنبثقة */
         const expatServicesMap = { 
             1: 'شراء عقار عن بعد', 
             2: 'إدارة أملاك', 
@@ -1112,3 +1113,4 @@
     </script>
 </body>
 </html>
+
