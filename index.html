@@ -466,10 +466,6 @@
                         }
 
                         fetchExpatData();
-
-                        window.submitExpatRequest = async function(id) {
-                            alert('تم إرسال الطلب عبر المسار /api/expat/request/' + id);
-                        };
                     })();
                 </script>
             </section>
@@ -822,6 +818,31 @@
         </div>
     </div>
     
+    <div id="expat-options-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('expat-options-modal')">
+        <div class="modal-box !max-w-[450px]">
+            <button onclick="closeModal('expat-options-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-xl font-black mb-4 text-white text-center">تفاصيل الخدمة المطلوبة</h2>
+            <input type="hidden" id="expat-selected-service" value="">
+            
+            <div class="mb-4">
+                <label class="block text-[11px] mb-2 text-gray-300 font-bold">وش نوع العقار اللي تستفسر عنه؟</label>
+                <div class="radio-group md:grid-cols-2">
+                    <div><input type="radio" name="expat_prop" id="ep1" value="سكني" class="radio-input" checked><label for="ep1" class="radio-label">سكني (شقة/فيلا)</label></div>
+                    <div><input type="radio" name="expat_prop" id="ep2" value="تجاري" class="radio-input"><label for="ep2" class="radio-label">تجاري (عمارة/محل)</label></div>
+                    <div><input type="radio" name="expat_prop" id="ep3" value="أرض" class="radio-input"><label for="ep3" class="radio-label">أرض بيضاء</label></div>
+                    <div><input type="radio" name="expat_prop" id="ep4" value="غير محدد" class="radio-input"><label for="ep4" class="radio-label">غير محدد</label></div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">اكتب استفسارك أو طلبك هنا</label>
+                <textarea id="expat-details" placeholder="مثال: عندي عمارة بالمنصورة وأبيكم تديرونها..." class="input-glass h-24 resize-none"></textarea>
+            </div>
+            
+            <button onclick="sendExpatWhatsapp()" class="btn-gold w-full !py-3 text-sm">إرسال للواتساب <i class="fa-brands fa-whatsapp mr-2"></i></button>
+        </div>
+    </div>
+
     <div id="chat-window" class="chat-panel no-print">
         <div class="p-5 flex justify-between items-center border-b border-[var(--gold)] bg-black/80">
             <div class="flex items-center gap-3">
@@ -1030,6 +1051,27 @@
             document.getElementById('roi-result').classList.remove('hidden');
         }
 
+        /* دوال قسم المغتربين والنافذة المنبثقة */
+        const expatServicesMap = { 
+            1: 'شراء عقار عن بعد', 
+            2: 'إدارة أملاك', 
+            3: 'استشارات استثمارية' 
+        };
+        
+        window.submitExpatRequest = function(id) {
+            document.getElementById('expat-selected-service').value = expatServicesMap[id] || 'خدمات المغتربين';
+            openModal('expat-options-modal');
+        };
+        
+        window.sendExpatWhatsapp = function() {
+            const service = document.getElementById('expat-selected-service').value;
+            const propType = document.querySelector('input[name="expat_prop"]:checked').value;
+            const details = document.getElementById('expat-details').value.trim() || 'لا توجد تفاصيل إضافية';
+            const msg = `*طلب من بوابة المغتربين*\n\n📌 نوع الخدمة المطلوبة: ${service}\n🏢 نوع العقار: ${propType}\n📝 التفاصيل:\n${details}`;
+            closeModal('expat-options-modal');
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
@@ -1070,4 +1112,3 @@
     </script>
 </body>
 </html>
-
