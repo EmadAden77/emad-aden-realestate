@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -407,6 +406,65 @@
         </section>
 
         <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-10">
+            
+            <section id="expat" class="mt-10 mb-10">
+                <style>
+                    #expat { background-color: #ffffff; border-radius: 12px; padding: 40px 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); max-width: 1200px; margin: 0 auto; font-family: inherit; }
+                    #expat .expat-header { text-align: center; margin-bottom: 30px; }
+                    #expat .expat-header h2 { color: #1a56db; font-size: 28px; font-weight: bold; margin-bottom: 10px; }
+                    #expat .expat-header p { color: #6b7280; font-size: 16px; }
+                    #expat .expat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+                    #expat .expat-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; transition: transform 0.2s; }
+                    #expat .expat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+                    #expat .expat-btn { background-color: #1a56db; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; margin-top: 15px; }
+                    #expat .expat-btn:hover { background-color: #1e40af; }
+                    #expat .loading-msg { text-align: center; color: #6b7280; padding: 20px; font-weight: bold; }
+                </style>
+                <div class="expat-header">
+                    <h2>خدمات المغتربين</h2>
+                    <p>عروض وخدمات عقارية مخصصة للمغتربين خارج اليمن</p>
+                </div>
+                <div id="expat-content" class="expat-grid">
+                    <div class="loading-msg">جاري تحميل البيانات...</div>
+                </div>
+                <script>
+                    (function() {
+                        const section = document.getElementById('expat');
+                        if (!section) return;
+                        const contentArea = section.querySelector('#expat-content');
+                        async function fetchExpatData() {
+                            try {
+                                const mockData = [
+                                    { id: 1, title: 'شراء عقار عن بعد', desc: 'نوفر لك خدمة شراء وتوثيق العقارات وأنت في مكانك' },
+                                    { id: 2, title: 'إدارة أملاك', desc: 'ندير عقاراتك ونحصل الإيجارات ونودعها بحسابك' },
+                                    { id: 3, title: 'استشارات استثمارية', desc: 'أفضل الفرص الاستثمارية في عدن للمغتربين' }
+                                ];
+                                setTimeout(() => { renderExpatData(mockData); }, 1000);
+                            } catch (error) {
+                                contentArea.innerHTML = '<div class="loading-msg" style="color:red;">حدث خطأ في تحميل البيانات</div>';
+                            }
+                        }
+                        function renderExpatData(data) {
+                            contentArea.innerHTML = '';
+                            data.forEach(item => {
+                                const card = document.createElement('div');
+                                card.className = 'expat-card';
+                                card.innerHTML = `
+                                    <h3 style="color:#111827; margin-top:0;">${item.title}</h3>
+                                    <p style="color:#4b5563; line-height:1.5;">${item.desc}</p>
+                                    <button class="expat-btn" onclick="submitExpatRequest(${item.id})">طلب الخدمة</button>
+                                `;
+                                contentArea.appendChild(card);
+                            });
+                        }
+                        fetchExpatData();
+                        window.submitExpatRequest = async function(id) {
+                            alert('تم إرسال الطلب عبر المسار /api/expat/request/' + id);
+                        };
+                    })();
+                </script>
+            </section>
+
             <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl mt-10">
                 <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)]">
                     <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
@@ -420,7 +478,6 @@
             </div>
             
             <div id="secret-portal" class="hidden max-w-4xl mx-auto mt-10 space-y-10">
-                <!-- 1. تتبع حالة العقار (Text Status) -->
                 <div class="bank-panel p-8 rounded-2xl border border-[#00ffcc]/30">
                     <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-binoculars"></i> نظام تتبع حالة العقارات</h3>
                     <div class="holo-table-wrapper">
@@ -441,7 +498,6 @@
                     </div>
                 </div>
 
-                <!-- 2. سجل دفعات الإيجار والتنبيهات -->
                 <div class="bank-panel p-8 rounded-2xl border-r-8 border-green-500">
                     <h3 class="text-xl font-black text-green-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-money-bill-transfer"></i> سجل التحصيلات والتنبيهات</h3>
                     <div class="space-y-4 text-white text-md">
@@ -451,7 +507,6 @@
                     </div>
                 </div>
 
-                <!-- 3. نموذج طلب صيانة عاجل -->
                 <div class="bank-panel p-8 rounded-2xl">
                     <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-hammer"></i> طلب صيانة أو استفسار عاجل</h3>
                     <div class="space-y-4">
@@ -461,7 +516,6 @@
                     </div>
                 </div>
 
-                <!-- 4. ركن القوانين والبيانات المستخلصة -->
                 <div class="glass-panel p-8 border-l-8 border-[var(--gold)]">
                     <h3 class="text-xl font-black text-[var(--gold)] mb-6 flex items-center gap-3"><i class="fa-solid fa-scale-balanced"></i> ركن البيانات القانونية (عدن)</h3>
                     <ul class="holo-list space-y-4 text-gray-300 text-sm leading-relaxed">
@@ -1007,6 +1061,3 @@
     </script>
 </body>
 </html>
-
-```
-
