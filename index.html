@@ -32,21 +32,6 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "مكتب عماد عدن العقاري",
-      "description": "إدارة أملاك المغتربين، تثمين عقاري، واستشارات قانونية في عدن",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "عدن",
-        "addressCountry": "YE"
-      },
-      "telephone": "+967773571889"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -384,25 +369,16 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
         
-        /* إضافات الأزرار العائمة الجديدة */
+        /* الأزرار العائمة */
         .floating-wa { position: fixed; bottom: 20px; left: 20px; background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 10px 20px rgba(37,211,102,0.4); z-index: 1000; transition: transform 0.3s; text-decoration: none; }
         .floating-wa:hover { transform: scale(1.1); }
         .scroll-top-btn { position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); color: black; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 1000; box-shadow: 0 5px 15px rgba(229,192,123,0.3); border: none; }
         .scroll-top-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .scroll-top-btn:not(.show) { transform: translateY(20px); }
 
-        /* ========= تأثيرات التمرير החركية المضافة حديثاً ========= */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
-        }
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* ======================================================== */
+        /* تأثيرات التمرير החركية */
+        .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
         @media print {
             @page { size: A4; margin: 20mm; }
@@ -482,19 +458,19 @@
                 <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div onclick="switchView('expat')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
+                <div onclick="switchView('expat')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
                     <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--gold)] to-[var(--dark-gold)] mx-auto flex items-center justify-center text-black text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-building-shield"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">إدارة أملاك المغتربين</h3>
                 </div>
-                <div onclick="switchView('sales')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
+                <div onclick="switchView('sales')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-file-signature"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">استقبال الطلبات</h3>
                 </div>
-                <div onclick="switchView('legal')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
+                <div onclick="switchView('legal')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">المستشار القانوني</h3>
                 </div>
-                <div onclick="switchView('urban')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all">
+                <div onclick="switchView('urban')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
                     <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-city"></i></div>
                     <h3 class="text-lg font-black text-white mb-3">التطور العمراني</h3>
                 </div>
@@ -551,14 +527,13 @@
                             contentArea.innerHTML = '';
                             data.forEach(item => {
                                 const card = document.createElement('div');
-                                card.className = 'expat-card reveal-on-scroll'; // إضافة الكلاس الجديد هنا
+                                card.className = 'expat-card reveal-on-scroll';
                                 card.innerHTML = `
                                     <h3>${item.title}</h3>
                                     <p>${item.desc}</p>
                                     <button class="expat-btn" onclick="submitExpatRequest(${item.id})">طلب الخدمة</button>
                                 `;
                                 contentArea.appendChild(card);
-                                // تطبيق المراقب على العنصر الجديد إذا كان معرفاً
                                 if (window.scrollObserver) {
                                     window.scrollObserver.observe(card);
                                 }
@@ -570,7 +545,7 @@
                 </script>
             </section>
 
-            <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl mt-10">
+            <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl mt-10 reveal-on-scroll">
                 <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)]">
                     <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
                 </div>
@@ -583,7 +558,7 @@
             </div>
             
             <div id="secret-portal" class="hidden max-w-4xl mx-auto mt-10 space-y-10">
-                <div class="bank-panel p-8 rounded-2xl border border-[#00ffcc]/30">
+                <div class="bank-panel p-8 rounded-2xl border border-[#00ffcc]/30 reveal-on-scroll">
                     <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-binoculars"></i> نظام تتبع حالة العقارات</h3>
                     <div class="holo-table-wrapper">
                         <table class="holo-table">
@@ -603,7 +578,7 @@
                     </div>
                 </div>
 
-                <div class="bank-panel p-8 rounded-2xl border-r-8 border-green-500">
+                <div class="bank-panel p-8 rounded-2xl border-r-8 border-green-500 reveal-on-scroll">
                     <h3 class="text-xl font-black text-green-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-money-bill-transfer"></i> سجل التحصيلات والتنبيهات</h3>
                     <div class="space-y-4 text-white text-md">
                         <p class="flex justify-between border-b border-white/5 pb-2"><span>إجمالي التحصيلات (الدورة الحالية):</span> <span class="text-green-400 font-black">2,500$</span></p>
@@ -612,7 +587,7 @@
                     </div>
                 </div>
 
-                <div class="bank-panel p-8 rounded-2xl">
+                <div class="bank-panel p-8 rounded-2xl reveal-on-scroll">
                     <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-hammer"></i> طلب صيانة أو استفسار عاجل</h3>
                     <div class="space-y-4">
                         <input type="text" id="maint-subject" placeholder="عنوان الطلب (مثال: عطل سباكة عمارة بئر فضل)" class="input-glass bank-input">
@@ -621,7 +596,7 @@
                     </div>
                 </div>
 
-                <div class="glass-panel p-8 border-l-8 border-[var(--gold)]">
+                <div class="glass-panel p-8 border-l-8 border-[var(--gold)] reveal-on-scroll">
                     <h3 class="text-xl font-black text-[var(--gold)] mb-6 flex items-center gap-3"><i class="fa-solid fa-scale-balanced"></i> ركن البيانات القانونية (عدن)</h3>
                     <ul class="holo-list space-y-4 text-gray-300 text-sm leading-relaxed">
                         <li><strong>وحدة الجوار المعتمدة:</strong> تم استخلاص بيانات ملاك وحدة 77A ومطابقتها رسمياً.</li>
@@ -631,7 +606,7 @@
                     </ul>
                 </div>
 
-                <div class="text-center pt-10">
+                <div class="text-center pt-10 reveal-on-scroll">
                     <button onclick="switchView('home')" class="btn-glass !px-10 !py-4 !rounded-2xl text-lg font-black hover:text-[#00ffcc] hover:border-[#00ffcc] transition-all">
                         <i class="fa-solid fa-house-chimney mr-2"></i> عودة للواجهة الرئيسية
                     </button>
@@ -643,7 +618,22 @@
             <div class="text-center mb-8">
                 <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-file-shield text-[var(--gold)] mr-2"></i> منصة الصفقات والتوثيق</h2>
             </div>
-            <div class="glass-panel p-8 relative overflow-hidden">
+            <div class="glass-panel p-8 relative overflow-hidden reveal-on-scroll">
+                
+                <div class="flex justify-between items-center mb-8 relative px-4">
+                    <div class="absolute top-1/2 left-4 right-4 h-1 bg-white/10 -z-10 rounded"></div>
+                    <div id="form-progress-bar" class="absolute top-1/2 right-4 h-1 bg-[var(--gold)] -z-10 rounded transition-all duration-500 w-[5%]"></div>
+                    
+                    <div class="flex flex-col items-center gap-2">
+                        <div id="step-1-icon" class="w-8 h-8 rounded-full bg-[var(--gold)] text-black flex items-center justify-center font-bold shadow-[0_0_10px_var(--gold)] transition-all duration-300"><i class="fa-solid fa-user"></i></div>
+                        <span class="text-[10px] text-[var(--gold)] font-bold">البيانات</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div id="step-2-icon" class="w-8 h-8 rounded-full bg-black border border-white/20 text-gray-400 flex items-center justify-center font-bold transition-all duration-300"><i class="fa-solid fa-list-check"></i></div>
+                        <span id="step-2-text" class="text-[10px] text-gray-400 font-bold transition-all duration-300">التفاصيل الفنية</span>
+                    </div>
+                </div>
+
                 <div id="form-step-1">
                     <div class="grid grid-cols-1 gap-4 mb-6">
                         <div>
@@ -655,7 +645,7 @@
                             <input type="tel" id="req-phone" placeholder="مثال: 77XXXXXXX" class="input-glass" oninput="this.classList.remove('input-error')">
                         </div>
                     </div>
-                    <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي</button>
+                    <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي للاستكمال <i class="fa-solid fa-arrow-left ml-2"></i></button>
                     <p id="form-error" class="text-red-500 text-xs mt-3 hidden font-bold text-center"></p>
                 </div>
 
@@ -703,32 +693,41 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
-                        <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
+                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">تحديد الموقع الدقيق (GPS) - اختياري</label>
+                        <button type="button" onclick="togglePickerMap()" class="btn-glass w-full !py-2 text-xs mb-2 border-[var(--gold)]/50 hover:bg-[var(--gold)]/10"><i class="fa-solid fa-location-crosshairs mr-2 text-[var(--gold)]"></i> افتح الخريطة لتحديد مكان العقار</button>
+                        <div id="pickerMapContainer" class="hidden h-48 w-full rounded-xl border border-[var(--gold)]/50 overflow-hidden relative">
+                            <div id="pickerMap" class="w-full h-full z-10"></div>
+                            <input type="hidden" id="req-coords" value="">
+                            <div class="absolute bottom-2 right-2 left-2 z-[400] bg-black/90 border border-[var(--gold)] px-2 py-1.5 rounded-lg text-[10px] text-[var(--gold)] text-center pointer-events-none font-bold">حرك الخريطة واضغط لتحديد موقع العقار بالضبط</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية (ملاحظات)</label>
+                        <textarea id="req-desc" placeholder="اكتب أي تفاصيل إضافية بدقة..." class="input-glass h-20 resize-none"></textarea>
                         <input type="text" id="req-bot" class="hidden" tabindex="-1" autocomplete="off">
                     </div>
                     <div class="flex gap-3">
-                        <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">السابق</button>
-                        <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2"></i></button>
+                        <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">رجوع</button>
+                        <button onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2 text-lg"></i></button>
                     </div>
                 </div>
             </div>
         </section>
-
         <section id="view-legal" class="app-view px-4 max-w-5xl mx-auto pb-10">
             <div class="text-center mb-8 mt-10">
                 <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-scale-balanced text-[var(--gold)] mr-2"></i> المستشار القانوني وحماية الأملاك</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="glass-card p-6 text-center flex flex-col justify-center items-center">
+                <div class="glass-card p-6 text-center flex flex-col justify-center items-center reveal-on-scroll">
                     <i class="fa-solid fa-file-contract text-3xl text-[var(--gold)] mb-3"></i>
                     <h3 class="font-bold text-lg text-white mb-2">عقود التفويض</h3>
                     <p class="text-xs text-gray-400 mb-4">إصدار عقد تفويض إداري فوري للطباعة</p>
                     <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-2 w-full text-xs">إصدار عقد آلي</button>
                 </div>
                 
-                <div class="glass-card p-6 text-center flex flex-col justify-center items-center md:col-span-2">
+                <div class="glass-card p-6 text-center flex flex-col justify-center items-center md:col-span-2 reveal-on-scroll">
                     <i class="fa-solid fa-book-open-reader text-3xl text-[var(--gold)] mb-3"></i>
                     <h3 class="font-bold text-lg text-white mb-2">مكتبة النماذج القانونية (عدن)</h3>
                     <div class="grid grid-cols-2 gap-3 w-full mt-2">
@@ -741,7 +740,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="glass-panel p-6">
+                <div class="glass-panel p-6 reveal-on-scroll">
                     <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-gavel mr-2"></i> طلب استشارة قانونية مخصصة</h3>
                     <div class="space-y-4">
                         <div>
@@ -761,7 +760,7 @@
                     </div>
                 </div>
 
-                <div class="glass-panel p-6">
+                <div class="glass-panel p-6 reveal-on-scroll">
                     <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-circle-question mr-2"></i> أسئلة قانونية شائعة</h3>
                     <div class="space-y-2">
                         <details>
@@ -792,8 +791,7 @@
             </div>
 
             <div class="holo-container space-y-4">
-                
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">1. الإطار الإداري والديموغرافي <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
                         <p class="text-xs text-gray-300 mb-3">توزيع المديريات حسب المساحة والكثافة السكانية في العاصمة عدن:</p>
@@ -822,7 +820,7 @@
                     </div>
                 </details>
 
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">2. فلسفة نظام وحدات الجوار <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
                         <ul class="holo-list text-gray-300">
@@ -834,7 +832,7 @@
                     </div>
                 </details>
 
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">3. المخططات التفصيلية حسب المديريات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20 space-y-4">
                         
@@ -896,11 +894,10 @@
                                 </table>
                             </div>
                         </div>
-
                     </div>
                 </details>
 
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">4. التحديات العقارية في عدن <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
                         <ul class="holo-list holo-warning-list text-gray-300">
@@ -912,7 +909,7 @@
                     </div>
                 </details>
 
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">5. السوق العقاري والإيجارات (2026) <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
                         <div class="holo-table-wrapper mt-0">
@@ -936,7 +933,7 @@
                     </div>
                 </details>
 
-                <details class="holo-details">
+                <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">6. الحلول والتوصيات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
                     <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
                         <ul class="holo-list text-gray-300">
@@ -950,7 +947,7 @@
 
             </div>
             
-            <div class="glass-panel p-6 mb-10 border-green-500/30 mt-6">
+            <div class="glass-panel p-6 mb-10 border-green-500/30 mt-6 reveal-on-scroll">
                 <h3 class="text-lg font-black text-green-400 mb-4 flex items-center gap-2"><i class="fa-solid fa-money-bill-trend-up"></i> الأسعار المباشرة</h3>
                 <div class="table-wrapper">
                     <table class="modern-table !min-w-full text-xs">
@@ -976,18 +973,10 @@
 
     <footer class="global-holo-footer no-print">
         <div class="holo-social-row">
-            <a href="https://x.com/aleimad7aden" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="X">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://wa.me/967773571889" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.885-.653-1.482-1.46-1.655-1.758-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            </a>
+            <a href="https://x.com/aleimad7aden" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://wa.me/967773571889" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.885-.653-1.482-1.46-1.655-1.758-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
         </div>
         <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
     </footer>
@@ -1083,17 +1072,15 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // إيقاف المراقبة بعد أول ظهور للعنصر لتخفيف العبء على المتصفح
                     window.scrollObserver.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1, // يعمل عندما يظهر 10% من العنصر
-            rootMargin: "0px 0px -20px 0px" // لتأخير الظهور قليلاً
+            threshold: 0.1, 
+            rootMargin: "0px 0px -20px 0px" 
         });
 
         function observeElements() {
-            // تحديد العناصر التي سيتم تطبيق التأثير عليها
             const elements = document.querySelectorAll('.glass-panel, .glass-card, .bank-panel, .holo-details');
             elements.forEach(el => {
                 el.classList.add('reveal-on-scroll');
@@ -1121,7 +1108,6 @@
             
             setTimeout(() => {
                 if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // إعادة تفعيل التأثيرات الحركية للقسم الجديد إن لزم الأمر
                 observeElements();
             }, 50);
             
@@ -1174,7 +1160,6 @@
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
                 err.classList.add('hidden');
-                // تفعيل التأثيرات على عناصر البوابة السرية فور ظهورها
                 observeElements();
             } else {
                 err.innerText = 'الرمز غير صحيح حاول مرة ثانية';
@@ -1214,7 +1199,6 @@
         formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', saveFormData); });
         document.querySelectorAll('.radio-input').forEach(radio => radio.addEventListener('change', saveFormData));
 
-        // سكرول وشريط التقدم
         window.addEventListener('scroll', () => {
             const scrollBtn = document.getElementById('scrollTopBtn');
             if(scrollBtn) {
@@ -1234,7 +1218,6 @@
             loadMarketData(); 
             window.history.replaceState({ view: 'home' }, '', '#home');
             switchView('home', false);
-            // تشغيل مراقب التأثيرات
             observeElements();
         });
 
@@ -1251,6 +1234,27 @@
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
+        // ================== منطق قسم الطلبات المحدث ==================
+        function updateProgressUI(step) {
+            const bar = document.getElementById('form-progress-bar');
+            const icon2 = document.getElementById('step-2-icon');
+            const text2 = document.getElementById('step-2-text');
+            
+            if (step === 2) {
+                bar.style.width = '100%';
+                icon2.classList.replace('bg-black', 'bg-[var(--gold)]');
+                icon2.classList.replace('text-gray-400', 'text-black');
+                icon2.classList.add('shadow-[0_0_10px_var(--gold)]');
+                text2.classList.replace('text-gray-400', 'text-[var(--gold)]');
+            } else {
+                bar.style.width = '5%';
+                icon2.classList.replace('bg-[var(--gold)]', 'bg-black');
+                icon2.classList.replace('text-black', 'text-gray-400');
+                icon2.classList.remove('shadow-[0_0_10px_var(--gold)]');
+                text2.classList.replace('text-[var(--gold)]', 'text-gray-400');
+            }
+        }
+
         function nextFormStep() {
             const nameEl = document.getElementById('req-name');
             const phoneEl = document.getElementById('req-phone');
@@ -1260,42 +1264,92 @@
             if (!name || !phone) { errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً."; errEl.classList.remove('hidden'); return; }
             if (!/^[0-9+\s]+$/.test(phone)) { errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط."; errEl.classList.remove('hidden'); return; }
             errEl.classList.add('hidden'); 
+            
             document.getElementById('form-step-1').classList.add('hidden');
             document.getElementById('form-step-2').classList.remove('hidden');
+            
+            updateProgressUI(2);
         }
         
         function prevFormStep() {
             document.getElementById('form-step-2').classList.add('hidden');
             document.getElementById('form-step-1').classList.remove('hidden');
+            updateProgressUI(1);
+        }
+
+        let pickerMapInit = false;
+        let reqMarker = null;
+        let reqMap = null;
+
+        function togglePickerMap() {
+            const container = document.getElementById('pickerMapContainer');
+            container.classList.toggle('hidden');
+            
+            if (!container.classList.contains('hidden')) {
+                if (!pickerMapInit) {
+                    pickerMapInit = true;
+                    // نقطة البداية مدينة عدن (الشيخ عثمان تقريباً)
+                    reqMap = L.map('pickerMap').setView([12.8683, 44.9765], 13);
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; OpenStreetMap'
+                    }).addTo(reqMap);
+
+                    reqMap.on('click', function(e) {
+                        const lat = e.latlng.lat.toFixed(6);
+                        const lng = e.latlng.lng.toFixed(6);
+                        document.getElementById('req-coords').value = `${lat},${lng}`;
+                        
+                        if (reqMarker) {
+                            reqMarker.setLatLng(e.latlng);
+                        } else {
+                            const icon = L.divIcon({
+                                className: 'custom-div-icon',
+                                html: "<div style='background-color:#ef4444; width:15px; height:15px; border-radius:50%; border:2px solid #FFF; box-shadow: 0 0 10px #ef4444;'></div>",
+                                iconSize: [15, 15],
+                                iconAnchor: [7, 7]
+                            });
+                            reqMarker = L.marker(e.latlng, {icon: icon}).addTo(reqMap);
+                        }
+                        showToast('تم التقاط الإحداثيات بنجاح!', 'success');
+                    });
+                }
+                setTimeout(() => { reqMap.invalidateSize(); }, 200);
+            }
         }
 
         function submitSecureWhatsapp() {
             const btn = event.currentTarget;
             const honeypot = document.getElementById('req-bot').value;
             if (honeypot) return; 
+            
             const name = document.getElementById('req-name').value.trim();
             const phone = document.getElementById('req-phone').value.trim();
             const type = document.querySelector('input[name="rtype"]:checked').value;
-            const areaEl = document.getElementById('req-area');
-            const area = areaEl ? areaEl.value : 'غير محدد';
-            const budgetEl = document.getElementById('req-budget');
-            const budget = budgetEl && budgetEl.value ? budgetEl.value : 'غير محدد';
-            const propTypeEl = document.getElementById('req-prop-type');
-            const propType = propTypeEl ? propTypeEl.value : 'غير محدد';
-            const sizeEl = document.getElementById('req-size');
-            const size = sizeEl && sizeEl.value ? sizeEl.value : 'غير محدد';
+            const area = document.getElementById('req-area').value;
+            const budget = document.getElementById('req-budget').value || 'غير محدد';
+            const propType = document.getElementById('req-prop-type').value;
+            const size = document.getElementById('req-size').value || 'غير محدد';
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
+            
+            // جلب الإحداثيات إذا تم تحديدها
+            const coords = document.getElementById('req-coords').value;
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* https://maps.google.com/?q=${coords}` : '';
+
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
             const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n🏠 نوع العقار: ${propType}\n📐 المساحة: ${size}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
+            
+            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n🏠 نوع العقار: ${propType}\n📐 المساحة: ${size}${mapLinkText}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
+            
             const encodedMessage = encodeURIComponent(rawMessage);
             localStorage.removeItem('salesFormDraft');
+            
             setTimeout(() => {
-                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2"></i>';
+                btn.innerHTML = 'إرسال للإدارة <i class="fa-brands fa-whatsapp ml-2 text-lg"></i>';
                 window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
             }, 1000);
         }
+        // =============================================================
 
         function shareNativeWebsite() {
             if (navigator.share) {
@@ -1396,7 +1450,6 @@
             document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
 
-        // نظام الإشعارات الذكي (Toast)
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -1422,18 +1475,16 @@
             }, 3000);
         }
 
-        // تفعيل خريطة عدن التفاعلية (Leaflet)
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const mapContainer = document.getElementById('adenMap');
                 if (mapContainer && typeof L !== 'undefined') {
-                    // إحداثيات مدينة عدن
                     const adenCoords = [12.8273, 44.9782];
                     
                     const map = L.map('adenMap').setView(adenCoords, 12);
                     
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        attribution: '&copy; OpenStreetMap',
                         maxZoom: 18
                     }).addTo(map);
                     
@@ -1453,3 +1504,4 @@
     </script>
 </body>
 </html>
+
