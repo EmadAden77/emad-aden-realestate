@@ -440,11 +440,36 @@
         .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
         .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
+        /* ========= شاشة التحميل الافتتاحية (Splash Screen) ========= */
+        #splash-screen {
+            position: fixed; inset: 0; z-index: 9999999; background-color: #050505;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+        #splash-screen.hidden-splash { opacity: 0; visibility: hidden; }
+        .splash-logo-container {
+            width: 100px; height: 100px; border-radius: 1.5rem; border: 2px solid var(--gold);
+            display: flex; justify-content: center; align-items: center; background: #000;
+            box-shadow: 0 0 30px rgba(229, 192, 123, 0.4);
+            animation: pulse-glow 2s infinite; margin-bottom: 1.5rem; overflow: hidden;
+        }
+        .splash-loader { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 2rem; }
+        .splash-loader-bar {
+            height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+            animation: load-progress 1.8s ease-in-out forwards;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(229, 192, 123, 0.2); transform: scale(1); }
+            50% { box-shadow: 0 0 40px rgba(229, 192, 123, 0.6); transform: scale(1.05); }
+        }
+        @keyframes load-progress { 0% { width: 0%; } 100% { width: 100%; } }
+        /* ======================================================== */
+
         @media print {
             @page { size: A4; margin: 20mm; }
             body { background: #FFF !important; color: #000 !important; display: block !important; }
             body::before { display: none !important; }
-            #app-container, nav, .side-tabs-container, #scroll-progress, .chat-panel, .global-holo-footer, .no-print { display: none !important; }
+            #app-container, nav, .side-tabs-container, #scroll-progress, .chat-panel, .global-holo-footer, .no-print, #splash-screen { display: none !important; }
             
             .modal-container { background: transparent !important; backdrop-filter: none !important; position: static !important; display: block !important; opacity: 1 !important; padding: 0 !important;}
             #contract-generator-modal { display: none !important; }
@@ -454,6 +479,16 @@
 </head>
 <body class="antialiased theme-home">
 
+    <div id="splash-screen" class="no-print">
+        <div class="splash-logo-container">
+            <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
+        </div>
+        <h2 class="text-3xl font-black text-white tracking-wider mb-2">مكتب عمـاد عدن</h2>
+        <p class="text-[var(--gold)] text-sm font-bold tracking-[0.2em]">المرجع الأول للعقارات</p>
+        <div class="splash-loader">
+            <div class="splash-loader-bar"></div>
+        </div>
+    </div>
     <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
         <div class="text-center mb-10 border-b-2 border-black pb-4">
             <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
@@ -774,6 +809,7 @@
                 </div>
             </div>
         </section>
+
         <section id="view-legal" class="app-view px-4 max-w-5xl mx-auto pb-10">
             <div class="text-center mb-8 mt-10">
                 <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-scale-balanced text-[var(--gold)] mr-2"></i> المستشار القانوني وحماية الأملاك</h2>
@@ -1126,7 +1162,18 @@
             });
         }
 
-        // ================== نظام مراقبة التمرير (Scroll Observer) ==================
+        // ================== إخفاء شاشة التحميل الافتتاحية ==================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if(splash) {
+                    splash.classList.add('hidden-splash');
+                    setTimeout(() => { splash.remove(); }, 800);
+                }
+            }, 2000); 
+        });
+        // ===================================================================
+
         window.scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1146,7 +1193,6 @@
                 window.scrollObserver.observe(el);
             });
         }
-        // =========================================================================
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -1293,7 +1339,6 @@
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        // ================== منطق قسم الطلبات المحدث ==================
         function updateProgressUI(step) {
             const bar = document.getElementById('form-progress-bar');
             const icon2 = document.getElementById('step-2-icon');
@@ -1347,7 +1392,6 @@
             if (!container.classList.contains('hidden')) {
                 if (!pickerMapInit) {
                     pickerMapInit = true;
-                    // نقطة البداية مدينة عدن (الشيخ عثمان تقريباً)
                     reqMap = L.map('pickerMap').setView([12.8683, 44.9765], 13);
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                         attribution: '© OpenStreetMap'
@@ -1390,9 +1434,8 @@
             const size = document.getElementById('req-size').value || 'غير محدد';
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
-            // جلب الإحداثيات إذا تم تحديدها
             const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* https://maps.google.com/?q=$${coords}` : '';
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/3{coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
@@ -1408,7 +1451,6 @@
                 window.open(`https://wa.me/967773571889?text=${encodedMessage}`, '_blank');
             }, 1000);
         }
-        // =============================================================
 
         function shareNativeWebsite() {
             if (navigator.share) {
