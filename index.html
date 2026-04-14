@@ -518,6 +518,10 @@
     <div id="scroll-progress"></div>
 
     <div class="side-tabs-container no-print">
+        <div class="side-tab" id="installAppTab" style="display: none;" onclick="installPWA()">
+            <div class="side-tab-text text-[#00ffcc]"><i class="fa-solid fa-mobile-screen-button mr-1"></i> تثبيت التطبيق</div>
+        </div>
+        
         <div class="side-tab" onclick="shareNativeWebsite()">
             <div class="side-tab-text">شارك الموقع</div>
         </div>
@@ -1092,7 +1096,6 @@
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1172,6 +1175,7 @@
             });
         }
 
+        // ================== إخفاء شاشة التحميل الافتتاحية ==================
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
@@ -1181,6 +1185,40 @@
                 }
             }, 2000); 
         });
+
+        // ================== نظام تثبيت التطبيق (PWA) ==================
+        let deferredPrompt;
+        const installBtn = document.getElementById('installAppTab');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // منع ظهور النافذة الافتراضية
+            e.preventDefault();
+            // حفظ الحدث لاستخدامه لاحقاً
+            deferredPrompt = e;
+            // إظهار زر "تثبيت التطبيق"
+            if(installBtn) installBtn.style.display = 'flex';
+        });
+
+        function installPWA() {
+            if (!deferredPrompt) {
+                showToast('التطبيق مثبت مسبقاً أو المتصفح لا يدعم هذه الميزة', 'warning');
+                return;
+            }
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    showToast('بدأ التثبيت بنجاح!', 'success');
+                    installBtn.style.display = 'none';
+                }
+                deferredPrompt = null;
+            });
+        }
+
+        window.addEventListener('appinstalled', (evt) => {
+            showToast('تم تثبيت التطبيق بنجاح على جهازك!', 'success');
+            if(installBtn) installBtn.style.display = 'none';
+        });
+        // ===============================================================
 
         window.scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1199,7 +1237,6 @@
             });
         }
 
-        // ================== تهيئة خريطة الأقمار الصناعية (قسم التطور العمراني) ==================
         let urbanMapInit = false;
         let urbanMap = null;
 
@@ -1218,7 +1255,6 @@
                 attribution: '© OpenStreetMap'
             });
 
-            // طبقة الأقمار الصناعية الهجينة من جوجل (صور + أسماء الشوارع)
             const satelliteLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
                 maxZoom: 20,
                 subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
@@ -1232,7 +1268,6 @@
                 "الخريطة الداكنة": darkLayer
             };
             
-            // إضافة أداة التبديل
             L.control.layers(baseMaps).addTo(urbanMap);
 
             const officeIcon = L.divIcon({
@@ -1244,7 +1279,6 @@
             
             L.marker(adenCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<b style="color:black; font-family:Tajawal;">مكتب عماد عدن العقاري</b>').openPopup();
         }
-        // =====================================================================================
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -1267,7 +1301,6 @@
                 if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 observeElements();
                 
-                // تحديث الخريطة عند الدخول لقسم التطور العمراني
                 if(viewId === 'urban') {
                     if(typeof initUrbanMap === 'function') initUrbanMap();
                 }
@@ -1492,7 +1525,7 @@
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
             const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/4{coords}` : '';
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/5{coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
