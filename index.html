@@ -468,6 +468,18 @@
         .leaflet-control-layers-toggle { background-color: rgba(1, 6, 14, 0.8) !important; border: 1px solid #00ffcc !important; border-radius: 5px !important; }
         .leaflet-control-layers-expanded { background-color: rgba(1, 6, 14, 0.9) !important; color: #00ffcc !important; border: 1px solid #00ffcc !important; font-family: 'Tajawal', sans-serif !important; }
 
+        /* تأثير الكتابة التلقائية (Typewriter Cursor) */
+        .typewriter-cursor {
+            display: inline-block;
+            color: var(--gold);
+            font-weight: 900;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         @media print {
             @page { size: A4; margin: 20mm; }
             body { background: #FFF !important; color: #000 !important; display: block !important; }
@@ -556,8 +568,8 @@
         
         <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-10">
             <div class="text-center mb-12 mt-10">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <span class="gold-text-gradient block mt-2">الأكثر أماناً في عدن</span></h2>
-                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <br><span class="gold-text-gradient inline-block mt-2" id="typewriter-text"></span><span class="typewriter-cursor text-3xl md:text-5xl align-middle">|</span></h2>
+                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto mt-4">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div onclick="switchView('expat')" class="glass-panel p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
@@ -1096,6 +1108,7 @@
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1175,7 +1188,6 @@
             });
         }
 
-        // ================== إخفاء شاشة التحميل الافتتاحية ==================
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
@@ -1186,16 +1198,58 @@
             }, 2000); 
         });
 
-        // ================== نظام تثبيت التطبيق (PWA) ==================
+        // ================== تأثير الكتابة التلقائية (Typewriter Effect) ==================
+        document.addEventListener('DOMContentLoaded', () => {
+            const phrases = [
+                "الأكثر أماناً في عدن",
+                "لإدارة أملاك المغتربين",
+                "للاستشارات القانونية",
+                "للاستثمار الناجح"
+            ];
+            let currentPhraseIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+
+            function typeWriter() {
+                const currentPhrase = phrases[currentPhraseIndex];
+                const textElement = document.getElementById('typewriter-text');
+                
+                if(!textElement) return;
+
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                    typingSpeed = 50; 
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                    typingSpeed = 100; 
+                }
+
+                if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typingSpeed = 2500; 
+                } else if (isDeleting && currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                    typingSpeed = 500; 
+                }
+
+                setTimeout(typeWriter, typingSpeed);
+            }
+            
+            // تأخير بدء الكتابة حتى تنتهي شاشة التحميل الافتتاحية
+            setTimeout(typeWriter, 2200);
+        });
+        // ==============================================================================
+
         let deferredPrompt;
         const installBtn = document.getElementById('installAppTab');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // منع ظهور النافذة الافتراضية
             e.preventDefault();
-            // حفظ الحدث لاستخدامه لاحقاً
             deferredPrompt = e;
-            // إظهار زر "تثبيت التطبيق"
             if(installBtn) installBtn.style.display = 'flex';
         });
 
@@ -1218,7 +1272,6 @@
             showToast('تم تثبيت التطبيق بنجاح على جهازك!', 'success');
             if(installBtn) installBtn.style.display = 'none';
         });
-        // ===============================================================
 
         window.scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1525,7 +1578,7 @@
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
             const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/5{coords}` : '';
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/6{coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
