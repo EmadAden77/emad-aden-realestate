@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -586,7 +587,22 @@
                             <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">الميزانية المتوقعة (اختياري)</label>
                             <input type="number" id="req-budget" placeholder="أدخل المبلغ..." class="input-glass">
                         </div>
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">نوع العقار</label>
+                            <select id="req-prop-type" class="input-glass w-full">
+                                <option value="غير محدد">اختر النوع...</option>
+                                <option value="شقة">شقة</option>
+                                <option value="فيلا">فيلا</option>
+                                <option value="عمارة">عمارة تجارية</option>
+                                <option value="أرض">أرض بيضاء</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">المساحة (متر مربع / ياردة)</label>
+                            <input type="text" id="req-size" placeholder="مثال: 15x15 او 400 متر" class="input-glass">
+                        </div>
                     </div>
+
                     <div class="mb-4">
                         <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
@@ -600,12 +616,72 @@
             </div>
         </section>
 
-        <section id="view-legal" class="app-view px-4 max-w-4xl mx-auto pb-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mt-10">
-                <div class="glass-card p-6 text-center">
+        <section id="view-legal" class="app-view px-4 max-w-5xl mx-auto pb-10">
+            <div class="text-center mb-8 mt-10">
+                <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-scale-balanced text-[var(--gold)] mr-2"></i> المستشار القانوني وحماية الأملاك</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="glass-card p-6 text-center flex flex-col justify-center items-center">
                     <i class="fa-solid fa-file-contract text-3xl text-[var(--gold)] mb-3"></i>
-                    <h3 class="font-bold text-lg text-white mb-2">المستشار القانوني</h3>
-                    <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-1.5 !px-4 !text-[10px]">إصدار عقد آلي للطباعة</button>
+                    <h3 class="font-bold text-lg text-white mb-2">عقود التفويض</h3>
+                    <p class="text-xs text-gray-400 mb-4">إصدار عقد تفويض إداري فوري للطباعة</p>
+                    <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-2 w-full text-xs">إصدار عقد آلي</button>
+                </div>
+                
+                <div class="glass-card p-6 text-center flex flex-col justify-center items-center md:col-span-2">
+                    <i class="fa-solid fa-book-open-reader text-3xl text-[var(--gold)] mb-3"></i>
+                    <h3 class="font-bold text-lg text-white mb-2">مكتبة النماذج القانونية (عدن)</h3>
+                    <div class="grid grid-cols-2 gap-3 w-full mt-2">
+                        <button onclick="requestTemplate('عقد إيجار سكني')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> عقد إيجار سكني</button>
+                        <button onclick="requestTemplate('عقد بيع قطعي')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> عقد بيع قطعي</button>
+                        <button onclick="requestTemplate('مخالصة مالية')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> مخالصة إيجار</button>
+                        <button onclick="requestTemplate('إقرار استلام')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> إقرار استلام</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-panel p-6">
+                    <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-gavel mr-2"></i> طلب استشارة قانونية مخصصة</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">نوع الاستشارة</label>
+                            <select id="legal-type" class="input-glass w-full">
+                                <option value="توثيق عقود وبصائر">توثيق عقود وبصائر</option>
+                                <option value="نزاع عقاري / تعدي">نزاع عقاري / تعدي</option>
+                                <option value="قسمة تركة / ورث">قسمة تركة / ورث</option>
+                                <option value="استشارة قانونية عامة">استشارة قانونية عامة</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">تفاصيل الموضوع</label>
+                            <textarea id="legal-details" placeholder="اشرح مشكلتك أو استفسارك بوضوح والبيانات بتكون بسرية تامة..." class="input-glass h-32 resize-none"></textarea>
+                        </div>
+                        <button onclick="sendLegalConsultation()" class="btn-gold w-full !py-3 text-sm">إرسال للمستشار <i class="fa-brands fa-whatsapp mr-2"></i></button>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6">
+                    <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-circle-question mr-2"></i> أسئلة قانونية شائعة</h3>
+                    <div class="space-y-2">
+                        <details>
+                            <summary>ضاعت بصيرة الأرض وش الإجراء؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
+                            <div class="details-content">لازم تسوي إعلان بجريدة رسمية وتنتظر المدة القانونية وبعدها ترفع طلب بدل فاقد للسجل العقاري والمحكمة مع إحضار شهود ووثائق تثبت الملكية.</div>
+                        </details>
+                        <details>
+                            <summary>هل عقود الإيجار بالدولار قانونية؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
+                            <div class="details-content">القانون اليمني يعتمد الريال كعملة رسمية لكن بالعرف التجاري الحالي ولحفظ الحقوق من التضخم يتم الاتفاق بالدولار أو السعودي ويُكتب ما يعادله بالريال يوم السداد.</div>
+                        </details>
+                        <details>
+                            <summary>كيف أتأكد أن الأرض ما عليها مشاكل أو ازدواجية؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
+                            <div class="details-content">من خلال مطابقة الإسقاط الجغرافي (GPS) مع مخططات وحدة الجوار بالهيئة العامة للأراضي والتأكد من السجل العقاري والمحكمة المختصة.</div>
+                        </details>
+                        <details>
+                            <summary>هل يقدر المستأجر يرفض الخروج بعد انتهاء العقد؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
+                            <div class="details-content">إذا تم إشعاره قانونياً قبل انتهاء العقد بفترة كافية (حسب العقد) فلا يحق له البقاء وفي حال الرفض يُرفع أمر إخلاء مستعجل للمحكمة.</div>
+                        </details>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1049,11 +1125,15 @@
             const area = areaEl ? areaEl.value : 'غير محدد';
             const budgetEl = document.getElementById('req-budget');
             const budget = budgetEl && budgetEl.value ? budgetEl.value : 'غير محدد';
+            const propTypeEl = document.getElementById('req-prop-type');
+            const propType = propTypeEl ? propTypeEl.value : 'غير محدد';
+            const sizeEl = document.getElementById('req-size');
+            const size = sizeEl && sizeEl.value ? sizeEl.value : 'غير محدد';
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
             const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
+            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n🏠 نوع العقار: ${propType}\n📐 المساحة: ${size}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
             const encodedMessage = encodeURIComponent(rawMessage);
             localStorage.removeItem('salesFormDraft');
             setTimeout(() => {
@@ -1096,6 +1176,29 @@
             window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
         };
 
+        function requestTemplate(templateName) {
+            const msg = `*طلب نموذج قانوني*\n\nهلا مكتب عماد، أحتاج ترسلون لي نموذج: ${templateName} بصيغة PDF لو سمحتوا.`;
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function sendLegalConsultation() {
+            const type = document.getElementById('legal-type').value;
+            const detailsEl = document.getElementById('legal-details');
+            const details = detailsEl.value.trim();
+            if(!details) {
+                detailsEl.classList.add('input-error');
+                setTimeout(() => detailsEl.classList.remove('input-error'), 2000);
+                return;
+            }
+            const btn = event.currentTarget;
+            btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير...';
+            const msg = `*طلب استشارة قانونية (سرية)*\n\n⚖️ نوع الاستشارة: ${type}\n📝 التفاصيل:\n${details}`;
+            setTimeout(() => {
+                btn.innerHTML = 'إرسال للمستشار <i class="fa-brands fa-whatsapp mr-2"></i>';
+                window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+            }, 800);
+        }
+
         let chatOpen = false;
         function toggleChat() { 
             chatOpen = !chatOpen; 
@@ -1136,3 +1239,6 @@
     </script>
 </body>
 </html>
+
+
+```
