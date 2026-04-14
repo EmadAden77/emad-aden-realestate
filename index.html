@@ -533,7 +533,6 @@
         <div class="side-tab" id="installAppTab" style="display: none;" onclick="installPWA()">
             <div class="side-tab-text text-[#00ffcc]"><i class="fa-solid fa-mobile-screen-button mr-1"></i> تثبيت التطبيق</div>
         </div>
-        
         <div class="side-tab" onclick="shareNativeWebsite()">
             <div class="side-tab-text">شارك الموقع</div>
         </div>
@@ -1108,7 +1107,6 @@
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1188,6 +1186,7 @@
             });
         }
 
+        // ================== إخفاء شاشة التحميل الافتتاحية ==================
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
@@ -1197,8 +1196,9 @@
                 }
             }, 2000); 
         });
+        // ===================================================================
 
-        // ================== تأثير الكتابة التلقائية (Typewriter Effect) ==================
+        // ================== تأثير الكتابة التلقائية ==================
         document.addEventListener('DOMContentLoaded', () => {
             const phrases = [
                 "الأكثر أماناً في عدن",
@@ -1239,10 +1239,9 @@
                 setTimeout(typeWriter, typingSpeed);
             }
             
-            // تأخير بدء الكتابة حتى تنتهي شاشة التحميل الافتتاحية
             setTimeout(typeWriter, 2200);
         });
-        // ==============================================================================
+        // ==============================================================
 
         let deferredPrompt;
         const installBtn = document.getElementById('installAppTab');
@@ -1293,6 +1292,7 @@
         let urbanMapInit = false;
         let urbanMap = null;
 
+        // ================== تهيئة خريطة التطور العمراني مع منع الاحتجاز ==================
         function initUrbanMap() {
             if (urbanMapInit) {
                 urbanMap.invalidateSize();
@@ -1300,8 +1300,15 @@
             }
             urbanMapInit = true;
 
-            const adenCoords = [12.8273, 44.9782];
-            urbanMap = L.map('urbanSatelliteMap').setView(adenCoords, 13);
+            const officeCoords = [12.8683, 44.9765];
+            
+            // تعطيل السحب والتكبير التلقائي لمنع احتجاز تمرير الصفحة
+            urbanMap = L.map('urbanSatelliteMap', {
+                center: officeCoords,
+                zoom: 14,
+                scrollWheelZoom: false,
+                dragging: !L.Browser.mobile
+            });
 
             const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 20,
@@ -1330,8 +1337,10 @@
                 iconAnchor: [7, 7]
             });
             
-            L.marker(adenCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<b style="color:black; font-family:Tajawal;">مكتب عماد عدن العقاري</b>').openPopup();
+            // إضافة رابط جوجل ماب الفعلي للعلامة
+            L.marker(officeCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="https://www.google.com/maps?q=12.8683,44.9765" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>').openPopup();
         }
+        // ==================================================================================
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -1535,7 +1544,8 @@
             if (!container.classList.contains('hidden')) {
                 if (!pickerMapInit) {
                     pickerMapInit = true;
-                    reqMap = L.map('pickerMap').setView([12.8683, 44.9765], 13);
+                    // تفعيل الخريطة مع تعطيل النزول بالماوس
+                    reqMap = L.map('pickerMap', { scrollWheelZoom: false }).setView([12.8683, 44.9765], 13);
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                         attribution: '© OpenStreetMap'
                     }).addTo(reqMap);
@@ -1578,7 +1588,8 @@
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
             const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/6{coords}` : '';
+            // إصلاح وتعديل رابط جوجل ماب المرسل للواتساب
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* https://www.google.com/maps?q=${coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
@@ -1719,13 +1730,20 @@
             }, 3000);
         }
 
+        // ================== تهيئة خريطة دليل الجوار الرئيسية لمنع الاحتجاز ==================
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const mapContainer = document.getElementById('adenMap');
                 if (mapContainer && typeof L !== 'undefined') {
-                    const adenCoords = [12.8273, 44.9782];
+                    const officeCoords = [12.8683, 44.9765];
                     
-                    const map = L.map('adenMap').setView(adenCoords, 12);
+                    // تعطيل السحب والتكبير التلقائي لمنع احتجاز التمرير
+                    const map = L.map('adenMap', {
+                        center: officeCoords,
+                        zoom: 13,
+                        scrollWheelZoom: false,
+                        dragging: !L.Browser.mobile
+                    });
                     
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                         attribution: '© OpenStreetMap',
@@ -1739,8 +1757,8 @@
                         iconAnchor: [7, 7]
                     });
                     
-                    L.marker(adenCoords, {icon: officeIcon}).addTo(map)
-                        .bindPopup('<b style="color:black; font-family:Tajawal;">مكتب عماد عدن العقاري</b><br>المرجع الأول للعقارات.')
+                    L.marker(officeCoords, {icon: officeIcon}).addTo(map)
+                        .bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="https://www.google.com/maps?q=12.8683,44.9765" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>')
                         .openPopup();
                 }
             }, 1000); 
