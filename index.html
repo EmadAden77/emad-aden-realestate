@@ -212,7 +212,7 @@
         }
         .holo-table-wrapper {
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 15px 0;
             border: 1px solid rgba(0, 255, 204, 0.2);
             border-radius: 5px;
             background: rgba(10, 25, 47, 0.5); 
@@ -222,16 +222,18 @@
             width: 100%;
             border-collapse: collapse;
             text-align: right;
-            min-width: 600px; 
+            min-width: 500px; 
+            font-size: 0.85rem;
         }
         .holo-table th, .holo-table td {
-            padding: 12px 15px;
+            padding: 10px;
             border-bottom: 1px solid rgba(0, 255, 204, 0.1);
         }
         .holo-table th {
             background: rgba(0, 255, 204, 0.1);
             color: #00ffcc;
             font-weight: bold;
+            white-space: nowrap;
         }
         .holo-table tr:hover td {
             background: rgba(0, 255, 204, 0.05);
@@ -240,11 +242,12 @@
         .holo-list {
             list-style: none;
             padding-right: 0;
+            font-size: 0.9rem;
         }
         .holo-list li {
             position: relative;
-            padding-right: 25px;
-            margin-bottom: 10px;
+            padding-right: 20px;
+            margin-bottom: 8px;
         }
         .holo-list li::before {
             content: '⯌'; 
@@ -252,7 +255,7 @@
             right: 0;
             top: 0;
             color: #00ffcc;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
         }
         .holo-warning-list li::before {
@@ -260,6 +263,34 @@
             color: #ff3366; 
             text-shadow: 0 0 5px rgba(255, 51, 102, 0.5);
         }
+        
+        /* أكورديون التطور العمراني للجوال */
+        .holo-details {
+            background: rgba(10, 25, 47, 0.6);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .holo-summary {
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 800;
+            color: #00ffcc;
+            font-size: 1rem;
+            list-style: none;
+            outline: none;
+            background: rgba(0, 255, 204, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .holo-summary::-webkit-details-marker { display: none; }
+        .holo-details[open] .holo-summary { border-bottom: 1px solid rgba(0, 255, 204, 0.2); background: rgba(0, 255, 204, 0.1); }
+        .holo-details[open] .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; }
+        .holo-details:not([open]) .fa-chevron-down { transition: 0.3s; }
+        .holo-details-content { padding: 1rem; }
 
         /* تنسيقات الفوتر العالمي (تواصل معنا) */
         .global-holo-footer {
@@ -687,177 +718,179 @@
         </section>
 
         <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-10">
-            <div class="text-center mb-12 mt-10">
-                <h2 class="text-4xl font-black text-white mb-4">التخطيط الحضري ووحدات الجوار في عدن</h2>
-                <div class="h-1 w-24 bg-[var(--gold)] mx-auto rounded-full"></div>
+            <div class="text-center mb-8 mt-10">
+                <h2 class="text-3xl font-black text-white mb-2">التخطيط الحضري ووحدات الجوار</h2>
+                <div class="h-1 w-16 bg-[var(--gold)] mx-auto rounded-full"></div>
             </div>
 
-            <div class="holo-container">
-                <h2 class="holo-title">1. الإطار الإداري والديموغرافي</h2>
-                <p>توزيع المديريات حسب المساحة والكثافة السكانية في العاصمة عدن:</p>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead>
-                            <tr>
-                                <th>المديرية</th>
-                                <th>المساحة (كم²)</th>
-                                <th>إجمالي السكان</th>
-                                <th>الكثافة السكانية</th>
-                                <th>ملاحظات استراتيجية</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>البريقة</td><td>486</td><td>152,824</td><td>منخفضة</td><td>أكبر مديرية، تمثل عمقاً استراتيجياً للتوسع وتشكل 60% من المحافظة</td></tr>
-                            <tr><td>المنصورة</td><td>88</td><td>214,710</td><td>متوسطة</td><td>تستوعب 22% من سكان عدن في أراض منبسطة</td></tr>
-                            <tr><td>الشيخ عثمان</td><td>42</td><td>218,269</td><td>عالية</td><td>مركز تجاري وسكني كثيف</td></tr>
-                            <tr><td>دار سعد</td><td>37</td><td>194,871</td><td>عالية</td><td>محور توسع شمالي مهم (بئر فضل واللحوم)</td></tr>
-                            <tr><td>خور مكسر</td><td>61</td><td>96,743</td><td>متوسطة</td><td>حلقة وصل مع المطار والبر الرئيسي</td></tr>
-                            <tr><td>صيرة (كريتر)</td><td>13</td><td>156,899</td><td>عالية جداً</td><td>مركز تاريخي محصور بالجبال والأودية</td></tr>
-                            <tr><td>التواهي</td><td>10</td><td>110,816</td><td>عالية</td><td>شبه جزيرة جبلية</td></tr>
-                            <tr><td>المعلا</td><td>4</td><td>103,096</td><td>الأعلى</td><td>شريط ساحلي ضيق يعاني من اختناق مساحي</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2 class="holo-title">2. فلسفة نظام وحدات الجوار</h2>
-                <ul class="holo-list">
-                    <li>أصغر وحدة تخطيطية متكاملة الخدمات.</li>
-                    <li>تشمل: شوارع، مساحات خضراء، مدارس، مساجد، مراكز صحية.</li>
-                    <li>ترقيم رقمي لتسهيل الأرشفة العقارية وتسجيل الملكيات.</li>
-                    <li>توسع كبير بعد الوحدة اليمنية (1990) في مناطق مثل بئر فضل والممدارة لتلبية طلبات الموظفين ومنتسبي القوات المسلحة.</li>
-                    <li>ارتبط هذا المفهوم عالمياً بـ "كلارنس بيري" لخلق جزر حضرية آمنة، وتم توطينه محلياً عبر الهيئة العامة للأراضي لضبط عمليات التوسع.</li>
-                    <li>تعتمد نماذج معمارية محددة: (النموذج A و B) للشقق السكنية والتجارية، و (النماذج AD و CT) للأبراج والفلل الفاخرة لضمان التجانس الحضري.</li>
-                </ul>
-
-                <h2 class="holo-title">3. المخططات التفصيلية حسب المديريات</h2>
+            <div class="holo-container space-y-4">
                 
-                <h3 class="holo-subtitle">دار سعد – بئر فضل</h3>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
-                        <tbody>
-                            <tr><td>537</td><td>بئر فضل</td><td>بلوك 10، قطع بمساحة 15×15</td></tr>
-                            <tr><td>523</td><td>بئر فضل</td><td>بلوك 8 (الجيش)، قطع بمساحة 15×30</td></tr>
-                            <tr><td>525</td><td>بئر فضل</td><td>بلوك 3، مخصصة للسكن المدني (12×15)</td></tr>
-                            <tr><td>547</td><td>بئر فضل</td><td>تضم العقارات المرتبطة بالوحدتين 525 و526</td></tr>
-                            <tr><td>526</td><td>بئر فضل</td><td>موقع حيوي خلف معسكر الدفاع الجوي، تعرضت لمحاولات استيلاء رغم تخصيصها للقوات المسلحة</td></tr>
-                            <tr><td>471</td><td>بئر فضل</td><td>تتبع بلوك 1 إسكان</td></tr>
-                            <tr><td>442</td><td>بئر فضل</td><td>بلوك 10 (ضمن المخططات الأحدث)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <details class="holo-details">
+                    <summary class="holo-summary">1. الإطار الإداري والديموغرافي <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
+                        <p class="text-xs text-gray-300 mb-3">توزيع المديريات حسب المساحة والكثافة السكانية في العاصمة عدن:</p>
+                        <div class="holo-table-wrapper">
+                            <table class="holo-table">
+                                <thead>
+                                    <tr>
+                                        <th>المديرية</th>
+                                        <th>المساحة (كم²)</th>
+                                        <th>إجمالي السكان</th>
+                                        <th>ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>البريقة</td><td>486</td><td>152,824</td><td>أكبر مديرية (60%)</td></tr>
+                                    <tr><td>المنصورة</td><td>88</td><td>214,710</td><td>أراض منبسطة</td></tr>
+                                    <tr><td>الشيخ عثمان</td><td>42</td><td>218,269</td><td>مركز كثيف</td></tr>
+                                    <tr><td>دار سعد</td><td>37</td><td>194,871</td><td>محور توسع (بئر فضل)</td></tr>
+                                    <tr><td>خور مكسر</td><td>61</td><td>96,743</td><td>حلقة وصل</td></tr>
+                                    <tr><td>صيرة (كريتر)</td><td>13</td><td>156,899</td><td>مركز تاريخي</td></tr>
+                                    <tr><td>التواهي</td><td>10</td><td>110,816</td><td>شبه جزيرة</td></tr>
+                                    <tr><td>المعلا</td><td>4</td><td>103,096</td><td>شريط ساحلي</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
 
-                <h3 class="holo-subtitle">الشيخ عثمان – الممدارة</h3>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
-                        <tbody>
-                            <tr><td>699</td><td>الممدارة</td><td>خلف محطة بن لعماء بنفاذ لشارع التسعين</td></tr>
-                            <tr><td>644</td><td>الممدارة</td><td>تشمل بلوك 2 (بقع سكنية كالبقعة 51)</td></tr>
-                            <tr><td>691</td><td>الممدارة</td><td>مخطط الشرطة المتوزع على عدة بلوكات</td></tr>
-                            <tr><td>61D2</td><td>الممدارة</td><td>خلف الصالة الرياضية، قيمة عالية لنفاذها لشارع الخمسين</td></tr>
-                            <tr><td>692</td><td>الممدارة</td><td>تشمل بلوك 4 قطاع 12</td></tr>
-                            <tr><td>656</td><td>الممدارة</td><td>وحدة جوار سكنية تقع في بلوك 12</td></tr>
-                            <tr><td>666</td><td>الممدارة</td><td>وحدة مشتركة جغرافياً مع منطقة العريش</td></tr>
-                            <tr><td>3A68</td><td>الممدارة</td><td>تتبع مخطط التركيبات بجوار مصنع هائل</td></tr>
-                            <tr><td>518</td><td>القاهرة الجديدة</td><td>أراضٍ سكنية وتجارية ضمن بلوك 12</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <details class="holo-details">
+                    <summary class="holo-summary">2. فلسفة نظام وحدات الجوار <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
+                        <ul class="holo-list text-gray-300">
+                            <li>أصغر وحدة تخطيطية متكاملة (شوارع، مدارس، مساجد).</li>
+                            <li>ترقيم رقمي لتسهيل الأرشفة العقارية.</li>
+                            <li>توسع كبير بعد 1990 في بئر فضل والممدارة.</li>
+                            <li>يعتمد نماذج معمارية محددة: (A و B) للشقق، و (AD و CT) للفلل.</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <h3 class="holo-subtitle">المنصورة – كابوتا والمنطقة الصناعية</h3>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead><tr><th>رقم الوحدة / المشروع</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
-                        <tbody>
-                            <tr><td>مدينة إنماء</td><td>كابوتا</td><td>نماذج وحدات متكاملة بمواصفات تخطيطية حديثة</td></tr>
-                            <tr><td>3405 (إيجار)</td><td>حاشد الغربية</td><td>مخصصة لجمعيات سكنية</td></tr>
-                            <tr><td>6102 (إيجار)</td><td>الدرين</td><td>وحدات جوار ذات طابع صناعي وتجاري</td></tr>
-                            <tr><td>وديع حداد</td><td>المنصورة</td><td>مجمع عمارات سكنية متعدد الطوابق</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <details class="holo-details">
+                    <summary class="holo-summary">3. المخططات التفصيلية حسب المديريات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20 space-y-4">
+                        
+                        <div>
+                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">بئر فضل (دار سعد)</h3>
+                            <div class="holo-table-wrapper mt-0">
+                                <table class="holo-table">
+                                    <thead><tr><th>الوحدة</th><th>الملاحظات</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>537</td><td>بلوك 10، قطع 15×15</td></tr>
+                                        <tr><td>523</td><td>بلوك 8 (الجيش)، 15×30</td></tr>
+                                        <tr><td>525/547</td><td>بلوك 3 سكن مدني (12×15)</td></tr>
+                                        <tr><td>526</td><td>خلف الدفاع الجوي (جيش)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                <h3 class="holo-subtitle">خور مكسر – العريش وساحل أبين</h3>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead><tr><th>رقم الوحدة</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
-                        <tbody>
-                            <tr><td>614</td><td>العريش</td><td>تقع في بلوك 4 المجموعة 4</td></tr>
-                            <tr><td>697B</td><td>العريش</td><td>تضم بلوكات 7 و 8</td></tr>
-                            <tr><td>647</td><td>العريش</td><td>مشتركة في التخطيط مع تخوم الممدارة</td></tr>
-                            <tr><td>611</td><td>العريش</td><td>تضم بقعاً سكنية هامة (مثل 170-172)</td></tr>
-                            <tr><td>619</td><td>ساحل أبين</td><td>مطلة على البحر، مخصصة للاستثمار الفاخر</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <div>
+                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">الممدارة (الشيخ عثمان)</h3>
+                            <div class="holo-table-wrapper mt-0">
+                                <table class="holo-table">
+                                    <thead><tr><th>الوحدة</th><th>الملاحظات</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>699</td><td>خلف محطة بن لعماء</td></tr>
+                                        <tr><td>691</td><td>مخطط الشرطة</td></tr>
+                                        <tr><td>61D2</td><td>خلف الصالة الرياضية</td></tr>
+                                        <tr><td>518</td><td>القاهرة الجديدة</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                <h3 class="holo-subtitle">البريقة – مدينة الشعب وبئر أحمد</h3>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead><tr><th>رقم الوحدة / المشروع</th><th>المنطقة</th><th>الملاحظات الفنية</th></tr></thead>
-                        <tbody>
-                            <tr><td>576</td><td>مدينة الشعب</td><td>قرب المجمع الجامعي، ذات قيمة استراتيجية عالية</td></tr>
-                            <tr><td>222</td><td>كود النمر</td><td>موقع مميز مقابل السنترال في البريقة الصغرى</td></tr>
-                            <tr><td>58-B2</td><td>بئر أحمد</td><td>تتبع مخطط شباب بئر أحمد</td></tr>
-                            <tr><td>447 / 448</td><td>بئر أحمد</td><td>مناطق توسعات عمرانية حديثة</td></tr>
-                            <tr><td>مشروع إنماء</td><td>أبو حربة</td><td>تضم أبراجاً وفللاً ومولاً تجارياً</td></tr>
-                            <tr><td>مشروع إنماء</td><td>الحسوة</td><td>تشمل نماذج شقق وفللاً متنوعة ضمن مجمعات خاصة</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                        <div>
+                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">المنصورة وخور مكسر</h3>
+                            <div class="holo-table-wrapper mt-0">
+                                <table class="holo-table">
+                                    <thead><tr><th>المنطقة</th><th>الملاحظات</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>مدينة إنماء</td><td>كابوتا (نموذج حديث)</td></tr>
+                                        <tr><td>الدرين (6102)</td><td>طابع صناعي وتجاري</td></tr>
+                                        <tr><td>العريش (614)</td><td>بلوك 4 المجموعة 4</td></tr>
+                                        <tr><td>ساحل أبين</td><td>استثمار فاخر مطل عالبحر</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                <h2 class="holo-title">4. التحديات العقارية في عدن</h2>
-                <ul class="holo-list holo-warning-list">
-                    <li><strong>دولرة السوق:</strong> تحول العقار لأداة تحوط مالي، وتسعير الإيجارات بالعملات الأجنبية.</li>
-                    <li><strong>البسط العشوائي:</strong> تداخل الصلاحيات والتعدي على أراضي الدولة، مثل الاستيلاء على وحدة 526 في بئر فضل. ظهور عشوائيات وطمس للهوية الحضرية، مع عسكرة بعض العقارات بعد 2015.</li>
-                    <li><strong>العوائق الطوبوغرافية:</strong> انحصار المدينة بين الجبال والبحر يسبب اختناقاً وتكدساً سكانياً في المركز.</li>
-                    <li><strong>تقادم المخططات:</strong> نشوء بناء عشوائي داخل مسارات الشوارع لعدم إجراء أعمال الشق والتسوية قبل البناء.</li>
-                    <li><strong>ازدواجية الوثائق:</strong> غياب الأرشفة الرقمية الدقيقة أدى لتعدد صكوك الملكية لنفس الأرض، مما يرهق المحاكم ويقوض الاستثمار.</li>
-                </ul>
+                        <div>
+                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">البريقة</h3>
+                            <div class="holo-table-wrapper mt-0">
+                                <table class="holo-table">
+                                    <thead><tr><th>المنطقة</th><th>الملاحظات</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>مدينة الشعب (576)</td><td>قرب المجمع الجامعي</td></tr>
+                                        <tr><td>بئر أحمد (58-B2)</td><td>مخطط شباب بئر أحمد</td></tr>
+                                        <tr><td>إنماء (أبو حربة/الحسوة)</td><td>فلل ومجمعات سكنية مغلقة</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                <h2 class="holo-title">5. السوق العقاري والإيجارات (تحديث 2026)</h2>
-                <p><em>ملاحظة استراتيجية:</em> يعاني السوق العقاري في عدن من ظاهرة "الدولرة"، حيث يتم تسعير الإيجارات والأصول بالعملات الأجنبية للتحوط ضد تضخم العملة المحلية.</p>
-                <div class="holo-table-wrapper">
-                    <table class="holo-table">
-                        <thead>
-                            <tr>
-                                <th>المنطقة</th>
-                                <th>نوع العقار المرجعي</th>
-                                <th>متوسط السعر المعروض</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>الممدارة الجديدة</td><td>شقق مفروشة 4 غرف</td><td>785 دولار أمريكي / شهرياً</td></tr>
-                            <tr><td>مدينة إنماء</td><td>شقة دور أرضي</td><td>500 – 700 ريال سعودي / شهرياً</td></tr>
-                            <tr><td>المنصورة</td><td>شقتان للإيجار</td><td>1,300 ريال سعودي / شهرياً</td></tr>
-                            <tr><td>الشيخ عثمان</td><td>شقق صغيرة (طابع شعبي)</td><td>100,000 – 125,000 ريال يمني / شهرياً</td></tr>
-                            <tr><td>بئر فضل</td><td>عمارة للبيع</td><td>2,500,000 ريال سعودي (بيع أصول)</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                    </div>
+                </details>
 
-                <h2 class="holo-title">6. الحلول والتوصيات الاستراتيجية</h2>
-                <ul class="holo-list">
-                    <li>تعزيز وتوجيه التوسع في البريقة ودار سعد لخلق توازن بيئي وعمراني.</li>
-                    <li>تثبيت ملكيات بئر فضل قانونياً ومنع التعديات لضمان تنفيذ الشوارع والخدمات الأساسية.</li>
-                    <li>تعميم نموذج "مدينة إنماء" والمدن المغلقة (Gated Communities) بالشراكة مع القطاع الخاص لتطوير وحدات سكنية متكاملة في الحسوة وغيرها.</li>
-                    <li>دعم مأسسة "وحدة حماية الأراضي" لحماية المخططات وإنفاذ القانون ومنع السطو.</li>
-                    <li>تحديث السجل العقاري عبر تطبيق نظام التسجيل العيني للعقار (Cadastral System) وربطه بتقنية الـ GIS لدرء التلاعب.</li>
-                    <li>سن قوانين حديثة وتشريعات برلمانية تنظم العلاقة بين المؤجر والمستأجر للحد من التضخم وحماية حقوق الطرفين.</li>
-                </ul>
+                <details class="holo-details">
+                    <summary class="holo-summary">4. التحديات العقارية في عدن <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
+                        <ul class="holo-list holo-warning-list text-gray-300">
+                            <li><strong>دولرة السوق:</strong> تسعير الإيجارات بالعملات الأجنبية كتحوط.</li>
+                            <li><strong>البسط العشوائي:</strong> تعدي على الأراضي وعسكرة بعض العقارات.</li>
+                            <li><strong>العوائق الطوبوغرافية:</strong> انحصار المدينة بين الجبال والبحر.</li>
+                            <li><strong>ازدواجية الوثائق:</strong> غياب الأرشفة الرقمية الدقيقة.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="holo-details">
+                    <summary class="holo-summary">5. السوق العقاري والإيجارات (2026) <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
+                        <div class="holo-table-wrapper mt-0">
+                            <table class="holo-table">
+                                <thead>
+                                    <tr>
+                                        <th>المنطقة</th>
+                                        <th>العقار</th>
+                                        <th>السعر المعروض</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>الممدارة</td><td>شقق 4 غرف</td><td>785 دولار/شهرياً</td></tr>
+                                    <tr><td>إنماء</td><td>دور أرضي</td><td>500-700 سعودي/شهرياً</td></tr>
+                                    <tr><td>المنصورة</td><td>شقتين</td><td>1,300 سعودي/شهرياً</td></tr>
+                                    <tr><td>الشيخ عثمان</td><td>شقق شعبي</td><td>125 ألف يمني/شهرياً</td></tr>
+                                    <tr><td>بئر فضل</td><td>عمارة بيع</td><td>2.5 مليون سعودي</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="holo-details">
+                    <summary class="holo-summary">6. الحلول والتوصيات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
+                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
+                        <ul class="holo-list text-gray-300">
+                            <li>توجيه التوسع في البريقة ودار سعد.</li>
+                            <li>تعميم نموذج "مدينة إنماء" والمجمعات المغلقة.</li>
+                            <li>دعم "وحدة حماية الأراضي" لمنع البسط العشوائي.</li>
+                            <li>تحديث السجل العقاري وربطه بتقنية الـ GIS.</li>
+                        </ul>
+                    </div>
+                </details>
 
             </div>
             
-            <div class="glass-panel p-8 mb-10 border-green-500/30 mt-6">
-                <h3 class="text-xl font-black text-green-400 mb-6 flex items-center gap-3"><i class="fa-solid fa-money-bill-trend-up"></i>مؤشرات السوق العقاري (جلب حي من ملف البيانات)</h3>
+            <div class="glass-panel p-6 mb-10 border-green-500/30 mt-6">
+                <h3 class="text-lg font-black text-green-400 mb-4 flex items-center gap-2"><i class="fa-solid fa-money-bill-trend-up"></i> الأسعار المباشرة</h3>
                 <div class="table-wrapper">
-                    <table class="modern-table">
+                    <table class="modern-table !min-w-full text-xs">
                         <thead>
                             <tr class="bg-green-500/10">
-                                <th>المنطقة الجغرافية</th>
-                                <th>نوع العقار</th>
-                                <th>السعر المتداول</th>
+                                <th>المنطقة</th>
+                                <th>العقار</th>
+                                <th>السعر</th>
                             </tr>
                         </thead>
                         <tbody id="market-data-body">
