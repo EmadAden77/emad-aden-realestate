@@ -369,34 +369,80 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
         
-        /* الأزرار العائمة بتأثير الزجاج الاحترافي (Glassmorphism) */
-        .floating-wa { 
-            position: fixed; 
-            bottom: 20px; 
-            left: 20px; 
-            background: rgba(37, 211, 102, 0.15);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px); 
-            border: 1px solid rgba(37, 211, 102, 0.4);
-            color: #25D366;
-            width: 55px; 
-            height: 55px; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 30px; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
-            z-index: 1000; 
-            transition: all 0.3s ease; 
-            text-decoration: none; 
+        /* ========= قائمة التواصل السحرية المدمجة (Magic Speed Dial) ========= */
+        .speed-dial-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 12px;
         }
-        .floating-wa:hover { 
-            transform: scale(1.1) translateY(-5px); 
-            background: rgba(37, 211, 102, 0.25); 
-            border-color: #25D366; 
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); 
+        .sd-btn, .sd-item {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-decoration: none;
         }
+        .main-sd-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 26px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: #000;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(229, 192, 123, 0.5);
+        }
+        .main-sd-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(229, 192, 123, 0.8);
+        }
+        .main-sd-btn i {
+            transition: transform 0.3s ease;
+        }
+        .speed-dial-container.active .main-sd-btn i {
+            transform: rotate(135deg); /* يدور الأيقونة عند الفتح لتبدو كعلامة X */
+        }
+        .sd-menu {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .speed-dial-container.active .sd-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        .sd-item {
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+        }
+        .sd-item:hover {
+            transform: scale(1.15) translateY(-3px);
+        }
+        .sd-whatsapp { background: rgba(37, 211, 102, 0.2); border: 1px solid #25D366; color: #25D366; }
+        .sd-whatsapp:hover { background: #25D366; color: #fff; box-shadow: 0 0 15px #25D366; }
+        
+        .sd-phone { background: rgba(0, 150, 255, 0.2); border: 1px solid #0096FF; color: #0096FF; }
+        .sd-phone:hover { background: #0096FF; color: #fff; box-shadow: 0 0 15px #0096FF; }
+        
+        .sd-share { background: rgba(229, 192, 123, 0.2); border: 1px solid var(--gold); color: var(--gold); }
+        .sd-share:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px var(--gold); }
+        /* =================================================================== */
         
         .scroll-top-btn { 
             position: fixed; 
@@ -484,7 +530,7 @@
             @page { size: A4; margin: 20mm; }
             body { background: #FFF !important; color: #000 !important; display: block !important; }
             body::before { display: none !important; }
-            #app-container, nav, .side-tabs-container, #scroll-progress, .chat-panel, .global-holo-footer, .no-print, #splash-screen { display: none !important; }
+            #app-container, nav, .side-tabs-container, #scroll-progress, .chat-panel, .global-holo-footer, .no-print, #splash-screen, .speed-dial-container { display: none !important; }
             
             .modal-container { background: transparent !important; backdrop-filter: none !important; position: static !important; display: block !important; opacity: 1 !important; padding: 0 !important;}
             #contract-generator-modal { display: none !important; }
@@ -1100,13 +1146,26 @@
         <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
     </footer>
 
-    <a href="https://wa.me/967773571889" target="_blank" class="floating-wa no-print" aria-label="تواصل معنا عبر واتساب">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    
+    <div class="speed-dial-container no-print" id="speed-dial">
+        <button class="sd-btn main-sd-btn" onclick="toggleSpeedDial()" aria-label="تواصل معنا">
+            <i class="fa-solid fa-headset"></i>
+        </button>
+        <div class="sd-menu">
+            <a href="https://wa.me/967773571889" target="_blank" class="sd-item sd-whatsapp" aria-label="واتساب">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="tel:+967773571889" class="sd-item sd-phone" aria-label="اتصال هاتفي">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+            <button onclick="shareNativeWebsite(); toggleSpeedDial();" class="sd-item sd-share" aria-label="مشاركة الموقع">
+                <i class="fa-solid fa-share-nodes"></i>
+            </button>
+        </div>
+    </div>
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1186,7 +1245,33 @@
             });
         }
 
-        // ================== إخفاء شاشة التحميل الافتتاحية ==================
+        // ================== منطق فتح/إغلاق قائمة التواصل السحرية ==================
+        function toggleSpeedDial() {
+            const container = document.getElementById('speed-dial');
+            container.classList.toggle('active');
+            const icon = container.querySelector('.main-sd-btn i');
+            
+            if (container.classList.contains('active')) {
+                icon.classList.remove('fa-headset');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-headset');
+            }
+        }
+
+        // إغلاق القائمة عند النقر في أي مكان آخر بالشاشة
+        document.addEventListener('click', function(e) {
+            const sd = document.getElementById('speed-dial');
+            if (sd && sd.classList.contains('active') && !sd.contains(e.target)) {
+                sd.classList.remove('active');
+                const icon = sd.querySelector('.main-sd-btn i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-headset');
+            }
+        });
+        // =========================================================================
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
@@ -1196,9 +1281,7 @@
                 }
             }, 2000); 
         });
-        // ===================================================================
 
-        // ================== تأثير الكتابة التلقائية ==================
         document.addEventListener('DOMContentLoaded', () => {
             const phrases = [
                 "الأكثر أماناً في عدن",
@@ -1241,7 +1324,6 @@
             
             setTimeout(typeWriter, 2200);
         });
-        // ==============================================================
 
         let deferredPrompt;
         const installBtn = document.getElementById('installAppTab');
@@ -1292,7 +1374,6 @@
         let urbanMapInit = false;
         let urbanMap = null;
 
-        // ================== تهيئة خريطة التطور العمراني مع منع الاحتجاز ==================
         function initUrbanMap() {
             if (urbanMapInit) {
                 urbanMap.invalidateSize();
@@ -1302,7 +1383,6 @@
 
             const officeCoords = [12.8683, 44.9765];
             
-            // تعطيل السحب والتكبير التلقائي لمنع احتجاز تمرير الصفحة
             urbanMap = L.map('urbanSatelliteMap', {
                 center: officeCoords,
                 zoom: 14,
@@ -1337,10 +1417,8 @@
                 iconAnchor: [7, 7]
             });
             
-            // إضافة رابط جوجل ماب الفعلي للعلامة
-            L.marker(officeCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="https://www.google.com/maps?q=12.8683,44.9765" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>').openPopup();
+            L.marker(officeCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="http://googleusercontent.com/maps.google.com/6" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>').openPopup();
         }
-        // ==================================================================================
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -1544,7 +1622,6 @@
             if (!container.classList.contains('hidden')) {
                 if (!pickerMapInit) {
                     pickerMapInit = true;
-                    // تفعيل الخريطة مع تعطيل النزول بالماوس
                     reqMap = L.map('pickerMap', { scrollWheelZoom: false }).setView([12.8683, 44.9765], 13);
                     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                         attribution: '© OpenStreetMap'
@@ -1588,8 +1665,7 @@
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
             const coords = document.getElementById('req-coords').value;
-            // إصلاح وتعديل رابط جوجل ماب المرسل للواتساب
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* https://www.google.com/maps?q=${coords}` : '';
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/7{coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
@@ -1730,14 +1806,13 @@
             }, 3000);
         }
 
-        // ================== تهيئة خريطة دليل الجوار الرئيسية لمنع الاحتجاز ==================
+        // تهيئة خريطة دليل الجوار الرئيسية لمنع الاحتجاز
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const mapContainer = document.getElementById('adenMap');
                 if (mapContainer && typeof L !== 'undefined') {
                     const officeCoords = [12.8683, 44.9765];
                     
-                    // تعطيل السحب والتكبير التلقائي لمنع احتجاز التمرير
                     const map = L.map('adenMap', {
                         center: officeCoords,
                         zoom: 13,
@@ -1758,7 +1833,7 @@
                     });
                     
                     L.marker(officeCoords, {icon: officeIcon}).addTo(map)
-                        .bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="https://www.google.com/maps?q=12.8683,44.9765" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>')
+                        .bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="http://googleusercontent.com/maps.google.com/8" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>')
                         .openPopup();
                 }
             }, 1000); 
