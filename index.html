@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -931,7 +930,6 @@
         <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
     </footer>
 
-    <!-- أزرار عائمة -->
     <a href="https://wa.me/967773571889" target="_blank" class="floating-wa no-print" aria-label="تواصل معنا عبر واتساب">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -939,8 +937,6 @@
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
-    <!-- نهاية الأزرار العائمة -->
-
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1009,6 +1005,8 @@
             <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-[var(--gold)] text-black rounded-lg flex items-center justify-center hover:scale-105"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
+
+    <div id="toast-container" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-[100000] flex flex-col gap-2 pointer-events-none no-print"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
@@ -1209,8 +1207,12 @@
 
         function shareNativeWebsite() {
             if (navigator.share) {
-                navigator.share({ title: 'مكتب عماد عدن العقاري', text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية', url: window.location.href }).catch(console.error);
-            } else { alert('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً'); }
+                navigator.share({ title: 'مكتب عماد عدن العقاري', text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية', url: window.location.href })
+                .then(() => showToast('تمت المشاركة بنجاح!', 'success'))
+                .catch(console.error);
+            } else { 
+                showToast('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً', 'warning'); 
+            }
         }
 
         function calculateROI() { 
@@ -1301,10 +1303,61 @@
             document.getElementById('chat-messages').appendChild(d); 
             document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
         }
+
+        // نظام الإشعارات الذكي (Toast)
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            const bgColor = type === 'success' ? 'bg-green-500/20 border-green-500' : 'bg-[var(--gold)]/20 border-[var(--gold)]';
+            const textColor = type === 'success' ? 'text-green-400' : 'text-[var(--gold)]';
+            const icon = type === 'success' ? 'fa-check-circle' : 'fa-bell';
+            
+            toast.className = `px-4 py-2 rounded-xl border backdrop-blur-md shadow-lg flex items-center gap-2 transform transition-all duration-300 translate-y-[-20px] opacity-0 ${bgColor} ${textColor}`;
+            toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span class="text-sm font-bold">${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-[-20px]', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+            });
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-[-20px]', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // تفعيل خريطة عدن التفاعلية (Leaflet)
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const mapContainer = document.getElementById('adenMap');
+                if (mapContainer && typeof L !== 'undefined') {
+                    // إحداثيات مدينة عدن
+                    const adenCoords = [12.8273, 44.9782];
+                    
+                    const map = L.map('adenMap').setView(adenCoords, 12);
+                    
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        maxZoom: 18
+                    }).addTo(map);
+                    
+                    const officeIcon = L.divIcon({
+                        className: 'custom-div-icon',
+                        html: "<div style='background-color:#E5C07B; width:15px; height:15px; border-radius:50%; border:3px solid #000; box-shadow: 0 0 10px #E5C07B;'></div>",
+                        iconSize: [15, 15],
+                        iconAnchor: [7, 7]
+                    });
+                    
+                    L.marker(adenCoords, {icon: officeIcon}).addTo(map)
+                        .bindPopup('<b style="color:black; font-family:Tajawal;">مكتب عماد عدن العقاري</b><br>المرجع الأول للعقارات.')
+                        .openPopup();
+                }
+            }, 1000); 
+        });
     </script>
 </body>
 </html>
-
-
-```
-
