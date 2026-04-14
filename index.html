@@ -391,6 +391,19 @@
         .scroll-top-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .scroll-top-btn:not(.show) { transform: translateY(20px); }
 
+        /* ========= تأثيرات التمرير החركية المضافة حديثاً ========= */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ======================================================== */
+
         @media print {
             @page { size: A4; margin: 20mm; }
             body { background: #FFF !important; color: #000 !important; display: block !important; }
@@ -506,7 +519,7 @@
                     #expat .loading-msg { text-align: center; color: #E5C07B; padding: 20px; font-weight: bold; }
                 </style>
 
-                <div class="expat-header">
+                <div class="expat-header reveal-on-scroll">
                     <h2>بوابة خدمات المغتربين</h2>
                     <p>عروض وخدمات عقارية مخصصة للمغتربين خارج اليمن</p>
                 </div>
@@ -538,13 +551,17 @@
                             contentArea.innerHTML = '';
                             data.forEach(item => {
                                 const card = document.createElement('div');
-                                card.className = 'expat-card';
+                                card.className = 'expat-card reveal-on-scroll'; // إضافة الكلاس الجديد هنا
                                 card.innerHTML = `
                                     <h3>${item.title}</h3>
                                     <p>${item.desc}</p>
                                     <button class="expat-btn" onclick="submitExpatRequest(${item.id})">طلب الخدمة</button>
                                 `;
                                 contentArea.appendChild(card);
+                                // تطبيق المراقب على العنصر الجديد إذا كان معرفاً
+                                if (window.scrollObserver) {
+                                    window.scrollObserver.observe(card);
+                                }
                             });
                         }
 
@@ -1061,6 +1078,30 @@
             });
         }
 
+        // ================== نظام مراقبة التمرير (Scroll Observer) ==================
+        window.scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // إيقاف المراقبة بعد أول ظهور للعنصر لتخفيف العبء على المتصفح
+                    window.scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, // يعمل عندما يظهر 10% من العنصر
+            rootMargin: "0px 0px -20px 0px" // لتأخير الظهور قليلاً
+        });
+
+        function observeElements() {
+            // تحديد العناصر التي سيتم تطبيق التأثير عليها
+            const elements = document.querySelectorAll('.glass-panel, .glass-card, .bank-panel, .holo-details');
+            elements.forEach(el => {
+                el.classList.add('reveal-on-scroll');
+                window.scrollObserver.observe(el);
+            });
+        }
+        // =========================================================================
+
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
             
@@ -1080,6 +1121,8 @@
             
             setTimeout(() => {
                 if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // إعادة تفعيل التأثيرات الحركية للقسم الجديد إن لزم الأمر
+                observeElements();
             }, 50);
             
             if (viewId !== 'expat') {
@@ -1131,6 +1174,8 @@
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
                 err.classList.add('hidden');
+                // تفعيل التأثيرات على عناصر البوابة السرية فور ظهورها
+                observeElements();
             } else {
                 err.innerText = 'الرمز غير صحيح حاول مرة ثانية';
                 err.classList.remove('hidden');
@@ -1189,6 +1234,8 @@
             loadMarketData(); 
             window.history.replaceState({ view: 'home' }, '', '#home');
             switchView('home', false);
+            // تشغيل مراقب التأثيرات
+            observeElements();
         });
 
         function generatePrintableContract() {
@@ -1406,4 +1453,3 @@
     </script>
 </body>
 </html>
-
