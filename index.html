@@ -339,6 +339,13 @@
             font-weight: bold;
             text-shadow: 0 0 5px rgba(0,0,0,0.8);
         }
+        
+        /* إضافات الأزرار العائمة الجديدة */
+        .floating-wa { position: fixed; bottom: 20px; left: 20px; background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 10px 20px rgba(37,211,102,0.4); z-index: 1000; transition: transform 0.3s; text-decoration: none; }
+        .floating-wa:hover { transform: scale(1.1); }
+        .scroll-top-btn { position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); color: black; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 1000; box-shadow: 0 5px 15px rgba(229,192,123,0.3); border: none; }
+        .scroll-top-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .scroll-top-btn:not(.show) { transform: translateY(20px); }
 
         @media print {
             @page { size: A4; margin: 20mm; }
@@ -924,6 +931,16 @@
         <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
     </footer>
 
+    <!-- أزرار عائمة -->
+    <a href="https://wa.me/967773571889" target="_blank" class="floating-wa no-print" aria-label="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <!-- نهاية الأزرار العائمة -->
+
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1109,6 +1126,21 @@
         formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', saveFormData); });
         document.querySelectorAll('.radio-input').forEach(radio => radio.addEventListener('change', saveFormData));
 
+        // سكرول وشريط التقدم
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if(scrollBtn) {
+                if (window.scrollY > 300) scrollBtn.classList.add('show');
+                else scrollBtn.classList.remove('show');
+            }
+            const prog = document.getElementById('scroll-progress');
+            if(prog) {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                prog.style.width = (winScroll / height) * 100 + "%";
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             loadFormData();       
             loadMarketData(); 
@@ -1275,3 +1307,4 @@
 
 
 ```
+
