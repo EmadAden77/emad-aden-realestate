@@ -440,7 +440,7 @@
         .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
         .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
-        /* ========= شاشة التحميل الافتتاحية (Splash Screen) ========= */
+        /* شاشة التحميل الافتتاحية (Splash Screen) */
         #splash-screen {
             position: fixed; inset: 0; z-index: 9999999; background-color: #050505;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -463,7 +463,10 @@
             50% { box-shadow: 0 0 40px rgba(229, 192, 123, 0.6); transform: scale(1.05); }
         }
         @keyframes load-progress { 0% { width: 0%; } 100% { width: 100%; } }
-        /* ======================================================== */
+
+        /* تنسيقات زر التحكم بطبقات الخريطة Leaflet */
+        .leaflet-control-layers-toggle { background-color: rgba(1, 6, 14, 0.8) !important; border: 1px solid #00ffcc !important; border-radius: 5px !important; }
+        .leaflet-control-layers-expanded { background-color: rgba(1, 6, 14, 0.9) !important; color: #00ffcc !important; border: 1px solid #00ffcc !important; font-family: 'Tajawal', sans-serif !important; }
 
         @media print {
             @page { size: A4; margin: 20mm; }
@@ -886,6 +889,12 @@
                 <div class="h-1 w-16 bg-[var(--gold)] mx-auto rounded-full"></div>
             </div>
 
+            <div class="glass-panel p-6 mb-10 border-[#00ffcc]/30 mt-6 reveal-on-scroll">
+                <h3 class="text-lg font-black text-[#00ffcc] mb-4 flex items-center gap-2"><i class="fa-solid fa-satellite"></i> خريطة الأقمار الصناعية (مخططات عدن)</h3>
+                <p class="text-xs text-gray-300 mb-4">استكشف الأراضي ووحدات الجوار على أرض الواقع من خلال عرض الأقمار الصناعية التفاعلي.</p>
+                <div id="urbanSatelliteMap" class="h-96 w-full rounded-xl border border-[#00ffcc]/50 z-0"></div>
+            </div>
+
             <div class="holo-container space-y-4">
                 <details class="holo-details reveal-on-scroll">
                     <summary class="holo-summary">1. الإطار الإداري والديموغرافي <i class="fa-solid fa-chevron-down text-sm"></i></summary>
@@ -1083,6 +1092,7 @@
     <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
     <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
         <div class="modal-box">
             <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -1162,7 +1172,6 @@
             });
         }
 
-        // ================== إخفاء شاشة التحميل الافتتاحية ==================
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
@@ -1172,7 +1181,6 @@
                 }
             }, 2000); 
         });
-        // ===================================================================
 
         window.scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1181,10 +1189,7 @@
                     window.scrollObserver.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1, 
-            rootMargin: "0px 0px -20px 0px" 
-        });
+        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
         function observeElements() {
             const elements = document.querySelectorAll('.glass-panel, .glass-card, .bank-panel, .holo-details');
@@ -1193,6 +1198,53 @@
                 window.scrollObserver.observe(el);
             });
         }
+
+        // ================== تهيئة خريطة الأقمار الصناعية (قسم التطور العمراني) ==================
+        let urbanMapInit = false;
+        let urbanMap = null;
+
+        function initUrbanMap() {
+            if (urbanMapInit) {
+                urbanMap.invalidateSize();
+                return;
+            }
+            urbanMapInit = true;
+
+            const adenCoords = [12.8273, 44.9782];
+            urbanMap = L.map('urbanSatelliteMap').setView(adenCoords, 13);
+
+            const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 20,
+                attribution: '© OpenStreetMap'
+            });
+
+            // طبقة الأقمار الصناعية الهجينة من جوجل (صور + أسماء الشوارع)
+            const satelliteLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                maxZoom: 20,
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '© Google Maps'
+            });
+
+            satelliteLayer.addTo(urbanMap);
+
+            const baseMaps = {
+                "الأقمار الصناعية": satelliteLayer,
+                "الخريطة الداكنة": darkLayer
+            };
+            
+            // إضافة أداة التبديل
+            L.control.layers(baseMaps).addTo(urbanMap);
+
+            const officeIcon = L.divIcon({
+                className: 'custom-div-icon',
+                html: "<div style='background-color:#E5C07B; width:15px; height:15px; border-radius:50%; border:3px solid #000; box-shadow: 0 0 10px #E5C07B;'></div>",
+                iconSize: [15, 15],
+                iconAnchor: [7, 7]
+            });
+            
+            L.marker(adenCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<b style="color:black; font-family:Tajawal;">مكتب عماد عدن العقاري</b>').openPopup();
+        }
+        // =====================================================================================
 
         function switchView(viewId, pushState = true) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
@@ -1214,6 +1266,11 @@
             setTimeout(() => {
                 if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 observeElements();
+                
+                // تحديث الخريطة عند الدخول لقسم التطور العمراني
+                if(viewId === 'urban') {
+                    if(typeof initUrbanMap === 'function') initUrbanMap();
+                }
             }, 50);
             
             if (viewId !== 'expat') {
@@ -1435,7 +1492,7 @@
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             
             const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/3{coords}` : '';
+            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* http://googleusercontent.com/maps.google.com/4{coords}` : '';
 
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
