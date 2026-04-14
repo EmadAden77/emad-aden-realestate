@@ -568,6 +568,25 @@
                             <div><input type="radio" name="rtype" id="rt3" value="توثيق" class="radio-input"><label for="rt3" class="radio-label">توثيق قانوني</label></div>
                         </div>
                     </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">المنطقة</label>
+                            <select id="req-area" class="input-glass w-full">
+                                <option value="غير محدد">اختر المنطقة...</option>
+                                <option value="بئر فضل">بئر فضل</option>
+                                <option value="المنصورة">المنصورة</option>
+                                <option value="الممدارة">الممدارة</option>
+                                <option value="مدينة الشعب">مدينة الشعب</option>
+                                <option value="كريتر">كريتر</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">الميزانية المتوقعة (اختياري)</label>
+                            <input type="number" id="req-budget" placeholder="أدخل المبلغ..." class="input-glass">
+                        </div>
+                    </div>
                     <div class="mb-4">
                         <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية</label>
                         <textarea id="req-desc" placeholder="اكتب التفاصيل بدقة..." class="input-glass h-24 resize-none"></textarea>
@@ -1026,11 +1045,15 @@
             const name = document.getElementById('req-name').value.trim();
             const phone = document.getElementById('req-phone').value.trim();
             const type = document.querySelector('input[name="rtype"]:checked').value;
+            const areaEl = document.getElementById('req-area');
+            const area = areaEl ? areaEl.value : 'غير محدد';
+            const budgetEl = document.getElementById('req-budget');
+            const budget = budgetEl && budgetEl.value ? budgetEl.value : 'غير محدد';
             const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
             btn.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير والتحويل...';
             const now = new Date();
             const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
+            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
             const encodedMessage = encodeURIComponent(rawMessage);
             localStorage.removeItem('salesFormDraft');
             setTimeout(() => {
