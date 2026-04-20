@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
+    <meta name="google-site-verification" content="LIr1RzCjrhxfdHsnj7OZ5caKOLfVpL8F4kn8wLFYmtQ" />
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -196,7 +198,7 @@
         .loader-spinner { border: 3px solid rgba(229,192,123,0.3); border-top: 3px solid var(--gold); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* تنسيقات بوابة إدارة الأملاك (البنك النيوني) */
+        /* بوابة إدارة الأملاك */
         .bank-panel {
             background: rgba(10, 25, 47, 0.95) !important;
             border: 1px solid #00ffcc !important;
@@ -222,12 +224,8 @@
             border: 1px solid rgba(0, 255, 204, 0.4) !important;
             color: #00ffcc !important;
         }
-        .bank-input:focus {
-            border-color: #00ffcc !important;
-            box-shadow: 0 0 8px rgba(0, 255, 204, 0.3) !important;
-        }
 
-        /* تنسيقات غرفة العمليات الهندسية - التطور العمراني */
+        /* غرفة العمليات الهندسية */
         .holo-container {
             direction: rtl;
             font-family: inherit;
@@ -240,14 +238,6 @@
             border-bottom: 1px solid rgba(0, 255, 204, 0.3);
             padding-bottom: 10px;
             margin-top: 40px;
-            font-size: 1.5rem;
-        }
-        .holo-subtitle {
-            color: #fff;
-            margin-top: 20px;
-            font-size: 1.2rem;
-            border-right: 3px solid #00ffcc;
-            padding-right: 10px;
         }
         .holo-table-wrapper {
             overflow-x: auto;
@@ -255,7 +245,6 @@
             border: 1px solid rgba(0, 255, 204, 0.2);
             border-radius: 5px;
             background: rgba(10, 25, 47, 0.5); 
-            box-shadow: inset 0 0 15px rgba(0, 255, 204, 0.05);
         }
         .holo-table {
             width: 100%;
@@ -271,71 +260,12 @@
         .holo-table th {
             background: rgba(0, 255, 204, 0.1);
             color: #00ffcc;
-            font-weight: bold;
-            white-space: nowrap;
         }
-        .holo-table tr:hover td {
-            background: rgba(0, 255, 204, 0.05);
-            color: #fff;
-        }
-        .holo-list {
-            list-style: none;
-            padding-right: 0;
-            font-size: 0.9rem;
-        }
-        .holo-list li {
-            position: relative;
-            padding-right: 20px;
-            margin-bottom: 8px;
-        }
-        .holo-list li::before {
-            content: '⯌'; 
-            position: absolute;
-            right: 0;
-            top: 0;
-            color: #00ffcc;
-            font-size: 0.8rem;
-            text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
-        }
-        .holo-warning-list li::before {
-            content: '⯁';
-            color: #ff3366; 
-            text-shadow: 0 0 5px rgba(255, 51, 102, 0.5);
-        }
-        
-        /* أكورديون التطور العمراني للجوال */
-        .holo-details {
-            background: rgba(10, 25, 47, 0.6);
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            border-radius: 0.75rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .holo-summary {
-            padding: 1rem;
-            cursor: pointer;
-            font-weight: 800;
-            color: #00ffcc;
-            font-size: 1rem;
-            list-style: none;
-            outline: none;
-            background: rgba(0, 255, 204, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .holo-summary::-webkit-details-marker { display: none; }
-        .holo-details[open] .holo-summary { border-bottom: 1px solid rgba(0, 255, 204, 0.2); background: rgba(0, 255, 204, 0.1); }
-        .holo-details[open] .fa-chevron-down { transform: rotate(180deg); transition: 0.3s; }
-        .holo-details:not([open]) .fa-chevron-down { transition: 0.3s; }
-        .holo-details-content { padding: 1rem; }
 
-        /* تنسيقات الفوتر العالمي (تواصل معنا) */
+        /* الفوتر العالمي */
         .global-holo-footer {
             background: rgba(1, 6, 14, 0.95);
             border-top: 1px solid rgba(0, 255, 204, 0.3);
-            box-shadow: 0 -5px 25px rgba(0, 255, 204, 0.1);
             padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
@@ -343,243 +273,44 @@
             gap: 15px;
             margin-top: auto;
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             z-index: 50;
             width: 100%;
         }
-        .holo-social-row {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
+        .holo-social-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
         .holo-social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            background: rgba(0, 255, 204, 0.05);
-            color: #00ffcc;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 12px; border: 1px solid rgba(0, 255, 204, 0.2);
+            background: rgba(0, 255, 204, 0.05); color: #00ffcc; transition: all 0.3s ease;
         }
-        .holo-social-btn:hover {
-            background: rgba(0, 255, 204, 0.15);
-            border-color: #00ffcc;
-            transform: translateY(-4px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
-            filter: drop-shadow(0 0 8px #00ffcc);
-        }
-        .holo-footer-copy {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(0,0,0,0.8);
-        }
-        
-        /* ========= قائمة التواصل السحرية المدمجة (Magic Speed Dial) ========= */
-        .speed-dial-container {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            gap: 12px;
-        }
-        .sd-btn, .sd-item {
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            text-decoration: none;
-        }
-        .main-sd-btn {
-            width: 60px;
-            height: 60px;
-            font-size: 26px;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: #000;
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(229, 192, 123, 0.5);
-        }
-        .main-sd-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(229, 192, 123, 0.8);
-        }
-        .main-sd-btn i {
-            transition: transform 0.3s ease;
-        }
-        .speed-dial-container.active .main-sd-btn i {
-            transform: rotate(135deg); /* يدور الأيقونة عند الفتح لتبدو كعلامة X */
-        }
-        .sd-menu {
-            display: flex;
-            flex-direction: column-reverse;
-            gap: 12px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(20px) scale(0.8);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        .speed-dial-container.active .sd-menu {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0) scale(1);
-        }
-        .sd-item {
-            width: 48px;
-            height: 48px;
-            font-size: 22px;
-        }
-        .sd-item:hover {
-            transform: scale(1.15) translateY(-3px);
-        }
-        .sd-whatsapp { background: rgba(37, 211, 102, 0.2); border: 1px solid #25D366; color: #25D366; }
-        .sd-whatsapp:hover { background: #25D366; color: #fff; box-shadow: 0 0 15px #25D366; }
-        
-        .sd-phone { background: rgba(0, 150, 255, 0.2); border: 1px solid #0096FF; color: #0096FF; }
-        .sd-phone:hover { background: #0096FF; color: #fff; box-shadow: 0 0 15px #0096FF; }
-        
-        .sd-share { background: rgba(229, 192, 123, 0.2); border: 1px solid var(--gold); color: var(--gold); }
-        .sd-share:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px var(--gold); }
-        /* =================================================================== */
-        
-        .scroll-top-btn { 
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
-            background: rgba(229, 192, 123, 0.1);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px); 
-            border: 1px solid rgba(229, 192, 123, 0.3);
-            color: var(--gold);
-            width: 45px; 
-            height: 45px; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 20px; 
-            cursor: pointer; 
-            opacity: 0; 
-            pointer-events: none; 
-            transition: all 0.4s ease; 
-            z-index: 1000; 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
-        }
-        .scroll-top-btn.show { 
-            opacity: 1; 
-            pointer-events: auto; 
-            transform: translateY(0); 
-        }
-        .scroll-top-btn:not(.show) { 
-            transform: translateY(20px); 
-        }
-        .scroll-top-btn:hover {
-            background: rgba(229, 192, 123, 0.2);
-            border-color: var(--gold);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(229, 192, 123, 0.2);
-        }
+        .holo-social-btn:hover { background: rgba(0, 255, 204, 0.15); border-color: #00ffcc; transform: translateY(-4px); }
 
-        /* تأثيرات التمرير الحركية */
-        .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
-        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        /* Speed Dial */
+        .speed-dial-container { position: fixed; bottom: 20px; left: 20px; z-index: 1000; display: flex; flex-direction: column-reverse; align-items: center; gap: 12px; }
+        .main-sd-btn { width: 60px; height: 60px; font-size: 26px; background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%); color: #000; border-radius: 50%; box-shadow: 0 0 20px rgba(229, 192, 123, 0.5); border: none; cursor: pointer; }
+        .sd-menu { display: flex; flex-direction: column-reverse; gap: 12px; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .speed-dial-container.active .sd-menu { opacity: 1; pointer-events: auto; }
+        .sd-item { width: 48px; height: 48px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 1px solid var(--gold); background: rgba(0,0,0,0.5); color: var(--gold); }
 
-        /* شاشة التحميل الافتتاحية (Splash Screen) */
-        #splash-screen {
-            position: fixed; inset: 0; z-index: 9999999; background-color: #050505;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
-        }
+        .scroll-top-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.6); color: var(--gold); border: 1px solid var(--gold); width: 45px; height: 45px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; }
+        .scroll-top-btn.show { display: flex; }
+
+        #splash-screen { position: fixed; inset: 0; z-index: 9999999; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.8s; }
         #splash-screen.hidden-splash { opacity: 0; visibility: hidden; }
-        .splash-logo-container {
-            width: 100px; height: 100px; border-radius: 1.5rem; border: 2px solid var(--gold);
-            display: flex; justify-content: center; align-items: center; background: #000;
-            box-shadow: 0 0 30px rgba(229, 192, 123, 0.4);
-            animation: pulse-glow 2s infinite; margin-bottom: 1.5rem; overflow: hidden;
-        }
-        .splash-loader { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 2rem; }
-        .splash-loader-bar {
-            height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold), var(--dark-gold));
-            animation: load-progress 1.8s ease-in-out forwards;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(229, 192, 123, 0.2); transform: scale(1); }
-            50% { box-shadow: 0 0 40px rgba(229, 192, 123, 0.6); transform: scale(1.05); }
-        }
-        @keyframes load-progress { 0% { width: 0%; } 100% { width: 100%; } }
-
-        /* تنسيقات زر التحكم بطبقات الخريطة Leaflet */
-        .leaflet-control-layers-toggle { background-color: rgba(1, 6, 14, 0.8) !important; border: 1px solid #00ffcc !important; border-radius: 5px !important; }
-        .leaflet-control-layers-expanded { background-color: rgba(1, 6, 14, 0.9) !important; color: #00ffcc !important; border: 1px solid #00ffcc !important; font-family: 'Tajawal', sans-serif !important; }
-
-        /* تأثير الكتابة التلقائية (Typewriter Cursor) */
-        .typewriter-cursor {
-            display: inline-block;
-            color: var(--gold);
-            font-weight: 900;
-            animation: blink 0.7s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
+        
         @media print {
-            @page { size: A4; margin: 20mm; }
-            body { background: #FFF !important; color: #000 !important; display: block !important; }
-            body::before { display: none !important; }
-            #app-container, nav, .side-tabs-container, #scroll-progress, .chat-panel, .global-holo-footer, .no-print, #splash-screen, .speed-dial-container { display: none !important; }
-            
-            .modal-container { background: transparent !important; backdrop-filter: none !important; position: static !important; display: block !important; opacity: 1 !important; padding: 0 !important;}
-            #contract-generator-modal { display: none !important; }
-            #printable-contract { display: block !important; position: static !important; width: 100% !important; background: white !important; color: black !important; padding: 0 !important; }
+            .no-print { display: none !important; }
+            #printable-contract { display: block !important; }
         }
     </style>
 </head>
 <body class="antialiased theme-home">
 
     <div id="splash-screen" class="no-print">
-        <div class="splash-logo-container">
-            <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
+        <div class="w-24 h-24 border-2 border-[var(--gold)] rounded-2xl flex items-center justify-center bg-black mb-6 animate-pulse">
+            <img src="IMG_5.jpg" alt="Logo" class="w-full h-full object-cover rounded-xl">
         </div>
-        <h2 class="text-3xl font-black text-white tracking-wider mb-2">مكتب عمـاد عدن</h2>
-        <p class="text-[var(--gold)] text-sm font-bold tracking-[0.2em]">المرجع الأول للعقارات</p>
-        <div class="splash-loader">
-            <div class="splash-loader-bar"></div>
-        </div>
-    </div>
-    <div id="printable-contract" class="hidden absolute top-0 left-0 w-full bg-white text-black p-10 z-[999999]">
-        <div class="text-center mb-10 border-b-2 border-black pb-4">
-            <h1 class="text-2xl font-black mb-2">مكتب عماد عدن العقاري</h1>
-            <p class="text-sm">بيع - شراء - تثمين - استثمار</p>
-            <h2 class="text-xl font-bold mt-4 underline">عقد تفويض إداري (توليد إلكتروني)</h2>
-        </div>
-        <div class="mb-6 leading-loose text-lg">
-            <p>إنه في يوم: <span id="print-date" class="font-bold"></span></p>
-            <p>أقر أنا المالك/ـة: <span id="print-name" class="font-bold border-b border-black inline-block min-w-[200px]"></span></p>
-            <p>بتفويض "مكتب عماد عدن العقاري" بإدارة أملاكي وتحصيل الإيجارات الخاصة بي بصفتهم الوكيل المعتمد، وذلك وفقاً للشروط المبرمة والسرية التامة المحفوظة للطرفين.</p>
-        </div>
-        <div class="mt-20 flex justify-between px-10">
-            <div class="text-center">
-                <p class="font-bold mb-8">توقيع المالك</p>
-                <p>_________________</p>
-            </div>
-            <div class="text-center">
-                <p class="font-bold mb-8">ختم المكتب المعتمد</p>
-                <p>_________________</p>
-            </div>
+        <h2 class="text-2xl font-black text-white">مكتب عمـاد عدن</h2>
+        <div class="w-48 h-1 bg-white/10 rounded-full mt-4 overflow-hidden">
+            <div class="h-full bg-[var(--gold)] w-0 animate-[load-progress_1.8s_ease-in-out_forwards]"></div>
         </div>
     </div>
 
@@ -600,1345 +331,179 @@
         </div>
     </div>
 
-    <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 transition-all no-print">
+    <nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 no-print">
         <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
-            <div class="w-10 h-10 rounded-lg overflow-hidden border border-[var(--gold)] flex justify-center items-center bg-black">
-                <img src="IMG_5.jpg" alt="مكتب عماد عدن العقاري" class="w-full h-full object-cover">
-            </div>
+            <img src="IMG_5.jpg" alt="Logo" class="w-10 h-10 rounded-lg border border-[var(--gold)]">
             <div class="flex flex-col">
-                <h1 class="font-black text-sm md:text-base text-white tracking-wide">مكتب عماد عدن العقاري</h1>
+                <h1 class="font-black text-sm text-white">مكتب عماد عدن العقاري</h1>
                 <span class="text-[10px] text-[var(--gold)] font-bold">بيع شراء تثمين استثمار</span>
             </div>
         </div>
-        <div class="hidden md:flex gap-6 items-center pr-10">
-            <button onclick="switchView('expat')" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">إدارة الأملاك</button>
-            <button onclick="switchView('sales')" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">الطلبات</button>
-            <button onclick="switchView('legal')" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">المستشار القانوني</button>
-            <button onclick="switchView('urban')" class="text-xs font-bold text-gray-300 hover:text-[var(--gold)] transition-colors">التطور العمراني</button>
-            <button onclick="switchView('guide')" class="text-xs font-bold text-[var(--gold)] bg-[var(--gold)]/10 px-3 py-1.5 rounded-lg border border-[var(--gold)]/30 hover:bg-[var(--gold)]/20 transition-all">دليل وحدات الجوار</button>
+        <div class="hidden md:flex gap-6 items-center">
+            <button onclick="switchView('expat')" class="text-xs font-bold text-gray-300">إدارة الأملاك</button>
+            <button onclick="switchView('sales')" class="text-xs font-bold text-gray-300">الطلبات</button>
+            <button onclick="switchView('legal')" class="text-xs font-bold text-gray-300">المستشار القانوني</button>
+            <button onclick="switchView('urban')" class="text-xs font-bold text-gray-300">التطور العمراني</button>
         </div>
     </nav>
 
     <main id="app-container" class="no-print">
-        
-        <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center pb-10">
-            <div class="text-center mb-12 mt-10">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 leading-tight">المرجعية العقارية <br><span class="gold-text-gradient inline-block mt-2" id="typewriter-text"></span><span class="typewriter-cursor text-3xl md:text-5xl align-middle">|</span></h2>
-                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto mt-4">اختر المسار المناسب. ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة.</p>
+        <section id="view-home" class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">المرجعية العقارية <br><span class="gold-text-gradient" id="typewriter-text"></span></h2>
+                <p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto mt-4">ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة في عدن.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 tilt-effect">
-                <div onclick="switchView('expat')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--gold)] to-[var(--dark-gold)] mx-auto flex items-center justify-center text-black text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform"><i class="fa-solid fa-building-shield"></i></div>
-                    <h3 class="text-lg font-black text-white mb-3">إدارة أملاك المغتربين</h3>
+                <div onclick="switchView('expat')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group">
+                    <i class="fa-solid fa-building-shield text-3xl text-[var(--gold)] mb-4"></i>
+                    <h3 class="text-lg font-black text-white">إدارة أملاك المغتربين</h3>
                 </div>
-                <div onclick="switchView('sales')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
-                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-file-signature"></i></div>
-                    <h3 class="text-lg font-black text-white mb-3">استقبال الطلبات</h3>
+                <div onclick="switchView('sales')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group">
+                    <i class="fa-solid fa-file-signature text-3xl text-[var(--gold)] mb-4"></i>
+                    <h3 class="text-lg font-black text-white">استقبال الطلبات</h3>
                 </div>
-                <div onclick="switchView('legal')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
-                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <h3 class="text-lg font-black text-white mb-3">المستشار القانوني</h3>
+                <div onclick="switchView('legal')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group">
+                    <i class="fa-solid fa-scale-balanced text-3xl text-[var(--gold)] mb-4"></i>
+                    <h3 class="text-lg font-black text-white">المستشار القانوني</h3>
                 </div>
-                <div onclick="switchView('urban')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group transition-all reveal-on-scroll">
-                    <div class="w-16 h-16 rounded-2xl bg-white/5 border border-[var(--gold)] mx-auto flex items-center justify-center text-[var(--gold)] text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-city"></i></div>
-                    <h3 class="text-lg font-black text-white mb-3">التطور العمراني</h3>
+                <div onclick="switchView('urban')" class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group">
+                    <i class="fa-solid fa-city text-3xl text-[var(--gold)] mb-4"></i>
+                    <h3 class="text-lg font-black text-white">التطور العمراني</h3>
                 </div>
             </div>
         </section>
 
-        <section id="view-expat" class="app-view px-4 max-w-7xl mx-auto pb-10">
-            
-            <section id="expat" class="mt-10 mb-10">
-                <style>
-                    #expat { background: rgba(15, 15, 18, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(229, 192, 123, 0.2); border-radius: 1.25rem; padding: 40px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 1200px; margin: 0 auto; font-family: inherit; }
-                    #expat .expat-header { text-align: center; margin-bottom: 30px; }
-                    #expat .expat-header h2 { color: #E5C07B; font-size: 28px; margin-bottom: 10px; font-weight: 900; }
-                    #expat .expat-header p { color: #94A3B8; font-size: 16px; }
-                    #expat .expat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-                    #expat .expat-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(229, 192, 123, 0.1); border-radius: 1rem; padding: 20px; transition: all 0.3s ease; }
-                    #expat .expat-card:hover { background: rgba(229, 192, 123, 0.05); border-color: rgba(229, 192, 123, 0.3); transform: translateY(-5px); }
-                    #expat .expat-card h3 { color: #fff; margin-top: 0; font-weight: 800; }
-                    #expat .expat-card p { color: #94A3B8; line-height: 1.5; font-size: 0.9rem; }
-                    #expat .expat-btn { background: linear-gradient(135deg, #E5C07B 0%, #B8860B 100%); color: #000; border: none; padding: 10px 20px; border-radius: 0.75rem; cursor: pointer; width: 100%; font-size: 16px; font-weight: 800; margin-top: 15px; transition: all 0.3s ease; }
-                    #expat .expat-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(229, 192, 123, 0.4); }
-                    #expat .loading-msg { text-align: center; color: #E5C07B; padding: 20px; font-weight: bold; }
-                </style>
-
-                <div class="expat-header reveal-on-scroll">
-                    <h2>بوابة خدمات المغتربين</h2>
-                    <p>عروض وخدمات عقارية مخصصة للمغتربين خارج اليمن</p>
-                </div>
-
-                <div id="expat-content" class="expat-grid">
-                    <div class="loading-msg">جاري تحميل البيانات...</div>
-                </div>
-                
-                <script>
-                    (function() {
-                        const section = document.getElementById('expat');
-                        if (!section) return;
-                        const contentArea = section.querySelector('#expat-content');
-
-                        async function fetchExpatData() {
-                            try {
-                                const mockData = [
-                                    { id: 1, title: 'شراء عقار عن بعد', desc: 'نوفر لك خدمة شراء وتوثيق العقارات وأنت في مكانك' },
-                                    { id: 2, title: 'إدارة أملاك', desc: 'ندير عقاراتك ونحصل الإيجارات ونودعها بحسابك' },
-                                    { id: 3, title: 'استشارات استثمارية', desc: 'أفضل الفرص الاستثمارية في عدن للمغتربين' }
-                                ];
-                                setTimeout(() => { renderExpatData(mockData); }, 1000);
-                            } catch (error) {
-                                contentArea.innerHTML = '<div class="loading-msg" style="color:#ef4444;">حدث خطأ في تحميل البيانات</div>';
-                            }
-                        }
-
-                        function renderExpatData(data) {
-                            contentArea.innerHTML = '';
-                            data.forEach(item => {
-                                const card = document.createElement('div');
-                                card.className = 'expat-card reveal-on-scroll tilt-element';
-                                card.innerHTML = `
-                                    <h3>${item.title}</h3>
-                                    <p>${item.desc}</p>
-                                    <button class="expat-btn" onclick="submitExpatRequest(${item.id})">طلب الخدمة</button>
-                                `;
-                                contentArea.appendChild(card);
-                                if (window.scrollObserver) {
-                                    window.scrollObserver.observe(card);
-                                }
-                            });
-                        }
-
-                        fetchExpatData();
-                    })();
-                </script>
-            </section>
-
-            <div id="owner-login-section" class="bank-panel p-8 text-center max-w-md mx-auto rounded-2xl mt-10 reveal-on-scroll">
-                <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)]">
-                    <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
-                </div>
-                <h3 class="text-xl font-black bank-title mb-2">الخزنة الرقمية للأملاك</h3>
-                <p class="text-xs text-gray-400 mb-8">يرجى إدخال رمز التحقق الخاص بك للوصول للبيانات</p>
-                <input type="password" id="owner-password" placeholder="أدخل الرمز (2026)" class="input-glass bank-input !py-4 !text-center mb-6 text-xl tracking-[0.5em] rounded-xl">
-                <button id="btn-owner-login" onclick="checkOwnerPassword()" class="btn-gold bank-btn w-full !py-3 !rounded-xl font-bold text-lg">مصادقة آمنة <i class="fa-solid fa-fingerprint mr-2"></i></button>
-                <p id="owner-error" class="text-red-500 text-xs mt-4 hidden font-bold"></p>
-                <button onclick="switchView('home')" class="text-[#00ffcc] text-sm mt-6 hover:underline"><i class="fa-solid fa-arrow-right mr-1"></i> عودة للرئيسية</button>
+        <section id="view-expat" class="app-view px-4 max-w-4xl mx-auto">
+            <div id="owner-login-section" class="bank-panel p-8 text-center rounded-2xl">
+                <h3 class="text-xl font-black bank-title mb-6">الخزنة الرقمية للأملاك</h3>
+                <input type="password" id="owner-password" placeholder="أدخل الرمز (2026)" class="input-glass bank-input text-center mb-6">
+                <button onclick="checkOwnerPassword()" class="btn-gold bank-btn w-full">مصادقة آمنة</button>
+                <p id="owner-error" class="text-red-500 text-xs mt-4 hidden"></p>
             </div>
             
-            <div id="secret-portal" class="hidden max-w-4xl mx-auto mt-10 space-y-10">
-                <div class="bank-panel p-8 rounded-2xl border border-[#00ffcc]/30 reveal-on-scroll">
-                    <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-binoculars"></i> نظام تتبع حالة العقارات</h3>
+            <div id="secret-portal" class="hidden space-y-6 mt-10">
+                <div class="bank-panel p-6 rounded-xl">
+                    <h4 class="text-[#00ffcc] font-bold mb-4">نظام تتبع حالة العقارات</h4>
                     <div class="holo-table-wrapper">
                         <table class="holo-table">
-                            <thead>
-                                <tr>
-                                    <th>نوع العقار المدار</th>
-                                    <th>الحالة الحالية</th>
-                                    <th>آخر فحص ميداني</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>العقار</th><th>الحالة</th><th>آخر فحص</th></tr></thead>
                             <tbody>
-                                <tr><td>عمارة تجارية - بئر فضل</td><td><span class="text-green-400 font-bold">مؤجر (ملتزم)</span></td><td>10 أبريل 2026</td></tr>
-                                <tr><td>شقة سكنية - المنصورة</td><td><span class="text-yellow-400 font-bold">تحت الصيانة</span></td><td>12 أبريل 2026</td></tr>
-                                <tr><td>أرض مسورة - الممدارة</td><td><span class="text-blue-400 font-bold">شاغر (مراقب)</span></td><td>05 أبريل 2026</td></tr>
+                                <tr><td>عمارة بئر فضل</td><td>مؤجر</td><td>10 أبريل 2026</td></tr>
+                                <tr><td>شقة المنصورة</td><td>صيانة</td><td>12 أبريل 2026</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <div class="bank-panel p-8 rounded-2xl border-r-8 border-green-500 reveal-on-scroll">
-                    <h3 class="text-xl font-black text-green-400 mb-4 flex items-center gap-3"><i class="fa-solid fa-money-bill-transfer"></i> سجل التحصيلات والتنبيهات</h3>
-                    <div class="space-y-4 text-white text-md">
-                        <p class="flex justify-between border-b border-white/5 pb-2"><span>إجمالي التحصيلات (الدورة الحالية):</span> <span class="text-green-400 font-black">2,500$</span></p>
-                        <p class="flex justify-between border-b border-white/5 pb-2"><span>حالة التحويل للمالك:</span> <span class="text-[#00ffcc]">تم التحويل بتاريخ 5 أبريل</span></p>
-                        <p class="p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm font-bold italic">⚠️ تنبيه: عقد شقة المنصورة ينتهي بعد 45 يوماً (يُرجى اتخاذ قرار التجديد).</p>
-                    </div>
-                </div>
-
-                <div class="bank-panel p-8 rounded-2xl reveal-on-scroll">
-                    <h3 class="text-xl font-black text-[#00ffcc] mb-6 flex items-center gap-3"><i class="fa-solid fa-hammer"></i> طلب صيانة أو استفسار عاجل</h3>
-                    <div class="space-y-4">
-                        <input type="text" id="maint-subject" placeholder="عنوان الطلب (مثال: عطل سباكة عمارة بئر فضل)" class="input-glass bank-input">
-                        <textarea id="maint-details" placeholder="اشرح العطل أو استفسارك هنا..." class="input-glass bank-input h-32"></textarea>
-                        <button onclick="sendMaintenanceRequest()" class="btn-gold bank-btn w-full !py-4 font-black">إرسال الطلب للمكتب فوراً <i class="fa-brands fa-whatsapp ml-2"></i></button>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 border-l-8 border-[var(--gold)] reveal-on-scroll">
-                    <h3 class="text-xl font-black text-[var(--gold)] mb-6 flex items-center gap-3"><i class="fa-solid fa-scale-balanced"></i> ركن البيانات القانونية (عدن)</h3>
-                    <ul class="holo-list space-y-4 text-gray-300 text-sm leading-relaxed">
-                        <li><strong>وحدة الجوار المعتمدة:</strong> تم استخلاص بيانات ملاك وحدة 77A ومطابقتها رسمياً.</li>
-                        <li><strong>السجل العيني:</strong> العقارات مسجلة وفق مقتضيات القانون رقم 39 لعام 1991 لضمان الملكية المطلقة.</li>
-                        <li><strong>الهوية المعمارية:</strong> يلتزم المكتب بالنماذج المعمارية (A و CT) في كافة أعمال الإنشاء والترميم لضمان التجانس الحضري.</li>
-                        <li><strong>حقوق المالك:</strong> نضمن لك تحصيل الإيجارات بالعملة المتفق عليها (الدولار/السعودي) لحماية مدخراتك من التضخم.</li>
-                    </ul>
-                </div>
-
-                <div class="text-center pt-10 reveal-on-scroll">
-                    <button onclick="switchView('home')" class="btn-glass !px-10 !py-4 !rounded-2xl text-lg font-black hover:text-[#00ffcc] hover:border-[#00ffcc] transition-all">
-                        <i class="fa-solid fa-house-chimney mr-2"></i> عودة للواجهة الرئيسية
-                    </button>
-                </div>
             </div>
         </section>
 
-        <section id="view-sales" class="app-view px-4 max-w-3xl mx-auto pb-10">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-file-shield text-[var(--gold)] mr-2"></i> منصة الصفقات والتوثيق</h2>
-            </div>
-            <div class="glass-panel p-8 relative overflow-hidden reveal-on-scroll">
-                
-                <div class="flex justify-between items-center mb-8 relative px-4">
-                    <div class="absolute top-1/2 left-4 right-4 h-1 bg-white/10 -z-10 rounded"></div>
-                    <div id="form-progress-bar" class="absolute top-1/2 right-4 h-1 bg-[var(--gold)] -z-10 rounded transition-all duration-500 w-[5%]"></div>
-                    
-                    <div class="flex flex-col items-center gap-2">
-                        <div id="step-1-icon" class="w-8 h-8 rounded-full bg-[var(--gold)] text-black flex items-center justify-center font-bold shadow-[0_0_10px_var(--gold)] transition-all duration-300"><i class="fa-solid fa-user"></i></div>
-                        <span class="text-[10px] text-[var(--gold)] font-bold">البيانات</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <div id="step-2-icon" class="w-8 h-8 rounded-full bg-black border border-white/20 text-gray-400 flex items-center justify-center font-bold transition-all duration-300"><i class="fa-solid fa-list-check"></i></div>
-                        <span id="step-2-text" class="text-[10px] text-gray-400 font-bold transition-all duration-300">التفاصيل الفنية</span>
-                    </div>
-                </div>
-
-                <div id="form-step-1">
-                    <div class="grid grid-cols-1 gap-4 mb-6">
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">الاسم الكريم <span class="text-red-500">*</span></label>
-                            <input type="text" id="req-name" placeholder="الاسم ثلاثي" class="input-glass" oninput="this.classList.remove('input-error')">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">رقم التواصل (واتساب) <span class="text-red-500">*</span></label>
-                            <input type="tel" id="req-phone" placeholder="مثال: 77XXXXXXX" class="input-glass" oninput="this.classList.remove('input-error')">
-                        </div>
-                    </div>
-                    <button onclick="nextFormStep()" class="btn-gold w-full !py-3 text-sm">التالي للاستكمال <i class="fa-solid fa-arrow-left ml-2"></i></button>
-                    <p id="form-error" class="text-red-500 text-xs mt-3 hidden font-bold text-center"></p>
-                </div>
-
-                <div id="form-step-2" class="hidden">
-                    <div class="mb-4">
-                        <label class="block text-[11px] mb-2 text-gray-300 font-bold">طبيعة الإجراء <span class="text-red-500">*</span></label>
-                        <div class="radio-group md:grid-cols-3">
-                            <div><input type="radio" name="rtype" id="rt1" value="بيع" class="radio-input" checked><label for="rt1" class="radio-label">عرض للبيع</label></div>
-                            <div><input type="radio" name="rtype" id="rt2" value="شراء" class="radio-input"><label for="rt2" class="radio-label">طلب شراء</label></div>
-                            <div><input type="radio" name="rtype" id="rt3" value="توثيق" class="radio-input"><label for="rt3" class="radio-label">توثيق قانوني</label></div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">المنطقة</label>
-                            <select id="req-area" class="input-glass w-full">
-                                <option value="غير محدد">اختر المنطقة...</option>
-                                <option value="بئر فضل">بئر فضل</option>
-                                <option value="المنصورة">المنصورة</option>
-                                <option value="الممدارة">الممدارة</option>
-                                <option value="مدينة الشعب">مدينة الشعب</option>
-                                <option value="كريتر">كريتر</option>
-                                <option value="أخرى">أخرى</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">الميزانية المتوقعة (اختياري)</label>
-                            <input type="number" id="req-budget" placeholder="أدخل المبلغ..." class="input-glass">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">نوع العقار</label>
-                            <select id="req-prop-type" class="input-glass w-full">
-                                <option value="غير محدد">اختر النوع...</option>
-                                <option value="شقة">شقة</option>
-                                <option value="فيلا">فيلا</option>
-                                <option value="عمارة">عمارة تجارية</option>
-                                <option value="أرض">أرض بيضاء</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">المساحة (متر مربع / ياردة)</label>
-                            <input type="text" id="req-size" placeholder="مثال: 15x15 او 400 متر" class="input-glass">
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">تحديد الموقع الدقيق (GPS) - اختياري</label>
-                        <button type="button" onclick="togglePickerMap()" class="btn-glass w-full !py-2 text-xs mb-2 border-[var(--gold)]/50 hover:bg-[var(--gold)]/10"><i class="fa-solid fa-location-crosshairs mr-2 text-[var(--gold)]"></i> افتح الخريطة لتحديد مكان العقار</button>
-                        <div id="pickerMapContainer" class="hidden h-48 w-full rounded-xl border border-[var(--gold)]/50 overflow-hidden relative">
-                            <div id="pickerMap" class="w-full h-full z-10"></div>
-                            <input type="hidden" id="req-coords" value="">
-                            <div class="absolute bottom-2 right-2 left-2 z-[400] bg-black/90 border border-[var(--gold)] px-2 py-1.5 rounded-lg text-[10px] text-[var(--gold)] text-center pointer-events-none font-bold">حرك الخريطة واضغط لتحديد موقع العقار بالضبط</div>
-                        </div>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">التفاصيل الفنية (ملاحظات)</label>
-                        <textarea id="req-desc" placeholder="اكتب أي تفاصيل إضافية بدقة..." class="input-glass h-20 resize-none"></textarea>
-                        <input type="text" id="req-bot" class="hidden" tabindex="-1" autocomplete="off">
-                    </div>
-                    <div class="flex gap-3">
-                        <button onclick="prevFormStep()" class="btn-glass w-1/3 !py-3 text-sm">رجوع</button>
-                        <button id="btn-submit-sales" onclick="submitSecureWhatsapp()" class="btn-gold w-2/3 !py-3 text-sm">إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2 text-lg"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="view-legal" class="app-view px-4 max-w-5xl mx-auto pb-10">
-            <div class="text-center mb-8 mt-10">
-                <h2 class="text-2xl font-black text-white"><i class="fa-solid fa-scale-balanced text-[var(--gold)] mr-2"></i> المستشار القانوني وحماية الأملاك</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 tilt-effect">
-                <div class="glass-card tilt-element p-6 text-center flex flex-col justify-center items-center reveal-on-scroll">
-                    <i class="fa-solid fa-file-contract text-3xl text-[var(--gold)] mb-3"></i>
-                    <h3 class="font-bold text-lg text-white mb-2">عقود التفويض</h3>
-                    <p class="text-xs text-gray-400 mb-4">إصدار عقد تفويض إداري فوري للطباعة</p>
-                    <button onclick="openModal('contract-generator-modal')" class="btn-glass !py-2 w-full text-xs">إصدار عقد آلي</button>
-                </div>
-                
-                <div class="glass-card tilt-element p-6 text-center flex flex-col justify-center items-center md:col-span-2 reveal-on-scroll">
-                    <i class="fa-solid fa-book-open-reader text-3xl text-[var(--gold)] mb-3"></i>
-                    <h3 class="font-bold text-lg text-white mb-2">مكتبة النماذج القانونية (عدن)</h3>
-                    <div class="grid grid-cols-2 gap-3 w-full mt-2">
-                        <button onclick="requestTemplate('عقد إيجار سكني')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> عقد إيجار سكني</button>
-                        <button onclick="requestTemplate('عقد بيع قطعي')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> عقد بيع قطعي</button>
-                        <button onclick="requestTemplate('مخالصة مالية')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> مخالصة إيجار</button>
-                        <button onclick="requestTemplate('إقرار استلام')" class="btn-glass !py-2 text-[10px] w-full"><i class="fa-solid fa-download mr-1"></i> إقرار استلام</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 tilt-effect">
-                <div class="glass-panel tilt-element p-6 reveal-on-scroll">
-                    <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-gavel mr-2"></i> طلب استشارة قانونية مخصصة</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">نوع الاستشارة</label>
-                            <select id="legal-type" class="input-glass w-full">
-                                <option value="توثيق عقود وبصائر">توثيق عقود وبصائر</option>
-                                <option value="نزاع عقاري / تعدي">نزاع عقاري / تعدي</option>
-                                <option value="قسمة تركة / ورث">قسمة تركة / ورث</option>
-                                <option value="استشارة قانونية عامة">استشارة قانونية عامة</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">تفاصيل الموضوع</label>
-                            <textarea id="legal-details" placeholder="اشرح مشكلتك أو استفسارك بوضوح والبيانات بتكون بسرية تامة..." class="input-glass h-32 resize-none"></textarea>
-                        </div>
-                        <button id="btn-submit-legal" onclick="sendLegalConsultation()" class="btn-gold w-full !py-3 text-sm">إرسال للمستشار <i class="fa-brands fa-whatsapp mr-2"></i></button>
-                    </div>
-                </div>
-
-                <div class="glass-panel tilt-element p-6 reveal-on-scroll">
-                    <h3 class="text-lg font-black text-[var(--gold)] mb-4 border-b border-[var(--gold)]/30 pb-2"><i class="fa-solid fa-circle-question mr-2"></i> أسئلة قانونية شائعة</h3>
-                    <div class="space-y-2">
-                        <details>
-                            <summary>ضاعت بصيرة الأرض وش الإجراء؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
-                            <div class="details-content">لازم تسوي إعلان بجريدة رسمية وتنتظر المدة القانونية وبعدها ترفع طلب بدل فاقد للسجل العقاري والمحكمة مع إحضار شهود ووثائق تثبت الملكية.</div>
-                        </details>
-                        <details>
-                            <summary>هل عقود الإيجار بالدولار قانونية؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
-                            <div class="details-content">القانون اليمني يعتمد الريال كعملة رسمية لكن بالعرف التجاري الحالي ولحفظ الحقوق من التضخم يتم الاتفاق بالدولار أو السعودي ويُكتب ما يعادله بالريال يوم السداد.</div>
-                        </details>
-                        <details>
-                            <summary>كيف أتأكد أن الأرض ما عليها مشاكل أو ازدواجية؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
-                            <div class="details-content">من خلال مطابقة الإسقاط الجغرافي (GPS) مع مخططات وحدة الجوار بالهيئة العامة للأراضي والتأكد من السجل العقاري والمحكمة المختصة.</div>
-                        </details>
-                        <details>
-                            <summary>هل يقدر المستأجر يرفض الخروج بعد انتهاء العقد؟ <i class="fa-solid fa-chevron-down text-xs"></i></summary>
-                            <div class="details-content">إذا تم إشعاره قانونياً قبل انتهاء العقد بفترة كافية (حسب العقد) فلا يحق له البقاء وفي حال الرفض يُرفع أمر إخلاء مستعجل للمحكمة.</div>
-                        </details>
-                    </div>
+        <section id="view-sales" class="app-view px-4 max-w-2xl mx-auto">
+            <div class="glass-panel p-8">
+                <h3 class="text-xl font-black text-white mb-6">تقديم طلب جديد</h3>
+                <div class="space-y-4">
+                    <input type="text" id="req-name" placeholder="الاسم الكريم" class="input-glass">
+                    <input type="tel" id="req-phone" placeholder="رقم الواتساب" class="input-glass">
+                    <textarea id="req-desc" placeholder="تفاصيل الطلب (بيع، شراء، استفسار...)" class="input-glass h-32"></textarea>
+                    <button onclick="submitSecureWhatsapp()" class="btn-gold w-full">إرسال الطلب عبر واتساب</button>
                 </div>
             </div>
         </section>
 
         <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-10">
-            <div class="text-center mb-8 mt-10">
-                <h2 class="text-3xl font-black text-white mb-2">التخطيط الحضري ووحدات الجوار</h2>
-                <div class="h-1 w-16 bg-[var(--gold)] mx-auto rounded-full"></div>
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-black text-white">خارطة التخطيط الحضري - عدن</h2>
             </div>
-
-            <div class="glass-panel tilt-element p-6 mb-10 border-[#00ffcc]/30 mt-6 reveal-on-scroll">
-                <h3 class="text-lg font-black text-[#00ffcc] mb-4 flex items-center gap-2"><i class="fa-solid fa-satellite"></i> خريطة الأقمار الصناعية (مخططات عدن)</h3>
-                <p class="text-xs text-gray-300 mb-4">استكشف الأراضي ووحدات الجوار على أرض الواقع من خلال عرض الأقمار الصناعية التفاعلي.</p>
-                <div id="urbanSatelliteMap" class="h-96 w-full rounded-xl border border-[#00ffcc]/50 z-0"></div>
-            </div>
-
+            <div id="urbanSatelliteMap" class="h-96 w-full rounded-xl border border-[#00ffcc]/30 mb-8"></div>
             <div class="holo-container space-y-4">
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">1. الإطار الإداري والديموغرافي <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
-                        <p class="text-xs text-gray-300 mb-3">توزيع المديريات حسب المساحة والكثافة السكانية في العاصمة عدن:</p>
-                        <div class="holo-table-wrapper">
-                            <table class="holo-table">
-                                <thead>
-                                    <tr>
-                                        <th>المديرية</th>
-                                        <th>المساحة (كم²)</th>
-                                        <th>إجمالي السكان</th>
-                                        <th>ملاحظات</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>البريقة</td><td>486</td><td>152,824</td><td>أكبر مديرية (60%)</td></tr>
-                                    <tr><td>المنصورة</td><td>88</td><td>214,710</td><td>أراض منبسطة</td></tr>
-                                    <tr><td>الشيخ عثمان</td><td>42</td><td>218,269</td><td>مركز كثيف</td></tr>
-                                    <tr><td>دار سعد</td><td>37</td><td>194,871</td><td>محور توسع (بئر فضل)</td></tr>
-                                    <tr><td>خور مكسر</td><td>61</td><td>96,743</td><td>حلقة وصل</td></tr>
-                                    <tr><td>صيرة (كريتر)</td><td>13</td><td>156,899</td><td>مركز تاريخي</td></tr>
-                                    <tr><td>التواهي</td><td>10</td><td>110,816</td><td>شبه جزيرة</td></tr>
-                                    <tr><td>المعلا</td><td>4</td><td>103,096</td><td>شريط ساحلي</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <details class="glass-panel p-4">
+                    <summary class="font-bold text-[#00ffcc]">توزيع مديريات العاصمة عدن</summary>
+                    <div class="p-4 text-sm text-gray-300">البريقة (486 كم²)، المنصورة (88 كم²)، الشيخ عثمان (42 كم²).</div>
                 </details>
-
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">2. فلسفة نظام وحدات الجوار <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
-                        <ul class="holo-list text-gray-300">
-                            <li>أصغر وحدة تخطيطية متكاملة (شوارع، مدارس، مساجد).</li>
-                            <li>ترقيم رقمي لتسهيل الأرشفة العقارية.</li>
-                            <li>توسع كبير بعد 1990 في بئر فضل والممدارة.</li>
-                            <li>يعتمد نماذج معمارية محددة: (A و B) للشقق، و (AD و CT) للفلل.</li>
-                        </ul>
-                    </div>
-                </details>
-
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">3. المخططات التفصيلية حسب المديريات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20 space-y-4">
-                        
-                        <div>
-                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">بئر فضل (دار سعد)</h3>
-                            <div class="holo-table-wrapper mt-0">
-                                <table class="holo-table">
-                                    <thead><tr><th>الوحدة</th><th>الملاحظات</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>537</td><td>بلوك 10، قطع 15×15</td></tr>
-                                        <tr><td>523</td><td>بلوك 8 (الجيش)، 15×30</td></tr>
-                                        <tr><td>525/547</td><td>بلوك 3 سكن مدني (12×15)</td></tr>
-                                        <tr><td>526</td><td>خلف الدفاع الجوي (جيش)</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">الممدارة (الشيخ عثمان)</h3>
-                            <div class="holo-table-wrapper mt-0">
-                                <table class="holo-table">
-                                    <thead><tr><th>الوحدة</th><th>الملاحظات</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>699</td><td>خلف محطة بن لعماء</td></tr>
-                                        <tr><td>691</td><td>مخطط الشرطة</td></tr>
-                                        <tr><td>61D2</td><td>خلف الصالة الرياضية</td></tr>
-                                        <tr><td>518</td><td>القاهرة الجديدة</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">المنصورة وخور مكسر</h3>
-                            <div class="holo-table-wrapper mt-0">
-                                <table class="holo-table">
-                                    <thead><tr><th>المنطقة</th><th>الملاحظات</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>مدينة إنماء</td><td>كابوتا (نموذج حديث)</td></tr>
-                                        <tr><td>الدرين (6102)</td><td>طابع صناعي وتجاري</td></tr>
-                                        <tr><td>العريش (614)</td><td>بلوك 4 المجموعة 4</td></tr>
-                                        <tr><td>ساحل أبين</td><td>استثمار فاخر مطل عالبحر</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-[#00ffcc] font-bold text-sm mb-2 border-r-2 border-[#00ffcc] pr-2">البريقة</h3>
-                            <div class="holo-table-wrapper mt-0">
-                                <table class="holo-table">
-                                    <thead><tr><th>المنطقة</th><th>الملاحظات</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>مدينة الشعب (576)</td><td>قرب المجمع الجامعي</td></tr>
-                                        <tr><td>بئر أحمد (58-B2)</td><td>مخطط شباب بئر أحمد</td></tr>
-                                        <tr><td>إنماء (أبو حربة/الحسوة)</td><td>فلل ومجمعات سكنية مغلقة</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">4. التحديات العقارية في عدن <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
-                        <ul class="holo-list holo-warning-list text-gray-300">
-                            <li><strong>دولرة السوق:</strong> تسعير الإيجارات بالعملات الأجنبية كتحوط.</li>
-                            <li><strong>البسط العشوائي:</strong> تعدي على الأراضي وعسكرة بعض العقارات.</li>
-                            <li><strong>العوائق الطوبوغرافية:</strong> انحصار المدينة بين الجبال والبحر.</li>
-                            <li><strong>ازدواجية الوثائق:</strong> غياب الأرشفة الرقمية الدقيقة.</li>
-                        </ul>
-                    </div>
-                </details>
-
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">5. السوق العقاري والإيجارات (2026) <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
-                        <div class="holo-table-wrapper mt-0">
-                            <table class="holo-table">
-                                <thead>
-                                    <tr>
-                                        <th>المنطقة</th>
-                                        <th>العقار</th>
-                                        <th>السعر المعروض</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>الممدارة</td><td>شقق 4 غرف</td><td>785 دولار/شهرياً</td></tr>
-                                    <tr><td>إنماء</td><td>دور أرضي</td><td>500-700 سعودي/شهرياً</td></tr>
-                                    <tr><td>المنصورة</td><td>شقتين</td><td>1,300 سعودي/شهرياً</td></tr>
-                                    <tr><td>الشيخ عثمان</td><td>شقق شعبي</td><td>125 ألف يمني/شهرياً</td></tr>
-                                    <tr><td>بئر فضل</td><td>عمارة بيع</td><td>2.5 مليون سعودي</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="holo-details reveal-on-scroll tilt-element">
-                    <summary class="holo-summary">6. الحلول والتوصيات <i class="fa-solid fa-chevron-down text-sm"></i></summary>
-                    <div class="holo-details-content bg-black/40 border-t border-[#00ffcc]/20">
-                        <ul class="holo-list text-gray-300">
-                            <li>توجيه التوسع في البريقة ودار سعد.</li>
-                            <li>تعميم نموذج "مدينة إنماء" والمجمعات المغلقة.</li>
-                            <li>دعم "وحدة حماية الأراضي" لمنع البسط العشوائي.</li>
-                            <li>تحديث السجل العقاري وربطه بتقنية الـ GIS.</li>
-                        </ul>
-                    </div>
-                </details>
-
             </div>
-            
-            <div class="glass-panel tilt-element p-6 mb-10 border-green-500/30 mt-6 reveal-on-scroll">
-                <h3 class="text-lg font-black text-green-400 mb-4 flex items-center gap-2"><i class="fa-solid fa-money-bill-trend-up"></i> الأسعار المباشرة</h3>
-                <div class="table-wrapper">
-                    <table class="modern-table !min-w-full text-xs">
-                        <thead>
-                            <tr class="bg-green-500/10">
-                                <th>المنطقة</th>
-                                <th>العقار</th>
-                                <th>السعر</th>
-                            </tr>
-                        </thead>
-                        <tbody id="market-data-body">
-                            </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-        
-        <section id="view-guide" class="app-view px-4 max-w-6xl mx-auto pb-20">
-            <div class="h-80 w-full rounded-2xl border border-white/10 overflow-hidden relative z-0 mt-10 tilt-element" id="adenMap"></div>
         </section>
 
     </main>
 
     <footer class="global-holo-footer no-print">
         <div class="holo-social-row">
-            <a href="https://x.com/aleimad7aden" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-            <a href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-            <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener noreferrer" class="holo-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" class="holo-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="holo-social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="holo-social-btn"><i class="fa-brands fa-instagram"></i></a>
         </div>
-        <span class="holo-footer-copy">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span>
+        <p class="text-[10px] text-gray-500 font-bold">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</p>
     </footer>
 
     <div class="speed-dial-container no-print" id="speed-dial">
-        <button class="sd-btn main-sd-btn" onclick="toggleSpeedDial()" aria-label="تواصل معنا">
-            <i class="fa-solid fa-headset"></i>
-        </button>
+        <button class="main-sd-btn" onclick="toggleSpeedDial()"><i class="fa-solid fa-headset"></i></button>
         <div class="sd-menu">
-            <a href="https://wa.me/967773571889" target="_blank" class="sd-item sd-whatsapp" aria-label="واتساب">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="tel:+967773571889" class="sd-item sd-phone" aria-label="اتصال هاتفي">
-                <i class="fa-solid fa-phone"></i>
-            </a>
-            <button onclick="shareNativeWebsite(); toggleSpeedDial();" class="sd-item sd-share" aria-label="مشاركة الموقع">
-                <i class="fa-solid fa-share-nodes"></i>
-            </button>
-        </div>
-    </div>
-    <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="العودة للأعلى">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <div id="contract-generator-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('contract-generator-modal')">
-        <div class="modal-box">
-            <button onclick="closeModal('contract-generator-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black text-white mb-2 text-center">إصدار عقد تفويض آلي</h2>
-            <input type="text" id="contract-owner-name" placeholder="اسم المالك الرباعي" class="input-glass mb-4 !py-2.5">
-            <button onclick="generatePrintableContract()" class="btn-gold w-full !py-3 text-sm">توليد وطباعة العقد <i class="fa-solid fa-print mr-2"></i></button>
+            <a href="https://wa.me/967773571889" target="_blank" class="sd-item"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+967773571889" class="sd-item"><i class="fa-solid fa-phone"></i></a>
         </div>
     </div>
 
-    <div id="roi-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('roi-modal')">
-        <div class="modal-box !max-w-[450px]">
-            <button onclick="closeModal('roi-modal')" class="absolute top-4 left-4 text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black mb-4 text-white">حاسبة العوائد</h2>
-            <input type="number" id="roi-price" placeholder="قيمة العقار" class="input-glass mb-3">
-            <input type="number" id="roi-rent" placeholder="الإيجار الشهري" class="input-glass mb-4">
-            <button onclick="calculateROI()" class="btn-gold w-full">حساب</button>
-            <div id="roi-result" class="hidden mt-4 bg-black/40 p-4 rounded-xl">
-                <p id="roi-yearly" class="text-2xl font-black text-[var(--gold)]">0</p>
-            </div>
-        </div>
-    </div>
-    
-    <div id="expat-options-modal" class="modal-container no-print" onclick="if(event.target===this) closeModal('expat-options-modal')">
-        <div class="modal-box !max-w-[450px]">
-            <button onclick="closeModal('expat-options-modal')" class="absolute top-4 left-4 text-white hover:text-red-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-xl font-black mb-4 text-white text-center">تفاصيل الخدمة المطلوبة</h2>
-            <input type="hidden" id="expat-selected-service" value="">
-            
-            <div class="mb-4">
-                <label class="block text-[11px] mb-2 text-gray-300 font-bold">وش نوع العقار اللي تستفسر عنه؟</label>
-                <div class="radio-group md:grid-cols-2">
-                    <div><input type="radio" name="expat_prop" id="ep1" value="سكني" class="radio-input" checked><label for="ep1" class="radio-label">سكني (شقة/فيلا)</label></div>
-                    <div><input type="radio" name="expat_prop" id="ep2" value="تجاري" class="radio-input"><label for="ep2" class="radio-label">تجاري (عمارة/محل)</label></div>
-                    <div><input type="radio" name="expat_prop" id="ep3" value="أرض" class="radio-input"><label for="ep3" class="radio-label">أرض بيضاء</label></div>
-                    <div><input type="radio" name="expat_prop" id="ep4" value="غير محدد" class="radio-input"><label for="ep4" class="radio-label">غير محدد</label></div>
-                </div>
-            </div>
-            
-            <div class="mb-4">
-                <label class="block text-[11px] mb-1.5 text-gray-300 font-bold">اكتب استفسارك أو طلبك هنا</label>
-                <textarea id="expat-details" placeholder="مثال: عندي عمارة بالمنصورة وأبيكم تديرونها..." class="input-glass h-24 resize-none"></textarea>
-            </div>
-            
-            <button id="btn-submit-expat" onclick="sendExpatWhatsapp()" class="btn-gold w-full !py-3 text-sm">إرسال للواتساب <i class="fa-brands fa-whatsapp mr-2"></i></button>
-        </div>
-    </div>
-
-    <div id="chat-window" class="chat-panel no-print">
-        <div class="p-5 flex justify-between items-center border-b border-[var(--gold)] bg-black/80">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full border border-[var(--gold)] flex items-center justify-center bg-black">
-                    <i class="fa-solid fa-robot text-[var(--gold)] text-lg"></i>
-                </div>
-                <div>
-                    <h2 class="font-black text-sm text-white">المساعد الشخصي</h2>
-                    <div class="text-[9px] text-green-400 font-bold flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> متصل الآن</div>
-                </div>
-            </div>
-            <button onclick="toggleChat()" class="text-white hover:text-red-500 text-xl"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 text-sm bg-black/50">
-            <div class="p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/30 font-medium bg-black/60 text-white text-xs shadow-sm">مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك</div>
-        </div>
-        <div class="p-4 border-t border-[var(--gold)]/30 flex gap-2 bg-black/80 items-center">
-            <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." class="input-glass !mb-0 !py-3 !rounded-lg text-xs" onkeypress="if(event.key==='Enter')sendMessage()">
-            <button onclick="sendMessage()" class="w-10 h-10 shrink-0 bg-[var(--gold)] text-black rounded-lg flex items-center justify-center hover:scale-105"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <div id="toast-container" class="fixed top-20 left-1/2 transform -translate-x-1/2 z-[100000] flex flex-col gap-2 pointer-events-none no-print"></div>
+    <button id="scrollTopBtn" class="scroll-top-btn no-print" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js');
-            });
-        }
-
-        // ================== نظام الدرع الذكي (Offline Resilience) ==================
-        window.addEventListener('offline', () => {
-            showToast('أنت الآن في وضع التصفح المظلم (بدون إنترنت). سيتم حفظ أي طلب تقوم بكتابته 🛡️', 'warning');
-        });
-
-        window.addEventListener('online', () => {
-            showToast('عاد الاتصال بالإنترنت بنجاح 🌐', 'success');
-            checkPendingRequests();
-        });
-
-        function checkPendingRequests() {
-            const pendingUrl = localStorage.getItem('pendingWhatsAppRequest');
-            if (pendingUrl) {
-                const container = document.getElementById('toast-container');
-                const toast = document.createElement('div');
-                toast.className = `px-4 py-3 rounded-xl border backdrop-blur-md shadow-lg flex flex-col gap-2 transform transition-all duration-300 bg-green-500/20 border-green-500 text-green-400 pointer-events-auto`;
-                toast.innerHTML = `
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check"></i> <span class="text-sm font-bold text-white">الإنترنت متاح! لديك طلب محفوظ</span></div>
-                    <button onclick="sendPendingRequest(this)" class="bg-green-500 text-white px-3 py-1.5 rounded-lg text-xs font-black mt-1 hover:bg-green-600 transition-colors">إرسال الطلب الآن <i class="fa-brands fa-whatsapp ml-1"></i></button>
-                `;
-                container.appendChild(toast);
-                
-                requestAnimationFrame(() => {
-                    toast.classList.add('translate-y-0', 'opacity-100');
-                });
-            }
-        }
-
-        window.sendPendingRequest = function(btnElement) {
-            const pendingUrl = localStorage.getItem('pendingWhatsAppRequest');
-            if (pendingUrl) {
-                window.open(pendingUrl, '_blank');
-                localStorage.removeItem('pendingWhatsAppRequest');
-                if(btnElement) btnElement.parentElement.remove();
-                showToast('تم إرسال الطلب المحفوظ بنجاح!', 'success');
-            }
-        };
-
-        // دالة مساعدة لتشفير وحفظ الطلب في حال انقطاع النت
-        function handleSecureSubmission(btnElement, originalBtnHtml, finalUrl) {
-            if (!navigator.onLine) {
-                localStorage.setItem('pendingWhatsAppRequest', finalUrl);
-                btnElement.innerHTML = 'تم حفظ الطلب بالدرع (أوفلاين) 🛡️';
-                showToast('لا يوجد إنترنت! قمنا بحفظ طلبك سرياً وسنخبرك بإرساله فور عودة الاتصال.', 'warning');
-                setTimeout(() => { btnElement.innerHTML = originalBtnHtml; }, 3000);
-            } else {
-                btnElement.innerHTML = '<span class="loader-spinner mr-2"></span> جاري التشفير...';
-                setTimeout(() => {
-                    btnElement.innerHTML = originalBtnHtml;
-                    window.open(finalUrl, '_blank');
-                }, 1000);
-            }
-        }
-        // =========================================================================
-
-        function toggleSpeedDial() {
-            const container = document.getElementById('speed-dial');
-            container.classList.toggle('active');
-            const icon = container.querySelector('.main-sd-btn i');
-            
-            if (container.classList.contains('active')) {
-                icon.classList.remove('fa-headset');
-                icon.classList.add('fa-xmark');
-            } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-headset');
-            }
-        }
-
-        document.addEventListener('click', function(e) {
-            const sd = document.getElementById('speed-dial');
-            if (sd && sd.classList.contains('active') && !sd.contains(e.target)) {
-                sd.classList.remove('active');
-                const icon = sd.querySelector('.main-sd-btn i');
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-headset');
-            }
-        });
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const splash = document.getElementById('splash-screen');
-                if(splash) {
-                    splash.classList.add('hidden-splash');
-                    setTimeout(() => { splash.remove(); }, 800);
-                }
-            }, 2000); 
-            
-            // تفعيل التحقق من الطلبات المحفوظة عند فتح الموقع
-            if(navigator.onLine) checkPendingRequests();
-        });
-
-        // ================== تأثير الانحناء ثلاثي الأبعاد (3D Tilt) ==================
-        function initTiltEffect() {
-            const tiltElements = document.querySelectorAll('.tilt-element');
-            tiltElements.forEach(el => {
-                // يعمل بشكل رئيسي على شاشات الكمبيوتر
-                el.addEventListener('mousemove', e => {
-                    if (window.innerWidth < 768) return; // تعطيل التأثير في الجوال لعدم وجود ماوس
-                    const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    // حساب زاوية الانحناء (أقصى زاوية 10 درجات)
-                    const rotateX = ((y - centerY) / centerY) * -10; 
-                    const rotateY = ((x - centerX) / centerX) * 10;
-                    
-                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-                
-                el.addEventListener('mouseleave', () => {
-                    if (window.innerWidth < 768) return;
-                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                });
-            });
-        }
-        // ============================================================================
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const phrases = [
-                "الأكثر أماناً في عدن",
-                "لإدارة أملاك المغتربين",
-                "للاستشارات القانونية",
-                "للاستثمار الناجح"
-            ];
-            let currentPhraseIndex = 0;
-            let currentCharIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 100;
-
-            function typeWriter() {
-                const currentPhrase = phrases[currentPhraseIndex];
-                const textElement = document.getElementById('typewriter-text');
-                if(!textElement) return;
-
-                if (isDeleting) {
-                    textElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
-                    currentCharIndex--;
-                    typingSpeed = 50; 
-                } else {
-                    textElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
-                    currentCharIndex++;
-                    typingSpeed = 100; 
-                }
-
-                if (!isDeleting && currentCharIndex === currentPhrase.length) {
-                    isDeleting = true;
-                    typingSpeed = 2500; 
-                } else if (isDeleting && currentCharIndex === 0) {
-                    isDeleting = false;
-                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                    typingSpeed = 500; 
-                }
-                setTimeout(typeWriter, typingSpeed);
-            }
-            setTimeout(typeWriter, 2200);
-            
-            initTiltEffect(); // تهيئة تأثير الانحناء 3D
-        });
-
-        let deferredPrompt;
-        const installBtn = document.getElementById('installAppTab');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            if(installBtn) installBtn.style.display = 'flex';
-        });
-
-        function installPWA() {
-            if (!deferredPrompt) {
-                showToast('التطبيق مثبت مسبقاً أو المتصفح لا يدعم هذه الميزة', 'warning');
-                return;
-            }
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    showToast('بدأ التثبيت بنجاح!', 'success');
-                    installBtn.style.display = 'none';
-                }
-                deferredPrompt = null;
-            });
-        }
-
-        window.addEventListener('appinstalled', (evt) => {
-            showToast('تم تثبيت التطبيق بنجاح على جهازك!', 'success');
-            if(installBtn) installBtn.style.display = 'none';
-        });
-
-        window.scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    window.scrollObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-
-        function observeElements() {
-            const elements = document.querySelectorAll('.glass-panel, .glass-card, .bank-panel, .holo-details, .tilt-element');
-            elements.forEach(el => {
-                if(!el.classList.contains('reveal-on-scroll')) el.classList.add('reveal-on-scroll');
-                window.scrollObserver.observe(el);
-            });
-        }
-
-        let urbanMapInit = false;
-        let urbanMap = null;
-
-        function initUrbanMap() {
-            if (urbanMapInit) {
-                urbanMap.invalidateSize();
-                return;
-            }
-            urbanMapInit = true;
-
-            const officeCoords = [12.8683, 44.9765];
-            
-            urbanMap = L.map('urbanSatelliteMap', {
-                center: officeCoords,
-                zoom: 14,
-                scrollWheelZoom: false,
-                dragging: !L.Browser.mobile
-            });
-
-            const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20,
-                attribution: '© OpenStreetMap'
-            });
-
-            const satelliteLayer = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-                maxZoom: 20,
-                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-                attribution: '© Google Maps'
-            });
-
-            satelliteLayer.addTo(urbanMap);
-
-            const baseMaps = {
-                "الأقمار الصناعية": satelliteLayer,
-                "الخريطة الداكنة": darkLayer
-            };
-            
-            L.control.layers(baseMaps).addTo(urbanMap);
-
-            const officeIcon = L.divIcon({
-                className: 'custom-div-icon',
-                html: "<div style='background-color:#E5C07B; width:15px; height:15px; border-radius:50%; border:3px solid #000; box-shadow: 0 0 10px #E5C07B;'></div>",
-                iconSize: [15, 15],
-                iconAnchor: [7, 7]
-            });
-            
-            L.marker(officeCoords, {icon: officeIcon}).addTo(urbanMap).bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="http://googleusercontent.com/maps.google.com/9" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>').openPopup();
-        }
-
-        function switchView(viewId, pushState = true) {
+        // الوظائف البرمجية الأساسية
+        function switchView(id) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
-            
-            const targetView = document.getElementById('view-' + viewId);
-            if (targetView) {
-                targetView.classList.add('active');
-            } else {
-                document.getElementById('view-home').classList.add('active');
-                viewId = 'home';
-            }
-            
-            document.body.className = 'antialiased theme-' + viewId;
-            
-            if (pushState) {
-                window.history.pushState({ view: viewId }, '', '#' + viewId);
-            }
-            
-            setTimeout(() => {
-                if(targetView) targetView.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                observeElements();
-                initTiltEffect(); 
-                
-                if(viewId === 'urban') {
-                    if(typeof initUrbanMap === 'function') initUrbanMap();
-                }
-            }, 50);
-            
-            if (viewId !== 'expat') {
-                const passInput = document.getElementById('owner-password');
-                if(passInput) passInput.value = '';
-                const errText = document.getElementById('owner-error');
-                if(errText) errText.classList.add('hidden');
-                const portal = document.getElementById('secret-portal');
-                if(portal) portal.classList.add('hidden');
-                const loginSec = document.getElementById('owner-login-section');
-                if(loginSec) loginSec.classList.remove('hidden');
-            }
-        }
-
-        window.addEventListener('popstate', (e) => {
-            const hash = window.location.hash.substring(1) || 'home';
-            switchView(hash, false);
-        });
-
-        function formatNumber(num) {
-            return Number(num).toLocaleString('en-US');
-        }
-
-        async function loadMarketData() {
-            try {
-                const response = await fetch('data.json');
-                const data = await response.json();
-                const tbody = document.getElementById('market-data-body');
-                if(!tbody) return;
-                
-                tbody.innerHTML = ''; 
-                
-                data.forEach(item => {
-                    const priceFormatted = isNaN(item.price) ? item.price : formatNumber(item.price);
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${item.region}</td><td>${item.type}</td><td class="font-bold text-[var(--gold)]">${priceFormatted} ${item.currency}</td>`;
-                    tbody.appendChild(tr);
-                });
-            } catch (e) {
-                console.error('خطأ في جلب بيانات السوق:', e);
-            }
+            document.getElementById('view-' + id).classList.add('active');
+            document.body.className = 'antialiased theme-' + id;
+            if(id === 'urban') initUrbanMap();
         }
 
         function checkOwnerPassword() {
             const pass = document.getElementById('owner-password').value;
-            const err = document.getElementById('owner-error');
-
             if(pass === '2026') {
                 document.getElementById('owner-login-section').classList.add('hidden');
                 document.getElementById('secret-portal').classList.remove('hidden');
-                err.classList.add('hidden');
-                observeElements();
-                initTiltEffect();
             } else {
-                err.innerText = 'الرمز غير صحيح حاول مرة ثانية';
-                err.classList.remove('hidden');
+                document.getElementById('owner-error').classList.remove('hidden');
             }
         }
 
-        function sendMaintenanceRequest() {
-            const subject = document.getElementById('maint-subject').value.trim();
-            const details = document.getElementById('maint-details').value.trim();
-            if(!subject || !details) return;
-            const rawMessage = `*طلب صيانة عاجل (بوابة الملاك)*\n\n📌 الموضوع: ${subject}\n📝 التفاصيل:\n${details}`;
-            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(rawMessage)}`, '_blank');
-        }
-
-        const formFieldsIds = ['req-name', 'req-phone', 'req-desc'];
-        function saveFormData() {
-            const data = {};
-            formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
-            const selectedRadio = document.querySelector('input[name="rtype"]:checked');
-            if (selectedRadio) data['rtype'] = selectedRadio.value;
-            localStorage.setItem('salesFormDraft', JSON.stringify(data));
-        }
-
-        function loadFormData() {
-            const saved = localStorage.getItem('salesFormDraft');
-            if (saved) {
-                const data = JSON.parse(saved);
-                formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el && data[id]) el.value = data[id]; });
-                if (data['rtype']) {
-                    const radio = document.querySelector(`input[name="rtype"][value="${data['rtype']}"]`);
-                    if (radio) radio.checked = true;
-                }
-            }
-        }
-
-        formFieldsIds.forEach(id => { const el = document.getElementById(id); if (el) el.addEventListener('input', saveFormData); });
-        document.querySelectorAll('.radio-input').forEach(radio => radio.addEventListener('change', saveFormData));
-
-        window.addEventListener('scroll', () => {
-            const scrollBtn = document.getElementById('scrollTopBtn');
-            if(scrollBtn) {
-                if (window.scrollY > 300) scrollBtn.classList.add('show');
-                else scrollBtn.classList.remove('show');
-            }
-            const prog = document.getElementById('scroll-progress');
-            if(prog) {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                prog.style.width = (winScroll / height) * 100 + "%";
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFormData();       
-            loadMarketData(); 
-            window.history.replaceState({ view: 'home' }, '', '#home');
-            switchView('home', false);
-            observeElements();
-        });
-
-        function generatePrintableContract() {
-            const ownerName = document.getElementById('contract-owner-name').value;
-            if(!ownerName.trim()) { document.getElementById('contract-owner-name').classList.add('input-error'); return; }
-            document.getElementById('contract-owner-name').classList.remove('input-error');
-            document.getElementById('print-name').innerText = ownerName;
-            document.getElementById('print-date').innerText = new Date().toLocaleDateString('ar-EG');
-            closeModal('contract-generator-modal');
-            setTimeout(() => { window.print(); }, 300);
-        }
-
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-        function updateProgressUI(step) {
-            const bar = document.getElementById('form-progress-bar');
-            const icon2 = document.getElementById('step-2-icon');
-            const text2 = document.getElementById('step-2-text');
-            
-            if (step === 2) {
-                bar.style.width = '100%';
-                icon2.classList.replace('bg-black', 'bg-[var(--gold)]');
-                icon2.classList.replace('text-gray-400', 'text-black');
-                icon2.classList.add('shadow-[0_0_10px_var(--gold)]');
-                text2.classList.replace('text-gray-400', 'text-[var(--gold)]');
-            } else {
-                bar.style.width = '5%';
-                icon2.classList.replace('bg-[var(--gold)]', 'bg-black');
-                icon2.classList.replace('text-black', 'text-gray-400');
-                icon2.classList.remove('shadow-[0_0_10px_var(--gold)]');
-                text2.classList.replace('text-[var(--gold)]', 'text-gray-400');
-            }
-        }
-
-        function nextFormStep() {
-            const nameEl = document.getElementById('req-name');
-            const phoneEl = document.getElementById('req-phone');
-            const errEl = document.getElementById('form-error');
-            const name = nameEl.value.trim();
-            const phone = phoneEl.value.trim();
-            if (!name || !phone) { errEl.innerText = "عذراً، يجب تعبئة الاسم ورقم الواتساب أولاً."; errEl.classList.remove('hidden'); return; }
-            if (!/^[0-9+\s]+$/.test(phone)) { errEl.innerText = "عذراً، رقم الواتساب يجب أن يحتوي على أرقام فقط."; errEl.classList.remove('hidden'); return; }
-            errEl.classList.add('hidden'); 
-            
-            document.getElementById('form-step-1').classList.add('hidden');
-            document.getElementById('form-step-2').classList.remove('hidden');
-            
-            updateProgressUI(2);
-        }
-        
-        function prevFormStep() {
-            document.getElementById('form-step-2').classList.add('hidden');
-            document.getElementById('form-step-1').classList.remove('hidden');
-            updateProgressUI(1);
-        }
-
-        let pickerMapInit = false;
-        let reqMarker = null;
-        let reqMap = null;
-
-        function togglePickerMap() {
-            const container = document.getElementById('pickerMapContainer');
-            container.classList.toggle('hidden');
-            
-            if (!container.classList.contains('hidden')) {
-                if (!pickerMapInit) {
-                    pickerMapInit = true;
-                    reqMap = L.map('pickerMap', { scrollWheelZoom: false }).setView([12.8683, 44.9765], 13);
-                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                        attribution: '© OpenStreetMap'
-                    }).addTo(reqMap);
-
-                    reqMap.on('click', function(e) {
-                        const lat = e.latlng.lat.toFixed(6);
-                        const lng = e.latlng.lng.toFixed(6);
-                        document.getElementById('req-coords').value = `${lat},${lng}`;
-                        
-                        if (reqMarker) {
-                            reqMarker.setLatLng(e.latlng);
-                        } else {
-                            const icon = L.divIcon({
-                                className: 'custom-div-icon',
-                                html: "<div style='background-color:#ef4444; width:15px; height:15px; border-radius:50%; border:2px solid #FFF; box-shadow: 0 0 10px #ef4444;'></div>",
-                                iconSize: [15, 15],
-                                iconAnchor: [7, 7]
-                            });
-                            reqMarker = L.marker(e.latlng, {icon: icon}).addTo(reqMap);
-                        }
-                        showToast('تم التقاط الإحداثيات بنجاح!', 'success');
-                    });
-                }
-                setTimeout(() => { reqMap.invalidateSize(); }, 200);
-            }
+        function toggleSpeedDial() {
+            document.getElementById('speed-dial').classList.toggle('active');
         }
 
         function submitSecureWhatsapp() {
-            const btn = document.getElementById('btn-submit-sales');
-            const originalBtnHtml = 'إرسال للإدارة <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>';
-            const honeypot = document.getElementById('req-bot').value;
-            if (honeypot) return; 
-            
-            const name = document.getElementById('req-name').value.trim();
-            const phone = document.getElementById('req-phone').value.trim();
-            const type = document.querySelector('input[name="rtype"]:checked').value;
-            const area = document.getElementById('req-area').value;
-            const budget = document.getElementById('req-budget').value || 'غير محدد';
-            const propType = document.getElementById('req-prop-type').value;
-            const size = document.getElementById('req-size').value || 'غير محدد';
-            const desc = document.getElementById('req-desc').value.trim() || "بدون تفاصيل إضافية";
-            
-            const coords = document.getElementById('req-coords').value;
-            let mapLinkText = coords ? `\n📍 *رابط الموقع بدقة (GPS):* https://maps.google.com/?q=$0${coords}` : '';
-
-            const now = new Date();
-            const timestamp = now.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' });
-            
-            const rawMessage = `*طلب جديد من منصة مكتب عماد*\n\n👤 الاسم الكريم: ${name}\n📞 الجوال: ${phone}\n🏷️ نوع الإجراء: ${type}\n📍 المنطقة: ${area}\n💰 الميزانية/السعر: ${budget}\n🏠 نوع العقار: ${propType}\n📐 المساحة: ${size}${mapLinkText}\n📝 التفاصيل الفنية:\n${desc}\n\n⏱️ تاريخ الطلب: ${timestamp}`;
-            
-            const encodedMessage = encodeURIComponent(rawMessage);
-            const finalUrl = `https://wa.me/967773571889?text=${encodedMessage}`;
-            
-            localStorage.removeItem('salesFormDraft');
-            
-            // استخدام نظام الدرع الذكي (الأوفلاين)
-            handleSecureSubmission(btn, originalBtnHtml, finalUrl);
-        }
-
-        function shareNativeWebsite() {
-            if (navigator.share) {
-                navigator.share({ title: 'مكتب عماد عدن العقاري', text: 'اكتشف المرجع الأول لإدارة واستثمار العقارات في عدن بأمان وموثوقية عالية', url: window.location.href })
-                .then(() => showToast('تمت المشاركة بنجاح!', 'success'))
-                .catch(console.error);
-            } else { 
-                showToast('عذراً متصفحك لا يدعم ميزة المشاركة المباشرة انسخ الرابط يدوياً', 'warning'); 
-            }
-        }
-
-        function calculateROI() { 
-            const p = +document.getElementById('roi-price').value; 
-            const r = +document.getElementById('roi-rent').value; 
-            if(!p||!r) return; 
-            document.getElementById('roi-yearly').innerText = formatNumber(r*12) + " ر.س";
-            document.getElementById('roi-result').classList.remove('hidden');
-        }
-
-        const expatServicesMap = { 
-            1: 'شراء عقار عن بعد', 
-            2: 'إدارة أملاك', 
-            3: 'استشارات استثمارية' 
-        };
-        
-        window.submitExpatRequest = function(id) {
-            document.getElementById('expat-selected-service').value = expatServicesMap[id] || 'خدمات المغتربين';
-            openModal('expat-options-modal');
-        };
-        
-        window.sendExpatWhatsapp = function() {
-            const btn = document.getElementById('btn-submit-expat');
-            const originalBtnHtml = 'إرسال للواتساب <i class="fa-brands fa-whatsapp mr-2"></i>';
-            const service = document.getElementById('expat-selected-service').value;
-            const propType = document.querySelector('input[name="expat_prop"]:checked').value;
-            const details = document.getElementById('expat-details').value.trim() || 'لا توجد تفاصيل إضافية';
-            const msg = `*طلب من بوابة المغتربين*\n\n📌 نوع الخدمة المطلوبة: ${service}\n🏢 نوع العقار: ${propType}\n📝 التفاصيل:\n${details}`;
-            
-            closeModal('expat-options-modal');
-            const finalUrl = `https://wa.me/967773571889?text=${encodeURIComponent(msg)}`;
-            
-            // استخدام نظام الدرع الذكي (الأوفلاين)
-            handleSecureSubmission(btn, originalBtnHtml, finalUrl);
-        };
-
-        function requestTemplate(templateName) {
-            const msg = `*طلب نموذج قانوني*\n\nهلا مكتب عماد، أحتاج ترسلون لي نموذج: ${templateName} بصيغة PDF لو سمحتوا.`;
+            const name = document.getElementById('req-name').value;
+            const desc = document.getElementById('req-desc').value;
+            const msg = `*طلب جديد من الموقع*\nالاسم: ${name}\nالتفاصيل: ${desc}`;
             window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function sendLegalConsultation() {
-            const type = document.getElementById('legal-type').value;
-            const detailsEl = document.getElementById('legal-details');
-            const details = detailsEl.value.trim();
-            if(!details) {
-                detailsEl.classList.add('input-error');
-                setTimeout(() => detailsEl.classList.remove('input-error'), 2000);
-                return;
-            }
-            const btn = document.getElementById('btn-submit-legal');
-            const originalBtnHtml = 'إرسال للمستشار <i class="fa-brands fa-whatsapp mr-2"></i>';
-            const msg = `*طلب استشارة قانونية (سرية)*\n\n⚖️ نوع الاستشارة: ${type}\n📝 التفاصيل:\n${details}`;
-            const finalUrl = `https://wa.me/967773571889?text=${encodeURIComponent(msg)}`;
-            
-            // استخدام نظام الدرع الذكي (الأوفلاين)
-            handleSecureSubmission(btn, originalBtnHtml, finalUrl);
+        let urbanMap;
+        function initUrbanMap() {
+            if (urbanMap) return;
+            urbanMap = L.map('urbanSatelliteMap').setView([12.8683, 44.9765], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(urbanMap);
         }
 
-        let chatOpen = false;
-        function toggleChat() { 
-            chatOpen = !chatOpen; 
-            document.getElementById('chat-window').classList.toggle('active', chatOpen); 
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const box = document.getElementById('chat-messages');
-            const text = input.value.trim();
-            if(!text) return;
-            addMsg(text, true);
-            input.value = '';
-            const load = document.createElement('div');
-            load.className = 'text-[var(--gold)] text-[10px] font-bold py-1 flex items-center gap-2';
-            load.innerHTML = '<span class="loader-spinner" style="width:12px;height:12px;border-width:2px;"></span> يبحث في الداتا...';
-            box.appendChild(load);
-            box.scrollTop = box.scrollHeight;
-            setTimeout(() => {
-                load.remove();
-                let reply = "مرحبا بك في مكتب عماد عدن العقاري كيف اقدر اساعدك؟ حدد اسم المنطقة لأعطيك التفاصيل والأسعار.";
-                if (text.includes('بئر احمد') || text.includes('بير احمد')) reply = "في بئر أحمد، البيوت الشعبية الجاهزة بمساحة 12×15 تتراوح أسعارها حول 130 ألف ريال سعودي. ممتاز للتوسع بس لازم نفحص لك البصيرة.";
-                else if (text.includes('الشعب') || text.includes('القياديين')) reply = "مخطط القياديين (وحدة جوار 573) بمدينة الشعب آمن جداً. الأراضي مساحة 20×25 متوسط سعرها 220 ألف سعودي.";
-                else if (text.includes('درة عدن') || text.includes('انماء') || text.includes('فلل')) reply = "درة عدن فاخرة جداً. الفلل الكبيرة 364 متر اتجاه بحري وتشطيب سوبر (7 غرف) سعرها حول 450 ألف دولار.";
-                else if (text.includes('المنصورة')) reply = "المنصورة طلبها عالي! إيجارات الشقق العائلية (4-5 غرف) حول 800 ريال سعودي.";
-                else if (text.includes('دار سعد') || text.includes('بئر فضل')) reply = "بئر فضل فيها بلوكات مطلوبة زي بلوك 10 وبلوك 8 (الجيش)، المساحات المتوفرة 15×15 و 15×30.";
-                addMsg(reply, false);
-            }, 1000);
-        }
-        
-        function addMsg(t, u) {
-            const d = document.createElement('div');
-            d.className = u ? 'bg-[var(--gold)] text-black font-bold p-3 rounded-xl rounded-tl-none self-end max-w-[85%] shadow-sm text-xs' : 'p-3 rounded-xl rounded-tr-none border border-[var(--gold)]/50 self-start max-w-[85%] leading-relaxed font-medium bg-black/60 text-white shadow-sm text-xs';
-            d.innerHTML = t; 
-            document.getElementById('chat-messages').appendChild(d); 
-            document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-        }
-
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            
-            const bgColor = type === 'success' ? 'bg-green-500/20 border-green-500' : 'bg-[var(--gold)]/20 border-[var(--gold)]';
-            const textColor = type === 'success' ? 'text-green-400' : 'text-[var(--gold)]';
-            const icon = type === 'success' ? 'fa-check-circle' : 'fa-bell';
-            
-            toast.className = `px-4 py-2 rounded-xl border backdrop-blur-md shadow-lg flex items-center gap-2 transform transition-all duration-300 translate-y-[-20px] opacity-0 ${bgColor} ${textColor}`;
-            toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span class="text-sm font-bold">${message}</span>`;
-            
-            container.appendChild(toast);
-            
-            requestAnimationFrame(() => {
-                toast.classList.remove('translate-y-[-20px]', 'opacity-0');
-                toast.classList.add('translate-y-0', 'opacity-100');
-            });
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-[-20px]', 'opacity-0');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-
-        // تهيئة خريطة دليل الجوار الرئيسية لمنع الاحتجاز
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const mapContainer = document.getElementById('adenMap');
-                if (mapContainer && typeof L !== 'undefined') {
-                    const officeCoords = [12.8683, 44.9765];
-                    
-                    const map = L.map('adenMap', {
-                        center: officeCoords,
-                        zoom: 13,
-                        scrollWheelZoom: false,
-                        dragging: !L.Browser.mobile
-                    });
-                    
-                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                        attribution: '© OpenStreetMap',
-                        maxZoom: 18
-                    }).addTo(map);
-                    
-                    const officeIcon = L.divIcon({
-                        className: 'custom-div-icon',
-                        html: "<div style='background-color:#E5C07B; width:15px; height:15px; border-radius:50%; border:3px solid #000; box-shadow: 0 0 10px #E5C07B;'></div>",
-                        iconSize: [15, 15],
-                        iconAnchor: [7, 7]
-                    });
-                    
-                    L.marker(officeCoords, {icon: officeIcon}).addTo(map)
-                        .bindPopup('<div class="text-center"><b style="color:black; font-family:Tajawal; font-size:12px;">مكتب عماد عدن العقاري</b><br><span style="font-size:10px; color:#555;">الشيخ عثمان</span><br><a href="https://maps.google.com/?q=$1" target="_blank" style="color:#B8860B; font-weight:bold; font-size:10px; display:block; margin-top:5px; text-decoration:none;">📍 عرض في خرائط جوجل</a></div>')
-                        .openPopup();
-                }
-            }, 1000); 
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) btn.classList.add('show');
+            else btn.classList.remove('show');
         });
+
+        // تأثير الكتابة
+        const text = "الأكثر أماناً في عدن لإدارة أملاك المغتربين";
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.getElementById('typewriter-text').innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 100);
+            }
+        }
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('splash-screen').classList.add('hidden-splash');
+                type();
+            }, 2000);
+        };
     </script>
 </body>
 </html>
