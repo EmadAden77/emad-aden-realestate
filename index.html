@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -304,6 +305,23 @@
 </head>
 <body class="antialiased theme-home">
 
+    <!-- نافذة المساعد الشخصي العقاري -->
+    <div id="chatPanel" class="chat-panel p-4 no-print">
+        <div class="flex justify-between items-center border-b border-[var(--gold)] pb-3 mb-4">
+            <h3 class="text-lg font-black text-[var(--gold)]"><i class="fa-solid fa-robot mr-2"></i> المساعد العقاري الذكي</h3>
+            <button onclick="toggleChat()" class="text-white hover:text-red-500 transition-colors"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div id="chatBox" class="flex-1 overflow-y-auto space-y-3 mb-4 pr-2" style="font-size: 0.85rem;">
+            <div class="bg-[rgba(255,255,255,0.05)] p-3 rounded-lg border border-[var(--gold)] text-[#00ffcc]">
+                أهلاً بك في مكتب عماد العقاري. أنا المساعد الذكي المزود بأحدث بيانات السوق العقاري في العاصمة عدن. يمكنك سؤالي عن أسعار العقارات في (المنصورة، بئر فضل، إنماء، خورمكسر) أو استفسارات وحدات الجوار والمخططات.
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <input type="text" id="chatInput" placeholder="اسأل عن الأسعار، المناطق، المخططات..." class="input-glass flex-1" onkeypress="if(event.key === 'Enter') sendChatMessage()">
+            <button onclick="sendChatMessage()" class="btn-gold px-4"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <div id="splash-screen" class="no-print">
         <div class="w-24 h-24 border-2 border-[var(--gold)] rounded-2xl flex items-center justify-center bg-black mb-6 animate-pulse">
             <img src="IMG_5.jpg" alt="Logo" class="w-full h-full object-cover rounded-xl">
@@ -410,15 +428,102 @@
             </div>
         </section>
 
+        <section id="view-legal" class="app-view px-4 max-w-4xl mx-auto pb-10">
+            <div class="text-center mb-8">
+                <i class="fa-solid fa-scale-balanced text-4xl text-[var(--gold)] mb-4"></i>
+                <h2 class="text-2xl font-black text-white">المستشار القانوني العقاري</h2>
+                <p class="text-sm text-[var(--text-muted)] mt-2">مرجعك القانوني الموثوق لحماية استثماراتك في عدن</p>
+            </div>
+            <div class="space-y-4 mb-10">
+                <details class="glass-panel">
+                    <summary>ضاعت بصيرة الأرض، ما هو الإجراء القانوني؟ <i class="fa-solid fa-chevron-down text-[var(--gold)]"></i></summary>
+                    <div class="details-content">
+                        يجب عمل إعلان في جريدة رسمية والانتظار للمدة القانونية المحددة. بعدها يتم رفع طلب "بدل فاقد" للسجل العقاري والمحكمة المختصة، مع إحضار شهود ووثائق ثبوتية تؤكد الملكية لتجنب أي إشكالات مستقبلية.
+                    </div>
+                </details>
+                <details class="glass-panel">
+                    <summary>هل عقود الإيجار بالعملة الصعبة (الدولار/السعودي) قانونية؟ <i class="fa-solid fa-chevron-down text-[var(--gold)]"></i></summary>
+                    <div class="details-content">
+                        القانون اليمني يعتمد الريال كعملة رسمية للبلاد. ولكن بحكم العرف التجاري الحالي ولحفظ الحقوق من التضخم المالي، يتم الاتفاق بين الطرفين بالعملة الأجنبية، ويُكتب في العقد "ما يعادله بالريال اليمني يوم السداد" لضمان صحة العقد قانونياً.
+                    </div>
+                </details>
+                <details class="glass-panel">
+                    <summary>كيف أتأكد أن الأرض خالية من المشاكل والازدواجية؟ <i class="fa-solid fa-chevron-down text-[var(--gold)]"></i></summary>
+                    <div class="details-content">
+                        عبر مطابقة الإسقاط الجغرافي (GPS) للأرض مع مخططات وحدة الجوار الرسمية في الهيئة العامة للأراضي، ومراجعة السجل العقاري والمحكمة المختصة للتأكد من عدم وجود نزاعات أو قيد مدني عليها.
+                    </div>
+                </details>
+                <details class="glass-panel">
+                    <summary>ما العمل إذا رفض المستأجر الخروج بعد انتهاء العقد؟ <i class="fa-solid fa-chevron-down text-[var(--gold)]"></i></summary>
+                    <div class="details-content">
+                        إذا تم إشعاره قانونياً وخطياً قبل انتهاء العقد بالفترة المتفق عليها (عادة تكون من شهر إلى 3 أشهر)، فلا يحق له البقاء قانوناً. في حال الرفض والمماطلة، يتم رفع "أمر إخلاء مستعجل" عبر المحكمة ليتم التنفيذ بقوة القانون.
+                    </div>
+                </details>
+            </div>
+
+            <!-- قسم طلب الاستشارة القانونية المضاف حديثاً -->
+            <div class="glass-panel p-8">
+                <h3 class="text-xl font-black text-white mb-6">طلب استشارة قانونية مخصصة</h3>
+                <div class="space-y-4">
+                    <input type="text" id="legal-req-name" placeholder="الاسم الكريم" class="input-glass">
+                    <textarea id="legal-req-desc" placeholder="اكتب تفاصيل استشارتك القانونية بوضوح..." class="input-glass h-32"></textarea>
+                    <button onclick="submitLegalWhatsapp()" class="btn-gold w-full">إرسال الاستشارة عبر واتساب</button>
+                </div>
+            </div>
+        </section>
+
         <section id="view-urban" class="app-view px-4 max-w-6xl mx-auto pb-10">
             <div class="text-center mb-8">
                 <h2 class="text-2xl font-black text-white">خارطة التخطيط الحضري - عدن</h2>
             </div>
             <div id="urbanSatelliteMap" class="h-96 w-full rounded-xl border border-[#00ffcc]/30 mb-8"></div>
+            
             <div class="holo-container space-y-4">
                 <details class="glass-panel p-4">
-                    <summary class="font-bold text-[#00ffcc]">توزيع مديريات العاصمة عدن</summary>
-                    <div class="p-4 text-sm text-gray-300">البريقة (486 كم²)، المنصورة (88 كم²)، الشيخ عثمان (42 كم²).</div>
+                    <summary class="font-bold text-[#00ffcc]">مدينة المنصورة (القلب التجاري)</summary>
+                    <div class="p-4 text-sm text-gray-300">
+                        <strong>المساحة:</strong> 88 كم²<br>
+                        <strong>أهم وحدات الجوار والمخططات:</strong> بلوكات المنصورة (من 1 إلى 73)، ريمي، كابوتا، وديع حداد، الكثيري.<br>
+                        <strong>الأسعار التقريبية (أراضي):</strong> تتراوح بين 150,000 إلى 800,000 ريال سعودي وأكثر، حسب قوة الموقع التجاري وعلى الشوارع الرئيسية.<br>
+                        <strong>المميزات:</strong> كثافة سكانية عالية، مركز تجاري نشط جداً، وتوفر كافة الخدمات الأساسية والتجارية.
+                    </div>
+                </details>
+
+                <details class="glass-panel p-4">
+                    <summary class="font-bold text-[#00ffcc]">منطقة بئر فضل (مستقبل الاستثمار العقاري)</summary>
+                    <div class="p-4 text-sm text-gray-300">
+                        <strong>أهم المخططات:</strong> بلوكات بئر فضل الحديثة بمختلف مراحلها (مناطق أ، ب، ج) ووحدات الجوار المرقمة رسمياً.<br>
+                        <strong>الأسعار التقريبية (أراضي):</strong> تتراوح بين 30,000 إلى 150,000 ريال سعودي للقطعة السكنية، وترتفع للمواقع التجارية وشوارع الـ 50 والـ 30.<br>
+                        <strong>المميزات:</strong> تخطيط عمراني حديث ومستقيم، شوارع واسعة ومتقاطعة بدقة، شبكات خدمات قيد التوسع، وتعتبر الخيار الأول للمستثمرين لتأمين مستقبلهم ضمن وحدات جوار معتمدة من هيئة الأراضي.
+                    </div>
+                </details>
+
+                <details class="glass-panel p-4">
+                    <summary class="font-bold text-[#00ffcc]">مديرية البريقة ومدينة إنماء السكنية</summary>
+                    <div class="p-4 text-sm text-gray-300">
+                        <strong>المساحة:</strong> 486 كم² (المديرية الأكبر مساحة في عدن).<br>
+                        <strong>أهم وحدات الجوار والمناطق:</strong> مدينة إنماء السكنية (بجميع مراحلها من 1 إلى 11)، مدينة الحسوة، أبو حربة، وصلاح الدين.<br>
+                        <strong>الأسعار التقريبية:</strong> شقق إنماء تتراوح بين 120,000 إلى 250,000 ريال سعودي. أما الفلل فتبدأ من 350,000 ريال سعودي فما فوق، حسب مساحة الفلة ومرحلة البناء والتشطيب.<br>
+                        <strong>المميزات:</strong> هدوء نسبي، مشاريع سكنية جاهزة، استقرار أمني، وإطلالات بحرية في بعض المخططات.
+                    </div>
+                </details>
+
+                <details class="glass-panel p-4">
+                    <summary class="font-bold text-[#00ffcc]">مديرية خورمكسر (الواجهة الدبلوماسية)</summary>
+                    <div class="p-4 text-sm text-gray-300">
+                        <strong>أهم وحدات الجوار:</strong> حي السفارات، العريش، غازي علوان، حي أكتوبر، وأبي ذر الغفاري.<br>
+                        <strong>الأسعار التقريبية (أراضي وفلل):</strong> تعتبر من أغلى المناطق السكنية في عدن. تبدأ أسعار الأراضي في المواقع العادية من 300,000 ريال سعودي وتصل إلى ملايين الريالات السعودية في الشوارع الرئيسية وحي السفارات.<br>
+                        <strong>المميزات:</strong> واجهة بحرية (كورنيش أبين)، تضم مطار عدن الدولي وجامعة عدن ومعظم القنصليات، وتتميز بطابع عمراني راقٍ.
+                    </div>
+                </details>
+
+                <details class="glass-panel p-4">
+                    <summary class="font-bold text-[#00ffcc]">أهمية الاستثمار في وحدات الجوار المعتمدة</summary>
+                    <div class="p-4 text-sm text-gray-300">
+                        يعتمد التخطيط الحضري الرسمي في العاصمة عدن على تقسيم المخططات إلى "وحدات جوار" (Neighborhood Units) تحمل أرقاماً تسلسلية معتمدة من <strong>الهيئة العامة للأراضي والمساحة والتخطيط العمراني</strong>. 
+                        <br><br>
+                        كل وحدة جوار مصممة لتكون مكتفية ذاتياً بمساحات محددة للخدمات العامة (مدارس، مستوصفات، مساجد، حدائق، ومراكز شرطة). الاستثمار والشراء ضمن وحدات الجوار المعتمدة يضمن للمشتري خلو العقار من العشوائية، والمشاكل، والازدواجية في الصرف، وهو ما نلتزم به حرفياً في <strong>مكتب عماد عدن العقاري</strong>.
+                    </div>
                 </details>
             </div>
         </section>
@@ -475,6 +580,14 @@
             window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
+        // دالة الإرسال الخاصة بالاستشارات القانونية المضافة حديثاً
+        function submitLegalWhatsapp() {
+            const name = document.getElementById('legal-req-name').value;
+            const desc = document.getElementById('legal-req-desc').value;
+            const msg = `*طلب استشارة قانونية*\nالاسم: ${name}\nتفاصيل الاستشارة: ${desc}`;
+            window.open(`https://wa.me/967773571889?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
         let urbanMap;
         function initUrbanMap() {
             if (urbanMap) return;
@@ -504,6 +617,68 @@
                 type();
             }, 2000);
         };
+
+        // برمجة المساعد الشخصي (الذكاء الاصطناعي العقاري)
+        function toggleChat() {
+            document.getElementById('chatPanel').classList.toggle('active');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if(!msg) return;
+
+            const chatBox = document.getElementById('chatBox');
+            
+            // إضافة رسالة المستخدم
+            chatBox.innerHTML += `<div class="bg-[var(--gold)] text-black p-3 rounded-lg mr-8 ml-2 font-bold mb-2 break-words">${msg}</div>`;
+            input.value = '';
+
+            // محاكاة التفكير والرد من المساعد
+            setTimeout(() => {
+                let reply = getBotResponse(msg);
+                chatBox.innerHTML += `<div class="bg-[rgba(255,255,255,0.05)] p-3 rounded-lg border border-[var(--gold)] text-[#00ffcc] ml-8 mr-2 mb-2 break-words">${reply}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        function getBotResponse(text) {
+            // تحويل النص لتسهيل البحث عن الكلمات المفتاحية
+            text = text.toLowerCase();
+            
+            if(text.includes('سعر') || text.includes('اسعار') || text.includes('أسعار') || text.includes('بكم')) {
+                if(text.includes('بئر فضل') || text.includes('بير فضل')) {
+                    return 'أسعار الأراضي في بئر فضل تتراوح حالياً بين 30,000 إلى 150,000 ريال سعودي للقطعة السكنية، ويعتمد السعر بشكل كبير على رقم البلوك، وحدة الجوار، وموقع الأرض إذا كانت على شارع 20، 30 أو 50.';
+                }
+                if(text.includes('المنصورة') || text.includes('ريمي') || text.includes('كابوتا')) {
+                    return 'أسعار العقارات في المنصورة وريمي تعتبر ذات طابع تجاري استثماري وتعد مرتفعة. تبدأ الأراضي من 150,000 ريال سعودي وقد تتجاوز المليون ريال سعودي للمواقع التجارية الاستراتيجية على الشوارع الرئيسية.';
+                }
+                if(text.includes('انماء') || text.includes('إنماء') || text.includes('الحسوة')) {
+                    return 'بالنسبة لمدينة إنماء: الشقق السكنية تتراوح أسعارها بين 120,000 إلى 250,000 ريال سعودي. أما الفلل فتبدأ أسعارها من 350,000 ريال سعودي فما فوق، وذلك يختلف حسب المرحلة ومستوى التشطيب الخارجي والداخلي.';
+                }
+                if(text.includes('خورمكسر') || text.includes('العريش')) {
+                    return 'خورمكسر تمثل الواجهة الدبلوماسية لعدن، والأسعار هناك مرتفعة جداً. تبدأ الأراضي من 300,000 ريال سعودي وتصل لأرقام مضاعفة خصوصاً في حي السفارات والأحياء الراقية.';
+                }
+                return 'أسعار العقارات في عدن متفاوتة بشدة وتعتمد على المديرية ووحدة الجوار والموقع الفعلي. حدد لي المنطقة التي تسأل عنها (مثلاً: المنصورة، بئر فضل، إنماء، خورمكسر) لأعطيك تقديراً أقرب للواقع.';
+            }
+            
+            if(text.includes('مخطط') || text.includes('مخططات') || text.includes('وحدات جوار') || text.includes('وحدة جوار')) {
+                return 'التخطيط العمراني في عدن يعتمد على ما يسمى بـ "وحدات الجوار"، وهي مناطق مرقمة ومعتمدة من الهيئة العامة للأراضي. الشراء داخل هذه الوحدات يضمن لك مساحات للخدمات ويحميك من عشوائية البناء ومشاكل الازدواجية في وثائق الملكية.';
+            }
+
+            if(text.includes('تواصل') || text.includes('رقم') || text.includes('واتساب') || text.includes('موقع')) {
+                return 'يسعدنا تواصلك المباشر مع إدارة مكتب عماد عدن العقاري عبر الواتساب أو الاتصال على الرقم: 967773571889+ ، يمكنك الضغط على أيقونة السماعة أسفل الشاشة للوصول السريع.';
+            }
+
+            if(text.includes('السلام') || text.includes('هلا') || text.includes('مرحبا')) {
+                return 'وعليكم السلام ورحمة الله، أهلاً بك في مكتب عماد عدن العقاري. كيف يمكنني مساعدتك اليوم في الاستفسار عن العقارات في عدن؟';
+            }
+
+            return 'أنا المساعد الذكي الخاص بمكتب عماد عدن. مبرمج خصيصاً للإجابة عن أسعار العقارات، وحدات الجوار، والمخططات في مناطق عدن المختلفة. هل ترغب في معرفة أسعار منطقة معينة كبئر فضل أو المنصورة؟';
+        }
     </script>
 </body>
 </html>
+
+
+```
