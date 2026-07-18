@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<meta content="LIr1RzCjrhxfdHsnj7OZ5caKOLfVpL8F4kn8wLFYmtQ" name="google-site-verification">
+<meta content="LIr1RzCjrhxfdHsnj7OZ5caKOLfVpL8F4kn8wLFYmtQ" name="google-site-verification"/>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,7 +20,7 @@
     });
     </script>
 <title>مكتب عماد عدن العقاري | بيع شراء تثمين استثمار</title>
-<meta content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن وحدات الجوار المعتمدة" name="description"/>
+<meta content="مكتب عماد عدن العقاري مرجعك الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن وحدات الجوار المعتمدة" name="description">
 <meta content="مكتب عماد عدن العقاري | فخامة وأمان استثمارك" property="og:title"/>
 <meta content="المرجع الأول لإدارة الأملاك والتثمين والاستشارات القانونية في عدن نضمن لك استثماراً آمناً ضمن المخططات الرسمية" property="og:description"/>
 <meta content="https://emad-aden-realestate.vercel.app/" property="og:url"/>
@@ -76,7 +76,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 <style>
         :root {
             --gold: #E5C07B;
@@ -301,7 +301,7 @@
             #printable-contract { display: block !important; }
         }
     </style>
-</link></meta></head>
+</meta></head>
 <body class="antialiased theme-home">
 <div class="chat-panel p-4 no-print" id="chatPanel">
 <div class="flex justify-between items-center border-b border-[var(--gold)] pb-3 mb-4">
@@ -385,15 +385,19 @@
 <h2 class="text-2xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2>
 <p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن.</p>
 <div class="grid md:grid-cols-2 gap-3">
-<a class="glass-card p-4">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<a class="glass-card p-4">خطوات نقل ملكية العقار</a>
-<a class="glass-card p-4">إجراءات حصر الورثة</a>
-<a class="glass-card p-4">الوثائق المطلوبة للبيع والشراء</a>
-<a class="glass-card p-4">حقوق المشتري قبل التوقيع</a>
-<a class="glass-card p-4">كيفية اكتشاف الازدواجية</a>
-</div>
+<a class="glass-card p-4" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
+<a class="glass-card p-4" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
+<a class="glass-card p-4" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
+<a class="glass-card p-4" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
+<a class="glass-card p-4" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
+<a class="glass-card p-4" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
 </div>
 
+<div class="mt-6">
+<input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/>
+<p class="text-xs text-gray-400 mt-2">اكتب كلمة مثل: بصيرة، ورثة، بيع، شراء، تثمين...</p>
+</div>
+</div>
 </section>
 <section class="app-view px-4 max-w-4xl mx-auto" id="view-expat">
 <div class="bank-panel p-8 text-center rounded-2xl" id="owner-login-section">
@@ -676,6 +680,15 @@
 
             return 'أنا المساعد الذكي الخاص بمكتب عماد عدن. مبرمج خصيصاً للإجابة عن أسعار العقارات، وحدات الجوار، والمخططات في مناطق عدن المختلفة. هل ترغب في معرفة أسعار منطقة معينة كبئر فضل أو المنصورة؟';
         }
-    </script>
+    
+
+function filterArticles(){
+ const q=document.getElementById('encyclopedia-search').value.toLowerCase();
+ document.querySelectorAll('#realestate-encyclopedia .glass-card').forEach(c=>{
+   const t=(c.dataset.title||c.textContent).toLowerCase();
+   c.style.display=t.includes(q)?'block':'none';
+ });
+}
+</script>
 </body>
 </html>
