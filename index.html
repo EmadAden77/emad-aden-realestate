@@ -383,22 +383,31 @@
 <h3 class="text-lg font-black text-white">التطور العمراني</h3>
 </div>
 </div>
-<div class="glass-panel p-8 mt-10" id="realestate-encyclopedia">
-<h2 class="text-2xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2>
-<p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن.</p>
-<div class="grid md:grid-cols-2 gap-3">
-<a class="glass-card p-4" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<a class="glass-card p-4" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
-<a class="glass-card p-4" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
-<a class="glass-card p-4" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
-<a class="glass-card p-4" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
-<a class="glass-card p-4" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
+
+<div class="glass-panel p-8 mt-10" id="realestate-reference">
+
+<h2 class="text-2xl font-black text-[var(--gold)] mb-3">
+📚 المرجعية العقارية
+</h2>
+
+<p class="text-[var(--text-muted)] mb-6">
+جميع الأدلة العقارية يتم تحميلها تلقائياً.
+</p>
+
+<input
+class="input-glass mb-6"
+id="encyclopedia-search"
+placeholder="ابحث في المرجعية..."
+onkeyup="filterArticles()"
+>
+
+<div
+id="reference-container"
+class="grid md:grid-cols-2 gap-4">
 </div>
-<div class="mt-6">
-<input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/>
-<p class="text-xs text-gray-400 mt-2">اكتب كلمة مثل: بصيرة، ورثة، بيع، شراء، تثمين...</p>
+
 </div>
-</div>
+
 <div class="glass-panel p-8 mt-10" id="new-tools"><h2>🆕 أدوات عقارية جديدة (قيد التطوير)</h2><ul><li>✓ البحث الذكي داخل الموسوعة</li><li>✓ حاسبة مساحة الأراضي</li><li>✓ حاسبة ROI المطورة</li><li>✓ مؤشر أسعار الأراضي</li><li>✓ دليل مديريات عدن</li><li>✓ دليل وحدات الجوار</li><li>✓ صفحة حصر الورثة</li><li>✓ صفحة الأسئلة الشائعة</li></ul></div></section>
 <section class="app-view px-4 max-w-4xl mx-auto" id="view-expat">
 <div class="bank-panel p-8 text-center rounded-2xl" id="owner-login-section">
@@ -676,20 +685,45 @@
             }
 
             if(text.includes('السلام') || text.includes('هلا') || text.includes('مرحبا')) {
-                return 'وعليكم السلام ورحمة الله، أهلاً بك في مكتب عماد عدن العقاري. كيف يمكنني مساعدتك اليوم في الاستفسار عن العقارات في عدن؟';
+                return 'وعليكم السلام ورحمة الله، أهلاً بك في مكتب عماد عدن العقاري. كيف يمكنني مساعدتك اليوم في الاستفسار عن العقارات في عدن?';
             }
 
             return 'أنا المساعد الذكي الخاص بمكتب عماد عدن. مبرمج خصيصاً للإجابة عن أسعار العقارات، وحدات الجوار، والمخططات في مناطق عدن المختلفة. هل ترغب في معرفة أسعار منطقة معينة كبئر فضل أو المنصورة؟';
         }
     
+        // الأكواد الجديدة الخاصة بالمرجعية العقارية التفاعلية من ملف JSON
+        let referenceArticles=[];
 
-function filterArticles(){
- const q=document.getElementById('encyclopedia-search').value.toLowerCase();
- document.querySelectorAll('#realestate-encyclopedia .glass-card').forEach(c=>{
-   const t=(c.dataset.title||c.textContent).toLowerCase();
-   c.style.display=t.includes(q)?'block':'none';
- });
-}
+        fetch("reference.json")
+        .then(res=>res.json())
+        .then(data=>{
+            referenceArticles=data;
+            renderReference(data);
+        });
+
+        function renderReference(items){
+            const container=document.getElementById("reference-container");
+            container.innerHTML="";
+            items.forEach(item=>{
+                container.innerHTML+=`
+                <a href="${item.url}" class="glass-card p-5 block">
+                    <h3 class="font-black text-lg mb-2">${item.title}</h3>
+                    <p class="text-sm text-gray-400 mb-2">${item.description}</p>
+                    <span class="text-xs text-[var(--gold)]">${item.category}</span>
+                </a>
+                `;
+            });
+        }
+
+        function filterArticles(){
+            const q=document.getElementById("encyclopedia-search").value.toLowerCase();
+            const filtered=referenceArticles.filter(item=>
+                item.title.toLowerCase().includes(q) ||
+                item.description.toLowerCase().includes(q) ||
+                item.category.toLowerCase().includes(q)
+            );
+            renderReference(filtered);
+        }
 </script>
 </body>
 </html>
