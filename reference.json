@@ -3,35 +3,24 @@
     "title": "كيف تتأكد من صحة البصيرة العقارية؟",
     "description": "شرح التحقق من صحة البصيرة.",
     "category": "الوثائق",
-    "icon": "📄",
     "url": "articles/basirah.html"
   },
   {
     "title": "خطوات نقل ملكية العقار",
     "description": "إجراءات نقل الملكية.",
     "category": "الإجراءات",
-    "icon": "📑",
     "url": "articles/transfer.html"
   },
   {
     "title": "كيف تشتري عقارًا بأمان؟",
     "description": "دليل شامل لشراء العقارات بطريقة آمنة.",
     "category": "الشراء",
-    "icon": "🏠",
     "url": "articles/buy-safely.html"
   },
   {
     "title": "كيفية تقييم سعر العقار",
-    "description": "طرق تقييم العقارات قبل البيع أو الشراء.",
+    "description": "تعرف على أهم العوامل التي تحدد قيمة العقار.",
     "category": "التقييم",
-    "icon": "💰",
     "url": "articles/property-value.html"
-  },
-  {
-    "title": "أخطاء يقع فيها المشترون",
-    "description": "أهم الأخطاء التي يجب تجنبها عند شراء العقار.",
-    "category": "نصائح",
-    "icon": "⚠️",
-    "url": "articles/mistakes.html"
   }
 ]
