@@ -22,5 +22,11 @@
     "description": "تعرف على أهم العوامل التي تحدد قيمة العقار.",
     "category": "التقييم",
     "url": "articles/property-value.html"
+  },
+  {
+    "title": "أشهر أخطاء شراء العقارات",
+    "description": "أخطاء يقع فيها المشترون وكيفية تجنبها.",
+    "category": "التوعية",
+    "url": "articles/common-mistakes.html"
   }
 ]
