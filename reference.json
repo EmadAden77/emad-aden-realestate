@@ -3,18 +3,21 @@
     "title": "كيف تتأكد من صحة البصيرة العقارية؟",
     "description": "شرح التحقق من صحة البصيرة.",
     "category": "الوثائق",
+    "image": "IMG_5.jpg",
     "url": "articles/basirah.html"
   },
   {
     "title": "خطوات نقل ملكية العقار",
     "description": "إجراءات نقل الملكية.",
     "category": "الإجراءات",
+    "image": "IMG_5.jpg",
     "url": "articles/transfer.html"
   },
   {
     "title": "كيف تشتري عقارًا بأمان؟",
     "description": "دليل شامل لشراء العقارات بطريقة آمنة.",
     "category": "الشراء",
+    "image": "IMG_5.jpg",
     "url": "articles/buy-safely.html"
   }
 ]
