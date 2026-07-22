@@ -10,5 +10,11 @@
     "description": "إجراءات نقل الملكية.",
     "category": "الإجراءات",
     "url": "articles/transfer.html"
+  },
+  {
+    "title": "كيف تشتري عقارًا بأمان؟",
+    "description": "دليل شامل لشراء العقارات بطريقة آمنة.",
+    "category": "الشراء",
+    "url": "articles/buy-safely.html"
   }
 ]
