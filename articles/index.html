@@ -9,51 +9,104 @@
 body{
     font-family:Tahoma,Arial,sans-serif;
     background:#0b0b0b;
-    color:white;
+    color:#fff;
     margin:0;
     padding:20px;
 }
 
-h1{
-    color:#d4af37;
+header{
     text-align:center;
+    padding:20px;
+}
+
+header img{
+    width:90px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+header h1{
+    color:#d4af37;
+    margin:10px 0;
+}
+
+header p{
+    color:#ddd;
+}
+
+#articles{
+    max-width:900px;
+    margin:auto;
 }
 
 .card{
     background:#1a1a1a;
     border:1px solid #333;
-    border-radius:10px;
+    border-radius:12px;
     padding:20px;
-    margin:15px 0;
+    margin:20px 0;
+}
+
+.card h2{
+    margin-top:0;
 }
 
 .card a{
     color:#d4af37;
     text-decoration:none;
-    font-size:22px;
-    font-weight:bold;
 }
 
 .card p{
     color:#ddd;
 }
 </style>
-
 </head>
 
 <body>
 
+<header>
+
+<img src="../IMG_5.jpg" alt="شعار مكتب عماد عدن العقاري">
+
 <h1>📚 موسوعة مكتب عماد عدن العقارية</h1>
 
-<div class="card">
-<a href="basirah.html">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<p>شرح التحقق من صحة البصيرة العقارية.</p>
-</div>
+<p>جميع المقالات العقارية في مكان واحد.</p>
 
+</header>
+
+<div id="articles"></div>
+
+<script>
+
+fetch("../reference.json")
+.then(response => response.json())
+.then(data => {
+
+const container=document.getElementById("articles");
+
+data.forEach(article=>{
+
+container.innerHTML += `
 <div class="card">
-<a href="transfer.html">خطوات نقل ملكية العقار</a>
-<p>إجراءات نقل ملكية العقار.</p>
+
+<h2>
+<a href="${article.url.replace("articles/","")}">
+${article.title}
+</a>
+</h2>
+
+<p>${article.description}</p>
+
+<p>📂 ${article.category}</p>
+
 </div>
+`;
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
