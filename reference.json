@@ -28,5 +28,11 @@
     "description": "أخطاء يقع فيها المشترون وكيفية تجنبها.",
     "category": "التوعية",
     "url": "articles/common-mistakes.html"
+  },
+  {
+    "title": "أنواع ملكية العقارات",
+    "description": "تعرف على أشهر أنواع ملكية العقارات.",
+    "category": "الملكية",
+    "url": "articles/ownership-types.html"
   }
 ]
