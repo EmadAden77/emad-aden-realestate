@@ -395,11 +395,43 @@
 </p>
 
 <input
-class="input-glass mb-6"
+class="input-glass mb-4"
 id="encyclopedia-search"
 placeholder="ابحث في المرجعية..."
-onkeyup="filterArticles()"
->
+onkeyup="filterArticles()">
+
+<div id="category-tabs" style="
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+">
+
+<button onclick="showCategory('الكل')" class="btn-gold">
+الكل
+</button>
+
+<button onclick="showCategory('الوثائق')" class="btn-glass">
+الوثائق
+</button>
+
+<button onclick="showCategory('الإجراءات')" class="btn-glass">
+الإجراءات
+</button>
+
+<button onclick="showCategory('الشراء')" class="btn-glass">
+الشراء
+</button>
+
+<button onclick="showCategory('الملكية')" class="btn-glass">
+الملكية
+</button>
+
+<button onclick="showCategory('المساحة')" class="btn-glass">
+المساحة
+</button>
+
+</div>
 
 <div
 id="reference-container"
@@ -774,6 +806,19 @@ class="grid md:grid-cols-2 gap-4">
                 item.category.toLowerCase().includes(q)
             );
             renderReference(filtered);
+        }
+
+        function showCategory(category){
+
+            if(category==="الكل"){
+                renderReference(referenceArticles);
+                return;
+            }
+
+            const filtered=referenceArticles.filter(item=>item.category===category);
+
+            renderReference(filtered);
+
         }
 </script>
 </body>
