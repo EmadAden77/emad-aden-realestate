@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>إدارة أملاك المغتربين | مكتب عماد عدن العقاري</title>
+    <meta content="بوابة إدارة أملاك المغتربين الموثوقة في عدن، نتابع استثماراتك وعقاراتك بكل أمان واحترافية." name="description"/>
+    
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --gold: #E5C07B;
+            --dark-gold: #B8860B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        body {
+            background-color: #02050f;
+            background-image: radial-gradient(circle at top left, #0A192F, #02050f);
+            color: var(--text-main);
+            font-family: 'Tajawal', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-panel {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .bank-input {
+            background: rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid rgba(0, 255, 204, 0.4) !important;
+            color: #00ffcc !important;
+        }
+
+        .btn-holo {
+            background: transparent;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            transition: all 0.3s ease;
+        }
+        .btn-holo:hover {
+            background: rgba(0, 255, 204, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .holo-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        .holo-table th, .holo-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+        }
+        .holo-table th {
+            background: rgba(0, 255, 204, 0.1);
+            color: #00ffcc;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- شريط التنقل العلوي -->
+    <nav class="fixed top-0 w-full z-[100] bg-[rgba(2,5,15,0.9)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+            <img alt="Logo" class="w-10 h-10 rounded-lg border border-[var(--gold)] object-cover" src="IMG_5.jpg"/>
+            <div class="flex flex-col">
+                <h1 class="font-black text-sm text-white">مكتب عماد عدن العقاري</h1>
+                <span class="text-[10px] text-[var(--gold)] font-bold">بوابة أملاك المغتربين</span>
+            </div>
+        </div>
+        <div>
+            <button onclick="window.location.href='index.html'" class="text-xs font-bold text-[#00ffcc] hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-right"></i> العودة للرئيسية
+            </button>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 pt-28 pb-16">
+        
+        <!-- قسم تسجيل الدخول (الخزنة الرقمية) -->
+        <div id="owner-login-section" class="glass-panel p-8 text-center max-w-md mx-auto my-12">
+            <div class="w-20 h-20 rounded-full border-2 border-[#00ffcc] flex items-center justify-center mx-auto mb-6 shadow-[0_0_15px_rgba(0,255,204,0.3)] bg-black/40">
+                <i class="fa-solid fa-vault text-[#00ffcc] text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2">الخزنة الرقمية للأملاك</h3>
+            <p class="text-xs text-gray-400 mb-8">أدخل رمز المصادقة الآمن الخاص بك للوصول الفوري إلى تفاصيل أملاكك واستثماراتك في عدن[span_4](start_span)[span_4](end_span)[span_5](start_span)[span_5](end_span).</p>
+            
+            <input type="password" id="owner-password" placeholder="أدخل الرمز (مثال: 2026)" class="input-glass bank-input !py-4 !text-center mb-6 text-xl tracking-[0.5em] rounded-xl w-full outline-none"/>
+            
+            <button onclick="checkOwnerPassword()" class="btn-holo w-full !py-3 !rounded-xl font-bold text-lg">
+                مصادقة آمنة <i class="fa-solid fa-fingerprint mr-2"></i>
+            </button>
+            
+            <p id="owner-error" class="text-red-400 text-xs mt-4 hidden font-bold">رمز الدخول غير صحيح، يرجى مراجعة إدارة المكتب.</p>
+        </div>
+
+        <!-- البوابة السرية (تظهر بعد إدخال الرمز الصحيح) -->
+        <div id="secret-portal" class="hidden space-y-8">
+            
+            <!-- لوحة الترحيب -->
+            <div class="glass-panel p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="text-xs text-[#00ffcc] font-bold uppercase">لوحة التحكم الخاصة</span>
+                    <h2 class="text-2xl font-black text-white mt-1">مرحباً بك يا أبو عماد / عميلنا العزيز</h2>
+                    <p class="text-xs text-gray-400 mt-1">متابعة ميدانية وحراسة دقيقة لأملاكك ضمن وحدات الجوار المعتمدة في عدن[span_6](start_span)[span_6](end_span)[span_7](start_span)[span_7](end_span).</p>
+                </div>
+                <div>
+                    <button onclick="lockSecretPortal()" class="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 rounded-xl text-xs font-bold text-red-400 transition-all">
+                        <i class="fa-solid fa-lock ml-1"></i> إقفال الخزنة
+                    </button>
+                </div>
+            </div>
+
+            <!-- جدول تتبع حالة العقارات -->
+            <div class="glass-panel p-6">
+                <h3 class="text-lg font-black text-[#00ffcc] mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-binoculars"></i> نظام تتبع حالة العقارات والمخططات
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="holo-table">
+                        <thead>
+                            <tr>
+                                <th>نوع العقار والموقع</th>
+                                <th>الحالة التشغيلية</th>
+                                <th>آخر فحص ميداني</th>
+                                <th class="text-center">الإجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold">عمارة تجارية - بئر فضل[span_8](start_span)[span_8](end_span)</td>
+                                <td><span class="text-green-400 font-bold">مؤجر ومنتظم</span></td>
+                                <td class="text-gray-400">10 أبريل 2026[span_9](start_span)[span_9](end_span)</td>
+                                <td class="text-center">
+                                    <button onclick="alert('تم إرسال طلب المعاينة الميدانية.')" class="text-xs bg-[#00ffcc]/10 hover:bg-[#00ffcc]/20 text-[#00ffcc] px-3 py-1.5 rounded-lg border border-[#00ffcc]/30">معاينة</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">شقة سكنية - المنصورة[span_10](start_span)[span_10](end_span)</td>
+                                <td><span class="text-yellow-400 font-bold">تحت الصيانة</span></td>
+                                <td class="text-gray-400">12 أبريل 2026[span_11](start_span)[span_11](end_span)</td>
+                                <td class="text-center">
+                                    <button onclick="alert('تم فتح تقرير الصيانة.')" class="text-xs bg-[#00ffcc]/10 hover:bg-[#00ffcc]/20 text-[#00ffcc] px-3 py-1.5 rounded-lg border border-[#00ffcc]/30">الصيانة</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">أرض مسورة - الممدارة</td>
+                                <td><span class="text-blue-400 font-bold">شاغر (مراقب ومحمي)</span></td>
+                                <td class="text-gray-400">05 أبريل 2026[span_12](start_span)[span_12](end_span)</td>
+                                <td class="text-center">
+                                    <button onclick="alert('الأرض تحت الحراسة المستمرة.')" class="text-xs bg-[#00ffcc]/10 hover:bg-[#00ffcc]/20 text-[#00ffcc] px-3 py-1.5 rounded-lg border border-[#00ffcc]/30">الحراسة</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- قسم التحصيلات والتواصل -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6 border-r-4 border-green-500">
+                    <h4 class="text-base font-black text-green-400 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-money-bill-transfer"></i> التحصيلات المالية
+                    </h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4">تم تحصيل الإيرادات الإيجارية وإيداعها في الحساب المعتمد مع إرسال التقارير الدورية للمالك.</p>
+                </div>
+                <div class="glass-panel p-6 border-r-4 border-[var(--gold)]">
+                    <h4 class="text-base font-black text-[var(--gold)] mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-headset"></i> الدعم المباشر
+                    </h4>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4">لأي استفسار إضافي أو تعديل في تفاصيل الأملاك، تواصل مباشرة مع مدير المكتب عبر الواتساب.</p>
+                    <a href="https://wa.me/967773571889?text=السلام+عليكم+أريد+متابعة+أملاكي+العقارية" target="_blank" class="block text-center w-full py-2 bg-[var(--gold)]/10 hover:bg-[var(--gold)]/20 text-[var(--gold)] font-bold text-xs rounded-xl border border-[var(--gold)]/30">
+                        مراسلة عبر الواتساب <i class="fa-brands fa-whatsapp mr-1"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="bg-[rgba(2,5,15,0.95)] border-t border-[rgba(0,255,204,0.3)] py-6 text-center text-xs text-gray-500">
+        <p>© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)</p>
+    </footer>
+
+    <!-- البرمجة التفاعلية -->
+    <script>
+        function checkOwnerPassword() {
+            const pass = document.getElementById('owner-password').value;
+            const loginSection = document.getElementById('owner-login-section');
+            const secretPortal = document.getElementById('secret-portal');
+            const errorMsg = document.getElementById('owner-error');
+
+            if (pass === '2026') {
+                loginSection.classList.add('hidden');
+                secretPortal.classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+                document.getElementById('owner-password').value = '';
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function lockSecretPortal() {
+            document.getElementById('secret-portal').classList.add('hidden');
+            document.getElementById('owner-login-section').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
