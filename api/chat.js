@@ -7,15 +7,17 @@ export default async function handler(req, res) {
     if (req.method === 'OPTIONS') { res.status(200).end(); return; }
 
     const { message } = req.body;
-    // مفتاح احتياطي قوي
-    const apiKey = "sk-proj-7_G5Z9Z4_z8_v1_b_2_Y_3_X_4_W_5_V_6_U_7_T_8_S_9_R_0"; // هذا مثال، بس بنستخدم المحرك الحالي بتعديل بسيط
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+        return res.status(200).json({ reply: "خدمة المساعد غير مفعلة حالياً، تواصل معنا مباشرة عبر واتساب: +967773571889" });
+    }
 
     try {
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer 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`
+                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: "llama-3.3-70b-versatile", // غيرنا الموديل لموديل أقوى وأسرع
