@@ -352,9 +352,10 @@
 </div>
 <div class="hidden md:flex gap-6 items-center">
 <a class="text-xs font-bold text-gray-300" href="expatriates-property-management.html?platform=v2">إدارة الأملاك</a>
-<button class="text-xs font-bold text-gray-300" onclick="switchView('sales')">الطلبات</button>
-<button class="text-xs font-bold text-gray-300" onclick="window.location.href='heirs.html'">المستشار القانوني</button>
-<button class="text-xs font-bold text-gray-300" onclick="window.location.href='districts.html'">التطور العمراني</button>
+<a class="text-xs font-bold text-gray-300" href="request-reception.html">استقبال الطلبات</a>
+<a class="text-xs font-bold text-gray-300" href="legal-consultant.html">المستشار القانوني</a>
+<a class="text-xs font-bold text-gray-300" href="urban-development.html">التطور العمراني</a>
+<a class="text-xs font-bold text-gray-300" href="districts.html">موسوعة عدن</a>
 </div>
 </nav>
 <main class="no-print" id="app-container">
@@ -368,36 +369,44 @@
 <i class="fa-solid fa-building-shield text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">إدارة أملاك المغتربين</h3>
 </a>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="switchView('sales')">
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="request-reception.html" aria-label="فتح نظام استقبال الطلبات العقارية">
 <i class="fa-solid fa-file-signature text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">استقبال الطلبات</h3>
-</div>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="window.location.href='heirs.html'">
+<p class="text-xs text-[var(--text-muted)] mt-2">نماذج متقدمة وإرسال واتساب</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="legal-consultant.html" aria-label="فتح مركز الاستشارات القانونية العقارية">
 <i class="fa-solid fa-scale-balanced text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">المستشار القانوني</h3>
-</div>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="window.location.href='districts.html'">
+<p class="text-xs text-[var(--text-muted)] mt-2">عقود وتنبيهات ورفع ملفات</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="urban-development.html" aria-label="فتح منصة التطور العمراني">
 <i class="fa-solid fa-city text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">التطور العمراني</h3>
-</div>
+<p class="text-xs text-[var(--text-muted)] mt-2">مشاريع وخرائط ومؤشرات</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="districts.html" aria-label="فتح موسوعة العقارات في عدن">
+<i class="fa-solid fa-map-location-dot text-3xl text-[var(--gold)] mb-4"></i>
+<h3 class="text-lg font-black text-white">موسوعة العقارات في عدن</h3>
+<p class="text-xs text-[var(--text-muted)] mt-2">مديريات وأحياء وأسعار إرشادية</p>
+</a>
 </div>
 <div class="glass-panel p-8 mt-10" id="realestate-encyclopedia">
 <h2 class="text-2xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2>
 <p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن.</p>
 <div class="grid md:grid-cols-2 gap-3">
-<a class="glass-card p-4" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<a class="glass-card p-4" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
-<a class="glass-card p-4" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
-<a class="glass-card p-4" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
-<a class="glass-card p-4" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
-<a class="glass-card p-4" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
+<a class="glass-card p-4 block" href="basirah.html" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
+<a class="glass-card p-4 block" href="transfer.html" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
+<a class="glass-card p-4 block" href="heirs.html" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
+<a class="glass-card p-4 block" href="buy-safely.html" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
+<a class="glass-card p-4 block" href="ownership-types.html" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
+<a class="glass-card p-4 block" href="common-mistakes.html" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
 </div>
 <div class="mt-6">
 <input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/>
 <p class="text-xs text-gray-400 mt-2">اكتب كلمة مثل: بصيرة، ورثة، بيع، شراء، تثمين...</p>
 </div>
 </div>
-<div class="glass-panel p-8 mt-10" id="new-tools"><h2>🆕 أدوات عقارية جديدة (قيد التطوير)</h2><ul><li>✓ البحث الذكي داخل الموسوعة</li><li>✓ حاسبة مساحة الأراضي</li><li>✓ حاسبة ROI المطورة</li><li>✓ مؤشر أسعار الأراضي</li><li>✓ دليل مديريات عدن</li><li>✓ دليل وحدات الجوار</li><li>✓ صفحة حصر الورثة</li><li>✓ صفحة الأسئلة الشائعة</li></ul></div></section>
+<div class="glass-panel p-8 mt-10" id="new-tools"><h2 class="text-2xl font-black text-[var(--gold)] mb-4">روابط سريعة للخدمات الجديدة</h2><div class="grid md:grid-cols-4 gap-3"><a class="btn-glass" href="legal-consultant.html">مركز الاستشارات</a><a class="btn-glass" href="request-reception.html">نظام الطلبات</a><a class="btn-glass" href="urban-development.html">التطور العمراني</a><a class="btn-glass" href="districts.html">موسوعة عدن</a><a class="btn-glass" href="land-area.html">حاسبة المساحة</a><a class="btn-glass" href="property-value.html">تثمين العقارات</a><a class="btn-glass" href="neighborhoods.html">دليل الأحياء</a><a class="btn-glass" href="heirs.html">حصر الورثة</a></div></div></section>
 <section class="app-view px-4 max-w-4xl mx-auto" id="view-expat">
 <div class="bank-panel p-8 text-center rounded-2xl" id="owner-login-section">
 <h3 class="text-xl font-black bank-title mb-6">الخزنة الرقمية للأملاك</h3>
@@ -538,9 +547,10 @@
 </main>
 <footer class="global-holo-footer no-print">
 <div class="holo-social-row">
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-x-twitter"></i></a>
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
+<a class="holo-social-btn" href="legal-consultant.html" aria-label="المستشار القانوني"><i class="fa-solid fa-scale-balanced"></i></a>
+<a class="holo-social-btn" href="request-reception.html" aria-label="استقبال الطلبات"><i class="fa-solid fa-file-signature"></i></a>
+<a class="holo-social-btn" href="urban-development.html" aria-label="التطور العمراني"><i class="fa-solid fa-city"></i></a>
+<a class="holo-social-btn" href="districts.html" aria-label="موسوعة العقارات في عدن"><i class="fa-solid fa-map-location-dot"></i></a>
 </div>
 <p class="text-[10px] text-gray-500 font-bold">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</p>
 </footer>
