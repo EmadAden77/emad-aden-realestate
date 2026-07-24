@@ -1,0 +1,4 @@
+const form=document.querySelector('#management-form');
+if(form){form.addEventListener('submit',event=>{event.preventDefault();const data=new FormData(form);const message=`طلب إدارة عقار للمغتربين\nالاسم: ${data.get('name')}\nالواتساب: ${data.get('phone')}\nنوع العقار: ${data.get('type')}\nالمنطقة: ${data.get('area')}\nالخدمة المطلوبة: ${data.get('service')}\nتفاصيل: ${data.get('details')}`;window.open(`https://wa.me/967773571889?text=${encodeURIComponent(message)}`,'_blank','noopener');});}
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)';observer.unobserve(entry.target);}})},{threshold:.15});
+document.querySelectorAll('.card,.step,.hero-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.transition='opacity .55s ease, transform .55s ease';observer.observe(el);});

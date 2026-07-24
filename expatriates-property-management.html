@@ -1,240 +1,62 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة أملاك المغتربين - مكتب عماد عدن العقاري</title>
-    <!-- تضمين خط تجوال من جوجل ليتناسب مع التصميم العربي الحديث -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- المتغيرات والألوان الأساسية المستوحاة من موقعك --- */
-        :root {
-            --primary-bg: #0b1120; /* أزرق داكن جداً للخلفية */
-            --card-bg: #111827; /* أزرق فاتح قليلاً للبطاقات */
-            --gold: #d4af37; /* لون ذهبي للنصوص والأيقونات */
-            --text-light: #f3f4f6; /* لون أبيض مائل للرمادي للنصوص */
-            --text-muted: #9ca3af; /* لون رمادي للنصوص الفرعية */
-        }
-
-        /* --- الإعدادات العامة --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        body {
-            background-color: var(--primary-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* --- شريط التنقل (الهيدر) --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .logo-area h1 {
-            font-size: 1.2rem;
-            color: var(--text-light);
-        }
-        
-        .logo-area span {
-            color: var(--gold);
-            font-size: 0.9rem;
-        }
-
-        .back-button {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid var(--gold);
-            padding: 5px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background-color: var(--gold);
-            color: var(--primary-bg);
-        }
-
-        /* --- القسم الرئيسي (Hero Section) --- */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero-icon {
-            background-color: var(--gold);
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .hero-icon svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--primary-bg);
-        }
-
-        .hero h2 {
-            color: var(--text-light);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* --- قسم الخدمات والمميزات --- */
-        .features {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        /* تجاوب الشاشات الأكبر */
-        @media (min-width: 768px) {
-            .features {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .feature-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.5);
-        }
-
-        .feature-card h3 {
-            color: var(--gold);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* --- قسم الدعوة لاتخاذ إجراء (CTA) --- */
-        .cta-section {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 20px;
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #25D366; /* لون الواتساب */
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة أملاك المغتربين | مكتب عماد عدن العقاري</title>
+<meta name="description" content="منصة احترافية لإدارة أملاك المغتربين في عدن تشمل تأجير العقار، إدارة المستأجرين، تحصيل الإيجارات، الصيانة، الاستشارات القانونية والتقارير الشهرية المصورة.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://emad-aden-realestate.vercel.app/expatriates-property-management.html">
+<meta property="og:title" content="إدارة أملاك المغتربين | مكتب عماد عدن العقاري">
+<meta property="og:description" content="إدارة عقارك في عدن من الخارج بثقة وشفافية وتقارير شهرية مصورة.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="IMG_5.jpg">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/expatriates.css">
 </head>
 <body>
-
-    <!-- شريط التنقل -->
-    <header>
-        <div class="logo-area">
-            <h1>مكتب عماد عدن العقاري</h1>
-            <span>بيع - شراء - تثمين - استثمار</span>
-        </div>
-        <!-- رابط العودة للصفحة الرئيسية -->
-        <a href="index.html" class="back-button">العودة</a>
-    </header>
-
-    <!-- القسم التعريفي -->
-    <section class="hero">
-        <div class="hero-icon">
-            <!-- أيقونة مبنى بسيطة بصيغة SVG -->
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 2H9c-1.103 0-2 .897-2 2v5.586l-4.707 4.707A1 1 0 0 0 2 15v6c0 1.103.897 2 2 2h15c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-8 18H4v-4.586l3-3 4 4v3.586zm8 0h-6v-4c0-.552-.448-1-1-1H9c-.552 0-1 .448-1 1v4H7v-4.586l-3-3V4h15v16z"/>
-                <path d="M11 6h6v2h-6zm0 4h6v2h-6z"/>
-            </svg>
-        </div>
-        <h2>إدارة أملاك المغتربين</h2>
-        <p>نحن عينك الساهرة على أملاكك في الوطن. نقدم خدمات متكاملة للمغتربين تضمن لك راحة البال والحفاظ على استثماراتك بأعلى معايير الأمان والشفافية.</p>
-    </section>
-
-    <!-- الخدمات التفصيلية -->
-    <section class="features">
-        <div class="feature-card">
-            <h3>💸 تحصيل الإيجارات</h3>
-            <p>نقوم بمتابعة المستأجرين وتحصيل الإيجارات في وقتها المحدد، وإيداعها في حسابك البنكي أو إرسالها إليك بالطريقة التي تفضلها بكل موثوقية.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>🛠️ الصيانة والمتابعة</h3>
-            <p>إشراف دوري على العقار وإجراء الصيانات الوقائية والضرورية للحفاظ على قيمة العقار وجودته، عبر فريق فني متخصص.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>⚖️ التمثيل القانوني</h3>
-            <p>تمثيلك أمام الجهات الحكومية والقانونية، وإبرام وتجديد عقود الإيجار بما يضمن حقوقك وفقاً للقوانين المعتمدة.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>📊 تقارير دورية</h3>
-            <p>نزودك بتقارير شهرية أو دورية مصورة عن حالة العقار، وحركة الحسابات المالية (الإيرادات والمصروفات) لتكون على إطلاع دائم.</p>
-        </div>
-    </section>
-
-    <!-- دعوة للتواصل -->
-    <section class="cta-section">
-        <p style="margin-bottom: 20px; color: var(--text-light);">هل أنت مغترب وتبحث عن من يثق به لإدارة عقارك؟</p>
-        <!-- استبدل الرقم برقم واتساب المكتب الفعلي (مع كود الدولة) -->
-        <a href="https://wa.me/967700000000" class="whatsapp-btn" target="_blank">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-            </svg>
-            تواصل معنا الآن
-        </a>
-    </section>
-
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="العودة إلى الرئيسية"><img src="IMG_5.jpg" alt="شعار مكتب عماد عدن العقاري"><span><strong>مكتب عماد عدن العقاري</strong><span>بيع شراء تثمين استثمار</span></span></a>
+    <nav class="nav-links" aria-label="أقسام الصفحة"><a href="#services">الخدمات</a><a href="#process">الخطوات</a><a href="#reports">التقارير</a><a href="#request">طلب الإدارة</a></nav>
+    <a class="btn btn-primary" href="index.html">الرئيسية</a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">✦ منصة إدارة أملاك المغتربين في عدن</span>
+      <h1>ندير عقارك كأنك حاضر في عدن كل يوم.</h1>
+      <p class="lead">خدمة متكاملة لأصحاب العقارات خارج اليمن: نستلم العقار، نوثّق حالته، نؤجره لمستأجر مناسب، نحصّل الإيجار، نتابع الصيانة، ونرسل لك تقريراً شهرياً مصوراً بوضوح كامل.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#request">اطلب إدارة عقارك</a><a class="btn btn-whatsapp" href="https://wa.me/967773571889?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%20%D9%83%D9%85%D8%BA%D8%AA%D8%B1" target="_blank" rel="noopener">واتساب مباشر</a></div>
+    </div>
+    <aside class="hero-card" aria-label="لوحة مختصرة لحالة العقار">
+      <h2>لوحة متابعة العقار</h2>
+      <p>نموذج مبسط لما يصلك في التقرير الشهري.</p>
+      <div class="status-row">
+        <div class="metric"><strong>96%</strong><br>نسبة الالتزام بالسداد</div>
+        <div class="metric"><strong>24س</strong><br>متوسط بدء متابعة البلاغ</div>
+        <div class="mini-card">الحالة: مؤجر ومستقر</div>
+        <div class="mini-card">آخر زيارة: موثقة بالصور</div>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="section" id="intro"><div class="container section-head"><h2>تعريف الخدمة</h2><p>إدارة أملاك المغتربين هي تمثيل عقاري تشغيلي يحافظ على قيمة العقار ودخله، ويقلل المخاطر الناتجة عن البعد الجغرافي أو ضعف المتابعة اليومية.</p></div></section>
+<section class="section" id="why"><div class="container"><div class="section-head"><h2>لماذا يختارنا العميل؟</h2><p>نعمل بمنهج واضح: توثيق، شفافية، متابعة، ثم تقرير قابل للمراجعة.</p></div><div class="grid grid-4"><div class="card"><div class="icon">🛡️</div><h3>حماية الملكية</h3><p>متابعة الوثائق والعقود والتنبيهات النظامية قبل حدوث المشكلات.</p></div><div class="card"><div class="icon">📷</div><h3>إثبات مصور</h3><p>صور قبل وبعد الزيارة أو الصيانة حتى ترى حالة عقارك عن بعد.</p></div><div class="card"><div class="icon">💬</div><h3>تواصل سريع</h3><p>قناة واتساب مباشرة للتحديثات والقرارات العاجلة.</p></div><div class="card"><div class="icon">📈</div><h3>تعظيم العائد</h3><p>تسعير إيجاري ومتابعة إشغال تحافظ على دخل العقار.</p></div></div></div></section>
+<section class="section" id="services"><div class="container"><div class="section-head"><h2>جميع خدمات إدارة العقار</h2><p>حل واحد يغطي دورة العقار التشغيلية من الاستلام حتى التقارير.</p></div><div class="grid grid-3"><div class="card"><div class="icon">👥</div><h3>إدارة المستأجرين</h3><p>اختيار المستأجر، تنظيم بياناته، متابعة الالتزامات، وتجديد العقود أو الإخلاء وفق المتفق عليه.</p></div><div class="card"><div class="icon">💰</div><h3>تحصيل الإيجارات</h3><p>تنبيه قبل موعد السداد، متابعة التحصيل، وتوثيق المدفوعات والمبالغ المتأخرة.</p></div><div class="card"><div class="icon">🛠️</div><h3>متابعة الصيانة</h3><p>استقبال البلاغ، تقدير التكلفة، اعتماد المالك، تنفيذ المتابعة، وإرسال صور الإنجاز.</p></div><div class="card"><div class="icon">⚖️</div><h3>دعم قانوني</h3><p>مراجعة عقود الإيجار والبيع والشراء وتوجيه العميل للإجراء الأنسب عند النزاعات.</p></div><div class="card"><div class="icon">📊</div><h3>تقارير شهرية</h3><p>ملخص مالي وتشغيلي مصور يوضح الإيرادات والمصروفات وحالة الإشغال والصيانة.</p></div><div class="card"><div class="icon">🏢</div><h3>تسويق وتأجير</h3><p>تجهيز إعلان مناسب، استقبال الطلبات، وفرز المستأجرين الجادين قبل توقيع العقد.</p></div></div></div></section>
+<section class="section" id="process"><div class="container"><div class="section-head"><h2>خطوات إدارة العقار من البداية للنهاية</h2><p>إجراءات عملية واضحة تحفظ حق المالك وتمنح المستأجر تجربة منظمة.</p></div><div class="grid grid-3 timeline"><div class="card step"><div><h3>تقييم واستلام</h3><p>تسجيل بيانات العقار، تصوير الحالة، ومراجعة الوثائق الأساسية.</p></div></div><div class="card step"><div><h3>خطة تشغيل</h3><p>تحديد السعر، خطة التسويق، الصيانة العاجلة، ونموذج التقرير الشهري.</p></div></div><div class="card step"><div><h3>تأجير وتعاقد</h3><p>اختيار مستأجر مناسب، توثيق الاتفاق، وتحديد آلية السداد والمتابعة.</p></div></div><div class="card step"><div><h3>تشغيل شهري</h3><p>تحصيل الإيجار، متابعة البلاغات، الزيارات الدورية، وتحديث الحالة.</p></div></div><div class="card step"><div><h3>تقرير وتحويل</h3><p>إرسال التقرير المصور وملخص الإيرادات والمصروفات حسب الاتفاق.</p></div></div><div class="card step"><div><h3>تطوير العائد</h3><p>اقتراح تحسينات تساعد في رفع قيمة العقار أو تقليل فترات الشغور.</p></div></div></div></div></section>
+<section class="section" id="reports"><div class="container dashboard"><div><div class="section-head"><h2>نموذج متابعة حالة العقار</h2><p>تقرير مختصر يوضح أين يقف عقارك الآن وما الذي يحتاج قراراً منك.</p></div><table><thead><tr><th>البند</th><th>الحالة</th><th>آخر تحديث</th></tr></thead><tbody><tr><td>الإشغال</td><td>مؤجر</td><td>تقرير الشهر الحالي</td></tr><tr><td>الإيجار</td><td>محصل</td><td>موثق بإيصال</td></tr><tr><td>الصيانة</td><td>متابعة دورية</td><td>صور قبل/بعد</td></tr><tr><td>العقد</td><td>ساري</td><td>تنبيه قبل الانتهاء</td></tr></tbody></table></div><div><div class="section-head"><h2>إحصائيات أداء العقار</h2><p>مؤشرات تساعدك على اتخاذ قرار مبني على بيانات.</p></div><div class="card"><h3>الالتزام بالسداد</h3><div class="progress"><span style="width:96%"></span></div><h3>حالة الصيانة</h3><div class="progress"><span style="width:88%"></span></div><h3>جاهزية الوثائق</h3><div class="progress"><span style="width:92%"></span></div></div></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><h2>آراء العملاء</h2><p>ثقة المغترب تبدأ من وضوح المتابعة واستمرار التواصل.</p></div><div class="grid grid-3"><blockquote class="card quote">“أصبحت أعرف تفاصيل شقتي في عدن شهرياً دون سفر أو متابعة مرهقة.”<br><strong>مالك عقار - السعودية</strong></blockquote><blockquote class="card quote">“التقارير المصورة ساعدتني أوافق على الصيانة وأنا مطمئن.”<br><strong>مالك فيلا - الإمارات</strong></blockquote><blockquote class="card quote">“تنظيم التحصيل والعقود خفف عني كثير من الاتصالات والمشاكل.”<br><strong>مستثمر عقاري - الخارج</strong></blockquote></div></div></section>
+<section class="section faq"><div class="container"><div class="section-head"><h2>الأسئلة الشائعة</h2></div><div class="grid"><details><summary>هل يمكن إدارة العقار والمالك خارج اليمن؟</summary><p>نعم، يتم التواصل عبر واتساب والتقارير المصورة، مع اعتماد القرارات المهمة قبل تنفيذها.</p></details><details><summary>هل يتم تنفيذ الصيانة دون الرجوع للمالك؟</summary><p>لا يتم تنفيذ الصيانة غير الطارئة إلا بعد توضيح المشكلة والتكلفة والحصول على الموافقة.</p></details><details><summary>ماذا يحتوي التقرير الشهري؟</summary><p>حالة الإشغال، الإيجارات المحصلة، المصروفات، الصيانة، الصور، والتنبيهات المطلوبة للشهر القادم.</p></details></div></div></section>
+<section class="section" id="request"><div class="container"><div class="section-head"><h2>نموذج طلب إدارة العقار</h2><p>املأ البيانات وسيتم تجهيز رسالة واتساب مباشرة بكل التفاصيل.</p></div><form class="card form" id="management-form"><input name="name" aria-label="الاسم" placeholder="الاسم الكامل" required><input name="phone" aria-label="رقم الواتساب" placeholder="رقم الواتساب" required><select name="type" aria-label="نوع العقار" required><option value="">نوع العقار</option><option>شقة</option><option>فيلا</option><option>عمارة</option><option>أرض</option><option>محل تجاري</option></select><input name="area" aria-label="منطقة العقار" placeholder="منطقة العقار في عدن" required><select name="service" class="full" aria-label="الخدمة المطلوبة" required><option value="">الخدمة المطلوبة</option><option>إدارة كاملة للعقار</option><option>تحصيل إيجارات فقط</option><option>تأجير وتسويق</option><option>متابعة صيانة وتقارير</option><option>استشارة قانونية عقارية</option></select><textarea class="full" name="details" aria-label="تفاصيل العقار" placeholder="اكتب تفاصيل العقار والحالة الحالية"></textarea><button class="btn btn-primary full" type="submit">إرسال الطلب عبر واتساب</button></form></div></section>
+</main>
+<a class="floating-whatsapp" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="تواصل واتساب">☘</a>
+<footer><div class="container">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</div></footer>
+<script src="assets/js/expatriates.js" defer></script>
 </body>
 </html>
-
-```
