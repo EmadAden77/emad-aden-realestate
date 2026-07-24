@@ -1,16 +1,48 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>استقبال الطلبات</title>
-<style>body{font-family:Arial;margin:40px;line-height:1.8}a{color:#0b6}</style>
-</head><body>
-<h1>استقبال الطلبات</h1>
-<p>هذه صفحة مبدئية للخدمة. سيتم استكمالها بنفس تصميم الموقع الحالي مع محتوى احترافي.</p>
-<ul>
-<li>نبذة عن الخدمة</li>
-<li>المميزات</li>
-<li>خطوات العمل</li>
-<li>الأسئلة الشائعة</li>
-<li>نموذج طلب الخدمة</li>
-</ul>
-<p><a href="index.html">العودة للرئيسية</a></p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#E5C07B">
+<link rel="canonical" href="https://emad-aden-realestate.vercel.app/request-reception.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--gold:#E5C07B;--dark:#050505;--muted:#94A3B8}
+body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at top,#1a1a1a,#050505);color:#F8FAFC;line-height:1.8}
+.glass{background:rgba(15,15,18,.72);border:1px solid rgba(229,192,123,.16);box-shadow:0 18px 45px rgba(0,0,0,.38);backdrop-filter:blur(18px)}
+.gold{color:var(--gold)}.gold-bg{background:linear-gradient(135deg,var(--gold),#B8860B);color:#050505}
+.input{width:100%;border-radius:1rem;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.12);padding:.85rem 1rem;color:#fff;outline:none}
+.input:focus{border-color:var(--gold)}
+.card{transition:.25s}.card:hover{transform:translateY(-3px);border-color:rgba(229,192,123,.45)}
+.badge{border:1px solid rgba(229,192,123,.28);background:rgba(229,192,123,.08);color:var(--gold)}
+</style>
+<title>نظام استقبال الطلبات العقارية</title>
+<meta name="description" content="استقبال طلبات بيع وشراء وتأجير وتثمين وإدارة أملاك مع رفع الصور والتحقق وتجهيز الإرسال عبر واتساب.">
+</head>
+<body>
+<header class="sticky top-0 z-50 glass">
+<nav class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+<a href="index.html" class="font-black text-xl gold">مكتب عماد عدن العقاري</a>
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="badge rounded-full px-3 py-1" href="legal-consultant.html">المستشار القانوني</a>
+<a class="badge rounded-full px-3 py-1" href="request-reception.html">استقبال الطلبات</a>
+<a class="badge rounded-full px-3 py-1" href="urban-development.html">التطور العمراني</a>
+<a class="badge rounded-full px-3 py-1" href="districts.html">موسوعة عدن</a>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-10">
+
+<section class="mb-10"><span class="badge rounded-full px-4 py-2">بوابة طلبات عقارية</span><h1 class="text-4xl md:text-6xl font-black mt-5 mb-4">استقبال احترافي لجميع الطلبات العقارية</h1><p class="text-slate-300 text-lg max-w-4xl">أرسل طلب بيع، شراء، إيجار، تثمين، إدارة أملاك أو استشارة بخطوات منظمة تساعد الفريق على فرز الطلب وتجهيز التواصل والمتابعة.</p></section>
+<section class="grid md:grid-cols-4 gap-4 mb-10"><div class="glass card rounded-3xl p-5"><h3 class="gold font-black">بيع عقار</h3><p class="text-slate-400">حقول مخصصة، مرفقات، ومراجعة أولية.</p></div><div class="glass card rounded-3xl p-5"><h3 class="gold font-black">طلب شراء</h3><p class="text-slate-400">حقول مخصصة، مرفقات، ومراجعة أولية.</p></div><div class="glass card rounded-3xl p-5"><h3 class="gold font-black">إيجار</h3><p class="text-slate-400">حقول مخصصة، مرفقات، ومراجعة أولية.</p></div><div class="glass card rounded-3xl p-5"><h3 class="gold font-black">تثمين وإدارة</h3><p class="text-slate-400">حقول مخصصة، مرفقات، ومراجعة أولية.</p></div></section>
+<section class="grid lg:grid-cols-3 gap-6"><form id="requestForm" class="lg:col-span-2 glass rounded-3xl p-6" enctype="multipart/form-data"><h2 class="gold text-2xl font-black mb-4">نموذج الطلب المتقدم</h2><div class="grid md:grid-cols-2 gap-3"><input class="input" name="الاسم" placeholder="الاسم الكامل" required><input class="input" name="الجوال" placeholder="رقم واتساب" required pattern="[0-9+ ]{7,}"><select class="input" name="نوع الطلب" required><option value="">اختر نوع الطلب</option><option>بيع</option><option>شراء</option><option>إيجار</option><option>تثمين</option><option>إدارة أملاك</option></select><select class="input" name="المديرية" required><option value="">المديرية</option><option>خور مكسر</option><option>المنصورة</option><option>المعلا</option><option>كريتر</option><option>الشيخ عثمان</option><option>دار سعد</option><option>البريقة</option><option>التواهي</option></select><input class="input" name="المساحة" placeholder="المساحة التقريبية"><input class="input" name="الميزانية أو السعر" placeholder="السعر/الميزانية"><input class="input" type="file" name="صور العقار" accept="image/*" multiple><input class="input" type="file" name="مستندات" multiple></div><textarea class="input mt-3" name="تفاصيل الطلب" rows="5" placeholder="الحي، الشارع، المواصفات، الملاحظات" required></textarea><label class="flex gap-2 mt-4 text-slate-300"><input type="checkbox" required> أؤكد صحة البيانات وأوافق على التواصل للمتابعة.</label><button class="gold-bg rounded-2xl px-6 py-3 font-black mt-4">تجهيز وإرسال عبر واتساب</button><p id="requestFormSuccess" class="hidden mt-3 text-green-400">تم التحقق من البيانات وتجهيز رسالة واتساب.</p></form><aside class="glass rounded-3xl p-6"><h2 class="gold font-black text-2xl mb-4">مراحل المعالجة</h2><ol class="space-y-3 text-slate-300"><li>1. استلام الطلب وفرزه.</li><li>2. مراجعة البيانات والمرفقات.</li><li>3. التواصل لاستكمال النواقص.</li><li>4. مطابقة الطلب مع الفرص المتاحة.</li><li>5. تقرير مختصر أو موعد معاينة.</li></ol></aside></section>
+</main>
+<footer class="border-t border-white/10 py-8 text-center text-slate-400">© مكتب عماد عدن العقاري — محتوى إرشادي لا يغني عن المعاينة والتوثيق الرسمي.</footer>
+<script>
+function sendWhatsApp(formId, title){const form=document.getElementById(formId); if(!form)return; form.addEventListener('submit',e=>{e.preventDefault(); if(!form.checkValidity()){form.reportValidity();return} const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n'); const msg=encodeURIComponent(title+'\n'+data); document.getElementById(formId+'Success')?.classList.remove('hidden'); window.open('https://wa.me/?text='+msg,'_blank');});}
+sendWhatsApp('consultForm','طلب استشارة قانونية عقارية');sendWhatsApp('requestForm','طلب عقاري جديد');
+</script>
 </body></html>
