@@ -1,16 +1,240 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>إدارة أملاك المغتربين</title>
-<style>body{font-family:Arial;margin:40px;line-height:1.8}a{color:#0b6}</style>
-</head><body>
-<h1>إدارة أملاك المغتربين</h1>
-<p>هذه صفحة مبدئية للخدمة. سيتم استكمالها بنفس تصميم الموقع الحالي مع محتوى احترافي.</p>
-<ul>
-<li>نبذة عن الخدمة</li>
-<li>المميزات</li>
-<li>خطوات العمل</li>
-<li>الأسئلة الشائعة</li>
-<li>نموذج طلب الخدمة</li>
-</ul>
-<p><a href="index.html">العودة للرئيسية</a></p>
-</body></html>
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة أملاك المغتربين - مكتب عماد عدن العقاري</title>
+    <!-- تضمين خط تجوال من جوجل ليتناسب مع التصميم العربي الحديث -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- المتغيرات والألوان الأساسية المستوحاة من موقعك --- */
+        :root {
+            --primary-bg: #0b1120; /* أزرق داكن جداً للخلفية */
+            --card-bg: #111827; /* أزرق فاتح قليلاً للبطاقات */
+            --gold: #d4af37; /* لون ذهبي للنصوص والأيقونات */
+            --text-light: #f3f4f6; /* لون أبيض مائل للرمادي للنصوص */
+            --text-muted: #9ca3af; /* لون رمادي للنصوص الفرعية */
+        }
+
+        /* --- الإعدادات العامة --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- شريط التنقل (الهيدر) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo-area h1 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .logo-area span {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .back-button {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--gold);
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--gold);
+            color: var(--primary-bg);
+        }
+
+        /* --- القسم الرئيسي (Hero Section) --- */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-icon {
+            background-color: var(--gold);
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-bg);
+        }
+
+        .hero h2 {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- قسم الخدمات والمميزات --- */
+        .features {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* تجاوب الشاشات الأكبر */
+        @media (min-width: 768px) {
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .feature-card h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- قسم الدعوة لاتخاذ إجراء (CTA) --- */
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366; /* لون الواتساب */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <div class="logo-area">
+            <h1>مكتب عماد عدن العقاري</h1>
+            <span>بيع - شراء - تثمين - استثمار</span>
+        </div>
+        <!-- رابط العودة للصفحة الرئيسية -->
+        <a href="index.html" class="back-button">العودة</a>
+    </header>
+
+    <!-- القسم التعريفي -->
+    <section class="hero">
+        <div class="hero-icon">
+            <!-- أيقونة مبنى بسيطة بصيغة SVG -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 2H9c-1.103 0-2 .897-2 2v5.586l-4.707 4.707A1 1 0 0 0 2 15v6c0 1.103.897 2 2 2h15c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-8 18H4v-4.586l3-3 4 4v3.586zm8 0h-6v-4c0-.552-.448-1-1-1H9c-.552 0-1 .448-1 1v4H7v-4.586l-3-3V4h15v16z"/>
+                <path d="M11 6h6v2h-6zm0 4h6v2h-6z"/>
+            </svg>
+        </div>
+        <h2>إدارة أملاك المغتربين</h2>
+        <p>نحن عينك الساهرة على أملاكك في الوطن. نقدم خدمات متكاملة للمغتربين تضمن لك راحة البال والحفاظ على استثماراتك بأعلى معايير الأمان والشفافية.</p>
+    </section>
+
+    <!-- الخدمات التفصيلية -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>💸 تحصيل الإيجارات</h3>
+            <p>نقوم بمتابعة المستأجرين وتحصيل الإيجارات في وقتها المحدد، وإيداعها في حسابك البنكي أو إرسالها إليك بالطريقة التي تفضلها بكل موثوقية.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛠️ الصيانة والمتابعة</h3>
+            <p>إشراف دوري على العقار وإجراء الصيانات الوقائية والضرورية للحفاظ على قيمة العقار وجودته، عبر فريق فني متخصص.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚖️ التمثيل القانوني</h3>
+            <p>تمثيلك أمام الجهات الحكومية والقانونية، وإبرام وتجديد عقود الإيجار بما يضمن حقوقك وفقاً للقوانين المعتمدة.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📊 تقارير دورية</h3>
+            <p>نزودك بتقارير شهرية أو دورية مصورة عن حالة العقار، وحركة الحسابات المالية (الإيرادات والمصروفات) لتكون على إطلاع دائم.</p>
+        </div>
+    </section>
+
+    <!-- دعوة للتواصل -->
+    <section class="cta-section">
+        <p style="margin-bottom: 20px; color: var(--text-light);">هل أنت مغترب وتبحث عن من يثق به لإدارة عقارك؟</p>
+        <!-- استبدل الرقم برقم واتساب المكتب الفعلي (مع كود الدولة) -->
+        <a href="https://wa.me/967700000000" class="whatsapp-btn" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+            تواصل معنا الآن
+        </a>
+    </section>
+
+</body>
+</html>
+
+```
