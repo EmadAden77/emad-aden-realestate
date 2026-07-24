@@ -352,9 +352,10 @@
 </div>
 <div class="hidden md:flex gap-6 items-center">
 <a class="text-xs font-bold text-gray-300" href="expatriates-property-management.html?platform=v2">إدارة الأملاك</a>
-<button class="text-xs font-bold text-gray-300" onclick="switchView('sales')">الطلبات</button>
-<button class="text-xs font-bold text-gray-300" onclick="window.location.href='heirs.html'">المستشار القانوني</button>
-<button class="text-xs font-bold text-gray-300" onclick="window.location.href='districts.html'">التطور العمراني</button>
+<a class="text-xs font-bold text-gray-300" href="request-reception.html">استقبال الطلبات</a>
+<a class="text-xs font-bold text-gray-300" href="legal-consultant.html">المستشار القانوني</a>
+<a class="text-xs font-bold text-gray-300" href="urban-development.html">التطور العمراني</a>
+<a class="text-xs font-bold text-gray-300" href="districts.html">موسوعة عدن</a>
 </div>
 </nav>
 <main class="no-print" id="app-container">
@@ -368,36 +369,36 @@
 <i class="fa-solid fa-building-shield text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">إدارة أملاك المغتربين</h3>
 </a>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="switchView('sales')">
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="request-reception.html" aria-label="فتح نظام استقبال الطلبات العقارية">
 <i class="fa-solid fa-file-signature text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">استقبال الطلبات</h3>
-</div>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="window.location.href='heirs.html'">
+<p class="text-xs text-[var(--text-muted)] mt-2">نماذج متقدمة وإرسال واتساب</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="legal-consultant.html" aria-label="فتح مركز الاستشارات القانونية العقارية">
 <i class="fa-solid fa-scale-balanced text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">المستشار القانوني</h3>
-</div>
-<div class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group" onclick="window.location.href='districts.html'">
+<p class="text-xs text-[var(--text-muted)] mt-2">عقود وتنبيهات ورفع ملفات</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="urban-development.html" aria-label="فتح منصة التطور العمراني">
 <i class="fa-solid fa-city text-3xl text-[var(--gold)] mb-4"></i>
 <h3 class="text-lg font-black text-white">التطور العمراني</h3>
-</div>
+<p class="text-xs text-[var(--text-muted)] mt-2">مشاريع وخرائط ومؤشرات</p>
+</a>
+<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="districts.html" aria-label="فتح موسوعة العقارات في عدن">
+<i class="fa-solid fa-map-location-dot text-3xl text-[var(--gold)] mb-4"></i>
+<h3 class="text-lg font-black text-white">موسوعة العقارات في عدن</h3>
+<p class="text-xs text-[var(--text-muted)] mt-2">مديريات وأحياء وأسعار إرشادية</p>
+</a>
 </div>
 <div class="glass-panel p-8 mt-10" id="realestate-encyclopedia">
 <h2 class="text-2xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2>
-<p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن.</p>
-<div class="grid md:grid-cols-2 gap-3">
-<a class="glass-card p-4" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<a class="glass-card p-4" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
-<a class="glass-card p-4" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
-<a class="glass-card p-4" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
-<a class="glass-card p-4" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
-<a class="glass-card p-4" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
+<p class="text-[var(--text-muted)] mb-6">مركز معرفة عقاري احترافي يضم أدلة البيع والشراء، الإجراءات القانونية، الورثة، إدارة الأملاك، الاستثمار، ونصائح المغتربين.</p>
+<div class="grid md:grid-cols-3 gap-3 mb-5"><div class="md:col-span-2"><input class="input-glass" id="encyclopedia-search" autocomplete="off" list="encyclopedia-suggestions" oninput="filterArticles()" placeholder="ابحث أثناء الكتابة: بصيرة، ورثة، وكالة، إيجار، احتيال..." type="search"/><datalist id="encyclopedia-suggestions"><option value="كيف تتأكد من صحة البصيرة العقارية؟"><option value="خطوات نقل ملكية العقار"><option value="إجراءات حصر الورثة"><option value="الوثائق المطلوبة للبيع والشراء"><option value="حقوق المشتري قبل التوقيع"><option value="كيفية اكتشاف الازدواجية"><option value="كيفية تقييم سعر العقار"><option value="الفرق بين البصيرة والسجل العقاري"><option value="شراء العقار من الورثة"><option value="شراء العقار عن طريق الوكيل"><option value="كيفية التأكد من صحة الوكالة"><option value="أخطاء يقع فيها المشترون"><option value="مخاطر شراء الأراضي"><option value="إجراءات استخراج المخططات"><option value="كيفية كتابة عقد بيع صحيح"><option value="حقوق المؤجر والمستأجر"><option value="كيفية إدارة العقار للمغتربين"><option value="كيفية استلام الإيجارات بأمان"><option value="كيفية حماية الاستثمار العقاري"><option value="أشهر عمليات الاحتيال العقاري في عدن وكيفية تجنبها"></datalist></div><div class="glass-card p-4 text-center"><span class="text-2xl font-black text-[var(--gold)]" id="encyclopedia-count">20</span><p class="text-xs text-[var(--text-muted)]">نتيجة متاحة</p></div></div>
+<div class="flex flex-wrap gap-2 mb-6"><button class="btn-glass encyclopedia-filter" type="button" data-category="الكل">الكل</button><button class="btn-glass encyclopedia-filter" type="button" data-category="البيع والشراء">البيع والشراء</button><button class="btn-glass encyclopedia-filter" type="button" data-category="الإجراءات القانونية">الإجراءات القانونية</button><button class="btn-glass encyclopedia-filter" type="button" data-category="الورثة">الورثة</button><button class="btn-glass encyclopedia-filter" type="button" data-category="إدارة الأملاك">إدارة الأملاك</button><button class="btn-glass encyclopedia-filter" type="button" data-category="الاستثمار">الاستثمار</button><button class="btn-glass encyclopedia-filter" type="button" data-category="نصائح للمغتربين">نصائح للمغتربين</button><button class="btn-glass encyclopedia-filter" type="button" data-category="السوق العقاري">السوق العقاري</button><button class="btn-glass encyclopedia-filter" type="button" data-category="الأسئلة الشائعة">الأسئلة الشائعة</button></div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="encyclopedia-results"><article class="glass-card p-5 encyclopedia-card" data-title="كيف تتأكد من صحة البصيرة العقارية؟" data-category="الإجراءات القانونية" data-summary="دليل عملي لمراجعة البصيرة، مطابقة البيانات، وفحص تسلسل الملكية قبل الشراء."><i class="fa-solid fa-file-circle-check text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيف تتأكد من صحة البصيرة العقارية؟</h3><p class="text-sm text-[var(--text-muted)] mb-4">دليل عملي لمراجعة البصيرة، مطابقة البيانات، وفحص تسلسل الملكية قبل الشراء.</p><a class="btn-gold text-sm" href="basirah.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="خطوات نقل ملكية العقار" data-category="البيع والشراء" data-summary="شرح مراحل نقل الملكية من الاتفاق حتى التوثيق واستلام المستندات النهائية."><i class="fa-solid fa-right-left text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">خطوات نقل ملكية العقار</h3><p class="text-sm text-[var(--text-muted)] mb-4">شرح مراحل نقل الملكية من الاتفاق حتى التوثيق واستلام المستندات النهائية.</p><a class="btn-gold text-sm" href="transfer.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="إجراءات حصر الورثة" data-category="الورثة" data-summary="كيف تبدأ ملف حصر الورثة وتجهز الوثائق وتحمي حقوق جميع الأطراف."><i class="fa-solid fa-people-roof text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">إجراءات حصر الورثة</h3><p class="text-sm text-[var(--text-muted)] mb-4">كيف تبدأ ملف حصر الورثة وتجهز الوثائق وتحمي حقوق جميع الأطراف.</p><a class="btn-gold text-sm" href="heirs.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="الوثائق المطلوبة للبيع والشراء" data-category="البيع والشراء" data-summary="قائمة الوثائق الأساسية التي يجب طلبها ومطابقتها قبل أي صفقة عقارية."><i class="fa-solid fa-folder-open text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">الوثائق المطلوبة للبيع والشراء</h3><p class="text-sm text-[var(--text-muted)] mb-4">قائمة الوثائق الأساسية التي يجب طلبها ومطابقتها قبل أي صفقة عقارية.</p><a class="btn-gold text-sm" href="buy-safely.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="حقوق المشتري قبل التوقيع" data-category="البيع والشراء" data-summary="حقوقك قبل دفع العربون أو توقيع عقد البيع وكيف تحمي موقفك قانونياً."><i class="fa-solid fa-shield-halved text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">حقوق المشتري قبل التوقيع</h3><p class="text-sm text-[var(--text-muted)] mb-4">حقوقك قبل دفع العربون أو توقيع عقد البيع وكيف تحمي موقفك قانونياً.</p><a class="btn-gold text-sm" href="ownership-types.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية اكتشاف الازدواجية" data-category="الإجراءات القانونية" data-summary="علامات الازدواج في الصرف أو الوثائق وكيفية فحصها مبكراً."><i class="fa-solid fa-triangle-exclamation text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية اكتشاف الازدواجية</h3><p class="text-sm text-[var(--text-muted)] mb-4">علامات الازدواج في الصرف أو الوثائق وكيفية فحصها مبكراً.</p><a class="btn-gold text-sm" href="common-mistakes.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية تقييم سعر العقار" data-category="السوق العقاري" data-summary="العوامل التي تحدد السعر العادل: الموقع، الخدمات، الشوارع، الوثائق والسيولة."><i class="fa-solid fa-chart-line text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية تقييم سعر العقار</h3><p class="text-sm text-[var(--text-muted)] mb-4">العوامل التي تحدد السعر العادل: الموقع، الخدمات، الشوارع، الوثائق والسيولة.</p><a class="btn-gold text-sm" href="property-value.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="الفرق بين البصيرة والسجل العقاري" data-category="الإجراءات القانونية" data-summary="متى تكون البصيرة دليلاً مهماً ومتى تحتاج إلى قيد أو مراجعة السجل العقاري."><i class="fa-solid fa-scale-balanced text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">الفرق بين البصيرة والسجل العقاري</h3><p class="text-sm text-[var(--text-muted)] mb-4">متى تكون البصيرة دليلاً مهماً ومتى تحتاج إلى قيد أو مراجعة السجل العقاري.</p><a class="btn-gold text-sm" href="basirah-vs-registry.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="شراء العقار من الورثة" data-category="الورثة" data-summary="احتياطات شراء عقار مملوك للورثة والتحقق من موافقة الجميع وسلامة التوكيلات."><i class="fa-solid fa-users text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">شراء العقار من الورثة</h3><p class="text-sm text-[var(--text-muted)] mb-4">احتياطات شراء عقار مملوك للورثة والتحقق من موافقة الجميع وسلامة التوكيلات.</p><a class="btn-gold text-sm" href="buying-from-heirs.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="شراء العقار عن طريق الوكيل" data-category="البيع والشراء" data-summary="كيف تتعامل مع الوكيل وتتحقق من حدود صلاحياته قبل الدفع والتوقيع."><i class="fa-solid fa-user-tie text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">شراء العقار عن طريق الوكيل</h3><p class="text-sm text-[var(--text-muted)] mb-4">كيف تتعامل مع الوكيل وتتحقق من حدود صلاحياته قبل الدفع والتوقيع.</p><a class="btn-gold text-sm" href="buying-through-agent.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية التأكد من صحة الوكالة" data-category="الإجراءات القانونية" data-summary="خطوات مراجعة الوكالة والتأكد من عدم إلغائها ومطابقة بيانات الموكل والوكيل."><i class="fa-solid fa-id-card text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية التأكد من صحة الوكالة</h3><p class="text-sm text-[var(--text-muted)] mb-4">خطوات مراجعة الوكالة والتأكد من عدم إلغائها ومطابقة بيانات الموكل والوكيل.</p><a class="btn-gold text-sm" href="verify-power-of-attorney.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="أخطاء يقع فيها المشترون" data-category="نصائح للمغتربين" data-summary="أكثر الأخطاء التي ترفع مخاطر الشراء وكيف تتجنبها بخطة فحص واضحة."><i class="fa-solid fa-circle-xmark text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">أخطاء يقع فيها المشترون</h3><p class="text-sm text-[var(--text-muted)] mb-4">أكثر الأخطاء التي ترفع مخاطر الشراء وكيف تتجنبها بخطة فحص واضحة.</p><a class="btn-gold text-sm" href="buyer-mistakes.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="مخاطر شراء الأراضي" data-category="الاستثمار" data-summary="مخاطر الأراضي غير المخططة، نقص الخدمات، الازدواج، والوعود غير الموثقة."><i class="fa-solid fa-mountain-city text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">مخاطر شراء الأراضي</h3><p class="text-sm text-[var(--text-muted)] mb-4">مخاطر الأراضي غير المخططة، نقص الخدمات، الازدواج، والوعود غير الموثقة.</p><a class="btn-gold text-sm" href="land-purchase-risks.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="إجراءات استخراج المخططات" data-category="الإجراءات القانونية" data-summary="ما الذي تحتاجه لاستخراج أو مطابقة المخطط والكروكي ووحدة الجوار."><i class="fa-solid fa-map text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">إجراءات استخراج المخططات</h3><p class="text-sm text-[var(--text-muted)] mb-4">ما الذي تحتاجه لاستخراج أو مطابقة المخطط والكروكي ووحدة الجوار.</p><a class="btn-gold text-sm" href="planning-documents.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية كتابة عقد بيع صحيح" data-category="البيع والشراء" data-summary="بنود العقد الجوهرية: الأطراف، الثمن، التسليم، الضمانات، الجزاءات والمرفقات."><i class="fa-solid fa-file-signature text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية كتابة عقد بيع صحيح</h3><p class="text-sm text-[var(--text-muted)] mb-4">بنود العقد الجوهرية: الأطراف، الثمن، التسليم، الضمانات، الجزاءات والمرفقات.</p><a class="btn-gold text-sm" href="sale-contract.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="حقوق المؤجر والمستأجر" data-category="الإجراءات القانونية" data-summary="التزامات الإيجار، السداد، الصيانة، الإخلاء، وتسليم العقار."><i class="fa-solid fa-house-user text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">حقوق المؤجر والمستأجر</h3><p class="text-sm text-[var(--text-muted)] mb-4">التزامات الإيجار، السداد، الصيانة، الإخلاء، وتسليم العقار.</p><a class="btn-gold text-sm" href="landlord-tenant-rights.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية إدارة العقار للمغتربين" data-category="إدارة الأملاك" data-summary="نظام عملي لمتابعة العقار، التحصيل، الصيانة، والتقارير للمغتربين."><i class="fa-solid fa-building-shield text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية إدارة العقار للمغتربين</h3><p class="text-sm text-[var(--text-muted)] mb-4">نظام عملي لمتابعة العقار، التحصيل، الصيانة، والتقارير للمغتربين.</p><a class="btn-gold text-sm" href="expat-property-management-guide.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية استلام الإيجارات بأمان" data-category="إدارة الأملاك" data-summary="طرق تنظيم التحصيل وإصدار الإيصالات وتقليل التأخير والنزاعات."><i class="fa-solid fa-money-bill-transfer text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية استلام الإيجارات بأمان</h3><p class="text-sm text-[var(--text-muted)] mb-4">طرق تنظيم التحصيل وإصدار الإيصالات وتقليل التأخير والنزاعات.</p><a class="btn-gold text-sm" href="safe-rent-collection.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="كيفية حماية الاستثمار العقاري" data-category="الاستثمار" data-summary="خطة حماية استثمارك عبر الفحص، التنويع، التوثيق، والمتابعة المستمرة."><i class="fa-solid fa-lock text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">كيفية حماية الاستثمار العقاري</h3><p class="text-sm text-[var(--text-muted)] mb-4">خطة حماية استثمارك عبر الفحص، التنويع، التوثيق، والمتابعة المستمرة.</p><a class="btn-gold text-sm" href="protect-realestate-investment.html">اقرأ المزيد</a></article><article class="glass-card p-5 encyclopedia-card" data-title="أشهر عمليات الاحتيال العقاري في عدن وكيفية تجنبها" data-category="الأسئلة الشائعة" data-summary="أشهر أنماط الاحتيال وعلامات الخطر قبل دفع المال أو توقيع العقد."><i class="fa-solid fa-user-secret text-2xl text-[var(--gold)] mb-3"></i><h3 class="font-black text-white mb-2">أشهر عمليات الاحتيال العقاري في عدن وكيفية تجنبها</h3><p class="text-sm text-[var(--text-muted)] mb-4">أشهر أنماط الاحتيال وعلامات الخطر قبل دفع المال أو توقيع العقد.</p><a class="btn-gold text-sm" href="aden-realestate-fraud.html">اقرأ المزيد</a></article></div>
+<div class="grid md:grid-cols-2 gap-4 mt-8"><section class="glass-panel p-5"><h3 class="font-black text-[var(--gold)] mb-4">الأكثر قراءة</h3><div class="grid gap-3"><a class="glass-card p-4 block" href="basirah.html">كيف تتأكد من صحة البصيرة العقارية؟</a><a class="glass-card p-4 block" href="transfer.html">خطوات نقل ملكية العقار</a><a class="glass-card p-4 block" href="property-value.html">كيفية تقييم سعر العقار</a><a class="glass-card p-4 block" href="aden-realestate-fraud.html">أشهر عمليات الاحتيال العقاري في عدن وكيفية تجنبها</a></div></section><section class="glass-panel p-5"><h3 class="font-black text-[var(--gold)] mb-4">أحدث المقالات</h3><div class="grid gap-3"><a class="glass-card p-4 block" href="expat-property-management-guide.html">كيفية إدارة العقار للمغتربين</a><a class="glass-card p-4 block" href="safe-rent-collection.html">كيفية استلام الإيجارات بأمان</a><a class="glass-card p-4 block" href="protect-realestate-investment.html">كيفية حماية الاستثمار العقاري</a><a class="glass-card p-4 block" href="aden-realestate-fraud.html">أشهر عمليات الاحتيال العقاري في عدن وكيفية تجنبها</a></div></section></div>
 </div>
-<div class="mt-6">
-<input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/>
-<p class="text-xs text-gray-400 mt-2">اكتب كلمة مثل: بصيرة، ورثة، بيع، شراء، تثمين...</p>
-</div>
-</div>
-<div class="glass-panel p-8 mt-10" id="new-tools"><h2>🆕 أدوات عقارية جديدة (قيد التطوير)</h2><ul><li>✓ البحث الذكي داخل الموسوعة</li><li>✓ حاسبة مساحة الأراضي</li><li>✓ حاسبة ROI المطورة</li><li>✓ مؤشر أسعار الأراضي</li><li>✓ دليل مديريات عدن</li><li>✓ دليل وحدات الجوار</li><li>✓ صفحة حصر الورثة</li><li>✓ صفحة الأسئلة الشائعة</li></ul></div></section>
+<div class="glass-panel p-8 mt-10" id="new-tools"><h2 class="text-2xl font-black text-[var(--gold)] mb-4">روابط سريعة للخدمات الجديدة</h2><div class="grid md:grid-cols-4 gap-3"><a class="btn-glass" href="legal-consultant.html">مركز الاستشارات</a><a class="btn-glass" href="request-reception.html">نظام الطلبات</a><a class="btn-glass" href="urban-development.html">التطور العمراني</a><a class="btn-glass" href="districts.html">موسوعة عدن</a><a class="btn-glass" href="land-area.html">حاسبة المساحة</a><a class="btn-glass" href="property-value.html">تثمين العقارات</a><a class="btn-glass" href="neighborhoods.html">دليل الأحياء</a><a class="btn-glass" href="heirs.html">حصر الورثة</a></div></div></section>
 <section class="app-view px-4 max-w-4xl mx-auto" id="view-expat">
 <div class="bank-panel p-8 text-center rounded-2xl" id="owner-login-section">
 <h3 class="text-xl font-black bank-title mb-6">الخزنة الرقمية للأملاك</h3>
@@ -538,9 +539,10 @@
 </main>
 <footer class="global-holo-footer no-print">
 <div class="holo-social-row">
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-x-twitter"></i></a>
-<a class="holo-social-btn" href="#"><i class="fa-brands fa-instagram"></i></a>
+<a class="holo-social-btn" href="legal-consultant.html" aria-label="المستشار القانوني"><i class="fa-solid fa-scale-balanced"></i></a>
+<a class="holo-social-btn" href="request-reception.html" aria-label="استقبال الطلبات"><i class="fa-solid fa-file-signature"></i></a>
+<a class="holo-social-btn" href="urban-development.html" aria-label="التطور العمراني"><i class="fa-solid fa-city"></i></a>
+<a class="holo-social-btn" href="districts.html" aria-label="موسوعة العقارات في عدن"><i class="fa-solid fa-map-location-dot"></i></a>
 </div>
 <p class="text-[10px] text-gray-500 font-bold">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</p>
 </footer>
@@ -681,13 +683,41 @@
         }
     
 
-function filterArticles(){
- const q=document.getElementById('encyclopedia-search').value.toLowerCase();
- document.querySelectorAll('#realestate-encyclopedia .glass-card').forEach(c=>{
-   const t=(c.dataset.title||c.textContent).toLowerCase();
-   c.style.display=t.includes(q)?'block':'none';
- });
+let activeEncyclopediaCategory = 'الكل';
+document.addEventListener('click', (event) => {
+ const filter = event.target.closest('.encyclopedia-filter');
+ if (!filter) return;
+ activeEncyclopediaCategory = filter.dataset.category;
+ document.querySelectorAll('.encyclopedia-filter').forEach(btn => btn.classList.remove('gold-text-gradient'));
+ filter.classList.add('gold-text-gradient');
+ filterArticles();
+});
+function articleScore(card, query){
+ const haystack = `${card.dataset.title || ''} ${card.dataset.category || ''} ${card.dataset.summary || ''}`.toLowerCase();
+ if(!query) return 1;
+ if((card.dataset.title || '').toLowerCase().includes(query)) return 3;
+ if(haystack.includes(query)) return 2;
+ return 0;
 }
+function filterArticles(){
+ const input = document.getElementById('encyclopedia-search');
+ const count = document.getElementById('encyclopedia-count');
+ if(!input || !count) return;
+ const q = input.value.trim().toLowerCase();
+ const cards = [...document.querySelectorAll('#encyclopedia-results .encyclopedia-card')];
+ let visible = 0;
+ cards.map(card => ({card, score: articleScore(card, q)}))
+   .sort((a,b) => b.score - a.score || (a.card.dataset.title || '').localeCompare(b.card.dataset.title || '', 'ar'))
+   .forEach(({card, score}) => {
+     const categoryMatch = activeEncyclopediaCategory === 'الكل' || card.dataset.category === activeEncyclopediaCategory;
+     const show = categoryMatch && score > 0;
+     card.style.display = show ? 'block' : 'none';
+     if(show) visible++;
+     card.parentElement.appendChild(card);
+   });
+ count.textContent = visible;
+}
+filterArticles();
 
 if ('serviceWorker' in navigator) {
  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
