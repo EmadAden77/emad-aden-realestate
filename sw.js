@@ -1,43 +1,56 @@
-const CACHE_NAME = 'emad-realestate-v2';
+const CACHE_NAME = 'emad-realestate-v5';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/expatriates-property-management.html',
+  '/expatriates-property-management.html?platform=v2',
+  '/assets/css/expatriates.css?v=20260724-2',
+  '/assets/js/expatriates.js?v=20260724-2',
   '/manifest.json',
-  '/data.json'
+  '/data.json',
+  '/IMG_5.jpg'
 ];
 
-// تثبيت ملفات الكاش للعمل بدون إنترنت
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(ASSETS_TO_CACHE);
-      })
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE)));
+  self.skipWaiting();
 });
 
-// اعتراض الطلبات وإرجاعها من الكاش إذا كان النت مفصول
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  const request = event.request;
+  const acceptsHtml = request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html');
+
+  if (acceptsHtml) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          return response;
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match('/index.html')))
+    );
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        return response || fetch(event.request);
-      })
+    caches.match(request).then((cached) => cached || fetch(request).then((response) => {
+      const copy = response.clone();
+      caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+      return response;
+    }))
   );
 });
 
-// تنظيف الكاش القديم
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then((cacheNames) => Promise.all(
+      cacheNames
+        .filter((cacheName) => cacheName.startsWith('emad-realestate-') && cacheName !== CACHE_NAME)
+        .map((cacheName) => caches.delete(cacheName))
+    ))
   );
+  self.clients.claim();
 });
