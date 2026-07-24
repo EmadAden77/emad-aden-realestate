@@ -1,4 +1,4 @@
-const CACHE_NAME = 'emad-realestate-v3';
+const CACHE_NAME = 'emad-realestate-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
