@@ -21,6 +21,7 @@ body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at t
 </style>
 <title>موسوعة العقارات في عدن</title>
 <meta name="description" content="دليل عقاري شامل لمديريات وأحياء عدن والأسعار والخدمات والصور والخرائط والمؤشرات الاستثمارية ونصائح الشراء والبيع.">
+<link href="assets/css/site-redesign.css" rel="stylesheet"/>
 </head>
 <body>
 <header class="sticky top-0 z-50 glass">
@@ -46,4 +47,5 @@ body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at t
 function sendWhatsApp(formId, title){const form=document.getElementById(formId); if(!form)return; form.addEventListener('submit',e=>{e.preventDefault(); if(!form.checkValidity()){form.reportValidity();return} const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n'); const msg=encodeURIComponent(title+'\n'+data); document.getElementById(formId+'Success')?.classList.remove('hidden'); window.open('https://wa.me/?text='+msg,'_blank');});}
 sendWhatsApp('consultForm','طلب استشارة قانونية عقارية');sendWhatsApp('requestForm','طلب عقاري جديد');
 </script>
+<script src="assets/js/site-redesign.js" defer></script>
 </body></html>

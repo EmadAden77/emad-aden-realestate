@@ -301,7 +301,8 @@
             #printable-contract { display: block !important; }
         }
     </style>
-</meta></head>
+</meta><link href="assets/css/site-redesign.css" rel="stylesheet"/>
+</head>
 <body class="antialiased theme-home">
 <div class="chat-panel p-4 no-print" id="chatPanel">
 <div class="flex justify-between items-center border-b border-[var(--gold)] pb-3 mb-4">
@@ -703,5 +704,6 @@ if ('serviceWorker' in navigator) {
  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
 }
 </script>
+<script src="assets/js/site-redesign.js" defer></script>
 </body>
 </html>

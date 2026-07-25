@@ -1,0 +1,172 @@
+/* Professional black/gold visual refresh for Emad Aden Real Estate.
+   This stylesheet only layers presentation enhancements on existing markup. */
+:root {
+  --emad-gold: #E5C07B;
+  --emad-gold-2: #f5d88d;
+  --emad-dark: #050505;
+  --emad-panel: rgba(15, 15, 18, 0.72);
+  --emad-line: rgba(229, 192, 123, 0.20);
+  --emad-radius: 26px;
+  --emad-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--emad-dark) !important;
+  background-image:
+    radial-gradient(circle at 82% 0%, rgba(229, 192, 123, 0.17), transparent 34%),
+    radial-gradient(circle at 15% 18%, rgba(184, 134, 11, 0.13), transparent 26%),
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px !important;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 22%, rgba(229,192,123,.045));
+}
+header, .site-header, header.sticky, header.fixed {
+  backdrop-filter: blur(18px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(145%) !important;
+  border-bottom: 1px solid var(--emad-line) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28) !important;
+}
+.glass-panel, .glass, .glass-card, .card, details, form, aside, .bank-panel {
+  border-color: var(--emad-line) !important;
+  box-shadow: var(--emad-shadow) !important;
+}
+.glass-panel, .glass, .card, .glass-card, .bank-panel {
+  border-radius: var(--emad-radius) !important;
+}
+.glass-panel:hover, .glass-card:hover, .card:hover, .btn-glass:hover, .btn-gold:hover, .badge:hover, .holo-social-btn:hover, .sd-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(229, 192, 123, 0.16) !important;
+  border-color: rgba(229, 192, 123, 0.55) !important;
+}
+.btn-gold, .gold-bg, button.gold-bg {
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--emad-gold), var(--emad-gold-2), #b8860b) !important;
+  box-shadow: 0 12px 34px rgba(229, 192, 123, 0.24) !important;
+}
+.btn-glass, .badge, .sd-item, .holo-social-btn, .modern-social-link {
+  border-radius: 999px !important;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease !important;
+}
+.app-view.active, main > section, .section, .hero, .hero-grid {
+  animation: emadFadeUp .55s ease both;
+}
+img { max-width: 100%; height: auto; }
+img[loading="lazy"] { content-visibility: auto; }
+.input-glass, input, textarea, select {
+  border-color: rgba(229,192,123,.22) !important;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease !important;
+}
+.input-glass:focus, input:focus, textarea:focus, select:focus {
+  border-color: var(--emad-gold) !important;
+  box-shadow: 0 0 0 4px rgba(229,192,123,.12) !important;
+}
+.modern-site-tools {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  flex-wrap: wrap;
+}
+.modern-social-link {
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--emad-gold) !important;
+  border: 1px solid var(--emad-line);
+  background: rgba(255,255,255,.045);
+  text-decoration: none !important;
+}
+.modern-mobile-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #080808;
+  background: linear-gradient(135deg, var(--emad-gold), var(--emad-gold-2));
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(229,192,123,.22);
+}
+.modern-mobile-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(86vw, 360px);
+  z-index: 100000;
+  transform: translateX(105%);
+  transition: transform .32s ease;
+  padding: 22px;
+  background: rgba(8,8,8,.96);
+  border-left: 1px solid var(--emad-line);
+  box-shadow: -25px 0 70px rgba(0,0,0,.5);
+  backdrop-filter: blur(20px);
+}
+.modern-mobile-drawer.active { transform: translateX(0); }
+.modern-mobile-drawer a, .modern-mobile-drawer button {
+  display: flex;
+  width: 100%;
+  margin: 8px 0;
+  padding: 13px 15px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(229,192,123,.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,.045);
+}
+.modern-footer-grid {
+  width: min(1180px, calc(100% - 32px));
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  gap: 18px;
+  text-align: right;
+  margin: 0 auto 18px;
+}
+.modern-footer-card {
+  padding: 18px;
+  border: 1px solid var(--emad-line);
+  border-radius: 22px;
+  background: rgba(255,255,255,.035);
+}
+.modern-footer-card h3 { color: var(--emad-gold); font-weight: 900; margin-bottom: 10px; }
+.modern-footer-card a { display: block; color: #e8e0cc; text-decoration: none; margin: 7px 0; }
+.modern-footer-card a:hover { color: var(--emad-gold); transform: translateX(-3px); }
+.modern-skeleton {
+  position: relative;
+  overflow: hidden;
+}
+.modern-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  background: linear-gradient(90deg, transparent, rgba(229,192,123,.11), transparent);
+  animation: emadShimmer 1.2s ease infinite;
+}
+@keyframes emadFadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes emadShimmer { to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (min-width: 1280px) {
+  main, .container, .max-w-6xl, .max-w-7xl { max-width: 1240px !important; }
+  .app-view { padding-inline: 2rem; }
+}
+@media (max-width: 920px) {
+  .modern-mobile-toggle { display: inline-grid; }
+  .modern-footer-grid { grid-template-columns: 1fr 1fr; }
+  header nav, .nav-links { gap: .5rem; }
+}
+@media (max-width: 640px) {
+  body { background-size: auto, auto, 28px 28px, 28px 28px !important; }
+  .app-view { padding-top: 5rem !important; }
+  .glass-panel, .glass, .card, .glass-card { border-radius: 20px !important; }
+  .modern-footer-grid { grid-template-columns: 1fr; }
+  .modern-site-tools { width: 100%; justify-content: space-between; }
+}
