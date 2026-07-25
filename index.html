@@ -296,6 +296,38 @@
         #splash-screen { position: fixed; inset: 0; z-index: 9999999; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.8s; }
         #splash-screen.hidden-splash { opacity: 0; visibility: hidden; }
         
+
+        /* Professional black & gold UI/UX redesign layer */
+        :root { --premium-line: rgba(229,192,123,.18); --premium-soft: rgba(229,192,123,.08); }
+        body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; background:radial-gradient(circle at 15% 10%, rgba(229,192,123,.16), transparent 30%), radial-gradient(circle at 85% 25%, rgba(184,134,11,.12), transparent 28%), linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%); }
+        .lux-nav { height:auto; min-height:76px; padding:.75rem clamp(1rem,4vw,3rem); background:linear-gradient(180deg,rgba(5,5,5,.92),rgba(5,5,5,.72)); border-bottom:1px solid var(--premium-line); box-shadow:0 18px 60px rgba(0,0,0,.35); }
+        .lux-brand img { width:52px; height:52px; border-radius:16px; box-shadow:0 0 0 4px rgba(229,192,123,.08); }
+        .lux-navlinks a { position:relative; padding:.7rem .35rem; transition:.25s ease; }
+        .lux-navlinks a::after { content:""; position:absolute; right:0; left:0; bottom:.35rem; height:2px; transform:scaleX(0); background:linear-gradient(90deg,var(--gold),var(--dark-gold)); transition:.25s ease; transform-origin:right; }
+        .lux-navlinks a:hover,.lux-navlinks a.active { color:#fff; } .lux-navlinks a:hover::after,.lux-navlinks a.active::after { transform:scaleX(1); }
+        .lux-social { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:999px; border:1px solid var(--premium-line); color:var(--gold); background:rgba(255,255,255,.035); transition:.25s ease; }
+        .lux-social:hover { transform:translateY(-3px) rotate(-6deg); background:var(--premium-soft); box-shadow:0 12px 26px rgba(229,192,123,.18); }
+        .mobile-menu-panel { position:fixed; inset:76px 1rem auto 1rem; z-index:99; display:none; padding:1rem; border:1px solid var(--premium-line); border-radius:24px; background:rgba(8,8,9,.94); backdrop-filter:blur(22px); box-shadow:0 30px 80px rgba(0,0,0,.55); }
+        .mobile-menu-panel.active { display:block; animation:fadeIn .25s ease both; } .mobile-menu-panel a { display:flex; align-items:center; gap:.7rem; min-height:48px; padding:.8rem 1rem; border-radius:16px; color:#e5e7eb; font-weight:800; } .mobile-menu-panel a:hover { background:var(--premium-soft); color:var(--gold); }
+        .premium-hero { min-height:calc(100vh - 76px); padding-top:7rem!important; padding-bottom:4rem; } .hero-shell { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; }
+        .eyebrow { display:inline-flex; gap:.55rem; align-items:center; padding:.55rem 1rem; border:1px solid var(--premium-line); border-radius:999px; color:var(--gold); background:var(--premium-soft); font-weight:900; }
+        .hero-title { font-size:clamp(2.4rem,6vw,5.7rem); line-height:1.08; letter-spacing:-.04em; } .hero-copy { color:#cbd5e1; font-size:clamp(1rem,2vw,1.25rem); line-height:2; max-width:680px; }
+        .hero-actions { display:flex; flex-wrap:wrap; gap:.85rem; margin-top:1.5rem; } .hero-actions .btn-gold,.hero-actions .btn-glass { min-height:52px; border-radius:999px; padding-inline:1.45rem; }
+        .hero-visual { position:relative; min-height:420px; border-radius:34px; overflow:hidden; border:1px solid var(--premium-line); background:linear-gradient(145deg,rgba(229,192,123,.18),rgba(255,255,255,.04) 45%,rgba(0,0,0,.5)),url('IMG_5.jpg') center/cover; box-shadow:0 30px 90px rgba(0,0,0,.55); } .hero-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 55%); }
+        .floating-stat { position:absolute; z-index:1; border:1px solid var(--premium-line); border-radius:22px; padding:1rem; background:rgba(0,0,0,.58); backdrop-filter:blur(14px); box-shadow:0 18px 45px rgba(0,0,0,.35); } .floating-stat b { display:block; color:var(--gold); font-size:1.8rem; } .floating-stat.one { right:1rem; bottom:1rem; } .floating-stat.two { left:1rem; top:1rem; }
+        .premium-section { margin-top:clamp(2.5rem,6vw,5rem); } .section-kicker { color:var(--gold); font-weight:900; margin-bottom:.5rem; }
+        .services-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.1rem; } .premium-grid-card { position:relative; overflow:hidden; min-height:210px; border-radius:28px!important; background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025)); } .premium-grid-card::before { content:""; position:absolute; inset:0; opacity:0; background:radial-gradient(circle at 50% 0,rgba(229,192,123,.18),transparent 45%); transition:.3s; } .premium-grid-card:hover::before { opacity:1; } .premium-grid-card i { width:64px; height:64px; display:inline-grid; place-items:center; border-radius:20px; background:rgba(229,192,123,.1); border:1px solid var(--premium-line); }
+        .service-card { display:flex; flex-direction:column; align-items:flex-start; text-align:right; min-height:265px; padding:1.6rem!important; text-decoration:none; } .service-card h3 { margin-top:1rem; font-size:1.15rem; font-weight:900; color:#fff; } .service-card p { color:#aeb7c4; line-height:1.9; margin:.65rem 0 1rem; flex:1; } .mini-gold-btn { display:inline-flex; align-items:center; gap:.45rem; border-radius:999px; padding:.55rem .9rem; background:linear-gradient(135deg,var(--gold),var(--dark-gold)); color:#080808; font-size:.82rem; font-weight:900; box-shadow:0 12px 28px rgba(229,192,123,.16); }
+        .premium-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-top:2rem; } .premium-stat { border:1px solid var(--premium-line); border-radius:24px; padding:1.25rem; background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.02)); box-shadow:0 18px 45px rgba(0,0,0,.28); } .premium-stat span { color:#aeb7c4; font-size:.82rem; font-weight:800; } .premium-stat b { display:block; color:var(--gold); font-size:clamp(1.55rem,3vw,2.35rem); line-height:1.1; margin-top:.35rem; }
+        .knowledge-search-wrap { position:relative; margin:1.25rem 0 .85rem; } .knowledge-search-wrap i { position:absolute; top:50%; right:1rem; transform:translateY(-50%); color:var(--gold); } .knowledge-search-wrap .input-glass { min-height:58px; border-radius:20px; padding-right:3rem; font-size:1rem; }
+        .knowledge-chips { display:flex; flex-wrap:wrap; gap:.65rem; margin-bottom:1.2rem; } .knowledge-chip { border:1px solid rgba(229,192,123,.34); border-radius:999px; padding:.48rem .9rem; background:rgba(229,192,123,.10); color:var(--gold); font-weight:900; font-size:.86rem; transition:.25s ease; } .knowledge-chip:hover { background:linear-gradient(135deg,var(--gold),var(--dark-gold)); color:#080808; transform:translateY(-2px); }
+        .knowledge-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; } .knowledge-card { min-height:235px; padding:1.25rem!important; display:flex!important; flex-direction:column; text-decoration:none; border-color:rgba(229,192,123,.22)!important; box-shadow:0 14px 38px rgba(0,0,0,.24); } .knowledge-card i { width:54px; height:54px; display:grid; place-items:center; border-radius:18px; color:var(--gold); background:rgba(229,192,123,.09); border:1px solid var(--premium-line); font-size:1.35rem; } .knowledge-card h3 { font-size:1rem; font-weight:900; color:#fff; margin:.9rem 0 .45rem; } .knowledge-card p { color:#aeb7c4; font-size:.86rem; line-height:1.85; flex:1; } .knowledge-card .read-more { color:var(--gold); font-weight:900; margin-top:1rem; } .knowledge-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(229,192,123,.12); }
+        .premium-footer { background:linear-gradient(180deg,rgba(10,10,10,.96),#030303)!important; border-top:1px solid var(--premium-line)!important; padding:3rem clamp(1rem,5vw,4rem)!important; align-items:stretch!important; } .footer-grid { display:grid; grid-template-columns:1.3fr repeat(3,1fr); gap:1.5rem; width:min(1180px,100%); margin:auto; text-align:right; } .footer-col h3 { color:var(--gold); font-weight:900; margin-bottom:1rem; } .footer-col a,.footer-col p { display:block; color:#aeb7c4; margin:.45rem 0; font-size:.9rem; } .footer-bottom { width:min(1180px,100%); margin:1.5rem auto 0; padding-top:1rem; border-top:1px solid rgba(255,255,255,.07); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; color:#8b949e; }
+        .reveal { opacity:0; transform:translateY(18px); transition:.65s ease; } .reveal.in-view { opacity:1; transform:none; }
+        @media(max-width:1024px){ .services-grid,.knowledge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.premium-stats{grid-template-columns:repeat(2,minmax(0,1fr))} }
+        @media(max-width:900px){ .lux-nav{min-height:70px}.premium-hero{padding-top:6rem!important}.hero-shell,.footer-grid{grid-template-columns:1fr}.hero-visual{min-height:310px}.side-tabs-container{display:none}.footer-bottom{justify-content:center;text-align:center}.hero-actions a,.hero-actions button{width:100%} }
+        @media(max-width:640px){ .services-grid,.knowledge-grid,.premium-stats{grid-template-columns:1fr}.service-card,.knowledge-card{min-height:auto}.premium-section{margin-top:2rem} }
+
         @media print {
             .no-print { display: none !important; }
             #printable-contract { display: block !important; }
@@ -342,71 +374,37 @@
 <div class="side-tab-text">حاسبة العوائد</div>
 </div>
 </div>
-<nav class="fixed top-0 w-full z-[100] bg-[rgba(5,5,5,0.85)] backdrop-blur-xl border-b border-white/5 h-16 flex items-center justify-between px-4 lg:px-10 no-print">
-<div class="flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
-<img alt="Logo" class="w-10 h-10 rounded-lg border border-[var(--gold)]" src="IMG_5.jpg"/>
-<div class="flex flex-col">
-<h1 class="font-black text-sm text-white">مكتب عماد عدن العقاري</h1>
-<span class="text-[10px] text-[var(--gold)] font-bold">بيع شراء تثمين استثمار</span>
+<nav class="lux-nav fixed top-0 w-full z-[100] flex items-center justify-between gap-4 no-print">
+<div class="lux-brand flex items-center gap-3 cursor-pointer" onclick="switchView('home')">
+<img alt="Logo" src="IMG_5.jpg"/>
+<div class="flex flex-col"><h1 class="font-black text-base text-white">مكتب عماد عدن العقاري</h1><span class="text-[11px] text-[var(--gold)] font-bold">بيع شراء تثمين استثمار</span></div>
 </div>
-</div>
-<div class="hidden md:flex gap-6 items-center">
-<a class="text-xs font-bold text-gray-300" href="expatriates-property-management.html?platform=v2">إدارة الأملاك</a>
-<a class="text-xs font-bold text-gray-300" href="request-reception.html">استقبال الطلبات</a>
-<a class="text-xs font-bold text-gray-300" href="legal-consultant.html">المستشار القانوني</a>
-<a class="text-xs font-bold text-gray-300" href="urban-development.html">التطور العمراني</a>
-<a class="text-xs font-bold text-gray-300" href="districts.html">موسوعة عدن</a>
-</div>
+<div class="lux-navlinks hidden lg:flex gap-7 items-center"><a class="active text-xs font-bold text-gray-300" href="index.html">الرئيسية</a><a class="text-xs font-bold text-gray-300" href="expatriates-property-management.html?platform=v2">إدارة الأملاك</a><a class="text-xs font-bold text-gray-300" href="request-reception.html">استقبال الطلبات</a><a class="text-xs font-bold text-gray-300" href="legal-consultant.html">المستشار القانوني</a><a class="text-xs font-bold text-gray-300" href="urban-development.html">التطور العمراني</a><a class="text-xs font-bold text-gray-300" href="districts.html">موسوعة عدن</a></div>
+<div class="hidden md:flex items-center gap-2"><a class="lux-social" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><a class="lux-social" href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a class="lux-social" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><button class="btn-gold py-2 px-4" onclick="toggleChat()"><i class="fa-solid fa-magnifying-glass"></i> بحث ذكي</button></div>
+<button class="lg:hidden lux-social" onclick="toggleMobileMenu()" aria-label="القائمة"><i class="fa-solid fa-bars"></i></button>
 </nav>
+<div class="mobile-menu-panel no-print" id="mobileMenu"><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a href="expatriates-property-management.html?platform=v2"><i class="fa-solid fa-building-shield"></i> إدارة الأملاك</a><a href="request-reception.html"><i class="fa-solid fa-file-signature"></i> استقبال الطلبات</a><a href="legal-consultant.html"><i class="fa-solid fa-scale-balanced"></i> المستشار القانوني</a><a href="urban-development.html"><i class="fa-solid fa-city"></i> التطور العمراني</a><a href="districts.html"><i class="fa-solid fa-map-location-dot"></i> موسوعة عدن</a><div class="flex gap-2 pt-2"><a class="lux-social" href="https://x.com/aleimad7aden" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a><a class="lux-social" href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a class="lux-social" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a></div></div>
 <main class="no-print" id="app-container">
-<section class="app-view active px-4 max-w-6xl mx-auto flex flex-col justify-center" id="view-home">
-<div class="text-center mb-12">
-<h2 class="text-3xl md:text-5xl font-black mb-4">المرجعية العقارية <br/><span class="gold-text-gradient" id="typewriter-text"></span></h2>
-<p class="text-sm text-[var(--text-muted)] max-w-xl mx-auto mt-4">ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة في عدن.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 tilt-effect">
-<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="expatriates-property-management.html?platform=v2" aria-label="فتح منصة إدارة أملاك المغتربين">
-<i class="fa-solid fa-building-shield text-3xl text-[var(--gold)] mb-4"></i>
-<h3 class="text-lg font-black text-white">إدارة أملاك المغتربين</h3>
-</a>
-<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="request-reception.html" aria-label="فتح نظام استقبال الطلبات العقارية">
-<i class="fa-solid fa-file-signature text-3xl text-[var(--gold)] mb-4"></i>
-<h3 class="text-lg font-black text-white">استقبال الطلبات</h3>
-<p class="text-xs text-[var(--text-muted)] mt-2">نماذج متقدمة وإرسال واتساب</p>
-</a>
-<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="legal-consultant.html" aria-label="فتح مركز الاستشارات القانونية العقارية">
-<i class="fa-solid fa-scale-balanced text-3xl text-[var(--gold)] mb-4"></i>
-<h3 class="text-lg font-black text-white">المستشار القانوني</h3>
-<p class="text-xs text-[var(--text-muted)] mt-2">عقود وتنبيهات ورفع ملفات</p>
-</a>
-<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="urban-development.html" aria-label="فتح منصة التطور العمراني">
-<i class="fa-solid fa-city text-3xl text-[var(--gold)] mb-4"></i>
-<h3 class="text-lg font-black text-white">التطور العمراني</h3>
-<p class="text-xs text-[var(--text-muted)] mt-2">مشاريع وخرائط ومؤشرات</p>
-</a>
-<a class="glass-panel tilt-element p-8 text-center cursor-pointer hover:border-[var(--gold)] group block no-underline" href="districts.html" aria-label="فتح موسوعة العقارات في عدن">
-<i class="fa-solid fa-map-location-dot text-3xl text-[var(--gold)] mb-4"></i>
-<h3 class="text-lg font-black text-white">موسوعة العقارات في عدن</h3>
-<p class="text-xs text-[var(--text-muted)] mt-2">مديريات وأحياء وأسعار إرشادية</p>
-</a>
-</div>
-<div class="glass-panel p-8 mt-10" id="realestate-encyclopedia">
-<h2 class="text-2xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2>
-<p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن.</p>
-<div class="grid md:grid-cols-2 gap-3">
-<a class="glass-card p-4 block" href="basirah.html" data-title="كيف تتأكد من صحة البصيرة العقارية؟">كيف تتأكد من صحة البصيرة العقارية؟</a>
-<a class="glass-card p-4 block" href="transfer.html" data-title="خطوات نقل ملكية العقار">خطوات نقل ملكية العقار</a>
-<a class="glass-card p-4 block" href="heirs.html" data-title="إجراءات حصر الورثة">إجراءات حصر الورثة</a>
-<a class="glass-card p-4 block" href="buy-safely.html" data-title="الوثائق المطلوبة للبيع والشراء">الوثائق المطلوبة للبيع والشراء</a>
-<a class="glass-card p-4 block" href="ownership-types.html" data-title="حقوق المشتري قبل التوقيع">حقوق المشتري قبل التوقيع</a>
-<a class="glass-card p-4 block" href="common-mistakes.html" data-title="كيفية اكتشاف الازدواجية">كيفية اكتشاف الازدواجية</a>
-</div>
-<div class="mt-6">
-<input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/>
-<p class="text-xs text-gray-400 mt-2">اكتب كلمة مثل: بصيرة، ورثة، بيع، شراء، تثمين...</p>
-</div>
-</div>
-<div class="glass-panel p-8 mt-10" id="new-tools"><h2 class="text-2xl font-black text-[var(--gold)] mb-4">روابط سريعة للخدمات الجديدة</h2><div class="grid md:grid-cols-4 gap-3"><a class="btn-glass" href="legal-consultant.html">مركز الاستشارات</a><a class="btn-glass" href="request-reception.html">نظام الطلبات</a><a class="btn-glass" href="urban-development.html">التطور العمراني</a><a class="btn-glass" href="districts.html">موسوعة عدن</a><a class="btn-glass" href="land-area.html">حاسبة المساحة</a><a class="btn-glass" href="property-value.html">تثمين العقارات</a><a class="btn-glass" href="neighborhoods.html">دليل الأحياء</a><a class="btn-glass" href="heirs.html">حصر الورثة</a></div></div></section>
+<section class="app-view active premium-hero px-4 max-w-7xl mx-auto" id="view-home">
+<div class="hero-shell reveal"><div><span class="eyebrow"><i class="fa-solid fa-crown"></i> منصة عقارية فاخرة في عدن</span><h2 class="hero-title font-black my-5">المرجعية العقارية <br/><span class="gold-text-gradient" id="typewriter-text"></span></h2><p class="hero-copy">ندير أملاكك، نراقب استثماراتك، ونحميك قانونياً داخل وحدات الجوار المعتمدة في عدن.</p><div class="hero-actions"><a class="btn-gold" href="#realestate-encyclopedia"><i class="fa-solid fa-book-open"></i> تصفح الموسوعة</a><a class="btn-glass" href="#office-services"><i class="fa-solid fa-briefcase"></i> خدمات المكتب</a></div></div><div class="hero-visual"><div class="floating-stat one"><b>2026</b><span>خدمات رقمية آمنة</span></div><div class="floating-stat two"><b>عدن</b><span>خبرة محلية موثوقة</span></div></div></div>
+<div class="premium-section reveal" id="office-services"><div class="section-kicker">الخدمات الرئيسية</div><h2 class="text-3xl md:text-4xl font-black mb-6">خدمات المكتب</h2><div class="services-grid tilt-effect">
+<a class="glass-panel premium-grid-card service-card tilt-element" href="expatriates-property-management.html?platform=v2" aria-label="فتح منصة إدارة أملاك المغتربين"><i class="fa-solid fa-building-shield text-3xl text-[var(--gold)]"></i><h3>إدارة أملاك المغتربين</h3><p>إدارة ومتابعة العقارات للملاك خارج اليمن</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+<a class="glass-panel premium-grid-card service-card tilt-element" href="request-reception.html" aria-label="فتح نظام استقبال الطلبات العقارية"><i class="fa-solid fa-file-signature text-3xl text-[var(--gold)]"></i><h3>استقبال الطلبات</h3><p>نماذج إلكترونية وإرسال مباشر عبر واتساب</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+<a class="glass-panel premium-grid-card service-card tilt-element" href="legal-consultant.html" aria-label="فتح مركز الاستشارات القانونية العقارية"><i class="fa-solid fa-scale-balanced text-3xl text-[var(--gold)]"></i><h3>المستشار القانوني</h3><p>العقود والتنبيهات والاستشارات القانونية</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+<a class="glass-panel premium-grid-card service-card tilt-element" href="urban-development.html" aria-label="فتح منصة التطور العمراني"><i class="fa-solid fa-city text-3xl text-[var(--gold)]"></i><h3>التطور العمراني</h3><p>مشاريع جديدة ومؤشرات النمو والخرائط</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+<a class="glass-panel premium-grid-card service-card tilt-element" href="districts.html" aria-label="فتح موسوعة العقارات في عدن"><i class="fa-solid fa-map-location-dot text-3xl text-[var(--gold)]"></i><h3>موسوعة العقارات في عدن</h3><p>دليل معرفي شامل للإجراءات العقارية</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+<a class="glass-panel premium-grid-card service-card tilt-element" href="articles/index.html" aria-label="فتح مركز المعرفة"><i class="fa-solid fa-book-open-reader text-3xl text-[var(--gold)]"></i><h3>مركز المعرفة</h3><p>مقالات ودروس ونصائح قانونية وعقارية</p><span class="mini-gold-btn">اضغط هنا <i class="fa-solid fa-arrow-left"></i></span></a>
+</div></div>
+<div class="premium-stats reveal" aria-label="إحصائيات الموقع"><div class="premium-stat"><span>عدد المقالات</span><b>50+</b></div><div class="premium-stat"><span>الخدمات</span><b>6</b></div><div class="premium-stat"><span>سنوات الخبرة</span><b>10+</b></div><div class="premium-stat"><span>آخر تحديث</span><b>2026</b></div></div>
+<div class="glass-panel p-8 mt-10 reveal premium-section" id="realestate-encyclopedia"><div class="section-kicker">Knowledge Hub</div><h2 class="text-3xl md:text-4xl font-black text-[var(--gold)] mb-3">📚 موسوعة العقارات في عدن</h2><p class="text-[var(--text-muted)] mb-6">دليل معرفي يشرح أهم الإجراءات القانونية والعقارية في العاصمة عدن بطريقة مبسطة ومنظمة.</p><div class="knowledge-search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input class="input-glass" id="encyclopedia-search" onkeyup="filterArticles()" placeholder="ابحث في الموسوعة..." type="text"/></div><div class="knowledge-chips"><span class="knowledge-chip">بصيرة</span><span class="knowledge-chip">بيع</span><span class="knowledge-chip">شراء</span><span class="knowledge-chip">ورثة</span><span class="knowledge-chip">توثيق</span><span class="knowledge-chip">تثمين</span><span class="knowledge-chip">قانوني</span></div><div class="knowledge-grid">
+<a class="glass-card knowledge-card" href="basirah.html" data-title="كيف تتأكد من صحة البصيرة العقارية؟"><i class="fa-solid fa-file-circle-check"></i><h3>كيف تتأكد من صحة البصيرة العقارية؟</h3><p>خطوات مختصرة لفحص الوثائق قبل أي تعامل عقاري.</p><span class="read-more">قراءة المقال ←</span></a>
+<a class="glass-card knowledge-card" href="transfer.html" data-title="خطوات نقل ملكية العقار"><i class="fa-solid fa-right-left"></i><h3>خطوات نقل ملكية العقار</h3><p>ملخص منظم لأهم مراحل نقل الملكية بأمان.</p><span class="read-more">قراءة المقال ←</span></a>
+<a class="glass-card knowledge-card" href="heirs.html" data-title="إجراءات حصر الورثة"><i class="fa-solid fa-people-roof"></i><h3>إجراءات حصر الورثة</h3><p>دليل سريع لفهم متطلبات الحصر والإثبات.</p><span class="read-more">قراءة المقال ←</span></a>
+<a class="glass-card knowledge-card" href="buy-safely.html" data-title="الوثائق المطلوبة للبيع والشراء"><i class="fa-solid fa-handshake-simple"></i><h3>الوثائق المطلوبة للبيع والشراء</h3><p>قائمة موجزة لما يجب التأكد منه قبل التوقيع.</p><span class="read-more">قراءة المقال ←</span></a>
+<a class="glass-card knowledge-card" href="ownership-types.html" data-title="حقوق المشتري قبل التوقيع"><i class="fa-solid fa-user-shield"></i><h3>حقوق المشتري قبل التوقيع</h3><p>نقاط حماية أساسية للمشتري قبل إتمام الصفقة.</p><span class="read-more">قراءة المقال ←</span></a>
+<a class="glass-card knowledge-card" href="common-mistakes.html" data-title="كيفية اكتشاف الازدواجية"><i class="fa-solid fa-triangle-exclamation"></i><h3>كيفية اكتشاف الازدواجية</h3><p>تنبيهات عملية لتجنب تضارب الملكيات والمشاكل.</p><span class="read-more">قراءة المقال ←</span></a>
+</div></div>
+<div class="glass-panel p-8 mt-10 reveal" id="new-tools"><h2 class="text-2xl font-black text-[var(--gold)] mb-4">روابط سريعة للخدمات الجديدة</h2><div class="grid md:grid-cols-4 gap-3"><a class="btn-glass" href="legal-consultant.html">مركز الاستشارات</a><a class="btn-glass" href="request-reception.html">نظام الطلبات</a><a class="btn-glass" href="urban-development.html">التطور العمراني</a><a class="btn-glass" href="districts.html">موسوعة عدن</a><a class="btn-glass" href="land-area.html">حاسبة المساحة</a><a class="btn-glass" href="property-value.html">تثمين العقارات</a><a class="btn-glass" href="neighborhoods.html">دليل الأحياء</a><a class="btn-glass" href="heirs.html">حصر الورثة</a></div></div></section>
 <section class="app-view px-4 max-w-4xl mx-auto" id="view-expat">
 <div class="bank-panel p-8 text-center rounded-2xl" id="owner-login-section">
 <h3 class="text-xl font-black bank-title mb-6">الخزنة الرقمية للأملاك</h3>
@@ -545,15 +543,7 @@
 </div>
 </section>
 </main>
-<footer class="global-holo-footer no-print">
-<div class="holo-social-row">
-<a class="holo-social-btn" href="legal-consultant.html" aria-label="المستشار القانوني"><i class="fa-solid fa-scale-balanced"></i></a>
-<a class="holo-social-btn" href="request-reception.html" aria-label="استقبال الطلبات"><i class="fa-solid fa-file-signature"></i></a>
-<a class="holo-social-btn" href="urban-development.html" aria-label="التطور العمراني"><i class="fa-solid fa-city"></i></a>
-<a class="holo-social-btn" href="districts.html" aria-label="موسوعة العقارات في عدن"><i class="fa-solid fa-map-location-dot"></i></a>
-</div>
-<p class="text-[10px] text-gray-500 font-bold">© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</p>
-</footer>
+<footer class="global-holo-footer premium-footer no-print"><div class="footer-grid"><div class="footer-col"><h3>مكتب عماد عدن العقاري</h3><p>مرجع عقاري فاخر يجمع إدارة الأملاك والتثمين والاستشارات القانونية والمعرفة العقارية في عدن مع الحفاظ على هوية المكتب السوداء والذهبية.</p><div class="flex gap-2 mt-4"><a class="lux-social" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a><a class="lux-social" href="https://www.instagram.com/p/DQVHj_FiCQS/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a class="lux-social" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></div></div><div class="footer-col"><h3>روابط سريعة</h3><a href="index.html">الرئيسية</a><a href="request-reception.html">استقبال الطلبات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhoods.html">دليل الأحياء</a></div><div class="footer-col"><h3>الخدمات</h3><a href="expatriates-property-management.html?platform=v2">إدارة الأملاك</a><a href="property-value.html">تثمين العقارات</a><a href="land-area.html">حاسبة المساحة</a><a href="legal-consultant.html">المستشار القانوني</a></div><div class="footer-col"><h3>الموسوعة</h3><a href="basirah.html">صحة البصيرة</a><a href="transfer.html">نقل الملكية</a><a href="heirs.html">حصر الورثة</a><a href="buy-safely.html">الشراء الآمن</a><p><i class="fa-solid fa-phone"></i> +967773571889</p></div></div><div class="footer-bottom"><span>© 2026 مكتب عماد عدن العقاري | جميع الحقوق محفوظة</span><span>تصميم أسود وذهبي فاخر — جميع الروابط والصفحات محفوظة</span></div></footer>
 <div class="speed-dial-container no-print" id="speed-dial">
 <button class="main-sd-btn" onclick="toggleSpeedDial()"><i class="fa-solid fa-headset"></i></button>
 <div class="sd-menu">
@@ -582,6 +572,8 @@
             }
         }
 
+        function toggleMobileMenu(){ document.getElementById('mobileMenu').classList.toggle('active'); }
+
         function toggleSpeedDial() {
             document.getElementById('speed-dial').classList.toggle('active');
         }
@@ -607,6 +599,9 @@
             urbanMap = L.map('urbanSatelliteMap').setView([12.8683, 44.9765], 13);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(urbanMap);
         }
+
+        const revealObserver = new IntersectionObserver((entries)=>entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); }), {threshold:.12});
+        document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('scrollTopBtn');
@@ -695,7 +690,7 @@ function filterArticles(){
  const q=document.getElementById('encyclopedia-search').value.toLowerCase();
  document.querySelectorAll('#realestate-encyclopedia .glass-card').forEach(c=>{
    const t=(c.dataset.title||c.textContent).toLowerCase();
-   c.style.display=t.includes(q)?'block':'none';
+   c.style.display=t.includes(q)?'':'none';
  });
 }
 
