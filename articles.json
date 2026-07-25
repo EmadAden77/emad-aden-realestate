@@ -1,336 +1,92 @@
 [
   {
-    "slug": "basirah",
-    "title": "كيف تتأكد من صحة البصيرة العقارية؟",
-    "category": "البصائر",
+    "slug": "actual-area",
+    "title": "المساحة الفعلية",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول المساحة الفعلية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1797,
+    "featured": false,
+    "url": "articles/actual-area.html",
+    "id": "actual-area",
+    "date": "2026-07-25",
+    "file": "articles/actual-area.html",
+    "keywords": [
+      "المساحة الفعلية",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "المساحة الفعلية الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "aden-investment",
+    "title": "أفضل طرق الاستثمار العقاري في عدن",
+    "category": "الاستثمار",
+    "icon": "fa-city",
+    "description": "فرص الاستثمار العقاري في عدن وكيفية تقييم المخاطر والعائد.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2011,
+    "featured": true,
+    "url": "articles/aden-investment.html",
+    "id": "aden-investment",
+    "date": "2026-07-24",
+    "file": "articles/aden-investment.html",
+    "keywords": [
+      "أفضل طرق الاستثمار العقاري في عدن",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "price-evaluation",
+      "investor-mistakes",
+      "gulf-investor-guide",
+      "market-value-calculation"
+    ],
+    "group": "investment",
+    "content": "أفضل طرق الاستثمار العقاري في عدن فرص الاستثمار العقاري في عدن وكيفية تقييم المخاطر والعائد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "agency-expiry",
+    "title": "انتهاء الوكالة",
+    "category": "البصائر والوثائق",
     "icon": "fa-file-shield",
-    "description": "دليل عملي للتحقق من أصل البصيرة ومطابقة بياناتها قبل دفع أي مبلغ.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "views": 1840,
-    "featured": true,
-    "url": "articles/basirah.html",
-    "id": "basirah",
-    "date": "2026-07-24",
-    "file": "articles/basirah.html",
-    "keywords": [
-      "كيف تتأكد من صحة البصيرة العقارية؟",
-      "البصائر",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "boundaries-area",
-      "basirah-types",
-      "lost-basirah-replacement"
-    ],
-    "group": "ownership",
-    "content": "كيف تتأكد من صحة البصيرة العقارية؟ دليل عملي للتحقق من أصل البصيرة ومطابقة بياناتها قبل دفع أي مبلغ. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "transfer",
-    "title": "خطوات نقل ملكية العقار",
-    "category": "التوثيق",
-    "icon": "fa-right-left",
-    "description": "شرح إجراءات نقل الملكية من الاتفاق حتى استلام الوثائق المحدثة.",
+    "description": "دليل عملي احترافي حول انتهاء الوكالة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
     "readingTime": 7,
     "updated": "2026-07-25",
-    "views": 1650,
-    "featured": true,
-    "url": "articles/transfer.html",
-    "id": "transfer",
-    "date": "2026-07-24",
-    "file": "articles/transfer.html",
-    "keywords": [
-      "خطوات نقل ملكية العقار",
-      "التوثيق",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "document-forgery",
-      "agency-verification",
-      "contract-notarization"
-    ],
-    "group": "legal",
-    "content": "خطوات نقل ملكية العقار شرح إجراءات نقل الملكية من الاتفاق حتى استلام الوثائق المحدثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "heirs-inventory",
-    "title": "إجراءات حصر الورثة",
-    "category": "الورثة",
-    "icon": "fa-people-roof",
-    "description": "خطوات حصر الورثة وتجهيز المستندات قبل بيع أو نقل عقار موروث.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1320,
+    "views": 1475,
     "featured": false,
-    "url": "articles/heirs-inventory.html",
-    "id": "heirs-inventory",
-    "date": "2026-07-24",
-    "file": "articles/heirs-inventory.html",
+    "url": "articles/agency-expiry.html",
+    "id": "agency-expiry",
+    "date": "2026-07-25",
+    "file": "articles/agency-expiry.html",
     "keywords": [
-      "إجراءات حصر الورثة",
-      "الورثة",
-      "عقارات عدن"
+      "انتهاء الوكالة",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
     ],
     "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "انتهاء الوكالة البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
     "relatedArticles": [
-      "buy-from-heirs",
-      "ownership-after-death",
-      "heirs-division"
-    ],
-    "group": "heirs",
-    "content": "إجراءات حصر الورثة خطوات حصر الورثة وتجهيز المستندات قبل بيع أو نقل عقار موروث. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "required-documents",
-    "title": "الوثائق المطلوبة للبيع والشراء",
-    "category": "العقود",
-    "icon": "fa-folder-open",
-    "description": "قائمة الوثائق الأساسية التي يجب مراجعتها عند البيع والشراء.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1210,
-    "featured": false,
-    "url": "articles/required-documents.html",
-    "id": "required-documents",
-    "date": "2026-07-24",
-    "file": "articles/required-documents.html",
-    "keywords": [
-      "الوثائق المطلوبة للبيع والشراء",
-      "العقود",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buy-through-agent",
-      "sale-contract-mistakes"
-    ],
-    "group": "buying",
-    "content": "الوثائق المطلوبة للبيع والشراء قائمة الوثائق الأساسية التي يجب مراجعتها عند البيع والشراء. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "buyer-rights",
-    "title": "حقوق المشتري قبل التوقيع",
-    "category": "الشراء",
-    "icon": "fa-user-check",
-    "description": "ما يجب أن يطلبه المشتري قبل توقيع عقد البيع لضمان حقه.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1425,
-    "featured": true,
-    "url": "articles/buyer-rights.html",
-    "id": "buyer-rights",
-    "date": "2026-07-24",
-    "file": "articles/buyer-rights.html",
-    "keywords": [
-      "حقوق المشتري قبل التوقيع",
-      "الشراء",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "first-time-buyer",
-      "safe-land-purchase",
-      "installment-purchase"
-    ],
-    "group": "buying",
-    "content": "حقوق المشتري قبل التوقيع ما يجب أن يطلبه المشتري قبل توقيع عقد البيع لضمان حقه. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "duplicate-ownership",
-    "title": "كيفية اكتشاف الازدواجية",
-    "category": "النزاعات",
-    "icon": "fa-copy",
-    "description": "علامات ازدواجية البيع أو الملكية وكيفية فحصها ميدانياً ووثائقياً.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1510,
-    "featured": false,
-    "url": "articles/duplicate-ownership.html",
-    "id": "duplicate-ownership",
-    "date": "2026-07-24",
-    "file": "articles/duplicate-ownership.html",
-    "keywords": [
-      "كيفية اكتشاف الازدواجية",
-      "النزاعات",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buyer-dispute-protection",
-      "lawsuit-filing"
-    ],
-    "group": "legal",
-    "content": "كيفية اكتشاف الازدواجية علامات ازدواجية البيع أو الملكية وكيفية فحصها ميدانياً ووثائقياً. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "real-estate-fraud",
-    "title": "أشهر عمليات الاحتيال العقاري",
-    "category": "النصائح",
-    "icon": "fa-triangle-exclamation",
-    "description": "أشهر أساليب الاحتيال في سوق العقار وكيفية تجنبها.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1905,
-    "featured": true,
-    "url": "articles/real-estate-fraud.html",
-    "id": "real-estate-fraud",
-    "date": "2026-07-24",
-    "file": "articles/real-estate-fraud.html",
-    "keywords": [
-      "أشهر عمليات الاحتيال العقاري",
-      "النصائح",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "choose-broker",
-      "legal-consultation-needed",
-      "before-signing-errors"
-    ],
-    "group": "legal",
-    "content": "أشهر عمليات الاحتيال العقاري أشهر أساليب الاحتيال في سوق العقار وكيفية تجنبها. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "document-forgery",
-    "title": "كيفية كشف التزوير في الوثائق",
-    "category": "التوثيق",
-    "icon": "fa-magnifying-glass",
-    "description": "مؤشرات عملية لكشف التلاعب في الوثائق قبل إتمام الصفقة.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "views": 1710,
-    "featured": false,
-    "url": "articles/document-forgery.html",
-    "id": "document-forgery",
-    "date": "2026-07-24",
-    "file": "articles/document-forgery.html",
-    "keywords": [
-      "كيفية كشف التزوير في الوثائق",
-      "التوثيق",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "transfer",
-      "agency-verification",
-      "contract-notarization"
-    ],
-    "group": "legal",
-    "content": "كيفية كشف التزوير في الوثائق مؤشرات عملية لكشف التلاعب في الوثائق قبل إتمام الصفقة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "first-time-buyer",
-    "title": "شراء العقار لأول مرة",
-    "category": "الشراء",
-    "icon": "fa-house-chimney-user",
-    "description": "خارطة طريق مبسطة للمشتري الأول من البحث حتى التوثيق.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1544,
-    "featured": false,
-    "url": "articles/first-time-buyer.html",
-    "id": "first-time-buyer",
-    "date": "2026-07-24",
-    "file": "articles/first-time-buyer.html",
-    "keywords": [
-      "شراء العقار لأول مرة",
-      "الشراء",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buyer-rights",
-      "safe-land-purchase",
-      "installment-purchase"
-    ],
-    "group": "buying",
-    "content": "شراء العقار لأول مرة خارطة طريق مبسطة للمشتري الأول من البحث حتى التوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "safe-land-purchase",
-    "title": "شراء أرض آمن",
-    "category": "الشراء",
-    "icon": "fa-map-location-dot",
-    "description": "خطوات شراء الأرض بأمان مع التحقق من المخطط والحدود.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1625,
-    "featured": true,
-    "url": "articles/safe-land-purchase.html",
-    "id": "safe-land-purchase",
-    "date": "2026-07-24",
-    "file": "articles/safe-land-purchase.html",
-    "keywords": [
-      "شراء أرض آمن",
-      "الشراء",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buyer-rights",
-      "first-time-buyer",
-      "installment-purchase"
-    ],
-    "group": "buying",
-    "content": "شراء أرض آمن خطوات شراء الأرض بأمان مع التحقق من المخطط والحدود. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "buy-from-heirs",
-    "title": "شراء عقار من الورثة",
-    "category": "الورثة",
-    "icon": "fa-users",
-    "description": "احتياطات شراء العقارات الموروثة والتأكد من موافقة جميع الورثة.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "views": 1490,
-    "featured": false,
-    "url": "articles/buy-from-heirs.html",
-    "id": "buy-from-heirs",
-    "date": "2026-07-24",
-    "file": "articles/buy-from-heirs.html",
-    "keywords": [
-      "شراء عقار من الورثة",
-      "الورثة",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "heirs-inventory",
-      "ownership-after-death",
-      "heirs-division"
-    ],
-    "group": "heirs",
-    "content": "شراء عقار من الورثة احتياطات شراء العقارات الموروثة والتأكد من موافقة جميع الورثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "buy-through-agent",
-    "title": "شراء العقار عن طريق وكيل",
-    "category": "العقود",
-    "icon": "fa-user-tie",
-    "description": "كيف تتعامل مع الوكيل وتتأكد من صلاحياته وحدود وكالته.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1188,
-    "featured": false,
-    "url": "articles/buy-through-agent.html",
-    "id": "buy-through-agent",
-    "date": "2026-07-24",
-    "file": "articles/buy-through-agent.html",
-    "keywords": [
-      "شراء العقار عن طريق وكيل",
-      "العقود",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "required-documents",
-      "sale-contract-mistakes"
-    ],
-    "group": "buying",
-    "content": "شراء العقار عن طريق وكيل كيف تتعامل مع الوكيل وتتأكد من صلاحياته وحدود وكالته. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
   },
   {
     "slug": "agency-verification",
@@ -361,6 +117,183 @@
     "content": "التحقق من الوكالة خطوات فحص الوكالة والتأكد من سريانها وصلاحيات البيع. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
+    "id": "all-heirs-approval",
+    "slug": "all-heirs-approval",
+    "title": "موافقة جميع الورثة",
+    "category": "الورثة",
+    "icon": "fa-users-gear",
+    "description": "دليل عملي حول موافقة جميع الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1196,
+    "featured": false,
+    "relatedArticles": [
+      "heirs-inventory",
+      "buy-from-heirs",
+      "ownership-after-death",
+      "heirs-division"
+    ],
+    "file": "articles/all-heirs-approval.html",
+    "url": "articles/all-heirs-approval.html",
+    "keywords": [
+      "موافقة جميع الورثة",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "heirs",
+    "content": "موافقة جميع الورثة دليل عملي حول موافقة جميع الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "basirah",
+    "title": "كيف تتأكد من صحة البصيرة العقارية؟",
+    "category": "البصائر",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي للتحقق من أصل البصيرة ومطابقة بياناتها قبل دفع أي مبلغ.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1840,
+    "featured": true,
+    "url": "articles/basirah.html",
+    "id": "basirah",
+    "date": "2026-07-24",
+    "file": "articles/basirah.html",
+    "keywords": [
+      "كيف تتأكد من صحة البصيرة العقارية؟",
+      "البصائر",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "boundaries-area",
+      "basirah-types",
+      "lost-basirah-replacement",
+      "correct-basirah-data"
+    ],
+    "group": "ownership",
+    "content": "كيف تتأكد من صحة البصيرة العقارية؟ دليل عملي للتحقق من أصل البصيرة ومطابقة بياناتها قبل دفع أي مبلغ. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "basirah-evidentiary-value",
+    "title": "حجية البصيرة",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول حجية البصيرة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1544,
+    "featured": true,
+    "url": "articles/basirah-evidentiary-value.html",
+    "id": "basirah-evidentiary-value",
+    "date": "2026-07-25",
+    "file": "articles/basirah-evidentiary-value.html",
+    "keywords": [
+      "حجية البصيرة",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "حجية البصيرة البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "basirah-integrity",
+    "title": "كيف تعرف أن البصيرة سليمة؟",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول كيف تعرف أن البصيرة سليمة؟ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 923,
+    "featured": false,
+    "url": "articles/basirah-integrity.html",
+    "id": "basirah-integrity",
+    "date": "2026-07-25",
+    "file": "articles/basirah-integrity.html",
+    "keywords": [
+      "كيف تعرف أن البصيرة سليمة؟",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "كيف تعرف أن البصيرة سليمة؟ البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney",
+      "agency-expiry"
+    ]
+  },
+  {
+    "id": "basirah-types",
+    "slug": "basirah-types",
+    "title": "أنواع البصائر",
+    "category": "البصائر",
+    "icon": "fa-file-lines",
+    "description": "دليل عملي حول أنواع البصائر في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 937,
+    "featured": false,
+    "relatedArticles": [
+      "basirah",
+      "boundaries-area",
+      "lost-basirah-replacement",
+      "correct-basirah-data"
+    ],
+    "file": "articles/basirah-types.html",
+    "url": "articles/basirah-types.html",
+    "keywords": [
+      "أنواع البصائر",
+      "البصائر",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "ownership",
+    "content": "أنواع البصائر دليل عملي حول أنواع البصائر في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "basirah-types-aden",
+    "title": "أنواع البصائر في عدن",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول أنواع البصائر في عدن في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 969,
+    "featured": false,
+    "url": "articles/basirah-types-aden.html",
+    "id": "basirah-types-aden",
+    "date": "2026-07-25",
+    "file": "articles/basirah-types-aden.html",
+    "keywords": [
+      "أنواع البصائر في عدن",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "أنواع البصائر في عدن البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "notarization-guide",
+      "powers-of-attorney",
+      "agency-expiry"
+    ]
+  },
+  {
     "slug": "basirah-vs-registry",
     "title": "الفرق بين البصيرة والسجل العقاري",
     "category": "السجل العقاري",
@@ -380,565 +313,14 @@
       "عقارات عدن"
     ],
     "image": "IMG_5.jpg",
-    "relatedArticles": [],
-    "group": "ownership",
-    "content": "الفرق بين البصيرة والسجل العقاري توضيح الفرق بين وثيقة الملكية وقيود السجل العقاري وأهمية كل منهما. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "price-evaluation",
-    "title": "كيفية تقييم سعر العقار",
-    "category": "الاستثمار",
-    "icon": "fa-chart-line",
-    "description": "طرق عملية لتقدير السعر العادل اعتماداً على الموقع والمساحة والطلب.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1766,
-    "featured": true,
-    "url": "articles/price-evaluation.html",
-    "id": "price-evaluation",
-    "date": "2026-07-24",
-    "file": "articles/price-evaluation.html",
-    "keywords": [
-      "كيفية تقييم سعر العقار",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "aden-investment",
-      "investor-mistakes",
-      "gulf-investor-guide"
-    ],
-    "group": "investment",
-    "content": "كيفية تقييم سعر العقار طرق عملية لتقدير السعر العادل اعتماداً على الموقع والمساحة والطلب. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "choose-broker",
-    "title": "كيف تختار وسيطاً عقارياً",
-    "category": "النصائح",
-    "icon": "fa-handshake",
-    "description": "معايير اختيار وسيط موثوق يحمي مصالحك أثناء الصفقة.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1002,
-    "featured": false,
-    "url": "articles/choose-broker.html",
-    "id": "choose-broker",
-    "date": "2026-07-24",
-    "file": "articles/choose-broker.html",
-    "keywords": [
-      "كيف تختار وسيطاً عقارياً",
-      "النصائح",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "real-estate-fraud",
-      "legal-consultation-needed",
-      "before-signing-errors"
-    ],
-    "group": "legal",
-    "content": "كيف تختار وسيطاً عقارياً معايير اختيار وسيط موثوق يحمي مصالحك أثناء الصفقة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "sale-contract-mistakes",
-    "title": "أخطاء كتابة عقد البيع",
-    "category": "العقود",
-    "icon": "fa-file-pen",
-    "description": "بنود يجب عدم إهمالها عند صياغة عقد البيع.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1304,
-    "featured": false,
-    "url": "articles/sale-contract-mistakes.html",
-    "id": "sale-contract-mistakes",
-    "date": "2026-07-24",
-    "file": "articles/sale-contract-mistakes.html",
-    "keywords": [
-      "أخطاء كتابة عقد البيع",
-      "العقود",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "required-documents",
-      "buy-through-agent"
-    ],
-    "group": "buying",
-    "content": "أخطاء كتابة عقد البيع بنود يجب عدم إهمالها عند صياغة عقد البيع. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "buyer-dispute-protection",
-    "title": "حماية المشتري من النزاعات",
-    "category": "النزاعات",
-    "icon": "fa-shield-halved",
-    "description": "إجراءات وقائية تقلل احتمالات النزاع بعد الشراء.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1455,
-    "featured": false,
-    "url": "articles/buyer-dispute-protection.html",
-    "id": "buyer-dispute-protection",
-    "date": "2026-07-24",
-    "file": "articles/buyer-dispute-protection.html",
-    "keywords": [
-      "حماية المشتري من النزاعات",
-      "النزاعات",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "duplicate-ownership",
-      "lawsuit-filing"
-    ],
-    "group": "legal",
-    "content": "حماية المشتري من النزاعات إجراءات وقائية تقلل احتمالات النزاع بعد الشراء. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "seller-protection",
-    "title": "حماية البائع",
-    "category": "البيع",
-    "icon": "fa-sack-dollar",
-    "description": "كيف يحمي البائع حقه في الثمن والتسليم والتوثيق.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1068,
-    "featured": false,
-    "url": "articles/seller-protection.html",
-    "id": "seller-protection",
-    "date": "2026-07-24",
-    "file": "articles/seller-protection.html",
-    "keywords": [
-      "حماية البائع",
-      "البيع",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "safe-selling-guide"
-    ],
-    "group": "buying",
-    "content": "حماية البائع كيف يحمي البائع حقه في الثمن والتسليم والتوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "mortgage-procedures",
-    "title": "إجراءات الرهن العقاري",
-    "category": "القوانين",
-    "icon": "fa-building-columns",
-    "description": "نظرة منظمة على الرهن والالتزامات والاحتياطات قبل توقيعه.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 980,
-    "featured": false,
-    "url": "articles/mortgage-procedures.html",
-    "id": "mortgage-procedures",
-    "date": "2026-07-24",
-    "file": "articles/mortgage-procedures.html",
-    "keywords": [
-      "إجراءات الرهن العقاري",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "land-subdivision",
-      "tenant-rights",
-      "landlord-rights"
-    ],
-    "group": "building",
-    "content": "إجراءات الرهن العقاري نظرة منظمة على الرهن والالتزامات والاحتياطات قبل توقيعه. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "boundaries-area",
-    "title": "كيفية التأكد من الحدود والمساحة",
-    "category": "البصائر",
-    "icon": "fa-ruler-combined",
-    "description": "فحص الحدود والمساحة بين الوثيقة والواقع والمخطط الرسمي.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1562,
-    "featured": true,
-    "url": "articles/boundaries-area.html",
-    "id": "boundaries-area",
-    "date": "2026-07-24",
-    "file": "articles/boundaries-area.html",
-    "keywords": [
-      "كيفية التأكد من الحدود والمساحة",
-      "البصائر",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
     "relatedArticles": [
       "basirah",
-      "basirah-types",
-      "lost-basirah-replacement"
+      "transfer",
+      "heirs-inventory",
+      "required-documents"
     ],
     "group": "ownership",
-    "content": "كيفية التأكد من الحدود والمساحة فحص الحدود والمساحة بين الوثيقة والواقع والمخطط الرسمي. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "land-subdivision",
-    "title": "إجراءات تقسيم الأراضي",
-    "category": "القوانين",
-    "icon": "fa-table-cells-large",
-    "description": "متطلبات تقسيم الأراضي وأهمية المخططات والاعتمادات.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1115,
-    "featured": false,
-    "url": "articles/land-subdivision.html",
-    "id": "land-subdivision",
-    "date": "2026-07-24",
-    "file": "articles/land-subdivision.html",
-    "keywords": [
-      "إجراءات تقسيم الأراضي",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "mortgage-procedures",
-      "tenant-rights",
-      "landlord-rights"
-    ],
-    "group": "building",
-    "content": "إجراءات تقسيم الأراضي متطلبات تقسيم الأراضي وأهمية المخططات والاعتمادات. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "installment-purchase",
-    "title": "شراء العقار بالتقسيط",
-    "category": "الشراء",
-    "icon": "fa-calendar-check",
-    "description": "نصائح لصياغة عقود التقسيط وحماية الطرفين.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1226,
-    "featured": false,
-    "url": "articles/installment-purchase.html",
-    "id": "installment-purchase",
-    "date": "2026-07-24",
-    "file": "articles/installment-purchase.html",
-    "keywords": [
-      "شراء العقار بالتقسيط",
-      "الشراء",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buyer-rights",
-      "first-time-buyer",
-      "safe-land-purchase"
-    ],
-    "group": "buying",
-    "content": "شراء العقار بالتقسيط نصائح لصياغة عقود التقسيط وحماية الطرفين. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "ownership-after-death",
-    "title": "نقل الملكية بعد الوفاة",
-    "category": "الورثة",
-    "icon": "fa-scroll",
-    "description": "خطوات نقل ملكية عقار المتوفى بعد حصر الورثة.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1338,
-    "featured": false,
-    "url": "articles/ownership-after-death.html",
-    "id": "ownership-after-death",
-    "date": "2026-07-24",
-    "file": "articles/ownership-after-death.html",
-    "keywords": [
-      "نقل الملكية بعد الوفاة",
-      "الورثة",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "heirs-inventory",
-      "buy-from-heirs",
-      "heirs-division"
-    ],
-    "group": "heirs",
-    "content": "نقل الملكية بعد الوفاة خطوات نقل ملكية عقار المتوفى بعد حصر الورثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "aden-investment",
-    "title": "أفضل طرق الاستثمار العقاري في عدن",
-    "category": "الاستثمار",
-    "icon": "fa-city",
-    "description": "فرص الاستثمار العقاري في عدن وكيفية تقييم المخاطر والعائد.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "views": 2011,
-    "featured": true,
-    "url": "articles/aden-investment.html",
-    "id": "aden-investment",
-    "date": "2026-07-24",
-    "file": "articles/aden-investment.html",
-    "keywords": [
-      "أفضل طرق الاستثمار العقاري في عدن",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "price-evaluation",
-      "investor-mistakes",
-      "gulf-investor-guide"
-    ],
-    "group": "investment",
-    "content": "أفضل طرق الاستثمار العقاري في عدن فرص الاستثمار العقاري في عدن وكيفية تقييم المخاطر والعائد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "contract-notarization",
-    "title": "كيفية توثيق العقود",
-    "category": "التوثيق",
-    "icon": "fa-signature",
-    "description": "دليل توثيق العقود وحفظ النسخ وإثبات السداد.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1252,
-    "featured": false,
-    "url": "articles/contract-notarization.html",
-    "id": "contract-notarization",
-    "date": "2026-07-24",
-    "file": "articles/contract-notarization.html",
-    "keywords": [
-      "كيفية توثيق العقود",
-      "التوثيق",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "transfer",
-      "document-forgery",
-      "agency-verification"
-    ],
-    "group": "legal",
-    "content": "كيفية توثيق العقود دليل توثيق العقود وحفظ النسخ وإثبات السداد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "investor-mistakes",
-    "title": "أخطاء المستثمرين",
-    "category": "الاستثمار",
-    "icon": "fa-bug",
-    "description": "أخطاء شائعة تضعف العائد أو تزيد المخاطر القانونية.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1097,
-    "featured": false,
-    "url": "articles/investor-mistakes.html",
-    "id": "investor-mistakes",
-    "date": "2026-07-24",
-    "file": "articles/investor-mistakes.html",
-    "keywords": [
-      "أخطاء المستثمرين",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "price-evaluation",
-      "aden-investment",
-      "gulf-investor-guide"
-    ],
-    "group": "investment",
-    "content": "أخطاء المستثمرين أخطاء شائعة تضعف العائد أو تزيد المخاطر القانونية. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "tenant-rights",
-    "title": "حقوق المستأجر",
-    "category": "القوانين",
-    "icon": "fa-key",
-    "description": "حقوق والتزامات المستأجر في عقد الإيجار.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1033,
-    "featured": false,
-    "url": "articles/tenant-rights.html",
-    "id": "tenant-rights",
-    "date": "2026-07-24",
-    "file": "articles/tenant-rights.html",
-    "keywords": [
-      "حقوق المستأجر",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "mortgage-procedures",
-      "land-subdivision",
-      "landlord-rights"
-    ],
-    "group": "building",
-    "content": "حقوق المستأجر حقوق والتزامات المستأجر في عقد الإيجار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "landlord-rights",
-    "title": "حقوق المؤجر",
-    "category": "القوانين",
-    "icon": "fa-door-open",
-    "description": "حقوق المؤجر وآليات حماية العقار والدخل الإيجاري.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 997,
-    "featured": false,
-    "url": "articles/landlord-rights.html",
-    "id": "landlord-rights",
-    "date": "2026-07-24",
-    "file": "articles/landlord-rights.html",
-    "keywords": [
-      "حقوق المؤجر",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "mortgage-procedures",
-      "land-subdivision",
-      "tenant-rights"
-    ],
-    "group": "building",
-    "content": "حقوق المؤجر حقوق المؤجر وآليات حماية العقار والدخل الإيجاري. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "gulf-investor-guide",
-    "title": "دليل المستثمر الخليجي",
-    "category": "الاستثمار",
-    "icon": "fa-earth-asia",
-    "description": "إرشادات للمستثمر الخليجي قبل دخول سوق عدن العقاري.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1470,
-    "featured": true,
-    "url": "articles/gulf-investor-guide.html",
-    "id": "gulf-investor-guide",
-    "date": "2026-07-24",
-    "file": "articles/gulf-investor-guide.html",
-    "keywords": [
-      "دليل المستثمر الخليجي",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "price-evaluation",
-      "aden-investment",
-      "investor-mistakes"
-    ],
-    "group": "investment",
-    "content": "دليل المستثمر الخليجي إرشادات للمستثمر الخليجي قبل دخول سوق عدن العقاري. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "expat-buying-guide",
-    "title": "دليل المغترب لشراء العقار",
-    "category": "الشراء",
-    "icon": "fa-plane",
-    "description": "خطوات عملية للمغترب لشراء عقار بأمان عن بعد أو أثناء الزيارة.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "views": 1588,
-    "featured": false,
-    "url": "articles/expat-buying-guide.html",
-    "id": "expat-buying-guide",
-    "date": "2026-07-24",
-    "file": "articles/expat-buying-guide.html",
-    "keywords": [
-      "دليل المغترب لشراء العقار",
-      "الشراء",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "buyer-rights",
-      "first-time-buyer",
-      "safe-land-purchase"
-    ],
-    "group": "buying",
-    "content": "دليل المغترب لشراء العقار خطوات عملية للمغترب لشراء عقار بأمان عن بعد أو أثناء الزيارة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "joint-vs-individual",
-    "title": "الفرق بين الملكية المشتركة والفردية",
-    "category": "القوانين",
-    "icon": "fa-people-arrows",
-    "description": "مزايا ومخاطر الملكية المشتركة والفردية في العقار.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 920,
-    "featured": false,
-    "url": "articles/joint-vs-individual.html",
-    "id": "joint-vs-individual",
-    "date": "2026-07-24",
-    "file": "articles/joint-vs-individual.html",
-    "keywords": [
-      "الفرق بين الملكية المشتركة والفردية",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "mortgage-procedures",
-      "land-subdivision",
-      "tenant-rights"
-    ],
-    "group": "building",
-    "content": "الفرق بين الملكية المشتركة والفردية مزايا ومخاطر الملكية المشتركة والفردية في العقار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "legal-consultation-needed",
-    "title": "متى تحتاج إلى استشارة قانونية",
-    "category": "النصائح",
-    "icon": "fa-gavel",
-    "description": "مواقف تستدعي مراجعة قانونية قبل التوقيع أو السداد.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "views": 1124,
-    "featured": false,
-    "url": "articles/legal-consultation-needed.html",
-    "id": "legal-consultation-needed",
-    "date": "2026-07-24",
-    "file": "articles/legal-consultation-needed.html",
-    "keywords": [
-      "متى تحتاج إلى استشارة قانونية",
-      "النصائح",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "real-estate-fraud",
-      "choose-broker",
-      "before-signing-errors"
-    ],
-    "group": "legal",
-    "content": "متى تحتاج إلى استشارة قانونية مواقف تستدعي مراجعة قانونية قبل التوقيع أو السداد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "slug": "market-value-calculation",
-    "title": "كيفية حساب القيمة السوقية للعقار",
-    "category": "الاستثمار",
-    "icon": "fa-calculator",
-    "description": "طريقة مبسطة لحساب القيمة السوقية ومقارنة الأسعار.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "views": 1432,
-    "featured": false,
-    "url": "articles/market-value-calculation.html",
-    "id": "market-value-calculation",
-    "date": "2026-07-24",
-    "file": "articles/market-value-calculation.html",
-    "keywords": [
-      "كيفية حساب القيمة السوقية للعقار",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "relatedArticles": [
-      "price-evaluation",
-      "aden-investment",
-      "investor-mistakes"
-    ],
-    "group": "investment",
-    "content": "كيفية حساب القيمة السوقية للعقار طريقة مبسطة لحساب القيمة السوقية ومقارنة الأسعار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+    "content": "الفرق بين البصيرة والسجل العقاري توضيح الفرق بين وثيقة الملكية وقيود السجل العقاري وأهمية كل منهما. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
     "slug": "before-signing-errors",
@@ -969,6 +351,3636 @@
     "content": "أشهر الأخطاء قبل التوقيع قائمة تدقيق سريعة لتجنب أخطاء ما قبل التوقيع. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
+    "slug": "best-investment-areas",
+    "title": "أفضل مناطق الاستثمار",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول أفضل مناطق الاستثمار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1682,
+    "featured": false,
+    "url": "articles/best-investment-areas.html",
+    "id": "best-investment-areas",
+    "date": "2026-07-25",
+    "file": "articles/best-investment-areas.html",
+    "keywords": [
+      "أفضل مناطق الاستثمار",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "أفضل مناطق الاستثمار الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "guide-50"
+    ]
+  },
+  {
+    "slug": "boundaries-and-areas",
+    "title": "الحدود والمساحات",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول الحدود والمساحات في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1774,
+    "featured": false,
+    "url": "articles/boundaries-and-areas.html",
+    "id": "boundaries-and-areas",
+    "date": "2026-07-25",
+    "file": "articles/boundaries-and-areas.html",
+    "keywords": [
+      "الحدود والمساحات",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "الحدود والمساحات الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "boundaries-area",
+    "title": "كيفية التأكد من الحدود والمساحة",
+    "category": "البصائر",
+    "icon": "fa-ruler-combined",
+    "description": "فحص الحدود والمساحة بين الوثيقة والواقع والمخطط الرسمي.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1562,
+    "featured": true,
+    "url": "articles/boundaries-area.html",
+    "id": "boundaries-area",
+    "date": "2026-07-24",
+    "file": "articles/boundaries-area.html",
+    "keywords": [
+      "كيفية التأكد من الحدود والمساحة",
+      "البصائر",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "basirah",
+      "basirah-types",
+      "lost-basirah-replacement",
+      "correct-basirah-data"
+    ],
+    "group": "ownership",
+    "content": "كيفية التأكد من الحدود والمساحة فحص الحدود والمساحة بين الوثيقة والواقع والمخطط الرسمي. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "building-conditions",
+    "slug": "building-conditions",
+    "title": "شروط البناء في عدن",
+    "category": "القوانين",
+    "icon": "fa-ruler",
+    "description": "دليل عملي حول شروط البناء في عدن في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1307,
+    "featured": false,
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
+    ],
+    "file": "articles/building-conditions.html",
+    "url": "articles/building-conditions.html",
+    "keywords": [
+      "شروط البناء في عدن",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "building",
+    "content": "شروط البناء في عدن دليل عملي حول شروط البناء في عدن في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "building-permit",
+    "slug": "building-permit",
+    "title": "استخراج ترخيص البناء",
+    "category": "القوانين",
+    "icon": "fa-person-digging",
+    "description": "دليل عملي حول استخراج ترخيص البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1270,
+    "featured": true,
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
+    ],
+    "file": "articles/building-permit.html",
+    "url": "articles/building-permit.html",
+    "keywords": [
+      "استخراج ترخيص البناء",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "building",
+    "content": "استخراج ترخيص البناء دليل عملي حول استخراج ترخيص البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "building-violations",
+    "slug": "building-violations",
+    "title": "مخالفات البناء",
+    "category": "القوانين",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي حول مخالفات البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1344,
+    "featured": false,
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
+    ],
+    "file": "articles/building-violations.html",
+    "url": "articles/building-violations.html",
+    "keywords": [
+      "مخالفات البناء",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "building",
+    "content": "مخالفات البناء دليل عملي حول مخالفات البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "buy-from-heirs",
+    "title": "شراء عقار من الورثة",
+    "category": "الورثة",
+    "icon": "fa-users",
+    "description": "احتياطات شراء العقارات الموروثة والتأكد من موافقة جميع الورثة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1490,
+    "featured": false,
+    "url": "articles/buy-from-heirs.html",
+    "id": "buy-from-heirs",
+    "date": "2026-07-24",
+    "file": "articles/buy-from-heirs.html",
+    "keywords": [
+      "شراء عقار من الورثة",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "heirs-inventory",
+      "ownership-after-death",
+      "heirs-division",
+      "minor-property-sale"
+    ],
+    "group": "heirs",
+    "content": "شراء عقار من الورثة احتياطات شراء العقارات الموروثة والتأكد من موافقة جميع الورثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "buy-land-safely",
+    "title": "كيف تشتري أرضاً بأمان؟",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول كيف تشتري أرضاً بأمان؟ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1061,
+    "featured": true,
+    "url": "articles/buy-land-safely.html",
+    "id": "buy-land-safely",
+    "date": "2026-07-25",
+    "file": "articles/buy-land-safely.html",
+    "keywords": [
+      "كيف تشتري أرضاً بأمان؟",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "كيف تشتري أرضاً بأمان؟ الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "land-division",
+      "land-partitioning",
+      "check-masterplans",
+      "read-land-plan"
+    ]
+  },
+  {
+    "slug": "buy-through-agent",
+    "title": "شراء العقار عن طريق وكيل",
+    "category": "العقود",
+    "icon": "fa-user-tie",
+    "description": "كيف تتعامل مع الوكيل وتتأكد من صلاحياته وحدود وكالته.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1188,
+    "featured": false,
+    "url": "articles/buy-through-agent.html",
+    "id": "buy-through-agent",
+    "date": "2026-07-24",
+    "file": "articles/buy-through-agent.html",
+    "keywords": [
+      "شراء العقار عن طريق وكيل",
+      "العقود",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "required-documents",
+      "sale-contract-mistakes"
+    ],
+    "group": "buying",
+    "content": "شراء العقار عن طريق وكيل كيف تتعامل مع الوكيل وتتأكد من صلاحياته وحدود وكالته. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "buyer-checklist",
+    "slug": "buyer-checklist",
+    "title": "قائمة فحص قبل الشراء",
+    "category": "الشراء",
+    "icon": "fa-list-check",
+    "description": "دليل عملي حول قائمة فحص قبل الشراء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1048,
+    "featured": false,
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "safe-land-purchase",
+      "installment-purchase"
+    ],
+    "file": "articles/buyer-checklist.html",
+    "url": "articles/buyer-checklist.html",
+    "keywords": [
+      "قائمة فحص قبل الشراء",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "buying",
+    "content": "قائمة فحص قبل الشراء دليل عملي حول قائمة فحص قبل الشراء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "buyer-dispute-protection",
+    "title": "حماية المشتري من النزاعات",
+    "category": "النزاعات",
+    "icon": "fa-shield-halved",
+    "description": "إجراءات وقائية تقلل احتمالات النزاع بعد الشراء.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1455,
+    "featured": false,
+    "url": "articles/buyer-dispute-protection.html",
+    "id": "buyer-dispute-protection",
+    "date": "2026-07-24",
+    "file": "articles/buyer-dispute-protection.html",
+    "keywords": [
+      "حماية المشتري من النزاعات",
+      "النزاعات",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "duplicate-ownership",
+      "lawsuit-filing"
+    ],
+    "group": "legal",
+    "content": "حماية المشتري من النزاعات إجراءات وقائية تقلل احتمالات النزاع بعد الشراء. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "buyer-legal-rights",
+    "title": "حقوق المشتري",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول حقوق المشتري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1153,
+    "featured": false,
+    "url": "articles/buyer-legal-rights.html",
+    "id": "buyer-legal-rights",
+    "date": "2026-07-25",
+    "file": "articles/buyer-legal-rights.html",
+    "keywords": [
+      "حقوق المشتري",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "حقوق المشتري البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "guide-42"
+    ]
+  },
+  {
+    "slug": "buyer-rights",
+    "title": "حقوق المشتري قبل التوقيع",
+    "category": "الشراء",
+    "icon": "fa-user-check",
+    "description": "ما يجب أن يطلبه المشتري قبل توقيع عقد البيع لضمان حقه.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1425,
+    "featured": true,
+    "url": "articles/buyer-rights.html",
+    "id": "buyer-rights",
+    "date": "2026-07-24",
+    "file": "articles/buyer-rights.html",
+    "keywords": [
+      "حقوق المشتري قبل التوقيع",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "first-time-buyer",
+      "safe-land-purchase",
+      "installment-purchase",
+      "expat-buying-guide"
+    ],
+    "group": "buying",
+    "content": "حقوق المشتري قبل التوقيع ما يجب أن يطلبه المشتري قبل توقيع عقد البيع لضمان حقه. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "buying-timing",
+    "slug": "buying-timing",
+    "title": "توقيت الشراء العقاري",
+    "category": "الاستثمار",
+    "icon": "fa-clock",
+    "description": "دليل عملي حول توقيت الشراء العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1529,
+    "featured": false,
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "investor-mistakes",
+      "gulf-investor-guide"
+    ],
+    "file": "articles/buying-timing.html",
+    "url": "articles/buying-timing.html",
+    "keywords": [
+      "توقيت الشراء العقاري",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "investment",
+    "content": "توقيت الشراء العقاري دليل عملي حول توقيت الشراء العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "cancel-sale-contract",
+    "title": "إلغاء عقد البيع",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول إلغاء عقد البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1176,
+    "featured": false,
+    "url": "articles/cancel-sale-contract.html",
+    "id": "cancel-sale-contract",
+    "date": "2026-07-25",
+    "file": "articles/cancel-sale-contract.html",
+    "keywords": [
+      "إلغاء عقد البيع",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "إلغاء عقد البيع قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf",
+      "easement-rights"
+    ]
+  },
+  {
+    "slug": "check-masterplans",
+    "title": "التأكد من المخططات",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول التأكد من المخططات في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1728,
+    "featured": false,
+    "url": "articles/check-masterplans.html",
+    "id": "check-masterplans",
+    "date": "2026-07-25",
+    "file": "articles/check-masterplans.html",
+    "keywords": [
+      "التأكد من المخططات",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "التأكد من المخططات الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "read-land-plan"
+    ]
+  },
+  {
+    "slug": "choose-broker",
+    "title": "كيف تختار وسيطاً عقارياً",
+    "category": "النصائح",
+    "icon": "fa-handshake",
+    "description": "معايير اختيار وسيط موثوق يحمي مصالحك أثناء الصفقة.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 1002,
+    "featured": false,
+    "url": "articles/choose-broker.html",
+    "id": "choose-broker",
+    "date": "2026-07-24",
+    "file": "articles/choose-broker.html",
+    "keywords": [
+      "كيف تختار وسيطاً عقارياً",
+      "النصائح",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "real-estate-fraud",
+      "legal-consultation-needed",
+      "before-signing-errors"
+    ],
+    "group": "legal",
+    "content": "كيف تختار وسيطاً عقارياً معايير اختيار وسيط موثوق يحمي مصالحك أثناء الصفقة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "choose-location",
+    "title": "اختيار الموقع المناسب",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول اختيار الموقع المناسب في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1659,
+    "featured": false,
+    "url": "articles/choose-location.html",
+    "id": "choose-location",
+    "date": "2026-07-25",
+    "file": "articles/choose-location.html",
+    "keywords": [
+      "اختيار الموقع المناسب",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "اختيار الموقع المناسب الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "best-investment-areas",
+      "guide-50"
+    ]
+  },
+  {
+    "slug": "common-property",
+    "title": "المشاع في العقارات",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول المشاع في العقارات في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1337,
+    "featured": false,
+    "url": "articles/common-property.html",
+    "id": "common-property",
+    "date": "2026-07-25",
+    "file": "articles/common-property.html",
+    "keywords": [
+      "المشاع في العقارات",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "المشاع في العقارات التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "lost-document-replacement",
+      "property-data-update",
+      "joint-ownership",
+      "prove-ownership"
+    ]
+  },
+  {
+    "slug": "contract-notarization",
+    "title": "كيفية توثيق العقود",
+    "category": "التوثيق",
+    "icon": "fa-signature",
+    "description": "دليل توثيق العقود وحفظ النسخ وإثبات السداد.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 1252,
+    "featured": false,
+    "url": "articles/contract-notarization.html",
+    "id": "contract-notarization",
+    "date": "2026-07-24",
+    "file": "articles/contract-notarization.html",
+    "keywords": [
+      "كيفية توثيق العقود",
+      "التوثيق",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "transfer",
+      "document-forgery",
+      "agency-verification"
+    ],
+    "group": "legal",
+    "content": "كيفية توثيق العقود دليل توثيق العقود وحفظ النسخ وإثبات السداد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "correct-basirah-data",
+    "slug": "correct-basirah-data",
+    "title": "تصحيح بيانات البصيرة",
+    "category": "البصائر",
+    "icon": "fa-pen-to-square",
+    "description": "دليل عملي حول تصحيح بيانات البصيرة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1011,
+    "featured": false,
+    "relatedArticles": [
+      "basirah",
+      "boundaries-area",
+      "basirah-types",
+      "lost-basirah-replacement"
+    ],
+    "file": "articles/correct-basirah-data.html",
+    "url": "articles/correct-basirah-data.html",
+    "keywords": [
+      "تصحيح بيانات البصيرة",
+      "البصائر",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "ownership",
+    "content": "تصحيح بيانات البصيرة دليل عملي حول تصحيح بيانات البصيرة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "dispute-removal",
+    "title": "إزالة النزاعات العقارية",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول إزالة النزاعات العقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1406,
+    "featured": false,
+    "url": "articles/dispute-removal.html",
+    "id": "dispute-removal",
+    "date": "2026-07-25",
+    "file": "articles/dispute-removal.html",
+    "keywords": [
+      "إزالة النزاعات العقارية",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "إزالة النزاعات العقارية الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68",
+      "guide-69"
+    ]
+  },
+  {
+    "slug": "document-forgery",
+    "title": "كيفية كشف التزوير في الوثائق",
+    "category": "التوثيق",
+    "icon": "fa-magnifying-glass",
+    "description": "مؤشرات عملية لكشف التلاعب في الوثائق قبل إتمام الصفقة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1710,
+    "featured": false,
+    "url": "articles/document-forgery.html",
+    "id": "document-forgery",
+    "date": "2026-07-24",
+    "file": "articles/document-forgery.html",
+    "keywords": [
+      "كيفية كشف التزوير في الوثائق",
+      "التوثيق",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "transfer",
+      "agency-verification",
+      "contract-notarization"
+    ],
+    "group": "legal",
+    "content": "كيفية كشف التزوير في الوثائق مؤشرات عملية لكشف التلاعب في الوثائق قبل إتمام الصفقة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "duplicate-ownership",
+    "title": "كيفية اكتشاف الازدواجية",
+    "category": "النزاعات",
+    "icon": "fa-copy",
+    "description": "علامات ازدواجية البيع أو الملكية وكيفية فحصها ميدانياً ووثائقياً.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1510,
+    "featured": false,
+    "url": "articles/duplicate-ownership.html",
+    "id": "duplicate-ownership",
+    "date": "2026-07-24",
+    "file": "articles/duplicate-ownership.html",
+    "keywords": [
+      "كيفية اكتشاف الازدواجية",
+      "النزاعات",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-dispute-protection",
+      "lawsuit-filing"
+    ],
+    "group": "legal",
+    "content": "كيفية اكتشاف الازدواجية علامات ازدواجية البيع أو الملكية وكيفية فحصها ميدانياً ووثائقياً. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "easement-rights",
+    "title": "حق الارتفاق",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول حق الارتفاق في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1360,
+    "featured": false,
+    "url": "articles/easement-rights.html",
+    "id": "easement-rights",
+    "date": "2026-07-25",
+    "file": "articles/easement-rights.html",
+    "keywords": [
+      "حق الارتفاق",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "حق الارتفاق قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf"
+    ]
+  },
+  {
+    "slug": "encroachments",
+    "title": "التعديات على العقار",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول التعديات على العقار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1383,
+    "featured": true,
+    "url": "articles/encroachments.html",
+    "id": "encroachments",
+    "date": "2026-07-25",
+    "file": "articles/encroachments.html",
+    "keywords": [
+      "التعديات على العقار",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "التعديات على العقار الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "purchase-risks",
+      "guide-58"
+    ]
+  },
+  {
+    "slug": "expat-buying-guide",
+    "title": "دليل المغترب لشراء العقار",
+    "category": "الشراء",
+    "icon": "fa-plane",
+    "description": "خطوات عملية للمغترب لشراء عقار بأمان عن بعد أو أثناء الزيارة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1588,
+    "featured": false,
+    "url": "articles/expat-buying-guide.html",
+    "id": "expat-buying-guide",
+    "date": "2026-07-24",
+    "file": "articles/expat-buying-guide.html",
+    "keywords": [
+      "دليل المغترب لشراء العقار",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "safe-land-purchase",
+      "installment-purchase"
+    ],
+    "group": "buying",
+    "content": "دليل المغترب لشراء العقار خطوات عملية للمغترب لشراء عقار بأمان عن بعد أو أثناء الزيارة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "expatriates-property-management",
+    "slug": "expatriates-property-management",
+    "title": "إدارة أملاك المغتربين",
+    "category": "الاستثمار",
+    "icon": "fa-globe",
+    "description": "دليل عملي حول إدارة أملاك المغتربين في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1455,
+    "featured": true,
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "investor-mistakes",
+      "gulf-investor-guide"
+    ],
+    "file": "articles/expatriates-property-management.html",
+    "url": "articles/expatriates-property-management.html",
+    "keywords": [
+      "إدارة أملاك المغتربين",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "investment",
+    "content": "إدارة أملاك المغتربين دليل عملي حول إدارة أملاك المغتربين في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "first-time-buyer",
+    "title": "شراء العقار لأول مرة",
+    "category": "الشراء",
+    "icon": "fa-house-chimney-user",
+    "description": "خارطة طريق مبسطة للمشتري الأول من البحث حتى التوثيق.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1544,
+    "featured": false,
+    "url": "articles/first-time-buyer.html",
+    "id": "first-time-buyer",
+    "date": "2026-07-24",
+    "file": "articles/first-time-buyer.html",
+    "keywords": [
+      "شراء العقار لأول مرة",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-rights",
+      "safe-land-purchase",
+      "installment-purchase",
+      "expat-buying-guide"
+    ],
+    "group": "buying",
+    "content": "شراء العقار لأول مرة خارطة طريق مبسطة للمشتري الأول من البحث حتى التوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "forgery-detection-aden",
+    "title": "كيف تكتشف التزوير العقاري؟",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول كيف تكتشف التزوير العقاري؟ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 946,
+    "featured": false,
+    "url": "articles/forgery-detection-aden.html",
+    "id": "forgery-detection-aden",
+    "date": "2026-07-25",
+    "file": "articles/forgery-detection-aden.html",
+    "keywords": [
+      "كيف تكتشف التزوير العقاري؟",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "كيف تكتشف التزوير العقاري؟ الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "fraud-protection",
+      "encroachments",
+      "purchase-risks",
+      "guide-58"
+    ]
+  },
+  {
+    "slug": "fraud-protection",
+    "title": "كيف تحمي نفسك من الاحتيال العقاري؟",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول كيف تحمي نفسك من الاحتيال العقاري؟ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1084,
+    "featured": false,
+    "url": "articles/fraud-protection.html",
+    "id": "fraud-protection",
+    "date": "2026-07-25",
+    "file": "articles/fraud-protection.html",
+    "keywords": [
+      "كيف تحمي نفسك من الاحتيال العقاري؟",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "كيف تحمي نفسك من الاحتيال العقاري؟ الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "encroachments",
+      "purchase-risks",
+      "guide-58"
+    ]
+  },
+  {
+    "slug": "guide-42",
+    "title": "شراء شقة في عدن خطوة بخطوة",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول شراء شقة في عدن خطوة بخطوة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1866,
+    "featured": true,
+    "url": "articles/guide-42.html",
+    "id": "guide-42",
+    "date": "2026-07-25",
+    "file": "articles/guide-42.html",
+    "keywords": [
+      "شراء شقة في عدن خطوة بخطوة",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "شراء شقة في عدن خطوة بخطوة البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-43",
+    "title": "شراء منزل قديم بأمان",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول شراء منزل قديم بأمان في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1889,
+    "featured": false,
+    "url": "articles/guide-43.html",
+    "id": "guide-43",
+    "date": "2026-07-25",
+    "file": "articles/guide-43.html",
+    "keywords": [
+      "شراء منزل قديم بأمان",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "شراء منزل قديم بأمان البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-44",
+    "title": "بيع العقار بالتقسيط",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول بيع العقار بالتقسيط في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1912,
+    "featured": false,
+    "url": "articles/guide-44.html",
+    "id": "guide-44",
+    "date": "2026-07-25",
+    "file": "articles/guide-44.html",
+    "keywords": [
+      "بيع العقار بالتقسيط",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "بيع العقار بالتقسيط البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-45",
+    "title": "استلام العقار بعد الشراء",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول استلام العقار بعد الشراء في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1935,
+    "featured": false,
+    "url": "articles/guide-45.html",
+    "id": "guide-45",
+    "date": "2026-07-25",
+    "file": "articles/guide-45.html",
+    "keywords": [
+      "استلام العقار بعد الشراء",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "استلام العقار بعد الشراء البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-46",
+    "title": "فحص العقار قبل المعاينة",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول فحص العقار قبل المعاينة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1958,
+    "featured": false,
+    "url": "articles/guide-46.html",
+    "id": "guide-46",
+    "date": "2026-07-25",
+    "file": "articles/guide-46.html",
+    "keywords": [
+      "فحص العقار قبل المعاينة",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "فحص العقار قبل المعاينة نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-56",
+      "guide-57",
+      "guide-88",
+      "guide-89"
+    ]
+  },
+  {
+    "slug": "guide-47",
+    "title": "التفاوض على سعر العقار",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول التفاوض على سعر العقار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1981,
+    "featured": false,
+    "url": "articles/guide-47.html",
+    "id": "guide-47",
+    "date": "2026-07-25",
+    "file": "articles/guide-47.html",
+    "keywords": [
+      "التفاوض على سعر العقار",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "التفاوض على سعر العقار البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-48",
+    "title": "إيصال العربون وضماناته",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول إيصال العربون وضماناته في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2004,
+    "featured": false,
+    "url": "articles/guide-48.html",
+    "id": "guide-48",
+    "date": "2026-07-25",
+    "file": "articles/guide-48.html",
+    "keywords": [
+      "إيصال العربون وضماناته",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "إيصال العربون وضماناته البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-49",
+    "title": "صياغة شرط التسليم",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول صياغة شرط التسليم في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2027,
+    "featured": true,
+    "url": "articles/guide-49.html",
+    "id": "guide-49",
+    "date": "2026-07-25",
+    "file": "articles/guide-49.html",
+    "keywords": [
+      "صياغة شرط التسليم",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "صياغة شرط التسليم البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights"
+    ]
+  },
+  {
+    "slug": "guide-50",
+    "title": "إدارة عقارات المغتربين",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول إدارة عقارات المغتربين في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2050,
+    "featured": false,
+    "url": "articles/guide-50.html",
+    "id": "guide-50",
+    "date": "2026-07-25",
+    "file": "articles/guide-50.html",
+    "keywords": [
+      "إدارة عقارات المغتربين",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "إدارة عقارات المغتربين الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-51",
+    "title": "عائد الإيجار الشهري",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول عائد الإيجار الشهري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2073,
+    "featured": false,
+    "url": "articles/guide-51.html",
+    "id": "guide-51",
+    "date": "2026-07-25",
+    "file": "articles/guide-51.html",
+    "keywords": [
+      "عائد الإيجار الشهري",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "عائد الإيجار الشهري الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-52",
+    "title": "تحليل نمو المنطقة",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول تحليل نمو المنطقة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2096,
+    "featured": false,
+    "url": "articles/guide-52.html",
+    "id": "guide-52",
+    "date": "2026-07-25",
+    "file": "articles/guide-52.html",
+    "keywords": [
+      "تحليل نمو المنطقة",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "تحليل نمو المنطقة الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-53",
+    "title": "مخاطر الاستثمار قصير الأجل",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول مخاطر الاستثمار قصير الأجل في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2119,
+    "featured": false,
+    "url": "articles/guide-53.html",
+    "id": "guide-53",
+    "date": "2026-07-25",
+    "file": "articles/guide-53.html",
+    "keywords": [
+      "مخاطر الاستثمار قصير الأجل",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "مخاطر الاستثمار قصير الأجل الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-54",
+    "title": "شراء عقار تجاري",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول شراء عقار تجاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2142,
+    "featured": false,
+    "url": "articles/guide-54.html",
+    "id": "guide-54",
+    "date": "2026-07-25",
+    "file": "articles/guide-54.html",
+    "keywords": [
+      "شراء عقار تجاري",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "شراء عقار تجاري الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-55",
+    "title": "تحويل الاستخدام العقاري",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول تحويل الاستخدام العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2165,
+    "featured": false,
+    "url": "articles/guide-55.html",
+    "id": "guide-55",
+    "date": "2026-07-25",
+    "file": "articles/guide-55.html",
+    "keywords": [
+      "تحويل الاستخدام العقاري",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "تحويل الاستخدام العقاري قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf"
+    ]
+  },
+  {
+    "slug": "guide-56",
+    "title": "إدارة المستأجرين",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول إدارة المستأجرين في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2188,
+    "featured": true,
+    "url": "articles/guide-56.html",
+    "id": "guide-56",
+    "date": "2026-07-25",
+    "file": "articles/guide-56.html",
+    "keywords": [
+      "إدارة المستأجرين",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "إدارة المستأجرين نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-46",
+      "guide-57",
+      "guide-88",
+      "guide-89"
+    ]
+  },
+  {
+    "slug": "guide-57",
+    "title": "اختيار وسيط عقاري موثوق",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول اختيار وسيط عقاري موثوق في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2211,
+    "featured": false,
+    "url": "articles/guide-57.html",
+    "id": "guide-57",
+    "date": "2026-07-25",
+    "file": "articles/guide-57.html",
+    "keywords": [
+      "اختيار وسيط عقاري موثوق",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "اختيار وسيط عقاري موثوق نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-46",
+      "guide-56",
+      "guide-88",
+      "guide-89"
+    ]
+  },
+  {
+    "slug": "guide-58",
+    "title": "إعلانات العقار المضللة",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول إعلانات العقار المضللة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2234,
+    "featured": false,
+    "url": "articles/guide-58.html",
+    "id": "guide-58",
+    "date": "2026-07-25",
+    "file": "articles/guide-58.html",
+    "keywords": [
+      "إعلانات العقار المضللة",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "إعلانات العقار المضللة الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "encroachments",
+      "purchase-risks"
+    ]
+  },
+  {
+    "slug": "guide-59",
+    "title": "تعارض الحدود مع الجيران",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول تعارض الحدود مع الجيران في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2257,
+    "featured": false,
+    "url": "articles/guide-59.html",
+    "id": "guide-59",
+    "date": "2026-07-25",
+    "file": "articles/guide-59.html",
+    "keywords": [
+      "تعارض الحدود مع الجيران",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "تعارض الحدود مع الجيران الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "encroachments",
+      "purchase-risks"
+    ]
+  },
+  {
+    "slug": "guide-60",
+    "title": "ازدواج البيع",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول ازدواج البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2280,
+    "featured": false,
+    "url": "articles/guide-60.html",
+    "id": "guide-60",
+    "date": "2026-07-25",
+    "file": "articles/guide-60.html",
+    "keywords": [
+      "ازدواج البيع",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "ازدواج البيع الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "encroachments",
+      "purchase-risks"
+    ]
+  },
+  {
+    "slug": "guide-61",
+    "title": "البيع بسند غير مكتمل",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول البيع بسند غير مكتمل في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2303,
+    "featured": false,
+    "url": "articles/guide-61.html",
+    "id": "guide-61",
+    "date": "2026-07-25",
+    "file": "articles/guide-61.html",
+    "keywords": [
+      "البيع بسند غير مكتمل",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "البيع بسند غير مكتمل الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "encroachments",
+      "purchase-risks"
+    ]
+  },
+  {
+    "slug": "guide-62",
+    "title": "مراجعة التسلسل التاريخي للملكية",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول مراجعة التسلسل التاريخي للملكية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2326,
+    "featured": false,
+    "url": "articles/guide-62.html",
+    "id": "guide-62",
+    "date": "2026-07-25",
+    "file": "articles/guide-62.html",
+    "keywords": [
+      "مراجعة التسلسل التاريخي للملكية",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "مراجعة التسلسل التاريخي للملكية البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "guide-63",
+    "title": "مطابقة الاسم في الوثائق",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول مطابقة الاسم في الوثائق في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2349,
+    "featured": true,
+    "url": "articles/guide-63.html",
+    "id": "guide-63",
+    "date": "2026-07-25",
+    "file": "articles/guide-63.html",
+    "keywords": [
+      "مطابقة الاسم في الوثائق",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "مطابقة الاسم في الوثائق البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "guide-64",
+    "title": "أختام الجهات الرسمية",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول أختام الجهات الرسمية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2372,
+    "featured": false,
+    "url": "articles/guide-64.html",
+    "id": "guide-64",
+    "date": "2026-07-25",
+    "file": "articles/guide-64.html",
+    "keywords": [
+      "أختام الجهات الرسمية",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "أختام الجهات الرسمية البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "guide-65",
+    "title": "حفظ الوثائق رقمياً",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول حفظ الوثائق رقمياً في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2395,
+    "featured": false,
+    "url": "articles/guide-65.html",
+    "id": "guide-65",
+    "date": "2026-07-25",
+    "file": "articles/guide-65.html",
+    "keywords": [
+      "حفظ الوثائق رقمياً",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "حفظ الوثائق رقمياً البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "guide-66",
+    "title": "تجهيز ملف البيع",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول تجهيز ملف البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2418,
+    "featured": false,
+    "url": "articles/guide-66.html",
+    "id": "guide-66",
+    "date": "2026-07-25",
+    "file": "articles/guide-66.html",
+    "keywords": [
+      "تجهيز ملف البيع",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "تجهيز ملف البيع البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "guide-67",
+    "title": "إجراءات التسجيل الأولي",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول إجراءات التسجيل الأولي في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2441,
+    "featured": false,
+    "url": "articles/guide-67.html",
+    "id": "guide-67",
+    "date": "2026-07-25",
+    "file": "articles/guide-67.html",
+    "keywords": [
+      "إجراءات التسجيل الأولي",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "إجراءات التسجيل الأولي التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "lost-document-replacement",
+      "property-data-update",
+      "joint-ownership",
+      "common-property"
+    ]
+  },
+  {
+    "slug": "guide-68",
+    "title": "نقل الملكية بعد الوفاة",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول نقل الملكية بعد الوفاة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2464,
+    "featured": false,
+    "url": "articles/guide-68.html",
+    "id": "guide-68",
+    "date": "2026-07-25",
+    "file": "articles/guide-68.html",
+    "keywords": [
+      "نقل الملكية بعد الوفاة",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "نقل الملكية بعد الوفاة الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-69"
+    ]
+  },
+  {
+    "slug": "guide-69",
+    "title": "بيع نصيب وارث",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول بيع نصيب وارث في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2487,
+    "featured": false,
+    "url": "articles/guide-69.html",
+    "id": "guide-69",
+    "date": "2026-07-25",
+    "file": "articles/guide-69.html",
+    "keywords": [
+      "بيع نصيب وارث",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "بيع نصيب وارث الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-70",
+    "title": "موافقة القصر في البيع",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول موافقة القصر في البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2510,
+    "featured": true,
+    "url": "articles/guide-70.html",
+    "id": "guide-70",
+    "date": "2026-07-25",
+    "file": "articles/guide-70.html",
+    "keywords": [
+      "موافقة القصر في البيع",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "موافقة القصر في البيع الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-71",
+    "title": "النزاع بين الورثة",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول النزاع بين الورثة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2533,
+    "featured": false,
+    "url": "articles/guide-71.html",
+    "id": "guide-71",
+    "date": "2026-07-25",
+    "file": "articles/guide-71.html",
+    "keywords": [
+      "النزاع بين الورثة",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "النزاع بين الورثة الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-72",
+    "title": "دعوى منع التعرض",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول دعوى منع التعرض في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2556,
+    "featured": false,
+    "url": "articles/guide-72.html",
+    "id": "guide-72",
+    "date": "2026-07-25",
+    "file": "articles/guide-72.html",
+    "keywords": [
+      "دعوى منع التعرض",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "دعوى منع التعرض الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-73",
+    "title": "دعوى صحة ونفاذ",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول دعوى صحة ونفاذ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2579,
+    "featured": false,
+    "url": "articles/guide-73.html",
+    "id": "guide-73",
+    "date": "2026-07-25",
+    "file": "articles/guide-73.html",
+    "keywords": [
+      "دعوى صحة ونفاذ",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "دعوى صحة ونفاذ الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-74",
+    "title": "الصلح في النزاعات العقارية",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول الصلح في النزاعات العقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2602,
+    "featured": false,
+    "url": "articles/guide-74.html",
+    "id": "guide-74",
+    "date": "2026-07-25",
+    "file": "articles/guide-74.html",
+    "keywords": [
+      "الصلح في النزاعات العقارية",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "الصلح في النزاعات العقارية الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-75",
+    "title": "محضر المعاينة",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول محضر المعاينة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2625,
+    "featured": false,
+    "url": "articles/guide-75.html",
+    "id": "guide-75",
+    "date": "2026-07-25",
+    "file": "articles/guide-75.html",
+    "keywords": [
+      "محضر المعاينة",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "محضر المعاينة الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "inheritance-distribution",
+      "guide-68"
+    ]
+  },
+  {
+    "slug": "guide-76",
+    "title": "تقرير الخبير العقاري",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول تقرير الخبير العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2648,
+    "featured": false,
+    "url": "articles/guide-76.html",
+    "id": "guide-76",
+    "date": "2026-07-25",
+    "file": "articles/guide-76.html",
+    "keywords": [
+      "تقرير الخبير العقاري",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "تقرير الخبير العقاري الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas"
+    ]
+  },
+  {
+    "slug": "guide-77",
+    "title": "مراجعة المخطط العام",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول مراجعة المخطط العام في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2671,
+    "featured": true,
+    "url": "articles/guide-77.html",
+    "id": "guide-77",
+    "date": "2026-07-25",
+    "file": "articles/guide-77.html",
+    "keywords": [
+      "مراجعة المخطط العام",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "مراجعة المخطط العام الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "guide-78",
+    "title": "فرز الشوارع والمداخل",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول فرز الشوارع والمداخل في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2694,
+    "featured": false,
+    "url": "articles/guide-78.html",
+    "id": "guide-78",
+    "date": "2026-07-25",
+    "file": "articles/guide-78.html",
+    "keywords": [
+      "فرز الشوارع والمداخل",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "فرز الشوارع والمداخل الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "guide-79",
+    "title": "حقوق الجار",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول حقوق الجار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2717,
+    "featured": false,
+    "url": "articles/guide-79.html",
+    "id": "guide-79",
+    "date": "2026-07-25",
+    "file": "articles/guide-79.html",
+    "keywords": [
+      "حقوق الجار",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "حقوق الجار قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf"
+    ]
+  },
+  {
+    "slug": "guide-80",
+    "title": "مسار الخدمات والارتفاق",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول مسار الخدمات والارتفاق في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2740,
+    "featured": false,
+    "url": "articles/guide-80.html",
+    "id": "guide-80",
+    "date": "2026-07-25",
+    "file": "articles/guide-80.html",
+    "keywords": [
+      "مسار الخدمات والارتفاق",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "مسار الخدمات والارتفاق قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf"
+    ]
+  },
+  {
+    "slug": "guide-81",
+    "title": "حرم الطريق",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول حرم الطريق في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2763,
+    "featured": false,
+    "url": "articles/guide-81.html",
+    "id": "guide-81",
+    "date": "2026-07-25",
+    "file": "articles/guide-81.html",
+    "keywords": [
+      "حرم الطريق",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "حرم الطريق الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "guide-82",
+    "title": "تغيير حدود الأرض",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول تغيير حدود الأرض في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2786,
+    "featured": false,
+    "url": "articles/guide-82.html",
+    "id": "guide-82",
+    "date": "2026-07-25",
+    "file": "articles/guide-82.html",
+    "keywords": [
+      "تغيير حدود الأرض",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "تغيير حدود الأرض الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "guide-83",
+    "title": "تصحيح خطأ المساحة",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول تصحيح خطأ المساحة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2809,
+    "featured": false,
+    "url": "articles/guide-83.html",
+    "id": "guide-83",
+    "date": "2026-07-25",
+    "file": "articles/guide-83.html",
+    "keywords": [
+      "تصحيح خطأ المساحة",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "تصحيح خطأ المساحة الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "guide-84",
+    "title": "أسئلة شائعة عن البصائر",
+    "category": "أسئلة شائعة",
+    "icon": "fa-circle-question",
+    "description": "دليل عملي احترافي حول أسئلة شائعة عن البصائر في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2832,
+    "featured": true,
+    "url": "articles/guide-84.html",
+    "id": "guide-84",
+    "date": "2026-07-25",
+    "file": "articles/guide-84.html",
+    "keywords": [
+      "أسئلة شائعة عن البصائر",
+      "أسئلة شائعة",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "أسئلة شائعة",
+    "content": "أسئلة شائعة عن البصائر أسئلة شائعة عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-85",
+      "guide-86",
+      "guide-87"
+    ]
+  },
+  {
+    "slug": "guide-85",
+    "title": "أسئلة شائعة عن البيع والشراء",
+    "category": "أسئلة شائعة",
+    "icon": "fa-circle-question",
+    "description": "دليل عملي احترافي حول أسئلة شائعة عن البيع والشراء في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2855,
+    "featured": false,
+    "url": "articles/guide-85.html",
+    "id": "guide-85",
+    "date": "2026-07-25",
+    "file": "articles/guide-85.html",
+    "keywords": [
+      "أسئلة شائعة عن البيع والشراء",
+      "أسئلة شائعة",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "أسئلة شائعة",
+    "content": "أسئلة شائعة عن البيع والشراء أسئلة شائعة عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-84",
+      "guide-86",
+      "guide-87"
+    ]
+  },
+  {
+    "slug": "guide-86",
+    "title": "أسئلة شائعة عن الورثة",
+    "category": "أسئلة شائعة",
+    "icon": "fa-circle-question",
+    "description": "دليل عملي احترافي حول أسئلة شائعة عن الورثة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2878,
+    "featured": false,
+    "url": "articles/guide-86.html",
+    "id": "guide-86",
+    "date": "2026-07-25",
+    "file": "articles/guide-86.html",
+    "keywords": [
+      "أسئلة شائعة عن الورثة",
+      "أسئلة شائعة",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "أسئلة شائعة",
+    "content": "أسئلة شائعة عن الورثة أسئلة شائعة عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-84",
+      "guide-85",
+      "guide-87"
+    ]
+  },
+  {
+    "slug": "guide-87",
+    "title": "أسئلة شائعة عن الاستثمار",
+    "category": "أسئلة شائعة",
+    "icon": "fa-circle-question",
+    "description": "دليل عملي احترافي حول أسئلة شائعة عن الاستثمار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2901,
+    "featured": false,
+    "url": "articles/guide-87.html",
+    "id": "guide-87",
+    "date": "2026-07-25",
+    "file": "articles/guide-87.html",
+    "keywords": [
+      "أسئلة شائعة عن الاستثمار",
+      "أسئلة شائعة",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "أسئلة شائعة",
+    "content": "أسئلة شائعة عن الاستثمار أسئلة شائعة عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-84",
+      "guide-85",
+      "guide-86"
+    ]
+  },
+  {
+    "slug": "guide-88",
+    "title": "دليل المالك قبل البيع",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول دليل المالك قبل البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 2924,
+    "featured": false,
+    "url": "articles/guide-88.html",
+    "id": "guide-88",
+    "date": "2026-07-25",
+    "file": "articles/guide-88.html",
+    "keywords": [
+      "دليل المالك قبل البيع",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "دليل المالك قبل البيع نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-46",
+      "guide-56",
+      "guide-57",
+      "guide-89"
+    ]
+  },
+  {
+    "slug": "guide-89",
+    "title": "دليل المشتري قبل الدفع",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول دليل المشتري قبل الدفع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 2947,
+    "featured": false,
+    "url": "articles/guide-89.html",
+    "id": "guide-89",
+    "date": "2026-07-25",
+    "file": "articles/guide-89.html",
+    "keywords": [
+      "دليل المشتري قبل الدفع",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "دليل المشتري قبل الدفع نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-46",
+      "guide-56",
+      "guide-57",
+      "guide-88"
+    ]
+  },
+  {
+    "slug": "guide-90",
+    "title": "دليل المالك للتأجير",
+    "category": "نصائح الملاك والمشترين",
+    "icon": "fa-lightbulb",
+    "description": "دليل عملي احترافي حول دليل المالك للتأجير في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 2970,
+    "featured": false,
+    "url": "articles/guide-90.html",
+    "id": "guide-90",
+    "date": "2026-07-25",
+    "file": "articles/guide-90.html",
+    "keywords": [
+      "دليل المالك للتأجير",
+      "نصائح الملاك والمشترين",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "نصائح الملاك والمشترين",
+    "content": "دليل المالك للتأجير نصائح الملاك والمشترين عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "guide-46",
+      "guide-56",
+      "guide-57",
+      "guide-88"
+    ]
+  },
+  {
+    "slug": "guide-91",
+    "title": "دليل فحص الوكالة الخارجية",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول دليل فحص الوكالة الخارجية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 2993,
+    "featured": true,
+    "url": "articles/guide-91.html",
+    "id": "guide-91",
+    "date": "2026-07-25",
+    "file": "articles/guide-91.html",
+    "keywords": [
+      "دليل فحص الوكالة الخارجية",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "دليل فحص الوكالة الخارجية البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "gulf-investor-guide",
+    "title": "دليل المستثمر الخليجي",
+    "category": "الاستثمار",
+    "icon": "fa-earth-asia",
+    "description": "إرشادات للمستثمر الخليجي قبل دخول سوق عدن العقاري.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1470,
+    "featured": true,
+    "url": "articles/gulf-investor-guide.html",
+    "id": "gulf-investor-guide",
+    "date": "2026-07-24",
+    "file": "articles/gulf-investor-guide.html",
+    "keywords": [
+      "دليل المستثمر الخليجي",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "investor-mistakes",
+      "market-value-calculation"
+    ],
+    "group": "investment",
+    "content": "دليل المستثمر الخليجي إرشادات للمستثمر الخليجي قبل دخول سوق عدن العقاري. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "heirs-division",
+    "slug": "heirs-division",
+    "title": "تقسيم العقار بين الورثة",
+    "category": "الورثة",
+    "icon": "fa-people-arrows",
+    "description": "دليل عملي حول تقسيم العقار بين الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1122,
+    "featured": false,
+    "relatedArticles": [
+      "heirs-inventory",
+      "buy-from-heirs",
+      "ownership-after-death",
+      "minor-property-sale"
+    ],
+    "file": "articles/heirs-division.html",
+    "url": "articles/heirs-division.html",
+    "keywords": [
+      "تقسيم العقار بين الورثة",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "heirs",
+    "content": "تقسيم العقار بين الورثة دليل عملي حول تقسيم العقار بين الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "heirs-inventory",
+    "title": "إجراءات حصر الورثة",
+    "category": "الورثة",
+    "icon": "fa-people-roof",
+    "description": "خطوات حصر الورثة وتجهيز المستندات قبل بيع أو نقل عقار موروث.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1320,
+    "featured": false,
+    "url": "articles/heirs-inventory.html",
+    "id": "heirs-inventory",
+    "date": "2026-07-24",
+    "file": "articles/heirs-inventory.html",
+    "keywords": [
+      "إجراءات حصر الورثة",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buy-from-heirs",
+      "ownership-after-death",
+      "heirs-division",
+      "minor-property-sale"
+    ],
+    "group": "heirs",
+    "content": "إجراءات حصر الورثة خطوات حصر الورثة وتجهيز المستندات قبل بيع أو نقل عقار موروث. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "heirs-inventory-guide",
+    "title": "حصر الورثة",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول حصر الورثة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1498,
+    "featured": false,
+    "url": "articles/heirs-inventory-guide.html",
+    "id": "heirs-inventory-guide",
+    "date": "2026-07-25",
+    "file": "articles/heirs-inventory-guide.html",
+    "keywords": [
+      "حصر الورثة",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "حصر الورثة الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "inheritance-distribution",
+      "guide-68",
+      "guide-69"
+    ]
+  },
+  {
+    "slug": "inheritance-distribution",
+    "title": "توزيع الإرث العقاري",
+    "category": "الورثة والمحاكم",
+    "icon": "fa-scale-balanced",
+    "description": "دليل عملي احترافي حول توزيع الإرث العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1521,
+    "featured": false,
+    "url": "articles/inheritance-distribution.html",
+    "id": "inheritance-distribution",
+    "date": "2026-07-25",
+    "file": "articles/inheritance-distribution.html",
+    "keywords": [
+      "توزيع الإرث العقاري",
+      "الورثة والمحاكم",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الورثة والمحاكم",
+    "content": "توزيع الإرث العقاري الورثة والمحاكم عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "dispute-removal",
+      "heirs-inventory-guide",
+      "guide-68",
+      "guide-69"
+    ]
+  },
+  {
+    "slug": "installment-purchase",
+    "title": "شراء العقار بالتقسيط",
+    "category": "الشراء",
+    "icon": "fa-calendar-check",
+    "description": "نصائح لصياغة عقود التقسيط وحماية الطرفين.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1226,
+    "featured": false,
+    "url": "articles/installment-purchase.html",
+    "id": "installment-purchase",
+    "date": "2026-07-24",
+    "file": "articles/installment-purchase.html",
+    "keywords": [
+      "شراء العقار بالتقسيط",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "safe-land-purchase",
+      "expat-buying-guide"
+    ],
+    "group": "buying",
+    "content": "شراء العقار بالتقسيط نصائح لصياغة عقود التقسيط وحماية الطرفين. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "investment-return",
+    "slug": "investment-return",
+    "title": "حساب العائد العقاري",
+    "category": "الاستثمار",
+    "icon": "fa-percent",
+    "description": "دليل عملي حول حساب العائد العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1492,
+    "featured": false,
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "investor-mistakes",
+      "gulf-investor-guide"
+    ],
+    "file": "articles/investment-return.html",
+    "url": "articles/investment-return.html",
+    "keywords": [
+      "حساب العائد العقاري",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "investment",
+    "content": "حساب العائد العقاري دليل عملي حول حساب العائد العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "investor-mistakes",
+    "title": "أخطاء المستثمرين",
+    "category": "الاستثمار",
+    "icon": "fa-bug",
+    "description": "أخطاء شائعة تضعف العائد أو تزيد المخاطر القانونية.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1097,
+    "featured": false,
+    "url": "articles/investor-mistakes.html",
+    "id": "investor-mistakes",
+    "date": "2026-07-24",
+    "file": "articles/investor-mistakes.html",
+    "keywords": [
+      "أخطاء المستثمرين",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "gulf-investor-guide",
+      "market-value-calculation"
+    ],
+    "group": "investment",
+    "content": "أخطاء المستثمرين أخطاء شائعة تضعف العائد أو تزيد المخاطر القانونية. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "joint-ownership",
+    "title": "الملكية المشتركة",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول الملكية المشتركة في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1314,
+    "featured": false,
+    "url": "articles/joint-ownership.html",
+    "id": "joint-ownership",
+    "date": "2026-07-25",
+    "file": "articles/joint-ownership.html",
+    "keywords": [
+      "الملكية المشتركة",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "الملكية المشتركة التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "lost-document-replacement",
+      "property-data-update",
+      "common-property",
+      "prove-ownership"
+    ]
+  },
+  {
+    "slug": "joint-vs-individual",
+    "title": "الفرق بين الملكية المشتركة والفردية",
+    "category": "القوانين",
+    "icon": "fa-people-arrows",
+    "description": "مزايا ومخاطر الملكية المشتركة والفردية في العقار.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 920,
+    "featured": false,
+    "url": "articles/joint-vs-individual.html",
+    "id": "joint-vs-individual",
+    "date": "2026-07-24",
+    "file": "articles/joint-vs-individual.html",
+    "keywords": [
+      "الفرق بين الملكية المشتركة والفردية",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
+    ],
+    "group": "building",
+    "content": "الفرق بين الملكية المشتركة والفردية مزايا ومخاطر الملكية المشتركة والفردية في العقار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "land-division",
+    "title": "تقسيم الأراضي",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول تقسيم الأراضي في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1268,
+    "featured": false,
+    "url": "articles/land-division.html",
+    "id": "land-division",
+    "date": "2026-07-25",
+    "file": "articles/land-division.html",
+    "keywords": [
+      "تقسيم الأراضي",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "تقسيم الأراضي الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-partitioning",
+      "check-masterplans",
+      "read-land-plan"
+    ]
+  },
+  {
+    "id": "land-or-house",
+    "slug": "land-or-house",
+    "title": "شراء أرض أم منزل",
+    "category": "الشراء",
+    "icon": "fa-house-circle-check",
+    "description": "دليل عملي حول شراء أرض أم منزل في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1085,
+    "featured": true,
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "safe-land-purchase",
+      "installment-purchase"
+    ],
+    "file": "articles/land-or-house.html",
+    "url": "articles/land-or-house.html",
+    "keywords": [
+      "شراء أرض أم منزل",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "buying",
+    "content": "شراء أرض أم منزل دليل عملي حول شراء أرض أم منزل في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "land-partitioning",
+    "title": "فرز الأراضي",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول فرز الأراضي في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1291,
+    "featured": false,
+    "url": "articles/land-partitioning.html",
+    "id": "land-partitioning",
+    "date": "2026-07-25",
+    "file": "articles/land-partitioning.html",
+    "keywords": [
+      "فرز الأراضي",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "فرز الأراضي الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "check-masterplans",
+      "read-land-plan"
+    ]
+  },
+  {
+    "slug": "land-subdivision",
+    "title": "إجراءات تقسيم الأراضي",
+    "category": "القوانين",
+    "icon": "fa-table-cells-large",
+    "description": "متطلبات تقسيم الأراضي وأهمية المخططات والاعتمادات.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1115,
+    "featured": false,
+    "url": "articles/land-subdivision.html",
+    "id": "land-subdivision",
+    "date": "2026-07-24",
+    "file": "articles/land-subdivision.html",
+    "keywords": [
+      "إجراءات تقسيم الأراضي",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "mortgage-procedures",
+      "tenant-rights",
+      "landlord-rights",
+      "joint-vs-individual"
+    ],
+    "group": "building",
+    "content": "إجراءات تقسيم الأراضي متطلبات تقسيم الأراضي وأهمية المخططات والاعتمادات. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "landlord-rights",
+    "title": "حقوق المؤجر",
+    "category": "القوانين",
+    "icon": "fa-door-open",
+    "description": "حقوق المؤجر وآليات حماية العقار والدخل الإيجاري.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 997,
+    "featured": false,
+    "url": "articles/landlord-rights.html",
+    "id": "landlord-rights",
+    "date": "2026-07-24",
+    "file": "articles/landlord-rights.html",
+    "keywords": [
+      "حقوق المؤجر",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "joint-vs-individual"
+    ],
+    "group": "building",
+    "content": "حقوق المؤجر حقوق المؤجر وآليات حماية العقار والدخل الإيجاري. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "lawsuit-filing",
+    "slug": "lawsuit-filing",
+    "title": "رفع دعوى عقارية",
+    "category": "النزاعات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي حول رفع دعوى عقارية في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1233,
+    "featured": false,
+    "relatedArticles": [
+      "duplicate-ownership",
+      "buyer-dispute-protection"
+    ],
+    "file": "articles/lawsuit-filing.html",
+    "url": "articles/lawsuit-filing.html",
+    "keywords": [
+      "رفع دعوى عقارية",
+      "النزاعات",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "legal",
+    "content": "رفع دعوى عقارية دليل عملي حول رفع دعوى عقارية في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "legal-amendments",
+    "title": "التعديلات القانونية",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول التعديلات القانونية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1843,
+    "featured": false,
+    "url": "articles/legal-amendments.html",
+    "id": "legal-amendments",
+    "date": "2026-07-25",
+    "file": "articles/legal-amendments.html",
+    "keywords": [
+      "التعديلات القانونية",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "التعديلات القانونية قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "real-estate-waqf"
+    ]
+  },
+  {
+    "slug": "legal-consultation-needed",
+    "title": "متى تحتاج إلى استشارة قانونية",
+    "category": "النصائح",
+    "icon": "fa-gavel",
+    "description": "مواقف تستدعي مراجعة قانونية قبل التوقيع أو السداد.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 1124,
+    "featured": false,
+    "url": "articles/legal-consultation-needed.html",
+    "id": "legal-consultation-needed",
+    "date": "2026-07-24",
+    "file": "articles/legal-consultation-needed.html",
+    "keywords": [
+      "متى تحتاج إلى استشارة قانونية",
+      "النصائح",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "real-estate-fraud",
+      "choose-broker",
+      "before-signing-errors"
+    ],
+    "group": "legal",
+    "content": "متى تحتاج إلى استشارة قانونية مواقف تستدعي مراجعة قانونية قبل التوقيع أو السداد. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "lost-basirah-replacement",
+    "slug": "lost-basirah-replacement",
+    "title": "استخراج بدل فاقد",
+    "category": "البصائر",
+    "icon": "fa-copy",
+    "description": "دليل عملي حول استخراج بدل فاقد في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 974,
+    "featured": false,
+    "relatedArticles": [
+      "basirah",
+      "boundaries-area",
+      "basirah-types",
+      "correct-basirah-data"
+    ],
+    "file": "articles/lost-basirah-replacement.html",
+    "url": "articles/lost-basirah-replacement.html",
+    "keywords": [
+      "استخراج بدل فاقد",
+      "البصائر",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "ownership",
+    "content": "استخراج بدل فاقد دليل عملي حول استخراج بدل فاقد في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "lost-document-replacement",
+    "title": "كيفية استخراج بدل فاقد لوثيقة عقارية",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول كيفية استخراج بدل فاقد لوثيقة عقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 992,
+    "featured": false,
+    "url": "articles/lost-document-replacement.html",
+    "id": "lost-document-replacement",
+    "date": "2026-07-25",
+    "file": "articles/lost-document-replacement.html",
+    "keywords": [
+      "كيفية استخراج بدل فاقد لوثيقة عقارية",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "كيفية استخراج بدل فاقد لوثيقة عقارية التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-data-update",
+      "joint-ownership",
+      "common-property",
+      "prove-ownership"
+    ]
+  },
+  {
+    "slug": "market-value-calculation",
+    "title": "كيفية حساب القيمة السوقية للعقار",
+    "category": "الاستثمار",
+    "icon": "fa-calculator",
+    "description": "طريقة مبسطة لحساب القيمة السوقية ومقارنة الأسعار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1432,
+    "featured": false,
+    "url": "articles/market-value-calculation.html",
+    "id": "market-value-calculation",
+    "date": "2026-07-24",
+    "file": "articles/market-value-calculation.html",
+    "keywords": [
+      "كيفية حساب القيمة السوقية للعقار",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "price-evaluation",
+      "aden-investment",
+      "investor-mistakes",
+      "gulf-investor-guide"
+    ],
+    "group": "investment",
+    "content": "كيفية حساب القيمة السوقية للعقار طريقة مبسطة لحساب القيمة السوقية ومقارنة الأسعار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "minor-property-sale",
+    "slug": "minor-property-sale",
+    "title": "بيع عقار قاصر",
+    "category": "الورثة",
+    "icon": "fa-child-reaching",
+    "description": "دليل عملي حول بيع عقار قاصر في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1159,
+    "featured": false,
+    "relatedArticles": [
+      "heirs-inventory",
+      "buy-from-heirs",
+      "ownership-after-death",
+      "heirs-division"
+    ],
+    "file": "articles/minor-property-sale.html",
+    "url": "articles/minor-property-sale.html",
+    "keywords": [
+      "بيع عقار قاصر",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "heirs",
+    "content": "بيع عقار قاصر دليل عملي حول بيع عقار قاصر في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "mortgage-procedures",
+    "title": "إجراءات الرهن العقاري",
+    "category": "القوانين",
+    "icon": "fa-building-columns",
+    "description": "نظرة منظمة على الرهن والالتزامات والاحتياطات قبل توقيعه.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 980,
+    "featured": false,
+    "url": "articles/mortgage-procedures.html",
+    "id": "mortgage-procedures",
+    "date": "2026-07-24",
+    "file": "articles/mortgage-procedures.html",
+    "keywords": [
+      "إجراءات الرهن العقاري",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights",
+      "joint-vs-individual"
+    ],
+    "group": "building",
+    "content": "إجراءات الرهن العقاري نظرة منظمة على الرهن والالتزامات والاحتياطات قبل توقيعه. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "notarization-guide",
+    "title": "التوثيق العقاري",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول التوثيق العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1429,
+    "featured": false,
+    "url": "articles/notarization-guide.html",
+    "id": "notarization-guide",
+    "date": "2026-07-25",
+    "file": "articles/notarization-guide.html",
+    "keywords": [
+      "التوثيق العقاري",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "التوثيق العقاري البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "powers-of-attorney",
+      "agency-expiry"
+    ]
+  },
+  {
+    "slug": "ownership-after-death",
+    "title": "نقل الملكية بعد الوفاة",
+    "category": "الورثة",
+    "icon": "fa-scroll",
+    "description": "خطوات نقل ملكية عقار المتوفى بعد حصر الورثة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1338,
+    "featured": false,
+    "url": "articles/ownership-after-death.html",
+    "id": "ownership-after-death",
+    "date": "2026-07-24",
+    "file": "articles/ownership-after-death.html",
+    "keywords": [
+      "نقل الملكية بعد الوفاة",
+      "الورثة",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "heirs-inventory",
+      "buy-from-heirs",
+      "heirs-division",
+      "minor-property-sale"
+    ],
+    "group": "heirs",
+    "content": "نقل الملكية بعد الوفاة خطوات نقل ملكية عقار المتوفى بعد حصر الورثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "id": "plan-approval",
+    "slug": "plan-approval",
+    "title": "اعتماد المخططات",
+    "category": "القوانين",
+    "icon": "fa-drafting-compass",
+    "description": "دليل عملي حول اعتماد المخططات في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "date": "2026-07-25",
+    "views": 1381,
+    "featured": false,
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
+    ],
+    "file": "articles/plan-approval.html",
+    "url": "articles/plan-approval.html",
+    "keywords": [
+      "اعتماد المخططات",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "building",
+    "content": "اعتماد المخططات دليل عملي حول اعتماد المخططات في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "powers-of-attorney",
+    "title": "الوكالات العقارية",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول الوكالات العقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1452,
+    "featured": false,
+    "url": "articles/powers-of-attorney.html",
+    "id": "powers-of-attorney",
+    "date": "2026-07-25",
+    "file": "articles/powers-of-attorney.html",
+    "keywords": [
+      "الوكالات العقارية",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "الوكالات العقارية البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "agency-expiry"
+    ]
+  },
+  {
+    "slug": "price-assessment",
+    "title": "تقييم الأسعار",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول تقييم الأسعار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1636,
+    "featured": false,
+    "url": "articles/price-assessment.html",
+    "id": "price-assessment",
+    "date": "2026-07-25",
+    "file": "articles/price-assessment.html",
+    "keywords": [
+      "تقييم الأسعار",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "تقييم الأسعار الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "property-appraisal",
+      "choose-location",
+      "best-investment-areas",
+      "guide-50"
+    ]
+  },
+  {
+    "slug": "price-evaluation",
+    "title": "كيفية تقييم سعر العقار",
+    "category": "الاستثمار",
+    "icon": "fa-chart-line",
+    "description": "طرق عملية لتقدير السعر العادل اعتماداً على الموقع والمساحة والطلب.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1766,
+    "featured": true,
+    "url": "articles/price-evaluation.html",
+    "id": "price-evaluation",
+    "date": "2026-07-24",
+    "file": "articles/price-evaluation.html",
+    "keywords": [
+      "كيفية تقييم سعر العقار",
+      "الاستثمار",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "aden-investment",
+      "investor-mistakes",
+      "gulf-investor-guide",
+      "market-value-calculation"
+    ],
+    "group": "investment",
+    "content": "كيفية تقييم سعر العقار طرق عملية لتقدير السعر العادل اعتماداً على الموقع والمساحة والطلب. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "property-appraisal",
+    "title": "تثمين العقار",
+    "category": "الاستثمار العقاري",
+    "icon": "fa-chart-line",
+    "description": "دليل عملي احترافي حول تثمين العقار في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1613,
+    "featured": false,
+    "url": "articles/property-appraisal.html",
+    "id": "property-appraisal",
+    "date": "2026-07-25",
+    "file": "articles/property-appraisal.html",
+    "keywords": [
+      "تثمين العقار",
+      "الاستثمار العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الاستثمار العقاري",
+    "content": "تثمين العقار الاستثمار العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "price-assessment",
+      "choose-location",
+      "best-investment-areas",
+      "guide-50"
+    ]
+  },
+  {
+    "slug": "property-data-update",
+    "title": "خطوات تحديث البيانات العقارية",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول خطوات تحديث البيانات العقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1015,
+    "featured": false,
+    "url": "articles/property-data-update.html",
+    "id": "property-data-update",
+    "date": "2026-07-25",
+    "file": "articles/property-data-update.html",
+    "keywords": [
+      "خطوات تحديث البيانات العقارية",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "خطوات تحديث البيانات العقارية التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "lost-document-replacement",
+      "joint-ownership",
+      "common-property",
+      "prove-ownership"
+    ]
+  },
+  {
+    "slug": "property-gift",
+    "title": "الهبة العقارية",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول الهبة العقارية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1222,
+    "featured": true,
+    "url": "articles/property-gift.html",
+    "id": "property-gift",
+    "date": "2026-07-25",
+    "file": "articles/property-gift.html",
+    "keywords": [
+      "الهبة العقارية",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "الهبة العقارية قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "real-estate-waqf",
+      "easement-rights"
+    ]
+  },
+  {
+    "slug": "prove-ownership",
+    "title": "إثبات الملكية",
+    "category": "التسجيل العقاري",
+    "icon": "fa-building-columns",
+    "description": "دليل عملي احترافي حول إثبات الملكية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1590,
+    "featured": false,
+    "url": "articles/prove-ownership.html",
+    "id": "prove-ownership",
+    "date": "2026-07-25",
+    "file": "articles/prove-ownership.html",
+    "keywords": [
+      "إثبات الملكية",
+      "التسجيل العقاري",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "التسجيل العقاري",
+    "content": "إثبات الملكية التسجيل العقاري عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "lost-document-replacement",
+      "property-data-update",
+      "joint-ownership",
+      "common-property"
+    ]
+  },
+  {
+    "slug": "purchase-risks",
+    "title": "مخاطر الشراء",
+    "category": "الأخطاء والمخاطر",
+    "icon": "fa-triangle-exclamation",
+    "description": "دليل عملي احترافي حول مخاطر الشراء في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1705,
+    "featured": true,
+    "url": "articles/purchase-risks.html",
+    "id": "purchase-risks",
+    "date": "2026-07-25",
+    "file": "articles/purchase-risks.html",
+    "keywords": [
+      "مخاطر الشراء",
+      "الأخطاء والمخاطر",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأخطاء والمخاطر",
+    "content": "مخاطر الشراء الأخطاء والمخاطر عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "forgery-detection-aden",
+      "fraud-protection",
+      "encroachments",
+      "guide-58"
+    ]
+  },
+  {
+    "slug": "read-land-plan",
+    "title": "قراءة المخطط",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول قراءة المخطط في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1751,
+    "featured": false,
+    "url": "articles/read-land-plan.html",
+    "id": "read-land-plan",
+    "date": "2026-07-25",
+    "file": "articles/read-land-plan.html",
+    "keywords": [
+      "قراءة المخطط",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "قراءة المخطط الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "real-estate-fraud",
+    "title": "أشهر عمليات الاحتيال العقاري",
+    "category": "النصائح",
+    "icon": "fa-triangle-exclamation",
+    "description": "أشهر أساليب الاحتيال في سوق العقار وكيفية تجنبها.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1905,
+    "featured": true,
+    "url": "articles/real-estate-fraud.html",
+    "id": "real-estate-fraud",
+    "date": "2026-07-24",
+    "file": "articles/real-estate-fraud.html",
+    "keywords": [
+      "أشهر عمليات الاحتيال العقاري",
+      "النصائح",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "choose-broker",
+      "legal-consultation-needed",
+      "before-signing-errors"
+    ],
+    "group": "legal",
+    "content": "أشهر عمليات الاحتيال العقاري أشهر أساليب الاحتيال في سوق العقار وكيفية تجنبها. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "real-estate-mortgage",
+    "title": "الرهن العقاري",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول الرهن العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1199,
+    "featured": false,
+    "url": "articles/real-estate-mortgage.html",
+    "id": "real-estate-mortgage",
+    "date": "2026-07-25",
+    "file": "articles/real-estate-mortgage.html",
+    "keywords": [
+      "الرهن العقاري",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "الرهن العقاري قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "property-gift",
+      "real-estate-waqf",
+      "easement-rights"
+    ]
+  },
+  {
+    "slug": "real-estate-waqf",
+    "title": "الوقف العقاري",
+    "category": "قوانين العقارات",
+    "icon": "fa-gavel",
+    "description": "دليل عملي احترافي حول الوقف العقاري في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1245,
+    "featured": false,
+    "url": "articles/real-estate-waqf.html",
+    "id": "real-estate-waqf",
+    "date": "2026-07-25",
+    "file": "articles/real-estate-waqf.html",
+    "keywords": [
+      "الوقف العقاري",
+      "قوانين العقارات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "قوانين العقارات",
+    "content": "الوقف العقاري قوانين العقارات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "cancel-sale-contract",
+      "real-estate-mortgage",
+      "property-gift",
+      "easement-rights"
+    ]
+  },
+  {
+    "slug": "registered-area",
+    "title": "المساحة النظامية",
+    "category": "الأراضي والمخططات",
+    "icon": "fa-map",
+    "description": "دليل عملي احترافي حول المساحة النظامية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1820,
+    "featured": false,
+    "url": "articles/registered-area.html",
+    "id": "registered-area",
+    "date": "2026-07-25",
+    "file": "articles/registered-area.html",
+    "keywords": [
+      "المساحة النظامية",
+      "الأراضي والمخططات",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "الأراضي والمخططات",
+    "content": "المساحة النظامية الأراضي والمخططات عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "buy-land-safely",
+      "land-division",
+      "land-partitioning",
+      "check-masterplans"
+    ]
+  },
+  {
+    "slug": "required-documents",
+    "title": "الوثائق المطلوبة للبيع والشراء",
+    "category": "العقود",
+    "icon": "fa-folder-open",
+    "description": "قائمة الوثائق الأساسية التي يجب مراجعتها عند البيع والشراء.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 1210,
+    "featured": false,
+    "url": "articles/required-documents.html",
+    "id": "required-documents",
+    "date": "2026-07-24",
+    "file": "articles/required-documents.html",
+    "keywords": [
+      "الوثائق المطلوبة للبيع والشراء",
+      "العقود",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buy-through-agent",
+      "sale-contract-mistakes"
+    ],
+    "group": "buying",
+    "content": "الوثائق المطلوبة للبيع والشراء قائمة الوثائق الأساسية التي يجب مراجعتها عند البيع والشراء. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "safe-buying-guide",
+    "title": "دليل شامل للشراء الآمن",
+    "category": "الشراء",
+    "icon": "fa-cart-shopping",
+    "description": "دليل شامل للمشتري لفحص العقار والوثائق والتوثيق.",
+    "readingTime": 9,
+    "updated": "2026-07-25",
+    "views": 1888,
+    "featured": true,
+    "url": "articles/safe-buying-guide.html",
+    "id": "safe-buying-guide",
+    "date": "2026-07-24",
+    "file": "articles/safe-buying-guide.html",
+    "keywords": [
+      "دليل شامل للشراء الآمن",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "safe-land-purchase",
+      "installment-purchase"
+    ],
+    "group": "buying",
+    "content": "دليل شامل للشراء الآمن دليل شامل للمشتري لفحص العقار والوثائق والتوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "safe-land-purchase",
+    "title": "شراء أرض آمن",
+    "category": "الشراء",
+    "icon": "fa-map-location-dot",
+    "description": "خطوات شراء الأرض بأمان مع التحقق من المخطط والحدود.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1625,
+    "featured": true,
+    "url": "articles/safe-land-purchase.html",
+    "id": "safe-land-purchase",
+    "date": "2026-07-24",
+    "file": "articles/safe-land-purchase.html",
+    "keywords": [
+      "شراء أرض آمن",
+      "الشراء",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "buyer-rights",
+      "first-time-buyer",
+      "installment-purchase",
+      "expat-buying-guide"
+    ],
+    "group": "buying",
+    "content": "شراء أرض آمن خطوات شراء الأرض بأمان مع التحقق من المخطط والحدود. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
     "slug": "safe-selling-guide",
     "title": "دليل شامل للبيع الآمن",
     "category": "البيع",
@@ -995,396 +4007,234 @@
     "content": "دليل شامل للبيع الآمن دليل متكامل للبائع من التسعير حتى تسليم العقار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
-    "slug": "safe-buying-guide",
-    "title": "دليل شامل للشراء الآمن",
-    "category": "الشراء",
-    "icon": "fa-cart-shopping",
-    "description": "دليل شامل للمشتري لفحص العقار والوثائق والتوثيق.",
-    "readingTime": 9,
+    "slug": "sale-contract-clauses",
+    "title": "أهم البنود داخل عقد البيع",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول أهم البنود داخل عقد البيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
     "updated": "2026-07-25",
-    "views": 1888,
-    "featured": true,
-    "url": "articles/safe-buying-guide.html",
-    "id": "safe-buying-guide",
+    "views": 1107,
+    "featured": false,
+    "url": "articles/sale-contract-clauses.html",
+    "id": "sale-contract-clauses",
+    "date": "2026-07-25",
+    "file": "articles/sale-contract-clauses.html",
+    "keywords": [
+      "أهم البنود داخل عقد البيع",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "أهم البنود داخل عقد البيع البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "seller-legal-rights",
+      "buyer-legal-rights",
+      "guide-42"
+    ]
+  },
+  {
+    "slug": "sale-contract-mistakes",
+    "title": "أخطاء كتابة عقد البيع",
+    "category": "العقود",
+    "icon": "fa-file-pen",
+    "description": "بنود يجب عدم إهمالها عند صياغة عقد البيع.",
+    "readingTime": 6,
+    "updated": "2026-07-25",
+    "views": 1304,
+    "featured": false,
+    "url": "articles/sale-contract-mistakes.html",
+    "id": "sale-contract-mistakes",
     "date": "2026-07-24",
-    "file": "articles/safe-buying-guide.html",
+    "file": "articles/sale-contract-mistakes.html",
     "keywords": [
-      "دليل شامل للشراء الآمن",
-      "الشراء",
+      "أخطاء كتابة عقد البيع",
+      "العقود",
       "عقارات عدن"
     ],
     "image": "IMG_5.jpg",
     "relatedArticles": [
-      "buyer-rights",
-      "first-time-buyer",
-      "safe-land-purchase"
+      "required-documents",
+      "buy-through-agent"
     ],
     "group": "buying",
-    "content": "دليل شامل للشراء الآمن دليل شامل للمشتري لفحص العقار والوثائق والتوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+    "content": "أخطاء كتابة عقد البيع بنود يجب عدم إهمالها عند صياغة عقد البيع. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
-    "id": "basirah-types",
-    "slug": "basirah-types",
-    "title": "أنواع البصائر",
-    "category": "البصائر",
-    "icon": "fa-file-lines",
-    "description": "دليل عملي حول أنواع البصائر في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 937,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/basirah-types.html",
-    "url": "articles/basirah-types.html",
-    "keywords": [
-      "أنواع البصائر",
-      "البصائر",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "ownership",
-    "content": "أنواع البصائر دليل عملي حول أنواع البصائر في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "lost-basirah-replacement",
-    "slug": "lost-basirah-replacement",
-    "title": "استخراج بدل فاقد",
-    "category": "البصائر",
-    "icon": "fa-copy",
-    "description": "دليل عملي حول استخراج بدل فاقد في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 974,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/lost-basirah-replacement.html",
-    "url": "articles/lost-basirah-replacement.html",
-    "keywords": [
-      "استخراج بدل فاقد",
-      "البصائر",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "ownership",
-    "content": "استخراج بدل فاقد دليل عملي حول استخراج بدل فاقد في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "correct-basirah-data",
-    "slug": "correct-basirah-data",
-    "title": "تصحيح بيانات البصيرة",
-    "category": "البصائر",
-    "icon": "fa-pen-to-square",
-    "description": "دليل عملي حول تصحيح بيانات البصيرة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "slug": "sale-vs-agency",
+    "title": "ما الفرق بين البيع والوكالة؟",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول ما الفرق بين البيع والوكالة؟ في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
     "readingTime": 8,
     "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1011,
+    "views": 1038,
     "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/correct-basirah-data.html",
-    "url": "articles/correct-basirah-data.html",
+    "url": "articles/sale-vs-agency.html",
+    "id": "sale-vs-agency",
+    "date": "2026-07-25",
+    "file": "articles/sale-vs-agency.html",
     "keywords": [
-      "تصحيح بيانات البصيرة",
-      "البصائر",
-      "عقارات عدن"
+      "ما الفرق بين البيع والوكالة؟",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
     ],
     "image": "IMG_5.jpg",
-    "group": "ownership",
-    "content": "تصحيح بيانات البصيرة دليل عملي حول تصحيح بيانات البصيرة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+    "group": "البيع والشراء",
+    "content": "ما الفرق بين البيع والوكالة؟ البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-contract-clauses",
+      "seller-legal-rights",
+      "buyer-legal-rights",
+      "guide-42"
+    ]
   },
   {
-    "id": "buyer-checklist",
-    "slug": "buyer-checklist",
-    "title": "قائمة فحص قبل الشراء",
-    "category": "الشراء",
-    "icon": "fa-list-check",
-    "description": "دليل عملي حول قائمة فحص قبل الشراء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
+    "slug": "seller-legal-rights",
+    "title": "حقوق البائع القانونية",
+    "category": "البيع والشراء",
+    "icon": "fa-handshake",
+    "description": "دليل عملي احترافي حول حقوق البائع القانونية في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 8,
+    "updated": "2026-07-25",
+    "views": 1130,
+    "featured": false,
+    "url": "articles/seller-legal-rights.html",
+    "id": "seller-legal-rights",
+    "date": "2026-07-25",
+    "file": "articles/seller-legal-rights.html",
+    "keywords": [
+      "حقوق البائع القانونية",
+      "البيع والشراء",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البيع والشراء",
+    "content": "حقوق البائع القانونية البيع والشراء عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "sale-vs-agency",
+      "sale-contract-clauses",
+      "buyer-legal-rights",
+      "guide-42"
+    ]
+  },
+  {
+    "slug": "seller-protection",
+    "title": "حماية البائع",
+    "category": "البيع",
+    "icon": "fa-sack-dollar",
+    "description": "كيف يحمي البائع حقه في الثمن والتسليم والتوثيق.",
     "readingTime": 5,
     "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1048,
+    "views": 1068,
     "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/buyer-checklist.html",
-    "url": "articles/buyer-checklist.html",
+    "url": "articles/seller-protection.html",
+    "id": "seller-protection",
+    "date": "2026-07-24",
+    "file": "articles/seller-protection.html",
     "keywords": [
-      "قائمة فحص قبل الشراء",
-      "الشراء",
+      "حماية البائع",
+      "البيع",
       "عقارات عدن"
     ],
     "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "safe-selling-guide"
+    ],
     "group": "buying",
-    "content": "قائمة فحص قبل الشراء دليل عملي حول قائمة فحص قبل الشراء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+    "content": "حماية البائع كيف يحمي البائع حقه في الثمن والتسليم والتوثيق. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
-    "id": "land-or-house",
-    "slug": "land-or-house",
-    "title": "شراء أرض أم منزل",
-    "category": "الشراء",
-    "icon": "fa-house-circle-check",
-    "description": "دليل عملي حول شراء أرض أم منزل في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 6,
+    "slug": "signature-validity",
+    "title": "صحة التوقيع",
+    "category": "البصائر والوثائق",
+    "icon": "fa-file-shield",
+    "description": "دليل عملي احترافي حول صحة التوقيع في سوق عقارات عدن مع خطوات تحقق وتنبيهات قبل القرار.",
+    "readingTime": 7,
     "updated": "2026-07-25",
+    "views": 1567,
+    "featured": false,
+    "url": "articles/signature-validity.html",
+    "id": "signature-validity",
     "date": "2026-07-25",
-    "views": 1085,
+    "file": "articles/signature-validity.html",
+    "keywords": [
+      "صحة التوقيع",
+      "البصائر والوثائق",
+      "عقارات عدن",
+      "توثيق عقاري"
+    ],
+    "image": "IMG_5.jpg",
+    "group": "البصائر والوثائق",
+    "content": "صحة التوقيع البصائر والوثائق عقارات عدن بصيرة عقد توثيق تسجيل مخطط ورثة استثمار مخاطر نصائح",
+    "relatedArticles": [
+      "basirah-integrity",
+      "basirah-types-aden",
+      "notarization-guide",
+      "powers-of-attorney"
+    ]
+  },
+  {
+    "slug": "tenant-rights",
+    "title": "حقوق المستأجر",
+    "category": "القوانين",
+    "icon": "fa-key",
+    "description": "حقوق والتزامات المستأجر في عقد الإيجار.",
+    "readingTime": 5,
+    "updated": "2026-07-25",
+    "views": 1033,
+    "featured": false,
+    "url": "articles/tenant-rights.html",
+    "id": "tenant-rights",
+    "date": "2026-07-24",
+    "file": "articles/tenant-rights.html",
+    "keywords": [
+      "حقوق المستأجر",
+      "القوانين",
+      "عقارات عدن"
+    ],
+    "image": "IMG_5.jpg",
+    "relatedArticles": [
+      "mortgage-procedures",
+      "land-subdivision",
+      "landlord-rights",
+      "joint-vs-individual"
+    ],
+    "group": "building",
+    "content": "حقوق المستأجر حقوق والتزامات المستأجر في عقد الإيجار. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+  },
+  {
+    "slug": "transfer",
+    "title": "خطوات نقل ملكية العقار",
+    "category": "التوثيق",
+    "icon": "fa-right-left",
+    "description": "شرح إجراءات نقل الملكية من الاتفاق حتى استلام الوثائق المحدثة.",
+    "readingTime": 7,
+    "updated": "2026-07-25",
+    "views": 1650,
     "featured": true,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/land-or-house.html",
-    "url": "articles/land-or-house.html",
+    "url": "articles/transfer.html",
+    "id": "transfer",
+    "date": "2026-07-24",
+    "file": "articles/transfer.html",
     "keywords": [
-      "شراء أرض أم منزل",
-      "الشراء",
+      "خطوات نقل ملكية العقار",
+      "التوثيق",
       "عقارات عدن"
     ],
     "image": "IMG_5.jpg",
-    "group": "buying",
-    "content": "شراء أرض أم منزل دليل عملي حول شراء أرض أم منزل في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "heirs-division",
-    "slug": "heirs-division",
-    "title": "تقسيم العقار بين الورثة",
-    "category": "الورثة",
-    "icon": "fa-people-arrows",
-    "description": "دليل عملي حول تقسيم العقار بين الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1122,
-    "featured": false,
     "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
+      "document-forgery",
+      "agency-verification",
+      "contract-notarization"
     ],
-    "file": "articles/heirs-division.html",
-    "url": "articles/heirs-division.html",
-    "keywords": [
-      "تقسيم العقار بين الورثة",
-      "الورثة",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "heirs",
-    "content": "تقسيم العقار بين الورثة دليل عملي حول تقسيم العقار بين الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "minor-property-sale",
-    "slug": "minor-property-sale",
-    "title": "بيع عقار قاصر",
-    "category": "الورثة",
-    "icon": "fa-child-reaching",
-    "description": "دليل عملي حول بيع عقار قاصر في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1159,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/minor-property-sale.html",
-    "url": "articles/minor-property-sale.html",
-    "keywords": [
-      "بيع عقار قاصر",
-      "الورثة",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "heirs",
-    "content": "بيع عقار قاصر دليل عملي حول بيع عقار قاصر في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "all-heirs-approval",
-    "slug": "all-heirs-approval",
-    "title": "موافقة جميع الورثة",
-    "category": "الورثة",
-    "icon": "fa-users-gear",
-    "description": "دليل عملي حول موافقة جميع الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1196,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/all-heirs-approval.html",
-    "url": "articles/all-heirs-approval.html",
-    "keywords": [
-      "موافقة جميع الورثة",
-      "الورثة",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "heirs",
-    "content": "موافقة جميع الورثة دليل عملي حول موافقة جميع الورثة في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "lawsuit-filing",
-    "slug": "lawsuit-filing",
-    "title": "رفع دعوى عقارية",
-    "category": "النزاعات",
-    "icon": "fa-gavel",
-    "description": "دليل عملي حول رفع دعوى عقارية في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1233,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/lawsuit-filing.html",
-    "url": "articles/lawsuit-filing.html",
-    "keywords": [
-      "رفع دعوى عقارية",
-      "النزاعات",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
     "group": "legal",
-    "content": "رفع دعوى عقارية دليل عملي حول رفع دعوى عقارية في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "building-permit",
-    "slug": "building-permit",
-    "title": "استخراج ترخيص البناء",
-    "category": "القوانين",
-    "icon": "fa-person-digging",
-    "description": "دليل عملي حول استخراج ترخيص البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 7,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1270,
-    "featured": true,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/building-permit.html",
-    "url": "articles/building-permit.html",
-    "keywords": [
-      "استخراج ترخيص البناء",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "building",
-    "content": "استخراج ترخيص البناء دليل عملي حول استخراج ترخيص البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "building-conditions",
-    "slug": "building-conditions",
-    "title": "شروط البناء في عدن",
-    "category": "القوانين",
-    "icon": "fa-ruler",
-    "description": "دليل عملي حول شروط البناء في عدن في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1307,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/building-conditions.html",
-    "url": "articles/building-conditions.html",
-    "keywords": [
-      "شروط البناء في عدن",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "building",
-    "content": "شروط البناء في عدن دليل عملي حول شروط البناء في عدن في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "building-violations",
-    "slug": "building-violations",
-    "title": "مخالفات البناء",
-    "category": "القوانين",
-    "icon": "fa-triangle-exclamation",
-    "description": "دليل عملي حول مخالفات البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1344,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/building-violations.html",
-    "url": "articles/building-violations.html",
-    "keywords": [
-      "مخالفات البناء",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "building",
-    "content": "مخالفات البناء دليل عملي حول مخالفات البناء في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "plan-approval",
-    "slug": "plan-approval",
-    "title": "اعتماد المخططات",
-    "category": "القوانين",
-    "icon": "fa-drafting-compass",
-    "description": "دليل عملي حول اعتماد المخططات في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1381,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/plan-approval.html",
-    "url": "articles/plan-approval.html",
-    "keywords": [
-      "اعتماد المخططات",
-      "القوانين",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "building",
-    "content": "اعتماد المخططات دليل عملي حول اعتماد المخططات في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
+    "content": "خطوات نقل ملكية العقار شرح إجراءات نقل الملكية من الاتفاق حتى استلام الوثائق المحدثة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   },
   {
     "id": "utilities-connection",
@@ -1399,9 +4249,10 @@
     "views": 1418,
     "featured": false,
     "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
+      "mortgage-procedures",
+      "land-subdivision",
+      "tenant-rights",
+      "landlord-rights"
     ],
     "file": "articles/utilities-connection.html",
     "url": "articles/utilities-connection.html",
@@ -1413,89 +4264,5 @@
     "image": "IMG_5.jpg",
     "group": "building",
     "content": "إيصال الخدمات للعقار دليل عملي حول إيصال الخدمات للعقار في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "expatriates-property-management",
-    "slug": "expatriates-property-management",
-    "title": "إدارة أملاك المغتربين",
-    "category": "الاستثمار",
-    "icon": "fa-globe",
-    "description": "دليل عملي حول إدارة أملاك المغتربين في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 8,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1455,
-    "featured": true,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/expatriates-property-management.html",
-    "url": "articles/expatriates-property-management.html",
-    "keywords": [
-      "إدارة أملاك المغتربين",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "investment",
-    "content": "إدارة أملاك المغتربين دليل عملي حول إدارة أملاك المغتربين في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "investment-return",
-    "slug": "investment-return",
-    "title": "حساب العائد العقاري",
-    "category": "الاستثمار",
-    "icon": "fa-percent",
-    "description": "دليل عملي حول حساب العائد العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 5,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1492,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/investment-return.html",
-    "url": "articles/investment-return.html",
-    "keywords": [
-      "حساب العائد العقاري",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "investment",
-    "content": "حساب العائد العقاري دليل عملي حول حساب العائد العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
-  },
-  {
-    "id": "buying-timing",
-    "slug": "buying-timing",
-    "title": "توقيت الشراء العقاري",
-    "category": "الاستثمار",
-    "icon": "fa-clock",
-    "description": "دليل عملي حول توقيت الشراء العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة.",
-    "readingTime": 6,
-    "updated": "2026-07-25",
-    "date": "2026-07-25",
-    "views": 1529,
-    "featured": false,
-    "relatedArticles": [
-      "safe-buying-guide",
-      "basirah",
-      "transfer"
-    ],
-    "file": "articles/buying-timing.html",
-    "url": "articles/buying-timing.html",
-    "keywords": [
-      "توقيت الشراء العقاري",
-      "الاستثمار",
-      "عقارات عدن"
-    ],
-    "image": "IMG_5.jpg",
-    "group": "investment",
-    "content": "توقيت الشراء العقاري دليل عملي حول توقيت الشراء العقاري في سوق عدن العقاري مع خطوات وتنبيهات مهمة. وثائق حدود عقد توثيق بصيرة سجل عقاري شراء بيع عدن"
   }
 ]
