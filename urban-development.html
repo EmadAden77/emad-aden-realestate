@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynIu7QwNfKQY8MZy1aR3k6QpI4wA=" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root{--gold:#E5C07B;--dark:#050505;--muted:#94A3B8}
@@ -17,7 +17,7 @@ body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at t
 .gold{color:var(--gold)}.gold-bg{background:linear-gradient(135deg,var(--gold),#B8860B);color:#050505}
 .card{transition:.25s}.card:hover{transform:translateY(-3px);border-color:rgba(229,192,123,.45)}
 .badge{border:1px solid rgba(229,192,123,.28);background:rgba(229,192,123,.08);color:var(--gold)}
-#growthMap{height:520px;border-radius:1.5rem;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+#growthMap{height:520px;min-height:520px;border-radius:1.5rem;overflow:hidden;border:1px solid rgba(255,255,255,.1);position:relative;z-index:1}
 .leaflet-container{background:#0a0a0a;font-family:Tajawal,Arial,sans-serif}
 .map-panel{min-height:520px}.map-filter{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}
 .map-filter.active{background:rgba(229,192,123,.14);border-color:rgba(229,192,123,.55);color:#fff}
@@ -26,8 +26,9 @@ body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at t
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#111318;color:#F8FAFC;border:1px solid rgba(229,192,123,.22)}
 .leaflet-popup-content{margin:14px 16px;line-height:1.7}
 .leaflet-control-attribution{background:rgba(0,0,0,.72)!important;color:#cbd5e1!important}.leaflet-control-attribution a{color:#E5C07B!important}
-@media(max-width:1024px){#growthMap,.map-panel{min-height:460px;height:460px}}
-@media(max-width:640px){#growthMap,.map-panel{min-height:400px;height:400px}}
+.map-fallback{height:520px;min-height:520px;border-radius:1.5rem;border:1px solid rgba(229,192,123,.2);display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;background:linear-gradient(135deg,rgba(229,192,123,.08),rgba(255,255,255,.02))}
+@media(max-width:1024px){#growthMap,.map-panel,.map-fallback{min-height:460px;height:460px}}
+@media(max-width:640px){#growthMap,.map-panel,.map-fallback{min-height:400px;height:400px}}
 </style>
 <title>منصة التطور العمراني في عدن</title>
 <meta name="description" content="مشاريع عمرانية وخرائط وإحصائيات وأخبار وتحليل تأثير المشاريع على سوق العقار في عدن.">
@@ -54,8 +55,16 @@ body{font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at t
 <section class="glass rounded-3xl p-6"><h2 class="gold text-2xl font-black mb-4">أخبار وتحذيرات سوقية</h2><div class="grid md:grid-cols-2 gap-4 text-slate-300"><p>تابع أخبار الاعتماد، فتح الطرق، وتوفير الخدمات قبل قرار الاستثمار.</p><p>لا تعتمد على الوعود غير الموثقة، واطلب مخططاً رسمياً ومعاينة موقعية عند تقييم أي فرصة.</p></div></section>
 </main>
 <footer class="border-t border-white/10 py-8 text-center text-slate-400">© مكتب عماد عدن العقاري — محتوى إرشادي لا يغني عن المعاينة والتوثيق الرسمي.</footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+window.addEventListener('load',function(){
+const mapElement=document.getElementById('growthMap');
+if(!mapElement)return;
+if(typeof L==='undefined'){
+mapElement.className='map-fallback';
+mapElement.innerHTML='<div><h3 class="gold text-2xl font-black mb-3">تعذر تحميل الخريطة</h3><p class="text-slate-300">تحقق من اتصال الإنترنت ثم أعد تحميل الصفحة.</p></div>';
+return;
+}
 const zones=[
 {name:'خور مكسر',coords:[12.8357,45.0356],type:'commercial',badge:'تجاري وخدمات',description:'منطقة مركزية قريبة من المطار ومحاور الحركة والخدمات، مع طلب متنوع على الاستخدام التجاري والإداري.',demand:'مرتفع',services:'جيدة',risk:'متوسطة',score:'4.5 / 5',uses:['تجاري','مكاتب','سكني']},
 {name:'المنصورة',coords:[12.8564,44.9913],type:'residential',badge:'سكني نشط',description:'كثافة سكانية ونشاط خدمي مستمر، ما يدعم الطلب السكني والتجاري المحلي مع ضرورة التدقيق في سهولة الوصول والمواقف.',demand:'مرتفع',services:'جيدة',risk:'منخفضة',score:'4.3 / 5',uses:['شقق','محلات','خدمات']},
@@ -65,14 +74,16 @@ const zones=[
 {name:'صيرة',coords:[12.7797,45.0352],type:'commercial',badge:'مركز تاريخي',description:'قرب الأسواق والواجهة البحرية يرفع القيمة التجارية، لكن الكثافة والبنية القديمة تتطلب معاينة فنية دقيقة.',demand:'مرتفع',services:'جيدة',risk:'متوسطة',score:'4.2 / 5',uses:['محلات','مكاتب','ترميم']},
 {name:'الشيخ عثمان',coords:[12.8841,45.0155],type:'residential',badge:'سوق كثيف',description:'حركة تجارية وسكانية قوية، ما يدعم الإيجارات والأنشطة الخدمية مع اختلاف واضح بين الشوارع والأحياء.',demand:'مرتفع',services:'جيدة',risk:'منخفضة إلى متوسطة',score:'4.2 / 5',uses:['إيجار','محلات','سكني']}
 ];
-const map=L.map('growthMap',{scrollWheelZoom:false}).setView([12.83,45.00],11);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
+const map=L.map(mapElement,{scrollWheelZoom:false,zoomControl:true}).setView([12.83,45.00],11);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
 const markerIcon=L.divIcon({className:'',html:'<div class="custom-marker"></div>',iconSize:[22,22],iconAnchor:[11,11],popupAnchor:[0,-12]});
 const markerLayer=L.layerGroup().addTo(map);
 function updatePanel(zone){document.getElementById('zoneBadge').textContent=zone.badge;document.getElementById('zoneTitle').textContent=zone.name;document.getElementById('zoneDescription').textContent=zone.description;document.getElementById('zoneDemand').textContent=zone.demand;document.getElementById('zoneServices').textContent=zone.services;document.getElementById('zoneRisk').textContent=zone.risk;document.getElementById('zoneScore').textContent=zone.score;document.getElementById('zoneUses').innerHTML=zone.uses.map(use=>`<span class="badge rounded-full px-3 py-1 text-sm">${use}</span>`).join('')}
 function renderMarkers(filter='all'){markerLayer.clearLayers();zones.filter(zone=>filter==='all'||zone.type===filter).forEach(zone=>{const marker=L.marker(zone.coords,{icon:markerIcon}).addTo(markerLayer);marker.bindPopup(`<strong style="font-size:1rem;color:#E5C07B">${zone.name}</strong><br><span>${zone.badge}</span>`);marker.on('click',()=>updatePanel(zone))})}
 renderMarkers();
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(item=>item.classList.remove('active'));button.classList.add('active');renderMarkers(button.dataset.filter)}));
-setTimeout(()=>map.invalidateSize(),250);
+requestAnimationFrame(()=>{map.invalidateSize();setTimeout(()=>map.invalidateSize(),500)});
+window.addEventListener('resize',()=>map.invalidateSize());
+});
 </script>
 </body></html>
