@@ -1,4 +1,4 @@
-name: Apply social footer
+name: Validate social footer
 
 on:
   pull_request:
@@ -7,20 +7,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: add-professional-social-links
-      - run: python scripts/add-social-footer.py
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git diff --cached --quiet && exit 0
-          git commit -m "إضافة روابط التواصل في تذييل الصفحة الرئيسية"
-          git push origin HEAD:add-professional-social-links
+      - name: Validate homepage social links
+        run: python scripts/add-social-footer.py --check
