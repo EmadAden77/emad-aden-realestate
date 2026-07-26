@@ -1,0 +1,1 @@
+All social links open safely in a new tab and include accessible labels.
