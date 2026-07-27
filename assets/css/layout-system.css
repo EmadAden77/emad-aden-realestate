@@ -1,0 +1,219 @@
+/* ==================================================
+   Emad Aden Real Estate
+   Phase 1: Luxury Layout & Whitespace System
+   Preserves current sections and visual identity
+   ================================================== */
+
+:root {
+  --site-max-width: 1440px;
+  --page-gutter-desktop: 64px;
+  --page-gutter-tablet: 32px;
+  --page-gutter-mobile: 20px;
+  --section-space-xl: 144px;
+  --section-space-lg: 112px;
+  --section-space-md: 88px;
+  --section-space-sm: 64px;
+  --content-width: 760px;
+  --content-width-wide: 960px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { width: 100%; overflow-x: hidden; }
+body { width: 100%; overflow-x: hidden; }
+
+.wrap,
+.site-container,
+.section-container {
+  width: min(calc(100% - (var(--page-gutter-desktop) * 2)), var(--site-max-width));
+  margin-inline: auto;
+}
+
+main > .section {
+  padding-block: var(--section-space-lg);
+  margin: 0;
+}
+
+main > .section:first-of-type {
+  padding-top: var(--section-space-md);
+}
+
+.hero {
+  padding-block: var(--section-space-md) var(--section-space-sm);
+}
+
+.section-head {
+  margin-bottom: clamp(36px, 4vw, 56px);
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.section-head > div,
+.section-head > p {
+  min-width: 0;
+}
+
+.section-head p {
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+.hero-shell {
+  padding: clamp(40px, 7vw, 96px);
+}
+
+.hero-shell > p {
+  max-width: var(--content-width);
+}
+
+.services-grid,
+.tool-grid,
+.feature-band,
+.districts,
+.trust-grid,
+.footer-grid {
+  align-items: stretch;
+}
+
+.service-card,
+.tool-card,
+.district,
+.trust-card,
+.feature-main,
+.feature-side,
+.articles-gateway {
+  min-width: 0;
+  height: 100%;
+}
+
+.service-card,
+.tool-card,
+.trust-card,
+.district {
+  padding: clamp(24px, 2.5vw, 40px);
+}
+
+.service-card,
+.tool-card,
+.trust-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.section h1,
+.section h2,
+.section h3,
+.section p {
+  overflow-wrap: anywhere;
+}
+
+.section h1,
+.section h2,
+.section h3 {
+  margin-top: 0;
+}
+
+.section p:last-child,
+.service-card p:last-child,
+.tool-card p:last-child,
+.trust-card p:last-child {
+  margin-bottom: 0;
+}
+
+.articles-gateway,
+.cta {
+  padding: clamp(32px, 4vw, 56px);
+}
+
+main > .section + .section::before {
+  width: min(1160px, calc(100% - 48px));
+}
+
+@media (max-width: 1100px) {
+  .wrap,
+  .site-container,
+  .section-container {
+    width: min(calc(100% - (var(--page-gutter-tablet) * 2)), var(--site-max-width));
+  }
+
+  main > .section {
+    padding-block: var(--section-space-md);
+  }
+
+  .hero {
+    padding-block: 72px 56px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrap,
+  .site-container,
+  .section-container {
+    width: min(calc(100% - (var(--page-gutter-mobile) * 2)), var(--site-max-width));
+  }
+
+  main > .section {
+    padding-block: var(--section-space-sm);
+  }
+
+  main > .section:first-of-type {
+    padding-top: 52px;
+  }
+
+  .hero {
+    padding-block: 48px 32px;
+  }
+
+  .hero-shell {
+    padding: 28px 24px 32px;
+  }
+
+  .section-head {
+    margin-bottom: 32px;
+    gap: 14px;
+  }
+
+  .service-card,
+  .tool-card,
+  .trust-card,
+  .district,
+  .feature-main,
+  .feature-side,
+  .articles-gateway,
+  .cta {
+    padding: 24px;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-actions .btn,
+  .cta .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 390px) {
+  :root { --page-gutter-mobile: 16px; }
+
+  main > .section {
+    padding-block: 52px;
+  }
+
+  .service-card,
+  .tool-card,
+  .trust-card,
+  .district,
+  .feature-main,
+  .feature-side,
+  .articles-gateway,
+  .cta {
+    padding: 20px;
+  }
+}
