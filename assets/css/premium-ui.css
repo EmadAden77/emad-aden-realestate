@@ -1,0 +1,75 @@
+:root{
+  --premium-bg:#f7f8fa;
+  --premium-surface:#ffffff;
+  --premium-surface-soft:#eef1f4;
+  --premium-text:#111827;
+  --premium-muted:#667085;
+  --premium-accent:#b8860b;
+  --premium-accent-soft:#e5c07b;
+  --premium-shadow:0 24px 70px rgba(15,23,42,.12);
+  --premium-shadow-hover:0 30px 90px rgba(15,23,42,.18);
+}
+
+body{font-family:'Tajawal',sans-serif;background:var(--premium-bg);color:var(--premium-text)}
+body:before{opacity:.12}
+h1,h2{font-weight:900;letter-spacing:-.025em;color:var(--premium-text)}
+h1{font-size:clamp(2.8rem,7vw,6.5rem)}
+h2{font-size:clamp(2rem,4.5vw,4rem)}
+p,.section-head p,.service-card p,.tool-card p,.trust-card p,.feature-main p,.feature-side p{font-weight:400;line-height:1.8;color:var(--premium-muted)}
+.kicker,.eyebrow,.card-link,.brand span,.navlinks a.active{color:var(--premium-accent)}
+
+.topbar{background:transparent;border-bottom-color:transparent;box-shadow:none;transition:background .35s ease,min-height .35s ease,box-shadow .35s ease,border-color .35s ease,backdrop-filter .35s ease}
+.topbar.is-scrolled{background:rgba(255,255,255,.94);border-bottom-color:rgba(17,24,39,.08);box-shadow:0 14px 40px rgba(15,23,42,.08);backdrop-filter:blur(18px)}
+.topbar.is-scrolled .nav{min-height:64px}
+.topbar.is-scrolled .brand strong,.topbar.is-scrolled .navlinks a{color:var(--premium-text)}
+.topbar.is-scrolled .brand img{width:40px;height:40px}
+
+.btn.gold{background:linear-gradient(135deg,var(--premium-accent-soft),var(--premium-accent));color:#111827}
+.btn.ghost,.icon-btn,.menu-btn{background:rgba(255,255,255,.78);border-color:rgba(17,24,39,.08);color:var(--premium-accent)}
+
+.hero-shell,.tool-stage,.feature-main,.feature-side,.articles-gateway,.trust-card,.district,.service-card,.tool-card{border:none}
+.hero-shell{background:linear-gradient(135deg,#ffffff 0%,#f2f4f7 58%,#eceff3 100%);box-shadow:var(--premium-shadow)}
+.gradient-text{background:linear-gradient(135deg,#111827,var(--premium-accent) 55%,#7a5b08);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric,.trust-card,.district{background:var(--premium-surface);box-shadow:0 16px 45px rgba(15,23,42,.08)}
+.tool-stage{background:var(--premium-surface-soft);box-shadow:inset 0 0 0 1px rgba(17,24,39,.04)}
+
+.service-card,.tool-card,.district,.trust-card,.feature-main,.feature-side,.articles-gateway{
+  box-shadow:var(--premium-shadow);
+  transition:transform .5s ease-in-out,box-shadow .5s ease-in-out,background .35s ease;
+}
+.service-card:hover,.tool-card:hover,.district:hover,.trust-card:hover,.feature-main:hover,.feature-side:hover,.articles-gateway:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:var(--premium-shadow-hover);
+}
+
+.property-card,.listing-card,.service-card,.tool-card{overflow:hidden;border-radius:28px}
+.property-card__media,.listing-card__media,.card-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.property-card__media img,.listing-card__media img,.card-media img,.property-card img,.listing-card img{
+  width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease-in-out;
+}
+.property-card:hover img,.listing-card:hover img,.property-card__media:hover img,.listing-card__media:hover img{transform:scale(1.05)}
+.property-card__media:after,.listing-card__media:after,.card-media:after{
+  content:"";position:absolute;inset:auto 0 0;height:48%;pointer-events:none;background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,0));
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none}
+
+button,a,input,select,textarea,[role="button"]{min-height:44px}
+.icon-btn,.menu-btn,.back-top{min-width:44px;min-height:44px}
+.mobile-menu a,.navlinks a,.btn{display:inline-flex;align-items:center}
+
+.swipe-track,.carousel-track,.slider-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-width:none;touch-action:pan-x}
+.swipe-track::-webkit-scrollbar,.carousel-track::-webkit-scrollbar,.slider-track::-webkit-scrollbar{display:none}
+.swipe-track>* ,.carousel-track>* ,.slider-track>*{scroll-snap-align:start;flex:0 0 min(88%,420px)}
+
+@media(max-width:980px){
+  .topbar{background:rgba(255,255,255,.92);backdrop-filter:blur(16px)}
+  .brand strong{color:var(--premium-text)}
+  .service-card:hover,.tool-card:hover,.district:hover,.trust-card:hover,.feature-main:hover,.feature-side:hover,.articles-gateway:hover{transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .service-card,.tool-card,.district,.trust-card,.feature-main,.feature-side,.articles-gateway,.property-card img,.listing-card img,.reveal{transition:none!important;transform:none!important}
+  .reveal{opacity:1!important}
+}
