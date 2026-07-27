@@ -1,0 +1,11 @@
+priority,search_intent,target_keyword,suggested_path,page_type,status
+1,commercial,مكتب عقاري في عدن,/real-estate-office-aden.html,landing,planned
+2,commercial,إدارة أملاك في عدن,/property-management-aden.html,service,planned
+3,commercial,تثمين عقاري في عدن,/property-valuation-aden.html,service,planned
+4,commercial,استشارات عقارية في عدن,/real-estate-consulting-aden.html,service,planned
+5,informational,شراء عقار في عدن,/guides/buy-property-aden.html,guide,planned
+6,informational,السجل العقاري في عدن,/guides/land-registry-aden.html,guide,planned
+7,informational,الاستثمار العقاري في عدن,/guides/real-estate-investment-aden.html,guide,planned
+8,informational,التحقق من وثائق العقار في عدن,/guides/verify-property-documents-aden.html,guide,planned
+9,informational,أسعار الأراضي في عدن,/guides/land-prices-aden.html,guide,planned
+10,local,إدارة أملاك المغتربين في عدن,/expatriates-property-management.html,existing-service,review
