@@ -28,6 +28,10 @@ p,.section-head p,.service-card p,.tool-card p,.trust-card p,.feature-main p,.fe
 .btn.gold{background:linear-gradient(135deg,var(--premium-accent-soft),var(--premium-accent));color:#050505}
 .btn.ghost,.icon-btn,.menu-btn{background:rgba(255,255,255,.035);border-color:var(--premium-line);color:var(--premium-accent-soft)}
 
+/* دعم شعار X حتى لو لم تتضمن نسخة Font Awesome الحالية الأيقونة */
+.fa-x-twitter{font-family:Arial,sans-serif!important;font-style:normal;font-weight:800;line-height:1}
+.fa-x-twitter:before{content:"X"!important}
+
 .hero-shell,.tool-stage,.feature-main,.feature-side,.articles-gateway,.trust-card,.district,.service-card,.tool-card{border:1px solid rgba(255,255,255,.06)}
 .hero-shell{background:linear-gradient(135deg,rgba(229,192,123,.14),rgba(12,13,16,.94) 42%,rgba(0,0,0,.99));box-shadow:var(--premium-shadow)}
 .gradient-text{background:linear-gradient(135deg,#fff,var(--premium-accent-soft) 55%,var(--premium-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
