@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/expatriates.css?v=20260725-3">
 <style>
-  .request-priority{padding-top:34px;padding-bottom:28px}
+  .request-priority{padding-top:34px;padding-bottom:22px}
   .request-priority .request-shell{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:22px;align-items:start}
   .request-priority .request-intro{position:sticky;top:94px;padding:26px;border:1px solid rgba(229,192,123,.18);border-radius:26px;background:linear-gradient(145deg,rgba(229,192,123,.08),rgba(255,255,255,.02));box-shadow:0 18px 55px rgba(0,0,0,.22)}
   .request-priority .request-intro h1{margin:10px 0 12px;font-size:clamp(2rem,4vw,3.6rem);line-height:1.18}
@@ -27,22 +27,48 @@
   .request-priority .request-points span:before{content:'✓';display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(229,192,123,.12);font-size:.75rem}
   .request-priority .card{margin:0}
   .request-priority .form{gap:14px}
-  .request-priority input,.request-priority textarea{min-height:58px}
-  .request-priority textarea{min-height:150px}
+  .request-priority input,.request-priority select,.request-priority textarea{min-height:58px;width:100%}
+  .request-priority textarea{min-height:140px}
   .request-priority .btn{min-height:58px}
+  .form-note{margin:10px 0 0;color:#9f9793;font-size:.78rem;line-height:1.7}
+  .quick-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+  .quick-item{padding:12px 14px;border:1px solid rgba(229,192,123,.14);border-radius:16px;background:rgba(255,255,255,.025);text-align:center;font-size:.82rem;font-weight:800;color:#efe1bf}
+  .scope-grid,.after-grid,.faq-grid{display:grid;gap:14px}
+  .scope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .after-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .compact-card{padding:18px;border-radius:20px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025)}
+  .compact-card h3{margin:0 0 8px}
+  .compact-card p,.compact-card li{color:#aaa2a0;line-height:1.75}
+  .compact-card ul{margin:0;padding-right:18px}
+  .after-step{position:relative;text-align:center}
+  .after-step strong{display:grid;place-items:center;width:34px;height:34px;margin:0 auto 10px;border-radius:50%;background:rgba(229,192,123,.12);color:#efd18e}
+  .sample-note{margin-top:10px;color:#9f9793;font-size:.78rem}
+  .faq-grid{grid-template-columns:1fr}
+  details.faq{border:1px solid rgba(255,255,255,.07);border-radius:16px;background:rgba(255,255,255,.025);padding:0 16px}
+  details.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:800}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq p{margin:0 0 16px;color:#aaa2a0;line-height:1.8}
+  .final-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px;border-radius:24px;border:1px solid rgba(229,192,123,.2);background:linear-gradient(135deg,rgba(229,192,123,.09),rgba(255,255,255,.02))}
+  .final-cta h2{margin:0 0 8px}
+  .final-cta p{margin:0;color:#aaa2a0}
+  @media(max-width:900px){.after-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quick-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:820px){
     .request-priority{padding-top:20px}
     .request-priority .request-shell{grid-template-columns:1fr}
     .request-priority .request-intro{position:static;padding:20px}
     .request-priority .request-intro h1{font-size:2rem}
+    .scope-grid{grid-template-columns:1fr}
+    .final-cta{display:block}
+    .final-cta .btn{margin-top:16px;width:100%;justify-content:center}
   }
+  @media(max-width:560px){.after-grid{grid-template-columns:1fr}.quick-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.quick-item{font-size:.74rem;padding:10px}}
 </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="العودة إلى الرئيسية"><img src="IMG_5.jpg" alt="شعار مكتب عماد عدن العقاري"><span><strong>مكتب عماد عدن العقاري</strong><span>بيع شراء تثمين استثمار</span></span></a>
-    <nav class="nav-links" aria-label="أقسام الصفحة"><a href="#request">طلب الإدارة</a><a href="#overview">نظرة عامة</a><a href="#services">الخدمات</a><a href="#process">الخطوات</a><a href="#reports">التقارير</a></nav>
+    <nav class="nav-links" aria-label="أقسام الصفحة"><a href="#request">طلب الإدارة</a><a href="#overview">نظرة عامة</a><a href="#services">الخدمات</a><a href="#process">الخطوات</a><a href="#reports">التقارير</a><a href="#faq">الأسئلة</a></nav>
     <a class="btn btn-primary" href="index.html">الرئيسية</a>
   </div>
 </header>
@@ -62,13 +88,30 @@
       <div class="card">
         <form class="form" onsubmit="sendWhatsApp('requestForm','طلب إدارة عقار مغترب'); return false;" id="requestForm">
           <input name="الاسم" placeholder="اسم المالك" required>
-          <input name="رقم الجوال" placeholder="رقم الجوال" required>
-          <input name="الموقع" placeholder="موقع العقار">
-          <input name="نوع العقار" placeholder="نوع العقار">
+          <input name="رقم الجوال" placeholder="رقم الجوال" inputmode="tel" required>
+          <select name="موقع العقار" required>
+            <option value="">اختر موقع العقار</option>
+            <option>المنصورة</option><option>الشيخ عثمان</option><option>خور مكسر</option><option>كريتر</option><option>المعلا</option><option>التواهي</option><option>البريقة</option><option>دار سعد</option><option>منطقة أخرى في عدن</option>
+          </select>
+          <select name="نوع العقار" required>
+            <option value="">اختر نوع العقار</option>
+            <option>شقة</option><option>فيلا</option><option>عمارة</option><option>محل تجاري</option><option>مكتب</option><option>أرض</option><option>نوع آخر</option>
+          </select>
+          <select class="full" name="الخدمة المطلوبة" required>
+            <option value="">اختر الخدمة المطلوبة</option>
+            <option>إدارة كاملة للعقار</option><option>تحصيل الإيجارات</option><option>إدارة المستأجرين</option><option>متابعة الصيانة</option><option>تسويق وتأجير</option><option>استشارة أولية</option>
+          </select>
           <textarea class="full" name="الملاحظات" placeholder="اكتب أي ملاحظات إضافية"></textarea>
           <button class="btn btn-primary full" type="submit">إرسال الطلب عبر واتساب</button>
         </form>
+        <p class="form-note">تُرسل بياناتك مباشرة إلى واتساب مكتب عماد عدن العقاري، ولا تُنشر أو تُشارك مع أطراف أخرى.</p>
       </div>
+    </div>
+    <div class="container quick-strip" aria-label="مزايا الخدمة">
+      <div class="quick-item">🏢 إدارة احترافية</div>
+      <div class="quick-item">📷 تقارير مصورة</div>
+      <div class="quick-item">💬 واتساب مباشر</div>
+      <div class="quick-item">📍 خدمة داخل عدن</div>
     </div>
   </section>
 
@@ -82,13 +125,14 @@
       </div>
       <aside class="hero-card" aria-label="لوحة مختصرة لحالة العقار">
         <h2>لوحة متابعة العقار</h2>
-        <p>نموذج مبسط لما يصلك في التقرير الشهري.</p>
+        <p>نموذج توضيحي لما يمكن أن يصلك في التقرير الشهري.</p>
         <div class="status-row">
-          <div class="metric"><strong>96%</strong><br>نسبة الالتزام بالسداد</div>
-          <div class="metric"><strong>24س</strong><br>متوسط بدء متابعة البلاغ</div>
-          <div class="mini-card">الحالة: مؤجر ومستقر</div>
+          <div class="metric"><strong>مؤجر</strong><br>حالة الإشغال</div>
+          <div class="metric"><strong>محصل</strong><br>حالة الإيجار</div>
+          <div class="mini-card">الصيانة: لا توجد أعمال عاجلة</div>
           <div class="mini-card">آخر زيارة: موثقة بالصور</div>
         </div>
+        <p class="sample-note">هذه بيانات توضيحية وليست إحصاءات عامة للمكتب.</p>
       </aside>
     </div>
   </section>
@@ -101,12 +145,21 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>ماذا يحدث بعد إرسال الطلب؟</h2><p>أربع خطوات واضحة من أول رسالة حتى بدء المتابعة.</p></div>
+      <div class="after-grid">
+        <div class="compact-card after-step"><strong>1</strong><h3>استلام الطلب</h3><p>نراجع البيانات الأساسية.</p></div>
+        <div class="compact-card after-step"><strong>2</strong><h3>تواصل عبر واتساب</h3><p>نطلب أي تفاصيل ناقصة.</p></div>
+        <div class="compact-card after-step"><strong>3</strong><h3>تحديد نطاق العمل</h3><p>نوضح المطلوب وآلية المتابعة.</p></div>
+        <div class="compact-card after-step"><strong>4</strong><h3>بدء الخدمة</h3><p>بعد الاتفاق واعتماد الخطوات.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="why">
     <div class="container">
-      <div class="section-head">
-        <h2>لماذا يختارنا العميل؟</h2>
-        <p>نعمل بمنهج واضح: توثيق، شفافية، متابعة، ثم تقرير قابل للمراجعة.</p>
-      </div>
+      <div class="section-head"><h2>لماذا يختارنا العميل؟</h2><p>نعمل بمنهج واضح: توثيق، شفافية، متابعة، ثم تقرير قابل للمراجعة.</p></div>
       <div class="grid grid-4">
         <div class="card"><div class="icon">🛡️</div><h3>حماية الملكية</h3><p>متابعة الوثائق والعقود والتنبيهات النظامية قبل حدوث المشكلات.</p></div>
         <div class="card"><div class="icon">📷</div><h3>إثبات مصور</h3><p>صور قبل وبعد الزيارة أو الصيانة حتى ترى حالة عقارك عن بعد.</p></div>
@@ -116,12 +169,19 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>نطاق الخدمة بوضوح</h2><p>نحدد ما يدخل ضمن الإدارة وما يحتاج موافقة أو تكلفة مستقلة قبل البدء.</p></div>
+      <div class="scope-grid">
+        <div class="compact-card"><h3>يشمل عادةً</h3><ul><li>المتابعة التشغيلية والتواصل مع المستأجرين.</li><li>تنظيم التحصيل والتقارير.</li><li>تنسيق الصيانة بعد موافقة المالك.</li><li>التوثيق بالصور والتحديثات.</li></ul></div>
+        <div class="compact-card"><h3>لا يشمل تلقائيًا</h3><ul><li>تكاليف الصيانة والمواد.</li><li>الرسوم الحكومية أو رسوم الجهات الخارجية.</li><li>أتعاب القضايا والإجراءات القانونية المتخصصة.</li><li>أي التزام مالي دون موافقة المالك.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="services">
     <div class="container">
-      <div class="section-head">
-        <h2>خدمات إدارة العقار</h2>
-        <p>حل واحد يغطي دورة العقار التشغيلية من الاستلام حتى التقارير.</p>
-      </div>
+      <div class="section-head"><h2>خدمات إدارة العقار</h2><p>حل واحد يغطي دورة العقار التشغيلية من الاستلام حتى التقارير.</p></div>
       <div class="grid grid-3">
         <div class="card"><div class="icon">👥</div><h3>إدارة المستأجرين</h3><p>اختيار المستأجر، تنظيم بياناته، متابعة الالتزامات، وتجديد العقود أو الإخلاء وفق المتفق عليه.</p></div>
         <div class="card"><div class="icon">💰</div><h3>تحصيل الإيجارات</h3><p>تنبيه قبل موعد السداد، متابعة التحصيل، وتوثيق المدفوعات والمبالغ المتأخرة.</p></div>
@@ -135,10 +195,7 @@
 
   <section class="section" id="process">
     <div class="container">
-      <div class="section-head">
-        <h2>خطوات إدارة العقار</h2>
-        <p>إجراءات عملية واضحة تحفظ حق المالك وتمنح المستأجر تجربة منظمة.</p>
-      </div>
+      <div class="section-head"><h2>خطوات إدارة العقار</h2><p>إجراءات عملية واضحة تحفظ حق المالك وتمنح المستأجر تجربة منظمة.</p></div>
       <div class="grid grid-3 timeline">
         <div class="card step"><div><h3>تقييم واستلام</h3><p>تسجيل بيانات العقار، تصوير الحالة، ومراجعة الوثائق الأساسية.</p></div></div>
         <div class="card step"><div><h3>خطة تشغيل</h3><p>تحديد السعر، خطة التسويق، الصيانة العاجلة، ونموذج التقرير الشهري.</p></div></div>
@@ -153,54 +210,53 @@
   <section class="section" id="reports">
     <div class="container dashboard">
       <div>
-        <div class="section-head">
-          <h2>نموذج متابعة حالة العقار</h2>
-          <p>تقرير مختصر يوضح أين يقف عقارك الآن وما الذي يحتاج قراراً منك.</p>
-        </div>
+        <div class="section-head"><h2>نموذج متابعة حالة العقار</h2><p>مثال توضيحي يبين شكل التقرير وما يحتاج قراراً منك.</p></div>
         <table>
           <thead><tr><th>البند</th><th>الحالة</th><th>آخر تحديث</th></tr></thead>
           <tbody>
             <tr><td>الإشغال</td><td>مؤجر</td><td>تقرير الشهر الحالي</td></tr>
             <tr><td>الإيجار</td><td>محصل</td><td>موثق بإيصال</td></tr>
-            <tr><td>الصيانة</td><td>متابعة دورية</td><td>صور قبل/بعد</td></tr>
+            <tr><td>الصيانة</td><td>لا توجد أعمال عاجلة</td><td>صور مرفقة</td></tr>
             <tr><td>العقد</td><td>ساري</td><td>تنبيه قبل الانتهاء</td></tr>
           </tbody>
         </table>
+        <p class="sample-note">هذا نموذج توضيحي، وتختلف تفاصيل التقرير بحسب نطاق الخدمة والعقار.</p>
       </div>
       <div>
-        <div class="section-head">
-          <h2>إحصائيات المتابعة</h2>
-          <p>مؤشرات تشغيلية مختصرة تسهّل قراءة الحالة.</p>
-        </div>
+        <div class="section-head"><h2>ماذا يتضمن التقرير؟</h2><p>ملخص منظم يسهل قراءته واتخاذ القرار.</p></div>
         <div class="card">
-          <h3>الالتزام بالسداد</h3>
-          <div class="progress"><span style="width:96%"></span></div>
-          <h3>حالة الصيانة</h3>
-          <div class="progress"><span style="width:88%"></span></div>
-          <h3>جاهزية الوثائق</h3>
-          <div class="progress"><span style="width:92%"></span></div>
+          <h3>الحالة التشغيلية</h3><p>الإشغال والمستأجر والعقد.</p>
+          <h3>الملخص المالي</h3><p>المبالغ المحصلة والمصروفات المعتمدة.</p>
+          <h3>الصيانة والزيارات</h3><p>الصور والملاحظات والإجراءات المطلوبة.</p>
+          <h3>قرارات المالك</h3><p>أي موافقة مطلوبة قبل التنفيذ.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container">
-      <div class="section-head">
-        <h2>آراء العملاء</h2>
-        <p>ثقة المغترب تبدأ من وضوح المتابعة واستمرار التواصل.</p>
+      <div class="section-head"><h2>الأسئلة الشائعة</h2><p>إجابات مختصرة عن أكثر ما يهم المالك خارج عدن.</p></div>
+      <div class="faq-grid">
+        <details class="faq"><summary>هل يلزم حضور المالك في عدن؟</summary><p>ليس بالضرورة في كل خطوة. يعتمد الأمر على نوع الخدمة والوثائق والصلاحيات المطلوبة.</p></details>
+        <details class="faq"><summary>هل أحتاج إلى وكالة؟</summary><p>قد تحتاج وكالة في بعض الإجراءات الرسمية أو التعاقدية، ويتم توضيح ذلك بعد مراجعة الحالة.</p></details>
+        <details class="faq"><summary>كيف يتم اعتماد الصيانة؟</summary><p>تُعرض المشكلة والتكلفة المتوقعة على المالك، ولا يبدأ التنفيذ المالي إلا بعد الموافقة.</p></details>
+        <details class="faq"><summary>كيف تصلني التقارير؟</summary><p>تصل عبر قناة التواصل المتفق عليها، وغالباً عبر واتساب مع صور وملخص واضح.</p></details>
+        <details class="faq"><summary>كيف تبدأ الخدمة؟</summary><p>أرسل نموذج الطلب أعلى الصفحة، ثم نتواصل معك لتحديد نطاق العمل والخطوة التالية.</p></details>
       </div>
-      <div class="grid grid-3">
-        <blockquote class="card quote">“أصبحت أعرف تفاصيل شقتي في عدن شهرياً دون سفر أو متابعة مرهقة.”<br><strong>مالك عقار - السعودية</strong></blockquote>
-        <blockquote class="card quote">“التقارير المصورة ساعدتني أوافق على الصيانة وأنا مطمئن.”<br><strong>مالك فيلا - الإمارات</strong></blockquote>
-        <blockquote class="card quote">“تنظيم التعاقد والمتابعة خلاني أحس إن العقار تحت إدارة فعلية.”<br><strong>مغترب - الكويت</strong></blockquote>
-      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container final-cta">
+      <div><h2>هل ترغب أن ندير عقارك وأنت خارج اليمن؟</h2><p>ابدأ برسالة مباشرة إلى مكتب عماد عدن العقاري عبر واتساب.</p></div>
+      <a class="btn btn-whatsapp" href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
     </div>
   </section>
 </main>
 <footer>© مكتب عماد عدن العقاري — محتوى إرشادي لا يغني عن المعاينة والتوثيق الرسمي.</footer>
 <script>
-function sendWhatsApp(formId, title){const form=document.getElementById(formId);if(!form)return;const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);window.open('https://wa.me/967773571889?text='+msg,'_blank','noopener');}
+function sendWhatsApp(formId,title){const form=document.getElementById(formId);if(!form)return;const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);window.open('https://wa.me/967773571889?text='+msg,'_blank','noopener');}
 </script>
 </body>
 </html>
