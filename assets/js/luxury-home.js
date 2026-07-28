@@ -25,6 +25,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   const backTop=document.getElementById('backToTop');
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const requestCard=document.querySelector('.service-card.request');
+  if(requestCard){
+    requestCard.href='request-reception.html';
+    requestCard.removeAttribute('target');
+    requestCard.removeAttribute('rel');
+    const requestLink=requestCard.querySelector('.card-link');
+    if(requestLink)requestLink.innerHTML='فتح صفحة الطلبات <i class="fa-solid fa-arrow-left"></i>';
+  }
+
   menuButton?.addEventListener('click',()=>{
     const open=mobileMenu.classList.toggle('open');
     menuButton.setAttribute('aria-expanded',String(open));
