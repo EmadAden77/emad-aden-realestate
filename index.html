@@ -28,6 +28,16 @@
 <link href="assets/css/layout-system.css" rel="stylesheet">
 <link href="assets/css/premium-ui.css" rel="stylesheet">
 <style>
+.article-ticker{margin-top:14px;overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:0 14px 38px rgba(0,0,0,.26);position:relative}
+.article-ticker:before,.article-ticker:after{content:"";position:absolute;top:0;bottom:0;width:54px;z-index:2;pointer-events:none}
+.article-ticker:before{right:0;background:linear-gradient(270deg,#0a0a0b,transparent)}
+.article-ticker:after{left:0;background:linear-gradient(90deg,#0a0a0b,transparent)}
+.article-ticker-track{display:flex;gap:12px;width:max-content;padding:12px;animation:articleTicker 34s linear infinite}
+.article-ticker:hover .article-ticker-track,.article-ticker:focus-within .article-ticker-track{animation-play-state:paused}
+.article-ticker a{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 16px;border-radius:999px;border:1px solid rgba(229,192,123,.14);background:rgba(255,255,255,.035);color:#f4d99f;text-decoration:none;font-weight:800;white-space:nowrap;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.article-ticker a:hover{transform:translateY(-2px);border-color:rgba(229,192,123,.42);background:rgba(229,192,123,.08)}
+.article-ticker i{color:var(--premium-accent-soft)}
+@keyframes articleTicker{from{transform:translateX(0)}to{transform:translateX(50%)}}
 @media(max-width:650px){
   .mobile-action-bar{grid-template-columns:repeat(4,1fr)!important;gap:7px!important;padding:9px!important}
   .mobile-action-bar a{min-height:54px!important;padding:6px 4px!important;border:1px solid rgba(229,192,123,.12);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:transform .2s ease,border-color .2s ease,background .2s ease}
@@ -36,7 +46,11 @@
   .mobile-action-bar a.primary{background:linear-gradient(135deg,var(--premium-accent-soft),var(--premium-accent))!important;color:#080808!important;border-color:transparent}
   .mobile-action-bar i{font-size:1.05rem!important}
   .mobile-action-bar span{font-size:.64rem!important;line-height:1.2}
+  .article-ticker{border-radius:15px}
+  .article-ticker-track{gap:9px;padding:10px;animation-duration:28s}
+  .article-ticker a{min-height:44px;padding:0 13px;font-size:.78rem}
 }
+@media(prefers-reduced-motion:reduce){.article-ticker-track{animation:none;overflow-x:auto;max-width:100%}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-17ZZZFR8HT',{send_page_view:true});</script>
@@ -91,11 +105,21 @@
       <a class="btn ghost" href="articles/index.html"><i class="fa-solid fa-book-open"></i> الانتقال إلى المقالات</a>
     </div>
   </div>
-  <div class="wrap trust-strip reveal" aria-label="معايير الثقة">
-    <div class="trust-strip-item"><i class="fa-solid fa-location-dot"></i><div><strong>متابعة ميدانية</strong><span>تنفيذ ومراجعة من داخل عدن.</span></div></div>
-    <div class="trust-strip-item"><i class="fa-solid fa-file-shield"></i><div><strong>توثيق منظم</strong><span>تقارير وإجراءات واضحة حسب الخدمة.</span></div></div>
-    <div class="trust-strip-item"><i class="fa-solid fa-user-lock"></i><div><strong>سرية البيانات</strong><span>حماية معلومات العملاء والمستندات.</span></div></div>
-    <div class="trust-strip-item"><i class="fa-solid fa-earth-americas"></i><div><strong>خدمة المغتربين</strong><span>متابعة مستمرة أينما كنت.</span></div></div>
+  <div class="wrap article-ticker reveal" aria-label="أحدث المقالات العقارية">
+    <div class="article-ticker-track">
+      <a href="articles/buy-safely.html"><i class="fa-solid fa-book-open"></i> كيف تشتري عقارًا بأمان في عدن</a>
+      <a href="articles/ownership-types.html"><i class="fa-solid fa-file-signature"></i> أنواع الملكية العقارية في عدن</a>
+      <a href="articles/common-mistakes.html"><i class="fa-solid fa-triangle-exclamation"></i> أخطاء شائعة قبل شراء العقار</a>
+      <a href="articles/transfer.html"><i class="fa-solid fa-right-left"></i> خطوات نقل الملكية العقارية</a>
+      <a href="articles/basirah.html"><i class="fa-solid fa-eye"></i> البصيرة العقارية قبل القرار</a>
+      <a href="articles/property-value.html"><i class="fa-solid fa-chart-line"></i> كيف تُقدّر قيمة العقار</a>
+      <a href="articles/buy-safely.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-book-open"></i> كيف تشتري عقارًا بأمان في عدن</a>
+      <a href="articles/ownership-types.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-file-signature"></i> أنواع الملكية العقارية في عدن</a>
+      <a href="articles/common-mistakes.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-triangle-exclamation"></i> أخطاء شائعة قبل شراء العقار</a>
+      <a href="articles/transfer.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-right-left"></i> خطوات نقل الملكية العقارية</a>
+      <a href="articles/basirah.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-eye"></i> البصيرة العقارية قبل القرار</a>
+      <a href="articles/property-value.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-chart-line"></i> كيف تُقدّر قيمة العقار</a>
+    </div>
   </div>
 </section>
 
