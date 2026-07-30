@@ -28,16 +28,18 @@
 <link href="assets/css/layout-system.css" rel="stylesheet">
 <link href="assets/css/premium-ui.css" rel="stylesheet">
 <style>
-.article-ticker{margin-top:14px;overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));box-shadow:0 14px 38px rgba(0,0,0,.26);position:relative}
-.article-ticker:before,.article-ticker:after{content:"";position:absolute;top:0;bottom:0;width:54px;z-index:2;pointer-events:none}
-.article-ticker:before{right:0;background:linear-gradient(270deg,#0a0a0b,transparent)}
-.article-ticker:after{left:0;background:linear-gradient(90deg,#0a0a0b,transparent)}
-.article-ticker-track{display:flex;gap:12px;width:max-content;padding:12px;animation:articleTicker 34s linear infinite}
-.article-ticker:hover .article-ticker-track,.article-ticker:focus-within .article-ticker-track{animation-play-state:paused}
-.article-ticker a{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 16px;border-radius:999px;border:1px solid rgba(229,192,123,.14);background:rgba(255,255,255,.035);color:#f4d99f;text-decoration:none;font-weight:800;white-space:nowrap;transition:transform .2s ease,border-color .2s ease,background .2s ease}
-.article-ticker a:hover{transform:translateY(-2px);border-color:rgba(229,192,123,.42);background:rgba(229,192,123,.08)}
-.article-ticker i{color:var(--premium-accent-soft)}
-@keyframes articleTicker{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.article-news{margin-top:14px;min-height:132px;display:grid;place-items:center;border:1px solid rgba(229,192,123,.18);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));box-shadow:0 14px 38px rgba(0,0,0,.28);padding:20px;position:relative;overflow:hidden}
+.article-news:before{content:"أحدث المقالات";position:absolute;top:12px;right:16px;padding:5px 10px;border-radius:999px;background:rgba(229,192,123,.1);border:1px solid rgba(229,192,123,.18);color:#f4d99f;font-size:.72rem;font-weight:900}
+.article-news-card{display:none;width:100%;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .55s ease,transform .55s ease}
+.article-news-card.active{display:block;opacity:1;transform:none}
+.article-news-card a{display:inline-flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:#fff;outline:none}
+.article-news-card h3{margin:0;font-size:clamp(1.05rem,2.5vw,1.55rem);line-height:1.5;color:#fff}
+.article-news-card .more{display:inline-flex;align-items:center;gap:7px;color:#f4d99f;font-size:.85rem;font-weight:800}
+.article-news-card .more i{font-size:.75rem}
+.article-news-card a:hover h3,.article-news-card a:focus-visible h3{color:#f4d99f}
+.article-news-dots{display:flex;justify-content:center;gap:7px;position:absolute;bottom:10px;left:0;right:0}
+.article-news-dot{width:7px;height:7px;border-radius:50%;border:0;background:rgba(255,255,255,.18);padding:0;min-height:0}
+.article-news-dot.active{background:#e5c07b}
 @media(max-width:650px){
   .mobile-action-bar{grid-template-columns:repeat(4,1fr)!important;gap:7px!important;padding:9px!important}
   .mobile-action-bar a{min-height:54px!important;padding:6px 4px!important;border:1px solid rgba(229,192,123,.12);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:transform .2s ease,border-color .2s ease,background .2s ease}
@@ -46,11 +48,12 @@
   .mobile-action-bar a.primary{background:linear-gradient(135deg,var(--premium-accent-soft),var(--premium-accent))!important;color:#080808!important;border-color:transparent}
   .mobile-action-bar i{font-size:1.05rem!important}
   .mobile-action-bar span{font-size:.64rem!important;line-height:1.2}
-  .article-ticker{border-radius:15px}
-  .article-ticker-track{gap:9px;padding:10px;animation-duration:28s}
-  .article-ticker a{min-height:44px;padding:0 13px;font-size:.78rem}
+  .article-news{min-height:124px;padding:22px 14px 26px;border-radius:16px}
+  .article-news:before{top:9px;right:11px;font-size:.65rem}
+  .article-news-card h3{font-size:1rem}
+  .article-news-card .more{font-size:.76rem}
 }
-@media(prefers-reduced-motion:reduce){.article-ticker-track{animation:none;overflow-x:auto;max-width:100%}}
+@media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-17ZZZFR8HT',{send_page_view:true});</script>
@@ -105,21 +108,14 @@
       <a class="btn ghost" href="articles/index.html"><i class="fa-solid fa-book-open"></i> الانتقال إلى المقالات</a>
     </div>
   </div>
-  <div class="wrap article-ticker reveal" aria-label="أحدث المقالات العقارية">
-    <div class="article-ticker-track">
-      <a href="articles/buy-safely.html"><i class="fa-solid fa-book-open"></i> كيف تشتري عقارًا بأمان في عدن</a>
-      <a href="articles/ownership-types.html"><i class="fa-solid fa-file-signature"></i> أنواع الملكية العقارية في عدن</a>
-      <a href="articles/common-mistakes.html"><i class="fa-solid fa-triangle-exclamation"></i> أخطاء شائعة قبل شراء العقار</a>
-      <a href="articles/transfer.html"><i class="fa-solid fa-right-left"></i> خطوات نقل الملكية العقارية</a>
-      <a href="articles/basirah.html"><i class="fa-solid fa-eye"></i> البصيرة العقارية قبل القرار</a>
-      <a href="articles/property-value.html"><i class="fa-solid fa-chart-line"></i> كيف تُقدّر قيمة العقار</a>
-      <a href="articles/buy-safely.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-book-open"></i> كيف تشتري عقارًا بأمان في عدن</a>
-      <a href="articles/ownership-types.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-file-signature"></i> أنواع الملكية العقارية في عدن</a>
-      <a href="articles/common-mistakes.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-triangle-exclamation"></i> أخطاء شائعة قبل شراء العقار</a>
-      <a href="articles/transfer.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-right-left"></i> خطوات نقل الملكية العقارية</a>
-      <a href="articles/basirah.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-eye"></i> البصيرة العقارية قبل القرار</a>
-      <a href="articles/property-value.html" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-chart-line"></i> كيف تُقدّر قيمة العقار</a>
-    </div>
+  <div class="wrap article-news reveal" id="articleNews" aria-label="أحدث المقالات العقارية" aria-live="polite">
+    <article class="article-news-card active"><a href="articles/buy-safely.html"><h3>كيف تشتري عقارًا بأمان في عدن</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <article class="article-news-card"><a href="articles/ownership-types.html"><h3>أنواع الملكية العقارية في عدن</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <article class="article-news-card"><a href="articles/common-mistakes.html"><h3>أخطاء شائعة قبل شراء العقار</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <article class="article-news-card"><a href="articles/transfer.html"><h3>خطوات نقل الملكية العقارية</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <article class="article-news-card"><a href="articles/basirah.html"><h3>البصيرة العقارية قبل القرار</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <article class="article-news-card"><a href="articles/property-value.html"><h3>كيف تُقدّر قيمة العقار</h3><span class="more">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></span></a></article>
+    <div class="article-news-dots" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -170,5 +166,46 @@
 
 <button class="back-top" id="backToTop" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="assets/js/luxury-home.js" defer></script>
+<script>
+(function(){
+  const news=document.getElementById('articleNews');
+  if(!news)return;
+  const cards=[...news.querySelectorAll('.article-news-card')];
+  const dotsWrap=news.querySelector('.article-news-dots');
+  let current=0;
+  let timer;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cards.forEach((_,index)=>{
+    const dot=document.createElement('button');
+    dot.type='button';
+    dot.className='article-news-dot'+(index===0?' active':'');
+    dot.setAttribute('aria-label','عرض المقال '+(index+1));
+    dot.addEventListener('click',()=>show(index,true));
+    dotsWrap.appendChild(dot);
+  });
+  const dots=[...dotsWrap.children];
+  function show(index,restart){
+    cards[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current=index;
+    cards[current].classList.add('active');
+    dots[current].classList.add('active');
+    if(restart)start();
+  }
+  function next(){show((current+1)%cards.length,false)}
+  function start(){
+    clearInterval(timer);
+    if(!reduceMotion)timer=setInterval(next,4500);
+  }
+  function stop(){clearInterval(timer)}
+  news.addEventListener('mouseenter',stop);
+  news.addEventListener('mouseleave',start);
+  news.addEventListener('focusin',stop);
+  news.addEventListener('focusout',start);
+  news.addEventListener('touchstart',stop,{passive:true});
+  news.addEventListener('touchend',start,{passive:true});
+  start();
+})();
+</script>
 </body>
 </html>
