@@ -187,8 +187,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     section.innerHTML=`
       <div class="wrap">
         <div class="facebook-feed-head reveal in">
-          <div><span class="kicker">آخر التحديثات</span><h2 id="facebookFeedTitle">أخبار المكتب على فيسبوك</h2></div>
-          <a class="btn ghost" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> زيارة الصفحة</a>
+          <div><span class="kicker">آخر التحديثات</span><h2 id="facebookFeedTitle">مستجدات المكتب</h2></div>
         </div>
         <div id="facebookFeedContainer" aria-live="polite" aria-busy="true">
           <p class="facebook-feed-status">جارٍ تحميل آخر المنشورات...</p>
@@ -260,7 +259,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       showSlide(0);
       startAuto();
     }catch(error){
-      container.innerHTML='<p class="facebook-feed-status">تعذر تحميل منشورات فيسبوك حاليًا. <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener">زيارة صفحة المكتب</a></p>';
+      container.innerHTML='<p class="facebook-feed-status">تعذر تحميل آخر التحديثات حاليًا.</p>';
     }finally{
       container.setAttribute('aria-busy','false');
     }
