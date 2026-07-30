@@ -146,6 +146,73 @@ document.addEventListener('DOMContentLoaded',()=>{
     img.decoding='async';
   });
 
+  const escapeHtml=value=>{
+    const element=document.createElement('div');
+    element.textContent=value||'';
+    return element.innerHTML;
+  };
+
+  const renderFacebookFeed=async()=>{
+    const toolsSection=document.getElementById('tools');
+    if(!toolsSection)return;
+
+    const style=document.createElement('style');
+    style.textContent=`
+      .facebook-feed{padding-top:10px}
+      .facebook-feed-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+      .facebook-feed-head h2{margin:.35rem 0 0}
+      .facebook-feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+      .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:20px;background:rgba(255,255,255,.025)}
+      .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+      .facebook-feed-content{padding:18px}
+      .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;color:#d7bd85;font-size:.82rem}
+      .facebook-feed-content p{display:-webkit-box;overflow:hidden;margin:0 0 15px;line-height:1.8;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+      .facebook-feed-content a{display:inline-flex;align-items:center;gap:8px;color:#f4d99f;font-weight:800;text-decoration:none}
+      .facebook-feed-status{grid-column:1/-1;padding:24px;text-align:center;border:1px solid rgba(229,192,123,.12);border-radius:18px;background:rgba(255,255,255,.02)}
+      @media(max-width:850px){.facebook-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-grid{grid-template-columns:1fr}}
+    `;
+    document.head.appendChild(style);
+
+    const section=document.createElement('section');
+    section.className='section facebook-feed';
+    section.setAttribute('aria-labelledby','facebookFeedTitle');
+    section.innerHTML=`
+      <div class="wrap">
+        <div class="facebook-feed-head reveal in">
+          <div><span class="kicker">آخر التحديثات</span><h2 id="facebookFeedTitle">أخبار المكتب على فيسبوك</h2></div>
+          <a class="btn ghost" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> زيارة الصفحة</a>
+        </div>
+        <div id="facebookFeedGrid" class="facebook-feed-grid" aria-live="polite" aria-busy="true">
+          <p class="facebook-feed-status">جارٍ تحميل آخر المنشورات...</p>
+        </div>
+      </div>`;
+    toolsSection.parentNode.insertBefore(section,toolsSection);
+
+    const grid=section.querySelector('#facebookFeedGrid');
+    try{
+      const response=await fetch('/api/facebook-posts',{headers:{Accept:'application/json'}});
+      const data=await response.json();
+      if(!response.ok||!Array.isArray(data.posts))throw new Error('Unable to load posts');
+      if(!data.posts.length){
+        grid.innerHTML='<p class="facebook-feed-status">لا توجد منشورات متاحة حاليًا.</p>';
+        return;
+      }
+      const dateFormatter=new Intl.DateTimeFormat('ar',{year:'numeric',month:'long',day:'numeric'});
+      grid.innerHTML=data.posts.map(post=>{
+        const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة منشور مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
+        const date=post.publishedAt?dateFormatter.format(new Date(post.publishedAt)):'';
+        return `<article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p><a href="${escapeHtml(post.url)}" target="_blank" rel="noopener">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></a></div></article>`;
+      }).join('');
+    }catch(error){
+      grid.innerHTML='<p class="facebook-feed-status">تعذر تحميل منشورات فيسبوك حاليًا. <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener">زيارة صفحة المكتب</a></p>';
+    }finally{
+      grid.setAttribute('aria-busy','false');
+    }
+  };
+
+  renderFacebookFeed();
+
   const year=document.getElementById('year');
   if(year)year.textContent=new Date().getFullYear();
 
