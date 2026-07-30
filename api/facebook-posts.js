@@ -1,4 +1,4 @@
-// Deployment refresh: reload secure Facebook environment variables.
+// Deployment refresh: reload secure Facebook environment variables (2026-07-30).
 export default async function handler(request, response) {
   if (request.method !== 'GET') {
     response.setHeader('Allow', 'GET');
