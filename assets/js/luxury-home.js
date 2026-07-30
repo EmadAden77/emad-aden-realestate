@@ -167,9 +167,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:22px;background:rgba(255,255,255,.025)}
       .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
       .facebook-feed-content{padding:20px}
-      .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;color:#d7bd85;font-size:.82rem}
-      .facebook-feed-content p{display:-webkit-box;overflow:hidden;margin:0 0 15px;line-height:1.9;-webkit-line-clamp:5;-webkit-box-orient:vertical}
-      .facebook-feed-content a{display:inline-flex;align-items:center;gap:8px;color:#f4d99f;font-weight:800;text-decoration:none}
+      .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;color:#d7bd85;font-size:.82rem}
+      .facebook-feed-content p{margin:0;line-height:2;white-space:pre-line;color:inherit}
       .facebook-feed-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
       .facebook-feed-arrow{width:44px;height:44px;border:1px solid rgba(229,192,123,.28);border-radius:50%;background:rgba(255,255,255,.035);color:#f4d99f;cursor:pointer}
       .facebook-feed-dots{display:flex;align-items:center;gap:7px}
@@ -206,12 +205,12 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
       const dateFormatter=new Intl.DateTimeFormat('ar',{year:'numeric',month:'long',day:'numeric'});
       const slides=data.posts.map((post,index)=>{
-        const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة منشور مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
+        const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة مستجدات مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
         const date=post.publishedAt?dateFormatter.format(new Date(post.publishedAt)):'';
-        return `<div class="facebook-feed-slide" role="group" aria-label="المنشور ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p><a href="${escapeHtml(post.url)}" target="_blank" rel="noopener">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></a></div></article></div>`;
+        return `<div class="facebook-feed-slide" role="group" aria-label="التحديث ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p></div></article></div>`;
       }).join('');
-      const dots=data.posts.map((_,index)=>`<button class="facebook-feed-dot${index===0?' active':''}" type="button" aria-label="عرض المنشور ${index+1}" data-index="${index}"></button>`).join('');
-      container.innerHTML=`<div class="facebook-feed-slider" tabindex="0"><div class="facebook-feed-track">${slides}</div></div><div class="facebook-feed-controls"><button class="facebook-feed-arrow facebook-feed-prev" type="button" aria-label="المنشور السابق"><i class="fa-solid fa-chevron-right"></i></button><div class="facebook-feed-dots">${dots}</div><button class="facebook-feed-arrow facebook-feed-next" type="button" aria-label="المنشور التالي"><i class="fa-solid fa-chevron-left"></i></button></div>`;
+      const dots=data.posts.map((_,index)=>`<button class="facebook-feed-dot${index===0?' active':''}" type="button" aria-label="عرض التحديث ${index+1}" data-index="${index}"></button>`).join('');
+      container.innerHTML=`<div class="facebook-feed-slider" tabindex="0"><div class="facebook-feed-track">${slides}</div></div><div class="facebook-feed-controls"><button class="facebook-feed-arrow facebook-feed-prev" type="button" aria-label="التحديث السابق"><i class="fa-solid fa-chevron-right"></i></button><div class="facebook-feed-dots">${dots}</div><button class="facebook-feed-arrow facebook-feed-next" type="button" aria-label="التحديث التالي"><i class="fa-solid fa-chevron-left"></i></button></div>`;
 
       const slider=container.querySelector('.facebook-feed-slider');
       const track=container.querySelector('.facebook-feed-track');
