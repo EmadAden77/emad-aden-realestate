@@ -26,6 +26,10 @@
 </div>
 
 <main class="container">
+  <section class="section" id="consult">
+    <form id="consultForm" class="glass form-card card" enctype="multipart/form-data"><h2 class="gold" style="margin-top:0">طلب استشارة</h2><p style="color:var(--muted);margin-top:-6px">أرسل ملخص الحالة والمستندات المتاحة ليتم تجهيز طلبك عبر واتساب.</p><div class="form-grid"><input class="input" name="الاسم" placeholder="الاسم" required><input class="input" name="الجوال" placeholder="رقم الجوال" required><select class="input" name="نوع الاستشارة" required><option value="">نوع الاستشارة</option><option>بيع وشراء</option><option>إيجار</option><option>نزاع أو ورثة</option><option>فحص وثائق</option></select><input class="input" type="file" name="ملف مرفق"><textarea class="input full" name="تفاصيل" rows="5" placeholder="اكتب ملخص الحالة" required></textarea><button class="gold-bg rounded-2xl px-6 py-3 font-black full" type="submit">إرسال عبر واتساب</button></div><p id="consultFormSuccess" class="hidden mt-3 text-green-400">تم تجهيز رسالة واتساب بنجاح.</p></form>
+  </section>
+
   <section class="section hero-grid">
     <div>
       <span class="badge pill">مركز قانوني عقاري متكامل</span>
@@ -57,9 +61,8 @@
     <div class="glass intro-card card"><h3 class="gold">مخرجات واضحة</h3><p style="color:var(--muted)">تحصل على ملخص مخاطر، قائمة نواقص، وخطوات عملية قبل إكمال الصفقة.</p></div>
   </section>
 
-  <section class="section grid grid-2">
+  <section class="section">
     <div class="glass faq-card card faq"><div class="section-head"><h2>الأسئلة الشائعة</h2><p>إجابات سريعة على أكثر النقاط التي تتكرر قبل المعاملات.</p></div><details open><summary>كيف أعرف أن الأرض سليمة؟</summary><p style="color:var(--muted)">بمطابقة الموقع، حدود الوثيقة، التسلسل، والسجل المختص مع معاينة ميدانية.</p></details><details><summary>هل تكفي الوكالة للبيع؟</summary><p style="color:var(--muted)">تُراجع صلاحية الوكالة ونطاقها وعدم إلغائها قبل أي تصرف.</p></details><details><summary>متى أحتاج عقداً مفصلاً؟</summary><p style="color:var(--muted)">عند وجود دفعات، تسليم مؤجل، ورثة، شركاء، أو اشتراطات بناء وخدمات.</p></details></div>
-    <form id="consultForm" class="glass form-card card" enctype="multipart/form-data"><h2 id="consult" class="gold" style="margin-top:0">طلب استشارة</h2><div class="form-grid"><input class="input" name="الاسم" placeholder="الاسم" required><input class="input" name="الجوال" placeholder="رقم الجوال" required><select class="input" name="نوع الاستشارة" required><option value="">نوع الاستشارة</option><option>بيع وشراء</option><option>إيجار</option><option>نزاع أو ورثة</option><option>فحص وثائق</option></select><input class="input" type="file" name="ملف مرفق"><textarea class="input full" name="تفاصيل" rows="5" placeholder="اكتب ملخص الحالة" required></textarea><button class="gold-bg rounded-2xl px-6 py-3 font-black full" type="submit">إرسال عبر واتساب</button></div><p id="consultFormSuccess" class="hidden mt-3 text-green-400">تم تجهيز رسالة واتساب بنجاح.</p></form>
   </section>
 </main>
 <footer>© مكتب عماد عدن العقاري — النماذج إرشادية ولا تغني عن المراجعة القانونية والتوثيق الرسمي.</footer>
@@ -74,7 +77,7 @@ const templates={
 };
 function downloadTemplate(key){const item=templates[key];if(!item)return;const disclaimer='\n\nتنبيه: هذا نموذج إرشادي عام، ويجب تخصيصه ومراجعته قانونياً وتوثيقه لدى الجهة المختصة قبل الاعتماد عليه.';const blob=new Blob(['\ufeff'+item.content+disclaimer],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=item.name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
 document.querySelectorAll('[data-template]').forEach(btn=>btn.addEventListener('click',()=>downloadTemplate(btn.dataset.template)));
-function sendWhatsApp(formId,title){const form=document.getElementById(formId);if(!form)return;form.addEventListener('submit',e=>{e.preventDefault();if(!form.checkValidity()){form.reportValidity();return}const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);document.getElementById(formId+'Success')?.classList.remove('hidden');window.open('https://wa.me/?text='+msg,'_blank')})}
+function sendWhatsApp(formId,title){const form=document.getElementById(formId);if(!form)return;form.addEventListener('submit',e=>{e.preventDefault();if(!form.checkValidity()){form.reportValidity();return}const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);document.getElementById(formId+'Success')?.classList.remove('hidden');window.open('https://wa.me/967773571889?text='+msg,'_blank')})}
 sendWhatsApp('consultForm','طلب استشارة قانونية عقارية');
 </script>
 </body>
