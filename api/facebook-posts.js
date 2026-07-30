@@ -1,3 +1,4 @@
+// Deployment refresh: reload secure Facebook environment variables.
 export default async function handler(request, response) {
   if (request.method !== 'GET') {
     response.setHeader('Allow', 'GET');
