@@ -152,6 +152,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     return element.innerHTML;
   };
 
+  const formatOfficePost=value=>{
+    const cleaned=(value||'')
+      .replace(/https?:\/\/\S+/gi,'')
+      .replace(/(^|\s)#[\p{L}\p{N}_-]+/gu,'')
+      .replace(/\n{3,}/g,'\n\n')
+      .trim();
+    return escapeHtml(cleaned);
+  };
+
   const renderFacebookFeed=async()=>{
     const toolsSection=document.getElementById('tools');
     if(!toolsSection)return;
@@ -166,16 +175,18 @@ document.addEventListener('DOMContentLoaded',()=>{
       .facebook-feed-slide{min-width:100%;padding:1px}
       .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:22px;background:rgba(255,255,255,.025)}
       .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
-      .facebook-feed-content{padding:20px}
-      .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;color:#d7bd85;font-size:.82rem}
-      .facebook-feed-content p{margin:0;line-height:2;white-space:pre-line;color:inherit}
+      .facebook-feed-content{padding:24px 22px 26px}
+      .facebook-feed-meta{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(229,192,123,.16)}
+      .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;color:#d7bd85;font-size:.84rem}
+      .facebook-feed-source{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.68);font-size:.82rem;font-weight:700}
+      .facebook-feed-content p{margin:0;font-size:1rem;line-height:2.05;white-space:pre-line;text-align:justify;color:rgba(255,255,255,.92)}
       .facebook-feed-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
       .facebook-feed-arrow{width:44px;height:44px;border:1px solid rgba(229,192,123,.28);border-radius:50%;background:rgba(255,255,255,.035);color:#f4d99f;cursor:pointer}
       .facebook-feed-dots{display:flex;align-items:center;gap:7px}
       .facebook-feed-dot{width:9px;height:9px;border:0;border-radius:50%;background:rgba(244,217,159,.28);padding:0;cursor:pointer}
       .facebook-feed-dot.active{width:26px;border-radius:10px;background:#f4d99f}
       .facebook-feed-status{padding:24px;text-align:center;border:1px solid rgba(229,192,123,.12);border-radius:18px;background:rgba(255,255,255,.02)}
-      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-content{padding:16px}.facebook-feed-arrow{width:40px;height:40px}}
+      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-content{padding:18px 16px 20px}.facebook-feed-meta{align-items:flex-start;flex-direction:column}.facebook-feed-content p{font-size:.96rem;line-height:1.95;text-align:right}.facebook-feed-arrow{width:40px;height:40px}}
       @media(prefers-reduced-motion:reduce){.facebook-feed-track{transition:none}}
     `;
     document.head.appendChild(style);
@@ -207,7 +218,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       const slides=data.posts.map((post,index)=>{
         const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة مستجدات مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
         const date=post.publishedAt?dateFormatter.format(new Date(post.publishedAt)):'';
-        return `<div class="facebook-feed-slide" role="group" aria-label="التحديث ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p></div></article></div>`;
+        const message=formatOfficePost(post.message);
+        return `<div class="facebook-feed-slide" role="group" aria-label="التحديث ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><div class="facebook-feed-meta"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><span class="facebook-feed-source"><i class="fa-solid fa-building"></i>مكتب عماد عدن العقاري</span></div><p>${message}</p></div></article></div>`;
       }).join('');
       const dots=data.posts.map((_,index)=>`<button class="facebook-feed-dot${index===0?' active':''}" type="button" aria-label="عرض التحديث ${index+1}" data-index="${index}"></button>`).join('');
       container.innerHTML=`<div class="facebook-feed-slider" tabindex="0"><div class="facebook-feed-track">${slides}</div></div><div class="facebook-feed-controls"><button class="facebook-feed-arrow facebook-feed-prev" type="button" aria-label="التحديث السابق"><i class="fa-solid fa-chevron-right"></i></button><div class="facebook-feed-dots">${dots}</div><button class="facebook-feed-arrow facebook-feed-next" type="button" aria-label="التحديث التالي"><i class="fa-solid fa-chevron-left"></i></button></div>`;
