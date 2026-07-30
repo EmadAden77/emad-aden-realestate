@@ -170,24 +170,30 @@ document.addEventListener('DOMContentLoaded',()=>{
       .facebook-feed{padding-top:10px}
       .facebook-feed-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
       .facebook-feed-head h2{margin:.35rem 0 0}
-      .facebook-feed-slider{position:relative;overflow:hidden;border-radius:24px}
-      .facebook-feed-track{display:flex;transition:transform .55s ease;will-change:transform;touch-action:pan-y}
-      .facebook-feed-slide{min-width:100%;padding:1px}
-      .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:22px;background:rgba(255,255,255,.025)}
-      .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+      .facebook-feed-slider{position:relative;overflow:hidden;border-radius:24px;isolation:isolate;cursor:grab;touch-action:pan-y}
+      .facebook-feed-slider.is-dragging{cursor:grabbing}
+      .facebook-feed-track{display:flex;will-change:transform;transform:translate3d(0,0,0)}
+      .facebook-feed-slide{min-width:100%;padding:1px;opacity:.44;transform:scale(.965);filter:saturate(.88);transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1),filter .72s cubic-bezier(.22,1,.36,1)}
+      .facebook-feed-slide.is-active{opacity:1;transform:scale(1);filter:saturate(1)}
+      .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:22px;background:rgba(255,255,255,.025);box-shadow:0 24px 80px rgba(0,0,0,.2);transform:translateZ(0)}
+      .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transform:scale(1.035);transition:transform 1.05s cubic-bezier(.22,1,.36,1);will-change:transform}
+      .facebook-feed-slide.is-active .facebook-feed-card img{transform:scale(1)}
       .facebook-feed-content{padding:24px 22px 26px}
       .facebook-feed-meta{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(229,192,123,.16)}
       .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;color:#d7bd85;font-size:.84rem}
       .facebook-feed-source{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.68);font-size:.82rem;font-weight:700}
       .facebook-feed-content p{margin:0;font-size:1rem;line-height:2.05;white-space:pre-line;text-align:justify;color:rgba(255,255,255,.92)}
-      .facebook-feed-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
-      .facebook-feed-arrow{width:44px;height:44px;border:1px solid rgba(229,192,123,.28);border-radius:50%;background:rgba(255,255,255,.035);color:#f4d99f;cursor:pointer}
-      .facebook-feed-dots{display:flex;align-items:center;gap:7px}
-      .facebook-feed-dot{width:9px;height:9px;border:0;border-radius:50%;background:rgba(244,217,159,.28);padding:0;cursor:pointer}
-      .facebook-feed-dot.active{width:26px;border-radius:10px;background:#f4d99f}
+      .facebook-feed-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
+      .facebook-feed-arrow{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(229,192,123,.28);border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018));color:#f4d99f;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.16);transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease}
+      .facebook-feed-arrow:hover{transform:translateY(-2px) scale(1.05);border-color:rgba(244,217,159,.6);background:rgba(244,217,159,.1);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+      .facebook-feed-arrow:active{transform:scale(.94)}
+      .facebook-feed-dots{display:flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(229,192,123,.12);border-radius:999px;background:rgba(255,255,255,.025)}
+      .facebook-feed-dot{width:8px;height:8px;border:0;border-radius:50%;background:rgba(244,217,159,.26);padding:0;cursor:pointer;transition:width .38s cubic-bezier(.22,1,.36,1),background .28s ease,transform .28s ease}
+      .facebook-feed-dot:hover{transform:scale(1.2);background:rgba(244,217,159,.55)}
+      .facebook-feed-dot.active{width:28px;border-radius:10px;background:#f4d99f}
       .facebook-feed-status{padding:24px;text-align:center;border:1px solid rgba(229,192,123,.12);border-radius:18px;background:rgba(255,255,255,.02)}
-      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-content{padding:18px 16px 20px}.facebook-feed-meta{align-items:flex-start;flex-direction:column}.facebook-feed-content p{font-size:.96rem;line-height:1.95;text-align:right}.facebook-feed-arrow{width:40px;height:40px}}
-      @media(prefers-reduced-motion:reduce){.facebook-feed-track{transition:none}}
+      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-content{padding:18px 16px 20px}.facebook-feed-meta{align-items:flex-start;flex-direction:column}.facebook-feed-content p{font-size:.96rem;line-height:1.95;text-align:right}.facebook-feed-arrow{width:42px;height:42px}}
+      @media(prefers-reduced-motion:reduce){.facebook-feed-slide,.facebook-feed-card img,.facebook-feed-arrow,.facebook-feed-dot{transition:none!important}}
     `;
     document.head.appendChild(style);
 
@@ -219,29 +225,54 @@ document.addEventListener('DOMContentLoaded',()=>{
         const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة مستجدات مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
         const date=post.publishedAt?dateFormatter.format(new Date(post.publishedAt)):'';
         const message=formatOfficePost(post.message);
-        return `<div class="facebook-feed-slide" role="group" aria-label="التحديث ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><div class="facebook-feed-meta"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><span class="facebook-feed-source"><i class="fa-solid fa-building"></i>مكتب عماد عدن العقاري</span></div><p>${message}</p></div></article></div>`;
+        return `<div class="facebook-feed-slide${index===0?' is-active':''}" role="group" aria-label="التحديث ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><div class="facebook-feed-meta"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><span class="facebook-feed-source"><i class="fa-solid fa-building"></i>مكتب عماد عدن العقاري</span></div><p>${message}</p></div></article></div>`;
       }).join('');
       const dots=data.posts.map((_,index)=>`<button class="facebook-feed-dot${index===0?' active':''}" type="button" aria-label="عرض التحديث ${index+1}" data-index="${index}"></button>`).join('');
       container.innerHTML=`<div class="facebook-feed-slider" tabindex="0"><div class="facebook-feed-track">${slides}</div></div><div class="facebook-feed-controls"><button class="facebook-feed-arrow facebook-feed-prev" type="button" aria-label="التحديث السابق"><i class="fa-solid fa-chevron-right"></i></button><div class="facebook-feed-dots">${dots}</div><button class="facebook-feed-arrow facebook-feed-next" type="button" aria-label="التحديث التالي"><i class="fa-solid fa-chevron-left"></i></button></div>`;
 
       const slider=container.querySelector('.facebook-feed-slider');
       const track=container.querySelector('.facebook-feed-track');
+      const slideElements=[...container.querySelectorAll('.facebook-feed-slide')];
       const dotButtons=[...container.querySelectorAll('.facebook-feed-dot')];
       const count=data.posts.length;
       let current=0;
       let timer;
+      let animation;
       let startX=0;
       let deltaX=0;
+      let dragging=false;
 
-      const showSlide=index=>{
-        current=(index+count)%count;
-        track.style.transform=`translateX(${current*100}%)`;
+      const setTrack=(offset,animate=true)=>{
+        animation?.cancel();
+        if(!animate||reducedMotion){
+          track.style.transform=`translate3d(${offset}%,0,0)`;
+          return;
+        }
+        const from=current*100;
+        animation=track.animate([
+          {transform:`translate3d(${from}%,0,0)`},
+          {transform:`translate3d(${offset}%,0,0)`}
+        ],{
+          duration:760,
+          easing:'cubic-bezier(.22,1,.36,1)',
+          fill:'forwards'
+        });
+        animation.onfinish=()=>{track.style.transform=`translate3d(${offset}%,0,0)`;animation.cancel();animation=null;};
+      };
+
+      const showSlide=(index,animate=true)=>{
+        const next=(index+count)%count;
+        const previous=current;
+        current=next;
+        if(previous!==current||!animate)setTrack(current*100,animate);
+        slideElements.forEach((slide,slideIndex)=>slide.classList.toggle('is-active',slideIndex===current));
         dotButtons.forEach((dot,dotIndex)=>dot.classList.toggle('active',dotIndex===current));
       };
+
       const startAuto=()=>{
         if(reducedMotion||count<2)return;
         clearInterval(timer);
-        timer=setInterval(()=>showSlide(current+1),6000);
+        timer=setInterval(()=>showSlide(current+1),6500);
       };
       const resetAuto=()=>{clearInterval(timer);startAuto();};
 
@@ -253,21 +284,36 @@ document.addEventListener('DOMContentLoaded',()=>{
         if(event.key==='ArrowRight'){showSlide(current-1);resetAuto();}
       });
       slider.addEventListener('pointerdown',event=>{
+        dragging=true;
         startX=event.clientX;
         deltaX=0;
+        slider.classList.add('is-dragging');
+        clearInterval(timer);
+        animation?.cancel();
         slider.setPointerCapture?.(event.pointerId);
       });
-      slider.addEventListener('pointermove',event=>{if(startX)deltaX=event.clientX-startX;});
-      slider.addEventListener('pointerup',()=>{
-        if(Math.abs(deltaX)>45)showSlide(deltaX>0?current-1:current+1);
+      slider.addEventListener('pointermove',event=>{
+        if(!dragging)return;
+        deltaX=event.clientX-startX;
+        const percent=(deltaX/Math.max(slider.clientWidth,1))*100;
+        track.style.transform=`translate3d(${current*100+percent}%,0,0)`;
+      });
+      const finishDrag=()=>{
+        if(!dragging)return;
+        dragging=false;
+        slider.classList.remove('is-dragging');
+        if(Math.abs(deltaX)>50)showSlide(deltaX>0?current-1:current+1);
+        else setTrack(current*100,true);
         startX=0;
         deltaX=0;
-        resetAuto();
-      });
+        startAuto();
+      };
+      slider.addEventListener('pointerup',finishDrag);
+      slider.addEventListener('pointercancel',finishDrag);
       slider.addEventListener('mouseenter',()=>clearInterval(timer));
-      slider.addEventListener('mouseleave',startAuto);
+      slider.addEventListener('mouseleave',()=>{if(!dragging)startAuto();});
       document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):startAuto());
-      showSlide(0);
+      showSlide(0,false);
       startAuto();
     }catch(error){
       container.innerHTML='<p class="facebook-feed-status">تعذر تحميل آخر التحديثات حاليًا.</p>';
