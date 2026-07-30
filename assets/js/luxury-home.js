@@ -161,16 +161,23 @@ document.addEventListener('DOMContentLoaded',()=>{
       .facebook-feed{padding-top:10px}
       .facebook-feed-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
       .facebook-feed-head h2{margin:.35rem 0 0}
-      .facebook-feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-      .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:20px;background:rgba(255,255,255,.025)}
+      .facebook-feed-slider{position:relative;overflow:hidden;border-radius:24px}
+      .facebook-feed-track{display:flex;transition:transform .55s ease;will-change:transform;touch-action:pan-y}
+      .facebook-feed-slide{min-width:100%;padding:1px}
+      .facebook-feed-card{overflow:hidden;border:1px solid rgba(229,192,123,.16);border-radius:22px;background:rgba(255,255,255,.025)}
       .facebook-feed-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
-      .facebook-feed-content{padding:18px}
+      .facebook-feed-content{padding:20px}
       .facebook-feed-date{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;color:#d7bd85;font-size:.82rem}
-      .facebook-feed-content p{display:-webkit-box;overflow:hidden;margin:0 0 15px;line-height:1.8;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+      .facebook-feed-content p{display:-webkit-box;overflow:hidden;margin:0 0 15px;line-height:1.9;-webkit-line-clamp:5;-webkit-box-orient:vertical}
       .facebook-feed-content a{display:inline-flex;align-items:center;gap:8px;color:#f4d99f;font-weight:800;text-decoration:none}
-      .facebook-feed-status{grid-column:1/-1;padding:24px;text-align:center;border:1px solid rgba(229,192,123,.12);border-radius:18px;background:rgba(255,255,255,.02)}
-      @media(max-width:850px){.facebook-feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-grid{grid-template-columns:1fr}}
+      .facebook-feed-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+      .facebook-feed-arrow{width:44px;height:44px;border:1px solid rgba(229,192,123,.28);border-radius:50%;background:rgba(255,255,255,.035);color:#f4d99f;cursor:pointer}
+      .facebook-feed-dots{display:flex;align-items:center;gap:7px}
+      .facebook-feed-dot{width:9px;height:9px;border:0;border-radius:50%;background:rgba(244,217,159,.28);padding:0;cursor:pointer}
+      .facebook-feed-dot.active{width:26px;border-radius:10px;background:#f4d99f}
+      .facebook-feed-status{padding:24px;text-align:center;border:1px solid rgba(229,192,123,.12);border-radius:18px;background:rgba(255,255,255,.02)}
+      @media(max-width:600px){.facebook-feed-head{align-items:stretch;flex-direction:column}.facebook-feed-content{padding:16px}.facebook-feed-arrow{width:40px;height:40px}}
+      @media(prefers-reduced-motion:reduce){.facebook-feed-track{transition:none}}
     `;
     document.head.appendChild(style);
 
@@ -183,31 +190,79 @@ document.addEventListener('DOMContentLoaded',()=>{
           <div><span class="kicker">آخر التحديثات</span><h2 id="facebookFeedTitle">أخبار المكتب على فيسبوك</h2></div>
           <a class="btn ghost" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> زيارة الصفحة</a>
         </div>
-        <div id="facebookFeedGrid" class="facebook-feed-grid" aria-live="polite" aria-busy="true">
+        <div id="facebookFeedContainer" aria-live="polite" aria-busy="true">
           <p class="facebook-feed-status">جارٍ تحميل آخر المنشورات...</p>
         </div>
       </div>`;
     toolsSection.parentNode.insertBefore(section,toolsSection);
 
-    const grid=section.querySelector('#facebookFeedGrid');
+    const container=section.querySelector('#facebookFeedContainer');
     try{
       const response=await fetch('/api/facebook-posts',{headers:{Accept:'application/json'}});
       const data=await response.json();
       if(!response.ok||!Array.isArray(data.posts))throw new Error('Unable to load posts');
       if(!data.posts.length){
-        grid.innerHTML='<p class="facebook-feed-status">لا توجد منشورات متاحة حاليًا.</p>';
+        container.innerHTML='<p class="facebook-feed-status">لا توجد منشورات متاحة حاليًا.</p>';
         return;
       }
       const dateFormatter=new Intl.DateTimeFormat('ar',{year:'numeric',month:'long',day:'numeric'});
-      grid.innerHTML=data.posts.map(post=>{
+      const slides=data.posts.map((post,index)=>{
         const image=post.image?`<img src="${escapeHtml(post.image)}" alt="صورة منشور مكتب عماد عدن العقاري" loading="lazy" decoding="async">`:'';
         const date=post.publishedAt?dateFormatter.format(new Date(post.publishedAt)):'';
-        return `<article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p><a href="${escapeHtml(post.url)}" target="_blank" rel="noopener">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></a></div></article>`;
+        return `<div class="facebook-feed-slide" role="group" aria-label="المنشور ${index+1} من ${data.posts.length}"><article class="facebook-feed-card">${image}<div class="facebook-feed-content"><span class="facebook-feed-date"><i class="fa-regular fa-calendar"></i>${escapeHtml(date)}</span><p>${escapeHtml(post.message)}</p><a href="${escapeHtml(post.url)}" target="_blank" rel="noopener">للمزيد اضغط <i class="fa-solid fa-arrow-left"></i></a></div></article></div>`;
       }).join('');
+      const dots=data.posts.map((_,index)=>`<button class="facebook-feed-dot${index===0?' active':''}" type="button" aria-label="عرض المنشور ${index+1}" data-index="${index}"></button>`).join('');
+      container.innerHTML=`<div class="facebook-feed-slider" tabindex="0"><div class="facebook-feed-track">${slides}</div></div><div class="facebook-feed-controls"><button class="facebook-feed-arrow facebook-feed-prev" type="button" aria-label="المنشور السابق"><i class="fa-solid fa-chevron-right"></i></button><div class="facebook-feed-dots">${dots}</div><button class="facebook-feed-arrow facebook-feed-next" type="button" aria-label="المنشور التالي"><i class="fa-solid fa-chevron-left"></i></button></div>`;
+
+      const slider=container.querySelector('.facebook-feed-slider');
+      const track=container.querySelector('.facebook-feed-track');
+      const dotButtons=[...container.querySelectorAll('.facebook-feed-dot')];
+      const count=data.posts.length;
+      let current=0;
+      let timer;
+      let startX=0;
+      let deltaX=0;
+
+      const showSlide=index=>{
+        current=(index+count)%count;
+        track.style.transform=`translateX(${current*100}%)`;
+        dotButtons.forEach((dot,dotIndex)=>dot.classList.toggle('active',dotIndex===current));
+      };
+      const startAuto=()=>{
+        if(reducedMotion||count<2)return;
+        clearInterval(timer);
+        timer=setInterval(()=>showSlide(current+1),6000);
+      };
+      const resetAuto=()=>{clearInterval(timer);startAuto();};
+
+      container.querySelector('.facebook-feed-prev')?.addEventListener('click',()=>{showSlide(current-1);resetAuto();});
+      container.querySelector('.facebook-feed-next')?.addEventListener('click',()=>{showSlide(current+1);resetAuto();});
+      dotButtons.forEach(dot=>dot.addEventListener('click',()=>{showSlide(Number(dot.dataset.index));resetAuto();}));
+      slider.addEventListener('keydown',event=>{
+        if(event.key==='ArrowLeft'){showSlide(current+1);resetAuto();}
+        if(event.key==='ArrowRight'){showSlide(current-1);resetAuto();}
+      });
+      slider.addEventListener('pointerdown',event=>{
+        startX=event.clientX;
+        deltaX=0;
+        slider.setPointerCapture?.(event.pointerId);
+      });
+      slider.addEventListener('pointermove',event=>{if(startX)deltaX=event.clientX-startX;});
+      slider.addEventListener('pointerup',()=>{
+        if(Math.abs(deltaX)>45)showSlide(deltaX>0?current-1:current+1);
+        startX=0;
+        deltaX=0;
+        resetAuto();
+      });
+      slider.addEventListener('mouseenter',()=>clearInterval(timer));
+      slider.addEventListener('mouseleave',startAuto);
+      document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):startAuto());
+      showSlide(0);
+      startAuto();
     }catch(error){
-      grid.innerHTML='<p class="facebook-feed-status">تعذر تحميل منشورات فيسبوك حاليًا. <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener">زيارة صفحة المكتب</a></p>';
+      container.innerHTML='<p class="facebook-feed-status">تعذر تحميل منشورات فيسبوك حاليًا. <a href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener">زيارة صفحة المكتب</a></p>';
     }finally{
-      grid.setAttribute('aria-busy','false');
+      container.setAttribute('aria-busy','false');
     }
   };
 
