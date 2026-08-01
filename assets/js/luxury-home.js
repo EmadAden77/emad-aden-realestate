@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const startAuto=()=>{
         if(reducedMotion||count<2)return;
         clearInterval(timer);
-        timer=setInterval(()=>showSlide(current+1),6500);
+        timer=setInterval(()=>showSlide(current+1),3500);
       };
       const resetAuto=()=>{clearInterval(timer);startAuto();};
 
