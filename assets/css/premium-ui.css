@@ -106,6 +106,9 @@ button,a,input,select,textarea,[role="button"]{min-height:44px}
 .legal-note i{flex:0 0 auto;color:var(--premium-accent-soft);margin-top:0;font-size:.86rem}
 .legal-note strong{color:#fff}
 
+/* إزالة أداة حاسبة مساحة الأرض من واجهة الأدوات */
+a.tool-card[href="land-area.html"]{display:none!important}
+
 .mobile-action-bar{display:none}
 
 @media(max-width:980px){
