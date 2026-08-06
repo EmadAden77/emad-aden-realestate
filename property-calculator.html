@@ -1,1 +1,179 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>حاسبة القيمة العقارية التقديرية</title><meta name="description" content="حاسبة أولية لتقدير نطاق قيمة العقار في عدن حسب المساحة والمنطقة ونوع العقار."><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet"><style>:root{--g:#E5C07B;--p:#121215;--m:#AAB3C2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#1a1a1a,#050505);color:#fff;font-family:Tajawal,Arial;line-height:1.8}.w{width:min(900px,calc(100% - 28px));margin:auto}.top{padding:24px 0;border-bottom:1px solid rgba(229,192,123,.2)}a{text-decoration:none;color:inherit}.g{color:var(--g)}main{padding:46px 0}.box{background:rgba(18,18,21,.9);border:1px solid rgba(255,255,255,.07);border-radius:26px;padding:24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;margin-bottom:7px;color:#DDE3EB;font-weight:800}.field input,.field select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:#09090b;color:#fff;font-family:inherit}.btn{width:100%;margin-top:16px;padding:14px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--g),#B8860B);font-weight:900;cursor:pointer}.result{margin-top:18px;padding:18px;border-radius:18px;background:rgba(229,192,123,.07);border:1px solid rgba(229,192,123,.2)}.note{color:var(--m);font-size:.9rem}@media(max-width:650px){.grid{grid-template-columns:1fr}}</style></head><body><header class="top"><div class="w"><a href="index.html" class="g"><strong>مكتب عماد عدن العقاري</strong></a></div></header><main class="w"><h1>حاسبة القيمة العقارية التقديرية</h1><p class="note">نتيجة أولية للتوجيه فقط، لأن العقار لا يطيع آلة حاسبة بكل تهذيب كما نتمنى.</p><section class="box"><div class="grid"><div class="field"><label>المساحة بالمتر المربع</label><input id="area" type="number" min="1" value="120"></div><div class="field"><label>المنطقة</label><select id="district"><option value="1.25">خور مكسر</option><option value="1.15">المنصورة</option><option value="1.1">المعلا</option><option value="1.05">الشيخ عثمان</option><option value=".95">دار سعد</option><option value=".9">البريقة</option></select></div><div class="field"><label>نوع العقار</label><select id="type"><option value="1">أرض</option><option value="1.35">شقة</option><option value="1.55">محل تجاري</option><option value="1.75">مبنى كامل</option></select></div><div class="field"><label>حالة الموقع</label><select id="condition"><option value="1">متوسط</option><option value="1.15">مميز</option><option value=".85">يحتاج تطوير</option></select></div></div><button class="btn" id="calc">احسب التقدير الأولي</button><div class="result" id="result">أدخل البيانات واضغط على الحساب.</div></section></main><script>document.getElementById('calc').onclick=()=>{const a=+document.getElementById('area').value||0,d=+document.getElementById('district').value,t=+document.getElementById('type').value,c=+document.getElementById('condition').value;base=350000;const mid=a*d*t*c*base,low=Math.round(mid*.85),high=Math.round(mid*1.15);document.getElementById('result').innerHTML=`<strong class="g">النطاق التقديري:</strong><br>${low.toLocaleString('ar-EG')} إلى ${high.toLocaleString('ar-EG')} ريال يمني<br><span class="note">هذا تقدير إرشادي لا يغني عن التثمين والمعاينة وفحص المستندات.</span>`}</script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>حاسبة القيمة العقارية التقديرية</title>
+  <meta name="description" content="حاسبة أولية لتقدير نطاق قيمة العقار في عدن بالريال السعودي والدولار الأمريكي.">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--g:#E5C07B;--p:#121215;--m:#AAB3C2;--ok:#8dd6a8}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at top,#1a1a1a,#050505);color:#fff;font-family:Tajawal,Arial;line-height:1.8}
+    .w{width:min(900px,calc(100% - 28px));margin:auto}
+    .top{padding:24px 0;border-bottom:1px solid rgba(229,192,123,.2)}
+    a{text-decoration:none;color:inherit}
+    .g{color:var(--g)}
+    main{padding:46px 0}
+    h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.55;margin:0 0 18px}
+    .box{background:rgba(18,18,21,.9);border:1px solid rgba(255,255,255,.07);border-radius:26px;padding:24px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .field label{display:block;margin-bottom:7px;color:#DDE3EB;font-weight:800}
+    .field input,.field select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:#09090b;color:#fff;font-family:inherit;font-size:1rem;outline:none}
+    .field input:focus,.field select:focus{border-color:rgba(229,192,123,.65);box-shadow:0 0 0 3px rgba(229,192,123,.08)}
+    .hint{display:block;color:var(--m);font-size:.78rem;margin-top:5px}
+    .btn{width:100%;margin-top:18px;padding:15px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--g),#B8860B);color:#15100a;font-family:inherit;font-size:1rem;font-weight:900;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .result{margin-top:18px;padding:18px;border-radius:18px;background:rgba(229,192,123,.07);border:1px solid rgba(229,192,123,.2)}
+    .currency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+    .currency-card{padding:17px;border-radius:16px;background:#09090b;border:1px solid rgba(255,255,255,.08)}
+    .currency-name{color:var(--m);font-size:.88rem;font-weight:700}
+    .currency-value{margin-top:5px;font-size:clamp(1.15rem,4.5vw,1.65rem);font-weight:900;line-height:1.5;color:#fff}
+    .mid-value{margin-top:12px;color:var(--ok);font-weight:800}
+    .note{color:var(--m);font-size:.9rem}
+    .error{color:#ffb4b4;font-weight:800}
+    @media(max-width:650px){.grid,.currency-grid{grid-template-columns:1fr}main{padding:34px 0}.box{padding:18px}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="w"><a href="index.html" class="g"><strong>مكتب عماد عدن العقاري</strong></a></div>
+  </header>
+
+  <main class="w">
+    <h1>حاسبة القيمة العقارية التقديرية</h1>
+    <p class="note">نتيجة أولية للتوجيه فقط، لأن العقار لا يطيع آلة حاسبة بكل تهذيب كما نتمنى.</p>
+
+    <section class="box">
+      <div class="grid">
+        <div class="field">
+          <label for="area">المساحة بالمتر المربع</label>
+          <input id="area" type="number" min="1" value="120" inputmode="decimal">
+        </div>
+
+        <div class="field">
+          <label for="district">المنطقة</label>
+          <select id="district">
+            <option value="1.25">خور مكسر</option>
+            <option value="1.15">المنصورة</option>
+            <option value="1.1">المعلا</option>
+            <option value="1.05">الشيخ عثمان</option>
+            <option value=".95">دار سعد</option>
+            <option value=".9">البريقة</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="type">نوع العقار</label>
+          <select id="type">
+            <option value="1">أرض</option>
+            <option value="1.35">شقة</option>
+            <option value="1.55">محل تجاري</option>
+            <option value="1.75">مبنى كامل</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="condition">حالة الموقع</label>
+          <select id="condition">
+            <option value="1">متوسط</option>
+            <option value="1.15">مميز</option>
+            <option value=".85">يحتاج تطوير</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="exchangeRate">سعر صرف الريال السعودي</label>
+          <input id="exchangeRate" type="number" min="1" step="0.01" value="700" inputmode="decimal">
+          <span class="hint">كم ريالاً يمنياً يساوي 1 ريال سعودي؟ عدّل الرقم حسب سعر السوق الحالي.</span>
+        </div>
+      </div>
+
+      <button class="btn" id="calc" type="button">احسب التقدير الأولي</button>
+      <div class="result" id="result">أدخل البيانات واضغط على الحساب.</div>
+    </section>
+  </main>
+
+  <script>
+    const areaEl = document.getElementById('area');
+    const districtEl = document.getElementById('district');
+    const typeEl = document.getElementById('type');
+    const conditionEl = document.getElementById('condition');
+    const exchangeRateEl = document.getElementById('exchangeRate');
+    const resultEl = document.getElementById('result');
+    const calcBtn = document.getElementById('calc');
+
+    const savedRate = Number(localStorage.getItem('yerPerSar'));
+    if (savedRate > 0) exchangeRateEl.value = savedRate;
+
+    const formatSar = value => new Intl.NumberFormat('ar-SA', {
+      style: 'currency',
+      currency: 'SAR',
+      maximumFractionDigits: 0
+    }).format(value);
+
+    const formatUsd = value => new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(value);
+
+    function calculate() {
+      const area = Number(areaEl.value);
+      const district = Number(districtEl.value);
+      const type = Number(typeEl.value);
+      const condition = Number(conditionEl.value);
+      const yerPerSar = Number(exchangeRateEl.value);
+
+      if (!Number.isFinite(area) || area <= 0) {
+        resultEl.innerHTML = '<span class="error">أدخل مساحة صحيحة أكبر من صفر.</span>';
+        return;
+      }
+
+      if (!Number.isFinite(yerPerSar) || yerPerSar <= 0) {
+        resultEl.innerHTML = '<span class="error">أدخل سعر صرف صحيح للريال السعودي.</span>';
+        return;
+      }
+
+      localStorage.setItem('yerPerSar', String(yerPerSar));
+
+      const baseYerPerSquareMeter = 350000;
+      const midYer = area * district * type * condition * baseYerPerSquareMeter;
+      const lowYer = midYer * 0.85;
+      const highYer = midYer * 1.15;
+
+      const midSar = midYer / yerPerSar;
+      const lowSar = lowYer / yerPerSar;
+      const highSar = highYer / yerPerSar;
+
+      const sarPerUsd = 3.75;
+      const midUsd = midSar / sarPerUsd;
+      const lowUsd = lowSar / sarPerUsd;
+      const highUsd = highSar / sarPerUsd;
+
+      resultEl.innerHTML = `
+        <strong class="g">النطاق التقديري للعقار</strong>
+        <div class="currency-grid">
+          <div class="currency-card">
+            <div class="currency-name">الريال السعودي</div>
+            <div class="currency-value">${formatSar(lowSar)} إلى ${formatSar(highSar)}</div>
+            <div class="mid-value">المتوسط: ${formatSar(midSar)}</div>
+          </div>
+          <div class="currency-card">
+            <div class="currency-name">الدولار الأمريكي</div>
+            <div class="currency-value">${formatUsd(lowUsd)} إلى ${formatUsd(highUsd)}</div>
+            <div class="mid-value">المتوسط: ${formatUsd(midUsd)}</div>
+          </div>
+        </div>
+        <p class="note">سعر التحويل المستخدم: 1 ريال سعودي = ${yerPerSar.toLocaleString('ar-SA')} ريال يمني، و1 دولار أمريكي = 3.75 ريال سعودي.</p>
+        <span class="note">هذا تقدير إرشادي لا يغني عن التثمين والمعاينة وفحص المستندات.</span>
+      `;
+    }
+
+    calcBtn.addEventListener('click', calculate);
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Enter') calculate();
+    });
+  </script>
+</body>
+</html>
