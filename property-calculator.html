@@ -21,7 +21,6 @@
     .field label{display:block;margin-bottom:7px;color:#DDE3EB;font-weight:800}
     .field input,.field select{width:100%;padding:13px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:#09090b;color:#fff;font-family:inherit;font-size:1rem;outline:none}
     .field input:focus,.field select:focus{border-color:rgba(229,192,123,.65);box-shadow:0 0 0 3px rgba(229,192,123,.08)}
-    .hint{display:block;color:var(--m);font-size:.78rem;margin-top:5px}
     .btn{width:100%;margin-top:18px;padding:15px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--g),#B8860B);color:#15100a;font-family:inherit;font-size:1rem;font-weight:900;cursor:pointer}
     .btn:active{transform:translateY(1px)}
     .result{margin-top:18px;padding:18px;border-radius:18px;background:rgba(229,192,123,.07);border:1px solid rgba(229,192,123,.2)}
@@ -81,12 +80,6 @@
             <option value=".85">يحتاج تطوير</option>
           </select>
         </div>
-
-        <div class="field">
-          <label for="exchangeRate">سعر صرف الريال السعودي</label>
-          <input id="exchangeRate" type="number" min="1" step="0.01" value="700" inputmode="decimal">
-          <span class="hint">كم ريالاً يمنياً يساوي 1 ريال سعودي؟ عدّل الرقم حسب سعر السوق الحالي.</span>
-        </div>
       </div>
 
       <button class="btn" id="calc" type="button">احسب التقدير الأولي</button>
@@ -99,12 +92,8 @@
     const districtEl = document.getElementById('district');
     const typeEl = document.getElementById('type');
     const conditionEl = document.getElementById('condition');
-    const exchangeRateEl = document.getElementById('exchangeRate');
     const resultEl = document.getElementById('result');
     const calcBtn = document.getElementById('calc');
-
-    const savedRate = Number(localStorage.getItem('yerPerSar'));
-    if (savedRate > 0) exchangeRateEl.value = savedRate;
 
     const formatSar = value => new Intl.NumberFormat('ar-SA', {
       style: 'currency',
@@ -123,28 +112,16 @@
       const district = Number(districtEl.value);
       const type = Number(typeEl.value);
       const condition = Number(conditionEl.value);
-      const yerPerSar = Number(exchangeRateEl.value);
 
       if (!Number.isFinite(area) || area <= 0) {
         resultEl.innerHTML = '<span class="error">أدخل مساحة صحيحة أكبر من صفر.</span>';
         return;
       }
 
-      if (!Number.isFinite(yerPerSar) || yerPerSar <= 0) {
-        resultEl.innerHTML = '<span class="error">أدخل سعر صرف صحيح للريال السعودي.</span>';
-        return;
-      }
-
-      localStorage.setItem('yerPerSar', String(yerPerSar));
-
-      const baseYerPerSquareMeter = 350000;
-      const midYer = area * district * type * condition * baseYerPerSquareMeter;
-      const lowYer = midYer * 0.85;
-      const highYer = midYer * 1.15;
-
-      const midSar = midYer / yerPerSar;
-      const lowSar = lowYer / yerPerSar;
-      const highSar = highYer / yerPerSar;
+      const baseSarPerSquareMeter = 500;
+      const midSar = area * district * type * condition * baseSarPerSquareMeter;
+      const lowSar = midSar * 0.85;
+      const highSar = midSar * 1.15;
 
       const sarPerUsd = 3.75;
       const midUsd = midSar / sarPerUsd;
@@ -165,7 +142,7 @@
             <div class="mid-value">المتوسط: ${formatUsd(midUsd)}</div>
           </div>
         </div>
-        <p class="note">سعر التحويل المستخدم: 1 ريال سعودي = ${yerPerSar.toLocaleString('ar-SA')} ريال يمني، و1 دولار أمريكي = 3.75 ريال سعودي.</p>
+        <p class="note">التحويل المستخدم: 1 دولار أمريكي = 3.75 ريال سعودي.</p>
         <span class="note">هذا تقدير إرشادي لا يغني عن التثمين والمعاينة وفحص المستندات.</span>
       `;
     }
