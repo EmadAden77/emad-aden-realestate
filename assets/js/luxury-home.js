@@ -1,3 +1,18 @@
+const restorePageAfterNavigation=()=>{
+  const body=document.body;
+  if(!body)return;
+
+  body.classList.remove('page-leaving');
+  body.classList.add('page-ready');
+  body.style.opacity='';
+  body.style.transform='';
+};
+
+// A page restored from the back-forward cache does not fire DOMContentLoaded
+// again, so reset the transition state from a top-level lifecycle listener.
+window.addEventListener('pageshow',restorePageAfterNavigation);
+window.addEventListener('pagehide',()=>document.body?.classList.remove('page-leaving'));
+
 document.addEventListener('DOMContentLoaded',()=>{
   const body=document.body;
   const enhancementStyle=document.createElement('link');
@@ -5,14 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   enhancementStyle.href='assets/css/luxury-enhancements.css';
   document.head.appendChild(enhancementStyle);
 
-  const restorePageState=()=>{
-    body.classList.remove('page-leaving');
-    body.classList.add('page-ready');
-    body.style.opacity='';
-    body.style.transform='';
-  };
-
-  requestAnimationFrame(restorePageState);
+  requestAnimationFrame(restorePageAfterNavigation);
 
   const progress=document.createElement('div');
   progress.className='scroll-progress';
@@ -328,7 +336,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(year)year.textContent=new Date().getFullYear();
 
   window.addEventListener('pageshow',event=>{
-    restorePageState();
+    restorePageAfterNavigation();
     mobileMenu?.classList.remove('open');
     menuButton?.setAttribute('aria-expanded','false');
     updateScrollUI();
@@ -337,7 +345,4 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   });
 
-  window.addEventListener('pagehide',()=>{
-    body.classList.remove('page-leaving');
-  });
 });
