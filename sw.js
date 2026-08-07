@@ -1,56 +1,39 @@
-const CACHE_NAME = 'emad-realestate-v5';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/expatriates-property-management.html',
-  '/expatriates-property-management.html?platform=v2',
-  '/assets/css/expatriates.css?v=20260724-2',
-  '/assets/js/expatriates.js?v=20260724-2',
-  '/manifest.json',
-  '/data.json',
-  '/IMG_5.jpg'
+const VERSION = 'emad-realestate-v6';
+const STATIC_CACHE = `${VERSION}-static`;
+const PAGE_CACHE = `${VERSION}-pages`;
+const OFFLINE_URL = '/404.html';
+const PRECACHE = [
+  '/', '/index.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
+  '/assets/css/home.bundle.css', '/assets/css/articles.css',
+  '/assets/js/luxury-home.js', '/assets/js/articles.js'
 ];
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE)));
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(STATIC_CACHE).then(cache => cache.addAll(PRECACHE)));
   self.skipWaiting();
 });
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-
-  const request = event.request;
-  const acceptsHtml = request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html');
-
-  if (acceptsHtml) {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          return response;
-        })
-        .catch(() => caches.match(request).then((cached) => cached || caches.match('/index.html')))
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(request).then((cached) => cached || fetch(request).then((response) => {
-      const copy = response.clone();
-      caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-      return response;
-    }))
-  );
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(
+    keys.filter(key => key.startsWith('emad-realestate-') && ![STATIC_CACHE, PAGE_CACHE].includes(key))
+      .map(key => caches.delete(key))
+  )).then(() => self.clients.claim()));
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => Promise.all(
-      cacheNames
-        .filter((cacheName) => cacheName.startsWith('emad-realestate-') && cacheName !== CACHE_NAME)
-        .map((cacheName) => caches.delete(cacheName))
-    ))
-  );
-  self.clients.claim();
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
+  if (request.mode === 'navigate') {
+    event.respondWith(fetch(request).then(response => {
+      if (response.ok) caches.open(PAGE_CACHE).then(cache => cache.put(request, response.clone()));
+      return response;
+    }).catch(() => caches.match(request).then(hit => hit || caches.match(OFFLINE_URL))));
+    return;
+  }
+  event.respondWith(caches.match(request).then(hit => hit || fetch(request).then(response => {
+    if (response.ok && ['style', 'script', 'image', 'font'].includes(request.destination)) {
+      caches.open(STATIC_CACHE).then(cache => cache.put(request, response.clone()));
+    }
+    return response;
+  })));
 });

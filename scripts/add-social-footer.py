@@ -3,7 +3,7 @@ from pathlib import Path
 
 REQUIRED_LINKS = (
     "https://x.com/aleimad7aden",
-    "https://www.instagram.com/p/DQVHj_FiCQS/",
+    "https://www.instagram.com/aleimad7aden/",
     "https://www.facebook.com/aleimad7aden/",
 )
 
