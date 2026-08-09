@@ -38,6 +38,10 @@
 .article-news-dots{display:flex;justify-content:center;gap:7px;position:absolute;bottom:10px;left:0;right:0}
 .article-news-dot{width:7px;height:7px;border-radius:50%;border:0;background:rgba(255,255,255,.18);padding:0;min-height:0}
 .article-news-dot.active{background:#e5c07b}
+.hero.hero-secondary{position:relative;overflow:hidden;isolation:isolate;background:#070b10}
+.hero-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
+.hero-video-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,8,12,.18),rgba(4,8,12,.34) 48%,rgba(4,8,12,.62))}
+.hero.hero-secondary>.wrap{position:relative;z-index:2}
 @media(max-width:650px){
   .mobile-action-bar{grid-template-columns:repeat(4,1fr)!important;gap:7px!important;padding:9px!important}
   .mobile-action-bar a{min-height:54px!important;padding:6px 4px!important;border:1px solid rgba(229,192,123,.12);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:transform .2s ease,border-color .2s ease,background .2s ease}
@@ -50,8 +54,9 @@
   .article-news:before{top:9px;right:11px;font-size:.65rem}
   .article-news-card h3{font-size:1rem}
   .article-news-card .more{font-size:.76rem}
+  .hero-video-overlay{background:linear-gradient(180deg,rgba(4,8,12,.2),rgba(4,8,12,.48) 62%,rgba(4,8,12,.62))}
 }
-@media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
+@media(prefers-reduced-motion:reduce){.article-news-card{transition:none}.hero-background-video{display:none}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-17ZZZFR8HT',{send_page_view:true});</script>
@@ -97,6 +102,10 @@
 </section>
 
 <section class="hero hero-secondary">
+  <video class="hero-background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+    <source src="aden-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
   <div class="wrap hero-shell reveal">
     <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> خبرة محلية · رؤية رقمية · قرارات أوضح</span>
     <h2>حلول عقارية في عدن <span class="gradient-text">أوضح وأسرع وأكثر أماناً</span></h2>
