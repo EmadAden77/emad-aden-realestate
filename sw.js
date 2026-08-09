@@ -1,9 +1,9 @@
-const VERSION = 'emad-realestate-v6';
+const VERSION = 'emad-realestate-v7';
 const STATIC_CACHE = `${VERSION}-static`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const OFFLINE_URL = '/404.html';
 const PRECACHE = [
-  '/', '/index.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
+  '/', '/index.html', '/app.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
   '/assets/css/home.bundle.css', '/assets/css/articles.css',
   '/assets/js/luxury-home.js', '/assets/js/articles.js'
 ];
@@ -22,18 +22,30 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const request = event.request;
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
+  const url = new URL(request.url);
+
+  if (request.method !== 'GET' || url.origin !== self.location.origin || url.pathname.startsWith('/api/')) return;
+
   if (request.mode === 'navigate') {
-    event.respondWith(fetch(request).then(response => {
-      if (response.ok) caches.open(PAGE_CACHE).then(cache => cache.put(request, response.clone()));
-      return response;
-    }).catch(() => caches.match(request).then(hit => hit || caches.match(OFFLINE_URL))));
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            caches.open(PAGE_CACHE).then(cache => cache.put(request, response.clone()));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request).then(hit => hit || caches.match(OFFLINE_URL)))
+    );
     return;
   }
-  event.respondWith(caches.match(request).then(hit => hit || fetch(request).then(response => {
-    if (response.ok && ['style', 'script', 'image', 'font'].includes(request.destination)) {
-      caches.open(STATIC_CACHE).then(cache => cache.put(request, response.clone()));
-    }
-    return response;
-  })));
+
+  event.respondWith(
+    caches.match(request).then(hit => hit || fetch(request).then(response => {
+      if (response.ok && ['style', 'script', 'image', 'font'].includes(request.destination)) {
+        caches.open(STATIC_CACHE).then(cache => cache.put(request, response.clone()));
+      }
+      return response;
+    }))
+  );
 });

@@ -5,7 +5,7 @@
   "description": "خدمات وأدوات ومعرفة عقارية موثوقة في عدن",
   "lang": "ar",
   "dir": "rtl",
-  "start_url": "/?source=pwa",
+  "start_url": "/app.html?source=pwa",
   "scope": "/",
   "display": "standalone",
   "background_color": "#050505",
