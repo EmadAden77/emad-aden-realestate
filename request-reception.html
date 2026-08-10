@@ -180,8 +180,8 @@ img{display:block;max-width:100%}
 .ticket-kicker{display:flex;align-items:center;gap:8px;color:var(--cyan);font-weight:900;font-size:.78rem;letter-spacing:.1em}
 .ticket-form h2{font-size:clamp(1.7rem,3.5vw,2.65rem);margin:5px 0 3px}
 .ticket-form .intro{margin:0;color:var(--muted)}
-.ref-badge{direction:ltr;text-align:left;min-width:170px;padding:10px 13px;border:1px dashed rgba(143,107,71,.52);border-radius:10px;color:var(--orange);background:rgba(143,107,71,.06)}
-.ref-badge span{display:block;font-size:.68rem;letter-spacing:.12em}.ref-badge strong{font:900 .94rem ui-monospace,monospace}
+.ref-badge{direction:ltr;text-align:left;min-width:138px;padding:7px 10px;border:1px dashed rgba(143,107,71,.34);border-radius:9px;color:var(--orange);background:rgba(143,107,71,.035);opacity:.78}
+.ref-badge span{display:block;font-family:"Tajawal",sans-serif;font-size:.62rem;letter-spacing:0}.ref-badge strong{font:800 .76rem ui-monospace,monospace}
 .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
 .field{display:grid;gap:7px}
 .field.full{grid-column:1/-1}
@@ -268,7 +268,7 @@ textarea.control{min-height:136px;resize:vertical}
   .route-grid{display:grid;grid-template-columns:1fr 1fr}
   .route-card{min-height:156px}.route-card:last-child{grid-column:1/-1}
   .ticket-section{padding-top:15px}.ticket-form,.ticket-stub{padding:24px 18px}
-  .ticket-top{display:grid}.ref-badge{width:100%}
+  .ticket-top{display:grid}.ref-badge,.barcode,.stub-code{display:none}
   .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.split-control{grid-template-columns:1fr 105px}
   .submit-row{display:grid}.submit-btn{width:100%}
   .workflow-board{padding:24px 18px}.workflow-list{grid-template-columns:1fr}
@@ -318,7 +318,7 @@ textarea.control{min-height:136px;resize:vertical}
               <p class="intro">الحقول المعلّمة بنجمة مطلوبة لإعداد الرسالة.</p>
             </div>
             <div class="ref-badge" aria-label="الرقم المرجعي">
-              <span>REFERENCE ID</span>
+              <span>رقم الطلب</span>
               <strong id="refTop">REQ-00000000-0000</strong>
             </div>
           </div>
