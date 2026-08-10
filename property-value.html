@@ -98,6 +98,141 @@ details p{color:var(--muted);margin:10px 0 0}
 .mobile-bar{display:none}
 @media(max-width:900px){.hero-grid,.report{grid-template-columns:1fr}.factors{grid-template-columns:repeat(2,1fr)}.method{grid-template-columns:repeat(2,1fr)}.section-head{align-items:start;flex-direction:column}.request-card{order:-1}.hero{padding-top:28px}}
 @media(max-width:620px){.wrap{width:min(100% - 24px,1120px)}.nav{min-height:72px}.brand span span{display:none}.nav-actions .btn:not(.gold){display:none}.hero h1{font-size:2.6rem}.hero-points{grid-template-columns:1fr}.factors,.method{grid-template-columns:1fr 1fr}form{grid-template-columns:1fr}textarea,.full{grid-column:auto}.cta{align-items:stretch;flex-direction:column}.mobile-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:12px;left:12px;right:12px;z-index:40;padding:8px;border:1px solid var(--line);border-radius:20px;background:rgba(8,11,9,.94);backdrop-filter:blur(14px)}.mobile-bar a{min-height:52px;border-radius:14px;text-decoration:none;display:grid;place-items:center;font-weight:800;color:#fff}.mobile-bar .primary{background:linear-gradient(135deg,var(--gold-light),#bd8928);color:#15120c}}
+
+/* Enhanced valuation experience */
+.brand img{width:60px;height:60px;filter:brightness(1.26) contrast(1.08);border-color:rgba(240,212,147,.48);background:#171b18;box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 18px rgba(216,180,106,.10)}
+.gradient{background-size:220% auto;animation:headlineGradient 6s linear infinite}
+.request-card{
+  --request-teal:#2dd4bf;
+  --request-gold:#f0d493;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:2px solid transparent;
+  border-radius:32px 12px 32px 12px;
+  background:
+    radial-gradient(circle at 95% 0%,rgba(45,212,191,.16),transparent 34%),
+    linear-gradient(145deg,rgba(27,42,34,.98),rgba(10,15,12,.985)) padding-box,
+    linear-gradient(120deg,#2dd4bf,#f0d493,#60a5fa,#2dd4bf) border-box;
+  background-size:100% 100%,100% 100%,300% 300%;
+  box-shadow:0 30px 86px rgba(0,0,0,.48),0 0 42px rgba(45,212,191,.10),inset 0 1px 0 rgba(255,255,255,.06);
+  animation:requestBorder 7s ease-in-out infinite,requestGlow 4s ease-in-out infinite;
+}
+.request-card::before{
+  content:"";position:absolute;width:220px;height:220px;top:-132px;left:-104px;
+  border:1px solid rgba(240,212,147,.25);border-radius:42% 58% 38% 62%;
+  background:radial-gradient(circle,rgba(96,165,250,.09),transparent 66%);
+  pointer-events:none;animation:requestOrbit 12s linear infinite
+}
+.request-card::after{
+  content:"";position:absolute;top:0;right:8%;width:48%;height:4px;border-radius:0 0 999px 999px;
+  background:linear-gradient(90deg,transparent,#2dd4bf,#f0d493,transparent);
+  box-shadow:0 0 20px rgba(45,212,191,.58);pointer-events:none;animation:requestLine 3.2s ease-in-out infinite
+}
+.request-heading{position:relative;z-index:1;margin-bottom:17px}
+.request-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border-radius:999px;border:1px solid rgba(45,212,191,.30);background:rgba(45,212,191,.075);color:#7cebdc;font-size:.77rem;font-weight:800}
+.request-card h2{display:inline-block;font-size:clamp(1.65rem,3vw,2.25rem);margin:8px 0 2px;color:#8ff3e5}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .request-card h2{background:linear-gradient(90deg,#76eadb,#f0d493,#fff8e8,#60a5fa,#76eadb);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:requestTitle 5.5s linear infinite}
+}
+.request-heading>p{margin:0;color:#bcc8c1}
+.valuation-form{display:block}
+.form-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 18px;padding:0;list-style:none}
+.form-progress li{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:7px 9px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(7,12,9,.62);color:#7f8c84;transition:.25s}
+.form-progress li span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.06);font-size:.76rem;font-weight:900}
+.form-progress li small{font-size:.78rem;font-weight:800}
+.form-progress li.active{color:#f8f4ea;border-color:rgba(45,212,191,.45);background:linear-gradient(135deg,rgba(45,212,191,.16),rgba(240,212,147,.08));box-shadow:0 0 18px rgba(45,212,191,.08)}
+.form-progress li.active span{color:#07110e;background:linear-gradient(135deg,#6ee7d5,#f0d493)}
+.form-progress li.done{color:#cfe8df;border-color:rgba(45,212,191,.25)}
+.form-progress li.done span{color:#07110e;background:#50d8c6}
+.form-alert{margin:0 0 14px;padding:10px 12px;border:1px solid rgba(248,113,113,.35);border-radius:12px;background:rgba(248,113,113,.10);color:#fecaca;font-size:.86rem}
+.form-panel{display:grid;grid-template-columns:1fr 1fr;gap:13px;animation:panelEnter .32s ease both}
+.panel-title{grid-column:1/-1;display:flex;align-items:center;gap:9px;margin:0 0 2px;color:#f4e2b9;font-size:1.04rem}
+.panel-title i{color:#55dfce}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field-wide{grid-column:1/-1}
+.field label{color:#dfe7e2;font-size:.82rem;font-weight:800}
+.field label span{color:#f0d493}
+.valuation-form input,.valuation-form select,.valuation-form textarea{
+  min-height:55px;border:1px solid rgba(45,212,191,.17);border-radius:14px;background:linear-gradient(135deg,rgba(45,212,191,.025),transparent 48%),rgba(5,10,7,.76);color:var(--text);padding:0 14px;font:inherit;outline:none;transition:border-color .22s,box-shadow .22s,transform .22s,background .22s
+}
+.valuation-form textarea{min-height:118px;padding-top:13px;resize:vertical}
+.valuation-form input:hover,.valuation-form select:hover,.valuation-form textarea:hover{border-color:rgba(240,212,147,.38)}
+.valuation-form input:focus,.valuation-form select:focus,.valuation-form textarea:focus{border-color:#52dcca;box-shadow:0 0 0 3px rgba(45,212,191,.11),0 10px 26px rgba(0,0,0,.22);transform:translateY(-1px);background:rgba(4,9,6,.88)}
+.valuation-form .invalid{border-color:#f87171!important;box-shadow:0 0 0 3px rgba(248,113,113,.10)!important}
+.step-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:3px}
+.form-button{position:relative;overflow:hidden;min-height:52px;padding:0 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;color:#07110e;font:inherit;font-weight:900;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.form-button.next,.form-button.submit{flex:1;background:linear-gradient(110deg,#62e5d3 0%,#f0d493 46%,#d8aa48 70%,#2dd4bf 100%);background-size:220% 100%;box-shadow:0 12px 28px rgba(45,212,191,.13);animation:buttonGradient 5s ease-in-out infinite}
+.form-button.next::after,.form-button.submit::after{content:"";position:absolute;top:-35%;bottom:-35%;left:-26%;width:16%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-18deg);animation:buttonShine 3.8s ease-in-out infinite}
+.form-button.secondary{color:#dfe8e2;background:linear-gradient(180deg,#19211b,#0e140f);border-color:rgba(240,212,147,.20)}
+.form-button:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(45,212,191,.18)}
+.form-button:active{transform:translateY(0) scale(.99)}
+.review-card{padding:15px;border:1px solid rgba(96,165,250,.25);border-radius:18px 8px 18px 8px;background:linear-gradient(145deg,rgba(96,165,250,.075),rgba(4,9,7,.62))}
+.review-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.review-head h4{margin:0;color:#cfe4ff}
+.review-head span{padding:4px 8px;border-radius:999px;background:rgba(240,212,147,.10);color:#eed9aa;font-size:.7rem}
+#valuationReview{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin:0}
+#valuationReview div{padding:8px 9px;border-bottom:1px solid rgba(255,255,255,.055)}
+#valuationReview dt{color:#8fa29a;font-size:.7rem}
+#valuationReview dd{margin:1px 0 0;color:#edf3ef;font-size:.82rem;font-weight:700;overflow-wrap:anywhere}
+.professional-note{margin:0;padding:10px 12px;border:1px solid rgba(240,212,147,.20);border-radius:13px;background:rgba(240,212,147,.065);color:#d9c9a5;font-size:.78rem}
+.professional-note i{color:#f0d493;margin-left:5px}
+.form-status{min-height:24px;margin:2px 0 0;color:#6ee7b7;font-size:.82rem;font-weight:700}
+.factors .card,.method .card,.report-box,.faq details{--accent:#d8b46a;--accent-rgb:216,180,106;position:relative;overflow:hidden;border-color:rgba(var(--accent-rgb),.30);background:radial-gradient(circle at 100% 0%,rgba(var(--accent-rgb),.12),transparent 38%),linear-gradient(145deg,#161c17,#0d110e);box-shadow:inset 0 1px 0 rgba(var(--accent-rgb),.08),0 15px 38px rgba(0,0,0,.16);transition:transform .25s,border-color .25s,box-shadow .25s}
+.factors .card::after,.method .card::after,.report-box::after{content:"";position:absolute;top:0;right:22px;width:70px;height:3px;border-radius:0 0 999px 999px;background:linear-gradient(90deg,transparent,var(--accent))}
+.factors .card:hover,.method .card:hover,.report-box:hover,.faq details:hover{transform:translateY(-4px);border-color:rgba(var(--accent-rgb),.62);box-shadow:0 20px 44px rgba(0,0,0,.24),0 0 24px rgba(var(--accent-rgb),.08)}
+.factors .card i,.factors .card h3,.method .card h3,.faq summary{color:var(--accent)}
+.factors .card:nth-child(1){--accent:#38bdf8;--accent-rgb:56,189,248;border-radius:36px 12px 36px 12px}
+.factors .card:nth-child(2){--accent:#a3e635;--accent-rgb:163,230,53;border-radius:12px 36px 12px 36px}
+.factors .card:nth-child(3){--accent:#fb923c;--accent-rgb:251,146,60;border-radius:34px 34px 12px 12px}
+.factors .card:nth-child(4){--accent:#c084fc;--accent-rgb:192,132,252;border-radius:12px 12px 36px 36px}
+.method .card:nth-child(1){--accent:#2dd4bf;--accent-rgb:45,212,191;border-radius:34px 10px 34px 10px}
+.method .card:nth-child(2){--accent:#60a5fa;--accent-rgb:96,165,250;border-radius:10px 34px 10px 34px}
+.method .card:nth-child(3){--accent:#facc15;--accent-rgb:250,204,21;border-radius:34px 34px 10px 10px}
+.method .card:nth-child(4){--accent:#fb7185;--accent-rgb:251,113,133;border-radius:10px 10px 34px 34px}
+.method .card:nth-child(5){--accent:#4ade80;--accent-rgb:74,222,128;border-radius:32px 12px 12px 32px}
+.method .step:before{color:rgba(var(--accent-rgb),.28)}
+.report-box:first-child{--accent:#818cf8;--accent-rgb:129,140,248;border-radius:38px 14px 38px 14px}
+.report-box:nth-child(2){--accent:#f59e0b;--accent-rgb:245,158,11;border-radius:14px 38px 14px 38px}
+.report-box .eyebrow{color:var(--accent);border-color:rgba(var(--accent-rgb),.28);background:rgba(var(--accent-rgb),.07)}
+.faq details:nth-child(1){--accent:#38bdf8;--accent-rgb:56,189,248;border-radius:26px 9px 26px 9px}
+.faq details:nth-child(2){--accent:#e879f9;--accent-rgb:232,121,249;border-radius:9px 26px 9px 26px}
+.faq details:nth-child(3){--accent:#4ade80;--accent-rgb:74,222,128;border-radius:26px 26px 9px 9px}
+.faq details:nth-child(4){--accent:#fb923c;--accent-rgb:251,146,60;border-radius:9px 9px 26px 26px}
+.faq details[open]{background:radial-gradient(circle at 100% 0%,rgba(var(--accent-rgb),.17),transparent 42%),linear-gradient(145deg,#171d18,#0d110e)}
+.reveal-ready{opacity:0;transform:translateY(24px);transition:opacity .62s ease,transform .62s ease}
+.reveal-ready.revealed{opacity:1;transform:translateY(0)}
+.reveal-ready.revealed:hover{transform:translateY(-4px)}
+#request{scroll-margin-top:100px}
+.btn:focus-visible,.form-button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(94,234,212,.42);outline-offset:3px}
+@keyframes headlineGradient{to{background-position:220% center}}
+@keyframes requestBorder{0%,100%{background-position:center,center,0% 50%}50%{background-position:center,center,100% 50%}}
+@keyframes requestGlow{0%,100%{box-shadow:0 30px 86px rgba(0,0,0,.48),0 0 28px rgba(45,212,191,.08),inset 0 1px 0 rgba(255,255,255,.06)}50%{box-shadow:0 32px 92px rgba(0,0,0,.53),0 0 48px rgba(45,212,191,.15),inset 0 1px 0 rgba(255,255,255,.08)}}
+@keyframes requestOrbit{to{transform:rotate(360deg)}}
+@keyframes requestLine{0%,100%{opacity:.6;transform:scaleX(.65)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes requestTitle{to{background-position:300% center}}
+@keyframes panelEnter{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
+@keyframes buttonGradient{0%,100%{background-position:0% center}50%{background-position:100% center}}
+@keyframes buttonShine{0%,60%{left:-26%;opacity:0}70%{opacity:.8}88%,100%{left:118%;opacity:0}}
+@media(max-width:900px){.request-card{order:-1}.brand img{width:54px;height:54px}}
+@media(max-width:620px){
+  .request-card{padding:18px;border-radius:26px 9px 26px 9px}
+  .request-card h2{font-size:1.75rem}
+  .form-progress li{gap:4px;padding:6px 4px}.form-progress li small{font-size:.7rem}
+  .form-panel{grid-template-columns:1fr}.panel-title,.field-wide{grid-column:auto}
+  .step-actions{flex-direction:column-reverse}.form-button{width:100%}
+  #valuationReview{grid-template-columns:1fr}
+  .review-head{align-items:flex-start;flex-direction:column}
+  .factors,.method{grid-template-columns:1fr}
+  .card{padding:20px}
+  .mobile-bar .primary{background:linear-gradient(135deg,#5eead4,#f0d493);color:#08110d}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .gradient,.request-card,.request-card::before,.request-card::after,.request-card h2,.form-panel,.form-button.next,.form-button.submit,.form-button.next::after,.form-button.submit::after{animation:none!important}
+  .reveal-ready{opacity:1;transform:none;transition:none}
+}
+
 </style>
 
 <meta property="og:title" content="التثمين العقاري في عدن | مكتب عماد عدن العقاري">
@@ -107,11 +242,158 @@ details p{color:var(--muted);margin:10px 0 0}
 <meta property="og:image" content="https://emad-aden-realestate.vercel.app/IMG_5.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#E5C07B">
+<meta name="twitter:title" content="التثمين العقاري في عدن | مكتب عماد عدن العقاري">
+<meta name="twitter:description" content="اطلب تثميناً عقارياً منظماً في عدن يعتمد على بيانات دقيقة ومراجعة مهنية.">
+<meta name="twitter:image" content="https://emad-aden-realestate.vercel.app/IMG_5.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://emad-aden-realestate.vercel.app/#office","name":"مكتب عماد عدن العقاري","url":"https://emad-aden-realestate.vercel.app/","telephone":"+967773571889","areaServed":{"@type":"City","name":"عدن"}},{"@type":"Service","name":"التثمين العقاري في عدن","serviceType":"تثمين وتقدير قيمة العقارات","url":"https://emad-aden-realestate.vercel.app/property-value.html","provider":{"@id":"https://emad-aden-realestate.vercel.app/#office"},"areaServed":{"@type":"City","name":"عدن"},"description":"تثمين عقاري منظم يعتمد على الموقع والمساحة والحالة والخدمات والمقارنة السوقية وإمكانية المعاينة."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"هل يمكن تثمين العقار دون معاينة؟","acceptedAnswer":{"@type":"Answer","text":"يمكن تقديم قراءة أولية من البيانات المتاحة، لكن المعاينة ترفع دقة التقدير بصورة واضحة."}},{"@type":"Question","name":"هل السعر في الإعلانات دليل كافٍ؟","acceptedAnswer":{"@type":"Answer","text":"لا. الإعلان يعكس رغبة المالك، بينما القيمة تحتاج مقارنة وحالة فعلية وقراءة للطلب."}},{"@type":"Question","name":"هل التثمين مناسب للأراضي والمباني؟","acceptedAnswer":{"@type":"Answer","text":"نعم، مع اختلاف العوامل المؤثرة بين الأرض والشقة والفيلا والعمارة والعقار التجاري."}},{"@type":"Question","name":"هل النتيجة رقم واحد ثابت؟","acceptedAnswer":{"@type":"Answer","text":"الأفضل مهنياً عرض نطاق تقديري مدعوم بالأسباب، لأن السوق والعقار يحملان متغيرات متعددة."}}]}]}</script>
 </head>
 <body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><img src="IMG_5.jpg" alt="شعار مكتب عماد عدن العقاري"><span><strong>مكتب عماد عدن العقاري</strong><span>بيع · شراء · تثمين · استثمار · إدارة أملاك</span></span></a><div class="nav-actions"><a class="btn" href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a class="btn gold" href="https://wa.me/967773571889" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> مراسلة المكتب</a></div></div></header>
 <main>
-<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow"><i class="fa-solid fa-chart-line"></i> تثمين عقاري بمنهج واضح</span><h1>القيمة الحقيقية للعقار لا تُبنى على <span class="gradient">التخمين</span></h1><p class="lead">نقرأ الموقع والمساحة والحالة الفنية والخدمات وحركة الطلب والمقارنات المتاحة، ثم نرتبها في تقدير مهني يساعدك قبل البيع أو الشراء أو القسمة أو الاستثمار.</p><div class="hero-points"><span>قراءة ميدانية</span><span>مقارنة سوقية</span><span>تقرير منظم</span></div></div><div class="request-card" id="request"><h2>اطلب تثمين عقارك</h2><p>أرسل البيانات الأساسية وسيتواصل المكتب معك عبر واتساب.</p><form onsubmit="sendValuation();return false" id="valuationForm"><input name="الاسم" placeholder="الاسم" required><input name="الجوال" placeholder="رقم الجوال" required><select name="نوع العقار" required><option value="">نوع العقار</option><option>أرض</option><option>شقة</option><option>منزل</option><option>فيلا</option><option>عمارة</option><option>محل أو عقار تجاري</option></select><input name="المنطقة" placeholder="المنطقة أو المديرية" required><input name="المساحة" placeholder="المساحة التقريبية"><select name="الغرض"><option value="">الغرض من التثمين</option><option>بيع</option><option>شراء</option><option>قسمة أو إرث</option><option>استثمار</option><option>معرفة القيمة الحالية</option></select><textarea name="التفاصيل" placeholder="اذكر حالة العقار، عمر البناء، الواجهة، الخدمات أو أي تفاصيل مهمة"></textarea><button class="btn gold full" type="submit"><i class="fa-brands fa-whatsapp"></i> إرسال طلب التثمين عبر واتساب</button></form><div class="privacy">🔒 <strong>خصوصيتك أولوية لدينا.</strong> تُستخدم بياناتك وما تختار مشاركته من مستندات فقط لمراجعة طلبك والتواصل معك، ولا تُنشر أو تُشارك مع أي طرف آخر دون موافقتك. <a href="privacy.html" style="color:inherit;text-decoration:underline">سياسة الخصوصية</a></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow"><i class="fa-solid fa-chart-line"></i> تثمين عقاري بمنهج واضح</span><h1>القيمة الحقيقية للعقار لا تُبنى على <span class="gradient">التخمين</span></h1><p class="lead">نقرأ الموقع والمساحة والحالة الفنية والخدمات وحركة الطلب والمقارنات المتاحة، ثم نرتبها في تقدير مهني يساعدك قبل البيع أو الشراء أو القسمة أو الاستثمار.</p><div class="hero-points"><span>قراءة ميدانية</span><span>مقارنة سوقية</span><span>تقرير منظم</span></div></div><div class="request-card" id="request">
+  <div class="request-heading">
+    <span class="request-kicker"><i class="fa-solid fa-wand-magic-sparkles"></i> طلب تثمين مهني</span>
+    <h2>اطلب تثمين عقارك</h2>
+    <p>أكمل ثلاث خطوات قصيرة، ثم راجع بياناتك قبل تجهيز رسالة واتساب.</p>
+  </div>
+  <form id="valuationForm" class="valuation-form" novalidate>
+    <ol class="form-progress" aria-label="مراحل طلب التثمين">
+      <li class="active" data-progress="1" aria-current="step"><span>1</span><small>البيانات</small></li>
+      <li data-progress="2"><span>2</span><small>العقار</small></li>
+      <li data-progress="3"><span>3</span><small>المراجعة</small></li>
+    </ol>
+    <div class="form-alert" id="valuationAlert" role="alert" aria-live="assertive" hidden></div>
+
+    <section class="form-panel active" data-step="1" aria-labelledby="valuationStep1">
+      <h3 id="valuationStep1" class="panel-title"><i class="fa-solid fa-user-check"></i> بيانات مقدم الطلب</h3>
+      <div class="field">
+        <label for="valuationName">الاسم <span aria-hidden="true">*</span></label>
+        <input id="valuationName" name="الاسم" data-label="الاسم" type="text" autocomplete="name" placeholder="اكتب الاسم" required>
+      </div>
+      <div class="field">
+        <label for="valuationPhone">رقم الجوال <span aria-hidden="true">*</span></label>
+        <input id="valuationPhone" name="الجوال" data-label="رقم الجوال" type="tel" autocomplete="tel" inputmode="tel" placeholder="مثال: 77XXXXXXX" required>
+      </div>
+      <div class="field">
+        <label for="valuationType">نوع العقار <span aria-hidden="true">*</span></label>
+        <select id="valuationType" name="نوع العقار" data-label="نوع العقار" required>
+          <option value="">اختر نوع العقار</option>
+          <option>أرض</option><option>شقة</option><option>منزل</option><option>فيلا</option>
+          <option>عمارة</option><option>محل أو عقار تجاري</option><option>مكتب</option><option>مخزن</option><option>أخرى</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationDistrict">المديرية <span aria-hidden="true">*</span></label>
+        <select id="valuationDistrict" name="المديرية" data-label="المديرية" required>
+          <option value="">اختر المديرية</option>
+          <option>صيرة</option><option>المعلا</option><option>التواهي</option><option>خور مكسر</option>
+          <option>المنصورة</option><option>الشيخ عثمان</option><option>دار سعد</option><option>البريقة</option><option>أخرى</option>
+        </select>
+      </div>
+      <div class="field field-wide">
+        <label for="valuationAreaName">الحي أو المنطقة <span aria-hidden="true">*</span></label>
+        <input id="valuationAreaName" name="الحي أو المنطقة" data-label="الحي أو المنطقة" type="text" autocomplete="address-level3" placeholder="مثال: القاهرة، السنافر، كريتر" required>
+      </div>
+      <div class="field">
+        <label for="valuationPurpose">الغرض من التثمين <span aria-hidden="true">*</span></label>
+        <select id="valuationPurpose" name="الغرض من التثمين" data-label="الغرض من التثمين" required>
+          <option value="">اختر الغرض</option>
+          <option>بيع</option><option>شراء</option><option>قسمة أو إرث</option>
+          <option>استثمار</option><option>معرفة القيمة الحالية</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationCurrency">عملة النتيجة المطلوبة <span aria-hidden="true">*</span></label>
+        <select id="valuationCurrency" name="العملة المطلوبة" data-label="العملة المطلوبة" required>
+          <option value="">اختر العملة</option>
+          <option value="الريال السعودي (SAR)">الريال السعودي (SAR)</option>
+          <option value="الدولار الأمريكي (USD)">الدولار الأمريكي (USD)</option>
+        </select>
+      </div>
+      <div class="step-actions field-wide">
+        <button class="form-button next" type="button" data-next>التالي: مواصفات العقار <i class="fa-solid fa-arrow-left"></i></button>
+      </div>
+    </section>
+
+    <section class="form-panel" data-step="2" aria-labelledby="valuationStep2" hidden>
+      <h3 id="valuationStep2" class="panel-title"><i class="fa-solid fa-building-circle-check"></i> مواصفات العقار</h3>
+      <div class="field">
+        <label for="valuationSize">المساحة <span aria-hidden="true">*</span></label>
+        <input id="valuationSize" name="المساحة" data-label="المساحة" type="number" inputmode="decimal" min="1" step="0.01" placeholder="مثال: 250" required>
+      </div>
+      <div class="field">
+        <label for="valuationUnit">وحدة المساحة <span aria-hidden="true">*</span></label>
+        <select id="valuationUnit" name="وحدة المساحة" data-label="وحدة المساحة" required>
+          <option value="">اختر الوحدة</option>
+          <option>متر مربع</option>
+          <option>لبنة كما وردت في الوثيقة</option>
+          <option>وحدة أخرى مذكورة في التفاصيل</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationStreet">عرض الشارع بالمتر</label>
+        <input id="valuationStreet" name="عرض الشارع" data-label="عرض الشارع" type="number" inputmode="decimal" min="1" max="200" step="0.5" placeholder="اختياري">
+      </div>
+      <div class="field">
+        <label for="valuationFacade">الواجهة</label>
+        <select id="valuationFacade" name="الواجهة" data-label="الواجهة">
+          <option value="">غير محددة</option><option>شمالية</option><option>جنوبية</option>
+          <option>شرقية</option><option>غربية</option><option>واجهتان أو أكثر</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationCondition">حالة العقار <span aria-hidden="true">*</span></label>
+        <select id="valuationCondition" name="حالة العقار" data-label="حالة العقار" required>
+          <option value="">اختر الحالة</option><option>أرض فارغة</option><option>جديد أو شبه جديد</option>
+          <option>جيد</option><option>متوسط</option><option>يحتاج صيانة</option><option>غير محدد</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationDocs">حالة الوثائق <span aria-hidden="true">*</span></label>
+        <select id="valuationDocs" name="حالة الوثائق" data-label="حالة الوثائق" required>
+          <option value="">اختر حالة الوثائق</option>
+          <option>أصل الوثيقة أو العقد متاح</option><option>صور من الوثائق فقط</option>
+          <option>الوثائق غير مكتملة</option><option>لا أعرف</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valuationAge">عمر البناء بالسنوات إن وجد</label>
+        <input id="valuationAge" name="عمر البناء" data-label="عمر البناء" type="number" inputmode="numeric" min="0" max="150" step="1" placeholder="اختياري">
+      </div>
+      <div class="field">
+        <label for="valuationFloors">عدد الأدوار إن وجد</label>
+        <input id="valuationFloors" name="عدد الأدوار" data-label="عدد الأدوار" type="number" inputmode="numeric" min="1" max="100" step="1" placeholder="اختياري">
+      </div>
+      <div class="step-actions field-wide">
+        <button class="form-button secondary" type="button" data-prev><i class="fa-solid fa-arrow-right"></i> السابق</button>
+        <button class="form-button next" type="button" data-next>التالي: المراجعة <i class="fa-solid fa-arrow-left"></i></button>
+      </div>
+    </section>
+
+    <section class="form-panel" data-step="3" aria-labelledby="valuationStep3" hidden>
+      <h3 id="valuationStep3" class="panel-title"><i class="fa-solid fa-clipboard-check"></i> تفاصيل ومراجعة الطلب</h3>
+      <div class="field field-wide">
+        <label for="valuationLocation">رابط الموقع من الخرائط</label>
+        <input id="valuationLocation" name="رابط الموقع" data-label="رابط الموقع" type="url" inputmode="url" placeholder="اختياري: ألصق رابط موقع العقار">
+      </div>
+      <div class="field field-wide">
+        <label for="valuationDetails">تفاصيل تساعد على دقة التثمين <span aria-hidden="true">*</span></label>
+        <textarea id="valuationDetails" name="تفاصيل إضافية" data-label="تفاصيل إضافية" minlength="20" placeholder="اذكر الخدمات، حالة التشطيب، سهولة الوصول، الإشغال، وأي عوامل مؤثرة" required></textarea>
+      </div>
+      <div class="review-card field-wide">
+        <div class="review-head"><h4><i class="fa-solid fa-list-check"></i> راجع بياناتك</h4><span>لا يصدر سعر آلي من الموقع</span></div>
+        <dl id="valuationReview"></dl>
+      </div>
+      <p class="professional-note field-wide"><i class="fa-solid fa-shield-halved"></i> تُراجع البيانات مهنياً، وقد يتطلب التقدير الدقيق معاينة العقار والتحقق من الوثائق والمقارنات المتاحة.</p>
+      <div class="step-actions field-wide">
+        <button class="form-button secondary" type="button" data-prev><i class="fa-solid fa-arrow-right"></i> السابق</button>
+        <button class="form-button submit" type="submit"><i class="fa-brands fa-whatsapp"></i> تجهيز الطلب عبر واتساب</button>
+      </div>
+      <p class="form-status field-wide" id="valuationStatus" role="status" aria-live="polite"></p>
+    </section>
+  </form>
+  <div class="privacy">🔒 <strong>خصوصيتك أولوية لدينا.</strong> تُستخدم بياناتك فقط لمراجعة طلبك والتواصل معك، ولا تُنشر أو تُشارك مع أي طرف آخر دون موافقتك. <a href="privacy.html" style="color:inherit;text-decoration:underline">سياسة الخصوصية</a></div>
+</div></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">عناصر القيمة</span><h2>ما الذي يصنع سعر العقار؟</h2></div><p>السعر المعروض لا يساوي دائماً القيمة العادلة. التثمين المهني يجمع عدة عوامل ويوازن تأثير كل عامل.</p></div><div class="grid factors"><article class="card"><i class="fa-solid fa-location-dot"></i><h3>الموقع</h3><p>المديرية، الشارع، سهولة الوصول، طبيعة المحيط وقرب الخدمات.</p></article><article class="card"><i class="fa-solid fa-ruler-combined"></i><h3>المساحة والواجهة</h3><p>المساحة الفعلية، شكل الأرض، عرض الشارع والواجهة والاستفادة من المسطح.</p></article><article class="card"><i class="fa-solid fa-building"></i><h3>حالة البناء</h3><p>العمر، جودة التنفيذ، التشطيبات، الصيانة والعيوب الظاهرة.</p></article><article class="card"><i class="fa-solid fa-chart-column"></i><h3>السوق والطلب</h3><p>العروض القريبة، الصفقات المتاحة، قوة الطلب وسهولة إعادة البيع أو التأجير.</p></article></div></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">منهج العمل</span><h2>من الطلب إلى التقدير</h2></div><p>كل خطوة تقلل مساحة التخمين وتوضح أساس النتيجة.</p></div><div class="grid method"><article class="card step"><h3>جمع البيانات</h3><p>تحديد النوع والموقع والمساحة والغرض من التثمين.</p></article><article class="card step"><h3>فحص الوثائق</h3><p>مراجعة ما يتوفر من عقود ومخططات وبيانات أساسية.</p></article><article class="card step"><h3>المعاينة</h3><p>قراءة الحالة الفعلية والواجهة والخدمات والمحيط.</p></article><article class="card step"><h3>المقارنة</h3><p>موازنة العقار بعروض أو مؤشرات قريبة قابلة للمقارنة.</p></article><article class="card step"><h3>إصدار النتيجة</h3><p>عرض نطاق تقديري واضح مع الملاحظات المؤثرة.</p></article></div></div></section>
 <section class="section"><div class="wrap report"><div class="report-box"><span class="eyebrow">نموذج مخرجات</span><h2>ماذا يتضمن تقرير التثمين؟</h2><div class="report-list"><div class="report-row"><strong>وصف العقار</strong><span>النوع والموقع والمساحة والحالة</span></div><div class="report-row"><strong>عوامل الرفع</strong><span>الموقع، الواجهة، الخدمات أو جودة البناء</span></div><div class="report-row"><strong>عوامل الخفض</strong><span>الحاجة للصيانة، ضعف الوصول أو محدودية الطلب</span></div><div class="report-row"><strong>المقارنات</strong><span>أمثلة أو مؤشرات قريبة عند توفرها</span></div><div class="report-row"><strong>النطاق التقديري</strong><span>قيمة مرجحة وليست رقماً عشوائياً</span></div></div></div><div class="report-box"><span class="eyebrow">تنبيه مهني</span><h2>التثمين ليس إعلاناً للبيع</h2><p class="notice">القيمة التقديرية تعتمد على دقة البيانات، حالة السوق وقت التقييم، وإمكانية المعاينة. ولا تغني عن التوثيق الرسمي أو الرأي الهندسي والقانوني عند الحاجة.</p><h3>متى يفيدك التثمين؟</h3><p>قبل عرض العقار، قبل تقديم عرض شراء، عند القسمة، عند دراسة عائد استثماري، أو عند مراجعة سعر متداول في السوق.</p></div></div></section>
@@ -119,7 +401,166 @@ details p{color:var(--muted);margin:10px 0 0}
 <section class="section"><div class="wrap cta"><div><h2>لا تبيع أو تشتري بناءً على الانطباع</h2><p>ابدأ بطلب تثمين منظم من مكتب عماد عدن العقاري.</p></div><a class="btn" href="#request"><i class="fa-solid fa-arrow-up"></i> ابدأ طلب التثمين</a></div></section>
 </main>
 <footer class="footer"><div class="wrap">© 2026 مكتب عماد عدن العقاري — محتوى إرشادي لا يغني عن المعاينة والتوثيق والاستشارة المتخصصة.</div></footer>
-<nav class="mobile-bar"><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a class="primary" href="https://wa.me/967773571889" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a></nav>
-<script>function sendValuation(){const f=document.getElementById('valuationForm');const rows=[...new FormData(f).entries()].filter(([,v])=>String(v).trim()).map(([k,v])=>k+': '+v).join('\n');const text=encodeURIComponent('طلب تثمين عقاري\n'+rows);window.open('https://wa.me/967773571889?text='+text,'_blank','noopener')}</script>
+<nav class="mobile-bar" aria-label="تنقل سريع"><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a class="primary" href="#request"><i class="fa-solid fa-calculator"></i> اطلب التثمين</a></nav>
+<script>
+(function(){
+  const form=document.getElementById('valuationForm');
+  const panels=[...form.querySelectorAll('.form-panel')];
+  const progress=[...form.querySelectorAll('[data-progress]')];
+  const alertBox=document.getElementById('valuationAlert');
+  const review=document.getElementById('valuationReview');
+  const status=document.getElementById('valuationStatus');
+  let currentStep=1;
+
+  function normalizeDigits(value){
+    const arabic='٠١٢٣٤٥٦٧٨٩';
+    return String(value).replace(/[٠-٩]/g,function(d){return arabic.indexOf(d)}).replace(/[^0-9+]/g,'');
+  }
+
+  function showAlert(message){
+    alertBox.textContent=message;
+    alertBox.hidden=!message;
+  }
+
+  function showStep(step,focus){
+    currentStep=step;
+    panels.forEach(function(panel){
+      const active=Number(panel.dataset.step)===step;
+      panel.hidden=!active;
+      panel.classList.toggle('active',active);
+    });
+    progress.forEach(function(item){
+      const number=Number(item.dataset.progress);
+      item.classList.toggle('active',number===step);
+      item.classList.toggle('done',number<step);
+      if(number===step)item.setAttribute('aria-current','step');
+      else item.removeAttribute('aria-current');
+    });
+    showAlert('');
+    if(step===3)buildReview();
+    if(focus){
+      const heading=panels[step-1].querySelector('.panel-title');
+      if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true})}
+    }
+  }
+
+  function validateStep(step){
+    const panel=panels[step-1];
+    const fields=[...panel.querySelectorAll('input,select,textarea')];
+    const phone=form.elements['الجوال'];
+    if(step===1&&phone){
+      const digits=normalizeDigits(phone.value).replace('+','');
+      phone.setCustomValidity(digits.length>=7&&digits.length<=15?'':'أدخل رقم جوال صحيحاً');
+    }
+    let firstInvalid=null;
+    fields.forEach(function(field){
+      field.classList.toggle('invalid',!field.checkValidity());
+      if(!firstInvalid&&!field.checkValidity())firstInvalid=field;
+    });
+    if(firstInvalid){
+      showAlert('أكمل الحقول المطلوبة بشكل صحيح قبل الانتقال.');
+      firstInvalid.reportValidity();
+      firstInvalid.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function fieldValue(field){
+    if(field.tagName==='SELECT'){
+      const option=field.options[field.selectedIndex];
+      return option?option.text.trim():'';
+    }
+    return String(field.value||'').trim();
+  }
+
+  function buildReview(){
+    review.textContent='';
+    [...form.querySelectorAll('[name][data-label]')].forEach(function(field){
+      const value=fieldValue(field);
+      if(!value)return;
+      const wrap=document.createElement('div');
+      const dt=document.createElement('dt');
+      const dd=document.createElement('dd');
+      dt.textContent=field.dataset.label;
+      dd.textContent=value;
+      wrap.append(dt,dd);
+      review.appendChild(wrap);
+    });
+  }
+
+  form.addEventListener('click',function(event){
+    const next=event.target.closest('[data-next]');
+    const prev=event.target.closest('[data-prev]');
+    if(next&&validateStep(currentStep))showStep(Math.min(3,currentStep+1),true);
+    if(prev)showStep(Math.max(1,currentStep-1),true);
+  });
+
+  form.addEventListener('input',function(event){
+    if(event.target.matches('input,select,textarea')){
+      event.target.classList.remove('invalid');
+      event.target.setCustomValidity('');
+      showAlert('');
+      if(currentStep===3)buildReview();
+    }
+  });
+  form.addEventListener('change',function(){if(currentStep===3)buildReview()});
+
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    for(let step=1;step<=3;step+=1){
+      if(!validateStep(step)){showStep(step,false);validateStep(step);return}
+    }
+    const get=function(name){const field=form.elements[name];return field?fieldValue(field):''};
+    const optional=function(label,name,suffix){
+      const value=get(name);
+      return value?label+': '+value+(suffix||''):'';
+    };
+    const lines=[
+      'طلب تثمين عقاري جديد',
+      '━━━━━━━━━━━━━━',
+      'بيانات مقدم الطلب',
+      'الاسم: '+get('الاسم'),
+      'رقم الجوال: '+get('الجوال'),
+      '',
+      'بيانات العقار',
+      'نوع العقار: '+get('نوع العقار'),
+      'الموقع: '+get('المديرية')+' - '+get('الحي أو المنطقة'),
+      'الغرض من التثمين: '+get('الغرض من التثمين'),
+      'العملة المطلوبة: '+get('العملة المطلوبة'),
+      'المساحة: '+get('المساحة')+' '+get('وحدة المساحة'),
+      optional('عرض الشارع','عرض الشارع',' متر'),
+      optional('الواجهة','الواجهة'),
+      'حالة العقار: '+get('حالة العقار'),
+      'حالة الوثائق: '+get('حالة الوثائق'),
+      optional('عمر البناء','عمر البناء',' سنة'),
+      optional('عدد الأدوار','عدد الأدوار'),
+      optional('رابط الموقع','رابط الموقع'),
+      '',
+      'تفاصيل إضافية',
+      get('تفاصيل إضافية'),
+      '',
+      'ملاحظة: هذا طلب مراجعة مهنية وليس سعراً آلياً صادراً من الموقع.'
+    ].filter(function(line,index,array){return line!==''||array[index-1]!==''});
+    const url='https://wa.me/967773571889?text='+encodeURIComponent(lines.join('\n'));
+    status.textContent='تم تجهيز الطلب. راجع الرسالة في واتساب ثم أرسلها.';
+    const opened=window.open(url,'_blank','noopener');
+    if(!opened)window.location.href=url;
+  });
+
+  const revealTargets=document.querySelectorAll('.section-head,.card,.report-box,.faq details,.cta');
+  if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    revealTargets.forEach(function(item){item.classList.add('reveal-ready')});
+    const observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target)}
+      });
+    },{threshold:.12});
+    revealTargets.forEach(function(item){observer.observe(item)});
+  }
+
+  showStep(1,false);
+})();
+</script>
 </body>
 </html>
