@@ -164,7 +164,7 @@ img{display:block;max-width:100%}
 .route-card:hover,.route-card:focus-visible,.route-card[aria-pressed="true"]{transform:translateY(-7px);border-color:var(--route);box-shadow:0 18px 34px color-mix(in srgb,var(--route) 12%,transparent)}
 .route-card[aria-pressed="true"]{background:linear-gradient(155deg,color-mix(in srgb,var(--route) 14%,#211914),#100d0b)}
 .route-card[aria-pressed="true"]::before{content:"✓";position:absolute;left:13px;top:11px;color:#160f0a;background:var(--route);width:25px;height:25px;display:grid;place-items:center;border-radius:50%;font-weight:900}
-.ticket-section{padding:35px 0 78px}
+.ticket-section{padding:48px 0 62px;scroll-margin-top:88px;background:linear-gradient(180deg,rgba(184,154,99,.035),transparent 74%)}
 .ticket-shell{
   position:relative;display:grid;grid-template-columns:minmax(0,1.42fr) minmax(280px,.58fr);
   border:1px solid rgba(184,154,99,.3);background:rgba(14,11,10,.9);
@@ -307,55 +307,13 @@ textarea.control{min-height:136px;resize:vertical}
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> البوابة التشغيلية للطلبات العقارية</p>
-        <h1>طلبك يدخل واضحًا<span>ويصبح جاهزًا للمتابعة</span></h1>
-        <p class="hero-lead">اختر مسار طلبك، أدخل البيانات الأساسية، وستحصل على رقم مرجعي ورسالة مرتبة ترسلها مباشرة إلى واتساب المكتب.</p>
-        <div class="hero-buttons">
-          <a class="btn btn-main" href="#request"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> إنشاء طلب الآن</a>
-          <a class="btn btn-ghost" href="#workflow"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> كيف تتم المتابعة؟</a>
-        </div>
-      </div>
-      <aside class="ops-panel reveal" aria-label="لوحة تشغيل الطلب">
-        <div class="ops-head">
-          <strong>لوحة استقبال الطلب</strong>
-          <span class="ops-code">OPS / ADEN / 01</span>
-        </div>
-        <ul class="ops-list">
-          <li><span class="ops-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><b>تحديد المسار</b><span class="ops-state">جاهز</span></li>
-          <li><span class="ops-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></span><b>تنظيم البيانات</b><span>داخل النموذج</span></li>
-          <li><span class="ops-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><b>تسليم الطلب</b><span>عبر واتساب</span></li>
-        </ul>
-        <div class="ops-foot"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> لا يتم الإرسال إلا بعد ضغطك على زر الإرسال.</div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="route-section" aria-labelledby="routeTitle">
-    <div class="shell">
-      <div class="section-head reveal">
-        <div><div class="section-tag">01 / تحديد المسار</div><h2 id="routeTitle">ما نوع طلبك العقاري؟</h2></div>
-        <p>اختر بطاقة واحدة. سيتكيّف النموذج والمعاينة مع المسار الذي تحدده.</p>
-      </div>
-      <div class="route-grid" id="routeGrid" role="group" aria-label="اختيار نوع الطلب">
-        <button class="route-card reveal" type="button" data-value="بيع عقار" data-price-label="السعر المتوقع" aria-pressed="false"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i><strong>بيع عقار</strong><small>عرض عقارك وبياناته الأساسية للمراجعة.</small></button>
-        <button class="route-card reveal" type="button" data-value="شراء عقار" data-price-label="الميزانية المتاحة" aria-pressed="false"><i class="fa-solid fa-key" aria-hidden="true"></i><strong>شراء عقار</strong><small>حدد احتياجك والميزانية والموقع المطلوب.</small></button>
-        <button class="route-card reveal" type="button" data-value="إيجار أو استئجار" data-price-label="قيمة الإيجار المتوقعة" aria-pressed="false"><i class="fa-solid fa-building-user" aria-hidden="true"></i><strong>إيجار أو استئجار</strong><small>سكني أو تجاري مع تفاصيل المدة والموقع.</small></button>
-        <button class="route-card reveal" type="button" data-value="بحث عن عقار" data-price-label="الميزانية التقريبية" aria-pressed="false"><i class="fa-solid fa-magnifying-glass-location" aria-hidden="true"></i><strong>بحث عن عقار</strong><small>طلب بحث منظم وفق مواصفات واضحة.</small></button>
-        <button class="route-card reveal" type="button" data-value="استشارة عقارية" data-price-label="النطاق المالي إن وجد" aria-pressed="false"><i class="fa-solid fa-comments" aria-hidden="true"></i><strong>استشارة عقارية</strong><small>اشرح الحالة والمستندات المتاحة بإيجاز.</small></button>
-      </div>
-    </div>
-  </section>
-
   <section class="ticket-section" id="request" aria-labelledby="formTitle">
     <div class="shell">
       <div class="ticket-shell reveal">
         <form class="ticket-form" id="requestForm" novalidate>
           <div class="ticket-top">
             <div>
-              <div class="ticket-kicker"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> 02 / بيانات التذكرة</div>
+              <div class="ticket-kicker"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> 01 / بيانات التذكرة</div>
               <h2 id="formTitle">أنشئ طلبًا واضحًا</h2>
               <p class="intro">الحقول المعلّمة بنجمة مطلوبة لإعداد الرسالة.</p>
             </div>
@@ -369,6 +327,17 @@ textarea.control{min-height:136px;resize:vertical}
           <input type="hidden" id="reference" name="reference">
 
           <div class="form-grid">
+            <div class="field full">
+              <label for="requestTypeSelect">نوع الطلب *</label>
+              <select class="control" id="requestTypeSelect" name="requestTypeSelect" required>
+                <option value="">اختر نوع الطلب</option>
+                <option value="بيع عقار">بيع عقار</option>
+                <option value="شراء عقار">شراء عقار</option>
+                <option value="إيجار أو استئجار">إيجار أو استئجار</option>
+                <option value="بحث عن عقار">بحث عن عقار</option>
+                <option value="استشارة عقارية">استشارة عقارية</option>
+              </select>
+            </div>
             <div class="field">
               <label for="name">الاسم الكامل *</label>
               <input class="control" id="name" name="name" type="text" autocomplete="name" placeholder="اكتب اسمك" required>
@@ -454,6 +423,49 @@ textarea.control{min-height:136px;resize:vertical}
     </div>
   </section>
 
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> البوابة التشغيلية للطلبات العقارية</p>
+        <h1>طلبك يدخل واضحًا<span>ويصبح جاهزًا للمتابعة</span></h1>
+        <p class="hero-lead">اختر مسار طلبك، أدخل البيانات الأساسية، وستحصل على رقم مرجعي ورسالة مرتبة ترسلها مباشرة إلى واتساب المكتب.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-main" href="#request"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> إنشاء طلب الآن</a>
+          <a class="btn btn-ghost" href="#workflow"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> كيف تتم المتابعة؟</a>
+        </div>
+      </div>
+      <aside class="ops-panel reveal" aria-label="لوحة تشغيل الطلب">
+        <div class="ops-head">
+          <strong>لوحة استقبال الطلب</strong>
+          <span class="ops-code">OPS / ADEN / 01</span>
+        </div>
+        <ul class="ops-list">
+          <li><span class="ops-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><b>تحديد المسار</b><span class="ops-state">جاهز</span></li>
+          <li><span class="ops-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></span><b>تنظيم البيانات</b><span>داخل النموذج</span></li>
+          <li><span class="ops-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><b>تسليم الطلب</b><span>عبر واتساب</span></li>
+        </ul>
+        <div class="ops-foot"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> لا يتم الإرسال إلا بعد ضغطك على زر الإرسال.</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="route-section" aria-labelledby="routeTitle">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div><div class="section-tag">02 / اختيار المسار</div><h2 id="routeTitle">ما نوع طلبك العقاري؟</h2></div>
+        <p>اختر بطاقة واحدة. سيتكيّف النموذج والمعاينة مع المسار الذي تحدده.</p>
+      </div>
+      <div class="route-grid" id="routeGrid" role="group" aria-label="اختيار نوع الطلب">
+        <button class="route-card reveal" type="button" data-value="بيع عقار" data-price-label="السعر المتوقع" aria-pressed="false"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i><strong>بيع عقار</strong><small>عرض عقارك وبياناته الأساسية للمراجعة.</small></button>
+        <button class="route-card reveal" type="button" data-value="شراء عقار" data-price-label="الميزانية المتاحة" aria-pressed="false"><i class="fa-solid fa-key" aria-hidden="true"></i><strong>شراء عقار</strong><small>حدد احتياجك والميزانية والموقع المطلوب.</small></button>
+        <button class="route-card reveal" type="button" data-value="إيجار أو استئجار" data-price-label="قيمة الإيجار المتوقعة" aria-pressed="false"><i class="fa-solid fa-building-user" aria-hidden="true"></i><strong>إيجار أو استئجار</strong><small>سكني أو تجاري مع تفاصيل المدة والموقع.</small></button>
+        <button class="route-card reveal" type="button" data-value="بحث عن عقار" data-price-label="الميزانية التقريبية" aria-pressed="false"><i class="fa-solid fa-magnifying-glass-location" aria-hidden="true"></i><strong>بحث عن عقار</strong><small>طلب بحث منظم وفق مواصفات واضحة.</small></button>
+        <button class="route-card reveal" type="button" data-value="استشارة عقارية" data-price-label="النطاق المالي إن وجد" aria-pressed="false"><i class="fa-solid fa-comments" aria-hidden="true"></i><strong>استشارة عقارية</strong><small>اشرح الحالة والمستندات المتاحة بإيجاز.</small></button>
+      </div>
+    </div>
+  </section>
+
+
   <section class="workflow" id="workflow" aria-labelledby="workflowTitle">
     <div class="shell">
       <div class="workflow-board reveal">
@@ -498,6 +510,7 @@ textarea.control{min-height:136px;resize:vertical}
   "use strict";
   var form = document.getElementById("requestForm");
   var requestType = document.getElementById("requestType");
+  var requestTypeSelect = document.getElementById("requestTypeSelect");
   var reference = document.getElementById("reference");
   var alertBox = document.getElementById("formAlert");
   var cards = Array.prototype.slice.call(document.querySelectorAll(".route-card"));
@@ -532,17 +545,32 @@ textarea.control{min-height:136px;resize:vertical}
     document.getElementById("previewPrice").textContent = price ? price + (currency ? " " + currency : "") : "غير محدد";
   }
 
+  function selectRoute(value,shouldScroll){
+    requestType.value = value;
+    requestTypeSelect.value = value;
+    var selectedCard = null;
+    cards.forEach(function(item){
+      var isSelected = item.getAttribute("data-value") === value;
+      item.setAttribute("aria-pressed",isSelected ? "true" : "false");
+      if(isSelected){ selectedCard = item; }
+    });
+    if(selectedCard){
+      var priceText = selectedCard.getAttribute("data-price-label");
+      document.getElementById("priceLabel").innerHTML = priceText + ' <small>(اختياري)</small>';
+    }
+    alertBox.hidden = true;
+    updatePreview();
+    if(shouldScroll){ document.getElementById("request").scrollIntoView({behavior:"smooth",block:"start"}); }
+  }
+
   cards.forEach(function(card){
     card.addEventListener("click",function(){
-      cards.forEach(function(item){ item.setAttribute("aria-pressed","false"); });
-      card.setAttribute("aria-pressed","true");
-      requestType.value = card.getAttribute("data-value");
-      var priceText = card.getAttribute("data-price-label");
-      document.getElementById("priceLabel").innerHTML = priceText + ' <small>(اختياري)</small>';
-      alertBox.hidden = true;
-      updatePreview();
-      document.getElementById("request").scrollIntoView({behavior:"smooth",block:"start"});
+      selectRoute(card.getAttribute("data-value"),true);
     });
+  });
+
+  requestTypeSelect.addEventListener("change",function(){
+    selectRoute(requestTypeSelect.value,false);
   });
 
   Object.keys(fields).forEach(function(key){
@@ -561,8 +589,7 @@ textarea.control{min-height:136px;resize:vertical}
     alertBox.hidden = true;
 
     if(!requestType.value){
-      showError("اختر نوع الطلب من البطاقات أولًا.",cards[0]);
-      document.getElementById("routeTitle").scrollIntoView({behavior:"smooth",block:"center"});
+      showError("اختر نوع الطلب من أعلى النموذج أولًا.",requestTypeSelect);
       return;
     }
     if(!form.checkValidity()){
