@@ -196,8 +196,27 @@ img{display:block;max-width:100%}
 .control:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(184,154,99,.08)}
 textarea.control{min-height:136px;resize:vertical}
 .split-control{display:grid;grid-template-columns:1fr 118px;gap:9px}
+.appointment-box{padding:16px;border:1px solid rgba(184,154,99,.2);border-radius:16px;background:rgba(184,154,99,.025)}
+.appointment-toggle{display:flex!important;align-items:center;gap:13px;cursor:pointer}
+.appointment-toggle input{position:absolute;opacity:0;pointer-events:none}
+.toggle-mark{position:relative;flex:0 0 46px;width:46px;height:26px;border:1px solid rgba(208,189,147,.24);border-radius:999px;background:#100d0b;transition:.2s ease}
+.toggle-mark::after{content:"";position:absolute;top:4px;right:4px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:.2s ease}
+.appointment-toggle input:checked+.toggle-mark{border-color:var(--cyan);background:rgba(184,154,99,.16)}
+.appointment-toggle input:checked+.toggle-mark::after{right:24px;background:var(--cyan)}
+.appointment-toggle input:focus-visible+.toggle-mark{outline:2px solid var(--cyan);outline-offset:3px}
+.appointment-toggle strong{display:block;color:var(--text)}
+.appointment-toggle small{display:block;margin-top:2px;color:var(--muted);font-weight:500}
+.appointment-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px;padding-top:16px;border-top:1px dashed rgba(208,189,147,.16)}
+.appointment-note{grid-column:1/-1;display:flex;gap:8px;align-items:flex-start;margin:0;color:var(--muted);font-size:.8rem}
+.appointment-note i{margin-top:4px;color:var(--orange)}
 .form-note{display:flex;gap:9px;align-items:flex-start;margin:18px 0 0;color:var(--muted);font-size:.83rem}
 .form-note i{color:var(--mint);margin-top:5px}
+.draft-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:10px 12px;border:1px solid rgba(208,189,147,.13);border-radius:12px;background:rgba(255,255,255,.014)}
+.draft-status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.78rem}
+.draft-status i{color:var(--mint)}
+.clear-draft{padding:6px 10px;border:1px solid rgba(208,189,147,.16);border-radius:9px;color:var(--muted);background:transparent;font-size:.75rem;font-weight:800;transition:.2s ease}
+.clear-draft:hover,.clear-draft:focus-visible{color:var(--text);border-color:var(--orange)}
+.draft-privacy{margin:7px 2px 0;color:#746e68;font-size:.71rem}
 .form-alert{margin-top:16px;padding:11px 14px;border:1px solid rgba(143,107,71,.45);background:rgba(143,107,71,.08);color:#d8c8b5;border-radius:12px}
 .submit-row{display:flex;align-items:center;gap:15px;margin-top:22px}
 .submit-btn{
@@ -270,6 +289,8 @@ textarea.control{min-height:136px;resize:vertical}
   .ticket-section{padding-top:15px}.ticket-form,.ticket-stub{padding:24px 18px}
   .ticket-top{display:grid}.ref-badge,.barcode,.stub-code{display:none}
   .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.split-control{grid-template-columns:1fr 105px}
+  .appointment-fields{grid-template-columns:1fr}.appointment-note{grid-column:auto}
+  .draft-bar{align-items:flex-start;flex-direction:column}.clear-draft{width:100%}
   .submit-row{display:grid}.submit-btn{width:100%}
   .workflow-board{padding:24px 18px}.workflow-list{grid-template-columns:1fr}
   .stage{border-left:0;border-bottom:1px dashed rgba(208,189,147,.2)!important}.stage:last-child{border-bottom:0!important}
@@ -385,11 +406,26 @@ textarea.control{min-height:136px;resize:vertical}
                 <option value="">اختر العملة</option><option value="ريال يمني">ريال يمني</option><option value="ريال سعودي">ريال سعودي</option><option value="دولار أمريكي">دولار أمريكي</option>
               </select>
             </div>
-            <div class="field">
-              <label for="contactTime">وقت التواصل المناسب <small>(اختياري)</small></label>
-              <select class="control" id="contactTime" name="contactTime">
-                <option value="">أي وقت مناسب</option><option>صباحًا</option><option>ظهرًا</option><option>مساءً</option>
-              </select>
+            <div class="appointment-box field full">
+              <label class="appointment-toggle" for="appointmentEnabled">
+                <input id="appointmentEnabled" name="appointmentEnabled" type="checkbox">
+                <span class="toggle-mark" aria-hidden="true"></span>
+                <span><strong>أرغب بحجز موعد تواصل</strong><small>اختياري — يؤكد المكتب الموعد بعد مراجعة الطلب</small></span>
+              </label>
+              <div class="appointment-fields" id="appointmentFields" hidden>
+                <div class="field">
+                  <label for="appointmentDate">التاريخ المناسب *</label>
+                  <input class="control" id="appointmentDate" name="appointmentDate" type="date">
+                </div>
+                <div class="field">
+                  <label for="contactTime">الفترة المناسبة *</label>
+                  <select class="control" id="contactTime" name="contactTime">
+                    <option value="">اختر الفترة</option>
+                    <option>صباحًا</option><option>ظهرًا</option><option>مساءً</option>
+                  </select>
+                </div>
+                <p class="appointment-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> اختيار التاريخ والفترة طلب مبدئي، ويصبح مؤكدًا بعد تواصل المكتب معك.</p>
+              </div>
             </div>
             <div class="field full">
               <label for="details">تفاصيل الطلب *</label>
@@ -398,6 +434,11 @@ textarea.control{min-height:136px;resize:vertical}
           </div>
 
           <p class="form-note"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>تُستخدم البيانات لترتيب طلبك والتواصل بشأنه فقط. لا يعتبر إرسال النموذج اتفاقًا أو قبولًا تلقائيًا.</span></p>
+          <div class="draft-bar">
+            <span class="draft-status" id="draftStatus" aria-live="polite"><i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i> الحفظ التلقائي جاهز على هذا الجهاز</span>
+            <button class="clear-draft" id="clearDraft" type="button"><i class="fa-solid fa-eraser" aria-hidden="true"></i> مسح المسودة</button>
+          </div>
+          <p class="draft-privacy">تُحفظ المسودة داخل هذا المتصفح فقط لمدة 48 ساعة، ولا تُرسل إلى المكتب حتى تضغط زر واتساب.</p>
           <div class="form-alert" id="formAlert" role="alert" hidden></div>
           <div class="submit-row">
             <button class="submit-btn" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> تجهيز وإرسال الطلب</button>
@@ -413,6 +454,7 @@ textarea.control{min-height:136px;resize:vertical}
             <div class="summary-item"><span>العقار</span><strong id="previewProperty">غير محدد</strong></div>
             <div class="summary-item"><span>الموقع</span><strong id="previewLocation">غير محدد</strong></div>
             <div class="summary-item"><span>السعر / الميزانية</span><strong id="previewPrice">غير محدد</strong></div>
+            <div class="summary-item"><span>موعد التواصل</span><strong id="previewAppointment">غير مطلوب</strong></div>
           </div>
           <div class="barcode" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -513,8 +555,12 @@ textarea.control{min-height:136px;resize:vertical}
   var requestTypeSelect = document.getElementById("requestTypeSelect");
   var reference = document.getElementById("reference");
   var alertBox = document.getElementById("formAlert");
+  var appointmentEnabled = document.getElementById("appointmentEnabled");
+  var appointmentFields = document.getElementById("appointmentFields");
+  var draftStatus = document.getElementById("draftStatus");
+  var clearDraft = document.getElementById("clearDraft");
   var cards = Array.prototype.slice.call(document.querySelectorAll(".route-card"));
-  var ids = ["name","phone","propertyType","district","neighborhood","area","areaUnit","price","currency","contactTime","details"];
+  var ids = ["name","phone","propertyType","district","neighborhood","area","areaUnit","price","currency","appointmentDate","contactTime","details"];
   var fields = {};
   ids.forEach(function(id){ fields[id] = document.getElementById(id); });
 
@@ -543,6 +589,77 @@ textarea.control{min-height:136px;resize:vertical}
     var price = valueOr(fields.price,"");
     var currency = valueOr(fields.currency,"");
     document.getElementById("previewPrice").textContent = price ? price + (currency ? " " + currency : "") : "غير محدد";
+    var appointmentText = "غير مطلوب";
+    if(appointmentEnabled.checked){
+      var date = valueOr(fields.appointmentDate,"اختر التاريخ");
+      var slot = valueOr(fields.contactTime,"اختر الفترة");
+      appointmentText = date + " — " + slot;
+    }
+    document.getElementById("previewAppointment").textContent = appointmentText;
+  }
+
+  function updateAppointment(){
+    var enabled = appointmentEnabled.checked;
+    appointmentFields.hidden = !enabled;
+    fields.appointmentDate.required = enabled;
+    fields.contactTime.required = enabled;
+    updatePreview();
+  }
+
+  var draftKey = "emad-aden-request-draft-v1";
+  var draftLifetime = 48 * 60 * 60 * 1000;
+  var draftIds = ["requestTypeSelect","name","phone","propertyType","district","neighborhood","area","areaUnit","price","currency","appointmentDate","contactTime","details"];
+  var saveTimer = null;
+
+  function formatSaveTime(date){
+    return date.toLocaleTimeString("ar-YE",{hour:"2-digit",minute:"2-digit"});
+  }
+
+  function saveDraft(){
+    try{
+      var data = {};
+      draftIds.forEach(function(id){
+        var element = document.getElementById(id);
+        data[id] = element ? element.value : "";
+      });
+      data.appointmentEnabled = appointmentEnabled.checked;
+      localStorage.setItem(draftKey,JSON.stringify({savedAt:Date.now(),data:data}));
+      draftStatus.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> تم الحفظ تلقائيًا ' + formatSaveTime(new Date());
+    }catch(error){
+      draftStatus.textContent = "تعذر الحفظ التلقائي في هذا المتصفح";
+    }
+  }
+
+  function scheduleSave(){
+    clearTimeout(saveTimer);
+    draftStatus.innerHTML = '<i class="fa-solid fa-pen" aria-hidden="true"></i> جارٍ حفظ التغييرات...';
+    saveTimer = setTimeout(saveDraft,450);
+  }
+
+  function restoreDraft(){
+    try{
+      var raw = localStorage.getItem(draftKey);
+      if(!raw){ return false; }
+      var saved = JSON.parse(raw);
+      if(!saved.savedAt || Date.now() - saved.savedAt > draftLifetime){
+        localStorage.removeItem(draftKey);
+        return false;
+      }
+      draftIds.forEach(function(id){
+        var element = document.getElementById(id);
+        if(element && Object.prototype.hasOwnProperty.call(saved.data,id)){
+          element.value = saved.data[id];
+        }
+      });
+      appointmentEnabled.checked = Boolean(saved.data.appointmentEnabled);
+      selectRoute(requestTypeSelect.value,false);
+      updateAppointment();
+      draftStatus.innerHTML = '<i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> تمت استعادة مسودتك المحفوظة';
+      return true;
+    }catch(error){
+      localStorage.removeItem(draftKey);
+      return false;
+    }
   }
 
   function selectRoute(value,shouldScroll){
@@ -577,6 +694,25 @@ textarea.control{min-height:136px;resize:vertical}
     fields[key].addEventListener("input",updatePreview);
     fields[key].addEventListener("change",updatePreview);
   });
+
+  appointmentEnabled.addEventListener("change",updateAppointment);
+  form.addEventListener("input",scheduleSave);
+  form.addEventListener("change",scheduleSave);
+
+  clearDraft.addEventListener("click",function(){
+    clearTimeout(saveTimer);
+    localStorage.removeItem(draftKey);
+    form.reset();
+    selectRoute("",false);
+    updateAppointment();
+    updatePreview();
+    draftStatus.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> تم مسح المسودة من هذا الجهاز';
+    alertBox.hidden = true;
+  });
+
+  var today = new Date();
+  fields.appointmentDate.min = String(today.getFullYear()) + "-" + pad(today.getMonth()+1) + "-" + pad(today.getDate());
+  if(!restoreDraft()){ updateAppointment(); }
 
   function showError(message,element){
     alertBox.textContent = message;
@@ -622,12 +758,13 @@ textarea.control{min-height:136px;resize:vertical}
       "الحي / المعلم: " + valueOr(fields.neighborhood,""),
       "المساحة: " + areaText,
       document.getElementById("priceLabel").textContent.replace("(اختياري)","").trim() + ": " + priceText,
-      "وقت التواصل: " + valueOr(fields.contactTime,"أي وقت مناسب"),
+      "موعد التواصل المطلوب: " + (appointmentEnabled.checked ? valueOr(fields.appointmentDate,"") + " — " + valueOr(fields.contactTime,"") : "لم يُطلب موعد محدد"),
       "━━━━━━━━━━━━━━",
       "تفاصيل الطلب:",
       valueOr(fields.details,"")
     ];
     window.open("https://wa.me/967773571889?text=" + encodeURIComponent(lines.join("\n")),"_blank","noopener");
+    draftStatus.innerHTML = '<i class="fa-brands fa-whatsapp" aria-hidden="true"></i> فُتح واتساب؛ يمكنك مسح المسودة بعد التأكد من الإرسال';
   });
 
   var reveals = document.querySelectorAll(".reveal");
