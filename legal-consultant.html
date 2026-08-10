@@ -115,6 +115,125 @@
 }
 .contract-grid .feature-card:nth-child(6)::before{top:auto;right:auto;bottom:-48px;left:-44px;border-radius:50%;transform:none}
 .contract-grid .feature-card:nth-child(6)::after{top:auto;right:auto;bottom:0;left:24px;width:90px;height:4px;border-radius:999px 999px 0 0;background:linear-gradient(90deg,transparent,var(--card-accent))}
+/* Distinct page-wide card themes */
+.hero-card,.form-card,.intro-card,.faq-card{
+  --panel-accent:#FB7185;
+  --panel-rgb:251,113,133;
+  --panel-radius:46px 16px 46px 16px;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-radius:var(--panel-radius);
+  border-color:rgba(var(--panel-rgb),.40);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(var(--panel-rgb),.16),transparent 34%),
+    linear-gradient(145deg,rgba(var(--panel-rgb),.07),rgba(15,15,18,.94) 54%);
+  box-shadow:0 18px 46px rgba(0,0,0,.37),inset 0 1px 0 rgba(var(--panel-rgb),.11);
+}
+.hero-card::before,.form-card::before,.intro-card::before,.faq-card::before{
+  content:"";
+  position:absolute;
+  width:116px;
+  height:116px;
+  top:-52px;
+  right:-46px;
+  border:1px solid rgba(var(--panel-rgb),.25);
+  border-radius:30px;
+  transform:rotate(26deg);
+  pointer-events:none;
+}
+.hero-card::after,.form-card::after,.intro-card::after,.faq-card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:28px;
+  width:92px;
+  height:4px;
+  border-radius:0 0 999px 999px;
+  background:linear-gradient(90deg,transparent,var(--panel-accent));
+  pointer-events:none;
+}
+.hero-card h2,.form-card h2,.intro-card h3,.faq-card>.section-head h2{
+  color:var(--panel-accent)!important;
+}
+.hero-card:hover,.form-card:hover,.intro-card:hover,.faq-card:hover{
+  border-color:rgba(var(--panel-rgb),.70);
+  box-shadow:0 22px 52px rgba(0,0,0,.43),0 0 0 1px rgba(var(--panel-rgb),.09);
+}
+.hero-card{
+  --panel-accent:#FB7185;--panel-rgb:251,113,133;
+  --panel-radius:48px 16px 48px 16px;
+}
+.hero-card::before{border-radius:50% 18px 50% 18px;transform:rotate(34deg)}
+.form-card{
+  --panel-accent:#2DD4BF;--panel-rgb:45,212,191;
+  --panel-radius:18px 54px 18px 54px;
+}
+.form-card::before{top:auto;right:auto;bottom:-52px;left:-46px;border-radius:50%;transform:none}
+.form-card::after{top:auto;right:auto;bottom:0;left:30px;border-radius:999px 999px 0 0;background:linear-gradient(90deg,var(--panel-accent),transparent)}
+.form-card .input:focus{border-color:var(--panel-accent);box-shadow:0 0 0 2px rgba(var(--panel-rgb),.10)}
+.section.grid-3>.intro-card:nth-child(1){
+  --panel-accent:#F87171;--panel-rgb:248,113,113;
+  --panel-radius:50px 14px 14px 50px;
+}
+.section.grid-3>.intro-card:nth-child(1)::before{top:auto;right:-46px;bottom:-52px;border-radius:18px 50% 18px 50%;transform:rotate(20deg)}
+.section.grid-3>.intro-card:nth-child(1)::after{right:0;width:78px;border-radius:0 0 0 999px}
+.section.grid-3>.intro-card:nth-child(2){
+  --panel-accent:#818CF8;--panel-rgb:129,140,248;
+  --panel-radius:14px 50px 50px 14px;
+}
+.section.grid-3>.intro-card:nth-child(2)::before{right:auto;left:-46px;border-radius:50%;transform:none}
+.section.grid-3>.intro-card:nth-child(2)::after{top:26px;right:0;width:4px;height:74px;border-radius:999px 0 0 999px;background:linear-gradient(180deg,var(--panel-accent),transparent)}
+.section.grid-3>.intro-card:nth-child(3){
+  --panel-accent:#A3E635;--panel-rgb:163,230,53;
+  --panel-radius:48px 48px 14px 14px;
+}
+.section.grid-3>.intro-card:nth-child(3)::before{top:auto;right:auto;bottom:-52px;left:-46px;border-radius:18px;transform:rotate(46deg)}
+.section.grid-3>.intro-card:nth-child(3)::after{top:auto;right:28px;bottom:0;border-radius:999px 999px 0 0;background:linear-gradient(90deg,transparent,var(--panel-accent))}
+.faq-card{
+  --panel-accent:#FBBF24;--panel-rgb:251,191,36;
+  --panel-radius:20px 20px 56px 56px;
+}
+.faq-card::before{right:auto;left:-46px;border-radius:50% 16px 50% 16px;transform:rotate(42deg)}
+.faq-card::after{right:auto;left:50%;transform:translateX(-50%);width:128px;background:linear-gradient(90deg,transparent,var(--panel-accent),transparent)}
+.faq-card details{
+  --item-accent:#38BDF8;
+  --item-rgb:56,189,248;
+  --item-radius:32px 10px 32px 10px;
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--item-radius);
+  border-color:rgba(var(--item-rgb),.38);
+  background:
+    linear-gradient(125deg,rgba(var(--item-rgb),.12),rgba(255,255,255,.025) 46%),
+    rgba(10,10,13,.78);
+  box-shadow:inset 4px 0 0 rgba(var(--item-rgb),.55);
+  transition:transform .22s,border-color .22s,background .22s;
+}
+.faq-card details:hover{
+  transform:translateY(-2px);
+  border-color:rgba(var(--item-rgb),.68);
+  background:
+    linear-gradient(125deg,rgba(var(--item-rgb),.18),rgba(255,255,255,.035) 50%),
+    rgba(10,10,13,.82);
+}
+.faq-card details summary{color:var(--item-accent)}
+.faq-card details:nth-of-type(1){
+  --item-accent:#38BDF8;--item-rgb:56,189,248;
+  --item-radius:34px 10px 34px 10px;
+  box-shadow:inset 4px 0 0 rgba(var(--item-rgb),.55);
+}
+.faq-card details:nth-of-type(2){
+  --item-accent:#E879F9;--item-rgb:232,121,249;
+  --item-radius:10px 34px 10px 34px;
+  box-shadow:inset -4px 0 0 rgba(var(--item-rgb),.55);
+}
+.faq-card details:nth-of-type(3){
+  --item-accent:#4ADE80;--item-rgb:74,222,128;
+  --item-radius:34px 34px 10px 10px;
+  box-shadow:inset 0 -4px 0 rgba(var(--item-rgb),.55);
+}
+
 .check-list{margin:0;padding-right:18px;color:var(--muted);line-height:2.05}.faq details{background:rgba(255,255,255,.04);border:1px solid rgba(229,192,123,.14);border-radius:18px;padding:14px 18px;margin-bottom:12px}.faq summary{cursor:pointer;color:var(--gold);font-weight:900}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.full{grid-column:1/-1}#consult,#contracts{scroll-margin-top:120px}footer{border-top:1px solid rgba(229,192,123,.16);padding:28px 0;color:var(--muted);text-align:center}.download-btn{cursor:pointer;font-family:inherit;font-weight:800;transition:.2s}.download-btn:hover{background:rgba(229,192,123,.16);transform:translateY(-1px)}.download-note{font-size:.78rem;color:var(--muted);margin-top:10px}@media (max-width: 980px){.hero-grid,.grid-2{grid-template-columns:1fr}.grid-3,.contract-grid{grid-template-columns:1fr 1fr}.nav{grid-template-columns:1fr auto}.brand{grid-column:1}.home-btn{grid-column:2}.nav-links{grid-column:1/-1;justify-content:flex-start}}@media (max-width: 640px){html{scroll-padding-top:170px}.grid-3,.grid-2,.contract-grid,.form-grid{grid-template-columns:1fr}.container{width:min(100% - 22px,1180px)}.nav{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand home" "links links";gap:10px 12px;padding:10px 0 12px}.brand{grid-area:brand}.brand img{width:44px;height:44px;border-radius:13px}.brand strong{font-size:.92rem;white-space:normal;line-height:1.35}.brand span{font-size:.72rem;line-height:1.35}.home-btn{grid-area:home;padding:9px 14px;font-size:.85rem}.nav-links{grid-area:links;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%}.nav-links a{text-align:center;padding:9px 8px;font-size:.82rem;line-height:1.35}.section{padding:40px 0}.hero-grid{padding-top:34px;gap:18px}.title{font-size:2.2rem}.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}.hero-actions .btn{padding:10px 12px}.form-card{padding:19px}#consult,#contracts{scroll-margin-top:170px}}
 </style>
 <title>مركز الاستشارات القانونية العقارية في عدن</title>
