@@ -307,6 +307,313 @@ textarea.control{min-height:136px;resize:vertical}
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== هوية مكتب عماد عدن العقاري — نسخة هادئة وفاخرة ===== */
+:root{
+  --bg:#0d0a08;
+  --panel:#171210;
+  --panel-2:#1e1713;
+  --panel-3:#281e18;
+  --cyan:#b89a63;
+  --cyan-soft:#d7c49e;
+  --orange:#8c6848;
+  --mint:#a59a80;
+  --violet:#89776a;
+  --blue:#7f837d;
+  --text:#f2ece2;
+  --muted:#a49a90;
+  --line:rgba(215,196,158,.15);
+  --shadow:0 26px 72px rgba(0,0,0,.34);
+  --radius:28px;
+}
+body{
+  background:
+    radial-gradient(circle at 88% 0,rgba(184,154,99,.08),transparent 30rem),
+    radial-gradient(circle at 8% 42%,rgba(112,78,52,.07),transparent 28rem),
+    linear-gradient(180deg,#0d0a08 0%,#100c0a 52%,#0c0908 100%);
+}
+body::before{display:none}
+.site-header{
+  background:rgba(13,10,8,.92);
+  border-bottom-color:rgba(215,196,158,.13);
+  box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.header-row{height:86px}
+.brand-logo{
+  border-radius:18px;
+  border-color:rgba(215,196,158,.42);
+  box-shadow:0 0 0 4px rgba(184,154,99,.045),0 10px 26px rgba(0,0,0,.3);
+}
+.brand-copy strong{color:var(--text);font-weight:900}
+.brand-copy small{color:#c6b58f}
+.live-dot{background:#ad9b74;box-shadow:none;animation:none}
+.header-link{
+  border-color:rgba(215,196,158,.14);
+  background:rgba(255,255,255,.012);
+  border-radius:13px;
+}
+.header-link.primary,.mobile-bar .start{
+  background:linear-gradient(135deg,#d1b87f,#a98449);
+  border-color:rgba(229,207,158,.24);
+  color:#1b130c;
+  box-shadow:0 10px 26px rgba(139,100,58,.16);
+}
+.header-link:hover,.header-link:focus-visible{border-color:rgba(215,196,158,.42)}
+.ticket-section{
+  padding:42px 0 68px;
+  background:linear-gradient(180deg,rgba(184,154,99,.025),transparent 78%);
+}
+.ticket-shell{
+  grid-template-columns:minmax(0,1.55fr) minmax(290px,.55fr);
+  border:1px solid rgba(215,196,158,.18);
+  background:linear-gradient(145deg,rgba(25,19,16,.98),rgba(15,11,9,.98));
+  border-radius:30px;
+  box-shadow:0 30px 90px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.025);
+}
+.ticket-shell::before,.ticket-shell::after{display:none}
+.ticket-form{
+  position:relative;
+  padding:38px 40px 40px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(184,154,99,.055),transparent 25rem),
+    linear-gradient(155deg,rgba(30,23,19,.72),rgba(16,12,10,.42));
+}
+.ticket-form::before{
+  content:"";
+  position:absolute;
+  top:0;right:42px;left:42px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(215,196,158,.72),transparent);
+}
+.ticket-top{margin-bottom:28px}
+.ticket-kicker{
+  color:#c9ad76;
+  font-size:.83rem;
+  letter-spacing:.02em;
+}
+.ticket-kicker i{color:#d6c394}
+.ticket-form h2{
+  margin-top:8px;
+  color:var(--text);
+  font-size:clamp(1.8rem,3.4vw,2.75rem);
+  letter-spacing:-.025em;
+}
+.ticket-form .intro{max-width:620px;color:#aaa096}
+.ref-badge{
+  min-width:172px;
+  padding:11px 14px;
+  border:1px solid rgba(215,196,158,.17);
+  border-radius:13px;
+  background:rgba(184,154,99,.045);
+}
+.ref-badge span{color:#948a7f;letter-spacing:.02em}
+.ref-badge strong{color:#bda478;font-family:"Tajawal",sans-serif;letter-spacing:.03em;font-size:.85rem}
+.field label{color:#e4ddd3;font-weight:800}
+.control{
+  min-height:55px;
+  color:var(--text);
+  background:#120e0c;
+  border-color:rgba(215,196,158,.15);
+  border-radius:14px;
+  box-shadow:inset 0 1px rgba(255,255,255,.015);
+}
+.control:hover{border-color:rgba(215,196,158,.3)}
+.control:focus{
+  border-color:#b89a63;
+  box-shadow:0 0 0 3px rgba(184,154,99,.09);
+}
+select.control{background-color:#120e0c}
+.appointment-box{
+  border:1px solid rgba(215,196,158,.16);
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(184,154,99,.035),rgba(255,255,255,.008));
+}
+.toggle-mark{background:#0d0a08;border-color:rgba(215,196,158,.22)}
+.appointment-toggle input:checked+.toggle-mark{background:rgba(184,154,99,.2);border-color:#b89a63}
+.appointment-toggle input:checked+.toggle-mark::after{background:#d9c79f}
+.draft-bar{
+  border-color:rgba(215,196,158,.13);
+  border-radius:14px;
+  background:rgba(184,154,99,.025);
+}
+.clear-draft{border-color:rgba(215,196,158,.16)}
+.submit-btn{
+  min-height:58px;
+  padding-inline:27px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#d5bd85 0%,#b8945a 54%,#9a7448 100%);
+  color:#1a110b;
+  box-shadow:0 15px 36px rgba(116,82,45,.2);
+}
+.submit-btn:hover,.submit-btn:focus-visible{filter:brightness(1.025);transform:translateY(-2px)}
+.ticket-stub{
+  padding:38px 30px;
+  border-right:1px solid rgba(215,196,158,.13);
+  background:
+    linear-gradient(180deg,rgba(184,154,99,.085),transparent 32%),
+    linear-gradient(160deg,#1c1512,#120e0c);
+}
+.stub-label{color:#c8ad78;letter-spacing:.03em}
+.stub-title{color:#f0e9df;font-size:1.38rem}
+.summary-list{border-color:rgba(215,196,158,.13);border-radius:18px}
+.summary-item{padding:15px 16px;background:rgba(255,255,255,.012)}
+.summary-item + .summary-item{border-top:1px solid rgba(215,196,158,.09)}
+.summary-item span{color:#8e857d}
+.summary-item strong{color:#e9e1d6}
+.barcode,.stub-code{display:none!important}
+.hero{
+  padding:86px 0 58px;
+  border-top:1px solid rgba(215,196,158,.07);
+}
+.hero-grid{gap:50px}
+.eyebrow{
+  margin-bottom:20px;
+  padding:8px 14px;
+  color:#c9b282;
+  background:rgba(184,154,99,.045);
+  border-color:rgba(215,196,158,.16);
+  letter-spacing:.025em;
+}
+.hero h1{
+  max-width:760px;
+  font-size:clamp(2.6rem,5.4vw,5rem);
+  line-height:1.04;
+  letter-spacing:-.045em;
+}
+.hero h1 span{
+  margin-top:7px;
+  color:#cbb483;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.hero-lead{color:#aaa097;max-width:660px}
+.btn{border-radius:14px}
+.btn-main{
+  background:linear-gradient(135deg,#ceb477,#a9844d);
+  color:#1a110b;
+  box-shadow:0 12px 30px rgba(116,82,45,.16);
+}
+.btn-ghost{background:rgba(255,255,255,.012);border-color:rgba(215,196,158,.15)}
+.ops-panel{
+  padding:28px;
+  border:1px solid rgba(215,196,158,.16);
+  background:
+    radial-gradient(circle at 100% 0,rgba(184,154,99,.07),transparent 18rem),
+    linear-gradient(145deg,#1d1612,#120e0c);
+  border-radius:24px;
+  box-shadow:0 24px 60px rgba(0,0,0,.26);
+}
+.ops-panel::before{display:none}
+.ops-head{padding-bottom:18px;border-bottom:1px solid rgba(215,196,158,.11)}
+.ops-code{
+  direction:rtl;
+  color:#ad9975;
+  font:800 .75rem "Tajawal",sans-serif;
+  letter-spacing:0;
+}
+.ops-list{gap:15px}
+.ops-list li{grid-template-columns:42px 1fr auto}
+.ops-icon{
+  width:42px;height:42px;
+  border-radius:13px;
+  color:#c5aa75;
+  background:rgba(184,154,99,.075);
+  border:1px solid rgba(215,196,158,.08);
+}
+.ops-state{color:#b5a988!important}
+.ops-foot{border-top:1px solid rgba(215,196,158,.11)}
+.route-section{padding:40px 0 74px}
+.section-tag{color:#ae8d5e;letter-spacing:.03em}
+.route-grid{gap:14px}
+.route-card{
+  --route:#b89a63;
+  min-height:170px;
+  padding:20px 18px;
+  background:linear-gradient(155deg,#1c1613,#120e0c);
+  border-color:rgba(215,196,158,.14);
+  border-radius:20px!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.018);
+}
+.route-card:nth-child(2){--route:#a57b51;background:linear-gradient(155deg,#201711,#120e0c)}
+.route-card:nth-child(3){--route:#aaa083;background:linear-gradient(155deg,#1d1a14,#120e0c)}
+.route-card:nth-child(4){--route:#917d6e;background:linear-gradient(155deg,#1e1715,#120e0c)}
+.route-card:nth-child(5){--route:#858984;background:linear-gradient(155deg,#181b19,#120e0c)}
+.route-card::after{right:18px;left:18px;width:auto;height:2px;opacity:.5}
+.route-card i{margin-bottom:20px;color:var(--route)}
+.route-card strong{color:#eee7dd}
+.route-card small{color:#9c938a}
+.route-card:hover,.route-card:focus-visible,.route-card[aria-pressed="true"]{
+  transform:translateY(-3px);
+  border-color:color-mix(in srgb,var(--route) 55%,transparent);
+  box-shadow:0 15px 34px rgba(0,0,0,.24);
+}
+.route-card[aria-pressed="true"]{
+  background:linear-gradient(155deg,color-mix(in srgb,var(--route) 10%,#211914),#100d0b);
+}
+.workflow{padding:72px 0}
+.workflow-board{
+  padding:34px;
+  border-color:rgba(215,196,158,.14);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(184,154,99,.055),transparent 25rem),
+    linear-gradient(145deg,#191310,#110d0b);
+}
+.workflow-board::before{
+  right:34px;
+  width:86px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#b89a63);
+}
+.stage{border-left:1px solid rgba(215,196,158,.1)}
+.stage-no{
+  direction:rtl;
+  color:#ab936a;
+  font:800 .76rem "Tajawal",sans-serif;
+}
+.stage i{
+  color:#1a110b;
+  background:#b89a63;
+  border-radius:14px;
+  box-shadow:none;
+}
+.stage:nth-child(2) i{background:#a9845b}
+.stage:nth-child(3) i{background:#a79b7d}
+.stage:nth-child(4) i{background:#8e7b6e}
+.notice-box{
+  border-color:rgba(215,196,158,.14);
+  background:linear-gradient(135deg,rgba(184,154,99,.045),rgba(255,255,255,.008));
+  border-radius:22px;
+}
+.notice-icon{color:#ba9b65;background:rgba(184,154,99,.07)}
+.site-footer{border-top-color:rgba(215,196,158,.1)}
+.mobile-bar{
+  background:rgba(15,11,9,.94);
+  border-color:rgba(215,196,158,.18);
+}
+@media(max-width:980px){
+  .ticket-shell{grid-template-columns:1fr}
+  .ticket-stub{border-right:0;border-top:1px solid rgba(215,196,158,.11)}
+}
+@media(max-width:680px){
+  .header-row{height:74px}
+  .ticket-section{padding:16px 0 46px}
+  .ticket-shell{border-radius:23px}
+  .ticket-form{padding:28px 19px 24px}
+  .ticket-form::before{right:20px;left:20px}
+  .ticket-top{margin-bottom:24px}
+  .ticket-form h2{font-size:2rem}
+  .ticket-stub{padding:25px 19px}
+  .hero{padding:58px 0 38px}
+  .hero h1{font-size:clamp(2.4rem,12vw,3.7rem)}
+  .ops-panel{padding:21px;border-radius:20px}
+  .route-grid{gap:11px}
+  .route-card{min-height:154px;border-radius:17px!important}
+  .workflow-board{padding:25px 18px;border-radius:22px}
+  .notice-box{border-radius:20px}
+  .mobile-bar{border-radius:18px}
+}
+
 </style>
 </head>
 <body>
@@ -322,7 +629,7 @@ textarea.control{min-height:136px;resize:vertical}
     </a>
     <nav class="header-actions" aria-label="روابط سريعة">
       <a class="header-link" href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> الرئيسية</a>
-      <a class="header-link primary" href="#request"><i class="fa-solid fa-ticket" aria-hidden="true"></i> افتح تذكرة</a>
+      <a class="header-link primary" href="#request"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> ابدأ طلبك</a>
     </nav>
   </div>
 </header>
@@ -334,12 +641,12 @@ textarea.control{min-height:136px;resize:vertical}
         <form class="ticket-form" id="requestForm" novalidate>
           <div class="ticket-top">
             <div>
-              <div class="ticket-kicker"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> 01 / بيانات التذكرة</div>
-              <h2 id="formTitle">أنشئ طلبًا واضحًا</h2>
-              <p class="intro">الحقول المعلّمة بنجمة مطلوبة لإعداد الرسالة.</p>
+              <div class="ticket-kicker"><i class="fa-solid fa-building-circle-check" aria-hidden="true"></i> استقبال طلب عقاري</div>
+              <h2 id="formTitle">أرسل طلبك العقاري</h2>
+              <p class="intro">أدخل البيانات الأساسية، وسنجهّزها في رسالة مرتبة لمراجعة المكتب.</p>
             </div>
             <div class="ref-badge" aria-label="الرقم المرجعي">
-              <span>رقم الطلب</span>
+              <span>رقم المتابعة</span>
               <strong id="refTop">REQ-00000000-0000</strong>
             </div>
           </div>
@@ -468,8 +775,8 @@ textarea.control{min-height:136px;resize:vertical}
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> البوابة التشغيلية للطلبات العقارية</p>
-        <h1>طلبك يدخل واضحًا<span>ويصبح جاهزًا للمتابعة</span></h1>
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> خدمة استقبال الطلبات العقارية</p>
+        <h1>ابدأ طلبك بخطوات واضحة<span>ومتابعة عقارية منظمة</span></h1>
         <p class="hero-lead">اختر مسار طلبك، أدخل البيانات الأساسية، وستحصل على رقم مرجعي ورسالة مرتبة ترسلها مباشرة إلى واتساب المكتب.</p>
         <div class="hero-buttons">
           <a class="btn btn-main" href="#request"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> إنشاء طلب الآن</a>
@@ -478,8 +785,8 @@ textarea.control{min-height:136px;resize:vertical}
       </div>
       <aside class="ops-panel reveal" aria-label="لوحة تشغيل الطلب">
         <div class="ops-head">
-          <strong>لوحة استقبال الطلب</strong>
-          <span class="ops-code">OPS / ADEN / 01</span>
+          <strong>متابعة طلبك بكل وضوح</strong>
+          <span class="ops-code">تنظيم • متابعة • وضوح</span>
         </div>
         <ul class="ops-list">
           <li><span class="ops-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><b>تحديد المسار</b><span class="ops-state">جاهز</span></li>
@@ -494,7 +801,7 @@ textarea.control{min-height:136px;resize:vertical}
   <section class="route-section" aria-labelledby="routeTitle">
     <div class="shell">
       <div class="section-head reveal">
-        <div><div class="section-tag">02 / اختيار المسار</div><h2 id="routeTitle">ما نوع طلبك العقاري؟</h2></div>
+        <div><div class="section-tag">مسارات الخدمة العقارية</div><h2 id="routeTitle">ما نوع طلبك العقاري؟</h2></div>
         <p>اختر بطاقة واحدة. سيتكيّف النموذج والمعاينة مع المسار الذي تحدده.</p>
       </div>
       <div class="route-grid" id="routeGrid" role="group" aria-label="اختيار نوع الطلب">
@@ -512,14 +819,14 @@ textarea.control{min-height:136px;resize:vertical}
     <div class="shell">
       <div class="workflow-board reveal">
         <div class="section-head">
-          <div><div class="section-tag">03 / مسار المتابعة</div><h2 id="workflowTitle">من الطلب إلى التواصل</h2></div>
+          <div><div class="section-tag">خطوات متابعة الطلب</div><h2 id="workflowTitle">من الطلب إلى التواصل</h2></div>
           <p>خطوات واضحة تبدأ بعد إرسالك الرسالة فعليًا إلى واتساب المكتب.</p>
         </div>
         <div class="workflow-list">
-          <article class="stage"><span class="stage-no">STEP 01</span><i class="fa-solid fa-inbox" aria-hidden="true"></i><h3>وصول الطلب</h3><p>تصل الرسالة بالرقم المرجعي والبيانات التي أدخلتها.</p><span class="stage-status">بانتظار الإرسال</span></article>
-          <article class="stage"><span class="stage-no">STEP 02</span><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i><h3>فحص البيانات</h3><p>تُراجع المعلومات وتُحدد النواقص أو الأسئلة اللازمة.</p><span class="stage-status">مراجعة أولية</span></article>
-          <article class="stage"><span class="stage-no">STEP 03</span><i class="fa-solid fa-phone-volume" aria-hidden="true"></i><h3>تواصل المكتب</h3><p>يتم التواصل في الوقت المناسب لتوضيح التفاصيل.</p><span class="stage-status">وفق توفر الفريق</span></article>
-          <article class="stage"><span class="stage-no">STEP 04</span><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>تحديث الحالة</h3><p>تُستكمل المتابعة وفق طبيعة الطلب وما يتوفر من معلومات.</p><span class="stage-status">متابعة منظمة</span></article>
+          <article class="stage"><span class="stage-no">الخطوة ١</span><i class="fa-solid fa-inbox" aria-hidden="true"></i><h3>وصول الطلب</h3><p>تصل الرسالة بالرقم المرجعي والبيانات التي أدخلتها.</p><span class="stage-status">بانتظار الإرسال</span></article>
+          <article class="stage"><span class="stage-no">الخطوة ٢</span><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i><h3>فحص البيانات</h3><p>تُراجع المعلومات وتُحدد النواقص أو الأسئلة اللازمة.</p><span class="stage-status">مراجعة أولية</span></article>
+          <article class="stage"><span class="stage-no">الخطوة ٣</span><i class="fa-solid fa-phone-volume" aria-hidden="true"></i><h3>تواصل المكتب</h3><p>يتم التواصل في الوقت المناسب لتوضيح التفاصيل.</p><span class="stage-status">وفق توفر الفريق</span></article>
+          <article class="stage"><span class="stage-no">الخطوة ٤</span><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><h3>تحديث الحالة</h3><p>تُستكمل المتابعة وفق طبيعة الطلب وما يتوفر من معلومات.</p><span class="stage-status">متابعة منظمة</span></article>
         </div>
       </div>
     </div>
@@ -543,7 +850,7 @@ textarea.control{min-height:136px;resize:vertical}
 </footer>
 
 <nav class="mobile-bar" aria-label="تنقل الجوال">
-  <a class="start" href="#request"><i class="fa-solid fa-ticket" aria-hidden="true"></i> افتح نموذج الطلب</a>
+  <a class="start" href="#request"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> ابدأ طلبك العقاري</a>
   <a class="home" href="index.html" aria-label="الرئيسية"><i class="fa-solid fa-house" aria-hidden="true"></i></a>
 </nav>
 
