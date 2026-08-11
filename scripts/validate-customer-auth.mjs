@@ -6,6 +6,9 @@ const requiredFiles = [
   'assets/css/customer-auth.css',
   'assets/js/clerk-auth.js',
   'assets/js/customer-portal.js',
+  'property-management.html',
+  'assets/css/property-management.css',
+  'assets/js/property-management.js',
   'api/auth-config.js',
   'api/customer-session.js',
   'package.json'
@@ -23,7 +26,7 @@ for (const file of requiredFiles) {
   }
 }
 
-for (const page of ['sign-in.html', 'customer-account.html']) {
+for (const page of ['sign-in.html', 'customer-account.html', 'property-management.html']) {
   const source = contents.get(page) || '';
   if (!/<html\b[^>]*lang="ar"[^>]*dir="rtl"/i.test(source)) {
     console.error(`${page}: يجب ضبط اللغة العربية واتجاه RTL.`);
@@ -35,7 +38,7 @@ for (const page of ['sign-in.html', 'customer-account.html']) {
   }
 }
 
-const clientSource = [contents.get('assets/js/clerk-auth.js'), contents.get('assets/js/customer-portal.js'), contents.get('sign-in.html'), contents.get('customer-account.html')].join('\n');
+const clientSource = [contents.get('assets/js/clerk-auth.js'), contents.get('assets/js/customer-portal.js'), contents.get('assets/js/property-management.js'), contents.get('sign-in.html'), contents.get('customer-account.html'), contents.get('property-management.html')].join('\n');
 if (/\bsk_(?:test|live)_/i.test(clientSource) || /CLERK_SECRET_KEY/.test(clientSource)) {
   console.error('عُثر على مفتاح سري أو مرجع سري في ملفات المتصفح.');
   failed = true;
@@ -70,7 +73,24 @@ if (!portalSource.includes('wa.me') || !portalSource.includes('بانتظار ت
   failed = true;
 }
 
-for (const file of ['assets/js/clerk-auth.js', 'assets/js/customer-portal.js', 'api/auth-config.js', 'api/customer-session.js']) {
+const managementPage = contents.get('property-management.html') || '';
+const managementSource = contents.get('assets/js/property-management.js') || '';
+for (const marker of ['propertyForm', 'tenantForm', 'rentForm', 'maintenanceForm', 'expenseForm', 'monthlyReport']) {
+  if (!managementPage.includes(marker)) {
+    console.error(`property-management.html: العنصر المطلوب غير موجود: ${marker}`);
+    failed = true;
+  }
+}
+if (!managementSource.includes('localStorage') || !managementSource.includes('userId') || managementSource.includes('innerHTML')) {
+  console.error('تقارير إدارة الأملاك لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
+  failed = true;
+}
+if (!managementSource.includes('renderReport') || !managementSource.includes('window.print')) {
+  console.error('إنشاء التقرير الشهري أو طباعته غير مكتمل.');
+  failed = true;
+}
+
+for (const file of ['assets/js/clerk-auth.js', 'assets/js/customer-portal.js', 'assets/js/property-management.js', 'api/auth-config.js', 'api/customer-session.js']) {
   try { new Function(contents.get(file) || ''); } catch (error) {
     if (!/Cannot use import statement|Unexpected token 'export'/.test(error.message)) {
       console.error(`${file}: خطأ في JavaScript: ${error.message}`);
