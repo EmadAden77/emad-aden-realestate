@@ -52,6 +52,29 @@
   .article-news-card .more{font-size:.76rem}
 }
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
+/* نافذة دخول العملاء */
+body.customer-login-open{overflow:hidden;touch-action:none}
+.customer-login-modal{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:18px;background:rgba(3,4,5,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .24s ease,visibility .24s ease}
+.customer-login-modal.is-open{opacity:1;visibility:visible}
+.customer-login-dialog{position:relative;width:min(100%,470px);max-height:min(88dvh,760px);overflow:auto;overscroll-behavior:contain;padding:28px;border:1px solid rgba(229,192,123,.26);border-radius:26px;background:radial-gradient(circle at 85% 0,rgba(229,192,123,.13),transparent 36%),linear-gradient(155deg,#171717,#0b0c0d 72%);box-shadow:0 30px 90px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.06);transform:translateY(18px) scale(.98);transition:transform .24s ease}
+.customer-login-modal.is-open .customer-login-dialog{transform:none}
+.customer-login-head{display:flex;align-items:flex-start;gap:14px;padding-left:42px;margin-bottom:20px}
+.customer-login-mark{display:grid;place-items:center;flex:0 0 48px;height:48px;border-radius:16px;color:#101010;background:linear-gradient(135deg,#f1d18c,#c99a35);box-shadow:0 10px 30px rgba(201,154,53,.24)}
+.customer-login-head h2{margin:0 0 5px;font-size:1.25rem;color:#fff}
+.customer-login-head p{margin:0;color:#b7b7b7;font-size:.88rem;line-height:1.7}
+.customer-login-close{position:absolute;top:18px;left:18px;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.045);color:#fff;font-size:1rem;cursor:pointer;transition:.2s ease}
+.customer-login-close:hover,.customer-login-close:focus-visible{color:#111;background:#e5c07b;border-color:#e5c07b;outline:none;transform:rotate(4deg)}
+.customer-login-status{display:flex;align-items:center;justify-content:center;gap:9px;min-height:84px;color:#d4bd8b;font-size:.9rem}
+.customer-login-status i{animation:customer-login-spin .9s linear infinite}
+.customer-login-error{display:none;padding:14px;border:1px solid rgba(239,107,104,.35);border-radius:14px;background:rgba(239,107,104,.08);color:#ffd0ce;line-height:1.7}
+.customer-login-error.is-visible{display:block}
+.customer-login-help{margin:16px 0 0;text-align:center;color:#8f9296;font-size:.76rem;line-height:1.7}
+.customer-login-help a{color:#e5c07b}
+@keyframes customer-login-spin{to{transform:rotate(360deg)}}
+@media(max-width:560px){.customer-login-modal{align-items:end;padding:0}.customer-login-dialog{width:100%;max-height:92dvh;padding:24px 18px calc(22px + env(safe-area-inset-bottom));border-radius:26px 26px 0 0;transform:translateY(100%);border-width:1px 0 0}.customer-login-modal.is-open .customer-login-dialog{transform:translateY(0)}.customer-login-head{padding-left:40px}.customer-login-head h2{font-size:1.14rem}}
+@media(prefers-reduced-motion:reduce){.customer-login-modal,.customer-login-dialog,.customer-login-close{transition:none}}
+
+
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-17ZZZFR8HT',{send_page_view:true});</script>
@@ -71,13 +94,13 @@
       <a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X"><i class="fa-brands fa-x-twitter"></i></a>
       <a class="icon-btn" href="https://www.instagram.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
       <a class="icon-btn" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
-      <a class="btn ghost" href="sign-in.html"><i class="fa-solid fa-user-shield"></i> دخول العملاء</a>
+      <a class="btn ghost customer-login-trigger" href="sign-in.html" aria-haspopup="dialog"><i class="fa-solid fa-user-shield"></i> دخول العملاء</a>
       <a class="btn gold" href="https://wa.me/967773571889" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> مراسلة المكتب</a>
     </div>
     <button class="menu-btn" id="menuButton" type="button" aria-label="فتح القائمة" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
   <nav class="mobile-menu wrap" id="mobileMenu" aria-label="قائمة الجوال">
-    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="sign-in.html">دخول العملاء</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
+    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">دخول العملاء</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
   </nav>
 </header>
 
@@ -153,7 +176,7 @@
   <div class="wrap footer-grid">
     <div><h3>مكتب عماد عدن العقاري</h3><p>بيع، شراء، تثمين، استثمار وإدارة أملاك في عدن.</p><div class="social-row"><a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a><a class="icon-btn" href="https://www.instagram.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a class="icon-btn" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a><a class="icon-btn" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="مراسلة مكتب عماد عدن العقاري عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a></div></div>
     <div><h3>الخدمات</h3><div class="footer-links"><a href="expatriates-property-management.html">إدارة الأملاك</a><a href="legal-consultant.html">المستشار القانوني</a><a href="property-value.html">التثمين العقاري</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب</a></div></div>
-    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="sign-in.html">دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
+    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
   </div>
   <div class="wrap footer-bottom"><span>© <span id="year"></span> مكتب عماد عدن العقاري · <a href="privacy.html">سياسة الخصوصية</a></span><span>المحتوى إرشادي ولا يغني عن المعاينة والتوثيق والاستشارة المتخصصة.</span></div>
 </footer>
@@ -164,6 +187,20 @@
   <a href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X لمكتب عماد عدن العقاري"><i class="fa-brands fa-x-twitter"></i><span>X</span></a>
   <a class="primary" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="مراسلة مكتب عماد عدن العقاري عبر واتساب"><i class="fa-brands fa-whatsapp"></i><span>واتساب</span></a>
 </nav>
+
+<div class="customer-login-modal" id="customerLoginModal" role="dialog" aria-modal="true" aria-labelledby="customerLoginTitle" aria-hidden="true">
+  <div class="customer-login-dialog" role="document">
+    <button class="customer-login-close" id="customerLoginClose" type="button" aria-label="إغلاق نافذة دخول العملاء"><i class="fa-solid fa-xmark"></i></button>
+    <div class="customer-login-head">
+      <span class="customer-login-mark" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span>
+      <div><h2 id="customerLoginTitle">دخول العملاء</h2><p>أدخل بريدك الإلكتروني، ثم استخدم رمز التحقق المرسل إليك.</p></div>
+    </div>
+    <div class="customer-login-status" id="customerLoginStatus" aria-live="polite"><i class="fa-solid fa-circle-notch"></i><span>جارٍ تجهيز الدخول الآمن…</span></div>
+    <div id="customerLoginMount"></div>
+    <p class="customer-login-error" id="customerLoginError" role="alert"></p>
+    <p class="customer-login-help">باستمرارك، فإنك توافق على استخدام بيانات حسابك وفق <a href="privacy.html">سياسة الخصوصية</a>.</p>
+  </div>
+</div>
 
 <button class="back-top" id="backToTop" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="assets/js/luxury-home.js" defer></script>
@@ -208,5 +245,50 @@
   start();
 })();
 </script>
+<script type="module">
+import { mountCustomerSignIn } from './assets/js/clerk-auth.js';
+const modal=document.getElementById('customerLoginModal');
+const dialog=modal.querySelector('.customer-login-dialog');
+const closeButton=document.getElementById('customerLoginClose');
+const mountPoint=document.getElementById('customerLoginMount');
+const statusBox=document.getElementById('customerLoginStatus');
+const errorBox=document.getElementById('customerLoginError');
+const triggers=[...document.querySelectorAll('.customer-login-trigger')];
+let mounted=false;
+let lastFocused=null;
+function focusable(){return [...dialog.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null)}
+async function openCustomerLogin(event){
+  if(event)event.preventDefault();
+  lastFocused=document.activeElement;
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('customer-login-open');
+  closeButton.focus();
+  if(mounted)return;
+  mounted=true;
+  try{await mountCustomerSignIn(mountPoint);statusBox.remove()}
+  catch(error){statusBox.remove();errorBox.textContent=error.message||'تعذر تشغيل تسجيل الدخول. حاول مرة أخرى.';errorBox.classList.add('is-visible');mounted=false}
+}
+function closeCustomerLogin(){
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('customer-login-open');
+  if(lastFocused)lastFocused.focus();
+}
+triggers.forEach(trigger=>trigger.addEventListener('click',openCustomerLogin));
+closeButton.addEventListener('click',closeCustomerLogin);
+modal.addEventListener('click',event=>{if(event.target===modal)closeCustomerLogin()});
+document.addEventListener('keydown',event=>{
+  if(!modal.classList.contains('is-open'))return;
+  if(event.key==='Escape'){closeCustomerLogin();return}
+  if(event.key!=='Tab')return;
+  const items=focusable();
+  if(!items.length){event.preventDefault();closeButton.focus();return}
+  const first=items[0],last=items[items.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+});
+</script>
+
 </body>
 </html>
