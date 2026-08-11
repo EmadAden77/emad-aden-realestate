@@ -52,12 +52,17 @@
   .article-news-card .more{font-size:.76rem}
 }
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
-/* نافذة دخول العملاء */
+/* لوحة دخول العملاء الجانبية */
 body.customer-login-open{overflow:hidden;touch-action:none}
-.customer-login-modal{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:18px;background:rgba(3,4,5,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;visibility:hidden;transition:opacity .24s ease,visibility .24s ease}
+.customer-login-fab{position:fixed;z-index:980;right:0;top:46%;display:flex;align-items:center;gap:9px;padding:13px 12px 13px 15px;border:1px solid rgba(229,192,123,.38);border-right:0;border-radius:18px 0 0 18px;background:linear-gradient(145deg,#1b1a17,#0d0e0f);color:#efd18f;box-shadow:-10px 14px 36px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.06);font-family:inherit;font-weight:900;cursor:pointer;transform:translateX(0);transition:transform .24s ease,background .24s ease,color .24s ease,opacity .2s ease}
+.customer-login-fab i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#f1d18c,#c99a35);color:#101010}
+.customer-login-fab:hover,.customer-login-fab:focus-visible{background:#e5c07b;color:#101010;outline:none;transform:translateX(-4px)}
+.customer-login-fab:focus-visible{box-shadow:0 0 0 3px rgba(229,192,123,.26),-10px 14px 36px rgba(0,0,0,.38)}
+.customer-login-open .customer-login-fab{opacity:0;pointer-events:none;transform:translateX(100%)}
+.customer-login-modal{position:fixed;inset:0;z-index:1200;display:flex;justify-content:flex-start;padding:0;background:rgba(3,4,5,.68);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
 .customer-login-modal.is-open{opacity:1;visibility:visible}
-.customer-login-dialog{position:relative;width:min(100%,470px);max-height:min(88dvh,760px);overflow:auto;overscroll-behavior:contain;padding:28px;border:1px solid rgba(229,192,123,.26);border-radius:26px;background:radial-gradient(circle at 85% 0,rgba(229,192,123,.13),transparent 36%),linear-gradient(155deg,#171717,#0b0c0d 72%);box-shadow:0 30px 90px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.06);transform:translateY(18px) scale(.98);transition:transform .24s ease}
-.customer-login-modal.is-open .customer-login-dialog{transform:none}
+.customer-login-dialog{position:relative;width:min(94vw,480px);height:100dvh;max-height:none;overflow:auto;overscroll-behavior:contain;padding:30px 26px calc(24px + env(safe-area-inset-bottom));border:0;border-left:1px solid rgba(229,192,123,.26);border-radius:26px 0 0 26px;background:radial-gradient(circle at 90% 0,rgba(229,192,123,.15),transparent 34%),linear-gradient(155deg,#171717,#0b0c0d 72%);box-shadow:-28px 0 80px rgba(0,0,0,.58),inset 1px 0 0 rgba(255,255,255,.04);transform:translateX(105%);transition:transform .34s cubic-bezier(.22,.8,.22,1)}
+.customer-login-modal.is-open .customer-login-dialog{transform:translateX(0)}
 .customer-login-head{display:flex;align-items:flex-start;gap:14px;padding-left:42px;margin-bottom:20px}
 .customer-login-mark{display:grid;place-items:center;flex:0 0 48px;height:48px;border-radius:16px;color:#101010;background:linear-gradient(135deg,#f1d18c,#c99a35);box-shadow:0 10px 30px rgba(201,154,53,.24)}
 .customer-login-head h2{margin:0 0 5px;font-size:1.25rem;color:#fff}
@@ -71,9 +76,8 @@ body.customer-login-open{overflow:hidden;touch-action:none}
 .customer-login-help{margin:16px 0 0;text-align:center;color:#8f9296;font-size:.76rem;line-height:1.7}
 .customer-login-help a{color:#e5c07b}
 @keyframes customer-login-spin{to{transform:rotate(360deg)}}
-@media(max-width:560px){.customer-login-modal{align-items:end;padding:0}.customer-login-dialog{width:100%;max-height:92dvh;padding:24px 18px calc(22px + env(safe-area-inset-bottom));border-radius:26px 26px 0 0;transform:translateY(100%);border-width:1px 0 0}.customer-login-modal.is-open .customer-login-dialog{transform:translateY(0)}.customer-login-head{padding-left:40px}.customer-login-head h2{font-size:1.14rem}}
-@media(prefers-reduced-motion:reduce){.customer-login-modal,.customer-login-dialog,.customer-login-close{transition:none}}
-
+@media(max-width:560px){.customer-login-fab{top:43%;padding:10px 8px 10px 11px;border-radius:16px 0 0 16px}.customer-login-fab i{width:32px;height:32px}.customer-login-fab span{font-size:.74rem}.customer-login-dialog{width:94vw;padding:25px 18px calc(22px + env(safe-area-inset-bottom));border-radius:24px 0 0 24px}.customer-login-head{padding-left:40px}.customer-login-head h2{font-size:1.14rem}}
+@media(prefers-reduced-motion:reduce){.customer-login-fab,.customer-login-modal,.customer-login-dialog,.customer-login-close{transition:none}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
@@ -94,15 +98,17 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X"><i class="fa-brands fa-x-twitter"></i></a>
       <a class="icon-btn" href="https://www.instagram.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
       <a class="icon-btn" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
-      <a class="btn ghost customer-login-trigger" href="sign-in.html" aria-haspopup="dialog"><i class="fa-solid fa-user-shield"></i> دخول العملاء</a>
       <a class="btn gold" href="https://wa.me/967773571889" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> مراسلة المكتب</a>
     </div>
     <button class="menu-btn" id="menuButton" type="button" aria-label="فتح القائمة" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
   <nav class="mobile-menu wrap" id="mobileMenu" aria-label="قائمة الجوال">
-    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">دخول العملاء</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
+    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
   </nav>
 </header>
+<button class="customer-login-fab customer-login-trigger" type="button" aria-haspopup="dialog" aria-controls="customerLoginModal" aria-label="فتح دخول العملاء">
+  <i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>دخول العملاء</span>
+</button>
 
 <main>
 <section class="section service-priority" id="services">
