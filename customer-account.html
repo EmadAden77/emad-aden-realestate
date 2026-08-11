@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>حساب العميل | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="حساب عميل مكتب عماد عدن العقاري والوصول إلى الخدمات والطلبات المرتبطة به.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#0b0c0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/customer-auth.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>حساب العميل</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
+  <main class="auth-main"><div class="wrap">
+    <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ التحقق من الجلسة…</span></div>
+    <section id="accountContent" hidden>
+      <div class="account-head">
+        <div class="identity"><div class="avatar" id="userInitial">ع</div><div><strong id="userName">عميل المكتب</strong><span id="userEmail"></span></div><div id="userButton" aria-label="إدارة الحساب"></div></div>
+        <button class="button ghost" id="signOut" type="button">تسجيل الخروج</button>
+      </div>
+      <div class="account-grid">
+        <article class="panel"><span class="status secure">جلسة موثقة</span><h2>طلباتك</h2><p>ستظهر هنا الطلبات المرتبطة بحسابك بعد إرسالها إلى المكتب.</p><div class="empty">لا توجد طلبات مرتبطة بهذا الحساب حتى الآن.</div></article>
+        <article class="panel"><h2>خدمات سريعة</h2><p>ابدأ خدمة جديدة من حسابك.</p><div class="quick-links"><a class="quick-link" href="request-reception.html"><strong>إرسال طلب عقاري</strong><span>بيع أو شراء أو بحث عن عقار.</span></a><a class="quick-link" href="document-checklist.html"><strong>قائمة المستندات</strong><span>جهّز قائمة إرشادية لحالتك.</span></a><a class="quick-link" href="deal-safety-check.html"><strong>فاحص الصفقة</strong><span>رتّب نقاط التحقق قبل الالتزام.</span></a><a class="quick-link" href="https://wa.me/967773571889" target="_blank" rel="noopener"><strong>مراسلة المكتب</strong><span>تواصل مباشرة عبر واتساب.</span></a></div></article>
+      </div>
+      <div class="privacy-note">بيانات الخدمات الحساسة لا تُقبل من الصفحة مباشرة، وأي بيانات مرتبطة بالحساب يجب أن تمر عبر واجهات خادمة تتحقق من الجلسة أولاً.</div>
+    </section>
+    <p class="error" id="accountError" role="alert"></p>
+  </div></main>
+  <footer><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="contact.html">تواصل معنا</a></span></div></footer>
+  <script type="module">
+    import { loadCustomerAccount } from './assets/js/clerk-auth.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const loader = document.getElementById('accountLoader');
+    const content = document.getElementById('accountContent');
+    const errorBox = document.getElementById('accountError');
+    loadCustomerAccount().then(context => {
+      if (!context) return;
+      const { clerk, appearance } = context;
+      const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
+      const name = clerk.user?.fullName || clerk.user?.firstName || 'عميل المكتب';
+      document.getElementById('userName').textContent = name;
+      document.getElementById('userEmail').textContent = email;
+      document.getElementById('userInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
+      clerk.mountUserButton(document.getElementById('userButton'), { appearance });
+      document.getElementById('signOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
+      loader.remove();
+      content.hidden = false;
+    }).catch(error => {
+      loader.remove();
+      errorBox.textContent = error.message || 'تعذر التحقق من الحساب. حاول تسجيل الدخول مرة أخرى.';
+      errorBox.classList.add('show');
+    });
+  </script>
+</body>
+</html>
