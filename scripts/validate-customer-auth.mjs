@@ -5,6 +5,7 @@ const requiredFiles = [
   'customer-account.html',
   'assets/css/customer-auth.css',
   'assets/js/clerk-auth.js',
+  'assets/js/customer-portal.js',
   'api/auth-config.js',
   'api/customer-session.js',
   'package.json'
@@ -34,7 +35,7 @@ for (const page of ['sign-in.html', 'customer-account.html']) {
   }
 }
 
-const clientSource = [contents.get('assets/js/clerk-auth.js'), contents.get('sign-in.html'), contents.get('customer-account.html')].join('\n');
+const clientSource = [contents.get('assets/js/clerk-auth.js'), contents.get('assets/js/customer-portal.js'), contents.get('sign-in.html'), contents.get('customer-account.html')].join('\n');
 if (/\bsk_(?:test|live)_/i.test(clientSource) || /CLERK_SECRET_KEY/.test(clientSource)) {
   console.error('عُثر على مفتاح سري أو مرجع سري في ملفات المتصفح.');
   failed = true;
@@ -52,7 +53,24 @@ if (!configApi.includes('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY') || configApi.includ
   failed = true;
 }
 
-for (const file of ['assets/js/clerk-auth.js', 'api/auth-config.js', 'api/customer-session.js']) {
+const accountPage = contents.get('customer-account.html') || '';
+const portalSource = contents.get('assets/js/customer-portal.js') || '';
+for (const marker of ['newRequestForm', 'appointmentForm', 'requestsList', 'draftStatus']) {
+  if (!accountPage.includes(marker)) {
+    console.error(`customer-account.html: العنصر المطلوب غير موجود: ${marker}`);
+    failed = true;
+  }
+}
+if (!portalSource.includes('localStorage') || !portalSource.includes('userId') || portalSource.includes('innerHTML')) {
+  console.error('بوابة العميل لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
+  failed = true;
+}
+if (!portalSource.includes('wa.me') || !portalSource.includes('بانتظار تأكيد المكتب')) {
+  console.error('بوابة العميل لا تنفذ إرسال الطلب ومتابعة حالته الأولية.');
+  failed = true;
+}
+
+for (const file of ['assets/js/clerk-auth.js', 'assets/js/customer-portal.js', 'api/auth-config.js', 'api/customer-session.js']) {
   try { new Function(contents.get(file) || ''); } catch (error) {
     if (!/Cannot use import statement|Unexpected token 'export'/.test(error.message)) {
       console.error(`${file}: خطأ في JavaScript: ${error.message}`);
