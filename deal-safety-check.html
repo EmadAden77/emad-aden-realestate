@@ -247,14 +247,14 @@
         <div>
           <span class="eyebrow">أداة تحقق أولي · لا تُصدر حكماً قانونياً</span>
           <h1>افحص الصفقة قبل <span>دفع العربون</span></h1>
-          <p>أجب عن تسع نقاط أساسية، وخذ قراءة أولية للمخاطر وقائمة بالمستندات والخطوات التي تحتاج تكملها قبل أي دفع أو توقيع.</p>
+          <p>أجب عن تسع نقاط أساسية، واحصل على قراءة أولية للمخاطر وقائمة بالمستندات والخطوات التي ينبغي استكمالها قبل أي دفع أو توقيع.</p>
         </div>
         <aside class="privacy-card" aria-label="خصوصية الأداة">
-          <strong>بياناتك تبقى عندك</strong>
-          <p>الأداة ما تطلب اسمك ولا رقمك ولا رفع أي وثيقة. إجاباتك تُحفظ محلياً على جهازك فقط لتقدر تكمل لاحقاً.</p>
+          <strong>تبقى بياناتك على جهازك</strong>
+          <p>لا تطلب الأداة اسمك أو رقم هاتفك، ولا تتطلب رفع أي وثيقة. تُحفظ إجاباتك محلياً على جهازك فقط، لكي تتمكن من متابعة الفحص لاحقاً.</p>
           <ul class="mini-list">
-            <li>بدون تسجيل دخول</li>
-            <li>بدون رفع مستندات</li>
+            <li>دون تسجيل دخول</li>
+            <li>دون رفع مستندات</li>
             <li>تقرير قابل للطباعة والمشاركة</li>
           </ul>
         </aside>
@@ -263,10 +263,10 @@
 
     <section class="wrap tool-layout" aria-label="فاحص الصفقة">
       <form class="checker" id="checker" novalidate>
-        <p class="incomplete" id="incomplete" role="alert">باقي بعض النقاط بدون إجابة. كمّلها عشان تكون النتيجة مبنية على كامل الفحص.</p>
+        <p class="incomplete" id="incomplete" role="alert">لم تُستكمل جميع النقاط. أجب عنها للحصول على نتيجة مبنية على كامل الفحص.</p>
 
         <fieldset class="question" data-question-title="نوع العقار">
-          <legend><span class="question-number">01</span>وش نوع العقار؟</legend>
+          <legend><span class="question-number">01</span>ما نوع العقار؟</legend>
           <span class="question-hint">يُستخدم لتجهيز قائمة المستندات المناسبة فقط.</span>
           <div class="options">
             <div class="option"><input type="radio" id="type-land" name="propertyType" value="land" data-points="0"><label for="type-land">أرض أو قطعة في مخطط</label></div>
@@ -277,14 +277,14 @@
         </fieldset>
 
         <fieldset class="question" data-question-title="مستند الملكية">
-          <legend><span class="question-number">02</span>وش المستند المتاح لإثبات الملكية؟</legend>
-          <span class="question-hint">وجود مستند وحده ما يكفي؛ يلزم فحص الأصل وسلسلة انتقال الملكية والبيانات.</span>
+          <legend><span class="question-number">02</span>ما المستند المتاح لإثبات الملكية؟</legend>
+          <span class="question-hint">وجود مستند وحده لا يكفي؛ إذ يلزم فحص الأصل وسلسلة انتقال الملكية والبيانات.</span>
           <div class="options">
             <div class="option"><input type="radio" id="doc-checked" name="document" value="checked" data-points="0"><label for="doc-checked">أصل متاح وسبق التحقق من بياناته مبدئياً</label></div>
-            <div class="option"><input type="radio" id="doc-unchecked" name="document" value="unchecked" data-points="8" data-note="المستند الأصلي لم يُتحقق منه بشكل مستقل بعد."><label for="doc-unchecked">أصل متاح لكن ما تم التحقق منه بعد</label></div>
-            <div class="option"><input type="radio" id="doc-contract" name="document" value="contract" data-points="16" data-note="المتاح عقد أو إيصالات فقط؛ يلزم تتبع أصل الملكية وسلسلة انتقالها."><label for="doc-contract">عقد أو إيصالات بدون أصل واضح للملكية</label></div>
+            <div class="option"><input type="radio" id="doc-unchecked" name="document" value="unchecked" data-points="8" data-note="المستند الأصلي لم يُتحقق منه بشكل مستقل بعد."><label for="doc-unchecked">أصل متاح، لكن لم يتم التحقق منه بعد</label></div>
+            <div class="option"><input type="radio" id="doc-contract" name="document" value="contract" data-points="16" data-note="المتاح عقد أو إيصالات فقط؛ يلزم تتبع أصل الملكية وسلسلة انتقالها."><label for="doc-contract">عقد أو إيصالات دون أصل واضح للملكية</label></div>
             <div class="option"><input type="radio" id="doc-copy" name="document" value="copy" data-points="25" data-critical="true" data-note="المتاح صورة أو نسخة فقط؛ لا تعتمد عليها قبل مطابقة الأصل."><label for="doc-copy">صورة أو نسخة فقط</label></div>
-            <div class="option"><input type="radio" id="doc-none" name="document" value="none" data-points="40" data-critical="true" data-note="لا يوجد مستند ملكية متاح للفحص."><label for="doc-none">ما فيه مستند متاح</label></div>
+            <div class="option"><input type="radio" id="doc-none" name="document" value="none" data-points="40" data-critical="true" data-note="لا يوجد مستند ملكية متاح للفحص."><label for="doc-none">لا يوجد مستند متاح</label></div>
           </div>
         </fieldset>
 
@@ -296,7 +296,7 @@
             <div class="option"><input type="radio" id="seller-agent" name="seller" value="agent" data-points="5" data-note="البيع عن طريق وكيل؛ يلزم التحقق من صحة الوكالة وسريانها ونطاقها."><label for="seller-agent">وكيل ومستند صلاحياته متاح للفحص</label></div>
             <div class="option"><input type="radio" id="seller-heirs" name="seller" value="heirs" data-points="9" data-note="العقار مرتبط بورثة؛ يلزم التحقق من حصرهم وصفة من يوقّع وموافقات من يلزم."><label for="seller-heirs">ورثة ومستنداتهم وموافقاتهم متاحة</label></div>
             <div class="option"><input type="radio" id="seller-unclear" name="seller" value="unclear" data-points="24" data-critical="true" data-note="علاقة البائع بالمالك أو حدود صلاحياته غير واضحة."><label for="seller-unclear">علاقته بالمالك أو صلاحياته غير واضحة</label></div>
-            <div class="option"><input type="radio" id="seller-mismatch" name="seller" value="mismatch" data-points="40" data-critical="true" data-note="ظهر اختلاف في الاسم أو الصفة، أو لا يوجد إثبات لصلاحية التصرف."><label for="seller-mismatch">فيه اختلاف أو ما فيه إثبات للصلاحية</label></div>
+            <div class="option"><input type="radio" id="seller-mismatch" name="seller" value="mismatch" data-points="40" data-critical="true" data-note="ظهر اختلاف في الاسم أو الصفة، أو لا يوجد إثبات لصلاحية التصرف."><label for="seller-mismatch">توجد اختلافات أو لا يوجد إثبات للصلاحية</label></div>
           </div>
         </fieldset>
 
@@ -305,9 +305,9 @@
           <span class="question-hint">قارن المستند والمخطط بالواقع، ولا تعتمد على المساحة المعلنة وحدها.</span>
           <div class="options">
             <div class="option"><input type="radio" id="area-match" name="boundaries" value="match" data-points="0"><label for="area-match">تمت المقارنة ميدانياً ولا يظهر اختلاف</label></div>
-            <div class="option"><input type="radio" id="area-partial" name="boundaries" value="partial" data-points="8" data-note="مطابقة الحدود أو المساحة ما زالت جزئية."><label for="area-partial">تمت مقارنة جزئية فقط</label></div>
-            <div class="option"><input type="radio" id="area-unchecked" name="boundaries" value="unchecked" data-points="14" data-note="لم تتم مطابقة الحدود والمساحة والموقع على الطبيعة."><label for="area-unchecked">ما تمت المقارنة إلى الآن</label></div>
-            <div class="option"><input type="radio" id="area-mismatch" name="boundaries" value="mismatch" data-points="35" data-critical="true" data-note="يوجد اختلاف ظاهر بين المستند أو المخطط والواقع."><label for="area-mismatch">فيه اختلاف ظاهر</label></div>
+            <div class="option"><input type="radio" id="area-partial" name="boundaries" value="partial" data-points="8" data-note="مطابقة الحدود أو المساحة لا تزال جزئية."><label for="area-partial">تمت مقارنة جزئية فقط</label></div>
+            <div class="option"><input type="radio" id="area-unchecked" name="boundaries" value="unchecked" data-points="14" data-note="لم تتم مطابقة الحدود والمساحة والموقع على الطبيعة."><label for="area-unchecked">لم تتم المقارنة حتى الآن</label></div>
+            <div class="option"><input type="radio" id="area-mismatch" name="boundaries" value="mismatch" data-points="35" data-critical="true" data-note="يوجد اختلاف ظاهر بين المستند أو المخطط والواقع."><label for="area-mismatch">يوجد اختلاف ظاهر</label></div>
           </div>
         </fieldset>
 
@@ -318,8 +318,8 @@
             <div class="option"><input type="radio" id="heirs-no" name="inheritance" value="no" data-points="0"><label for="heirs-no">لا، العقار غير مرتبط بتركة</label></div>
             <div class="option"><input type="radio" id="heirs-complete" name="inheritance" value="complete" data-points="2"><label for="heirs-complete">نعم، والمستندات والإجراءات مكتملة مبدئياً</label></div>
             <div class="option"><input type="radio" id="heirs-agree" name="inheritance" value="agree" data-points="8" data-note="توجد موافقات مبدئية من الورثة، لكن يلزم مراجعة المستندات وصفة كل موقّع."><label for="heirs-agree">نعم، توجد موافقات لكن يلزم فحصها</label></div>
-            <div class="option"><input type="radio" id="heirs-unresolved" name="inheritance" value="unresolved" data-points="35" data-critical="true" data-note="ملف الورثة أو الموافقات أو الإجراءات اللازمة غير مكتمل."><label for="heirs-unresolved">نعم، وفيه موافقات أو إجراءات غير مكتملة</label></div>
-            <div class="option"><input type="radio" id="heirs-unknown" name="inheritance" value="unknown" data-points="15" data-note="علاقة العقار بالورثة غير معروفة حتى الآن."><label for="heirs-unknown">ما أعرف</label></div>
+            <div class="option"><input type="radio" id="heirs-unresolved" name="inheritance" value="unresolved" data-points="35" data-critical="true" data-note="ملف الورثة أو الموافقات أو الإجراءات اللازمة غير مكتمل."><label for="heirs-unresolved">نعم، وتوجد موافقات أو إجراءات غير مكتملة</label></div>
+            <div class="option"><input type="radio" id="heirs-unknown" name="inheritance" value="unknown" data-points="15" data-note="علاقة العقار بالورثة غير معروفة حتى الآن."><label for="heirs-unknown">لا أعلم</label></div>
           </div>
         </fieldset>
 
@@ -329,7 +329,7 @@
           <div class="options">
             <div class="option"><input type="radio" id="dispute-checked" name="dispute" value="checked" data-points="0"><label for="dispute-checked">تم تحقق مبدئي ولا توجد مؤشرات ظاهرة</label></div>
             <div class="option"><input type="radio" id="dispute-verbal" name="dispute" value="verbal" data-points="10" data-note="عدم وجود نزاع مبني على كلام البائع فقط، وليس على تحقق مستقل."><label for="dispute-verbal">المعلومة من البائع فقط</label></div>
-            <div class="option"><input type="radio" id="dispute-unchecked" name="dispute" value="unchecked" data-points="17" data-note="لم يتم التحقق من النزاعات أو الادعاءات أو الحقوق المرتبطة بالعقار."><label for="dispute-unchecked">ما تم التحقق</label></div>
+            <div class="option"><input type="radio" id="dispute-unchecked" name="dispute" value="unchecked" data-points="17" data-note="لم يتم التحقق من النزاعات أو الادعاءات أو الحقوق المرتبطة بالعقار."><label for="dispute-unchecked">لم يتم التحقق بعد</label></div>
             <div class="option"><input type="radio" id="dispute-yes" name="dispute" value="yes" data-points="40" data-critical="true" data-note="توجد مؤشرات نزاع أو ادعاء أو تصرف متعارض يحتاج مراجعة متخصصة قبل أي التزام."><label for="dispute-yes">توجد مؤشرات نزاع أو ادعاء</label></div>
           </div>
         </fieldset>
@@ -340,19 +340,19 @@
           <div class="options">
             <div class="option"><input type="radio" id="visit-full" name="inspection" value="full" data-points="0"><label for="visit-full">نعم، تمت معاينة كاملة ومطابقة الموقع</label></div>
             <div class="option"><input type="radio" id="visit-partial" name="inspection" value="partial" data-points="6" data-note="المعاينة كانت جزئية وتحتاج استكمالاً."><label for="visit-partial">معاينة جزئية</label></div>
-            <div class="option"><input type="radio" id="visit-none" name="inspection" value="none" data-points="13" data-note="لم تتم معاينة العقار على الطبيعة."><label for="visit-none">ما تمت المعاينة</label></div>
+            <div class="option"><input type="radio" id="visit-none" name="inspection" value="none" data-points="13" data-note="لم تتم معاينة العقار على الطبيعة."><label for="visit-none">لم تتم المعاينة</label></div>
             <div class="option"><input type="radio" id="visit-different" name="inspection" value="different" data-points="30" data-critical="true" data-note="المعاينة أظهرت اختلافاً مؤثراً عن الوصف أو المستندات."><label for="visit-different">المعاينة أظهرت اختلافاً مؤثراً</label></div>
           </div>
         </fieldset>
 
         <fieldset class="question" data-question-title="العربون والدفع">
-          <legend><span class="question-number">08</span>وش المطلوب منك بخصوص العربون أو الدفع؟</legend>
+          <legend><span class="question-number">08</span>ما ترتيبات العربون أو الدفع المطلوبة؟</legend>
           <span class="question-hint">كل دفعة تحتاج غرضاً وشروطاً واضحة وتوثيقاً مناسباً بعد اكتمال التحقق اللازم.</span>
           <div class="options">
-            <div class="option"><input type="radio" id="pay-after" name="payment" value="after" data-points="0"><label for="pay-after">ما فيه دفع قبل التحقق واتفاق مكتوب</label></div>
+            <div class="option"><input type="radio" id="pay-after" name="payment" value="after" data-points="0"><label for="pay-after">لا توجد دفعة قبل التحقق وإبرام اتفاق مكتوب</label></div>
             <div class="option"><input type="radio" id="pay-conditional" name="payment" value="conditional" data-points="6" data-note="يوجد مبلغ حجز؛ راجع شروط استرداده وغرضه وهوية المستلم قبل الدفع."><label for="pay-conditional">مبلغ حجز بشروط مكتوبة وواضحة</label></div>
             <div class="option"><input type="radio" id="pay-before-docs" name="payment" value="beforeDocs" data-points="32" data-critical="true" data-note="طُلب عربون قبل إتاحة المستندات أو إكمال التحقق."><label for="pay-before-docs">مطلوب عربون قبل فحص المستندات</label></div>
-            <div class="option"><input type="radio" id="pay-pressure" name="payment" value="pressure" data-points="40" data-critical="true" data-note="يوجد استعجال أو ضغط للدفع دون توثيق كافٍ."><label for="pay-pressure">فيه استعجال أو دفع غير موثق</label></div>
+            <div class="option"><input type="radio" id="pay-pressure" name="payment" value="pressure" data-points="40" data-critical="true" data-note="يوجد استعجال أو ضغط للدفع دون توثيق كافٍ."><label for="pay-pressure">يوجد استعجال أو طلب دفع غير موثق</label></div>
           </div>
         </fieldset>
 
@@ -361,9 +361,9 @@
           <span class="question-hint">راجع وصف العقار والأطراف والمبلغ والدفعات والتسليم والالتزامات وشروط التراجع بحسب الحالة.</span>
           <div class="options">
             <div class="option"><input type="radio" id="contract-reviewed" name="contract" value="reviewed" data-points="0"><label for="contract-reviewed">نعم، تمت مراجعته مبدئياً قبل التوقيع</label></div>
-            <div class="option"><input type="radio" id="contract-draft" name="contract" value="draft" data-points="8" data-note="المسودة موجودة لكنها ما زالت تحتاج مراجعة متخصصة قبل التوقيع."><label for="contract-draft">المسودة موجودة ولم تُراجع بعد</label></div>
+            <div class="option"><input type="radio" id="contract-draft" name="contract" value="draft" data-points="8" data-note="المسودة موجودة، لكنها لا تزال تحتاج إلى مراجعة متخصصة قبل التوقيع."><label for="contract-draft">المسودة موجودة ولم تُراجع بعد</label></div>
             <div class="option"><input type="radio" id="contract-verbal" name="contract" value="verbal" data-points="24" data-critical="true" data-note="الاتفاق شفهي أو غير مكتمل كتابياً."><label for="contract-verbal">الاتفاق شفهي أو غير مكتمل</label></div>
-            <div class="option"><input type="radio" id="contract-pressure" name="contract" value="pressure" data-points="38" data-critical="true" data-note="مطلوب توقيع فوري قبل إعطاء وقت كافٍ للمراجعة."><label for="contract-pressure">مطلوب توقيع فوري بدون وقت للمراجعة</label></div>
+            <div class="option"><input type="radio" id="contract-pressure" name="contract" value="pressure" data-points="38" data-critical="true" data-note="مطلوب توقيع فوري قبل إعطاء وقت كافٍ للمراجعة."><label for="contract-pressure">مطلوب توقيع فوري دون وقت للمراجعة</label></div>
           </div>
         </fieldset>
 
@@ -378,7 +378,7 @@
         </div>
         <button class="button primary" id="sideSubmit" type="button">اعرض النتيجة</button>
         <div class="help-card">
-          <h2>وش تعني النتيجة؟</h2>
+          <h2>ماذا تعني النتيجة؟</h2>
           <p>هي قراءة تنظيمية مبنية على إجاباتك، وليست اعتماداً للصفقة ولا حكماً بصحة الملكية أو المستندات.</p>
         </div>
       </aside>
@@ -421,8 +421,9 @@
 
         <div class="legal-note"><strong>تنبيه مهم:</strong> هذا الفحص إرشادي فقط ولا يثبت سلامة الصفقة أو صحة الملكية ولا يغني عن معاينة العقار ومراجعة الأصول والجهات المختصة والاستشارة القانونية أو الفنية عند الحاجة. لا تدفع بناءً على النتيجة وحدها.</div>
         <div class="result-actions">
-          <a class="button primary" id="whatsappLink" href="#" target="_blank" rel="noopener">أرسل النتيجة للمكتب عبر واتساب</a>
-          <button class="button secondary" id="copyResult" type="button">نسخ الملخص</button>
+          <a class="button primary" id="whatsappLink" href="#" target="_blank" rel="noopener">أرسل النتيجة إلى المكتب عبر واتساب</a>
+          <a class="button secondary" id="documentsGeneratorLink" href="document-checklist.html">أنشئ قائمة المستندات</a>
+          <button class="button ghost" id="copyResult" type="button">نسخ الملخص</button>
           <button class="button ghost" id="printResult" type="button">طباعة التقرير</button>
           <button class="button danger" id="resetChecker" type="button">بدء فحص جديد</button>
         </div>
@@ -459,6 +460,7 @@
       const documentsList = document.getElementById('documentsList');
       const answersBody = document.getElementById('answersBody');
       const whatsappLink = document.getElementById('whatsappLink');
+      const documentsGeneratorLink = document.getElementById('documentsGeneratorLink');
       let reportText = '';
       let saveTimer;
 
@@ -482,7 +484,7 @@
           clearTimeout(saveTimer);
           saveTimer = setTimeout(() => { saveStatus.textContent = 'تُحفظ الإجابات تلقائياً على هذا الجهاز.'; }, 1800);
         } catch (error) {
-          saveStatus.textContent = 'تعذر الحفظ التلقائي، لكن تقدر تكمل الفحص.';
+          saveStatus.textContent = 'تعذر الحفظ التلقائي، ولكن يمكنك متابعة الفحص.';
         }
       }
 
@@ -555,7 +557,7 @@
           'لا تعتبر النتيجة اعتماداً؛ أكمل التحقق الرسمي والفني قبل الدفع.',
           'احتفظ بنسخة واضحة من كل مستند واتفاق وإيصال بعد مطابقة الأصل.',
           'راجع العقد ووصف العقار والدفعات والتسليم والالتزامات قبل التوقيع.',
-          'نفّذ معاينة نهائية وتأكد أن الحالة ما تغيرت قبل الإغلاق.'
+          'نفّذ معاينة نهائية وتأكد أن الحالة لم تتغير قبل إتمام المعاملة.'
         ];
       }
 
@@ -603,7 +605,7 @@
         incomplete.classList.remove('show');
         const result = calculateResult(answers);
         const findings = unique(answers.map(input => input.dataset.note));
-        const displayFindings = findings.length ? findings : ['ما ظهرت من إجاباتك نقطة حرجة، لكن يبقى التحقق المستقل والمعاينة والمراجعة المتخصصة ضرورياً.'];
+        const displayFindings = findings.length ? findings : ['لم تظهر في إجاباتك نقطة حرجة، لكن يظل التحقق المستقل والمعاينة والمراجعة المتخصصة أمراً ضرورياً.'];
         const documents = getDocuments(answers);
         const actions = getActions(result.level);
 
@@ -617,7 +619,7 @@
           },
           medium: {
             label: 'تحتاج تحقق إضافي',
-            title: 'فيه نقاط ناقصة قبل الالتزام',
+            title: 'توجد نقاط ناقصة قبل الالتزام',
             summary: 'الصفقة تحتاج استكمال عدة فحوصات ومراجعة النقاط الموضحة قبل دفع العربون أو توقيع العقد.',
             background: 'rgba(240,185,91,.12)',
             color: '#ffe0a9'
@@ -625,7 +627,7 @@
           low: {
             label: 'مخاطر ظاهرة محدودة',
             title: 'أكمل التحقق الرسمي قبل الدفع',
-            summary: 'ما ظهرت مؤشرات حرجة من إجاباتك، لكن النتيجة ما تعني أن الصفقة سليمة ولا تستبدل الفحص الرسمي والفني.',
+            summary: 'لم تظهر مؤشرات حرجة في إجاباتك، لكن النتيجة لا تعني أن الصفقة سليمة، ولا تغني عن الفحص الرسمي والفني.',
             background: 'rgba(74,197,138,.12)',
             color: '#a9f2cf'
           }
@@ -657,6 +659,16 @@
 
         reportText = buildReport(answers, result, displayFindings, documents);
         whatsappLink.href = `https://wa.me/967773571889?text=${encodeURIComponent(reportText)}`;
+        const propertyType = answers.find(input => input.name === 'propertyType')?.value || 'land';
+        const seller = answers.find(input => input.name === 'seller')?.value || 'owner';
+        const inheritance = answers.find(input => input.name === 'inheritance')?.value || 'no';
+        const documentState = answers.find(input => input.name === 'document')?.value || 'unchecked';
+        const ownership = seller === 'agent'
+          ? 'agency'
+          : (seller === 'heirs' || inheritance !== 'no'
+            ? 'inheritance'
+            : (seller === 'owner' ? 'individual' : 'unknown'));
+        documentsGeneratorLink.href = `document-checklist.html?transaction=buy&propertyType=${encodeURIComponent(propertyType)}&ownership=${encodeURIComponent(ownership)}&documentState=${encodeURIComponent(documentState)}`;
         resultSection.classList.add('show');
         resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -689,7 +701,7 @@
         setTimeout(() => { event.currentTarget.textContent = 'نسخ الملخص'; }, 1800);
       });
       document.getElementById('resetChecker').addEventListener('click', () => {
-        if (!window.confirm('تبغى تمسح الإجابات وتبدأ فحص جديد؟')) return;
+        if (!window.confirm('هل تريد مسح الإجابات وبدء فحص جديد؟')) return;
         form.reset();
         localStorage.removeItem(STORAGE_KEY);
         resultSection.classList.remove('show');
