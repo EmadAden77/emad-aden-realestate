@@ -1,0 +1,19 @@
+name: Validate formal Arabic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  formal-arabic:
+    name: Check formal Arabic copy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate interactive pages
+        run: node scripts/validate-formal-arabic.mjs
