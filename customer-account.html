@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>حساب العميل | مكتب عماد عدن العقاري</title>
-  <meta name="description" content="حساب عميل مكتب عماد عدن العقاري والوصول إلى الخدمات والطلبات المرتبطة به.">
+  <meta name="description" content="حساب عميل مكتب عماد عدن العقاري لمتابعة الطلبات وإنشاء طلب جديد وحجز موعد تواصل.">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#0b0c0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,32 +13,153 @@
   <link href="assets/css/customer-auth.css" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>حساب العميل</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
-  <main class="auth-main"><div class="wrap">
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العميل</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
+
+  <main class="auth-main portal-main"><div class="wrap">
     <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ التحقق من الجلسة…</span></div>
     <section id="accountContent" hidden>
       <div class="account-head">
         <div class="identity"><div class="avatar" id="userInitial">ع</div><div><strong id="userName">عميل المكتب</strong><span id="userEmail"></span></div><div id="userButton" aria-label="إدارة الحساب"></div></div>
         <button class="button ghost" id="signOut" type="button">تسجيل الخروج</button>
       </div>
-      <div class="account-grid">
-        <article class="panel"><span class="status secure">جلسة موثقة</span><h2>طلباتك</h2><p>ستظهر هنا الطلبات المرتبطة بحسابك بعد إرسالها إلى المكتب.</p><div class="empty">لا توجد طلبات مرتبطة بهذا الحساب حتى الآن.</div></article>
-        <article class="panel"><h2>خدمات سريعة</h2><p>ابدأ خدمة جديدة من حسابك.</p><div class="quick-links"><a class="quick-link" href="request-reception.html"><strong>إرسال طلب عقاري</strong><span>بيع أو شراء أو بحث عن عقار.</span></a><a class="quick-link" href="document-checklist.html"><strong>قائمة المستندات</strong><span>جهّز قائمة إرشادية لحالتك.</span></a><a class="quick-link" href="deal-safety-check.html"><strong>فاحص الصفقة</strong><span>رتّب نقاط التحقق قبل الالتزام.</span></a><a class="quick-link" href="https://wa.me/967773571889" target="_blank" rel="noopener"><strong>مراسلة المكتب</strong><span>تواصل مباشرة عبر واتساب.</span></a></div></article>
+
+      <section class="portal-welcome" aria-labelledby="portalTitle">
+        <div><span class="status secure">جلسة موثقة</span><h1 id="portalTitle">مرحبًا بك في بوابة العميل</h1><p>أنشئ طلبًا، احفظ مسودتك تلقائيًا، وتابع ما أعددته للمكتب من مكان واحد.</p></div>
+        <button class="button primary" type="button" data-open-portal="new-request">إنشاء طلب جديد</button>
+      </section>
+
+      <div class="portal-metrics" aria-label="ملخص الحساب">
+        <article><span id="requestCount">0</span><strong>الطلبات</strong><small>المحفوظة على هذا الجهاز</small></article>
+        <article><span id="draftCount">0</span><strong>المسودات</strong><small>محفوظة تلقائيًا</small></article>
+        <article><span id="appointmentCount">0</span><strong>المواعيد</strong><small>بانتظار التأكيد</small></article>
       </div>
-      <div class="privacy-note">بيانات الخدمات الحساسة لا تُقبل من الصفحة مباشرة، وأي بيانات مرتبطة بالحساب يجب أن تمر عبر واجهات خادمة تتحقق من الجلسة أولاً.</div>
+
+      <nav class="portal-tabs" role="tablist" aria-label="أقسام بوابة العميل">
+        <button type="button" role="tab" data-portal-tab="overview">نظرة عامة</button>
+        <button type="button" role="tab" data-portal-tab="new-request">طلب جديد</button>
+        <button type="button" role="tab" data-portal-tab="appointment">حجز موعد</button>
+      </nav>
+
+      <p class="portal-notice" id="portalNotice" hidden role="status" aria-live="polite"></p>
+
+      <section class="portal-view" data-portal-view="overview" tabindex="-1">
+        <div class="portal-columns">
+          <article class="panel portal-panel">
+            <div class="panel-heading"><div><span class="eyebrow">متابعة الطلبات</span><h2>طلباتك</h2></div><button class="text-button" type="button" data-open-portal="new-request">إضافة طلب</button></div>
+            <p>تظهر هنا الطلبات التي حفظتها وجهّزتها للإرسال إلى المكتب.</p>
+            <div class="portal-list" id="requestsList"></div>
+          </article>
+
+          <article class="panel portal-panel">
+            <div class="panel-heading"><div><span class="eyebrow">موعد التواصل</span><h2>مواعيدك</h2></div><button class="text-button" type="button" data-open-portal="appointment">حجز موعد</button></div>
+            <p>المواعيد المحفوظة تكون في انتظار تأكيد المكتب عبر واتساب.</p>
+            <div class="portal-list" id="appointmentsList"></div>
+          </article>
+        </div>
+
+        <article class="panel portal-panel quick-panel">
+          <div><h2>خدمات سريعة</h2><p>أدوات مفيدة قبل اتخاذ القرار أو التواصل مع المكتب.</p></div>
+          <div class="quick-links"><a class="quick-link" href="document-checklist.html"><strong>قائمة المستندات</strong><span>جهّز قائمة إرشادية لحالتك.</span></a><a class="quick-link" href="deal-safety-check.html"><strong>فاحص الصفقة</strong><span>رتّب نقاط التحقق قبل الالتزام.</span></a><a class="quick-link" href="property-value.html"><strong>التثمين العقاري</strong><span>ابدأ طلب تقدير قيمة عقارك.</span></a><a class="quick-link" href="https://wa.me/967773571889" target="_blank" rel="noopener"><strong>مراسلة المكتب</strong><span>تواصل مباشرة عبر واتساب.</span></a></div>
+        </article>
+      </section>
+
+      <section class="portal-view" data-portal-view="new-request" tabindex="-1" hidden>
+        <div class="form-layout">
+          <article class="panel portal-panel">
+            <span class="eyebrow">طلب جديد</span>
+            <h2>ما الخدمة التي تحتاجها؟</h2>
+            <p>سيُحفظ ما تكتبه تلقائيًا على هذا الجهاز، ثم يمكنك إرسال الطلب إلى المكتب عبر واتساب.</p>
+            <form class="portal-form" id="newRequestForm">
+              <label>نوع الخدمة
+                <select name="service" required>
+                  <option value="">اختر الخدمة</option>
+                  <option>إدارة أملاك</option>
+                  <option>استشارة عقارية</option>
+                  <option>استشارة قانونية عقارية</option>
+                  <option>تثمين عقاري</option>
+                  <option>بيع عقار</option>
+                  <option>شراء عقار</option>
+                  <option>إيجار أو استئجار</option>
+                  <option>بحث عن عقار</option>
+                  <option>خدمة أخرى</option>
+                </select>
+              </label>
+              <label>المنطقة أو المديرية
+                <input name="district" maxlength="80" placeholder="مثال: المنصورة أو خور مكسر">
+              </label>
+              <label>طريقة التواصل المفضلة
+                <select name="contactMethod" required>
+                  <option value="">اختر الطريقة</option>
+                  <option>واتساب</option>
+                  <option>اتصال هاتفي</option>
+                  <option>زيارة المكتب</option>
+                </select>
+              </label>
+              <label class="full">ملخص الطلب
+                <textarea name="summary" rows="5" maxlength="800" required placeholder="اكتب المطلوب باختصار، من دون إرسال أرقام وثائق أو بيانات مالية حساسة."></textarea>
+              </label>
+              <div class="draft-row full"><span id="draftStatus" aria-live="polite">لا توجد مسودة محفوظة.</span><button id="clearDraft" class="text-button danger" type="button">حذف المسودة</button></div>
+              <div class="form-actions full"><button class="button primary" type="submit">حفظ وإرسال عبر واتساب</button><button class="button ghost" type="button" data-open-portal="overview">العودة إلى الطلبات</button></div>
+            </form>
+          </article>
+          <aside class="panel portal-aside"><h2>كيف تعمل الخدمة؟</h2><ol><li>اكتب طلبك، وسيُحفظ تلقائيًا.</li><li>اضغط زر الإرسال لفتح رسالة جاهزة.</li><li>أرسل الرسالة إلى المكتب عبر واتساب.</li><li>يؤكد المكتب الاستلام والخطوة التالية.</li></ol><div class="local-note"><strong>تنبيه مهم</strong><span>البيانات محفوظة على هذا الجهاز فقط. لا تكتب أرقام الهوية أو الحسابات أو صور الوثائق هنا.</span></div></aside>
+        </div>
+      </section>
+
+      <section class="portal-view" data-portal-view="appointment" tabindex="-1" hidden>
+        <div class="form-layout">
+          <article class="panel portal-panel">
+            <span class="eyebrow">حجز موعد التواصل</span>
+            <h2>اختر الموعد المناسب</h2>
+            <p>احفظ الموعد ثم أرسل طلب التأكيد إلى المكتب عبر واتساب.</p>
+            <form class="portal-form" id="appointmentForm">
+              <label>التاريخ المطلوب
+                <input type="date" name="appointmentDate" required>
+              </label>
+              <label>الفترة المناسبة
+                <select name="appointmentTime" required>
+                  <option value="">اختر الفترة</option>
+                  <option>صباحًا — من 9 إلى 12</option>
+                  <option>ظهرًا — من 12 إلى 3</option>
+                  <option>مساءً — من 4 إلى 7</option>
+                </select>
+              </label>
+              <label>طريقة الموعد
+                <select name="appointmentChannel" required>
+                  <option value="">اختر الطريقة</option>
+                  <option>مكالمة هاتفية</option>
+                  <option>محادثة واتساب</option>
+                  <option>زيارة المكتب</option>
+                </select>
+              </label>
+              <label class="full">ملاحظة اختيارية
+                <textarea name="appointmentNotes" rows="4" maxlength="400" placeholder="اكتب موضوع الموعد باختصار."></textarea>
+              </label>
+              <div class="form-actions full"><button class="button primary" type="submit">حفظ وطلب التأكيد</button><button class="button ghost" type="button" data-open-portal="overview">العودة إلى المواعيد</button></div>
+            </form>
+          </article>
+          <aside class="panel portal-aside"><h2>قبل الحجز</h2><ul><li>الموعد لا يصبح مؤكدًا إلا بعد رد المكتب.</li><li>قد يقترح المكتب وقتًا بديلًا عند ازدحام المواعيد.</li><li>الزيارة تكون في مقر المكتب بعد التأكيد.</li></ul><a class="office-location" href="contact.html">عرض بيانات المكتب والتواصل</a></aside>
+        </div>
+      </section>
+
+      <div class="privacy-note">بيانات الطلبات والمسودات والمواعيد في هذه النسخة محفوظة محليًا على جهازك، ولا تصل إلى المكتب حتى ترسل رسالة واتساب. لا تُدخل بيانات مالية أو أرقام وثائق أو معلومات شديدة الحساسية.</div>
     </section>
     <p class="error" id="accountError" role="alert"></p>
   </div></main>
+
   <footer><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="contact.html">تواصل معنا</a></span></div></footer>
   <script type="module">
     import { loadCustomerAccount } from './assets/js/clerk-auth.js';
+    import { initCustomerPortal } from './assets/js/customer-portal.js';
+
     document.getElementById('year').textContent = new Date().getFullYear();
     const loader = document.getElementById('accountLoader');
     const content = document.getElementById('accountContent');
     const errorBox = document.getElementById('accountError');
+
     loadCustomerAccount().then(context => {
       if (!context) return;
-      const { clerk, appearance } = context;
+      const { clerk, appearance, session } = context;
       const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
       const name = clerk.user?.fullName || clerk.user?.firstName || 'عميل المكتب';
       document.getElementById('userName').textContent = name;
@@ -46,6 +167,7 @@
       document.getElementById('userInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
       clerk.mountUserButton(document.getElementById('userButton'), { appearance });
       document.getElementById('signOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
+      initCustomerPortal({ userId: session.userId, userName: name, userEmail: email });
       loader.remove();
       content.hidden = false;
     }).catch(error => {
