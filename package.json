@@ -1,0 +1,15 @@
+{
+  "name": "emad-aden-realestate",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "@clerk/backend": "3.16.4",
+    "@clerk/localizations": "4.15.1"
+  },
+  "scripts": {
+    "validate:auth": "node scripts/validate-customer-auth.mjs"
+  }
+}

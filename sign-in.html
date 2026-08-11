@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>دخول العملاء | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="تسجيل دخول عملاء مكتب عماد عدن العقاري عبر رمز تحقق يُرسل إلى البريد الإلكتروني.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#0b0c0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/customer-auth.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>دخول آمن للعملاء</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
+  <main class="auth-main"><div class="wrap auth-grid">
+    <section class="intro">
+      <span class="eyebrow">حساب العميل</span>
+      <h1>دخول آمن عبر <span>البريد الإلكتروني</span></h1>
+      <p>أدخل بريدك الإلكتروني، ثم استخدم رمز التحقق المرسل إليك. لا تحتاج إلى إنشاء كلمة مرور أو تذكّرها.</p>
+      <div class="benefits"><div class="benefit">رمز قصير للاستخدام مرة واحدة.</div><div class="benefit">لا تُحفظ كلمة مرور داخل الموقع.</div><div class="benefit">يمكنك إدارة جلستك وتسجيل الخروج في أي وقت.</div></div>
+    </section>
+    <section class="auth-card" aria-labelledby="signInTitle">
+      <h2 id="signInTitle">تسجيل الدخول أو إنشاء حساب</h2>
+      <p>استخدم البريد نفسه عند كل زيارة للوصول إلى حسابك.</p>
+      <div class="loader" id="authLoader" aria-live="polite"><span>جارٍ تجهيز تسجيل الدخول…</span></div>
+      <div id="clerkSignIn"></div>
+      <p class="error" id="authError" role="alert"></p>
+      <div class="privacy-note">باستمرارك، ستُستخدم بيانات الحساب لتوفير تسجيل الدخول والخدمات المرتبطة بطلباتك، وفق سياسة الخصوصية.</div>
+    </section>
+  </div></main>
+  <footer><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="contact.html">تواصل معنا</a></span></div></footer>
+  <script type="module">
+    import { mountCustomerSignIn } from './assets/js/clerk-auth.js';
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const loader = document.getElementById('authLoader');
+    const errorBox = document.getElementById('authError');
+    mountCustomerSignIn(document.getElementById('clerkSignIn'))
+      .then(() => loader.remove())
+      .catch(error => {
+        loader.remove();
+        errorBox.textContent = error.message || 'تعذر تشغيل تسجيل الدخول. حاول مرة أخرى لاحقاً.';
+        errorBox.classList.add('show');
+      });
+  </script>
+</body>
+</html>
