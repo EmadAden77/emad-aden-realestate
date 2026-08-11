@@ -1,0 +1,19 @@
+name: Validate customer authentication
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  customer-auth:
+    name: Check customer authentication
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate authentication files
+        run: node scripts/validate-customer-auth.mjs
