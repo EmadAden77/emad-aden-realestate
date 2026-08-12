@@ -1,10 +1,10 @@
-const VERSION = 'emad-realestate-v10';
+const VERSION = 'emad-realestate-v11';
 const STATIC_CACHE = `${VERSION}-static`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const OFFLINE_URL = '/404.html';
 const PRECACHE = [
   '/', '/index.html', '/app.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
-  '/assets/css/home.bundle.css', '/assets/css/articles.css',
+  '/assets/css/home.bundle.css', '/assets/css/articles.css', '/assets/css/luxury-header.css?v=20260812-1',
   '/assets/js/luxury-home.js?v=20260812-2', '/assets/js/articles.js'
 ];
 
