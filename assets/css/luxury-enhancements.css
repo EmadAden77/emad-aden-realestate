@@ -150,3 +150,14 @@ body{font-feature-settings:"kern" 1,"liga" 1;text-rendering:optimizeLegibility}
 @media(max-width:650px){.topbar{padding:7px 0 0}.topbar .nav{min-height:62px;padding:6px 8px;border-radius:16px}.topbar .brand{gap:8px;max-width:calc(100% - 50px)}.topbar .brand img{width:40px;height:40px;border-radius:12px}.topbar .brand strong{font-size:.86rem}.topbar .brand span{font-size:.58rem}.topbar .menu-btn{width:40px;height:40px;border-radius:11px}.topbar .mobile-menu{margin-top:8px;border:1px solid rgba(229,192,123,.14);border-radius:16px;background:rgba(11,12,13,.98);box-shadow:0 18px 40px rgba(0,0,0,.34)}.topbar.is-scrolled .nav{min-height:62px}}
 @media(max-width:390px){.topbar .brand span{display:none}.topbar .brand strong{font-size:.84rem}.topbar .brand img{width:38px;height:38px}}
 @media(prefers-reduced-motion:reduce){.topbar{transition:none!important}.topbar.is-scrolled{transform:translateY(calc(-100% - 16px))}}
+
+/* رأس المكتب المبسط — الشعار والاسم فقط */
+.topbar .nav{width:min(520px,calc(100% - 24px))!important;min-height:70px!important;margin-inline:auto!important;padding:8px 14px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-color:rgba(229,192,123,.20)!important;background:linear-gradient(145deg,rgba(20,21,22,.94),rgba(7,8,9,.96))!important;box-shadow:0 14px 38px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.045)!important}
+.topbar .navlinks,.topbar .actions,.topbar .menu-btn,.topbar .mobile-menu{display:none!important}
+.topbar .brand{display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;width:auto!important;max-width:none!important;margin:0 auto!important;padding:2px!important}
+.topbar .brand div{display:block!important;min-width:0!important}
+.topbar .brand span{display:none!important}
+.topbar .brand strong{display:block!important;color:#f7f3ea!important;font-size:1.05rem!important;font-weight:800!important;line-height:1.2!important;white-space:nowrap!important;letter-spacing:-.015em!important}
+.topbar .brand img{width:48px!important;height:48px!important;flex:0 0 48px!important;border:1px solid rgba(229,192,123,.36)!important;border-radius:14px!important;box-shadow:0 8px 22px rgba(0,0,0,.32),0 0 0 3px rgba(229,192,123,.045)!important}
+@media(max-width:650px){.topbar .nav{width:min(440px,calc(100% - 20px))!important;min-height:62px!important;padding:6px 10px!important;border-radius:16px!important}.topbar .brand{gap:9px!important}.topbar .brand img{width:42px!important;height:42px!important;flex-basis:42px!important;border-radius:12px!important}.topbar .brand strong{font-size:.92rem!important}}
+@media(max-width:390px){.topbar .brand img{width:40px!important;height:40px!important;flex-basis:40px!important}.topbar .brand strong{font-size:.84rem!important}}
