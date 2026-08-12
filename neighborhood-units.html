@@ -44,6 +44,5 @@
 <footer class="footer"><div class="wrap">© <span id="year"></span> مكتب عماد عدن العقاري — دليل وحدات الجوار في عدن</div></footer>
 <nav class="mobile-bar"><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a class="primary" href="https://wa.me/967773571889" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a></nav>
 <script>document.getElementById('year').textContent=new Date().getFullYear();function filterUnits(){const u=document.getElementById('unitSearch').value.trim().toLowerCase(),a=document.getElementById('areaSearch').value.trim().toLowerCase(),x=document.getElementById('axisSearch').value.trim().toLowerCase();document.querySelectorAll('.unit-card').forEach(card=>{const okU=!u||card.dataset.unit.toLowerCase().includes(u),okA=!a||card.dataset.area.toLowerCase().includes(a),okX=!x||card.dataset.axis.toLowerCase().includes(x);card.classList.toggle('hidden',!(okU&&okA&&okX))})}['unitSearch','areaSearch'].forEach(id=>document.getElementById(id).addEventListener('input',filterUnits));document.getElementById('axisSearch').addEventListener('change',filterUnits);</script>
-<script src="assets/js/page-section-cards.js" defer></script>
 </body>
 </html>

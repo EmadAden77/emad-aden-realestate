@@ -429,6 +429,7 @@
 
 .check-list{margin:0;padding-right:18px;color:var(--muted);line-height:2.05}.faq details{background:rgba(255,255,255,.04);border:1px solid rgba(229,192,123,.14);border-radius:18px;padding:14px 18px;margin-bottom:12px}.faq summary{cursor:pointer;color:var(--gold);font-weight:900}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.full{grid-column:1/-1}#consult,#contracts{scroll-margin-top:120px}footer{border-top:1px solid rgba(229,192,123,.16);padding:28px 0;color:var(--muted);text-align:center}.download-btn{cursor:pointer;font-family:inherit;font-weight:800;transition:.2s}.download-btn:hover{background:rgba(229,192,123,.16);transform:translateY(-1px)}.download-note{font-size:.78rem;color:var(--muted);margin-top:10px}@media (max-width: 980px){.hero-grid,.grid-2{grid-template-columns:1fr}.grid-3,.contract-grid{grid-template-columns:1fr 1fr}.nav{grid-template-columns:1fr auto}.brand{grid-column:1}.home-btn{grid-column:2}.nav-links{grid-column:1/-1;justify-content:flex-start}}@media (max-width: 640px){html{scroll-padding-top:170px}.grid-3,.grid-2,.contract-grid,.form-grid{grid-template-columns:1fr}.container{width:min(100% - 22px,1180px)}.nav{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand home" "links links";gap:10px 12px;padding:10px 0 12px}.brand{grid-area:brand}.brand img{width:44px;height:44px;border-radius:13px}.brand strong{font-size:.92rem;white-space:normal;line-height:1.35}.brand span{font-size:.72rem;line-height:1.35}.home-btn{grid-area:home;padding:9px 14px;font-size:.85rem}.nav-links{grid-area:links;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%}.nav-links a{text-align:center;padding:9px 8px;font-size:.82rem;line-height:1.35}.section{padding:40px 0}.hero-grid{padding-top:34px;gap:18px}.title{font-size:2.2rem}.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}.hero-actions .btn{padding:10px 12px}.form-card{padding:19px}#consult,#contracts{scroll-margin-top:170px}}
 </style>
+<link rel="stylesheet" href="assets/css/fixed-section-cards.css?v=20260812-1">
 <title>مركز الاستشارات القانونية العقارية في عدن</title>
 <meta name="description" content="استشارات قانونية عقارية، نماذج عقود، أسئلة شائعة، وطلب مراجعة مستندات لمعاملات عدن.">
 
@@ -448,8 +449,17 @@
   </div>
 </div>
 
+<nav class="fixed-section-cards" style="--section-cards-top:74px;--section-cards-tablet-top:126px;--section-cards-mobile-top:158px;--section-cards-z:49" aria-label="أقسام الاستشارات القانونية">
+  <div class="fixed-section-cards__inner">
+    <a class="fixed-section-card" href="#legal-overview"><span class="fixed-section-card__number">01</span><span class="fixed-section-card__copy"><strong>نظرة قانونية</strong><small>فحص قبل التوقيع</small></span></a>
+    <a class="fixed-section-card" href="#consult"><span class="fixed-section-card__number">02</span><span class="fixed-section-card__copy"><strong>طلب استشارة</strong><small>إرسال الحالة والمستندات</small></span></a>
+    <a class="fixed-section-card" href="#contracts"><span class="fixed-section-card__number">03</span><span class="fixed-section-card__copy"><strong>نماذج العقود</strong><small>نماذج عقارية استرشادية</small></span></a>
+    <a class="fixed-section-card" href="#legal-faq"><span class="fixed-section-card__number">04</span><span class="fixed-section-card__copy"><strong>الأسئلة الشائعة</strong><small>إجابات قانونية مختصرة</small></span></a>
+  </div>
+</nav>
+
 <main class="container">
-  <section class="section hero-grid">
+  <section class="section hero-grid" id="legal-overview">
     <div>
       <span class="badge pill">مركز قانوني عقاري متكامل</span>
       <h1 class="title">المستشار القانوني لعقارك في عدن</h1>
@@ -485,7 +495,7 @@
     <div class="glass intro-card card"><h3 class="gold">مخرجات واضحة</h3><p style="color:var(--muted)">تحصل على ملخص مخاطر، قائمة نواقص، وخطوات عملية قبل إكمال الصفقة.</p></div>
   </section>
 
-  <section class="section">
+  <section class="section" id="legal-faq">
     <div class="glass faq-card card faq"><div class="section-head"><h2>الأسئلة الشائعة</h2><p>إجابات سريعة على أكثر النقاط التي تتكرر قبل المعاملات.</p></div><details open><summary>كيف أعرف أن الأرض سليمة؟</summary><p style="color:var(--muted)">بمطابقة الموقع، حدود الوثيقة، التسلسل، والسجل المختص مع معاينة ميدانية.</p></details><details><summary>هل تكفي الوكالة للبيع؟</summary><p style="color:var(--muted)">تُراجع صلاحية الوكالة ونطاقها وعدم إلغائها قبل أي تصرف.</p></details><details><summary>متى أحتاج عقداً مفصلاً؟</summary><p style="color:var(--muted)">عند وجود دفعات، تسليم مؤجل، ورثة، شركاء، أو اشتراطات بناء وخدمات.</p></details></div>
   </section>
 </main>
@@ -572,8 +582,7 @@ function buildPreviewHtml(item, documentBody) {
       '<button id="printBtn" type="button">طباعة أو حفظ PDF</button>' +
     '</div>' +
     '<main id="legalDocument" class="paper">' + documentBody + '</main>' +
-    '<script src="assets/js/page-section-cards.js" defer></script>
-</body></html>';
+    '</body></html>';
 }
 
 function downloadWord(item, documentBody) {

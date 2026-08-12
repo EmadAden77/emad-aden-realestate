@@ -11,7 +11,7 @@
   },
   "scripts": {
     "validate:auth": "node scripts/validate-customer-auth.mjs",
-    "validate:page-cards": "node scripts/validate-page-section-cards.mjs",
+    "validate:section-cards": "node scripts/validate-fixed-section-cards.mjs",
     "validate:services": "node scripts/validate-service-center.mjs"
   }
 }

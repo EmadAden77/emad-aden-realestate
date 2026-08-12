@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/expatriates.css?v=20260725-3">
+<link rel="stylesheet" href="assets/css/fixed-section-cards.css?v=20260812-1">
 <style>
   .request-priority{padding-top:34px;padding-bottom:22px}
   .request-priority .request-shell{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:22px;align-items:start}
@@ -81,6 +82,14 @@
     <a class="btn btn-primary" href="index.html">الرئيسية</a>
   </div>
 </header>
+<nav class="fixed-section-cards" aria-label="أقسام إدارة أملاك المغتربين">
+  <div class="fixed-section-cards__inner">
+    <a class="fixed-section-card" href="#request"><span class="fixed-section-card__number">01</span><span class="fixed-section-card__copy"><strong>طلب إدارة العقار</strong><small>إرسال بيانات العقار</small></span></a>
+    <a class="fixed-section-card" href="#my-properties"><span class="fixed-section-card__number">02</span><span class="fixed-section-card__copy"><strong>متابعة الأملاك</strong><small>دخول العميل ومتابعته</small></span></a>
+    <a class="fixed-section-card" href="#services"><span class="fixed-section-card__number">03</span><span class="fixed-section-card__copy"><strong>خدمات الإدارة</strong><small>التأجير والصيانة والتحصيل</small></span></a>
+    <a class="fixed-section-card" href="#reports"><span class="fixed-section-card__number">04</span><span class="fixed-section-card__copy"><strong>التقارير</strong><small>متابعة موثقة وواضحة</small></span></a>
+  </div>
+</nav>
 <main>
   <section class="section request-priority" id="request">
     <div class="container request-shell">
@@ -286,6 +295,5 @@
 <script>
 function sendWhatsApp(formId,title){const form=document.getElementById(formId);if(!form)return;const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);window.open('https://wa.me/967773571889?text='+msg,'_blank','noopener');}
 </script>
-<script src="assets/js/page-section-cards.js" defer></script>
 </body>
 </html>
