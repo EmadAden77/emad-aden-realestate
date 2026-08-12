@@ -286,5 +286,6 @@
 <script>
 function sendWhatsApp(formId,title){const form=document.getElementById(formId);if(!form)return;const data=[...new FormData(form).entries()].map(([k,v])=>`${k}: ${v&&v.name?v.name:v}`).join('\n');const msg=encodeURIComponent(title+'\n'+data);window.open('https://wa.me/967773571889?text='+msg,'_blank','noopener');}
 </script>
+<script src="assets/js/page-section-cards.js" defer></script>
 </body>
 </html>
