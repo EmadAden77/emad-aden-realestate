@@ -1,4 +1,4 @@
-const VERSION = 'emad-realestate-v8';
+const VERSION = 'emad-realestate-v9';
 const STATIC_CACHE = `${VERSION}-static`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const OFFLINE_URL = '/404.html';
