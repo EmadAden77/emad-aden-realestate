@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   enhancementStyle.href='assets/css/luxury-enhancements.css?v=20260812-2';
   document.head.appendChild(enhancementStyle);
 
+  const headerStyle=document.createElement('link');
+  headerStyle.rel='stylesheet';
+  headerStyle.href='assets/css/luxury-header.css?v=20260812-1';
+  document.head.appendChild(headerStyle);
+  const brandSubtitle=document.querySelector('.topbar .brand span');
+  if(brandSubtitle)brandSubtitle.textContent='بيع · شراء · تثمين · استثمار';
+
   requestAnimationFrame(restorePageAfterNavigation);
 
   const progress=document.createElement('div');
@@ -257,7 +264,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
         animation.onfinish=()=>{track.style.transform=`translate3d(${offset}%,0,0)`;animation.cancel();animation=null;};
       };
-
       const showSlide=(index,animate=true)=>{
         const next=(index+count)%count;
         const previous=current;
