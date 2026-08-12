@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 const requiredFiles = [
   'sign-in.html',
   'customer-account.html',
+  'client-services.html',
   'assets/css/customer-auth.css',
   'assets/js/clerk-auth.js',
   'assets/js/customer-portal.js',
@@ -69,11 +70,20 @@ if (!accountPage.includes('هذه البوابة خاصة بعملاء المك�
   failed = true;
 }
 const homepage = readFileSync('index.html', 'utf8');
-for (const marker of ['id="customer-portal"', 'customer-portal-grid', 'data-private-feature="متابعة الطلبات"', 'href="#customer-portal"']) {
+for (const marker of ['href="customer-account.html"', 'aria-label="فتح صفحة بوابة العملاء"']) {
   if (!homepage.includes(marker)) {
-    console.error(`قسم بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
+    console.error(`رابط صفحة بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
     failed = true;
   }
+}
+if (homepage.includes('id="customer-portal"') || homepage.includes('customerLoginModal') || homepage.includes('href="#customer-portal"')) {
+  console.error('بوابة العملاء ما زالت مضمّنة داخل الصفحة الرئيسية بدل فتح صفحتها المستقلة.');
+  failed = true;
+}
+const serviceCenterPage = contents.get('client-services.html') || '';
+if (!serviceCenterPage.includes('href="customer-account.html"') || serviceCenterPage.includes('index.html#customer-portal')) {
+  console.error('مركز خدمات المتابعة لا يوجّه الزائر إلى صفحة بوابة العملاء المستقلة.');
+  failed = true;
 }
 if (!portalSource.includes('localStorage') || !portalSource.includes('userId') || portalSource.includes('innerHTML')) {
   console.error('بوابة العميل لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
