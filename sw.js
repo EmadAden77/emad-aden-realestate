@@ -1,11 +1,11 @@
-const VERSION = 'emad-realestate-v7';
+const VERSION = 'emad-realestate-v8';
 const STATIC_CACHE = `${VERSION}-static`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const OFFLINE_URL = '/404.html';
 const PRECACHE = [
   '/', '/index.html', '/app.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
   '/assets/css/home.bundle.css', '/assets/css/articles.css',
-  '/assets/js/luxury-home.js', '/assets/js/articles.js'
+  '/assets/js/luxury-home.js?v=20260812-2', '/assets/js/articles.js'
 ];
 
 self.addEventListener('install', event => {
@@ -27,16 +27,19 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET' || url.origin !== self.location.origin || url.pathname.startsWith('/api/')) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .then(response => {
-          if (response.ok) {
-            caches.open(PAGE_CACHE).then(cache => cache.put(request, response.clone()));
-          }
-          return response;
-        })
-        .catch(() => caches.match(request).then(hit => hit || caches.match(OFFLINE_URL)))
-    );
+    const cachedResponse = caches.match(request, { ignoreSearch: true });
+    const networkResponse = fetch(request).then(async response => {
+      if (response.ok) {
+        const cache = await caches.open(PAGE_CACHE);
+        await cache.put(request, response.clone());
+      }
+      return response;
+    });
+
+    event.respondWith(cachedResponse.then(cached => (
+      cached || networkResponse.catch(() => caches.match(OFFLINE_URL))
+    )));
+    event.waitUntil(networkResponse.catch(() => undefined));
     return;
   }
 

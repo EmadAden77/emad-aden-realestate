@@ -1,9 +1,6 @@
-/* ترقية التجربة الفاخرة: تنقل ذكي، تقدم القراءة، انتقالات، بطاقات وهوية أقسام */
+/* ترقية التجربة الفاخرة: تنقل مباشر، تقدم القراءة، بطاقات وهوية أقسام */
 :root{--nav-h:78px}
 html{scroll-padding-top:calc(var(--nav-h) + 18px)}
-body{transition:opacity .38s ease}
-body.page-ready{opacity:1}
-body.page-leaving{opacity:0;transform:scale(.995)}
 .scroll-progress{position:fixed;top:0;right:0;left:0;height:3px;z-index:999;background:rgba(255,255,255,.04)}
 .scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--gold-2),var(--gold),#fff2c7);box-shadow:0 0 18px rgba(229,192,123,.65)}
 .topbar{transition:min-height .28s ease,background .28s ease,box-shadow .28s ease,border-color .28s ease}
