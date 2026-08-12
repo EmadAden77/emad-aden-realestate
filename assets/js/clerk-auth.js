@@ -88,25 +88,38 @@ export function getClerk() {
   return clerkPromise;
 }
 
+function safeRedirectPath(value, fallback = ACCOUNT_PATH) {
+  if (!value) return fallback;
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.origin !== window.location.origin || !url.pathname.endsWith('.html')) return fallback;
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return fallback;
+  }
+}
+
 export async function mountCustomerSignIn(target) {
+  const redirectPath = safeRedirectPath(new URLSearchParams(window.location.search).get('redirect_url'));
   const clerk = await getClerk();
   if (clerk.isSignedIn) {
-    window.location.replace(ACCOUNT_PATH);
+    window.location.replace(redirectPath);
     return;
   }
 
   clerk.mountSignIn(target, {
     routing: 'hash',
-    fallbackRedirectUrl: ACCOUNT_PATH,
-    signUpFallbackRedirectUrl: ACCOUNT_PATH,
+    fallbackRedirectUrl: redirectPath,
+    signUpFallbackRedirectUrl: redirectPath,
     appearance: clerkAppearance()
   });
 }
 
-export async function loadCustomerAccount() {
+export async function loadCustomerAccount(options = {}) {
+  const accountPath = safeRedirectPath(options.accountPath, ACCOUNT_PATH);
   const clerk = await getClerk();
   if (!clerk.isSignedIn || !clerk.session) {
-    window.location.replace(`${SIGN_IN_PATH}?redirect_url=${encodeURIComponent(ACCOUNT_PATH)}`);
+    window.location.replace(`${SIGN_IN_PATH}?redirect_url=${encodeURIComponent(accountPath)}`);
     return null;
   }
 
@@ -121,7 +134,7 @@ export async function loadCustomerAccount() {
 
   if (!response.ok) {
     await clerk.signOut();
-    window.location.replace(SIGN_IN_PATH);
+    window.location.replace(`${SIGN_IN_PATH}?redirect_url=${encodeURIComponent(accountPath)}`);
     return null;
   }
 

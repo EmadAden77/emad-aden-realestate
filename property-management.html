@@ -207,7 +207,7 @@
     const content = document.getElementById('pmContent');
     const errorBox = document.getElementById('pmError');
 
-    loadCustomerAccount().then(context => {
+    loadCustomerAccount({ accountPath: '/property-management.html' }).then(context => {
       if (!context) return;
       const { clerk, appearance, session } = context;
       const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
