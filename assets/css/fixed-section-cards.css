@@ -1,0 +1,144 @@
+.fixed-section-cards {
+  position: sticky;
+  top: var(--section-cards-top, 74px);
+  z-index: var(--section-cards-z, 19);
+  direction: rtl;
+  background: #111315;
+  border-bottom: 1px solid #303235;
+}
+
+.fixed-section-cards__inner {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.fixed-section-card {
+  min-width: 0;
+  min-height: 48px;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  background: #191b1e;
+  border: 1px solid #393b3f;
+  border-radius: 11px;
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.fixed-section-card__number {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  display: grid;
+  place-items: center;
+  color: #111315;
+  background: #fff;
+  border-radius: 8px;
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+.fixed-section-card__copy {
+  min-width: 0;
+  display: block;
+}
+
+.fixed-section-card strong,
+.fixed-section-card small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fixed-section-card strong {
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.fixed-section-card small {
+  margin-top: 2px;
+  color: #c8c9cb;
+  font-size: .67rem;
+  font-weight: 500;
+}
+
+.fixed-section-card:hover,
+.fixed-section-card:focus-visible {
+  color: #fff;
+  background: #24272a;
+  border-color: #fff;
+  outline: none;
+}
+
+:where(
+  #request,
+  #my-properties,
+  #services,
+  #reports,
+  #legal-overview,
+  #consult,
+  #contracts,
+  #legal-faq,
+  #value-factors,
+  #valuation-method,
+  #valuation-report,
+  #request-routes,
+  #workflow,
+  #professional-notice
+) {
+  scroll-margin-top: 190px;
+}
+
+@media (max-width: 640px) {
+  .fixed-section-cards {
+    top: var(--section-cards-mobile-top, var(--section-cards-top, 74px));
+  }
+
+  .fixed-section-cards__inner {
+    width: min(100% - 16px, 1180px);
+    padding: 6px 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .fixed-section-card {
+    min-height: 42px;
+    padding: 6px 7px;
+    gap: 7px;
+    border-radius: 9px;
+  }
+
+  .fixed-section-card__number {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+    border-radius: 7px;
+    font-size: .66rem;
+  }
+
+  .fixed-section-card strong {
+    font-size: .75rem;
+  }
+
+  .fixed-section-card small {
+    font-size: .61rem;
+  }
+
+  :where(#legal-overview, #consult, #contracts, #legal-faq) {
+    scroll-margin-top: 270px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 980px) {
+  .fixed-section-cards {
+    top: var(--section-cards-tablet-top, var(--section-cards-top, 74px));
+  }
+}

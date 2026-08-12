@@ -615,6 +615,7 @@ select.control{background-color:#120e0c}
 }
 
 </style>
+<link rel="stylesheet" href="assets/css/fixed-section-cards.css?v=20260812-1">
 </head>
 <body>
 <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
@@ -633,6 +634,15 @@ select.control{background-color:#120e0c}
     </nav>
   </div>
 </header>
+
+<nav class="fixed-section-cards" style="--section-cards-top:86px;--section-cards-mobile-top:74px;--section-cards-z:49" aria-label="أقسام استقبال الطلبات">
+  <div class="fixed-section-cards__inner">
+    <a class="fixed-section-card" href="#request"><span class="fixed-section-card__number">01</span><span class="fixed-section-card__copy"><strong>إرسال الطلب</strong><small>النموذج والبيانات الأساسية</small></span></a>
+    <a class="fixed-section-card" href="#request-routes"><span class="fixed-section-card__number">02</span><span class="fixed-section-card__copy"><strong>مسارات الخدمة</strong><small>بيع أو شراء أو إيجار</small></span></a>
+    <a class="fixed-section-card" href="#workflow"><span class="fixed-section-card__number">03</span><span class="fixed-section-card__copy"><strong>خطوات المتابعة</strong><small>من الطلب إلى التواصل</small></span></a>
+    <a class="fixed-section-card" href="#professional-notice"><span class="fixed-section-card__number">04</span><span class="fixed-section-card__copy"><strong>التنبيه المهني</strong><small>حدود استقبال الطلب</small></span></a>
+  </div>
+</nav>
 
 <main id="main">
   <section class="ticket-section" id="request" aria-labelledby="formTitle">
@@ -798,7 +808,7 @@ select.control{background-color:#120e0c}
     </div>
   </section>
 
-  <section class="route-section" aria-labelledby="routeTitle">
+  <section class="route-section" id="request-routes" aria-labelledby="routeTitle">
     <div class="shell">
       <div class="section-head reveal">
         <div><div class="section-tag">مسارات الخدمة العقارية</div><h2 id="routeTitle">ما نوع طلبك العقاري؟</h2></div>
@@ -832,7 +842,7 @@ select.control{background-color:#120e0c}
     </div>
   </section>
 
-  <section class="notice">
+  <section class="notice" id="professional-notice">
     <div class="shell">
       <div class="notice-box reveal">
         <div class="notice-icon"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></div>
@@ -1091,6 +1101,5 @@ select.control{background-color:#120e0c}
   updatePreview();
 })();
 </script>
-<script src="assets/js/page-section-cards.js" defer></script>
 </body>
 </html>
