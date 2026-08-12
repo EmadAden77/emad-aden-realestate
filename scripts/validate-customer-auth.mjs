@@ -70,14 +70,21 @@ if (!accountPage.includes('هذه البوابة خاصة بعملاء المك�
   failed = true;
 }
 const homepage = readFileSync('index.html', 'utf8');
-for (const marker of ['href="customer-account.html"', 'aria-label="فتح صفحة بوابة العملاء"']) {
+for (const marker of ['id="customer-portal"', 'customer-portal-grid', 'href="#customer-portal"', 'href="customer-account.html#tracking"']) {
   if (!homepage.includes(marker)) {
-    console.error(`رابط صفحة بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
+    console.error(`قسم بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
     failed = true;
   }
 }
-if (homepage.includes('id="customer-portal"') || homepage.includes('customerLoginModal') || homepage.includes('href="#customer-portal"')) {
-  console.error('بوابة العملاء ما زالت مضمّنة داخل الصفحة الرئيسية بدل فتح صفحتها المستقلة.');
+const receptionIndex = homepage.indexOf('استقبال طلبات البيع والشراء العقاري');
+const portalIndex = homepage.indexOf('<section class="customer-portal-section"');
+const followingSectionIndex = homepage.indexOf('<section class="hero hero-secondary"');
+if (receptionIndex === -1 || portalIndex < receptionIndex || followingSectionIndex < portalIndex) {
+  console.error('يجب أن يظهر قسم بوابة العملاء مباشرة بعد خدمة استقبال طلبات البيع والشراء.');
+  failed = true;
+}
+if (homepage.includes('customerLoginModal') || homepage.includes('customer-login-trigger')) {
+  console.error('تفاصيل العملاء يجب أن تفتح في صفحة البوابة المستقلة، لا في نافذة داخل الصفحة الرئيسية.');
   failed = true;
 }
 const serviceCenterPage = contents.get('client-services.html') || '';

@@ -590,7 +590,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
 
   fillForm(requestForm, state.draft);
   renderAll();
-  const initialTab = ['tracking', 'deals', 'inspections', 'alerts'].includes(location.hash.slice(1))
+  const initialTab = ['tracking', 'deals', 'inspections', 'alerts', 'new-request', 'appointment'].includes(location.hash.slice(1))
     ? location.hash.slice(1)
     : 'overview';
   switchTab(initialTab);
