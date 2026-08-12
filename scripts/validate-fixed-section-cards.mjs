@@ -76,6 +76,9 @@ for (const page of pages) {
   }
 
   if (!referencesStylesheet) throw new Error(`صفحة الخدمة لا تحمل التنسيق الخفيف: ${page}`);
+  if (page === 'legal-consultant.html' && html.includes('class="nav-links"')) {
+    throw new Error('بطاقات الروابط السريعة القديمة ما زالت ظاهرة في صفحة الاستشارات القانونية.');
+  }
   const cards = html.match(/class="fixed-section-card"/g) || [];
   if (cards.length !== expectedTargets.length) {
     throw new Error(`عدد بطاقات الأقسام غير صحيح في ${page}: ${cards.length}`);
