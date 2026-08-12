@@ -35,7 +35,7 @@ if (!navigation.includes("navigator.serviceWorker.register('/sw.js'")) {
   throw new Error('الصفحة الرئيسية لا تطلب تحديث التخزين المؤقت.');
 }
 
-if (!worker.includes("const VERSION = 'emad-realestate-v8'")) {
+if (!worker.includes("const VERSION = 'emad-realestate-v9'")) {
   throw new Error('نسخة التخزين المؤقت لم تُحدّث.');
 }
 
@@ -47,4 +47,12 @@ if (!worker.includes("caches.match(request, { ignoreSearch: true })")) {
   throw new Error('الصفحات المحفوظة لا تظهر فوراً أثناء تحديث الشبكة.');
 }
 
-console.log('نجح فحص الرجوع من الأقسام وظهور الصفحة الرئيسية دون شاشة سوداء.');
+if (!enhancements.includes('/* رأس الموقع الاحترافي — خفيف، واضح، ولا يحجب المحتوى */')) {
+  throw new Error('تنسيق رأس الموقع الاحترافي غير موجود.');
+}
+
+if (!enhancements.includes('.topbar.is-scrolled{transform:translateY(calc(-100% - 16px))')) {
+  throw new Error('رأس الموقع لا يختفي عند النزول كما هو مطلوب.');
+}
+
+console.log('نجح فحص الرجوع من الأقسام ورأس الموقع الاحترافي دون شاشة سوداء.');
