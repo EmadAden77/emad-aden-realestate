@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>حاسبة صافي العائد العقاري | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="حاسبة إرشادية لصافي الدخل والعائد السنوي وفترة استرداد رأس المال للعقار.">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/investment-return-calculator.html">
+  <meta property="og:title" content="حاسبة صافي العائد العقاري"><meta property="og:description" content="احسب صافي الدخل والعائد السنوي وفترة استرداد رأس المال للعقار."><meta property="og:type" content="website"><meta property="og:url" content="https://emad-aden-realestate.vercel.app/investment-return-calculator.html"><meta property="og:image" content="https://emad-aden-realestate.vercel.app/IMG_5.jpg">
+  <meta name="theme-color" content="#d8b56c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>حاسبة الاستثمار</span></a><div class="nav-actions"><a class="button secondary" href="client-services.html">مركز الخدمات</a><a class="button ghost" href="index.html">الرئيسية</a></div></div></header>
+  <main class="page-main"><div class="wrap">
+    <section class="hero compact"><div><span class="eyebrow">قراءة استثمارية أولية</span><h1>احسب <span>صافي عائد العقار</span></h1><p>أدخل تكلفة الشراء والدخل والمصروفات وفترة الشغور لتعرف صافي الدخل السنوي ونسبة العائد ومدة استرداد رأس المال.</p></div></section>
+    <section class="section grid two">
+      <article class="panel"><span class="eyebrow">بيانات الحساب</span><h2>تكلفة العقار وتشغيله</h2>
+        <form class="form-grid" id="roiForm">
+          <label>العملة<select name="currency"><option value="SAR">الريال السعودي</option><option value="USD">الدولار الأمريكي</option><option value="YER">الريال اليمني</option></select></label>
+          <label>سعر شراء العقار<input type="number" name="purchasePrice" min="1" step="0.01" required placeholder="مثال: 500000"></label>
+          <label>رسوم الشراء والتجهيز<input type="number" name="acquisitionCosts" min="0" step="0.01" value="0"></label>
+          <label>الإيجار الشهري المتوقع<input type="number" name="monthlyRent" min="0" step="0.01" required></label>
+          <label>أشهر الشغور سنويًا<input type="number" name="vacancyMonths" min="0" max="12" step="0.25" value="1"></label>
+          <label>الصيانة السنوية<input type="number" name="maintenance" min="0" step="0.01" value="0"></label>
+          <label>الإدارة السنوية<input type="number" name="management" min="0" step="0.01" value="0"></label>
+          <label>مصاريف سنوية أخرى<input type="number" name="otherExpenses" min="0" step="0.01" value="0"></label>
+          <div class="form-actions"><button class="button primary" type="submit">احسب العائد</button><button class="button ghost" type="reset">مسح البيانات</button></div>
+        </form>
+      </article>
+      <article class="panel result" id="roiResult" aria-live="polite"><span class="eyebrow">نتيجة الحساب</span><h2>ملخص الاستثمار</h2>
+        <div class="result-hero"><div><span>صافي العائد السنوي</span><strong id="netYield">0٪</strong></div><span id="yieldRating" class="status">قراءة أولية</span></div>
+        <div class="metrics">
+          <article class="metric"><span>الدخل الفعلي</span><strong id="effectiveIncome">0</strong><small>بعد خصم الشغور</small></article>
+          <article class="metric"><span>صافي الدخل</span><strong id="netIncome">0</strong><small>بعد المصروفات</small></article>
+          <article class="metric"><span>إجمالي الاستثمار</span><strong id="totalInvestment">0</strong><small>الشراء والتجهيز</small></article>
+          <article class="metric"><span>الاسترداد التقريبي</span><strong id="paybackYears">—</strong><small>بالسنوات</small></article>
+        </div>
+        <div class="notice"><strong>تنبيه:</strong> النتيجة إرشادية ولا تشمل تغير قيمة العقار أو التمويل أو الضرائب أو المصروفات غير المدخلة.</div>
+        <div class="form-actions no-print"><button class="button secondary" id="printResult" type="button">طباعة النتيجة</button><button class="button ghost" id="shareResult" type="button">مشاركة الملخص</button></div>
+      </article>
+    </section>
+  </div></main>
+  <footer class="footer"><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><a href="contact.html">طلب تثمين أو استشارة</a></div></footer>
+  <script type="module" src="assets/js/investment-return-calculator.js"></script>
+</body>
+</html>

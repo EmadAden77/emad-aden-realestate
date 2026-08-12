@@ -10,6 +10,7 @@
     "@clerk/localizations": "4.15.1"
   },
   "scripts": {
-    "validate:auth": "node scripts/validate-customer-auth.mjs"
+    "validate:auth": "node scripts/validate-customer-auth.mjs",
+    "validate:services": "node scripts/validate-service-center.mjs"
   }
 }

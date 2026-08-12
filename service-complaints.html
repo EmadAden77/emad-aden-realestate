@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>الشكاوى وضمان الخدمة | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="إنشاء شكوى أو ملاحظة خدمة برقم مرجعي ومتابعتها لدى مكتب عماد عدن العقاري.">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/service-complaints.html">
+  <meta property="og:title" content="الشكاوى وضمان الخدمة | مكتب عماد عدن العقاري"><meta property="og:description" content="أنشئ شكوى أو ملاحظة خدمة برقم مرجعي واضح للمتابعة."><meta property="og:type" content="website"><meta property="og:url" content="https://emad-aden-realestate.vercel.app/service-complaints.html"><meta property="og:image" content="https://emad-aden-realestate.vercel.app/IMG_5.jpg">
+  <meta name="theme-color" content="#d8b56c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>الشكاوى وضمان الخدمة</span></a><div class="nav-actions"><a class="button secondary" href="client-services.html">مركز الخدمات</a><a class="button ghost" href="index.html">الرئيسية</a></div></div></header>
+  <main class="page-main"><div class="wrap">
+    <section class="hero"><div><span class="eyebrow">مسار واضح للملاحظات</span><h1>شكواك لها <span>رقم متابعة</span></h1><p>أرسل الشكوى أو الملاحظة في رسالة منظمة، واحتفظ برقمها المرجعي للمتابعة مع المكتب.</p></div><aside class="hero-side"><strong>التزام الخدمة</strong><span>تأكيد الاستلام عبر واتساب، ثم مراجعة الموضوع وإبلاغك بالإجراء أو الحاجة إلى معلومات إضافية.</span></aside></section>
+    <section class="section grid two">
+      <article class="panel"><span class="eyebrow">تسجيل شكوى</span><h2>اكتب التفاصيل الأساسية</h2>
+        <form class="form-grid" id="complaintForm">
+          <label>الاسم<input type="text" name="name" maxlength="100" required></label>
+          <label>رقم طلب سابق إن وجد<input type="text" name="relatedRequest" maxlength="60" dir="ltr"></label>
+          <label>نوع الموضوع<select name="category" required><option value="">اختر النوع</option><option>تأخر في المتابعة</option><option>ملاحظة على خدمة</option><option>بلاغ لم يُغلق</option><option>اعتراض على تقرير</option><option>ملاحظة مالية</option><option>موضوع آخر</option></select></label>
+          <label>درجة الاستعجال<select name="priority" required><option>عادية</option><option>مهمة</option><option>عاجلة</option></select></label>
+          <label class="full">تفاصيل الشكوى<textarea name="details" maxlength="1200" required placeholder="اشرح ما حدث، وتاريخ آخر تواصل، والنتيجة التي تتوقعها. لا تضع بيانات مالية أو وثائق حساسة."></textarea></label>
+          <label class="full"><span><input class="check-input" type="checkbox" name="accuracy" required> أؤكد أن المعلومات المكتوبة صحيحة بحسب علمي.</span></label>
+          <div class="form-actions"><button class="button primary" type="submit">إنشاء الرقم وفتح واتساب</button><button class="button ghost" type="reset">مسح</button></div>
+        </form>
+      </article>
+      <article class="panel"><span class="eyebrow">متابعتك</span><h2>الشكاوى المحفوظة على جهازك</h2><div class="list" id="complaintsList"></div></article>
+    </section>
+  </div></main>
+  <footer class="footer"><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><a href="privacy.html">سياسة الخصوصية</a></div></footer>
+  <script type="module" src="assets/js/service-complaints.js"></script>
+</body>
+</html>

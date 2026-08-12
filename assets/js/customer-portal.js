@@ -6,7 +6,7 @@ function storageKey(userId) {
 }
 
 function emptyState() {
-  return { draft: null, draftUpdatedAt: null, requests: [], appointments: [] };
+  return { draft: null, draftUpdatedAt: null, requests: [], appointments: [], deals: [], inspections: [], alerts: [] };
 }
 
 function loadState(key) {
@@ -17,7 +17,10 @@ function loadState(key) {
       draft: parsed.draft && typeof parsed.draft === 'object' ? parsed.draft : null,
       draftUpdatedAt: parsed.draftUpdatedAt || null,
       requests: Array.isArray(parsed.requests) ? parsed.requests.slice(0, 30) : [],
-      appointments: Array.isArray(parsed.appointments) ? parsed.appointments.slice(0, 20) : []
+      appointments: Array.isArray(parsed.appointments) ? parsed.appointments.slice(0, 20) : [],
+      deals: Array.isArray(parsed.deals) ? parsed.deals.slice(0, 50) : [],
+      inspections: Array.isArray(parsed.inspections) ? parsed.inspections.slice(0, 100) : [],
+      alerts: Array.isArray(parsed.alerts) ? parsed.alerts.slice(0, 100) : []
     };
   } catch {
     return emptyState();
@@ -78,12 +81,21 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
   const state = loadState(key);
   const requestForm = document.getElementById('newRequestForm');
   const appointmentForm = document.getElementById('appointmentForm');
+  const dealForm = document.getElementById('dealForm');
+  const inspectionForm = document.getElementById('inspectionForm');
+  const alertForm = document.getElementById('alertForm');
   const requestsList = document.getElementById('requestsList');
   const appointmentsList = document.getElementById('appointmentsList');
+  const trackingList = document.getElementById('trackingList');
+  const dealsList = document.getElementById('dealsList');
+  const inspectionsList = document.getElementById('inspectionsList');
+  const alertsList = document.getElementById('alertsList');
   const draftStatus = document.getElementById('draftStatus');
   const portalNotice = document.getElementById('portalNotice');
   const today = new Date().toISOString().slice(0, 10);
   appointmentForm.elements.namedItem('appointmentDate').min = today;
+  inspectionForm.elements.namedItem('date').value = today;
+  alertForm.elements.namedItem('date').min = today;
 
   function notify(message, tone = 'success') {
     portalNotice.textContent = message;
@@ -111,6 +123,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     });
     const target = document.querySelector(`[data-portal-view="${name}"]`);
     if (target) target.focus({ preventScroll: true });
+    if (['tracking', 'deals', 'inspections', 'alerts'].includes(name)) history.replaceState(null, '', `#${name}`);
   }
 
   function renderMetrics() {
@@ -119,6 +132,16 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     document.getElementById('appointmentCount').textContent = String(
       state.appointments.filter(item => item.status === 'في انتظار التأكيد').length
     );
+    document.getElementById('dealCount').textContent = String(state.deals.filter(item => !['مكتملة', 'متوقفة'].includes(item.stage)).length);
+    document.getElementById('alertCount').textContent = String(activeAlerts().length);
+  }
+
+  function activeAlerts() {
+    const manual = state.alerts.filter(item => !item.done);
+    const dealAlerts = state.deals
+      .filter(item => item.nextDate && !['مكتملة', 'متوقفة'].includes(item.stage))
+      .map(item => ({ id: `deal-${item.id}`, title: item.nextAction, date: item.nextDate, type: 'صفقة', priority: 'مهمة', source: item.title }));
+    return [...manual, ...dealAlerts].sort((a, b) => a.date.localeCompare(b.date));
   }
 
   function requestMessage(item) {
@@ -159,7 +182,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
       createElement('strong', '', item.service),
       createElement('span', '', item.id)
     );
-    const badge = createElement('span', 'portal-badge waiting', item.status);
+    const badge = createElement('span', `portal-badge ${item.status === 'مكتمل' ? 'complete' : 'waiting'}`, item.status);
     top.append(titleWrap, badge);
 
     const details = createElement('div', 'portal-item-details');
@@ -169,8 +192,9 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     );
 
     const progress = createElement('div', 'request-progress');
-    ['تم تجهيز الطلب', 'بانتظار تأكيد المكتب', 'بدء المتابعة'].forEach((label, index) => {
-      const step = createElement('span', index === 0 ? 'done' : index === 1 ? 'current' : '', label);
+    const progressIndex = Math.max(0, ['تم تجهيز الطلب', 'بانتظار تأكيد المكتب', 'قيد المراجعة', 'قيد التنفيذ', 'مكتمل'].indexOf(item.status));
+    ['تجهيز الطلب', 'تأكيد المكتب', 'المراجعة', 'التنفيذ', 'الإغلاق'].forEach((label, index) => {
+      const step = createElement('span', index < progressIndex ? 'done' : index === progressIndex ? 'current' : '', label);
       progress.append(step);
     });
 
@@ -188,6 +212,82 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     });
     actions.append(send, remove);
     card.append(top, details, progress, actions);
+    return card;
+  }
+
+  function trackingCard(item) {
+    const card = createElement('article', 'portal-item tracking-card');
+    const top = createElement('div', 'portal-item-top');
+    const heading = createElement('div');
+    heading.append(createElement('strong', '', item.service), createElement('span', '', item.id));
+    top.append(heading, createElement('span', 'portal-badge waiting', item.status));
+
+    const form = createElement('form', 'tracking-editor');
+    const statusLabel = createElement('label', '', 'مرحلة الطلب');
+    const status = createElement('select');
+    status.name = 'status';
+    ['تم تجهيز الطلب', 'بانتظار تأكيد المكتب', 'قيد المراجعة', 'قيد التنفيذ', 'مكتمل', 'متوقف'].forEach(value => {
+      const choice = createElement('option', '', value);
+      choice.value = value;
+      choice.selected = item.status === value;
+      status.append(choice);
+    });
+    statusLabel.append(status);
+
+    const docsLabel = createElement('label', '', 'المستندات الناقصة');
+    const docs = createElement('input');
+    docs.name = 'missingDocuments';
+    docs.maxLength = 240;
+    docs.value = item.missingDocuments || '';
+    docs.placeholder = 'مثال: صورة عقد الملكية';
+    docsLabel.append(docs);
+
+    const nextLabel = createElement('label', '', 'الخطوة التالية');
+    const next = createElement('input');
+    next.name = 'nextAction';
+    next.maxLength = 240;
+    next.value = item.nextAction || '';
+    next.placeholder = 'ما المطلوب بعد ذلك؟';
+    nextLabel.append(next);
+
+    const dateLabel = createElement('label', '', 'الموعد أو المهلة');
+    const date = createElement('input');
+    date.type = 'date';
+    date.name = 'nextDate';
+    date.value = item.nextDate || '';
+    dateLabel.append(date);
+
+    const actions = createElement('div', 'portal-item-actions full');
+    const save = createElement('button', 'mini-button primary', 'حفظ التحديث');
+    save.type = 'submit';
+    const send = createElement('a', 'mini-button', 'إرسال تحديث للمكتب');
+    send.href = '#';
+    send.addEventListener('click', event => {
+      event.preventDefault();
+      const values = formValues(form);
+      const message = [
+        'تحديث طلب من حساب العميل', `الرقم المرجعي: ${item.id}`, `الخدمة: ${item.service}`,
+        `المرحلة: ${values.status}`, `المستندات الناقصة: ${values.missingDocuments || 'لا توجد'}`,
+        `الخطوة التالية: ${values.nextAction || 'غير محددة'}`, `الموعد: ${values.nextDate || 'غير محدد'}`
+      ].join('\n');
+      window.open(whatsappUrl(message), '_blank', 'noopener');
+    });
+    actions.append(save, send);
+    form.append(statusLabel, docsLabel, nextLabel, dateLabel, actions);
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const values = formValues(form);
+      Object.assign(item, {
+        status: values.status,
+        missingDocuments: values.missingDocuments.trim(),
+        nextAction: values.nextAction.trim(),
+        nextDate: values.nextDate,
+        updatedAt: new Date().toISOString()
+      });
+      persist('حُدثت حالة الطلب على هذا الجهاز.');
+      renderAll();
+    });
+    card.append(top, form);
     return card;
   }
 
@@ -245,6 +345,106 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     state.appointments.forEach(item => appointmentsList.append(appointmentCard(item)));
   }
 
+  function renderTracking() {
+    trackingList.replaceChildren();
+    if (!state.requests.length) return trackingList.append(portalEmpty('لا توجد طلبات للمتابعة', 'أنشئ طلبك الأول ليظهر مسار متابعته هنا.'));
+    state.requests.forEach(item => trackingList.append(trackingCard(item)));
+  }
+
+  function portalEmpty(title, detail) {
+    const empty = createElement('div', 'portal-empty');
+    empty.append(createElement('strong', '', title), createElement('span', '', detail));
+    return empty;
+  }
+
+  function removeButton(collection, itemId, message) {
+    const button = createElement('button', 'mini-button', 'حذف من الجهاز');
+    button.type = 'button';
+    button.addEventListener('click', () => {
+      state[collection] = state[collection].filter(item => item.id !== itemId);
+      persist(message);
+      renderAll();
+    });
+    return button;
+  }
+
+  function renderDeals() {
+    dealsList.replaceChildren();
+    if (!state.deals.length) return dealsList.append(portalEmpty('لا توجد صفقات', 'أضف الصفقة الأولى لتبدأ المتابعة.'));
+    state.deals.forEach(item => {
+      const card = createElement('article', 'portal-item');
+      const top = createElement('div', 'portal-item-top');
+      const heading = createElement('div');
+      heading.append(createElement('strong', '', item.title), createElement('span', '', `${item.id} · ${item.type} · ${item.district}`));
+      top.append(heading, createElement('span', item.stage === 'مكتملة' ? 'portal-badge complete' : 'portal-badge waiting', item.stage));
+      const stages = ['استلام الطلب', 'مراجعة المستندات', 'المعاينة', 'التفاوض', 'العربون', 'التوثيق', 'مكتملة'];
+      const current = Math.max(0, stages.indexOf(item.stage));
+      const progress = createElement('div', 'request-progress deal-progress');
+      stages.forEach((label, index) => progress.append(createElement('span', index < current ? 'done' : index === current ? 'current' : '', label)));
+      const meta = createElement('div', 'portal-item-details');
+      meta.append(createElement('span', '', `الخطوة التالية: ${item.nextAction}`), createElement('span', '', `الموعد: ${item.nextDate ? formatDate(item.nextDate) : 'غير محدد'}`));
+      const actions = createElement('div', 'portal-item-actions');
+      const advance = createElement('button', 'mini-button primary', 'تحديث المرحلة');
+      advance.type = 'button';
+      advance.addEventListener('click', () => {
+        const nextStage = window.prompt(`اكتب المرحلة الجديدة:\n${stages.join('، ')}`, item.stage);
+        if (!nextStage || ![...stages, 'متوقفة'].includes(nextStage.trim())) return;
+        item.stage = nextStage.trim();
+        item.updatedAt = new Date().toISOString();
+        persist('حُدثت مرحلة الصفقة.');
+        renderAll();
+      });
+      actions.append(advance, removeButton('deals', item.id, 'حُذفت الصفقة من هذا الجهاز.'));
+      card.append(top, progress, meta, actions);
+      dealsList.append(card);
+    });
+  }
+
+  function renderInspections() {
+    inspectionsList.replaceChildren();
+    if (!state.inspections.length) return inspectionsList.append(portalEmpty('لا توجد معاينات', 'سجل المعاينة الأولى لتظهر هنا.'));
+    [...state.inspections].sort((a, b) => b.date.localeCompare(a.date)).forEach(item => {
+      const card = createElement('article', 'portal-item');
+      const top = createElement('div', 'portal-item-top');
+      const heading = createElement('div');
+      heading.append(createElement('strong', '', item.subject), createElement('span', '', `${formatDate(item.date)} · ${item.type}`));
+      top.append(heading, createElement('span', item.result === 'تمت بنجاح' ? 'portal-badge complete' : 'portal-badge waiting', item.result));
+      const meta = createElement('div', 'portal-item-details');
+      meta.append(createElement('span', '', item.notes), createElement('span', '', `التالي: ${item.nextAction}`));
+      const actions = createElement('div', 'portal-item-actions');
+      actions.append(removeButton('inspections', item.id, 'حُذفت المعاينة من هذا الجهاز.'));
+      card.append(top, meta, actions);
+      inspectionsList.append(card);
+    });
+  }
+
+  function renderAlerts() {
+    alertsList.replaceChildren();
+    const alerts = activeAlerts();
+    if (!alerts.length) return alertsList.append(portalEmpty('لا توجد تنبيهات حالية', 'ستظهر هنا المواعيد والمهل التي تحتاج انتباهك.'));
+    alerts.forEach(item => {
+      const card = createElement('article', 'portal-item alert-item');
+      const top = createElement('div', 'portal-item-top');
+      const heading = createElement('div');
+      heading.append(createElement('strong', '', item.title), createElement('span', '', `${formatDate(item.date)} · ${item.type}${item.source ? ` · ${item.source}` : ''}`));
+      top.append(heading, createElement('span', item.priority === 'عاجلة' ? 'portal-badge urgent' : 'portal-badge waiting', item.priority));
+      card.append(top);
+      if (!String(item.id).startsWith('deal-')) {
+        const actions = createElement('div', 'portal-item-actions');
+        const done = createElement('button', 'mini-button primary', 'تمت المتابعة');
+        done.type = 'button';
+        done.addEventListener('click', () => {
+          item.done = true;
+          persist('أُغلق التنبيه.');
+          renderAll();
+        });
+        actions.append(done, removeButton('alerts', item.id, 'حُذف التنبيه من هذا الجهاز.'));
+        card.append(actions);
+      }
+      alertsList.append(card);
+    });
+  }
+
   function renderDraft() {
     if (!state.draft || !state.draftUpdatedAt) {
       draftStatus.textContent = 'لا توجد مسودة محفوظة.';
@@ -257,6 +457,10 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     renderMetrics();
     renderRequests();
     renderAppointments();
+    renderTracking();
+    renderDeals();
+    renderInspections();
+    renderAlerts();
     renderDraft();
   }
 
@@ -332,6 +536,51 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     switchTab('overview');
   });
 
+  dealForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!dealForm.reportValidity()) return;
+    const values = formValues(dealForm);
+    state.deals.unshift({
+      id: makeId('DL'), title: values.title.trim(), type: values.type,
+      district: values.district.trim(), stage: values.stage,
+      nextDate: values.nextDate, nextAction: values.nextAction.trim(),
+      parties: values.parties.trim(), createdAt: new Date().toISOString()
+    });
+    persist('أُضيفت الصفقة إلى غرفة المتابعة.');
+    dealForm.reset();
+    renderAll();
+  });
+
+  inspectionForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!inspectionForm.reportValidity()) return;
+    const values = formValues(inspectionForm);
+    state.inspections.unshift({
+      id: makeId('IN'), subject: values.subject.trim(), date: values.date,
+      type: values.type, result: values.result, notes: values.notes.trim(),
+      nextAction: values.nextAction.trim(), createdAt: new Date().toISOString()
+    });
+    persist('حُفظت المعاينة في السجل.');
+    inspectionForm.reset();
+    inspectionForm.elements.namedItem('date').value = today;
+    renderAll();
+  });
+
+  alertForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!alertForm.reportValidity()) return;
+    const values = formValues(alertForm);
+    state.alerts.unshift({
+      id: makeId('AL'), title: values.title.trim(), date: values.date,
+      type: values.type, priority: values.priority, done: false,
+      createdAt: new Date().toISOString()
+    });
+    persist('حُفظ التنبيه.');
+    alertForm.reset();
+    alertForm.elements.namedItem('date').min = today;
+    renderAll();
+  });
+
   document.querySelectorAll('[data-portal-tab]').forEach(button => {
     button.addEventListener('click', () => switchTab(button.dataset.portalTab));
   });
@@ -341,5 +590,8 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
 
   fillForm(requestForm, state.draft);
   renderAll();
-  switchTab('overview');
+  const initialTab = ['tracking', 'deals', 'inspections', 'alerts'].includes(location.hash.slice(1))
+    ? location.hash.slice(1)
+    : 'overview';
+  switchTab(initialTab);
 }
