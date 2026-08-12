@@ -22,11 +22,15 @@
       <div class="benefits"><div class="benefit">رمز قصير للاستخدام مرة واحدة.</div><div class="benefit">لا تُحفظ كلمة مرور داخل الموقع.</div><div class="benefit">يمكنك إدارة جلستك وتسجيل الخروج في أي وقت.</div></div>
     </section>
     <section class="auth-card" aria-labelledby="signInTitle">
-      <h2 id="signInTitle">تسجيل الدخول أو إنشاء حساب</h2>
-      <p>استخدم البريد نفسه عند كل زيارة للوصول إلى حسابك.</p>
+      <div class="auth-card-heading">
+        <span class="auth-card-badge">بوابة العملاء · دخول محمي</span>
+        <h2 id="signInTitle">تسجيل الدخول إلى حسابك</h2>
+        <p id="signInDescription">ابدأ بإدخال بريدك الإلكتروني، وسنرسل لك رمز تحقق لإكمال الدخول بأمان.</p>
+      </div>
       <div class="loader" id="authLoader" aria-live="polite"><span>جارٍ تجهيز تسجيل الدخول…</span></div>
-      <div id="clerkSignIn"></div>
+      <div id="clerkSignIn" aria-label="نموذج تسجيل دخول العملاء" aria-describedby="signInDescription"></div>
       <p class="error" id="authError" role="alert"></p>
+      <a class="auth-help" href="contact.html">تواجه مشكلة في الدخول؟ تواصل مع المكتب</a>
       <div class="privacy-note">باستمرارك، ستُستخدم بيانات الحساب لتوفير تسجيل الدخول والخدمات المرتبطة بطلباتك، وفق سياسة الخصوصية.</div>
     </section>
   </div></main>

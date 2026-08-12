@@ -40,20 +40,68 @@ function clerkAppearance() {
   return {
     variables: {
       colorPrimary: '#d8b56c',
-      colorBackground: '#111315',
-      colorInputBackground: '#181a1d',
-      colorInputText: '#f7f3e9',
-      colorText: '#f7f3e9',
-      colorTextSecondary: '#aeb4bc',
+      colorPrimaryForeground: '#111315',
+      colorForeground: '#f7f3e9',
+      colorMutedForeground: '#c5c9cf',
+      colorBackground: '#151719',
+      colorInput: '#f7f3e9',
+      colorInputForeground: '#111315',
+      colorBorder: 'rgba(216,181,108,.3)',
+      colorRing: '#efd99f',
+      colorNeutral: '#aeb4bc',
       colorDanger: '#ef6b68',
+      colorSuccess: '#4ac58a',
       borderRadius: '14px',
-      fontFamily: 'Tajawal, Arial, sans-serif'
+      spacing: '1rem',
+      fontFamily: 'Tajawal, Arial, sans-serif',
+      fontFamilyButtons: 'Tajawal, Arial, sans-serif'
     },
     elements: {
-      cardBox: { boxShadow: 'none', width: '100%' },
-      card: { boxShadow: 'none', border: '1px solid rgba(216,181,108,.2)' },
-      footerActionLink: { color: '#efd99f' },
-      formButtonPrimary: { color: '#111', fontWeight: '900' }
+      rootBox: { width: '100%' },
+      cardBox: { boxShadow: 'none', width: '100%', maxWidth: 'none' },
+      card: {
+        width: '100%',
+        padding: '18px 0 0',
+        border: '0',
+        background: 'transparent',
+        boxShadow: 'none'
+      },
+      header: { marginBottom: '20px', textAlign: 'right' },
+      headerTitle: { color: '#f7f3e9', fontSize: '1.35rem', fontWeight: '900' },
+      headerSubtitle: { color: '#c5c9cf', fontSize: '.92rem', lineHeight: '1.75' },
+      socialButtonsBlockButton: {
+        minHeight: '52px',
+        border: '1px solid rgba(255,255,255,.15)',
+        background: 'rgba(255,255,255,.06)',
+        color: '#f7f3e9',
+        boxShadow: 'none'
+      },
+      socialButtonsBlockButtonText: { color: '#f7f3e9', fontWeight: '800' },
+      dividerLine: { background: 'rgba(255,255,255,.12)' },
+      dividerText: { color: '#aeb4bc', fontWeight: '700' },
+      formFieldLabel: { color: '#f7f3e9', fontWeight: '800' },
+      formFieldInput: {
+        minHeight: '54px',
+        border: '2px solid transparent',
+        background: '#f7f3e9',
+        color: '#111315',
+        fontSize: '16px',
+        boxShadow: 'none'
+      },
+      formButtonPrimary: {
+        minHeight: '54px',
+        background: 'linear-gradient(135deg,#efd28b,#d4a94f)',
+        color: '#111315',
+        fontSize: '1rem',
+        fontWeight: '900',
+        boxShadow: '0 12px 30px rgba(216,181,108,.2)'
+      },
+      footerActionText: { color: '#c5c9cf' },
+      footerActionLink: { color: '#efd99f', fontWeight: '900' },
+      identityPreviewText: { color: '#f7f3e9' },
+      identityPreviewEditButton: { color: '#efd99f' },
+      formFieldErrorText: { color: '#ffc2c0' },
+      alertText: { color: '#f7f3e9' }
     }
   };
 }
