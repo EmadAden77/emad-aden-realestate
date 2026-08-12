@@ -57,6 +57,34 @@ if (!configApi.includes('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY') || configApi.includ
   console.error('إعداد واجهة المصادقة غير صالح.');
   failed = true;
 }
+for (const marker of ['formFieldInputPlaceholder__emailAddress', 'أدخل بريدك الإلكتروني', 'customerLocalization']) {
+  if (!configApi.includes(marker)) {
+    console.error(`تعريب لوحة تسجيل الدخول غير مكتمل: ${marker}`);
+    failed = true;
+  }
+}
+
+const signInPage = contents.get('sign-in.html') || '';
+const authStyles = contents.get('assets/css/customer-auth.css') || '';
+const authClient = contents.get('assets/js/clerk-auth.js') || '';
+for (const marker of ['auth-card-heading', 'auth-card-badge', 'auth-help', 'نموذج تسجيل دخول العملاء']) {
+  if (!signInPage.includes(marker)) {
+    console.error(`لوحة تسجيل الدخول الاحترافية غير مكتملة: ${marker}`);
+    failed = true;
+  }
+}
+for (const marker of ['colorForeground', 'colorMutedForeground', 'colorInputForeground', 'colorPrimaryForeground']) {
+  if (!authClient.includes(marker)) {
+    console.error(`إعداد تباين Clerk الحديث غير موجود: ${marker}`);
+    failed = true;
+  }
+}
+for (const marker of ['--clerk-color-foreground', '.cl-formFieldInput', '.auth-card-heading']) {
+  if (!authStyles.includes(marker)) {
+    console.error(`تنسيق لوحة تسجيل الدخول غير مكتمل: ${marker}`);
+    failed = true;
+  }
+}
 
 const accountPage = contents.get('customer-account.html') || '';
 const portalSource = contents.get('assets/js/customer-portal.js') || '';
