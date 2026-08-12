@@ -27,14 +27,22 @@ const stylesheet = 'assets/css/fixed-section-cards.css';
 const css = await readFile(stylesheet, 'utf8');
 
 for (const marker of [
-  'position: sticky',
+  'position: static',
   'grid-template-columns: repeat(4, minmax(0, 1fr))',
   'grid-template-columns: repeat(2, minmax(0, 1fr))'
 ]) {
   if (!css.includes(marker)) throw new Error(`تنسيق بطاقات الأقسام يفتقد: ${marker}`);
 }
 
-for (const expensiveRule of ['overflow-x', 'scroll-snap', 'backdrop-filter', 'animation:', 'box-shadow:']) {
+for (const expensiveRule of [
+  'position: sticky',
+  'position: fixed',
+  'overflow-x',
+  'scroll-snap',
+  'backdrop-filter',
+  'animation:',
+  'box-shadow:'
+]) {
   if (css.includes(expensiveRule)) throw new Error(`تنسيق بطاقات الأقسام يحتوي قاعدة غير مطلوبة: ${expensiveRule}`);
 }
 
@@ -85,4 +93,4 @@ if (linkedPages !== sectionPages.size) {
   throw new Error(`عدد صفحات الخدمات المغطاة غير صحيح: ${linkedPages}`);
 }
 
-console.log(`نجح فحص بطاقات الأقسام الخفيفة والثابتة في ${linkedPages} صفحات خدمات فقط.`);
+console.log(`نجح فحص بطاقات الأقسام الخفيفة وغير المثبتة في ${linkedPages} صفحات خدمات فقط.`);
