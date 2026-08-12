@@ -35,7 +35,7 @@ if (!navigation.includes("navigator.serviceWorker.register('/sw.js'")) {
   throw new Error('الصفحة الرئيسية لا تطلب تحديث التخزين المؤقت.');
 }
 
-if (!worker.includes("const VERSION = 'emad-realestate-v9'")) {
+if (!worker.includes("const VERSION = 'emad-realestate-v10'")) {
   throw new Error('نسخة التخزين المؤقت لم تُحدّث.');
 }
 
@@ -55,4 +55,18 @@ if (!enhancements.includes('.topbar.is-scrolled{transform:translateY(calc(-100% 
   throw new Error('رأس الموقع لا يختفي عند النزول كما هو مطلوب.');
 }
 
-console.log('نجح فحص الرجوع من الأقسام ورأس الموقع الاحترافي دون شاشة سوداء.');
+if (!enhancements.includes('/* رأس المكتب المبسط — الشعار والاسم فقط */')) {
+  throw new Error('تنسيق رأس المكتب المبسط غير موجود.');
+}
+
+for (const marker of [
+  '.topbar .navlinks,.topbar .actions,.topbar .menu-btn,.topbar .mobile-menu{display:none!important}',
+  '.topbar .brand span{display:none!important}',
+  'width:min(520px,calc(100% - 24px))!important'
+]) {
+  if (!enhancements.includes(marker)) {
+    throw new Error(`تنسيق الرأس المبسط غير مكتمل: ${marker}`);
+  }
+}
+
+console.log('نجح فحص الرجوع من الأقسام ورأس المكتب المبسط دون شاشة سوداء.');
