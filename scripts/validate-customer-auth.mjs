@@ -8,6 +8,7 @@ const requiredFiles = [
   'assets/js/clerk-auth.js',
   'assets/js/customer-portal.js',
   'property-management.html',
+  'expatriates-property-management.html',
   'assets/css/property-management.css',
   'assets/js/property-management.js',
   'api/auth-config.js',
@@ -102,7 +103,23 @@ if (!portalSource.includes('wa.me') || !portalSource.includes('بانتظار ت
 }
 
 const managementPage = contents.get('property-management.html') || '';
+const expatriatesPage = contents.get('expatriates-property-management.html') || '';
 const managementSource = contents.get('assets/js/property-management.js') || '';
+for (const marker of ['id="my-properties"', 'تابع أملاكك التي يديرها المكتب', 'redirect_url=%2Fproperty-management.html']) {
+  if (!expatriatesPage.includes(marker)) {
+    console.error(`صفحة إدارة أملاك المغتربين لا تحتوي مدخل العميل المطلوب: ${marker}`);
+    failed = true;
+  }
+}
+if (!managementPage.includes("loadCustomerAccount({ accountPath: '/property-management.html' })")) {
+  console.error('صفحة إدارة الأملاك لا تعيد العميل إلى ملف أملاكه بعد تسجيل الدخول.');
+  failed = true;
+}
+const clerkSource = contents.get('assets/js/clerk-auth.js') || '';
+if (!clerkSource.includes('safeRedirectPath') || !clerkSource.includes('redirectPath')) {
+  console.error('تسجيل الدخول لا يدعم إعادة التوجيه الآمنة إلى ملف إدارة الأملاك.');
+  failed = true;
+}
 for (const marker of ['propertyForm', 'tenantForm', 'rentForm', 'maintenanceForm', 'expenseForm', 'monthlyReport']) {
   if (!managementPage.includes(marker)) {
     console.error(`property-management.html: العنصر المطلوب غير موجود: ${marker}`);
