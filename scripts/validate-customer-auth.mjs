@@ -73,15 +73,33 @@ for (const marker of ['auth-card-heading', 'auth-card-badge', 'auth-help', 'نم
     failed = true;
   }
 }
+if (!signInPage.includes('<body class="sign-in-page">') || !signInPage.includes('content="#191b1e"')) {
+  console.error('صفحة تسجيل الدخول لا تستخدم هوية الأبيض والأسود المستقلة.');
+  failed = true;
+}
 for (const marker of ['colorForeground', 'colorMutedForeground', 'colorInputForeground', 'colorPrimaryForeground']) {
   if (!authClient.includes(marker)) {
     console.error(`إعداد تباين Clerk الحديث غير موجود: ${marker}`);
     failed = true;
   }
 }
+if (!authClient.includes("clerkAppearance('monochrome')") || !authClient.includes("mode === 'monochrome'")) {
+  console.error('نموذج تسجيل الدخول لا يستخدم مظهر Clerk الأحادي.');
+  failed = true;
+}
 for (const marker of ['--clerk-color-foreground', '.cl-formFieldInput', '.auth-card-heading']) {
   if (!authStyles.includes(marker)) {
     console.error(`تنسيق لوحة تسجيل الدخول غير مكتمل: ${marker}`);
+    failed = true;
+  }
+}
+const loginStyles = authStyles.slice(
+  authStyles.indexOf('/* لوحة تسجيل الدخول */'),
+  authStyles.indexOf('/* بوابة العميل */')
+).toLowerCase();
+for (const accent of ['#d8b56c', '#efd99f', '#4ac58a', '#ef6b68', '#efd28b', '#d4a94f', '#baf1d6', '#ffc2c0', 'rgba(216,181,108', 'rgba(74,197,138', 'rgba(239,107,104', 'var(--gold', 'var(--green', 'var(--red']) {
+  if (loginStyles.includes(accent)) {
+    console.error(`عُثر على لون غير أحادي داخل صفحة تسجيل الدخول: ${accent}`);
     failed = true;
   }
 }
