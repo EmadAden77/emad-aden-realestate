@@ -69,9 +69,11 @@ if (!accountPage.includes('هذه البوابة خاصة بعملاء المك�
   failed = true;
 }
 const homepage = readFileSync('index.html', 'utf8');
-if (!homepage.includes('href="customer-account.html">بوابة العملاء</a>')) {
-  console.error('رابط بوابة العملاء غير ظاهر بوضوح في الصفحة الرئيسية.');
-  failed = true;
+for (const marker of ['id="customer-portal"', 'customer-portal-grid', 'data-private-feature="متابعة الطلبات"', 'href="#customer-portal"']) {
+  if (!homepage.includes(marker)) {
+    console.error(`قسم بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
+    failed = true;
+  }
 }
 if (!portalSource.includes('localStorage') || !portalSource.includes('userId') || portalSource.includes('innerHTML')) {
   console.error('بوابة العميل لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
