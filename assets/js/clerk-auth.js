@@ -36,21 +36,60 @@ function decodeFrontendDomain(publishableKey) {
   return atob(encoded).slice(0, -1);
 }
 
-function clerkAppearance() {
+function clerkAppearance(mode = 'office') {
+  const monochrome = mode === 'monochrome';
+  const palette = monochrome
+    ? {
+        primary: '#ffffff',
+        primaryForeground: '#121416',
+        foreground: '#ffffff',
+        mutedForeground: '#c9ccd1',
+        background: '#1b1d20',
+        border: 'rgba(255,255,255,.24)',
+        ring: '#ffffff',
+        neutral: '#aeb2b8',
+        danger: '#f4f4f4',
+        success: '#f4f4f4',
+        link: '#ffffff',
+        input: '#ffffff',
+        socialBackground: '#25272b',
+        socialBorder: 'rgba(255,255,255,.2)',
+        buttonBackground: '#ffffff',
+        buttonShadow: '0 14px 34px rgba(0,0,0,.32)'
+      }
+    : {
+        primary: '#d8b56c',
+        primaryForeground: '#111315',
+        foreground: '#f7f3e9',
+        mutedForeground: '#c5c9cf',
+        background: '#151719',
+        border: 'rgba(216,181,108,.3)',
+        ring: '#efd99f',
+        neutral: '#aeb4bc',
+        danger: '#ef6b68',
+        success: '#4ac58a',
+        link: '#efd99f',
+        input: '#f7f3e9',
+        socialBackground: 'rgba(255,255,255,.06)',
+        socialBorder: 'rgba(255,255,255,.15)',
+        buttonBackground: 'linear-gradient(135deg,#efd28b,#d4a94f)',
+        buttonShadow: '0 12px 30px rgba(216,181,108,.2)'
+      };
+
   return {
     variables: {
-      colorPrimary: '#d8b56c',
-      colorPrimaryForeground: '#111315',
-      colorForeground: '#f7f3e9',
-      colorMutedForeground: '#c5c9cf',
-      colorBackground: '#151719',
-      colorInput: '#f7f3e9',
+      colorPrimary: palette.primary,
+      colorPrimaryForeground: palette.primaryForeground,
+      colorForeground: palette.foreground,
+      colorMutedForeground: palette.mutedForeground,
+      colorBackground: palette.background,
+      colorInput: palette.input,
       colorInputForeground: '#111315',
-      colorBorder: 'rgba(216,181,108,.3)',
-      colorRing: '#efd99f',
-      colorNeutral: '#aeb4bc',
-      colorDanger: '#ef6b68',
-      colorSuccess: '#4ac58a',
+      colorBorder: palette.border,
+      colorRing: palette.ring,
+      colorNeutral: palette.neutral,
+      colorDanger: palette.danger,
+      colorSuccess: palette.success,
       borderRadius: '14px',
       spacing: '1rem',
       fontFamily: 'Tajawal, Arial, sans-serif',
@@ -67,19 +106,19 @@ function clerkAppearance() {
         boxShadow: 'none'
       },
       header: { marginBottom: '20px', textAlign: 'right' },
-      headerTitle: { color: '#f7f3e9', fontSize: '1.35rem', fontWeight: '900' },
-      headerSubtitle: { color: '#c5c9cf', fontSize: '.92rem', lineHeight: '1.75' },
+      headerTitle: { color: palette.foreground, fontSize: '1.35rem', fontWeight: '900' },
+      headerSubtitle: { color: palette.mutedForeground, fontSize: '.92rem', lineHeight: '1.75' },
       socialButtonsBlockButton: {
         minHeight: '52px',
-        border: '1px solid rgba(255,255,255,.15)',
-        background: 'rgba(255,255,255,.06)',
-        color: '#f7f3e9',
+        border: `1px solid ${palette.socialBorder}`,
+        background: palette.socialBackground,
+        color: palette.foreground,
         boxShadow: 'none'
       },
-      socialButtonsBlockButtonText: { color: '#f7f3e9', fontWeight: '800' },
+      socialButtonsBlockButtonText: { color: palette.foreground, fontWeight: '800' },
       dividerLine: { background: 'rgba(255,255,255,.12)' },
-      dividerText: { color: '#aeb4bc', fontWeight: '700' },
-      formFieldLabel: { color: '#f7f3e9', fontWeight: '800' },
+      dividerText: { color: palette.mutedForeground, fontWeight: '700' },
+      formFieldLabel: { color: palette.foreground, fontWeight: '800' },
       formFieldInput: {
         minHeight: '54px',
         border: '2px solid transparent',
@@ -90,18 +129,18 @@ function clerkAppearance() {
       },
       formButtonPrimary: {
         minHeight: '54px',
-        background: 'linear-gradient(135deg,#efd28b,#d4a94f)',
+        background: palette.buttonBackground,
         color: '#111315',
         fontSize: '1rem',
         fontWeight: '900',
-        boxShadow: '0 12px 30px rgba(216,181,108,.2)'
+        boxShadow: palette.buttonShadow
       },
-      footerActionText: { color: '#c5c9cf' },
-      footerActionLink: { color: '#efd99f', fontWeight: '900' },
-      identityPreviewText: { color: '#f7f3e9' },
-      identityPreviewEditButton: { color: '#efd99f' },
-      formFieldErrorText: { color: '#ffc2c0' },
-      alertText: { color: '#f7f3e9' }
+      footerActionText: { color: palette.mutedForeground },
+      footerActionLink: { color: palette.link, fontWeight: '900' },
+      identityPreviewText: { color: palette.foreground },
+      identityPreviewEditButton: { color: palette.link },
+      formFieldErrorText: { color: palette.danger },
+      alertText: { color: palette.foreground }
     }
   };
 }
@@ -159,7 +198,7 @@ export async function mountCustomerSignIn(target) {
     routing: 'hash',
     fallbackRedirectUrl: redirectPath,
     signUpFallbackRedirectUrl: redirectPath,
-    appearance: clerkAppearance()
+    appearance: clerkAppearance('monochrome')
   });
 }
 
