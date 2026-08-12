@@ -65,44 +65,14 @@
   .article-news-card .more{font-size:.76rem}
 }
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
-/* قسم بوابة العملاء في الصفحة الرئيسية */
-.customer-portal-section{position:relative;overflow:hidden;padding:clamp(54px,8vw,86px) 0;scroll-margin-top:82px;background:radial-gradient(circle at 88% 0,rgba(229,192,123,.12),transparent 34rem),linear-gradient(180deg,#090a0b,#0c0d0e 52%,#090a0b)}
-.customer-portal-section:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 48%,rgba(229,192,123,.025) 48% 52%,transparent 52%);pointer-events:none}
-.customer-portal-shell{position:relative;display:grid;gap:16px}.customer-portal-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:18px;padding:clamp(24px,5vw,46px);border:1px solid rgba(229,192,123,.27);border-radius:30px;background:radial-gradient(circle at 88% 0,rgba(229,192,123,.15),transparent 40%),linear-gradient(145deg,rgba(27,28,29,.98),rgba(11,12,13,.98));box-shadow:0 26px 75px rgba(0,0,0,.34)}
-.customer-portal-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(229,192,123,.25);border-radius:999px;background:rgba(229,192,123,.07);color:#f1d595;font-size:.75rem;font-weight:900}.customer-portal-copy h2{margin:16px 0 10px;color:#fff;font-size:clamp(2.15rem,6vw,4.6rem);line-height:1.05}.customer-portal-copy>p{max-width:760px;margin:0;color:#bbc0c6;font-size:clamp(.98rem,2vw,1.14rem);line-height:1.9}.customer-portal-points{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.customer-portal-points span{padding:7px 11px;border:1px solid rgba(255,255,255,.075);border-radius:11px;background:rgba(255,255,255,.025);color:#dadddf;font-size:.76rem;font-weight:800}.customer-portal-points i{margin-left:6px;color:#e5c07b}
-.customer-portal-access{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:22px;border:1px solid rgba(229,192,123,.18);border-radius:22px;background:rgba(0,0,0,.24)}.customer-portal-access>span{color:#d6be87;font-size:.75rem;font-weight:900}.customer-portal-access strong{display:block;margin:8px 0 5px;color:#fff;font-size:1.18rem}.customer-portal-access p{margin:0 0 18px;color:#9fa5ab;font-size:.84rem}.customer-portal-access .btn{width:100%;border:0;cursor:pointer}
-.customer-portal-privacy{display:flex;align-items:center;gap:14px;padding:17px 19px;border:1px solid rgba(69,196,139,.22);border-radius:18px;background:linear-gradient(135deg,rgba(21,91,67,.2),rgba(8,26,21,.48))}.customer-portal-privacy i{display:grid;place-items:center;flex:0 0 44px;height:44px;border-radius:14px;background:rgba(69,196,139,.1);color:#81ddb7}.customer-portal-privacy strong,.customer-portal-privacy span{display:block}.customer-portal-privacy strong{color:#9feacb}.customer-portal-privacy span{margin-top:2px;color:#b5bdc2;font-size:.82rem}
-.customer-portal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.customer-portal-card{--portal-accent:#e5c07b;position:relative;display:flex;min-height:228px;flex-direction:column;align-items:flex-start;padding:21px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.018));color:#fff;font:inherit;text-align:right;cursor:pointer;overflow:hidden;transition:transform .22s ease,border-color .22s ease,background .22s ease}.customer-portal-card:before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:var(--portal-accent);opacity:.75}.customer-portal-card:hover,.customer-portal-card:focus-visible{transform:translateY(-4px);border-color:color-mix(in srgb,var(--portal-accent) 48%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--portal-accent) 8%,#141516),rgba(255,255,255,.02));outline:none}.customer-portal-card:focus-visible{box-shadow:0 0 0 3px rgba(229,192,123,.13)}.customer-portal-card.tracking{--portal-accent:#e5c07b}.customer-portal-card.deal{--portal-accent:#73a8d9}.customer-portal-card.inspection{--portal-accent:#7bc5a5}.customer-portal-card.alerts{--portal-accent:#d58b7d}.customer-portal-card.request{--portal-accent:#a993cf}.customer-portal-card.appointment{--portal-accent:#d3a96f}.customer-portal-card-top{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px}.customer-portal-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:color-mix(in srgb,var(--portal-accent) 13%,transparent);color:var(--portal-accent);font-size:1.05rem}.customer-portal-lock{padding:5px 8px;border:1px solid color-mix(in srgb,var(--portal-accent) 25%,transparent);border-radius:999px;background:color-mix(in srgb,var(--portal-accent) 7%,transparent);color:var(--portal-accent);font-size:.66rem;font-weight:900}.customer-portal-card>strong{display:block;margin:18px 0 7px;color:var(--portal-accent);font-size:1.12rem}.customer-portal-description{display:block;color:#aeb4ba;font-size:.84rem;line-height:1.8}.customer-portal-card-action{display:block;margin-top:auto;padding-top:16px;color:#e8ecef;font-size:.76rem;font-weight:900}.customer-portal-card-action i{margin-right:5px;color:var(--portal-accent)}
-@media(max-width:940px){.customer-portal-hero{grid-template-columns:1fr}.customer-portal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.customer-portal-section{padding:46px 0}.customer-portal-hero{padding:22px 18px;border-radius:24px}.customer-portal-copy h2{font-size:2.45rem}.customer-portal-points{display:grid;grid-template-columns:1fr 1fr}.customer-portal-points span{text-align:center}.customer-portal-privacy{align-items:flex-start}.customer-portal-grid{grid-template-columns:1fr}.customer-portal-card{min-height:205px}.customer-portal-card:hover{transform:none}}
-@media(prefers-reduced-motion:reduce){.customer-portal-card{transition:none}}
-/* لوحة دخول العملاء الجانبية */
-body.customer-login-open{overflow:hidden;touch-action:none}
+/* رابط بوابة العملاء الجانبي */
 .customer-login-fab{position:fixed;z-index:980;right:0;top:46%;display:flex;align-items:center;justify-content:center;width:48px;height:56px;padding:0;border:1px solid rgba(229,192,123,.22);border-right:0;border-radius:18px 0 0 18px;background:rgba(12,13,14,.18);color:#efd18f;box-shadow:-4px 8px 18px rgba(0,0,0,.12);font-family:inherit;text-decoration:none;cursor:pointer;opacity:.68;transform:translateX(0);transition:transform .24s ease,background .24s ease,opacity .2s ease}
 .customer-login-fab i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:rgba(229,192,123,.16);color:#f3d596}
 .customer-login-fab span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .customer-login-fab:hover,.customer-login-fab:focus-visible,.customer-login-fab:active{background:rgba(229,192,123,.16);color:#fff;opacity:1;outline:none;transform:translateX(-3px)}
 .customer-login-fab:focus-visible{box-shadow:0 0 0 3px rgba(229,192,123,.2)}
-.customer-login-open .customer-login-fab{opacity:0;pointer-events:none;transform:translateX(100%)}
-.customer-login-modal{position:fixed;inset:0;z-index:1200;display:flex;justify-content:flex-start;padding:0;background:rgba(3,4,5,.68);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
-.customer-login-modal.is-open{opacity:1;visibility:visible}
-.customer-login-dialog{position:relative;width:min(94vw,480px);height:100dvh;max-height:none;overflow:auto;overscroll-behavior:contain;padding:30px 26px calc(24px + env(safe-area-inset-bottom));border:0;border-left:1px solid rgba(229,192,123,.26);border-radius:26px 0 0 26px;background:radial-gradient(circle at 90% 0,rgba(229,192,123,.15),transparent 34%),linear-gradient(155deg,#171717,#0b0c0d 72%);box-shadow:-28px 0 80px rgba(0,0,0,.58),inset 1px 0 0 rgba(255,255,255,.04);transform:translateX(105%);transition:transform .34s cubic-bezier(.22,.8,.22,1)}
-.customer-login-modal.is-open .customer-login-dialog{transform:translateX(0)}
-.customer-login-head{display:flex;align-items:flex-start;gap:14px;padding-left:42px;margin-bottom:20px}
-.customer-login-mark{display:grid;place-items:center;flex:0 0 48px;height:48px;border-radius:16px;color:#101010;background:linear-gradient(135deg,#f1d18c,#c99a35);box-shadow:0 10px 30px rgba(201,154,53,.24)}
-.customer-login-head h2{margin:0 0 5px;font-size:1.25rem;color:#fff}
-.customer-login-head p{margin:0;color:#b7b7b7;font-size:.88rem;line-height:1.7}
-.customer-login-close{position:absolute;top:18px;left:18px;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.045);color:#fff;font-size:1rem;cursor:pointer;transition:.2s ease}
-.customer-login-close:hover,.customer-login-close:focus-visible{color:#111;background:#e5c07b;border-color:#e5c07b;outline:none;transform:rotate(4deg)}
-.customer-login-status{display:flex;align-items:center;justify-content:center;gap:9px;min-height:84px;color:#d4bd8b;font-size:.9rem}
-.customer-login-status i{animation:customer-login-spin .9s linear infinite}
-.customer-login-error{display:none;padding:14px;border:1px solid rgba(239,107,104,.35);border-radius:14px;background:rgba(239,107,104,.08);color:#ffd0ce;line-height:1.7}
-.customer-login-error.is-visible{display:block}
-.customer-login-help{margin:16px 0 0;text-align:center;color:#8f9296;font-size:.76rem;line-height:1.7}
-.customer-login-help a{color:#e5c07b}
-@keyframes customer-login-spin{to{transform:rotate(360deg)}}
-@media(max-width:560px){.customer-login-fab{top:43%;width:44px;height:52px;border-radius:16px 0 0 16px;opacity:.6}.customer-login-fab i{width:31px;height:31px}.customer-login-dialog{width:94vw;padding:25px 18px calc(22px + env(safe-area-inset-bottom));border-radius:24px 0 0 24px}.customer-login-head{padding-left:40px}.customer-login-head h2{font-size:1.14rem}}
-@media(prefers-reduced-motion:reduce){.customer-login-fab,.customer-login-modal,.customer-login-dialog,.customer-login-close{transition:none}}
+@media(max-width:560px){.customer-login-fab{top:43%;width:44px;height:52px;border-radius:16px 0 0 16px;opacity:.6}.customer-login-fab i{width:31px;height:31px}}
+@media(prefers-reduced-motion:reduce){.customer-login-fab{transition:none}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
@@ -117,7 +87,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <div><strong>مكتب عماد عدن العقاري</strong><span>بيع · شراء · تثمين · استثمار · إدارة أملاك</span></div>
     </a>
     <nav class="navlinks" aria-label="التنقل الرئيسي">
-      <a href="#services">الخدمات</a><a href="#customer-portal">بوابة العملاء</a><a href="#tools">الأدوات</a><a href="neighborhood-units.html">وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">المقالات</a>
+      <a href="#services">الخدمات</a><a href="customer-account.html">بوابة العملاء</a><a href="#tools">الأدوات</a><a href="neighborhood-units.html">وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">المقالات</a>
     </nav>
     <div class="actions">
       <a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X"><i class="fa-brands fa-x-twitter"></i></a>
@@ -128,10 +98,10 @@ body.customer-login-open{overflow:hidden;touch-action:none}
     <button class="menu-btn" id="menuButton" type="button" aria-label="فتح القائمة" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
   <nav class="mobile-menu wrap" id="mobileMenu" aria-label="قائمة الجوال">
-    <a href="#services">الخدمات</a><a href="#customer-portal">بوابة العملاء</a><a href="#tools">الأدوات والمنصات</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
+    <a href="#services">الخدمات</a><a href="customer-account.html">بوابة العملاء</a><a href="#tools">الأدوات والمنصات</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
   </nav>
 </header>
-<a class="customer-login-fab" href="#customer-portal" aria-label="الانتقال إلى قسم بوابة العملاء">
+<a class="customer-login-fab" href="customer-account.html" aria-label="فتح صفحة بوابة العملاء">
   <i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>بوابة العملاء</span>
 </a>
 
@@ -147,61 +117,6 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <a class="service-card legal reveal" href="legal-consultant.html"><span class="num">02</span><div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div><h3>المستشار القانوني العقاري</h3><p>قراءة أولية للمستندات والمخاطر والإجراءات قبل أي التزام.</p><span class="card-link">ابدأ الاستشارة <i class="fa-solid fa-arrow-left"></i></span></a>
       <a class="service-card valuation reveal" href="property-value.html"><span class="num">03</span><div class="service-icon"><i class="fa-solid fa-chart-line"></i></div><h3>التثمين العقاري</h3><p>تقدير مبني على الموقع والمساحة والخدمات وحالة السوق والمعاينة.</p><span class="card-link">اطلب التثمين <i class="fa-solid fa-arrow-left"></i></span></a>
       <a class="service-card request reveal" href="request-reception.html"><span class="num">04</span><div class="service-icon"><i class="fa-solid fa-inbox"></i></div><h3>استقبال طلبات البيع والشراء العقاري</h3><p>أرسل تفاصيل البيع أو الشراء أو البحث عن عقار في نموذج واضح ومنظم.</p><span class="card-link">فتح صفحة الطلبات <i class="fa-solid fa-arrow-left"></i></span></a>
-    </div>
-  </div>
-</section>
-
-<section class="customer-portal-section" id="customer-portal" aria-labelledby="customerPortalTitle">
-  <div class="wrap customer-portal-shell">
-    <div class="customer-portal-hero reveal">
-      <div class="customer-portal-copy">
-        <span class="customer-portal-badge"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> قسم خاص بعملاء المكتب</span>
-        <h2 id="customerPortalTitle">بوابة العملاء</h2>
-        <p>استعرض خدمات المتابعة من الصفحة الرئيسية، واعرف ما توفره لك البوابة قبل تسجيل الدخول. سجلات الطلبات والصفقات والمواعيد لا تظهر إلا لصاحب الحساب.</p>
-        <div class="customer-portal-points">
-          <span><i class="fa-solid fa-list-check" aria-hidden="true"></i>متابعة منظمة</span>
-          <span><i class="fa-solid fa-lock" aria-hidden="true"></i>تفاصيل محمية</span>
-          <span><i class="fa-solid fa-bell" aria-hidden="true"></i>تنبيهات ومواعيد</span>
-        </div>
-      </div>
-      <aside class="customer-portal-access">
-        <span>الدخول إلى حسابك</span>
-        <strong>كل متابعتك في مكان واحد</strong>
-        <p>سجّل الدخول لعرض بياناتك الفعلية وإدارة التفاصيل الخاصة بك.</p>
-        <button class="btn gold customer-login-trigger" type="button" data-private-feature="بوابة العملاء" aria-haspopup="dialog" aria-controls="customerLoginModal"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> تسجيل الدخول</button>
-      </aside>
-    </div>
-
-    <div class="customer-portal-privacy reveal" role="note">
-      <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-      <div><strong>خصوصيتك محفوظة</strong><span>التصفح التعريفي متاح للجميع، لكن فتح السجلات والتفاصيل الخاصة يتطلب تسجيل الدخول إلى حساب العميل.</span></div>
-    </div>
-
-    <div class="customer-portal-grid">
-      <button class="customer-portal-card tracking customer-login-trigger reveal" type="button" data-private-feature="متابعة الطلبات" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>متابعة الطلبات</strong><span class="customer-portal-description">مرحلة الطلب والمستندات الناقصة والخطوة التالية والموعد المتوقع.</span><span class="customer-portal-card-action">عرض التفاصيل <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
-      <button class="customer-portal-card deal customer-login-trigger reveal" type="button" data-private-feature="غرفة الصفقة العقارية" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>غرفة الصفقة العقارية</strong><span class="customer-portal-description">مراحل الصفقة والأطراف والمواعيد والخطوات المتبقية حتى الإغلاق.</span><span class="customer-portal-card-action">فتح التفاصيل <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
-      <button class="customer-portal-card inspection customer-login-trigger reveal" type="button" data-private-feature="سجل المعاينات" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>سجل المعاينات</strong><span class="customer-portal-description">مواعيد الزيارات ونتائج المعاينات والملاحظات والإجراء التالي.</span><span class="customer-portal-card-action">عرض السجل <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
-      <button class="customer-portal-card alerts customer-login-trigger reveal" type="button" data-private-feature="مركز التنبيهات" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>مركز التنبيهات</strong><span class="customer-portal-description">تنبيهات المواعيد والعقود والمستندات والصيانة ومهل المتابعة.</span><span class="customer-portal-card-action">عرض التنبيهات <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
-      <button class="customer-portal-card request customer-login-trigger reveal" type="button" data-private-feature="إنشاء طلب جديد" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-file-circle-plus" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>إنشاء طلب جديد</strong><span class="customer-portal-description">إعداد طلب خدمة وحفظ المسودة وتجهيزها للإرسال إلى المكتب.</span><span class="customer-portal-card-action">إنشاء طلب <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
-      <button class="customer-portal-card appointment customer-login-trigger reveal" type="button" data-private-feature="حجز موعد التواصل" aria-haspopup="dialog" aria-controls="customerLoginModal">
-        <span class="customer-portal-card-top"><span class="customer-portal-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span><span class="customer-portal-lock">خاص بالعملاء</span></span>
-        <strong>حجز موعد التواصل</strong><span class="customer-portal-description">اختيار التاريخ والفترة وطريقة التواصل ثم طلب تأكيد المكتب.</span><span class="customer-portal-card-action">حجز موعد <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-      </button>
     </div>
   </div>
 </section>
@@ -239,7 +154,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <a class="tool-card reveal" href="property-calculator.html#calculatorForm"><i class="fa-solid fa-ruler-combined"></i><h3>حاسبة مساحة الأرض</h3><p>أداة مبسطة لحساب المساحة من الأبعاد المختلفة، وتحويل الوحدات، وتجهيز قراءة أولية قبل التثمين والمعاينة.</p><span class="card-link">فتح الحاسبة</span></a>
       <a class="tool-card reveal" href="assistant.html"><i class="fa-solid fa-comments"></i><h3>المساعد العقاري الذكي</h3><p>يساعدك في تنظيم الأسئلة وفهم الخدمات والوصول إلى الصفحة أو الأداة المناسبة داخل الموقع.</p><span class="card-link">ابدأ المحادثة</span></a>
       <a class="tool-card reveal" href="neighborhood-units.html"><i class="fa-solid fa-map-location-dot"></i><h3>دليل وحدات الجوار</h3><p>خريطة مرجعية وبحث حسب الرقم والمنطقة والمحور مع شرح المخطط والتنبيهات قبل الشراء.</p><span class="card-link">فتح الدليل</span></a>
-      <a class="tool-card reveal" href="#customer-portal"><i class="fa-solid fa-user-shield"></i><h3>بوابة العملاء</h3><p>استعرض أقسام متابعة الطلبات والصفقات والمعاينات والتنبيهات داخل الصفحة الرئيسية.</p><span class="card-link">الانتقال إلى القسم</span></a>
+      <a class="tool-card reveal" href="customer-account.html"><i class="fa-solid fa-user-shield"></i><h3>بوابة العملاء</h3><p>ادخل الصفحة المستقلة واستعرض خدمات المتابعة العامة، ثم سجّل الدخول عند الحاجة إلى تفاصيل حسابك.</p><span class="card-link">فتح البوابة</span></a>
       <a class="tool-card reveal" href="client-services.html"><i class="fa-solid fa-layer-group"></i><h3>مركز خدمات المتابعة</h3><p>بوابة موحدة لمتابعة الطلبات والصفقات والعقارات والصيانة والمعاينات والتنبيهات وخدمات المستأجرين.</p><span class="card-link">فتح المركز</span></a>
       <a class="tool-card reveal" href="investment-return-calculator.html"><i class="fa-solid fa-percent"></i><h3>حاسبة صافي العائد</h3><p>حساب الدخل الفعلي وصافي العائد السنوي ومدة استرداد رأس المال بعد الشغور والمصروفات.</p><span class="card-link">احسب العائد</span></a>
       <a class="tool-card reveal" href="report-verification.html"><i class="fa-solid fa-file-shield"></i><h3>التحقق من تقارير المكتب</h3><p>مطابقة رقم التقرير وتاريخه ونوعه مع رمز التحقق الإلكتروني المرفق.</p><span class="card-link">تحقق من تقرير</span></a>
@@ -268,7 +183,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
   <div class="wrap footer-grid">
     <div><h3>مكتب عماد عدن العقاري</h3><p>بيع، شراء، تثمين، استثمار وإدارة أملاك في عدن.</p><div class="social-row"><a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a><a class="icon-btn" href="https://www.instagram.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a class="icon-btn" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a><a class="icon-btn" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="مراسلة مكتب عماد عدن العقاري عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a></div></div>
     <div><h3>الخدمات</h3><div class="footer-links"><a href="expatriates-property-management.html">إدارة الأملاك</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="legal-consultant.html">المستشار القانوني</a><a href="property-value.html">التثمين العقاري</a><a href="service-complaints.html">الشكاوى وضمان الخدمة</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب</a></div></div>
-    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="investment-return-calculator.html">حاسبة صافي العائد</a><a href="report-verification.html">التحقق من التقارير</a><a href="tenant-portal.html">بوابة المستأجر</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="#customer-portal">بوابة العملاء</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">تسجيل دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
+    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="investment-return-calculator.html">حاسبة صافي العائد</a><a href="report-verification.html">التحقق من التقارير</a><a href="tenant-portal.html">بوابة المستأجر</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="customer-account.html">بوابة العملاء</a><a href="sign-in.html?redirect_url=%2Fcustomer-account.html">تسجيل دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
   </div>
   <div class="wrap footer-bottom"><span>© <span id="year"></span> مكتب عماد عدن العقاري · <a href="privacy.html">سياسة الخصوصية</a></span><span>المحتوى إرشادي ولا يغني عن المعاينة والتوثيق والاستشارة المتخصصة.</span></div>
 </footer>
@@ -279,20 +194,6 @@ body.customer-login-open{overflow:hidden;touch-action:none}
   <a href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X لمكتب عماد عدن العقاري"><i class="fa-brands fa-x-twitter"></i><span>X</span></a>
   <a class="primary" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="مراسلة مكتب عماد عدن العقاري عبر واتساب"><i class="fa-brands fa-whatsapp"></i><span>واتساب</span></a>
 </nav>
-
-<div class="customer-login-modal" id="customerLoginModal" role="dialog" aria-modal="true" aria-labelledby="customerLoginTitle" aria-describedby="customerLoginIntro" aria-hidden="true">
-  <div class="customer-login-dialog" role="document">
-    <button class="customer-login-close" id="customerLoginClose" type="button" aria-label="إغلاق نافذة دخول العملاء"><i class="fa-solid fa-xmark"></i></button>
-    <div class="customer-login-head">
-      <span class="customer-login-mark" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span>
-      <div><h2 id="customerLoginTitle">دخول العملاء</h2><p id="customerLoginIntro">أدخل بريدك الإلكتروني، ثم استخدم رمز التحقق المرسل إليك.</p></div>
-    </div>
-    <div class="customer-login-status" id="customerLoginStatus" aria-live="polite"><i class="fa-solid fa-circle-notch"></i><span>جارٍ تجهيز الدخول الآمن…</span></div>
-    <div id="customerLoginMount"></div>
-    <p class="customer-login-error" id="customerLoginError" role="alert"></p>
-    <p class="customer-login-help">باستمرارك، فإنك توافق على استخدام بيانات حسابك وفق <a href="privacy.html">سياسة الخصوصية</a>.</p>
-  </div>
-</div>
 
 <button class="back-top" id="backToTop" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 <script src="assets/js/luxury-home.js" defer></script>
@@ -337,55 +238,5 @@ body.customer-login-open{overflow:hidden;touch-action:none}
   start();
 })();
 </script>
-<script type="module">
-import { mountCustomerSignIn } from './assets/js/clerk-auth.js';
-const modal=document.getElementById('customerLoginModal');
-const dialog=modal.querySelector('.customer-login-dialog');
-const closeButton=document.getElementById('customerLoginClose');
-const mountPoint=document.getElementById('customerLoginMount');
-const statusBox=document.getElementById('customerLoginStatus');
-const errorBox=document.getElementById('customerLoginError');
-const titleBox=document.getElementById('customerLoginTitle');
-const introBox=document.getElementById('customerLoginIntro');
-const triggers=[...document.querySelectorAll('.customer-login-trigger')];
-let mounted=false;
-let lastFocused=null;
-function focusable(){return [...dialog.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>el.offsetParent!==null)}
-async function openCustomerLogin(event){
-  if(event)event.preventDefault();
-  const feature=event?.currentTarget?.dataset.privateFeature;
-  titleBox.textContent=feature?`${feature} — خاص بالعملاء`:'دخول العملاء';
-  introBox.textContent=feature?'سجّل دخولك لعرض السجلات والتفاصيل الخاصة بحسابك. يمكنك إغلاق النافذة ومواصلة تصفح الصفحة.':'أدخل بريدك الإلكتروني، ثم استخدم رمز التحقق المرسل إليك.';
-  lastFocused=document.activeElement;
-  modal.classList.add('is-open');
-  modal.setAttribute('aria-hidden','false');
-  document.body.classList.add('customer-login-open');
-  closeButton.focus();
-  if(mounted)return;
-  mounted=true;
-  try{await mountCustomerSignIn(mountPoint);statusBox.remove()}
-  catch(error){statusBox.remove();errorBox.textContent=error.message||'تعذر تشغيل تسجيل الدخول. حاول مرة أخرى.';errorBox.classList.add('is-visible');mounted=false}
-}
-function closeCustomerLogin(){
-  modal.classList.remove('is-open');
-  modal.setAttribute('aria-hidden','true');
-  document.body.classList.remove('customer-login-open');
-  if(lastFocused)lastFocused.focus();
-}
-triggers.forEach(trigger=>trigger.addEventListener('click',openCustomerLogin));
-closeButton.addEventListener('click',closeCustomerLogin);
-modal.addEventListener('click',event=>{if(event.target===modal)closeCustomerLogin()});
-document.addEventListener('keydown',event=>{
-  if(!modal.classList.contains('is-open'))return;
-  if(event.key==='Escape'){closeCustomerLogin();return}
-  if(event.key!=='Tab')return;
-  const items=focusable();
-  if(!items.length){event.preventDefault();closeButton.focus();return}
-  const first=items[0],last=items[items.length-1];
-  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
-  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
-});
-</script>
-
 </body>
 </html>
