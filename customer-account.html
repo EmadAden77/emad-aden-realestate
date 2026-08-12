@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>حساب العميل | مكتب عماد عدن العقاري</title>
-  <meta name="description" content="حساب عميل مكتب عماد عدن العقاري لمتابعة الطلبات وإنشاء طلب جديد وحجز موعد تواصل.">
+  <title>بوابة العملاء | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="استعرض خدمات بوابة عملاء مكتب عماد عدن العقاري، وسجّل الدخول للوصول إلى تفاصيل الطلبات والصفقات والمواعيد.">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="canonical" href="https://emad-aden-realestate.vercel.app/customer-account.html">
-  <meta property="og:title" content="حساب العميل | مكتب عماد عدن العقاري">
+  <meta property="og:title" content="بوابة العملاء | مكتب عماد عدن العقاري">
   <meta name="theme-color" content="#0b0c0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +15,58 @@
   <link href="assets/css/customer-auth.css" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العميل</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العملاء</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
 
   <main class="auth-main portal-main"><div class="wrap">
-    <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ التحقق من الجلسة…</span></div>
+    <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ تجهيز البوابة…</span></div>
+
+    <section class="portal-preview" id="portalPreview" hidden aria-labelledby="portalPreviewTitle">
+      <section class="portal-preview-hero">
+        <div>
+          <span class="status public">عرض تعريفي متاح للجميع</span>
+          <h1 id="portalPreviewTitle">بوابة العملاء</h1>
+          <p>تصفّح أقسام البوابة وتعرّف على الخدمات المتاحة. تفاصيل الطلبات والصفقات والمواعيد خاصة بعملاء المكتب ولا تظهر إلا بعد تسجيل الدخول.</p>
+        </div>
+        <a class="button primary" href="sign-in.html?redirect_url=%2Fcustomer-account.html">تسجيل الدخول</a>
+      </section>
+
+      <div class="portal-preview-note" role="note">
+        <strong>خصوصيتك محفوظة</strong>
+        <span>يمكن لأي زائر استعراض أقسام البوابة، لكن لا يمكنه فتح أي سجل أو تفاصيل خاصة بحساب عميل.</span>
+      </div>
+
+      <div class="portal-preview-grid">
+        <button class="portal-preview-card" type="button" data-private-section="متابعة الطلبات">
+          <span class="preview-lock">خاص بالعملاء</span><strong>متابعة الطلبات</strong><span class="preview-description">معرفة مرحلة الطلب والمستندات الناقصة والخطوة التالية والموعد المتوقع.</span><span class="preview-action">عرض التفاصيل</span>
+        </button>
+        <button class="portal-preview-card" type="button" data-private-section="غرفة الصفقة العقارية">
+          <span class="preview-lock">خاص بالعملاء</span><strong>غرفة الصفقة العقارية</strong><span class="preview-description">متابعة مراحل الصفقة والأطراف والمواعيد والإجراءات المتبقية.</span><span class="preview-action">فتح غرفة الصفقة</span>
+        </button>
+        <button class="portal-preview-card" type="button" data-private-section="سجل المعاينات">
+          <span class="preview-lock">خاص بالعملاء</span><strong>سجل المعاينات</strong><span class="preview-description">مراجعة مواعيد الزيارات ونتائج المعاينات والملاحظات والإجراء التالي.</span><span class="preview-action">عرض السجل</span>
+        </button>
+        <button class="portal-preview-card" type="button" data-private-section="مركز التنبيهات">
+          <span class="preview-lock">خاص بالعملاء</span><strong>مركز التنبيهات</strong><span class="preview-description">تنبيهات المواعيد والعقود والمستندات والصيانة ومهل المتابعة.</span><span class="preview-action">عرض التنبيهات</span>
+        </button>
+        <button class="portal-preview-card" type="button" data-private-section="إنشاء طلب جديد">
+          <span class="preview-lock">خاص بالعملاء</span><strong>إنشاء طلب جديد</strong><span class="preview-description">إنشاء طلب خدمة وحفظ المسودة وتجهيزها للإرسال إلى المكتب.</span><span class="preview-action">إنشاء طلب</span>
+        </button>
+        <button class="portal-preview-card" type="button" data-private-section="حجز موعد التواصل">
+          <span class="preview-lock">خاص بالعملاء</span><strong>حجز موعد التواصل</strong><span class="preview-description">اختيار التاريخ والفترة وطريقة التواصل ثم طلب تأكيد المكتب.</span><span class="preview-action">حجز موعد</span>
+        </button>
+      </div>
+
+      <section class="panel preview-public-tools" aria-labelledby="publicToolsTitle">
+        <div><span class="eyebrow">متاحة دون تسجيل</span><h2 id="publicToolsTitle">أدوات عامة يمكنك استخدامها الآن</h2><p>هذه الأدوات لا تعرض بيانات حساب أو تفاصيل خاصة.</p></div>
+        <div class="quick-links">
+          <a class="quick-link" href="investment-return-calculator.html"><strong>حاسبة صافي العائد</strong><span>احسب الدخل والعائد ومدة الاسترداد.</span></a>
+          <a class="quick-link" href="report-verification.html"><strong>التحقق من التقارير</strong><span>طابق رمز تقرير صادر من المكتب.</span></a>
+          <a class="quick-link" href="service-complaints.html"><strong>الشكاوى وضمان الخدمة</strong><span>أنشئ شكوى أو ملاحظة برقم متابعة.</span></a>
+          <a class="quick-link" href="client-services.html"><strong>مركز خدمات المتابعة</strong><span>استعرض جميع الخدمات والأدوات المتاحة.</span></a>
+        </div>
+      </section>
+    </section>
+
     <section id="accountContent" hidden>
       <div class="account-head">
         <div class="identity"><div class="avatar" id="userInitial">ع</div><div><strong id="userName">عميل المكتب</strong><span id="userEmail"></span></div><div id="userButton" role="group" aria-label="إدارة الحساب"></div></div>
@@ -211,36 +259,120 @@
       <div class="privacy-note">بيانات الطلبات والمسودات والمواعيد في هذه النسخة محفوظة محليًا على جهازك، ولا تصل إلى المكتب حتى ترسل رسالة واتساب. لا تُدخل بيانات مالية أو أرقام وثائق أو معلومات شديدة الحساسية.</div>
     </section>
     <p class="error" id="accountError" role="alert"></p>
+
+    <dialog class="portal-access-modal" id="portalAccessModal" aria-labelledby="portalAccessTitle" aria-describedby="portalAccessText">
+      <div class="portal-access-dialog" role="document">
+        <button class="portal-access-close" id="portalAccessClose" type="button" aria-label="إغلاق التنبيه">×</button>
+        <span class="preview-lock">خاص بالعملاء</span>
+        <h2 id="portalAccessTitle">سجّل دخولك لعرض التفاصيل</h2>
+        <p id="portalAccessText">هذه البوابة خاصة بعملاء المكتب. يمكنك تصفح أقسامها، أما السجلات والتفاصيل فتتطلب تسجيل الدخول.</p>
+        <div class="portal-access-actions">
+          <a class="button primary" href="sign-in.html?redirect_url=%2Fcustomer-account.html">تسجيل الدخول</a>
+          <button class="button ghost" id="portalAccessContinue" type="button">متابعة التصفح</button>
+        </div>
+      </div>
+    </dialog>
   </div></main>
 
   <footer><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="contact.html">تواصل معنا</a></span></div></footer>
   <script type="module">
-    import { loadCustomerAccount } from './assets/js/clerk-auth.js';
+    import { getClerk, loadCustomerAccount } from './assets/js/clerk-auth.js';
     import { initCustomerPortal } from './assets/js/customer-portal.js';
 
     document.getElementById('year').textContent = new Date().getFullYear();
     const loader = document.getElementById('accountLoader');
     const content = document.getElementById('accountContent');
+    const preview = document.getElementById('portalPreview');
     const errorBox = document.getElementById('accountError');
+    const accessModal = document.getElementById('portalAccessModal');
+    const accessDialog = accessModal.querySelector('.portal-access-dialog');
+    const accessText = document.getElementById('portalAccessText');
+    const accessClose = document.getElementById('portalAccessClose');
+    const accessContinue = document.getElementById('portalAccessContinue');
+    let lastFocused = null;
 
-    loadCustomerAccount().then(context => {
-      if (!context) return;
-      const { clerk, appearance, session } = context;
-      const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
-      const name = clerk.user?.fullName || clerk.user?.firstName || 'عميل المكتب';
-      document.getElementById('userName').textContent = name;
-      document.getElementById('userEmail').textContent = email;
-      document.getElementById('userInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
-      clerk.mountUserButton(document.getElementById('userButton'), { appearance });
-      document.getElementById('signOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
-      initCustomerPortal({ userId: session.userId, userName: name, userEmail: email });
+    function showPublicPreview() {
       loader.remove();
-      content.hidden = false;
-    }).catch(error => {
-      loader.remove();
-      errorBox.textContent = error.message || 'تعذر التحقق من الحساب. حاول تسجيل الدخول مرة أخرى.';
-      errorBox.classList.add('show');
+      preview.hidden = false;
+    }
+
+    function openAccessNotice(event) {
+      const section = event.currentTarget.dataset.privateSection || 'هذا القسم';
+      lastFocused = document.activeElement;
+      accessText.textContent = `${section} من الخدمات الخاصة بعملاء المكتب. يمكنك مواصلة تصفح البوابة، ولعرض السجلات والتفاصيل سجّل دخولك أولًا.`;
+      accessModal.showModal();
+      accessModal.classList.add('is-open');
+      document.body.classList.add('portal-access-open');
+      accessClose.focus();
+    }
+
+    function closeAccessNotice() {
+      accessModal.classList.remove('is-open');
+      accessModal.close();
+      document.body.classList.remove('portal-access-open');
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.querySelectorAll('[data-private-section]').forEach(button => {
+      button.addEventListener('click', openAccessNotice);
     });
+    accessClose.addEventListener('click', closeAccessNotice);
+    accessContinue.addEventListener('click', closeAccessNotice);
+    accessModal.addEventListener('click', event => {
+      if (event.target === accessModal) closeAccessNotice();
+    });
+    accessModal.addEventListener('cancel', event => {
+      event.preventDefault();
+      closeAccessNotice();
+    });
+    document.addEventListener('keydown', event => {
+      if (!accessModal.classList.contains('is-open')) return;
+      if (event.key === 'Escape') {
+        closeAccessNotice();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...accessDialog.querySelectorAll('button, a[href]')].filter(element => element.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    async function initAccountPage() {
+      try {
+        const clerk = await getClerk();
+        if (!clerk.isSignedIn || !clerk.session) {
+          showPublicPreview();
+          return;
+        }
+
+        const context = await loadCustomerAccount();
+        if (!context) return;
+        const { appearance, session } = context;
+        const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
+        const name = clerk.user?.fullName || clerk.user?.firstName || 'عميل المكتب';
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userEmail').textContent = email;
+        document.getElementById('userInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
+        clerk.mountUserButton(document.getElementById('userButton'), { appearance });
+        document.getElementById('signOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
+        initCustomerPortal({ userId: session.userId, userName: name, userEmail: email });
+        loader.remove();
+        content.hidden = false;
+      } catch (error) {
+        showPublicPreview();
+        errorBox.textContent = error.message || 'تعذر التحقق من الحساب حاليًا. ما زال بإمكانك تصفح أقسام البوابة.';
+      }
+    }
+
+    initAccountPage();
   </script>
 </body>
 </html>

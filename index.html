@@ -67,7 +67,7 @@
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
 /* لوحة دخول العملاء الجانبية */
 body.customer-login-open{overflow:hidden;touch-action:none}
-.customer-login-fab{position:fixed;z-index:980;right:0;top:46%;display:flex;align-items:center;justify-content:center;width:48px;height:56px;padding:0;border:1px solid rgba(229,192,123,.22);border-right:0;border-radius:18px 0 0 18px;background:rgba(12,13,14,.18);color:#efd18f;box-shadow:-4px 8px 18px rgba(0,0,0,.12);font-family:inherit;cursor:pointer;opacity:.68;transform:translateX(0);transition:transform .24s ease,background .24s ease,opacity .2s ease}
+.customer-login-fab{position:fixed;z-index:980;right:0;top:46%;display:flex;align-items:center;justify-content:center;width:48px;height:56px;padding:0;border:1px solid rgba(229,192,123,.22);border-right:0;border-radius:18px 0 0 18px;background:rgba(12,13,14,.18);color:#efd18f;box-shadow:-4px 8px 18px rgba(0,0,0,.12);font-family:inherit;text-decoration:none;cursor:pointer;opacity:.68;transform:translateX(0);transition:transform .24s ease,background .24s ease,opacity .2s ease}
 .customer-login-fab i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:rgba(229,192,123,.16);color:#f3d596}
 .customer-login-fab span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .customer-login-fab:hover,.customer-login-fab:focus-visible,.customer-login-fab:active{background:rgba(229,192,123,.16);color:#fff;opacity:1;outline:none;transform:translateX(-3px)}
@@ -106,7 +106,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <div><strong>مكتب عماد عدن العقاري</strong><span>بيع · شراء · تثمين · استثمار · إدارة أملاك</span></div>
     </a>
     <nav class="navlinks" aria-label="التنقل الرئيسي">
-      <a href="#services">الخدمات</a><a href="#tools">الأدوات</a><a href="client-services.html">متابعة العملاء</a><a href="neighborhood-units.html">وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">المقالات</a>
+      <a href="#services">الخدمات</a><a href="#tools">الأدوات</a><a href="customer-account.html">بوابة العملاء</a><a href="neighborhood-units.html">وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">المقالات</a>
     </nav>
     <div class="actions">
       <a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener" aria-label="منصة X"><i class="fa-brands fa-x-twitter"></i></a>
@@ -117,12 +117,12 @@ body.customer-login-open{overflow:hidden;touch-action:none}
     <button class="menu-btn" id="menuButton" type="button" aria-label="فتح القائمة" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
   <nav class="mobile-menu wrap" id="mobileMenu" aria-label="قائمة الجوال">
-    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
+    <a href="#services">الخدمات</a><a href="#tools">الأدوات والمنصات</a><a href="customer-account.html">بوابة العملاء</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
   </nav>
 </header>
-<button class="customer-login-fab customer-login-trigger" type="button" aria-haspopup="dialog" aria-controls="customerLoginModal" aria-label="فتح دخول العملاء">
-  <i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>دخول العملاء</span>
-</button>
+<a class="customer-login-fab" href="customer-account.html" aria-label="فتح بوابة العملاء">
+  <i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>بوابة العملاء</span>
+</a>
 
 <main>
 <section class="section service-priority" id="services">
@@ -173,6 +173,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
       <a class="tool-card reveal" href="property-calculator.html#calculatorForm"><i class="fa-solid fa-ruler-combined"></i><h3>حاسبة مساحة الأرض</h3><p>أداة مبسطة لحساب المساحة من الأبعاد المختلفة، وتحويل الوحدات، وتجهيز قراءة أولية قبل التثمين والمعاينة.</p><span class="card-link">فتح الحاسبة</span></a>
       <a class="tool-card reveal" href="assistant.html"><i class="fa-solid fa-comments"></i><h3>المساعد العقاري الذكي</h3><p>يساعدك في تنظيم الأسئلة وفهم الخدمات والوصول إلى الصفحة أو الأداة المناسبة داخل الموقع.</p><span class="card-link">ابدأ المحادثة</span></a>
       <a class="tool-card reveal" href="neighborhood-units.html"><i class="fa-solid fa-map-location-dot"></i><h3>دليل وحدات الجوار</h3><p>خريطة مرجعية وبحث حسب الرقم والمنطقة والمحور مع شرح المخطط والتنبيهات قبل الشراء.</p><span class="card-link">فتح الدليل</span></a>
+      <a class="tool-card reveal" href="customer-account.html"><i class="fa-solid fa-user-shield"></i><h3>بوابة العملاء</h3><p>استعرض أقسام متابعة الطلبات والصفقات والمعاينات والتنبيهات، وسجّل الدخول فقط عند فتح التفاصيل الخاصة.</p><span class="card-link">استعراض البوابة</span></a>
       <a class="tool-card reveal" href="client-services.html"><i class="fa-solid fa-layer-group"></i><h3>مركز خدمات المتابعة</h3><p>بوابة موحدة لمتابعة الطلبات والصفقات والعقارات والصيانة والمعاينات والتنبيهات وخدمات المستأجرين.</p><span class="card-link">فتح المركز</span></a>
       <a class="tool-card reveal" href="investment-return-calculator.html"><i class="fa-solid fa-percent"></i><h3>حاسبة صافي العائد</h3><p>حساب الدخل الفعلي وصافي العائد السنوي ومدة استرداد رأس المال بعد الشغور والمصروفات.</p><span class="card-link">احسب العائد</span></a>
       <a class="tool-card reveal" href="report-verification.html"><i class="fa-solid fa-file-shield"></i><h3>التحقق من تقارير المكتب</h3><p>مطابقة رقم التقرير وتاريخه ونوعه مع رمز التحقق الإلكتروني المرفق.</p><span class="card-link">تحقق من تقرير</span></a>
@@ -201,7 +202,7 @@ body.customer-login-open{overflow:hidden;touch-action:none}
   <div class="wrap footer-grid">
     <div><h3>مكتب عماد عدن العقاري</h3><p>بيع، شراء، تثمين، استثمار وإدارة أملاك في عدن.</p><div class="social-row"><a class="icon-btn" href="https://x.com/aleimad7aden" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a><a class="icon-btn" href="https://www.instagram.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a class="icon-btn" href="https://www.facebook.com/aleimad7aden/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a><a class="icon-btn" href="https://wa.me/967773571889" target="_blank" rel="noopener" aria-label="مراسلة مكتب عماد عدن العقاري عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a></div></div>
     <div><h3>الخدمات</h3><div class="footer-links"><a href="expatriates-property-management.html">إدارة الأملاك</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="legal-consultant.html">المستشار القانوني</a><a href="property-value.html">التثمين العقاري</a><a href="service-complaints.html">الشكاوى وضمان الخدمة</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب</a></div></div>
-    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="investment-return-calculator.html">حاسبة صافي العائد</a><a href="report-verification.html">التحقق من التقارير</a><a href="tenant-portal.html">بوابة المستأجر</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
+    <div><h3>المعرفة والأدوات</h3><div class="footer-links"><a href="articles/index.html">مركز المقالات</a><a href="districts.html">موسوعة عدن</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="property-calculator.html">حاسبة القيمة</a><a href="investment-return-calculator.html">حاسبة صافي العائد</a><a href="report-verification.html">التحقق من التقارير</a><a href="tenant-portal.html">بوابة المستأجر</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="customer-account.html">بوابة العملاء</a><a class="customer-login-trigger" href="sign-in.html" aria-haspopup="dialog">تسجيل دخول العملاء</a><a href="assistant.html">المساعد الذكي</a></div></div>
   </div>
   <div class="wrap footer-bottom"><span>© <span id="year"></span> مكتب عماد عدن العقاري · <a href="privacy.html">سياسة الخصوصية</a></span><span>المحتوى إرشادي ولا يغني عن المعاينة والتوثيق والاستشارة المتخصصة.</span></div>
 </footer>

@@ -58,11 +58,20 @@ if (!configApi.includes('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY') || configApi.includ
 
 const accountPage = contents.get('customer-account.html') || '';
 const portalSource = contents.get('assets/js/customer-portal.js') || '';
-for (const marker of ['newRequestForm', 'appointmentForm', 'requestsList', 'draftStatus']) {
+for (const marker of ['newRequestForm', 'appointmentForm', 'requestsList', 'draftStatus', 'portalPreview', 'portalAccessModal', 'data-private-section']) {
   if (!accountPage.includes(marker)) {
     console.error(`customer-account.html: العنصر المطلوب غير موجود: ${marker}`);
     failed = true;
   }
+}
+if (!accountPage.includes('هذه البوابة خاصة بعملاء المكتب') || !accountPage.includes('getClerk, loadCustomerAccount')) {
+  console.error('بوابة العملاء لا تتيح العرض العام مع إبقاء التفاصيل خلف تسجيل الدخول.');
+  failed = true;
+}
+const homepage = readFileSync('index.html', 'utf8');
+if (!homepage.includes('href="customer-account.html">بوابة العملاء</a>')) {
+  console.error('رابط بوابة العملاء غير ظاهر بوضوح في الصفحة الرئيسية.');
+  failed = true;
 }
 if (!portalSource.includes('localStorage') || !portalSource.includes('userId') || portalSource.includes('innerHTML')) {
   console.error('بوابة العميل لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
