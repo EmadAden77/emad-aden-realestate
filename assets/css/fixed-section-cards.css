@@ -1,7 +1,5 @@
 .fixed-section-cards {
-  position: sticky;
-  top: var(--section-cards-top, 74px);
-  z-index: var(--section-cards-z, 19);
+  position: static;
   direction: rtl;
   background: #111315;
   border-bottom: 1px solid #303235;
@@ -94,14 +92,10 @@
   #workflow,
   #professional-notice
 ) {
-  scroll-margin-top: 190px;
+  scroll-margin-top: 96px;
 }
 
 @media (max-width: 640px) {
-  .fixed-section-cards {
-    top: var(--section-cards-mobile-top, var(--section-cards-top, 74px));
-  }
-
   .fixed-section-cards__inner {
     width: min(100% - 16px, 1180px);
     padding: 6px 0;
@@ -133,12 +127,6 @@
   }
 
   :where(#legal-overview, #consult, #contracts, #legal-faq) {
-    scroll-margin-top: 270px;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 980px) {
-  .fixed-section-cards {
-    top: var(--section-cards-tablet-top, var(--section-cards-top, 74px));
+    scroll-margin-top: 160px;
   }
 }
