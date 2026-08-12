@@ -3,7 +3,6 @@ const restorePageAfterNavigation=()=>{
   if(!body)return;
 
   body.classList.remove('page-leaving');
-  body.classList.add('page-ready');
   body.style.opacity='';
   body.style.transform='';
 };
@@ -13,11 +12,19 @@ const restorePageAfterNavigation=()=>{
 window.addEventListener('pageshow',restorePageAfterNavigation);
 window.addEventListener('pagehide',()=>document.body?.classList.remove('page-leaving'));
 
+if('serviceWorker'in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('/sw.js',{scope:'/'})
+      .then(registration=>registration.update())
+      .catch(()=>{});
+  },{once:true});
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   const body=document.body;
   const enhancementStyle=document.createElement('link');
   enhancementStyle.rel='stylesheet';
-  enhancementStyle.href='assets/css/luxury-enhancements.css';
+  enhancementStyle.href='assets/css/luxury-enhancements.css?v=20260812-2';
   document.head.appendChild(enhancementStyle);
 
   requestAnimationFrame(restorePageAfterNavigation);
@@ -131,23 +138,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     },{rootMargin:'-35% 0px -55% 0px',threshold:0});
     sections.forEach(section=>sectionObserver.observe(section));
   }
-
-  document.querySelectorAll('a[href]').forEach(link=>{
-    const href=link.getAttribute('href');
-    if(!href||href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:')||link.target==='_blank')return;
-    link.addEventListener('click',event=>{
-      if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-      const url=new URL(link.href,location.href);
-      if(url.origin!==location.origin)return;
-      event.preventDefault();
-      if(reducedMotion){
-        location.href=url.href;
-        return;
-      }
-      body.classList.add('page-leaving');
-      setTimeout(()=>location.href=url.href,220);
-    });
-  });
 
   document.querySelectorAll('img:not([loading])').forEach((img,index)=>{
     if(index>0)img.loading='lazy';
