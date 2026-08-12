@@ -1,3 +1,5 @@
+import { issueVerificationCode } from './report-verification-core.js';
+
 const STORE_VERSION = 'v1';
 const OFFICE_WHATSAPP = '967773571889';
 const CURRENCIES = ['SAR', 'USD'];
@@ -83,8 +85,14 @@ function option(value, text) {
   return item;
 }
 
-export function initPropertyManagement({ userId, userName }) {
+function tenantAccessToken(payload) {
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  return encoded.replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+}
+
+export function initPropertyManagement({ userId, userName, getToken }) {
   if (!userId) throw new Error('تعذر تحديد حساب العميل.');
+  if (typeof getToken !== 'function') throw new Error('تعذر تهيئة إصدار رموز التقارير.');
   const key = storeKey(userId);
   const state = loadRecords(key);
   const notice = document.getElementById('pmNotice');
@@ -98,6 +106,9 @@ export function initPropertyManagement({ userId, userName }) {
 
   const today = new Date();
   const currentMonth = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+  const issueDate = today.toISOString().slice(0, 10);
+  const verificationRequests = new Map();
+  let activeReportKey = '';
   document.getElementById('reportMonth').value = currentMonth;
 
   function notify(message, tone = 'success') {
@@ -127,6 +138,27 @@ export function initPropertyManagement({ userId, userName }) {
     return propertyById(propertyId)?.currency || 'SAR';
   }
 
+  function reportVerificationData(data) {
+    const propertyReference = data.propertyId ? (propertyById(data.propertyId)?.reference || data.propertyId.slice(-6)) : 'ALL';
+    return {
+      reportId: `PM-${data.month.replace('-', '')}-${String(propertyReference).toUpperCase()}-${data.currency}`,
+      reportDate: issueDate,
+      reportType: 'PROPERTY-MANAGEMENT'
+    };
+  }
+
+  function verificationKey(meta) {
+    return `${meta.reportType}|${meta.reportId}|${meta.reportDate}`;
+  }
+
+  function getVerificationCode(meta) {
+    const key = verificationKey(meta);
+    if (!verificationRequests.has(key)) {
+      verificationRequests.set(key, issueVerificationCode(meta, getToken).then(result => result.code));
+    }
+    return verificationRequests.get(key);
+  }
+
   function currencyTotals(records, getValue, getCurrency) {
     return CURRENCIES.reduce((totals, currency) => {
       totals[currency] = records
@@ -151,6 +183,7 @@ export function initPropertyManagement({ userId, userName }) {
     });
     const view = document.querySelector(`[data-pm-view="${viewName}"]`);
     if (view) view.focus({ preventScroll: true });
+    if (viewName !== 'overview') history.replaceState(null, '', `#${viewName}`);
   }
 
   function updateSelect(select, items, placeholder, label) {
@@ -213,9 +246,10 @@ export function initPropertyManagement({ userId, userName }) {
       const occupied = state.tenants.filter(tenant => tenant.propertyId === item.id && tenant.status === 'نشط').length;
       const card = recordCard(
         item.name,
-        `${item.type} — ${item.district}`,
-        [`الوحدات: ${item.units}`, `المشغول: ${occupied}`, `العملة: ${item.currency}`],
-        occupied >= item.units ? 'مكتمل الإشغال' : 'متاح'
+        `${item.type} — ${item.district}${item.reference ? ` — ${item.reference}` : ''}`,
+        [`الوحدات: ${item.units}`, `المشغول: ${occupied}`, `العملة: ${item.currency}`, `المستندات: ${item.documentStatus || 'غير محددة'}`, item.notes || 'دون ملاحظات ملف'],
+        item.documentStatus || (occupied >= item.units ? 'مكتمل الإشغال' : 'ملف نشط'),
+        item.documentStatus === 'مكتملة مبدئيًا' ? 'success' : 'warning'
       );
       card.append(actionsFor('properties', item.id, () => {
         const tenantIds = state.tenants.filter(tenant => tenant.propertyId === item.id).map(tenant => tenant.id);
@@ -241,9 +275,37 @@ export function initPropertyManagement({ userId, userName }) {
         item.status,
         item.status === 'نشط' ? 'success' : ''
       );
-      card.append(actionsFor('tenants', item.id, () => {
+      const actions = actionsFor('tenants', item.id, () => {
         state.rents = state.rents.filter(rent => rent.tenantId !== item.id);
-      }));
+      });
+      const share = node('button', 'pm-small-button', 'مشاركة بوابة المستأجر');
+      share.type = 'button';
+      share.addEventListener('click', async () => {
+        if (!window.confirm('سيحتوي الرابط على اسم المستأجر وملخص الإيجار. شاركه مع المستأجر المقصود فقط. هل تريد المتابعة؟')) return;
+        const rentRecord = state.rents.find(record => record.tenantId === item.id && record.month === currentMonth);
+        const payload = {
+          tenant: item.name,
+          property: property?.name || 'العقار',
+          unit: item.unit,
+          monthlyRent: money(item.monthlyRent, propertyCurrency(item.propertyId)),
+          status: rentRecord?.status || 'لا توجد دفعة مسجلة للشهر الحالي',
+          nextDue: `${currentMonth}-01`
+        };
+        const url = new URL('tenant-portal.html', location.href);
+        url.searchParams.set('access', tenantAccessToken(payload));
+        const shareData = { title: 'بوابة المستأجر', text: `رابط بوابة المستأجر — ${property?.name || 'العقار'} / ${item.unit}`, url: url.href };
+        if (navigator.share) {
+          try { await navigator.share(shareData); return; } catch {}
+        }
+        try {
+          await navigator.clipboard.writeText(url.href);
+          notify('نُسخ رابط بوابة المستأجر. شاركه مع المستأجر المقصود فقط.');
+        } catch {
+          window.open(url.href, '_blank', 'noopener');
+        }
+      });
+      actions.prepend(share);
+      card.append(actions);
       list.append(card);
     });
   }
@@ -275,8 +337,8 @@ export function initPropertyManagement({ userId, userName }) {
       const property = propertyById(item.propertyId);
       const card = recordCard(
         item.title,
-        property?.name || 'عقار محذوف',
-        [`التاريخ: ${dateText(item.date)}`, `التكلفة: ${money(item.cost, item.currency)}`],
+        `${property?.name || 'عقار محذوف'}${item.unit ? ` — ${item.unit}` : ''}`,
+        [`التاريخ: ${dateText(item.date)}`, `التكلفة: ${money(item.cost, item.currency)}`, `مقدم البلاغ: ${item.reportedBy || 'غير محدد'}`, `الأولوية: ${item.priority || 'عادية'}`, item.notes || 'دون ملاحظات متابعة'],
         item.status,
         item.status === 'مكتملة' ? 'success' : 'warning'
       );
@@ -354,6 +416,8 @@ export function initPropertyManagement({ userId, userName }) {
 
   function renderReport() {
     const data = reportData();
+    const verification = reportVerificationData(data);
+    activeReportKey = verificationKey(verification);
     document.getElementById('reportTitle').textContent = `التقرير الشهري — ${monthText(data.month)}`;
     document.getElementById('reportScope').textContent = data.propertyId
       ? propertyById(data.propertyId)?.name || 'عقار محدد'
@@ -367,6 +431,15 @@ export function initPropertyManagement({ userId, userName }) {
     document.getElementById('reportOccupancy').textContent = data.totalUnits
       ? `${Math.round((data.occupied / data.totalUnits) * 100)}٪`
       : '0٪';
+    document.getElementById('reportId').textContent = verification.reportId;
+    document.getElementById('reportIssueDate').textContent = verification.reportDate;
+    const verificationElement = document.getElementById('reportVerificationCode');
+    verificationElement.textContent = 'جارٍ إصدار الرمز…';
+    getVerificationCode(verification).then(code => {
+      if (activeReportKey === verificationKey(verification)) verificationElement.textContent = code;
+    }).catch(() => {
+      if (activeReportKey === verificationKey(verification)) verificationElement.textContent = 'تعذر إصدار الرمز';
+    });
 
     const tbody = document.getElementById('reportRows');
     tbody.replaceChildren();
@@ -408,7 +481,8 @@ export function initPropertyManagement({ userId, userName }) {
     const data = values(forms.property);
     state.properties.unshift({
       id: id('P'), name: data.name.trim(), district: data.district.trim(),
-      type: data.type, units: amount(data.units), currency: data.currency
+      reference: data.reference.trim(), type: data.type, units: amount(data.units), currency: data.currency,
+      documentStatus: data.documentStatus, notes: data.notes.trim()
     });
     persist('أُضيف العقار وحُفظ على هذا الجهاز.');
     forms.property.reset();
@@ -449,7 +523,9 @@ export function initPropertyManagement({ userId, userName }) {
     const data = values(forms.maintenance);
     state.maintenance.unshift({
       id: id('M'), propertyId: data.propertyId, title: data.title.trim(), date: data.date,
-      cost: amount(data.cost), currency: propertyCurrency(data.propertyId), status: data.status
+      unit: data.unit.trim(), reportedBy: data.reportedBy, priority: data.priority,
+      cost: amount(data.cost), currency: propertyCurrency(data.propertyId), status: data.status,
+      notes: data.notes.trim()
     });
     persist('سُجلت عملية الصيانة.');
     forms.maintenance.reset();
@@ -474,8 +550,18 @@ export function initPropertyManagement({ userId, userName }) {
   document.querySelectorAll('[data-open-pm]').forEach(button => button.addEventListener('click', () => switchView(button.dataset.openPm)));
   ['reportMonth', 'reportCurrency', 'reportProperty'].forEach(field => document.getElementById(field).addEventListener('change', renderReport));
   document.getElementById('printReport').addEventListener('click', () => window.print());
-  document.getElementById('shareReport').addEventListener('click', () => {
+  document.getElementById('shareReport').addEventListener('click', async () => {
     const data = reportData();
+    const verification = reportVerificationData(data);
+    const target = window.open('', '_blank');
+    let code;
+    try {
+      code = await getVerificationCode(verification);
+    } catch {
+      if (target) target.close();
+      notify('تعذر إصدار رمز التقرير. حاول مرة أخرى بعد قليل.', 'error');
+      return;
+    }
     const message = [
       `ملخص إدارة الأملاك — ${monthText(data.month)}`,
       `المالك: ${userName}`,
@@ -485,11 +571,22 @@ export function initPropertyManagement({ userId, userName }) {
       `المتبقي: ${money(data.outstanding, data.currency)}`,
       `الصيانة: ${money(data.maintenance, data.currency)}`,
       `المصروفات: ${money(data.expenses, data.currency)}`,
-      `الصافي: ${money(data.net, data.currency)}`
+      `الصافي: ${money(data.net, data.currency)}`,
+      `رقم التقرير: ${verification.reportId}`,
+      `تاريخ الإصدار: ${verification.reportDate}`,
+      `رمز التحقق: ${code}`,
+      'التحقق: https://emad-aden-realestate.vercel.app/report-verification.html'
     ].join('\n');
-    window.open(`https://wa.me/${OFFICE_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    const url = `https://wa.me/${OFFICE_WHATSAPP}?text=${encodeURIComponent(message)}`;
+    if (target) {
+      target.opener = null;
+      target.location.href = url;
+    } else {
+      window.location.href = url;
+    }
   });
 
   renderAll();
-  switchView('overview');
+  const requestedView = location.hash.slice(1);
+  switchView(['properties', 'tenants', 'rents', 'maintenance', 'expenses', 'reports'].includes(requestedView) ? requestedView : 'overview');
 }

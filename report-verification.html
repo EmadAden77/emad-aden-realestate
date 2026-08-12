@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>التحقق من تقارير المكتب | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="التحقق الإلكتروني من رمز تقرير صادر عن مكتب عماد عدن العقاري.">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/report-verification.html">
+  <meta property="og:title" content="التحقق من تقارير مكتب عماد عدن العقاري"><meta property="og:description" content="طابق رقم التقرير وتاريخه ونوعه مع رمز التحقق الإلكتروني."><meta property="og:type" content="website"><meta property="og:url" content="https://emad-aden-realestate.vercel.app/report-verification.html"><meta property="og:image" content="https://emad-aden-realestate.vercel.app/IMG_5.jpg">
+  <meta name="theme-color" content="#d8b56c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>التحقق من التقارير</span></a><div class="nav-actions"><a class="button secondary" href="client-services.html">مركز الخدمات</a><a class="button ghost" href="index.html">الرئيسية</a></div></div></header>
+  <main class="page-main"><div class="wrap">
+    <section class="hero compact"><div><span class="eyebrow">مطابقة إلكترونية</span><h1>تحقق من <span>رمز التقرير</span></h1><p>اكتب البيانات المطبوعة أسفل التقرير. يجب أن تتطابق جميع الحقول مع التقرير الأصلي حتى تظهر نتيجة صحيحة.</p></div></section>
+    <section class="section grid two">
+      <article class="panel"><span class="eyebrow">بيانات التقرير</span><h2>أدخل البيانات كما هي</h2>
+        <form class="form-grid" id="verifyForm">
+          <label>رقم التقرير<input type="text" name="reportId" required maxlength="50" placeholder="مثال: PM-260812-1234" dir="ltr"></label>
+          <label>تاريخ التقرير<input type="date" name="reportDate" required></label>
+          <label class="full">نوع التقرير<select name="reportType" required><option value="">اختر النوع</option><option value="PROPERTY-MANAGEMENT">تقرير إدارة أملاك</option><option value="VALUATION">تقرير تثمين عقاري</option><option value="INSPECTION">تقرير معاينة</option><option value="TRANSACTION">تقرير متابعة صفقة</option></select></label>
+          <label class="full">رمز التحقق<input type="text" name="code" required maxlength="16" placeholder="مثال: ABC-1234" dir="ltr" autocapitalize="characters"></label>
+          <div class="form-actions"><button class="button primary" type="submit">تحقق الآن</button><button class="button ghost" type="reset">مسح</button></div>
+        </form>
+      </article>
+      <article class="panel"><span class="eyebrow">نتيجة التحقق</span><div id="verificationResult" class="empty" aria-live="polite"><div><strong>بانتظار بيانات التقرير</strong><br><span>ستظهر نتيجة المطابقة هنا.</span></div></div>
+        <div class="notice section"><strong>حدود الخدمة:</strong> التحقق يثبت تطابق الرمز مع البيانات المطبوعة، ولا يثبت وحده أن نسخة الملف لم تُعدّل. عند الشك تواصل مع المكتب مباشرة.</div>
+      </article>
+    </section>
+  </div></main>
+  <footer class="footer"><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><a href="https://wa.me/967773571889" target="_blank" rel="noopener">التواصل للتحقق اليدوي</a></div></footer>
+  <script type="module" src="assets/js/report-verification.js"></script>
+</body>
+</html>

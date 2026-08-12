@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>بوابة المستأجر | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="بوابة المستأجر لعرض الملخص المشارك وإرسال بلاغ صيانة منظم إلى مكتب عماد عدن العقاري.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/tenant-portal.html">
+  <meta property="og:title" content="بوابة المستأجر | مكتب عماد عدن العقاري"><meta property="og:description" content="ملخص الإيجار وبلاغات الصيانة للمستأجر."><meta property="og:type" content="website"><meta property="og:url" content="https://emad-aden-realestate.vercel.app/tenant-portal.html">
+  <meta name="theme-color" content="#d8b56c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة المستأجر</span></a><div class="nav-actions"><a class="button secondary" href="client-services.html">مركز الخدمات</a><a class="button ghost" href="index.html">الرئيسية</a></div></div></header>
+  <main class="page-main"><div class="wrap">
+    <section class="hero"><div><span class="eyebrow">خدمة المستأجر</span><h1>ملخص الإيجار و<span>بلاغات الصيانة</span></h1><p>افتح الرابط الذي شاركه المالك أو المكتب لعرض الملخص، أو أرسل بلاغ صيانة مباشرة حتى لو لم يكن لديك رابط.</p></div><aside class="hero-side" id="tenantSummary"><strong>لا يوجد ملخص مشارك</strong><span>إذا وصلتك هذه الصفحة من دون رمز في الرابط، تواصل مع المالك أو المكتب لإرسال رابط المشاركة.</span></aside></section>
+    <section class="section grid two">
+      <article class="panel"><span class="eyebrow">بلاغ صيانة</span><h2>أرسل وصف المشكلة</h2>
+        <form class="form-grid" id="tenantMaintenanceForm">
+          <label>اسم المستأجر<input type="text" name="tenantName" required maxlength="100"></label>
+          <label>العقار أو المنطقة<input type="text" name="propertyName" required maxlength="100"></label>
+          <label>رقم الوحدة<input type="text" name="unit" required maxlength="50"></label>
+          <label>الأولوية<select name="priority" required><option>عادية</option><option>مهمة</option><option>عاجلة — خطر أو ضرر مستمر</option></select></label>
+          <label class="full">وصف المشكلة<textarea name="details" required maxlength="800" placeholder="اذكر مكان المشكلة ومتى بدأت وهل يوجد تسرب أو خطر مستمر."></textarea></label>
+          <label class="full">الوقت المناسب للتواصل<input type="text" name="contactTime" maxlength="100" placeholder="مثال: بعد الساعة 4 عصرًا"></label>
+          <div class="form-actions"><button class="button primary" type="submit">إنشاء البلاغ وفتح واتساب</button></div>
+        </form>
+      </article>
+      <article class="panel"><span class="eyebrow">سلامة أولًا</span><h2>قبل إرسال البلاغ</h2>
+        <div class="timeline">
+          <div class="timeline-step done"><span class="timeline-dot">1</span><div><strong>أوقف مصدر الخطر إن كان آمنًا</strong><span>مثل إغلاق محبس مياه قريب أو فصل مفتاح كهربائي فرعي، من دون لمس أسلاك مكشوفة.</span></div></div>
+          <div class="timeline-step"><span class="timeline-dot">2</span><div><strong>اكتب وصفًا دقيقًا</strong><span>حدد الغرفة والمشكلة وهل الضرر مستمر.</span></div></div>
+          <div class="timeline-step"><span class="timeline-dot">3</span><div><strong>انتظر تأكيد المكتب</strong><span>إرسال الرسالة لا يعني اعتماد موعد فني حتى يصلك تأكيد.</span></div></div>
+        </div>
+        <div class="notice error"><strong>عند وجود خطر مباشر:</strong> ابتعد عن الموقع ولا تحاول إصلاح الكهرباء أو الغاز أو الأجزاء الإنشائية بنفسك.</div>
+      </article>
+    </section>
+  </div></main>
+  <footer class="footer"><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب</a></div></footer>
+  <script type="module" src="assets/js/tenant-portal.js"></script>
+</body>
+</html>

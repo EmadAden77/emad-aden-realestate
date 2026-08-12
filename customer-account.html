@@ -6,6 +6,8 @@
   <title>حساب العميل | مكتب عماد عدن العقاري</title>
   <meta name="description" content="حساب عميل مكتب عماد عدن العقاري لمتابعة الطلبات وإنشاء طلب جديد وحجز موعد تواصل.">
   <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/customer-account.html">
+  <meta property="og:title" content="حساب العميل | مكتب عماد عدن العقاري">
   <meta name="theme-color" content="#0b0c0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +21,7 @@
     <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ التحقق من الجلسة…</span></div>
     <section id="accountContent" hidden>
       <div class="account-head">
-        <div class="identity"><div class="avatar" id="userInitial">ع</div><div><strong id="userName">عميل المكتب</strong><span id="userEmail"></span></div><div id="userButton" aria-label="إدارة الحساب"></div></div>
+        <div class="identity"><div class="avatar" id="userInitial">ع</div><div><strong id="userName">عميل المكتب</strong><span id="userEmail"></span></div><div id="userButton" role="group" aria-label="إدارة الحساب"></div></div>
         <button class="button ghost" id="signOut" type="button">تسجيل الخروج</button>
       </div>
 
@@ -28,14 +30,20 @@
         <button class="button primary" type="button" data-open-portal="new-request">إنشاء طلب جديد</button>
       </section>
 
-      <div class="portal-metrics" aria-label="ملخص الحساب">
+      <div class="portal-metrics" role="group" aria-label="ملخص الحساب">
         <article><span id="requestCount">0</span><strong>الطلبات</strong><small>المحفوظة على هذا الجهاز</small></article>
         <article><span id="draftCount">0</span><strong>المسودات</strong><small>محفوظة تلقائيًا</small></article>
         <article><span id="appointmentCount">0</span><strong>المواعيد</strong><small>بانتظار التأكيد</small></article>
+        <article><span id="dealCount">0</span><strong>الصفقات</strong><small>قيد المتابعة</small></article>
+        <article><span id="alertCount">0</span><strong>التنبيهات</strong><small>تحتاج انتباهك</small></article>
       </div>
 
       <nav class="portal-tabs" role="tablist" aria-label="أقسام بوابة العميل">
         <button type="button" role="tab" data-portal-tab="overview">نظرة عامة</button>
+        <button type="button" role="tab" data-portal-tab="tracking">متابعة الطلبات</button>
+        <button type="button" role="tab" data-portal-tab="deals">غرفة الصفقة</button>
+        <button type="button" role="tab" data-portal-tab="inspections">المعاينات</button>
+        <button type="button" role="tab" data-portal-tab="alerts">التنبيهات</button>
         <button type="button" role="tab" data-portal-tab="new-request">طلب جديد</button>
         <button type="button" role="tab" data-portal-tab="appointment">حجز موعد</button>
       </nav>
@@ -59,8 +67,66 @@
 
         <article class="panel portal-panel quick-panel">
           <div><h2>خدمات سريعة</h2><p>أدوات مفيدة قبل اتخاذ القرار أو التواصل مع المكتب.</p></div>
-          <div class="quick-links"><a class="quick-link" href="property-management.html"><strong>تقارير إدارة الأملاك</strong><span>العقارات والمستأجرون والإيجارات والتقرير الشهري.</span></a><a class="quick-link" href="document-checklist.html"><strong>قائمة المستندات</strong><span>جهّز قائمة إرشادية لحالتك.</span></a><a class="quick-link" href="deal-safety-check.html"><strong>فاحص الصفقة</strong><span>رتّب نقاط التحقق قبل الالتزام.</span></a><a class="quick-link" href="property-value.html"><strong>التثمين العقاري</strong><span>ابدأ طلب تقدير قيمة عقارك.</span></a><a class="quick-link" href="https://wa.me/967773571889" target="_blank" rel="noopener"><strong>مراسلة المكتب</strong><span>تواصل مباشرة عبر واتساب.</span></a></div>
+          <div class="quick-links"><a class="quick-link" href="property-management.html"><strong>ملف العقار الرقمي</strong><span>العقارات والمستأجرون والإيجارات والصيانة والتقرير الشهري.</span></a><a class="quick-link" href="investment-return-calculator.html"><strong>حاسبة صافي العائد</strong><span>احسب صافي الدخل والعائد والاسترداد.</span></a><a class="quick-link" href="report-verification.html"><strong>التحقق من التقارير</strong><span>طابق رمز تقرير صادر من المكتب.</span></a><a class="quick-link" href="tenant-portal.html"><strong>بوابة المستأجر</strong><span>فتح الملخص وإرسال بلاغ صيانة.</span></a><a class="quick-link" href="service-complaints.html"><strong>الشكاوى وضمان الخدمة</strong><span>أنشئ شكوى برقم متابعة.</span></a><a class="quick-link" href="https://wa.me/967773571889" target="_blank" rel="noopener"><strong>مراسلة المكتب</strong><span>تواصل مباشرة عبر واتساب.</span></a></div>
         </article>
+      </section>
+
+      <section class="portal-view" data-portal-view="tracking" id="tracking" tabindex="-1" hidden>
+        <article class="panel portal-panel">
+          <div class="panel-heading"><div><span class="eyebrow">مركز متابعة الطلبات</span><h2>حالة طلباتك وخطوتها التالية</h2></div><button class="text-button" type="button" data-open-portal="new-request">إنشاء طلب</button></div>
+          <p>يمكنك تحديث مرحلة الطلب والمستندات الناقصة والخطوة القادمة بعد تواصل المكتب معك.</p>
+          <div class="portal-list" id="trackingList"></div>
+        </article>
+      </section>
+
+      <section class="portal-view" data-portal-view="deals" id="deals" tabindex="-1" hidden>
+        <div class="form-layout">
+          <article class="panel portal-panel"><span class="eyebrow">غرفة الصفقة العقارية</span><h2>إنشاء ومتابعة صفقة</h2><p>سجل الحد الأدنى من بيانات الصفقة، وحدّث المرحلة والخطوة التالية دون كتابة بيانات وثائق حساسة.</p>
+            <form class="portal-form" id="dealForm">
+              <label>اسم مختصر للصفقة<input type="text" name="title" maxlength="100" required placeholder="مثال: شراء أرض المنصورة"></label>
+              <label>نوع الصفقة<select name="type" required><option value="">اختر النوع</option><option>شراء</option><option>بيع</option><option>إيجار</option><option>استثمار</option><option>نقل ملكية</option></select></label>
+              <label>المنطقة<input type="text" name="district" maxlength="80" required></label>
+              <label>المرحلة<select name="stage" required><option>استلام الطلب</option><option>مراجعة المستندات</option><option>المعاينة</option><option>التفاوض</option><option>العربون</option><option>التوثيق</option><option>مكتملة</option><option>متوقفة</option></select></label>
+              <label>الموعد القادم<input type="date" name="nextDate"></label>
+              <label>الخطوة التالية<input type="text" name="nextAction" maxlength="180" required placeholder="مثال: استكمال نسخة مخطط الأرض"></label>
+              <label class="full">الأطراف بصفة عامة<textarea name="parties" rows="3" maxlength="300" placeholder="مثال: المشتري، البائع، الوكيل — من دون أرقام هويات."></textarea></label>
+              <div class="form-actions full"><button class="button primary" type="submit">حفظ الصفقة</button></div>
+            </form>
+          </article>
+          <article class="panel portal-panel"><span class="eyebrow">الصفقات</span><h2>لوحة المتابعة</h2><div class="portal-list" id="dealsList"></div></article>
+        </div>
+      </section>
+
+      <section class="portal-view" data-portal-view="inspections" id="inspections" tabindex="-1" hidden>
+        <div class="form-layout">
+          <article class="panel portal-panel"><span class="eyebrow">سجل المعاينات والزيارات</span><h2>إضافة معاينة</h2>
+            <form class="portal-form" id="inspectionForm">
+              <label>العقار أو الصفقة<input type="text" name="subject" maxlength="120" required></label>
+              <label>تاريخ المعاينة<input type="date" name="date" required></label>
+              <label>نوع الزيارة<select name="type" required><option>معاينة أولية</option><option>معاينة فنية</option><option>زيارة مستأجر</option><option>استلام أو تسليم</option><option>متابعة صيانة</option></select></label>
+              <label>النتيجة<select name="result" required><option>تمت بنجاح</option><option>تحتاج متابعة</option><option>تعذر التنفيذ</option><option>أعيد تحديد الموعد</option></select></label>
+              <label class="full">الملاحظات<textarea name="notes" rows="4" maxlength="600" required></textarea></label>
+              <label class="full">الإجراء التالي<input type="text" name="nextAction" maxlength="180" required></label>
+              <div class="form-actions full"><button class="button primary" type="submit">حفظ المعاينة</button></div>
+            </form>
+          </article>
+          <article class="panel portal-panel"><span class="eyebrow">السجل</span><h2>المعاينات المسجلة</h2><div class="portal-list" id="inspectionsList"></div></article>
+        </div>
+      </section>
+
+      <section class="portal-view" data-portal-view="alerts" id="alerts" tabindex="-1" hidden>
+        <div class="form-layout">
+          <article class="panel portal-panel"><span class="eyebrow">مركز التنبيهات</span><h2>إضافة تنبيه</h2><p>تظهر التنبيهات تلقائيًا أيضًا من مواعيد الصفقات القادمة.</p>
+            <form class="portal-form" id="alertForm">
+              <label>عنوان التنبيه<input type="text" name="title" maxlength="120" required></label>
+              <label>التاريخ<input type="date" name="date" required></label>
+              <label>النوع<select name="type" required><option>موعد</option><option>مستند ناقص</option><option>دفعة</option><option>عقد</option><option>صيانة</option><option>متابعة</option></select></label>
+              <label>الأولوية<select name="priority" required><option>عادية</option><option>مهمة</option><option>عاجلة</option></select></label>
+              <div class="form-actions full"><button class="button primary" type="submit">حفظ التنبيه</button></div>
+            </form>
+          </article>
+          <article class="panel portal-panel"><span class="eyebrow">التنبيهات الحالية</span><h2>ما يحتاج انتباهك</h2><div class="portal-list" id="alertsList"></div></article>
+        </div>
       </section>
 
       <section class="portal-view" data-portal-view="new-request" tabindex="-1" hidden>
@@ -85,7 +151,7 @@
                 </select>
               </label>
               <label>المنطقة أو المديرية
-                <input name="district" maxlength="80" placeholder="مثال: المنصورة أو خور مكسر">
+                <input type="text" name="district" maxlength="80" placeholder="مثال: المنصورة أو خور مكسر">
               </label>
               <label>طريقة التواصل المفضلة
                 <select name="contactMethod" required>
@@ -102,7 +168,7 @@
               <div class="form-actions full"><button class="button primary" type="submit">حفظ وإرسال عبر واتساب</button><button class="button ghost" type="button" data-open-portal="overview">العودة إلى الطلبات</button></div>
             </form>
           </article>
-          <aside class="panel portal-aside"><h2>كيف تعمل الخدمة؟</h2><ol><li>اكتب طلبك، وسيُحفظ تلقائيًا.</li><li>اضغط زر الإرسال لفتح رسالة جاهزة.</li><li>أرسل الرسالة إلى المكتب عبر واتساب.</li><li>يؤكد المكتب الاستلام والخطوة التالية.</li></ol><div class="local-note"><strong>تنبيه مهم</strong><span>البيانات محفوظة على هذا الجهاز فقط. لا تكتب أرقام الهوية أو الحسابات أو صور الوثائق هنا.</span></div></aside>
+          <aside class="panel portal-aside" aria-labelledby="requestHelpTitle"><h2 id="requestHelpTitle">كيف تعمل الخدمة؟</h2><ol><li>اكتب طلبك، وسيُحفظ تلقائيًا.</li><li>اضغط زر الإرسال لفتح رسالة جاهزة.</li><li>أرسل الرسالة إلى المكتب عبر واتساب.</li><li>يؤكد المكتب الاستلام والخطوة التالية.</li></ol><div class="local-note"><strong>تنبيه مهم</strong><span>البيانات محفوظة على هذا الجهاز فقط. لا تكتب أرقام الهوية أو الحسابات أو صور الوثائق هنا.</span></div></aside>
         </div>
       </section>
 
@@ -138,7 +204,7 @@
               <div class="form-actions full"><button class="button primary" type="submit">حفظ وطلب التأكيد</button><button class="button ghost" type="button" data-open-portal="overview">العودة إلى المواعيد</button></div>
             </form>
           </article>
-          <aside class="panel portal-aside"><h2>قبل الحجز</h2><ul><li>الموعد لا يصبح مؤكدًا إلا بعد رد المكتب.</li><li>قد يقترح المكتب وقتًا بديلًا عند ازدحام المواعيد.</li><li>الزيارة تكون في مقر المكتب بعد التأكيد.</li></ul><a class="office-location" href="contact.html">عرض بيانات المكتب والتواصل</a></aside>
+          <aside class="panel portal-aside" aria-labelledby="appointmentHelpTitle"><h2 id="appointmentHelpTitle">قبل الحجز</h2><ul><li>الموعد لا يصبح مؤكدًا إلا بعد رد المكتب.</li><li>قد يقترح المكتب وقتًا بديلًا عند ازدحام المواعيد.</li><li>الزيارة تكون في مقر المكتب بعد التأكيد.</li></ul><a class="office-location" href="contact.html">عرض بيانات المكتب والتواصل</a></aside>
         </div>
       </section>
 

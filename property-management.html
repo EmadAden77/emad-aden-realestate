@@ -6,6 +6,8 @@
   <title>تقارير إدارة أملاك المغتربين | مكتب عماد عدن العقاري</title>
   <meta name="description" content="بوابة خاصة لإدارة عقارات المغتربين والمستأجرين والإيجارات والصيانة والمصروفات والتقارير الشهرية.">
   <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/property-management.html">
+  <meta property="og:title" content="ملف العقار الرقمي | مكتب عماد عدن العقاري">
   <meta name="theme-color" content="#0b0c0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +22,7 @@
     <div class="loader" id="pmLoader" aria-live="polite"><span>جارٍ التحقق من الحساب…</span></div>
     <section id="pmContent" hidden>
       <div class="account-head pm-account-head">
-        <div class="identity"><div class="avatar" id="pmUserInitial">ع</div><div><strong id="pmUserName">مالك العقار</strong><span id="pmUserEmail"></span></div><div id="pmUserButton" aria-label="إدارة الحساب"></div></div>
+        <div class="identity"><div class="avatar" id="pmUserInitial">ع</div><div><strong id="pmUserName">مالك العقار</strong><span id="pmUserEmail"></span></div><div id="pmUserButton" role="group" aria-label="إدارة الحساب"></div></div>
         <div class="pm-head-actions"><a class="button ghost" href="customer-account.html">بوابة العميل</a><button class="button ghost" id="pmSignOut" type="button">تسجيل الخروج</button></div>
       </div>
 
@@ -29,7 +31,7 @@
         <button class="button primary" type="button" data-open-pm="properties">إضافة عقار</button>
       </section>
 
-      <div class="pm-summary" aria-label="ملخص إدارة الأملاك">
+      <div class="pm-summary" role="group" aria-label="ملخص إدارة الأملاك">
         <article><span id="pmPropertyCount">0</span><strong>العقارات</strong><small>المسجلة</small></article>
         <article><span id="pmTenantCount">0</span><strong>المستأجرون</strong><small>النشطون</small></article>
         <article><span id="pmPendingMaintenance">0</span><strong>الصيانة</strong><small>غير المكتملة</small></article>
@@ -38,7 +40,7 @@
 
       <nav class="pm-tabs" role="tablist" aria-label="أقسام إدارة الأملاك">
         <button type="button" role="tab" data-pm-tab="overview">الملخص</button>
-        <button type="button" role="tab" data-pm-tab="properties">العقارات</button>
+        <button type="button" role="tab" data-pm-tab="properties">ملفات العقارات</button>
         <button type="button" role="tab" data-pm-tab="tenants">المستأجرون</button>
         <button type="button" role="tab" data-pm-tab="rents">الإيجارات</button>
         <button type="button" role="tab" data-pm-tab="maintenance">الصيانة</button>
@@ -72,13 +74,16 @@
       <section class="pm-view" data-pm-view="properties" tabindex="-1" hidden>
         <div class="pm-editor-grid">
           <article class="panel pm-panel">
-            <span class="eyebrow">إضافة عقار</span><h2>بيانات العقار</h2><p>استخدم اسمًا مختصرًا يساعدك على تمييز العقار.</p>
+            <span class="eyebrow">ملف العقار الرقمي</span><h2>بيانات العقار</h2><p>استخدم اسمًا مختصرًا ومرجعًا داخليًا يساعدانك على تمييز العقار.</p>
             <form class="pm-form" id="propertyForm">
-              <label>اسم العقار<input name="name" maxlength="80" required placeholder="مثال: عمارة المنصورة"></label>
-              <label>المديرية أو المنطقة<input name="district" maxlength="80" required placeholder="مثال: المنصورة"></label>
+              <label>اسم العقار<input type="text" name="name" maxlength="80" required placeholder="مثال: عمارة المنصورة"></label>
+              <label>الرقم الداخلي<input type="text" name="reference" maxlength="40" placeholder="مثال: PROP-01" dir="ltr"></label>
+              <label>المديرية أو المنطقة<input type="text" name="district" maxlength="80" required placeholder="مثال: المنصورة"></label>
               <label>نوع العقار<select name="type" required><option value="">اختر النوع</option><option>عمارة</option><option>منزل</option><option>شقة</option><option>محلات تجارية</option><option>عقار متعدد الاستخدام</option></select></label>
               <label>عدد الوحدات<input type="number" name="units" min="1" max="500" step="1" required></label>
               <label>عملة السجلات<select name="currency" required><option value="SAR">الريال السعودي</option><option value="USD">الدولار الأمريكي</option></select></label>
+              <label>حالة مستندات الملف<select name="documentStatus" required><option>مكتملة مبدئيًا</option><option>تحتاج استكمالًا</option><option>تحت المراجعة</option></select></label>
+              <label class="full">ملاحظات الملف<textarea name="notes" rows="3" maxlength="500" placeholder="وصف مختصر أو ملاحظات إدارية، من دون أرقام وثائق حساسة."></textarea></label>
               <button class="button primary full" type="submit">حفظ العقار</button>
             </form>
           </article>
@@ -92,8 +97,8 @@
             <span class="eyebrow">إضافة مستأجر</span><h2>بيانات عقد الإيجار</h2><p>أدخل الحد الأدنى اللازم للمتابعة، من دون أرقام وثائق شخصية.</p>
             <form class="pm-form" id="tenantForm">
               <label>العقار<select name="propertyId" data-property-select required></select></label>
-              <label>اسم المستأجر<input name="name" maxlength="100" required></label>
-              <label>الوحدة أو الشقة<input name="unit" maxlength="40" required placeholder="مثال: الشقة 3"></label>
+              <label>اسم المستأجر<input type="text" name="name" maxlength="100" required></label>
+              <label>الوحدة أو الشقة<input type="text" name="unit" maxlength="40" required placeholder="مثال: الشقة 3"></label>
               <label>الإيجار الشهري<input type="number" name="monthlyRent" min="0" step="0.01" required></label>
               <label>بداية العقد<input type="date" name="startDate" required></label>
               <label>الحالة<select name="status" required><option>نشط</option><option>منتهٍ</option></select></label>
@@ -124,13 +129,17 @@
       <section class="pm-view" data-pm-view="maintenance" tabindex="-1" hidden>
         <div class="pm-editor-grid">
           <article class="panel pm-panel">
-            <span class="eyebrow">الصيانة</span><h2>تسجيل عملية صيانة</h2>
+            <span class="eyebrow">بلاغات الصيانة</span><h2>تسجيل بلاغ أو عملية صيانة</h2>
             <form class="pm-form" id="maintenanceForm">
               <label>العقار<select name="propertyId" data-property-select required></select></label>
-              <label>وصف الصيانة<input name="title" maxlength="120" required placeholder="مثال: إصلاح تسرب مياه"></label>
+              <label>الوحدة أو الموقع<input type="text" name="unit" maxlength="60" placeholder="مثال: الشقة 3 أو السطح"></label>
+              <label>وصف الصيانة<input type="text" name="title" maxlength="120" required placeholder="مثال: إصلاح تسرب مياه"></label>
+              <label>مقدم البلاغ<select name="reportedBy" required><option>المالك</option><option>المستأجر</option><option>المكتب</option><option>المعاينة الدورية</option></select></label>
               <label>التاريخ<input type="date" name="date" required></label>
               <label>التكلفة<input type="number" name="cost" min="0" step="0.01" required></label>
-              <label>الحالة<select name="status" required><option>مطلوبة</option><option>قيد التنفيذ</option><option>مكتملة</option></select></label>
+              <label>الأولوية<select name="priority" required><option>عادية</option><option>مهمة</option><option>عاجلة</option></select></label>
+              <label>الحالة<select name="status" required><option>مطلوبة</option><option>قيد المعاينة</option><option>قيد التنفيذ</option><option>بانتظار اعتماد التكلفة</option><option>مكتملة</option></select></label>
+              <label class="full">ملاحظات المتابعة<textarea name="notes" rows="3" maxlength="500"></textarea></label>
               <button class="button primary full" type="submit">حفظ الصيانة</button>
             </form>
           </article>
@@ -177,9 +186,10 @@
             <article><span>نسبة الإشغال</span><strong id="reportOccupancy">0٪</strong></article>
           </div>
           <div class="pm-table-wrap"><table><thead><tr><th>العملية</th><th>البيان</th><th>المبلغ</th></tr></thead><tbody id="reportRows"></tbody></table></div>
-          <p class="pm-report-foot">هذا التقرير مُعد من السجلات التي أدخلها العميل على جهازه، ويُستخدم للمتابعة التنظيمية ولا يُعد مستندًا محاسبيًا معتمدًا.</p>
+          <div class="pm-verification"><span>رقم التقرير</span><strong id="reportId">—</strong><span>تاريخ الإصدار</span><strong id="reportIssueDate">—</strong><span>رمز التحقق</span><strong id="reportVerificationCode">—</strong></div>
+          <p class="pm-report-foot">هذا التقرير مُعد من السجلات التي أدخلها العميل على جهازه، ويُستخدم للمتابعة التنظيمية ولا يُعد مستندًا محاسبيًا معتمدًا. يمكن مطابقة الرمز في صفحة التحقق من تقارير المكتب.</p>
         </article>
-        <div class="pm-report-actions no-print"><button class="button primary" id="printReport" type="button">طباعة التقرير أو حفظه PDF</button><button class="button ghost" id="shareReport" type="button">إرسال الملخص عبر واتساب</button></div>
+        <div class="pm-report-actions no-print"><button class="button primary" id="printReport" type="button">طباعة التقرير أو حفظه PDF</button><button class="button ghost" id="shareReport" type="button">إرسال الملخص عبر واتساب</button><a class="button ghost" href="report-verification.html">التحقق من التقرير</a></div>
       </section>
 
       <div class="privacy-note">تُحفظ سجلات إدارة الأملاك محليًا على هذا الجهاز ومفصولة بحسب حسابك. لا تُزامن بين الأجهزة ولا تصل إلى المكتب تلقائيًا. تجنب إدخال أرقام الوثائق والحسابات والبيانات شديدة الحساسية.</div>
@@ -207,7 +217,7 @@
       document.getElementById('pmUserInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
       clerk.mountUserButton(document.getElementById('pmUserButton'), { appearance });
       document.getElementById('pmSignOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
-      initPropertyManagement({ userId: session.userId, userName: name });
+      initPropertyManagement({ userId: session.userId, userName: name, getToken: () => clerk.session.getToken() });
       loader.remove();
       content.hidden = false;
     }).catch(error => {
