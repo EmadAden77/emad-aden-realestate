@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>إصدار تقرير تثمين | مكتب عماد عدن العقاري</title>
+  <meta name="description" content="إنشاء تقرير تثمين عقاري مهني قابل للطباعة برقم تحقق ورمز QR.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="canonical" href="https://emad-aden-realestate.vercel.app/valuation-report.html">
+  <meta property="og:title" content="إصدار تقرير تثمين | مكتب عماد عدن العقاري">
+  <meta name="theme-color" content="#d8b56c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet"><link href="assets/css/valuation-report.css" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar no-print"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>نظام تقارير التثمين</span></a><div class="nav-actions"><a class="button secondary" href="property-value.html">خدمة التثمين</a><a class="button ghost" href="report-verification.html">التحقق</a></div></div></header>
+  <main class="page-main"><div class="wrap">
+    <section class="hero compact no-print"><div><span class="eyebrow">إصدار مهني موثّق</span><h1>أنشئ تقرير <span>تثمين عقاري</span></h1><p>أدخل نتيجة المراجعة المهنية، ثم أصدر رقم تحقق وQR قبل الطباعة. يلزم تسجيل الدخول لإصدار الرمز.</p></div></section>
+    <section class="section no-print" id="editorSection">
+      <article class="panel"><div class="section-head"><div><span class="eyebrow">بيانات التقرير</span><h2>المعلومات المهنية</h2></div><p id="authStatus">جارٍ التحقق من الحساب…</p></div>
+        <form class="form-grid report-form" id="reportForm">
+          <label>رقم التقرير<input name="reportId" required maxlength="50" dir="ltr"></label>
+          <label>تاريخ الإصدار<input name="reportDate" type="date" required></label>
+          <label>اسم العميل<input name="clientName" required maxlength="120"></label>
+          <label>الغرض من التثمين<select name="purpose" required><option>البيع</option><option>الشراء</option><option>القسمة</option><option>الاستثمار</option><option>التمويل</option><option>غرض خاص</option></select></label>
+          <label>نوع العقار<select name="propertyType" required><option>أرض</option><option>شقة</option><option>فيلا</option><option>عمارة</option><option>محل تجاري</option><option>مستودع</option><option>عقار آخر</option></select></label>
+          <label>الموقع<input name="location" required maxlength="180" placeholder="المديرية، الحي، الشارع"></label>
+          <label>المساحة<input name="area" type="number" min="1" step="0.01" required inputmode="decimal"></label>
+          <label>وحدة المساحة<select name="areaUnit" required><option>م²</option><option>لبنة عدني</option><option>فدان</option></select></label>
+          <label>حالة العقار<select name="condition" required><option>ممتازة</option><option>جيدة جدًا</option><option>جيدة</option><option>متوسطة</option><option>تحتاج صيانة</option><option>أرض فضاء</option></select></label>
+          <label>حالة الوثائق<select name="documents" required><option>تمت المراجعة الأولية</option><option>مستندات متاحة جزئيًا</option><option>لم تُراجع</option><option>تحتاج تحققًا إضافيًا</option></select></label>
+          <label>تاريخ المعاينة<input name="inspectionDate" type="date"></label>
+          <label>منهج التثمين<select name="method" required><option>المقارنة السوقية</option><option>منهج التكلفة</option><option>منهج الدخل</option><option>مزيج من المناهج</option></select></label>
+          <label>العملة<select name="currency" required><option value="ريال سعودي">ريال سعودي</option><option value="ريال يمني">ريال يمني</option><option value="دولار أمريكي">دولار أمريكي</option></select></label>
+          <label>الحد الأدنى للقيمة<input name="valueLow" type="number" min="0" step="0.01" required inputmode="decimal"></label>
+          <label>الحد الأعلى للقيمة<input name="valueHigh" type="number" min="0" step="0.01" required inputmode="decimal"></label>
+          <label>القيمة المرجحة<input name="valueAdopted" type="number" min="0" step="0.01" required inputmode="decimal"></label>
+          <label class="full">وصف العقار<textarea name="description" required maxlength="1200" rows="4"></textarea></label>
+          <label class="full">المقارنات أو مؤشرات السوق<textarea name="comparables" required maxlength="1500" rows="4"></textarea></label>
+          <label class="full">عوامل القوة<textarea name="strengths" required maxlength="1000" rows="3"></textarea></label>
+          <label class="full">المخاطر وعوامل الخفض<textarea name="risks" required maxlength="1000" rows="3"></textarea></label>
+          <label class="full">الرأي المهني والملاحظات<textarea name="opinion" required maxlength="1800" rows="5"></textarea></label>
+          <label>اسم مُعد التقرير<input name="issuer" required maxlength="120" value="مكتب عماد عدن العقاري"></label>
+          <label>صفة مُعد التقرير<input name="issuerRole" required maxlength="100" value="مثمن عقاري"></label>
+          <div class="form-actions"><button class="button primary" id="issueButton" type="submit" disabled>إصدار التقرير ورمز التحقق</button><button class="button ghost" type="button" id="saveDraft">حفظ مسودة</button><button class="button ghost" type="reset">مسح</button></div>
+        </form>
+        <p class="notice" id="reportMessage" aria-live="polite">لن يظهر التقرير النهائي حتى يصدر رمز التحقق بنجاح.</p>
+      </article>
+    </section>
+
+    <section class="valuation-document" id="reportPreview" hidden aria-label="تقرير التثمين العقاري">
+      <header class="document-header"><img src="IMG_5-header.jpg" alt="شعار مكتب عماد عدن العقاري" width="84" height="84"><div><span>مكتب عماد عدن العقاري</span><h1>تقرير تثمين عقاري</h1><p>بيع · شراء · تثمين · استثمار · إدارة أملاك</p></div><div class="document-number"><small>رقم التقرير</small><strong data-output="reportId"></strong><small data-output="reportDate"></small></div></header>
+      <div class="document-summary"><div><span>القيمة المرجحة</span><strong><b data-money="valueAdopted"></b> <small data-output="currency"></small></strong></div><div><span>النطاق التقديري</span><strong><b data-money="valueLow"></b> – <b data-money="valueHigh"></b> <small data-output="currency"></small></strong></div></div>
+      <section class="document-section"><h2>بيانات التكليف والعقار</h2><div class="document-grid"><p><span>العميل</span><strong data-output="clientName"></strong></p><p><span>الغرض</span><strong data-output="purpose"></strong></p><p><span>نوع العقار</span><strong data-output="propertyType"></strong></p><p><span>الموقع</span><strong data-output="location"></strong></p><p><span>المساحة</span><strong><b data-output="area"></b> <b data-output="areaUnit"></b></strong></p><p><span>حالة العقار</span><strong data-output="condition"></strong></p><p><span>الوثائق</span><strong data-output="documents"></strong></p><p><span>المعاينة</span><strong data-output="inspectionDate"></strong></p><p><span>المنهج</span><strong data-output="method"></strong></p></div></section>
+      <section class="document-section"><h2>وصف العقار</h2><p class="document-text" data-output="description"></p></section>
+      <section class="document-section"><h2>المقارنات ومؤشرات السوق</h2><p class="document-text" data-output="comparables"></p></section>
+      <div class="document-columns"><section class="document-section positive"><h2>عوامل القوة</h2><p class="document-text" data-output="strengths"></p></section><section class="document-section caution"><h2>المخاطر وعوامل الخفض</h2><p class="document-text" data-output="risks"></p></section></div>
+      <section class="document-section"><h2>الرأي المهني</h2><p class="document-text" data-output="opinion"></p></section>
+      <section class="document-verification"><div><span>رمز التحقق</span><strong id="verificationCode" dir="ltr"></strong><p>امسح QR أو افتح صفحة التحقق وطابق رقم التقرير وتاريخه ونوعه والرمز.</p></div><img id="verificationQr" alt="رمز QR للتحقق من التقرير" width="128" height="128"></section>
+      <footer class="document-footer"><div><strong data-output="issuer"></strong><span data-output="issuerRole"></span></div><p>هذا التقرير تقدير مهني مرتبط بالبيانات المتاحة وحالة السوق وقت الإصدار، ولا يُعد سند ملكية أو ضمانًا لسعر البيع، ولا يغني عن التحقق القانوني والهندسي عند الحاجة.</p></footer>
+    </section>
+    <div class="print-actions no-print" id="printActions" hidden><button class="button primary" type="button" id="printReport">طباعة أو حفظ PDF</button><button class="button secondary" type="button" id="editReport">تعديل البيانات</button></div>
+  </div></main>
+  <script type="module" src="assets/js/valuation-report.js"></script>
+</body>
+</html>

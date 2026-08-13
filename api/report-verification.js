@@ -1,5 +1,6 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { createClerkClient } from '@clerk/backend';
+import QRCode from 'qrcode';
 
 const REPORT_TYPES = new Set(['PROPERTY-MANAGEMENT', 'VALUATION', 'INSPECTION', 'TRANSACTION']);
 
@@ -88,6 +89,10 @@ export default async function handler(request, response) {
     }
     return response.status(200).json({
       code: createVerificationCode(payload, signingSecret),
+      qrCode: await QRCode.toDataURL(
+        `https://emad-aden-realestate.vercel.app/report-verification.html?reportId=${encodeURIComponent(payload.reportId)}&reportDate=${payload.reportDate}&reportType=${payload.reportType}&code=${encodeURIComponent(createVerificationCode(payload, signingSecret))}`,
+        { width: 320, margin: 1, errorCorrectionLevel: 'M', color: { dark: '#111111', light: '#ffffff' } }
+      ),
       verificationLevel: 'authenticated-system-report'
     });
   }

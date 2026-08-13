@@ -7,11 +7,13 @@
   },
   "dependencies": {
     "@clerk/backend": "3.16.4",
-    "@clerk/localizations": "4.15.1"
+    "@clerk/localizations": "4.15.1",
+    "qrcode": "1.5.4"
   },
   "scripts": {
     "generate:sitemap": "python3 scripts/optimize-site.py",
     "validate:performance": "node scripts/validate-performance.mjs",
+    "validate:valuation-report": "node scripts/validate-valuation-report.mjs",
     "validate:auth": "node scripts/validate-customer-auth.mjs",
     "validate:navigation": "node scripts/validate-navigation-recovery.mjs",
     "validate:section-cards": "node scripts/validate-fixed-section-cards.mjs",
