@@ -41,7 +41,7 @@ for path in ROOT.rglob('*'):
         path.write_text(text,encoding='utf-8')
 
 urls=[]
-excluded={'404.html','articles/404.html','social-footer-preview.html'}
+excluded={'404.html','articles/404.html','social-footer-preview.html','google459ba0509d67c358.html'}
 for p in sorted(ROOT.rglob('*.html')):
     rel=p.relative_to(ROOT).as_posix()
     if rel in excluded: continue
