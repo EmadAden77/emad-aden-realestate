@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#d8b56c">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link href="assets/css/service-center.css" rel="stylesheet"><link href="assets/css/valuation-report.css" rel="stylesheet">
+  <link href="assets/css/service-center.css" rel="stylesheet"><link href="assets/css/valuation-report.css" rel="stylesheet"><link href="assets/css/print-watermark.css" rel="stylesheet">
 </head>
 <body>
   <header class="topbar no-print"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>نظام تقارير التثمين</span></a><div class="nav-actions"><a class="button secondary" href="property-value.html">خدمة التثمين</a><a class="button ghost" href="report-verification.html">التحقق</a></div></div></header>
@@ -48,7 +48,7 @@
       </article>
     </section>
 
-    <section class="valuation-document" id="reportPreview" hidden aria-label="تقرير التثمين العقاري">
+    <section class="valuation-document watermarked-document" id="reportPreview" hidden aria-label="تقرير التثمين العقاري">
       <header class="document-header"><img src="IMG_5-header.jpg" alt="شعار مكتب عماد عدن العقاري" width="84" height="84"><div><span>مكتب عماد عدن العقاري</span><h1>تقرير تثمين عقاري</h1><p>بيع · شراء · تثمين · استثمار · إدارة أملاك</p></div><div class="document-number"><small>رقم التقرير</small><strong data-output="reportId"></strong><small data-output="reportDate"></small></div></header>
       <div class="document-summary"><div><span>القيمة المرجحة</span><strong><b data-money="valueAdopted"></b> <small data-output="currency"></small></strong></div><div><span>النطاق التقديري</span><strong><b data-money="valueLow"></b> – <b data-money="valueHigh"></b> <small data-output="currency"></small></strong></div></div>
       <section class="document-section"><h2>بيانات التكليف والعقار</h2><div class="document-grid"><p><span>العميل</span><strong data-output="clientName"></strong></p><p><span>الغرض</span><strong data-output="purpose"></strong></p><p><span>نوع العقار</span><strong data-output="propertyType"></strong></p><p><span>الموقع</span><strong data-output="location"></strong></p><p><span>المساحة</span><strong><b data-output="area"></b> <b data-output="areaUnit"></b></strong></p><p><span>حالة العقار</span><strong data-output="condition"></strong></p><p><span>الوثائق</span><strong data-output="documents"></strong></p><p><span>المعاينة</span><strong data-output="inspectionDate"></strong></p><p><span>المنهج</span><strong data-output="method"></strong></p></div></section>
@@ -61,6 +61,6 @@
     </section>
     <div class="print-actions no-print" id="printActions" hidden><button class="button primary" type="button" id="printReport">طباعة أو حفظ PDF</button><button class="button secondary" type="button" id="editReport">تعديل البيانات</button></div>
   </div></main>
-  <script type="module" src="assets/js/valuation-report.js"></script>
+  <script src="assets/js/print-disclaimer.js"></script><script type="module" src="assets/js/valuation-report.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link href="assets/css/customer-auth.css" rel="stylesheet">
   <link href="assets/css/property-management.css" rel="stylesheet">
+  <link href="assets/css/print-watermark.css" rel="stylesheet">
 </head>
 <body>
   <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>إدارة أملاك المغتربين</span></a><a class="button secondary" href="customer-account.html">حساب العميل</a></div></header>
@@ -198,6 +199,7 @@
   </div></main>
 
   <footer><div class="wrap footer-row"><span>© <span id="year"></span> مكتب عماد عدن العقاري</span><span><a href="privacy.html">سياسة الخصوصية</a> · <a href="contact.html">تواصل معنا</a></span></div></footer>
+  <script src="assets/js/print-disclaimer.js"></script>
   <script type="module">
     import { loadCustomerAccount } from './assets/js/clerk-auth.js';
     import { initPropertyManagement } from './assets/js/property-management.js';

@@ -1,0 +1,12 @@
+:root{--office-watermark:"مكتب عماد عدن العقاري"}
+.watermarked-document{position:relative;isolation:isolate;overflow:hidden}
+.watermarked-document::before{content:var(--office-watermark);position:absolute;top:46%;left:50%;z-index:20;width:130%;transform:translate(-50%,-50%) rotate(-32deg);color:rgba(116,86,27,.07);font-size:clamp(2.6rem,8vw,6.5rem);font-weight:900;line-height:1;text-align:center;white-space:nowrap;pointer-events:none}
+.watermarked-document>*{position:relative;z-index:21}
+.office-print-disclaimer{display:none}
+@media print{
+  body::after{content:var(--office-watermark);position:fixed;top:46%;left:50%;z-index:2147483646;width:150%;transform:translate(-50%,-50%) rotate(-32deg);color:rgba(55,55,55,.075);font-family:Tajawal,Tahoma,Arial,sans-serif;font-size:58pt;font-weight:900;line-height:1;text-align:center;white-space:nowrap;pointer-events:none}
+  .watermarked-document{overflow:visible}
+  .watermarked-document::before{display:none}
+  .office-print-disclaimer{display:block!important;position:relative;z-index:2147483647;margin:14mm 0 0;padding:4mm;border:1px solid #999;border-right:4px solid #76591e;background:#fff;color:#333;font-family:Tajawal,Tahoma,Arial,sans-serif;font-size:9.5pt;line-height:1.65;break-inside:avoid}
+  .office-print-disclaimer strong{color:#5e4518}
+}
