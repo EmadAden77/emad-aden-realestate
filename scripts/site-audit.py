@@ -16,7 +16,8 @@ class Page(HTMLParser):
         if data.get('id'): self.ids.add(data['id'])
         if tag == 'title': self.title=True
 
-pages = [p for p in ROOT.rglob('*.html') if p.name != 'social-footer-preview.html']
+excluded_pages = {'social-footer-preview.html', 'google459ba0509d67c358.html'}
+pages = [p for p in ROOT.rglob('*.html') if p.name not in excluded_pages]
 parsed = {}
 for path in pages:
     parser=Page()
@@ -29,7 +30,11 @@ for path in pages:
         ('canonical', any(t=='link' and 'canonical' in a.get('rel','').split() for t,a in parser.attrs)),
         ('Open Graph title', any(t=='meta' and a.get('property')=='og:title' for t,a in parser.attrs)),
     ]
-    if path.name not in {'404.html'}:
+    is_noindex = any(
+        t == 'meta' and a.get('name') == 'robots' and 'noindex' in a.get('content', '').lower()
+        for t, a in parser.attrs
+    )
+    if path.name not in {'404.html'} and not is_noindex:
         for label, ok in required:
             if not ok: errors.append(f'{rel}: missing {label}')
     for tag, attrs in parser.attrs:
