@@ -83,7 +83,11 @@
   width:52px!important;
   height:52px!important;
   flex:0 0 52px!important;
-  object-fit:cover!important;
+  box-sizing:border-box!important;
+  padding:4px!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:linear-gradient(145deg,rgba(34,34,35,.98),rgba(10,10,11,.98))!important;
   border:1px solid rgba(244,217,159,.48)!important;
   border-radius:15px!important;
   box-shadow:0 10px 26px rgba(0,0,0,.38),0 0 0 3px rgba(229,192,123,.06),inset 0 1px 0 rgba(255,255,255,.08)!important;
@@ -92,14 +96,14 @@
 @media(max-width:650px){
   .topbar .nav{width:min(470px,calc(100% - 20px))!important;min-height:72px!important;padding:7px 12px!important;border-radius:18px!important}
   .topbar .brand{gap:11px!important}
-  .topbar .brand img{width:46px!important;height:46px!important;flex-basis:46px!important;border-radius:13px!important}
+  .topbar .brand img{width:46px!important;height:46px!important;flex-basis:46px!important;padding:3px!important;border-radius:13px!important}
   .topbar .brand strong{font-size:.96rem!important}
   .topbar .brand span{margin-top:5px!important;font-size:.62rem!important}
 }
 @media(max-width:390px){
   .topbar .nav{width:calc(100% - 16px)!important;padding-inline:9px!important}
   .topbar .brand{gap:9px!important}
-  .topbar .brand img{width:42px!important;height:42px!important;flex-basis:42px!important}
+  .topbar .brand img{width:42px!important;height:42px!important;flex-basis:42px!important;padding:3px!important}
   .topbar .brand strong{font-size:.87rem!important}
   .topbar .brand span{font-size:.57rem!important}
 }
