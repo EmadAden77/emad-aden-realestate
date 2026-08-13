@@ -1,13 +1,13 @@
-const VERSION = 'emad-realestate-v12-quiet-luxury';
+const VERSION = 'emad-realestate-v13-original-header';
 const STATIC_CACHE = `${VERSION}-static`;
 const PAGE_CACHE = `${VERSION}-pages`;
 const OFFLINE_URL = '/404.html';
 const PRECACHE = [
   '/', '/index.html', '/app.html', OFFLINE_URL, '/manifest.json', '/IMG_5.jpg',
-  '/assets/css/home.bundle.css?v=20260813-quiet-luxury',
+  '/assets/css/home.bundle.css?v=20260813-original-header',
   '/assets/css/articles.css',
-  '/assets/css/luxury-header.css?v=20260813-quiet-luxury',
-  '/assets/js/luxury-home.js?v=20260813-quiet-luxury',
+  '/assets/css/luxury-header.css?v=20260813-original-header',
+  '/assets/js/luxury-home.js?v=20260813-original-header',
   '/assets/js/articles.js'
 ];
 
