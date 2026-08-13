@@ -553,6 +553,8 @@ function renderTemplateContent(item) {
   }).join('');
 }
 
+const officeDisclaimerHtml = '<aside class="office-disclaimer"><strong>إخلاء مسؤولية مكتب عماد عدن العقاري:</strong> هذا النموذج استرشادي ومعدّ للتخصيص وفق بيانات المعاملة. لا يُعد توثيقاً رسمياً أو ضماناً لصحة الملكية أو المستندات أو سلامة الصفقة، ولا يغني عن مراجعة الأصول والجهات المختصة والاستشارة القانونية عند الحاجة. يتحمل المستخدم مسؤولية تعبئة النموذج واستعماله، ولا يستبعد هذا التنبيه أي مسؤولية يقررها القانون.</aside>';
+
 function buildPreviewHtml(item, documentBody) {
   return '<!DOCTYPE html>' +
     '<html lang="ar" dir="rtl"><head><meta charset="utf-8">' +
@@ -567,20 +569,21 @@ function buildPreviewHtml(item, documentBody) {
       '.toolbar{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:10px;padding:12px;background:#111827;box-shadow:0 3px 14px rgba(0,0,0,.22)}' +
       '.toolbar button{appearance:none;border:0;border-radius:12px;padding:11px 17px;font:700 15px Tajawal,Tahoma,Arial,sans-serif;cursor:pointer}' +
       '#wordBtn{background:#e5c07b;color:#171717}#printBtn{background:#fff;color:#171717}' +
-      '.paper{width:min(210mm,calc(100% - 28px));min-height:297mm;margin:22px auto;padding:18mm 16mm;background:#fff;box-shadow:0 8px 32px rgba(0,0,0,.16)}' +
+      '.paper{position:relative;isolation:isolate;overflow:hidden;width:min(210mm,calc(100% - 28px));min-height:297mm;margin:22px auto;padding:18mm 16mm;background:#fff;box-shadow:0 8px 32px rgba(0,0,0,.16)}' +
+      '.watermark{position:absolute;top:45%;left:50%;z-index:0;width:135%;transform:translate(-50%,-50%) rotate(-32deg);color:rgba(116,86,27,.08);font-size:64px;font-weight:800;text-align:center;white-space:nowrap;pointer-events:none}.paper-content{position:relative;z-index:1}' +
       'h1{margin:0 0 24px;text-align:center;font-size:25px;line-height:1.6;font-weight:800;color:#111827}' +
       'h2{margin:25px 0 12px;padding:0 0 7px;border-bottom:2px solid #d6b66e;font-size:19px;line-height:1.7;font-weight:800;color:#8a6418}' +
       'p{margin:0 0 8px;font-size:16px;line-height:2;text-align:justify;white-space:pre-wrap;overflow-wrap:anywhere}' +
       '.clause{padding-right:8px}.notice{margin:16px 0;padding:12px 14px;border-right:4px solid #b8860b;border-radius:8px;background:#fff8e6;font-weight:700}' +
-      '.spacer{height:8px}' +
+      '.spacer{height:8px}.office-disclaimer{position:relative;z-index:1;margin-top:28px;padding:12px 14px;border:1px solid #999;border-right:4px solid #76591e;background:#fff;color:#333;font-size:12px;line-height:1.7;break-inside:avoid}.office-disclaimer strong{color:#5e4518}' +
       '@media(max-width:600px){.toolbar{gap:8px;padding:10px}.toolbar button{flex:1;padding:11px 8px;font-size:14px}.paper{width:100%;min-height:100vh;margin:0;padding:26px 18px;box-shadow:none}h1{font-size:23px;margin-bottom:20px}h2{font-size:19px}p{font-size:17px;line-height:1.9;text-align:right}}' +
-      '@media print{@page{size:A4;margin:16mm}html,body{background:#fff}.toolbar{display:none}.paper{width:auto;min-height:auto;margin:0;padding:0;box-shadow:none}h1{font-size:18pt}h2{font-size:14pt;break-after:avoid}p{font-size:12pt;line-height:1.75}.notice{break-inside:avoid}}' +
+      '@media print{@page{size:A4;margin:16mm}html,body{background:#fff}.toolbar{display:none}body:after{content:"مكتب عماد عدن العقاري";position:fixed;top:46%;left:50%;z-index:9999;width:150%;transform:translate(-50%,-50%) rotate(-32deg);color:rgba(55,55,55,.075);font-size:58pt;font-weight:800;text-align:center;white-space:nowrap;pointer-events:none}.paper{width:auto;min-height:auto;margin:0;padding:0;overflow:visible;box-shadow:none}.watermark{display:none}h1{font-size:18pt}h2{font-size:14pt;break-after:avoid}p{font-size:12pt;line-height:1.75}.notice{break-inside:avoid}}' +
     '</style></head><body>' +
     '<div class="toolbar" role="toolbar" aria-label="خيارات النموذج">' +
       '<button id="wordBtn" type="button">تحميل Word</button>' +
       '<button id="printBtn" type="button">طباعة أو حفظ PDF</button>' +
     '</div>' +
-    '<main id="legalDocument" class="paper">' + documentBody + '</main>' +
+    '<main id="legalDocument" class="paper"><div class="watermark" aria-hidden="true">مكتب عماد عدن العقاري</div><div class="paper-content">' + documentBody + officeDisclaimerHtml + '</div></main>' +
     '</body></html>';
 }
 
@@ -589,8 +592,8 @@ function downloadWord(item, documentBody) {
     '<head><meta charset="utf-8"><style>' +
     '@page{size:A4;margin:18mm}body{direction:rtl;font-family:Tahoma,Arial,sans-serif;color:#111}' +
     'h1{text-align:center;font-size:20pt;margin:0 0 20pt}h2{font-size:15pt;color:#7a5714;border-bottom:1pt solid #b8860b;padding-bottom:5pt;margin:18pt 0 8pt}' +
-    'p{font-size:12.5pt;line-height:1.8;margin:0 0 6pt;text-align:right}.notice{border-right:3pt solid #b8860b;background:#fff8e6;padding:9pt;font-weight:bold}.spacer{height:6pt}' +
-    '</style></head><body><main>' + documentBody + '</main></body></html>';
+    'p{font-size:12.5pt;line-height:1.8;margin:0 0 6pt;text-align:right}.notice{border-right:3pt solid #b8860b;background:#fff8e6;padding:9pt;font-weight:bold}.spacer{height:6pt}.watermark{position:fixed;top:45%;left:8%;width:84%;color:#e6e6e6;font-size:42pt;font-weight:bold;text-align:center;transform:rotate(-32deg);z-index:-1}.document-content{position:relative;z-index:1}.office-disclaimer{margin-top:20pt;padding:8pt;border:1pt solid #999;border-right:3pt solid #76591e;background:#fff;color:#333;font-size:9pt;line-height:1.5}.office-disclaimer strong{color:#5e4518}' +
+    '</style></head><body><div class="watermark">مكتب عماد عدن العقاري</div><main class="document-content">' + documentBody + officeDisclaimerHtml + '</main></body></html>';
   const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
