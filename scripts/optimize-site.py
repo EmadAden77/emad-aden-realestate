@@ -2,10 +2,30 @@
 """Apply consistent discoverability metadata and generate the sitemap."""
 from pathlib import Path
 from html import escape
+from datetime import datetime, timezone
 import re
+import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]; BASE='https://emad-aden-realestate.vercel.app'
 OLD='https://www.instagram.com/p/'+'DQVHj_FiCQS/'; NEW='https://www.instagram.com/aleimad7aden/'
+
+def last_modified(path):
+    """Return the page's most recent Git commit date, with an mtime fallback."""
+    rel = path.relative_to(ROOT).as_posix()
+    try:
+        result = subprocess.run(
+            ['git', 'log', '-1', '--format=%cs', '--', rel],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        if result.stdout.strip():
+            return result.stdout.strip()
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass
+    return datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).date().isoformat()
+
 for path in ROOT.rglob('*'):
     if path.is_file() and path.suffix in {'.html','.py','.json'} and '.git' not in path.parts:
         text=path.read_text(encoding='utf-8'); text=text.replace(OLD,NEW)
@@ -27,6 +47,6 @@ for p in sorted(ROOT.rglob('*.html')):
     if rel in excluded: continue
     loc=BASE+('/' if rel=='index.html' else '/'+rel)
     priority='1.0' if rel=='index.html' else ('0.8' if rel in {'articles/index.html','about.html','contact.html'} else '0.6')
-    urls.append(f'  <url><loc>{loc}</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>{priority}</priority></url>')
+    urls.append(f'  <url><loc>{loc}</loc><lastmod>{last_modified(p)}</lastmod><changefreq>weekly</changefreq><priority>{priority}</priority></url>')
 (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(urls)+'\n</urlset>\n')
 print(f'Optimized metadata and generated {len(urls)} sitemap entries.')

@@ -10,6 +10,7 @@
     "@clerk/localizations": "4.15.1"
   },
   "scripts": {
+    "generate:sitemap": "python3 scripts/optimize-site.py",
     "validate:auth": "node scripts/validate-customer-auth.mjs",
     "validate:navigation": "node scripts/validate-navigation-recovery.mjs",
     "validate:section-cards": "node scripts/validate-fixed-section-cards.mjs",
