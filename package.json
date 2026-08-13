@@ -11,6 +11,7 @@
   },
   "scripts": {
     "generate:sitemap": "python3 scripts/optimize-site.py",
+    "validate:performance": "node scripts/validate-performance.mjs",
     "validate:auth": "node scripts/validate-customer-auth.mjs",
     "validate:navigation": "node scripts/validate-navigation-recovery.mjs",
     "validate:section-cards": "node scripts/validate-fixed-section-cards.mjs",

@@ -13,7 +13,7 @@
   "orientation": "any",
   "categories": ["business", "finance"],
   "icons": [
-    {"src": "/IMG_5.jpg", "sizes": "any", "type": "image/jpeg", "purpose": "any maskable"}
+    {"src": "/IMG_5-header.jpg", "sizes": "256x256", "type": "image/jpeg", "purpose": "any maskable"}
   ],
   "shortcuts": [
     {"name": "الخدمات", "url": "/#services"},
