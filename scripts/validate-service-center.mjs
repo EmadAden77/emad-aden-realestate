@@ -6,6 +6,7 @@ const requiredFiles = [
   'client-services.html',
   'investment-return-calculator.html',
   'report-verification.html',
+  'valuation-report.html',
   'service-complaints.html',
   'tenant-portal.html',
   'customer-account.html',
@@ -19,6 +20,7 @@ const requiredFeatures = [
   'غرفة الصفقة العقارية',
   'حاسبة صافي العائد',
   'التحقق من التقارير',
+  'تقرير تثمين احترافي',
   'سجل المعاينات',
   'مركز التنبيهات',
   'بوابة المستأجر',
@@ -33,7 +35,7 @@ for (const feature of requiredFeatures) {
 }
 
 const homepage = await readFile('index.html', 'utf8');
-for (const path of ['client-services.html', 'investment-return-calculator.html', 'report-verification.html', 'tenant-portal.html', 'service-complaints.html']) {
+for (const path of ['client-services.html', 'investment-return-calculator.html', 'valuation-report.html', 'report-verification.html', 'tenant-portal.html', 'service-complaints.html']) {
   if (!homepage.includes(path)) throw new Error(`الرابط غير موجود في الصفحة الرئيسية: ${path}`);
 }
 

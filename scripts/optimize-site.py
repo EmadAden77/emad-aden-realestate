@@ -27,7 +27,7 @@ def last_modified(path):
     return datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).date().isoformat()
 
 for path in ROOT.rglob('*'):
-    if path.is_file() and path.suffix in {'.html','.py','.json'} and '.git' not in path.parts:
+    if path.is_file() and path.suffix in {'.html','.py','.json'} and '.git' not in path.parts and 'node_modules' not in path.parts:
         text=path.read_text(encoding='utf-8'); text=text.replace(OLD,NEW)
         if path.suffix=='.html' and path.name!='404.html':
             rel=path.relative_to(ROOT).as_posix(); url=BASE+('/' if rel=='index.html' else '/'+rel)
@@ -43,8 +43,10 @@ for path in ROOT.rglob('*'):
 urls=[]
 excluded={'404.html','articles/404.html','social-footer-preview.html','google459ba0509d67c358.html'}
 for p in sorted(ROOT.rglob('*.html')):
+    if 'node_modules' in p.parts: continue
     rel=p.relative_to(ROOT).as_posix()
     if rel in excluded: continue
+    if re.search(r'<meta\s+name=["\']robots["\'][^>]*content=["\'][^"\']*noindex', p.read_text(encoding='utf-8'), re.I): continue
     loc=BASE+('/' if rel=='index.html' else '/'+rel)
     priority='1.0' if rel=='index.html' else ('0.8' if rel in {'articles/index.html','about.html','contact.html'} else '0.6')
     urls.append(f'  <url><loc>{loc}</loc><lastmod>{last_modified(p)}</lastmod><changefreq>weekly</changefreq><priority>{priority}</priority></url>')

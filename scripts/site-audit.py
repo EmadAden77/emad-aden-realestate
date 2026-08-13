@@ -17,7 +17,7 @@ class Page(HTMLParser):
         if tag == 'title': self.title=True
 
 excluded_pages = {'social-footer-preview.html', 'google459ba0509d67c358.html'}
-pages = [p for p in ROOT.rglob('*.html') if p.name not in excluded_pages]
+pages = [p for p in ROOT.rglob('*.html') if p.name not in excluded_pages and 'node_modules' not in p.parts]
 parsed = {}
 for path in pages:
     parser=Page()

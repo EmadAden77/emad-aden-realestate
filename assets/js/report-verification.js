@@ -39,3 +39,11 @@ form.addEventListener('reset', () => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const query = new URLSearchParams(window.location.search);
+for (const name of ['reportId', 'reportDate', 'reportType', 'code']) {
+  if (query.has(name) && form.elements[name]) form.elements[name].value = query.get(name);
+}
+if (['reportId', 'reportDate', 'reportType', 'code'].every(name => form.elements[name]?.value)) {
+  form.requestSubmit();
+}
