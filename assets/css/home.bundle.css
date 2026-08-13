@@ -59,3 +59,59 @@
   .topbar .brand .brand-copy>span{font-size:.54rem}
   .mobile-login,.topbar .menu-btn{width:37px;height:37px;min-width:37px;min-height:37px;flex-basis:37px}
 }
+
+/* Luxury masthead v20260813 */
+.topbar .brand-mark{overflow:hidden;background:radial-gradient(circle at 35% 25%,#f8dfa1 0,#c4932c 38%,#6d4808 100%);border-color:rgba(255,222,145,.55);color:#0a0907;box-shadow:inset 0 1px 1px rgba(255,255,255,.45),inset 0 -8px 14px rgba(78,46,0,.18),0 0 0 4px rgba(229,192,123,.055),0 12px 30px rgba(0,0,0,.38)}
+.topbar .brand-mark:before{content:"";position:absolute;inset:4px;border:1px solid rgba(8,7,5,.28);border-radius:13px}
+.topbar .brand-mark i{position:relative;z-index:1;font-size:1.25rem}
+.prestige-masthead{position:relative;isolation:isolate;min-height:clamp(560px,72vh,760px);display:grid;align-items:center;overflow:hidden;background:radial-gradient(circle at 76% 36%,rgba(198,148,48,.18),transparent 26rem),radial-gradient(circle at 12% 90%,rgba(229,192,123,.07),transparent 32rem),linear-gradient(135deg,#080807 0,#12100c 42%,#050505 100%);border-bottom:1px solid rgba(229,192,123,.14)}
+.prestige-masthead:before{content:"";position:absolute;z-index:-2;inset:0;opacity:.34;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,transparent,#000 28%,#000 72%,transparent)}
+.prestige-masthead:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.36),transparent 35%,transparent 68%,rgba(0,0,0,.18))}
+.prestige-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);align-items:center;gap:clamp(44px,8vw,110px);padding-block:clamp(72px,9vw,118px)}
+.prestige-copy{position:relative;z-index:2;max-width:780px}
+.prestige-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:8px 14px;border:1px solid rgba(229,192,123,.24);border-radius:999px;background:rgba(229,192,123,.055);color:#e9ce92;font-size:.73rem;font-weight:800;letter-spacing:.015em;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.prestige-kicker i{font-size:.68rem}
+.prestige-copy h1{max-width:820px;margin:0;color:#fff;font-size:clamp(3.4rem,7.4vw,7.3rem);line-height:.96;letter-spacing:-.055em;text-shadow:0 12px 44px rgba(0,0,0,.44)}
+.prestige-copy h1 span{display:block;background:linear-gradient(135deg,#fff 8%,#f3dfb3 46%,#c4922c 96%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.prestige-copy>p{max-width:680px;margin:26px 0 0;color:#bfc0bd;font-size:clamp(1rem,1.55vw,1.22rem);line-height:1.95}
+.prestige-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+.prestige-actions a{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:54px;padding:13px 21px;border-radius:15px;font-size:.88rem;font-weight:900;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.prestige-primary{min-width:220px;background:linear-gradient(135deg,#f0d18a 0,#c28d24 55%,#9a6812 100%);color:#080704;box-shadow:0 16px 38px rgba(172,118,16,.22),inset 0 1px 0 rgba(255,255,255,.45)}
+.prestige-secondary{border:1px solid rgba(229,192,123,.22);background:rgba(255,255,255,.025);color:#e7e1d3;backdrop-filter:blur(8px)}
+.prestige-actions a:hover,.prestige-actions a:focus-visible{transform:translateY(-3px);outline:none}
+.prestige-primary:hover{box-shadow:0 20px 46px rgba(172,118,16,.32),inset 0 1px 0 rgba(255,255,255,.45)}
+.prestige-secondary:hover{border-color:rgba(229,192,123,.48)}
+.prestige-trust{display:flex;flex-wrap:wrap;gap:9px 20px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07)}
+.prestige-trust span{display:inline-flex;align-items:center;gap:7px;color:#929692;font-size:.7rem;font-weight:700}
+.prestige-trust i{color:#d5ae5a;font-size:.68rem}
+.prestige-emblem{position:relative;justify-self:center;display:grid;place-items:center;width:clamp(270px,27vw,390px);aspect-ratio:1;border:1px solid rgba(229,192,123,.2);border-radius:50%;background:radial-gradient(circle,rgba(229,192,123,.13) 0,rgba(229,192,123,.035) 46%,transparent 68%);box-shadow:inset 0 0 0 12px rgba(229,192,123,.02),inset 0 0 0 13px rgba(229,192,123,.08),0 34px 90px rgba(0,0,0,.42)}
+.prestige-emblem:before,.prestige-emblem:after{content:"";position:absolute;border:1px solid rgba(229,192,123,.13);border-radius:50%}
+.prestige-emblem:before{inset:24px}.prestige-emblem:after{inset:46px;border-style:dashed;animation:prestigeSpin 38s linear infinite}
+.prestige-emblem-line{position:absolute;width:1px;height:118%;background:linear-gradient(transparent,rgba(229,192,123,.32),transparent);transform:rotate(38deg)}
+.prestige-emblem-core{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:58%;aspect-ratio:1;border:1px solid rgba(255,220,145,.4);border-radius:34% 34% 42% 42%;background:linear-gradient(145deg,rgba(241,207,133,.98),rgba(165,111,18,.96));color:#090704;box-shadow:inset 0 1px 1px rgba(255,255,255,.55),0 22px 55px rgba(0,0,0,.43)}
+.prestige-emblem-core:before{content:"";position:absolute;inset:7px;border:1px solid rgba(37,24,3,.26);border-radius:30% 30% 38% 38%}
+.prestige-emblem-core i{position:relative;font-size:clamp(1.7rem,3vw,2.5rem)}
+.prestige-emblem-core strong{position:relative;margin-top:7px;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1}
+.prestige-emblem-core small{position:relative;margin-top:7px;font-size:.63rem;font-weight:900;letter-spacing:.04em}
+.prestige-emblem-year{position:absolute;bottom:12%;z-index:3;padding:6px 12px;border:1px solid rgba(229,192,123,.21);border-radius:999px;background:#090908;color:#d9b868;font-size:.6rem;font-weight:800;letter-spacing:.04em}
+.prestige-orbit{position:absolute;z-index:-1;border:1px solid rgba(229,192,123,.08);border-radius:50%;pointer-events:none}
+.prestige-orbit-one{width:520px;height:520px;left:-210px;top:-290px}.prestige-orbit-two{width:360px;height:360px;right:-170px;bottom:-230px}
+.prestige-scroll{position:absolute;bottom:24px;right:50%;width:22px;height:36px;border:1px solid rgba(229,192,123,.24);border-radius:14px;transform:translateX(50%)}
+.prestige-scroll span{position:absolute;top:7px;right:50%;width:3px;height:7px;border-radius:4px;background:#d5ae5a;transform:translateX(50%);animation:prestigeScroll 1.8s ease-in-out infinite}
+@keyframes prestigeSpin{to{transform:rotate(360deg)}}@keyframes prestigeScroll{0%,100%{opacity:.25;transform:translate(50%,0)}50%{opacity:1;transform:translate(50%,10px)}}
+.prestige-masthead + .service-priority{padding-top:clamp(70px,8vw,100px)}
+@media(max-width:900px){.prestige-masthead{min-height:auto}.prestige-shell{grid-template-columns:1fr;gap:44px;text-align:center;padding-block:72px 84px}.prestige-copy{margin:auto}.prestige-kicker,.prestige-actions,.prestige-trust{justify-content:center}.prestige-copy>p{margin-inline:auto}.prestige-emblem{width:min(310px,72vw);grid-row:1}.prestige-copy{grid-row:2}.prestige-scroll{display:none}}
+@media(max-width:560px){
+ .prestige-shell{gap:28px;padding-block:42px 58px}
+ .prestige-emblem{width:min(220px,62vw)}
+ .prestige-emblem:before{inset:18px}.prestige-emblem:after{inset:35px}
+ .prestige-emblem-year{bottom:8%;font-size:.52rem}
+ .prestige-copy h1{font-size:clamp(2.7rem,13.5vw,4rem);line-height:1.02}
+ .prestige-copy>p{margin-top:18px;font-size:.88rem;line-height:1.8}
+ .prestige-kicker{margin-bottom:15px;padding:7px 11px;font-size:.62rem}
+ .prestige-actions{display:grid;margin-top:23px}
+ .prestige-actions a{width:100%;min-height:50px}
+ .prestige-trust{display:grid;grid-template-columns:1fr 1fr;justify-items:start;text-align:right;margin-top:20px}
+ .prestige-trust span:last-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){.prestige-emblem:after,.prestige-scroll span{animation:none}}
