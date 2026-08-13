@@ -19,8 +19,11 @@ if (!css.includes('مكتب عماد عدن العقاري') || !css.includes('@
 
 const legal = await readFile('legal-consultant.html', 'utf8');
 const occurrences = legal.match(/مكتب عماد عدن العقاري/g)?.length || 0;
-if (!legal.includes('class="watermark"') || !legal.includes('document-content') || occurrences < 5) throw new Error('نماذج Word والطباعة القانونية لا تحمل العلامة المائية المطلوبة.');
-if (!legal.includes('officeDisclaimerHtml') || !legal.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون')) throw new Error('إخلاء مسؤولية النماذج القانونية غير موجود.');
+if (!legal.includes('class="watermark"') || occurrences < 3) throw new Error('معاينة النماذج القانونية لا تحمل العلامة المائية المطلوبة.');
+if (!legal.includes("form.action = '/api/legal-document'")) throw new Error('نماذج Word والطباعة غير مربوطة بخادم الحماية.');
+
+const legalEndpoint = await readFile('api/legal-document.js', 'utf8');
+if (!legalEndpoint.includes('مكتب عماد عدن العقاري') || !legalEndpoint.includes('إخلاء مسؤولية مكتب عماد عدن العقاري') || !legalEndpoint.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون')) throw new Error('حماية Word والطباعة من الخادم غير مكتملة.');
 
 const disclaimer = await readFile('assets/js/print-disclaimer.js', 'utf8');
 if (!disclaimer.includes('إخلاء مسؤولية مكتب عماد عدن العقاري') || !disclaimer.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون')) throw new Error('صياغة إخلاء مسؤولية المكتب غير مكتملة.');
