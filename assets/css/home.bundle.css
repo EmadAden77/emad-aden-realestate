@@ -115,3 +115,33 @@
  .prestige-trust span:last-child{grid-column:1/-1}
 }
 @media(prefers-reduced-motion:reduce){.prestige-emblem:after,.prestige-scroll span{animation:none}}
+
+/* Roomier luxury header v20260813 */
+.topbar .nav{min-height:94px}
+.topbar .brand-mark{width:64px;height:64px;flex-basis:64px;border-radius:20px}
+.topbar .brand-mark:before{border-radius:15px}
+.topbar .brand-mark i{font-size:1.4rem}
+.topbar .brand strong{font-size:1.1rem}
+.topbar .brand .brand-copy>span{font-size:.72rem}
+.prestige-masthead{min-height:clamp(640px,80vh,850px)}
+.prestige-shell{gap:clamp(56px,9vw,128px);padding-block:clamp(90px,11vw,145px)}
+.prestige-emblem{width:clamp(310px,30vw,430px);box-shadow:inset 0 0 0 14px rgba(229,192,123,.024),inset 0 0 0 15px rgba(229,192,123,.09),0 38px 110px rgba(0,0,0,.52),0 0 90px rgba(197,142,35,.08)}
+.prestige-emblem-core{width:60%;box-shadow:inset 0 1px 1px rgba(255,255,255,.6),0 26px 68px rgba(0,0,0,.5)}
+.prestige-copy h1{font-size:clamp(3.8rem,7.8vw,7.8rem)}
+.prestige-copy>p{margin-top:30px;font-size:clamp(1.04rem,1.65vw,1.3rem)}
+.prestige-actions{margin-top:34px}
+.prestige-actions a{min-height:58px;padding:15px 24px;border-radius:17px}
+.prestige-trust{margin-top:32px;padding-top:25px}
+@media(max-width:980px){.topbar .nav{min-height:84px}.topbar .brand-mark{width:58px;height:58px;flex-basis:58px}.prestige-masthead{min-height:auto}.prestige-shell{padding-block:86px 98px}}
+@media(max-width:560px){
+ .topbar .nav{min-height:80px}
+ .topbar .brand-mark{width:52px;height:52px;flex-basis:52px}
+ .prestige-shell{gap:34px;padding-block:54px 72px}
+ .prestige-emblem{width:min(248px,68vw)}
+ .prestige-copy h1{font-size:clamp(3rem,14.5vw,4.35rem)}
+ .prestige-copy>p{margin-top:21px;font-size:.92rem}
+ .prestige-actions{margin-top:27px}
+ .prestige-actions a{min-height:54px}
+ .prestige-trust{margin-top:24px;padding-top:22px}
+}
+@media(max-width:390px){.topbar .brand-mark{width:47px;height:47px;flex-basis:47px}.prestige-emblem{width:min(230px,66vw)}}
