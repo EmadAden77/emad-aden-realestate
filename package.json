@@ -8,6 +8,7 @@
   "dependencies": {
     "@clerk/backend": "3.16.4",
     "@clerk/localizations": "4.15.1",
+    "docx": "9.7.1",
     "qrcode": "1.5.4"
   },
   "scripts": {

@@ -23,7 +23,7 @@ if (!legal.includes('class="watermark"') || occurrences < 3) throw new Error('م
 if (!legal.includes("form.action = '/api/legal-document'")) throw new Error('نماذج Word والطباعة غير مربوطة بخادم الحماية.');
 
 const legalEndpoint = await readFile('api/legal-document.js', 'utf8');
-if (!legalEndpoint.includes('مكتب عماد عدن العقاري') || !legalEndpoint.includes('إخلاء مسؤولية مكتب عماد عدن العقاري') || !legalEndpoint.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون')) throw new Error('حماية Word والطباعة من الخادم غير مكتملة.');
+if (!legalEndpoint.includes("const OFFICE_NAME = 'مكتب عماد عدن العقاري'") || !legalEndpoint.includes('إخلاء مسؤولية ${OFFICE_NAME}') || !legalEndpoint.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون') || !legalEndpoint.includes('office-watermark')) throw new Error('حماية Word والطباعة من الخادم غير مكتملة.');
 
 const disclaimer = await readFile('assets/js/print-disclaimer.js', 'utf8');
 if (!disclaimer.includes('إخلاء مسؤولية مكتب عماد عدن العقاري') || !disclaimer.includes('لا يستبعد هذا التنبيه أي مسؤولية يقررها القانون')) throw new Error('صياغة إخلاء مسؤولية المكتب غير مكتملة.');
