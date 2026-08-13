@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const headerStyle=document.createElement('link');
   headerStyle.rel='stylesheet';
-  headerStyle.href='assets/css/luxury-header.css?v=20260813-original-header';
+  headerStyle.href='assets/css/luxury-header.css?v=20260813-logo-size';
   document.head.appendChild(headerStyle);
   const brandSubtitle=document.querySelector('.topbar .brand span');
   if(brandSubtitle)brandSubtitle.textContent='بيع · شراء · تثمين · استثمار';
