@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const headerStyle=document.createElement('link');
   headerStyle.rel='stylesheet';
-  headerStyle.href='assets/css/luxury-header.css?v=20260812-1';
+  headerStyle.href='assets/css/luxury-header.css?v=20260813-quiet-luxury';
   document.head.appendChild(headerStyle);
-  const brandSubtitle=document.querySelector('.topbar .brand span');
-  if(brandSubtitle)brandSubtitle.textContent='بيع · شراء · تثمين · استثمار';
+  const brandSubtitle=document.querySelector('.topbar .brand-copy > span');
+  if(brandSubtitle)brandSubtitle.textContent='ثقة في الإجراء · وضوح في القرار';
 
   requestAnimationFrame(restorePageAfterNavigation);
 
