@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420">
+  <g transform="rotate(-18 550 210)" opacity="0.075">
+    <rect x="105" y="92" width="890" height="236" rx="118" fill="none" stroke="#8a6418" stroke-width="10"/>
+    <text x="550" y="235" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override"
+      font-family="DejaVu Sans, Arial, sans-serif" font-size="76" font-weight="700" fill="#6b4d14">مكتب عماد عدن العقاري</text>
+    <text x="550" y="282" text-anchor="middle" direction="rtl" unicode-bidi="bidi-override"
+      font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="4" fill="#6b4d14">بيع • شراء • تثمين • استثمار</text>
+  </g>
+</svg>

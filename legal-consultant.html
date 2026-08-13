@@ -587,13 +587,13 @@ function buildPreviewHtml(item, documentBody) {
     '</body></html>';
 }
 
-function requestDocument(item, documentBody, format) {
+function requestDocument(item, format) {
   const form = document.createElement('form');
   form.method = 'POST';
   form.action = '/api/legal-document';
   form.target = '_blank';
   form.hidden = true;
-  [['name', item.name.replace(/\.txt$/i, '')], ['content', documentBody], ['format', format]].forEach(([name, value]) => {
+  [['name', item.name.replace(/\.txt$/i, '')], ['source', item.content + legalDisclaimer], ['format', format]].forEach(([name, value]) => {
     const input = document.createElement('input');
     input.type = 'hidden'; input.name = name; input.value = value; form.appendChild(input);
   });
@@ -614,8 +614,8 @@ function openTemplate(key) {
   preview.document.open();
   preview.document.write(buildPreviewHtml(item, documentBody));
   preview.document.close();
-  preview.document.getElementById('wordBtn').addEventListener('click', () => requestDocument(item, documentBody, 'word'));
-  preview.document.getElementById('printBtn').addEventListener('click', () => requestDocument(item, documentBody, 'print'));
+  preview.document.getElementById('wordBtn').addEventListener('click', () => requestDocument(item, 'word'));
+  preview.document.getElementById('printBtn').addEventListener('click', () => requestDocument(item, 'print'));
 }
 
 document.querySelectorAll('[data-template]').forEach(btn => btn.addEventListener('click', () => openTemplate(btn.dataset.template)));
