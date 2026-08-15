@@ -69,12 +69,9 @@ html body.page-leaving{opacity:1!important;transform:none!important}
 }
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
 
-/* بطاقة دخول العملاء وملاك العقارات */
-.portal-entry-card{display:flex;width:min(100%,430px);min-height:78px;align-items:center;justify-content:space-between;gap:12px;margin:0 0 28px auto;padding:13px 15px;border:1px solid rgba(229,192,123,.3);border-radius:18px;background:radial-gradient(circle at 90% 0,rgba(229,192,123,.14),transparent 48%),linear-gradient(145deg,rgba(28,28,25,.96),rgba(11,12,12,.98));color:#fff;text-decoration:none;box-shadow:0 16px 38px rgba(0,0,0,.28);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
-.portal-entry-card:hover,.portal-entry-card:focus-visible{transform:translateY(-3px);border-color:rgba(229,192,123,.62);box-shadow:0 20px 48px rgba(0,0,0,.36);outline:none}
-.portal-entry-main{display:flex;align-items:center;gap:15px}.portal-entry-icon{display:grid;place-items:center;flex:0 0 52px;height:52px;border:1px solid rgba(229,192,123,.25);border-radius:16px;background:rgba(229,192,123,.1);color:#f0cd82;font-size:1.18rem}.portal-entry-copy strong,.portal-entry-copy span{display:block}.portal-entry-copy strong{color:#fff;font-size:1.03rem}.portal-entry-copy span{margin-top:4px;color:#aeb3b7;font-size:.78rem}.portal-entry-action{display:flex;align-items:center;gap:9px;white-space:nowrap;color:#e8c778;font-size:.82rem;font-weight:900}.portal-entry-action i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(229,192,123,.1)}
-@media(max-width:620px){.portal-entry-card{width:54%;min-height:68px;margin:0 0 23px auto;padding:9px 10px;border-radius:16px;gap:7px}.portal-entry-main{min-width:0;gap:8px}.portal-entry-icon{flex:0 0 36px;height:36px;border-radius:11px;font-size:.9rem}.portal-entry-copy{min-width:0}.portal-entry-copy strong{font-size:.72rem;line-height:1.45}.portal-entry-copy span{display:none}.portal-entry-action span{display:none}.portal-entry-action i{width:25px;height:25px;font-size:.68rem}}
-@media(prefers-reduced-motion:reduce){.portal-entry-card{transition:none}}
+/* مسافة هادئة قبل الخدمات بعد نقل البوابة إلى الرأس */
+main>.service-priority{padding-top:30px!important}
+@media(max-width:620px){main>.service-priority{padding-top:18px!important}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
@@ -87,6 +84,10 @@ html body.page-leaving{opacity:1!important;transform:none!important}
     <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
       <img src="/IMG_5-header.jpg?v=20260813-logo-fast" alt="شعار مكتب عماد عدن العقاري" width="52" height="52" loading="eager" decoding="async" fetchpriority="high">
       <div><strong>مكتب عماد عدن العقاري</strong><span>بيع · شراء · تثمين · استثمار · إدارة أملاك</span></div>
+    </a>
+    <a class="header-portal-mini" href="customer-account.html" aria-label="فتح بوابة العملاء">
+      <span class="header-portal-mini-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span>
+      <strong>بوابة العملاء</strong>
     </a>
     <nav class="navlinks" aria-label="التنقل الرئيسي">
       <a href="#services">الخدمات</a><a href="customer-account.html">بوابة العملاء</a><a href="#tools">الأدوات</a><a href="neighborhood-units.html">وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">المقالات</a>
@@ -107,10 +108,6 @@ html body.page-leaving{opacity:1!important;transform:none!important}
 <main>
 <section class="section service-priority" id="services">
   <div class="wrap">
-    <a class="portal-entry-card reveal" href="customer-account.html" aria-label="فتح بوابة العملاء وملاك العقارات">
-      <span class="portal-entry-main"><span class="portal-entry-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span><span class="portal-entry-copy"><strong>بوابة العملاء ومُلّاك العقارات</strong><span>استعرض أقسام البوابة وسجّل الدخول لفتح التفاصيل الخاصة</span></span></span>
-      <span class="portal-entry-action"><span>فتح البوابة</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
-    </a>
     <div class="service-priority-head reveal">
       <div><span class="kicker">الخدمات الأساسية</span><h1>ابدأ بالخدمة التي تحتاجها</h1></div>
       <p>أربع خدمات رئيسية مرتبة بوضوح لتصل مباشرة إلى المسار المناسب دون تمرير طويل أو تشتيت.</p>
