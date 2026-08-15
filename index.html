@@ -68,14 +68,13 @@ html body.page-leaving{opacity:1!important;transform:none!important}
   .article-news-card .more{font-size:.76rem}
 }
 @media(prefers-reduced-motion:reduce){.article-news-card{transition:none}}
-/* رابط بوابة العملاء الجانبي */
-.customer-login-fab{position:fixed;z-index:980;right:0;top:46%;display:flex;align-items:center;justify-content:center;width:48px;height:56px;padding:0;border:1px solid rgba(229,192,123,.22);border-right:0;border-radius:18px 0 0 18px;background:rgba(12,13,14,.18);color:#efd18f;box-shadow:-4px 8px 18px rgba(0,0,0,.12);font-family:inherit;text-decoration:none;cursor:pointer;opacity:.68;transform:translateX(0);transition:transform .24s ease,background .24s ease,opacity .2s ease}
-.customer-login-fab i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:rgba(229,192,123,.16);color:#f3d596}
-.customer-login-fab span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.customer-login-fab:hover,.customer-login-fab:focus-visible,.customer-login-fab:active{background:rgba(229,192,123,.16);color:#fff;opacity:1;outline:none;transform:translateX(-3px)}
-.customer-login-fab:focus-visible{box-shadow:0 0 0 3px rgba(229,192,123,.2)}
-@media(max-width:560px){.customer-login-fab{top:43%;width:44px;height:52px;border-radius:16px 0 0 16px;opacity:.6}.customer-login-fab i{width:31px;height:31px}}
-@media(prefers-reduced-motion:reduce){.customer-login-fab{transition:none}}
+
+/* بطاقة دخول العملاء وملاك العقارات */
+.portal-entry-card{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 28px;padding:19px 22px;border:1px solid rgba(229,192,123,.3);border-radius:22px;background:radial-gradient(circle at 90% 0,rgba(229,192,123,.14),transparent 48%),linear-gradient(145deg,rgba(28,28,25,.96),rgba(11,12,12,.98));color:#fff;text-decoration:none;box-shadow:0 16px 38px rgba(0,0,0,.28);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.portal-entry-card:hover,.portal-entry-card:focus-visible{transform:translateY(-3px);border-color:rgba(229,192,123,.62);box-shadow:0 20px 48px rgba(0,0,0,.36);outline:none}
+.portal-entry-main{display:flex;align-items:center;gap:15px}.portal-entry-icon{display:grid;place-items:center;flex:0 0 52px;height:52px;border:1px solid rgba(229,192,123,.25);border-radius:16px;background:rgba(229,192,123,.1);color:#f0cd82;font-size:1.18rem}.portal-entry-copy strong,.portal-entry-copy span{display:block}.portal-entry-copy strong{color:#fff;font-size:1.03rem}.portal-entry-copy span{margin-top:4px;color:#aeb3b7;font-size:.78rem}.portal-entry-action{display:flex;align-items:center;gap:9px;white-space:nowrap;color:#e8c778;font-size:.82rem;font-weight:900}.portal-entry-action i{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(229,192,123,.1)}
+@media(max-width:620px){.portal-entry-card{margin-bottom:23px;padding:16px;border-radius:19px}.portal-entry-main{gap:11px}.portal-entry-icon{flex-basis:46px;height:46px;border-radius:14px}.portal-entry-copy strong{font-size:.9rem;line-height:1.45}.portal-entry-copy span{font-size:.68rem}.portal-entry-action span{display:none}.portal-entry-action i{width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){.portal-entry-card{transition:none}}
 
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-17ZZZFR8HT"></script>
@@ -104,13 +103,14 @@ html body.page-leaving{opacity:1!important;transform:none!important}
     <a href="#services">الخدمات</a><a href="sign-in.html?redirect_url=%2Fcustomer-account.html">بوابة العملاء</a><a href="#tools">الأدوات والمنصات</a><a href="client-services.html">مركز خدمات المتابعة</a><a href="deal-safety-check.html">فاحص الصفقة</a><a href="document-checklist.html">قائمة المستندات</a><a href="neighborhood-units.html">دليل وحدات الجوار</a><a href="#process">كيف نعمل</a><a href="articles/index.html">مركز المقالات</a><a href="https://wa.me/967773571889" target="_blank" rel="noopener">مراسلة المكتب عبر واتساب</a>
   </nav>
 </header>
-<a class="customer-login-fab" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء">
-  <i class="fa-solid fa-user-shield" aria-hidden="true"></i><span>تسجيل دخول العملاء</span>
-</a>
 
 <main>
 <section class="section service-priority" id="services">
   <div class="wrap">
+    <a class="portal-entry-card reveal" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء وملاك العقارات">
+      <span class="portal-entry-main"><span class="portal-entry-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></span><span class="portal-entry-copy"><strong>تسجيل دخول العملاء ومُلّاك العقارات</strong><span>الوصول الآمن إلى الطلبات والعقارات والتقارير والمتابعة</span></span></span>
+      <span class="portal-entry-action"><span>تسجيل الدخول</span><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></span>
+    </a>
     <div class="service-priority-head reveal">
       <div><span class="kicker">الخدمات الأساسية</span><h1>ابدأ بالخدمة التي تحتاجها</h1></div>
       <p>أربع خدمات رئيسية مرتبة بوضوح لتصل مباشرة إلى المسار المناسب دون تمرير طويل أو تشتيت.</p>
