@@ -13,6 +13,13 @@ const requiredFiles = [
   'assets/js/property-management.js',
   'api/auth-config.js',
   'api/customer-session.js',
+  'api/customer-portal-state.js',
+  'api/property-management-state.js',
+  'api/_lib/customer-auth.js',
+  'api/_lib/portal-state.js',
+  'api/_lib/property-state.js',
+  'api/_lib/supabase-rest.js',
+  'supabase/customer-portal.sql',
   'package.json'
 ];
 
@@ -47,7 +54,8 @@ if (/\bsk_(?:test|live)_/i.test(clientSource) || /CLERK_SECRET_KEY/.test(clientS
 }
 
 const sessionApi = contents.get('api/customer-session.js') || '';
-if (!sessionApi.includes('authenticateRequest') || !sessionApi.includes('authorizedParties')) {
+const customerAuthApi = contents.get('api/_lib/customer-auth.js') || '';
+if (!sessionApi.includes('authenticateCustomer') || !customerAuthApi.includes('authenticateRequest') || !customerAuthApi.includes('authorizedParties')) {
   console.error('واجهة جلسة العميل لا تنفذ التحقق الخادمي المطلوب.');
   failed = true;
 }
@@ -117,17 +125,14 @@ if (!accountPage.includes('هذه البوابة خاصة بعملاء المك�
   failed = true;
 }
 const homepage = readFileSync('index.html', 'utf8');
-for (const marker of ['id="customer-portal"', 'customer-portal-grid', 'href="#customer-portal"', 'href="customer-account.html#tracking"']) {
+for (const marker of ['header-portal-mini', 'href="customer-account.html"', 'aria-label="فتح بوابة العملاء"']) {
   if (!homepage.includes(marker)) {
-    console.error(`قسم بوابة العملاء غير مكتمل في الصفحة الرئيسية: ${marker}`);
+    console.error(`بطاقة بوابة العملاء في رأس الصفحة غير مكتملة: ${marker}`);
     failed = true;
   }
 }
-const receptionIndex = homepage.indexOf('استقبال طلبات البيع والشراء العقاري');
-const portalIndex = homepage.indexOf('<section class="customer-portal-section"');
-const followingSectionIndex = homepage.indexOf('<section class="hero hero-secondary"');
-if (receptionIndex === -1 || portalIndex < receptionIndex || followingSectionIndex < portalIndex) {
-  console.error('يجب أن يظهر قسم بوابة العملاء مباشرة بعد خدمة استقبال طلبات البيع والشراء.');
+if (homepage.includes('customer-portal-section') || homepage.includes('customer-portal-grid')) {
+  console.error('يجب ألا يعود قسم بوابة العملاء الكبير إلى الصفحة الرئيسية.');
   failed = true;
 }
 if (homepage.includes('customerLoginModal') || homepage.includes('customer-login-trigger')) {
@@ -139,8 +144,8 @@ if (!serviceCenterPage.includes('href="customer-account.html"') || serviceCenter
   console.error('مركز خدمات المتابعة لا يوجّه الزائر إلى صفحة بوابة العملاء المستقلة.');
   failed = true;
 }
-if (!portalSource.includes('localStorage') || !portalSource.includes('userId') || portalSource.includes('innerHTML')) {
-  console.error('بوابة العميل لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
+if (!portalSource.includes('localStorage') || !portalSource.includes('/api/customer-portal-state') || !portalSource.includes('getAuthToken') || portalSource.includes('innerHTML')) {
+  console.error('بوابة العميل لا تطبق المزامنة المركزية مع النسخة المحلية الآمنة.');
   failed = true;
 }
 if (!portalSource.includes('wa.me') || !portalSource.includes('بانتظار تأكيد المكتب')) {
@@ -172,8 +177,8 @@ for (const marker of ['propertyForm', 'tenantForm', 'rentForm', 'maintenanceForm
     failed = true;
   }
 }
-if (!managementSource.includes('localStorage') || !managementSource.includes('userId') || managementSource.includes('innerHTML')) {
-  console.error('تقارير إدارة الأملاك لا تطبق الحفظ المحلي المعزول بالطريقة المطلوبة.');
+if (!managementSource.includes('localStorage') || !managementSource.includes('/api/property-management-state') || !managementSource.includes('getToken') || managementSource.includes('innerHTML')) {
+  console.error('تقارير إدارة الأملاك لا تطبق المزامنة المركزية مع النسخة المحلية الآمنة.');
   failed = true;
 }
 if (!managementSource.includes('renderReport') || !managementSource.includes('window.print')) {
@@ -181,7 +186,30 @@ if (!managementSource.includes('renderReport') || !managementSource.includes('wi
   failed = true;
 }
 
-for (const file of ['assets/js/clerk-auth.js', 'assets/js/customer-portal.js', 'assets/js/property-management.js', 'api/auth-config.js', 'api/customer-session.js']) {
+const portalApi = contents.get('api/customer-portal-state.js') || '';
+const propertyApi = contents.get('api/property-management-state.js') || '';
+const storageApi = contents.get('api/_lib/supabase-rest.js') || '';
+const storageSql = contents.get('supabase/customer-portal.sql') || '';
+for (const [file, source, markers] of [
+  ['api/customer-portal-state.js', portalApi, ['authenticateCustomer', 'sanitizePortalState', 'isTrustedMutation', 'MAX_BODY_BYTES']],
+  ['api/property-management-state.js', propertyApi, ['authenticateCustomer', 'sanitizePropertyState', 'isTrustedMutation', 'MAX_BODY_BYTES']],
+  ['api/_lib/supabase-rest.js', storageApi, ['SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SECRET_KEY', 'Authorization', 'Bearer']]
+]) {
+  for (const marker of markers) {
+    if (!source.includes(marker)) {
+      console.error(`${file}: الحفظ المركزي يفتقد الحماية المطلوبة: ${marker}`);
+      failed = true;
+    }
+  }
+}
+for (const marker of ['customer_portal_states', 'property_management_states', 'enable row level security', 'revoke all', 'service_role']) {
+  if (!storageSql.toLowerCase().includes(marker.toLowerCase())) {
+    console.error(`مخطط قاعدة البيانات يفتقد: ${marker}`);
+    failed = true;
+  }
+}
+
+for (const file of ['assets/js/clerk-auth.js', 'assets/js/customer-portal.js', 'assets/js/property-management.js', 'api/auth-config.js', 'api/customer-session.js', 'api/customer-portal-state.js', 'api/property-management-state.js', 'api/_lib/customer-auth.js', 'api/_lib/portal-state.js', 'api/_lib/property-state.js', 'api/_lib/supabase-rest.js']) {
   try { new Function(contents.get(file) || ''); } catch (error) {
     if (!/Cannot use import statement|Unexpected token 'export'/.test(error.message)) {
       console.error(`${file}: خطأ في JavaScript: ${error.message}`);

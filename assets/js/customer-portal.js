@@ -5,6 +5,10 @@ function storageKey(userId) {
   return `emad-customer-portal:${STORAGE_VERSION}:${userId}`;
 }
 
+function storageMetaKey(key) {
+  return `${key}:updated-at`;
+}
+
 function emptyState() {
   return { draft: null, draftUpdatedAt: null, requests: [], appointments: [], deals: [], inspections: [], alerts: [] };
 }
@@ -27,13 +31,31 @@ function loadState(key) {
   }
 }
 
-function saveState(key, state) {
+function loadStateUpdatedAt(key) {
+  try {
+    return localStorage.getItem(storageMetaKey(key)) || null;
+  } catch {
+    return null;
+  }
+}
+
+function saveState(key, state, updatedAt = new Date().toISOString()) {
   try {
     localStorage.setItem(key, JSON.stringify(state));
-    return true;
+    localStorage.setItem(storageMetaKey(key), updatedAt);
+    return updatedAt;
   } catch {
-    return false;
+    return null;
   }
+}
+
+function hasStateContent(state) {
+  return Boolean(state.draft || ['requests', 'appointments', 'deals', 'inspections', 'alerts']
+    .some(collection => state[collection]?.length));
+}
+
+function cloneState(state) {
+  return JSON.parse(JSON.stringify(state));
 }
 
 function makeId(prefix) {
@@ -74,11 +96,12 @@ function whatsappUrl(message) {
   return `https://wa.me/${OFFICE_WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
 
-export function initCustomerPortal({ userId, userName, userEmail }) {
+export async function initCustomerPortal({ userId, userName, userEmail, getAuthToken }) {
   if (!userId) throw new Error('تعذر تحديد حساب العميل.');
 
   const key = storageKey(userId);
-  const state = loadState(key);
+  let state = loadState(key);
+  let localUpdatedAt = loadStateUpdatedAt(key);
   const requestForm = document.getElementById('newRequestForm');
   const appointmentForm = document.getElementById('appointmentForm');
   const dealForm = document.getElementById('dealForm');
@@ -105,11 +128,83 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     notify.timer = setTimeout(() => { portalNotice.hidden = true; }, 5200);
   }
 
+  async function remoteRequest(method, portalState) {
+    if (typeof getAuthToken !== 'function') throw new Error('PORTAL_AUTH_UNAVAILABLE');
+    const token = await getAuthToken();
+    if (!token) throw new Error('PORTAL_AUTH_UNAVAILABLE');
+    const response = await fetch('/api/customer-portal-state', {
+      method,
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        ...(method === 'PUT' ? { 'Content-Type': 'application/json' } : {})
+      },
+      body: method === 'PUT' ? JSON.stringify({ state: portalState }) : undefined,
+      cache: 'no-store'
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(result.code || `PORTAL_STORAGE_${response.status}`);
+      error.status = response.status;
+      throw error;
+    }
+    return result;
+  }
+
+  let syncTimer;
+  let syncChain = Promise.resolve();
+  let syncWarningShown = false;
+
+  function queueCentralSave(delay = 650) {
+    if (typeof getAuthToken !== 'function') return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => {
+      const snapshot = cloneState(state);
+      syncChain = syncChain.catch(() => {}).then(() => remoteRequest('PUT', snapshot)).then(result => {
+        syncWarningShown = false;
+        if (result.updatedAt) localUpdatedAt = result.updatedAt;
+      }).catch(() => {
+        if (syncWarningShown) return;
+        syncWarningShown = true;
+        notify('تعذرت المزامنة الآن؛ حُفظت التغييرات على هذا الجهاز وستُعاد المحاولة لاحقًا.', 'warning');
+      });
+    }, delay);
+  }
+
   function persist(message) {
     const saved = saveState(key, state);
+    if (saved) localUpdatedAt = saved;
     if (!saved) notify('تعذر الحفظ على هذا الجهاز. تأكد من إعدادات المتصفح.', 'error');
-    else if (message) notify(message);
-    return saved;
+    else {
+      if (message) notify(message);
+      queueCentralSave();
+    }
+    return Boolean(saved);
+  }
+
+  async function hydrateFromCentralStorage() {
+    if (typeof getAuthToken !== 'function') return;
+    try {
+      const remote = await remoteRequest('GET');
+      const remoteState = remote.state || emptyState();
+      const localTime = Date.parse(localUpdatedAt || '');
+      const remoteTime = Date.parse(remote.updatedAt || '');
+      const localIsNewer = Number.isFinite(localTime) && (!Number.isFinite(remoteTime) || localTime > remoteTime);
+
+      if (hasStateContent(state) && (!hasStateContent(remoteState) || localIsNewer)) {
+        const migrated = await remoteRequest('PUT', cloneState(state));
+        localUpdatedAt = migrated.updatedAt || localUpdatedAt;
+        saveState(key, state, localUpdatedAt || new Date().toISOString());
+        notify('تم ربط سجلات البوابة بحسابك ومزامنتها بأمان.');
+      } else {
+        state = remoteState;
+        localUpdatedAt = remote.updatedAt || new Date().toISOString();
+        saveState(key, state, localUpdatedAt);
+      }
+    } catch {
+      syncWarningShown = true;
+      notify('الحفظ المركزي غير متاح حاليًا؛ ستستمر البوابة بالحفظ المؤقت على هذا الجهاز.', 'warning');
+    }
   }
 
   function switchTab(name) {
@@ -203,11 +298,11 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     send.href = whatsappUrl(requestMessage(item));
     send.target = '_blank';
     send.rel = 'noopener';
-    const remove = createElement('button', 'mini-button', 'حذف من الجهاز');
+    const remove = createElement('button', 'mini-button', 'حذف من الحساب');
     remove.type = 'button';
     remove.addEventListener('click', () => {
       state.requests = state.requests.filter(request => request.id !== item.id);
-      persist('حُذف الطلب من هذا الجهاز.');
+      persist('حُذف الطلب من حسابك.');
       renderAll();
     });
     actions.append(send, remove);
@@ -284,7 +379,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
         nextDate: values.nextDate,
         updatedAt: new Date().toISOString()
       });
-      persist('حُدثت حالة الطلب على هذا الجهاز.');
+      persist('حُدثت حالة الطلب.');
       renderAll();
     });
     card.append(top, form);
@@ -305,11 +400,11 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     confirm.href = whatsappUrl(appointmentMessage(item));
     confirm.target = '_blank';
     confirm.rel = 'noopener';
-    const remove = createElement('button', 'mini-button', 'إلغاء محليًا');
+    const remove = createElement('button', 'mini-button', 'إلغاء الموعد');
     remove.type = 'button';
     remove.addEventListener('click', () => {
       state.appointments = state.appointments.filter(appointment => appointment.id !== item.id);
-      persist('أُلغي الموعد من هذا الجهاز.');
+      persist('أُلغي الموعد من حسابك.');
       renderAll();
     });
     actions.append(confirm, remove);
@@ -358,7 +453,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
   }
 
   function removeButton(collection, itemId, message) {
-    const button = createElement('button', 'mini-button', 'حذف من الجهاز');
+    const button = createElement('button', 'mini-button', 'حذف من الحساب');
     button.type = 'button';
     button.addEventListener('click', () => {
       state[collection] = state[collection].filter(item => item.id !== itemId);
@@ -394,7 +489,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
         persist('حُدثت مرحلة الصفقة.');
         renderAll();
       });
-      actions.append(advance, removeButton('deals', item.id, 'حُذفت الصفقة من هذا الجهاز.'));
+      actions.append(advance, removeButton('deals', item.id, 'حُذفت الصفقة من حسابك.'));
       card.append(top, progress, meta, actions);
       dealsList.append(card);
     });
@@ -412,7 +507,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
       const meta = createElement('div', 'portal-item-details');
       meta.append(createElement('span', '', item.notes), createElement('span', '', `التالي: ${item.nextAction}`));
       const actions = createElement('div', 'portal-item-actions');
-      actions.append(removeButton('inspections', item.id, 'حُذفت المعاينة من هذا الجهاز.'));
+      actions.append(removeButton('inspections', item.id, 'حُذفت المعاينة من حسابك.'));
       card.append(top, meta, actions);
       inspectionsList.append(card);
     });
@@ -438,7 +533,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
           persist('أُغلق التنبيه.');
           renderAll();
         });
-        actions.append(done, removeButton('alerts', item.id, 'حُذف التنبيه من هذا الجهاز.'));
+        actions.append(done, removeButton('alerts', item.id, 'حُذف التنبيه من حسابك.'));
         card.append(actions);
       }
       alertsList.append(card);
@@ -473,7 +568,9 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
       const hasContent = Object.values(values).some(value => String(value).trim());
       state.draft = hasContent ? values : null;
       state.draftUpdatedAt = hasContent ? new Date().toISOString() : null;
-      saveState(key, state);
+      const saved = saveState(key, state);
+      if (saved) localUpdatedAt = saved;
+      queueCentralSave(1200);
       renderMetrics();
       renderDraft();
     }, 350);
@@ -496,6 +593,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     state.draft = null;
     state.draftUpdatedAt = null;
     persist('حُفظ طلبك. أكمل الإرسال عبر واتساب لتأكيد استلامه.');
+    window.emadTrackEvent?.('portal_request_created', { service: item.service });
     requestForm.reset();
     renderAll();
     window.open(whatsappUrl(requestMessage(item)), '_blank', 'noopener');
@@ -506,7 +604,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     requestForm.reset();
     state.draft = null;
     state.draftUpdatedAt = null;
-    persist('حُذفت المسودة من هذا الجهاز.');
+    persist('حُذفت المسودة من حسابك.');
     renderAll();
   });
 
@@ -529,6 +627,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     };
     state.appointments.unshift(item);
     persist('حُفظ الموعد. أرسل الرسالة عبر واتساب ليؤكده المكتب.');
+    window.emadTrackEvent?.('portal_appointment_created', { appointment_channel: item.channel });
     appointmentForm.reset();
     appointmentForm.elements.namedItem('appointmentDate').min = today;
     renderAll();
@@ -547,6 +646,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
       parties: values.parties.trim(), createdAt: new Date().toISOString()
     });
     persist('أُضيفت الصفقة إلى غرفة المتابعة.');
+    window.emadTrackEvent?.('portal_deal_created', { deal_type: values.type });
     dealForm.reset();
     renderAll();
   });
@@ -588,6 +688,7 @@ export function initCustomerPortal({ userId, userName, userEmail }) {
     button.addEventListener('click', () => switchTab(button.dataset.openPortal));
   });
 
+  await hydrateFromCentralStorage();
   fillForm(requestForm, state.draft);
   renderAll();
   const initialTab = ['tracking', 'deals', 'inspections', 'alerts', 'new-request', 'appointment'].includes(location.hash.slice(1))

@@ -1,14 +1,23 @@
-import { readFile, stat } from 'node:fs/promises';
+import { access, readFile, stat } from 'node:fs/promises';
 
 const failures = [];
 const index = await readFile('index.html', 'utf8');
 const manifest = await readFile('manifest.json', 'utf8');
 const worker = await readFile('sw.js', 'utf8');
+const vercel = await readFile('vercel.json', 'utf8');
 
 if (!index.includes('rel="preload" as="style"')) failures.push('خطوط الصفحة الرئيسية ما زالت تحجب العرض الأول.');
 if (!index.includes('IMG_5-social.jpg')) failures.push('صورة المشاركة الخفيفة غير مستخدمة في الصفحة الرئيسية.');
 if (!manifest.includes('IMG_5-header.jpg')) failures.push('التطبيق لا يستخدم أيقونة الشعار الخفيفة.');
 if (worker.includes("'/IMG_5.jpg'")) failures.push('عامل الخدمة ما زال يحمّل الشعار الأصلي الكبير مسبقًا.');
+if (worker.includes("hit || fetch(request)")) failures.push('عامل الخدمة ما زال يستخدم cache-first لملفات JavaScript وCSS.');
+if (!worker.includes("['style', 'script']")) failures.push('عامل الخدمة لا يطلب ملفات JavaScript وCSS من الشبكة أولًا.');
+if (vercel.includes('max-age=31536000, immutable')) failures.push('ما زالت ملفات غير مبصومة محفوظة سنة كاملة دون تحقق.');
+
+try {
+  await access('aden-hero.mp4');
+  failures.push('ملف الفيديو الكبير غير المستخدم ما زال موجودًا.');
+} catch {}
 
 
 

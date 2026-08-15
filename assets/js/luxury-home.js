@@ -15,9 +15,27 @@ window.addEventListener('pagehide',()=>document.body?.classList.remove('page-lea
 if('serviceWorker'in navigator){
   window.addEventListener('load',()=>{
     navigator.serviceWorker.register('/sw.js',{scope:'/'})
-      .then(registration=>registration.update())
+      .then(registration=>{
+        registration.update();
+        if(registration.waiting)registration.waiting.postMessage({type:'SKIP_WAITING'});
+        registration.addEventListener('updatefound',()=>{
+          const worker=registration.installing;
+          worker?.addEventListener('statechange',()=>{
+            if(worker.state==='installed'&&navigator.serviceWorker.controller){
+              worker.postMessage({type:'SKIP_WAITING'});
+            }
+          });
+        });
+      })
       .catch(()=>{});
   },{once:true});
+
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(refreshing)return;
+    refreshing=true;
+    location.reload();
+  });
 }
 
 document.addEventListener('DOMContentLoaded',()=>{

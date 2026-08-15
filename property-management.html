@@ -15,6 +15,7 @@
   <link href="assets/css/customer-auth.css" rel="stylesheet">
   <link href="assets/css/property-management.css" rel="stylesheet">
   <link href="assets/css/print-watermark.css" rel="stylesheet">
+  <script src="/assets/js/site-analytics.js?v=20260815" defer></script>
 </head>
 <body>
   <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>إدارة أملاك المغتربين</span></a><a class="button secondary" href="customer-account.html">حساب العميل</a></div></header>
@@ -193,7 +194,7 @@
         <div class="pm-report-actions no-print"><button class="button primary" id="printReport" type="button">طباعة التقرير أو حفظه PDF</button><button class="button ghost" id="shareReport" type="button">إرسال الملخص عبر واتساب</button><a class="button ghost" href="report-verification.html">التحقق من التقرير</a></div>
       </section>
 
-      <div class="privacy-note">تُحفظ سجلات إدارة الأملاك محليًا على هذا الجهاز ومفصولة بحسب حسابك. لا تُزامن بين الأجهزة ولا تصل إلى المكتب تلقائيًا. تجنب إدخال أرقام الوثائق والحسابات والبيانات شديدة الحساسية.</div>
+      <div class="privacy-note">تُحفظ سجلات إدارة الأملاك في حسابك وتُزامن بأمان عند توفر الاتصال، مع نسخة مؤقتة على جهازك لضمان استمرار العمل. يمكن للمكتب الوصول إلى السجلات المرتبطة بالخدمة، لذلك تجنب إدخال أرقام الوثائق والحسابات والبيانات شديدة الحساسية.</div>
     </section>
     <p class="error" id="pmError" role="alert"></p>
   </div></main>
@@ -209,7 +210,7 @@
     const content = document.getElementById('pmContent');
     const errorBox = document.getElementById('pmError');
 
-    loadCustomerAccount({ accountPath: '/property-management.html' }).then(context => {
+    loadCustomerAccount({ accountPath: '/property-management.html' }).then(async context => {
       if (!context) return;
       const { clerk, appearance, session } = context;
       const email = clerk.user?.primaryEmailAddress?.emailAddress || '';
@@ -219,7 +220,7 @@
       document.getElementById('pmUserInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
       clerk.mountUserButton(document.getElementById('pmUserButton'), { appearance });
       document.getElementById('pmSignOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
-      initPropertyManagement({ userId: session.userId, userName: name, getToken: () => clerk.session.getToken() });
+      await initPropertyManagement({ userId: session.userId, userName: name, getToken: () => clerk.session.getToken() });
       loader.remove();
       content.hidden = false;
     }).catch(error => {

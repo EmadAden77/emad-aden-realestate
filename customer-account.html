@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link href="assets/css/customer-auth.css" rel="stylesheet">
+  <script src="/assets/js/site-analytics.js?v=20260815" defer></script>
 </head>
 <body>
   <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العملاء</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a><a class="portal-login-card" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء وملاك العقارات"><span>تسجيل دخول</span><strong>العملاء ومُلّاك العقارات</strong></a></div></header>
@@ -74,7 +75,7 @@
       </section>
 
       <div class="portal-metrics" role="group" aria-label="ملخص الحساب">
-        <article><span id="requestCount">0</span><strong>الطلبات</strong><small>المحفوظة على هذا الجهاز</small></article>
+        <article><span id="requestCount">0</span><strong>الطلبات</strong><small>المرتبطة بحسابك</small></article>
         <article><span id="draftCount">0</span><strong>المسودات</strong><small>محفوظة تلقائيًا</small></article>
         <article><span id="appointmentCount">0</span><strong>المواعيد</strong><small>بانتظار التأكيد</small></article>
         <article><span id="dealCount">0</span><strong>الصفقات</strong><small>قيد المتابعة</small></article>
@@ -211,7 +212,7 @@
               <div class="form-actions full"><button class="button primary" type="submit">حفظ وإرسال عبر واتساب</button><button class="button ghost" type="button" data-open-portal="overview">العودة إلى الطلبات</button></div>
             </form>
           </article>
-          <aside class="panel portal-aside" aria-labelledby="requestHelpTitle"><h2 id="requestHelpTitle">كيف تعمل الخدمة؟</h2><ol><li>اكتب طلبك، وسيُحفظ تلقائيًا.</li><li>اضغط زر الإرسال لفتح رسالة جاهزة.</li><li>أرسل الرسالة إلى المكتب عبر واتساب.</li><li>يؤكد المكتب الاستلام والخطوة التالية.</li></ol><div class="local-note"><strong>تنبيه مهم</strong><span>البيانات محفوظة على هذا الجهاز فقط. لا تكتب أرقام الهوية أو الحسابات أو صور الوثائق هنا.</span></div></aside>
+          <aside class="panel portal-aside" aria-labelledby="requestHelpTitle"><h2 id="requestHelpTitle">كيف تعمل الخدمة؟</h2><ol><li>اكتب طلبك، وسيُحفظ تلقائيًا.</li><li>اضغط زر الإرسال لفتح رسالة جاهزة.</li><li>أرسل الرسالة إلى المكتب عبر واتساب.</li><li>يؤكد المكتب الاستلام والخطوة التالية.</li></ol><div class="local-note"><strong>تنبيه مهم</strong><span>تُزامن السجلات مع حسابك عند توفر الاتصال. لا تكتب أرقام الهوية أو الحسابات أو صور الوثائق هنا.</span></div></aside>
         </div>
       </section>
 
@@ -251,7 +252,7 @@
         </div>
       </section>
 
-      <div class="privacy-note">بيانات الطلبات والمسودات والمواعيد في هذه النسخة محفوظة محليًا على جهازك، ولا تصل إلى المكتب حتى ترسل رسالة واتساب. لا تُدخل بيانات مالية أو أرقام وثائق أو معلومات شديدة الحساسية.</div>
+      <div class="privacy-note">تُحفظ بيانات البوابة في حسابك وتُزامن بأمان عند توفر الاتصال، مع نسخة مؤقتة على جهازك لضمان استمرار العمل. يحتاج تأكيد الطلب أو الموعد إلى التواصل مع المكتب، ولا ينبغي إدخال بيانات مالية أو أرقام وثائق أو معلومات شديدة الحساسية.</div>
     </section>
     <p class="error" id="accountError" role="alert"></p>
 
@@ -358,7 +359,12 @@
         document.getElementById('userInitial').textContent = (name.trim()[0] || 'ع').toUpperCase();
         clerk.mountUserButton(document.getElementById('userButton'), { appearance });
         document.getElementById('signOut').addEventListener('click', () => clerk.signOut({ redirectUrl: '/' }));
-        initCustomerPortal({ userId: session.userId, userName: name, userEmail: email });
+        await initCustomerPortal({
+          userId: session.userId,
+          userName: name,
+          userEmail: email,
+          getAuthToken: () => clerk.session.getToken()
+        });
         loader.remove();
         content.hidden = false;
       } catch (error) {
