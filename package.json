@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.9.0"
+    "node": "24.x"
   },
   "dependencies": {
     "@clerk/backend": "3.16.4",
@@ -14,6 +14,8 @@
   "scripts": {
     "generate:sitemap": "python3 scripts/optimize-site.py",
     "validate:performance": "node scripts/validate-performance.mjs",
+    "validate:analytics": "node scripts/validate-site-analytics.mjs",
+    "validate:central-storage": "node scripts/validate-central-storage.mjs",
     "validate:valuation-report": "node scripts/validate-valuation-report.mjs",
     "validate:watermarks": "node scripts/validate-watermarks.mjs",
     "validate:mobile-documents": "node scripts/validate-mobile-documents.mjs",

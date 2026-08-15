@@ -8,6 +8,10 @@ function storeKey(userId) {
   return `emad-property-management:${STORE_VERSION}:${userId}`;
 }
 
+function storeMetaKey(key) {
+  return `${key}:updated-at`;
+}
+
 function initialState() {
   return { properties: [], tenants: [], rents: [], maintenance: [], expenses: [] };
 }
@@ -28,13 +32,31 @@ function loadRecords(key) {
   }
 }
 
-function saveRecords(key, state) {
+function loadRecordsUpdatedAt(key) {
+  try {
+    return localStorage.getItem(storeMetaKey(key)) || null;
+  } catch {
+    return null;
+  }
+}
+
+function saveRecords(key, state, updatedAt = new Date().toISOString()) {
   try {
     localStorage.setItem(key, JSON.stringify(state));
-    return true;
+    localStorage.setItem(storeMetaKey(key), updatedAt);
+    return updatedAt;
   } catch {
-    return false;
+    return null;
   }
+}
+
+function hasRecords(state) {
+  return ['properties', 'tenants', 'rents', 'maintenance', 'expenses']
+    .some(collection => state[collection]?.length);
+}
+
+function cloneRecords(state) {
+  return JSON.parse(JSON.stringify(state));
 }
 
 function id(prefix) {
@@ -90,11 +112,12 @@ function tenantAccessToken(payload) {
   return encoded.replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
 }
 
-export function initPropertyManagement({ userId, userName, getToken }) {
+export async function initPropertyManagement({ userId, userName, getToken }) {
   if (!userId) throw new Error('تعذر تحديد حساب العميل.');
   if (typeof getToken !== 'function') throw new Error('تعذر تهيئة إصدار رموز التقارير.');
   const key = storeKey(userId);
-  const state = loadRecords(key);
+  let state = loadRecords(key);
+  let localUpdatedAt = loadRecordsUpdatedAt(key);
   const notice = document.getElementById('pmNotice');
   const forms = {
     property: document.getElementById('propertyForm'),
@@ -119,11 +142,77 @@ export function initPropertyManagement({ userId, userName, getToken }) {
     notify.timer = setTimeout(() => { notice.hidden = true; }, 5000);
   }
 
+  async function remoteRequest(method, propertyState) {
+    const token = await getToken();
+    if (!token) throw new Error('PROPERTY_AUTH_UNAVAILABLE');
+    const response = await fetch('/api/property-management-state', {
+      method,
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        ...(method === 'PUT' ? { 'Content-Type': 'application/json' } : {})
+      },
+      body: method === 'PUT' ? JSON.stringify({ state: propertyState }) : undefined,
+      cache: 'no-store'
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.code || `PROPERTY_STORAGE_${response.status}`);
+    return result;
+  }
+
+  let syncTimer;
+  let syncChain = Promise.resolve();
+  let syncWarningShown = false;
+
+  function queueCentralSave(delay = 700) {
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => {
+      const snapshot = cloneRecords(state);
+      syncChain = syncChain.catch(() => {}).then(() => remoteRequest('PUT', snapshot)).then(result => {
+        syncWarningShown = false;
+        if (result.updatedAt) localUpdatedAt = result.updatedAt;
+      }).catch(() => {
+        if (syncWarningShown) return;
+        syncWarningShown = true;
+        notify('تعذرت المزامنة الآن؛ حُفظت التغييرات على هذا الجهاز وستُعاد المحاولة لاحقًا.', 'warning');
+      });
+    }, delay);
+  }
+
   function persist(message) {
-    const ok = saveRecords(key, state);
+    const savedAt = saveRecords(key, state);
+    if (savedAt) localUpdatedAt = savedAt;
+    const ok = Boolean(savedAt);
     if (!ok) notify('تعذر الحفظ على هذا الجهاز. راجع إعدادات المتصفح.', 'error');
-    else if (message) notify(message);
+    else {
+      if (message) notify(message);
+      queueCentralSave();
+    }
     return ok;
+  }
+
+  async function hydrateFromCentralStorage() {
+    try {
+      const remote = await remoteRequest('GET');
+      const remoteState = remote.state || initialState();
+      const localTime = Date.parse(localUpdatedAt || '');
+      const remoteTime = Date.parse(remote.updatedAt || '');
+      const localIsNewer = Number.isFinite(localTime) && (!Number.isFinite(remoteTime) || localTime > remoteTime);
+
+      if (hasRecords(state) && (!hasRecords(remoteState) || localIsNewer)) {
+        const migrated = await remoteRequest('PUT', cloneRecords(state));
+        localUpdatedAt = migrated.updatedAt || localUpdatedAt;
+        saveRecords(key, state, localUpdatedAt || new Date().toISOString());
+        notify('تم ربط سجلات إدارة الأملاك بحسابك ومزامنتها بأمان.');
+      } else {
+        state = remoteState;
+        localUpdatedAt = remote.updatedAt || new Date().toISOString();
+        saveRecords(key, state, localUpdatedAt);
+      }
+    } catch {
+      syncWarningShown = true;
+      notify('الحفظ المركزي غير متاح حاليًا؛ ستستمر الصفحة بالحفظ المؤقت على هذا الجهاز.', 'warning');
+    }
   }
 
   function propertyById(propertyId) {
@@ -210,10 +299,10 @@ export function initPropertyManagement({ userId, userName, getToken }) {
     const remove = node('button', 'pm-small-button danger', 'حذف');
     remove.type = 'button';
     remove.addEventListener('click', () => {
-      if (!window.confirm('هل تريد حذف هذا السجل من الجهاز؟')) return;
+      if (!window.confirm('هل تريد حذف هذا السجل من حسابك؟')) return;
       state[collection] = state[collection].filter(item => item.id !== itemId);
       if (cascade) cascade();
-      persist('حُذف السجل من هذا الجهاز.');
+      persist('حُذف السجل من حسابك.');
       renderAll();
     });
     actions.append(remove);
@@ -484,7 +573,8 @@ export function initPropertyManagement({ userId, userName, getToken }) {
       reference: data.reference.trim(), type: data.type, units: amount(data.units), currency: data.currency,
       documentStatus: data.documentStatus, notes: data.notes.trim()
     });
-    persist('أُضيف العقار وحُفظ على هذا الجهاز.');
+    persist('أُضيف العقار إلى حسابك.');
+    window.emadTrackEvent?.('property_record_created', { record_type: 'property' });
     forms.property.reset();
     renderAll();
   });
@@ -497,7 +587,8 @@ export function initPropertyManagement({ userId, userName, getToken }) {
       id: id('T'), propertyId: data.propertyId, name: data.name.trim(), unit: data.unit.trim(),
       monthlyRent: amount(data.monthlyRent), startDate: data.startDate, status: data.status
     });
-    persist('أُضيف المستأجر وحُفظ على هذا الجهاز.');
+    persist('أُضيف المستأجر إلى حسابك.');
+    window.emadTrackEvent?.('property_record_created', { record_type: 'tenant' });
     forms.tenant.reset();
     renderAll();
   });
@@ -513,6 +604,7 @@ export function initPropertyManagement({ userId, userName, getToken }) {
       status: data.status, paymentDate: data.paymentDate
     });
     persist('سُجلت دفعة الإيجار.');
+    window.emadTrackEvent?.('property_record_created', { record_type: 'rent' });
     forms.rent.reset();
     renderAll();
   });
@@ -528,6 +620,7 @@ export function initPropertyManagement({ userId, userName, getToken }) {
       notes: data.notes.trim()
     });
     persist('سُجلت عملية الصيانة.');
+    window.emadTrackEvent?.('property_record_created', { record_type: 'maintenance' });
     forms.maintenance.reset();
     renderAll();
   });
@@ -542,6 +635,7 @@ export function initPropertyManagement({ userId, userName, getToken }) {
       note: data.note.trim()
     });
     persist('سُجل المصروف.');
+    window.emadTrackEvent?.('property_record_created', { record_type: 'expense' });
     forms.expense.reset();
     renderAll();
   });
@@ -586,6 +680,7 @@ export function initPropertyManagement({ userId, userName, getToken }) {
     }
   });
 
+  await hydrateFromCentralStorage();
   renderAll();
   const requestedView = location.hash.slice(1);
   switchView(['properties', 'tenants', 'rents', 'maintenance', 'expenses', 'reports'].includes(requestedView) ? requestedView : 'overview');

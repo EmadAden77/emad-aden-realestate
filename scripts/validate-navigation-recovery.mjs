@@ -8,10 +8,11 @@ const [home, navigation, enhancements, header, worker] = await Promise.all([
   readFile('sw.js', 'utf8')
 ]);
 
-const assetVersion = 'v=20260812-2';
-const headerVersion = 'v=20260812-1';
+const homeScriptVersion = 'v=20260813-logo-size';
+const enhancementVersion = 'v=20260812-2';
+const headerVersion = 'v=20260813-logo-size';
 
-if (!home.includes(`assets/js/luxury-home.js?${assetVersion}`)) {
+if (!home.includes(`assets/js/luxury-home.js?${homeScriptVersion}`)) {
   throw new Error('الصفحة الرئيسية لا تطلب نسخة التنقل الجديدة.');
 }
 
@@ -29,7 +30,7 @@ for (const obsoleteBehavior of [
   }
 }
 
-if (!navigation.includes(`assets/css/luxury-enhancements.css?${assetVersion}`)) {
+if (!navigation.includes(`assets/css/luxury-enhancements.css?${enhancementVersion}`)) {
   throw new Error('تنسيق الصفحة المحسن لا يستخدم رقم النسخة الجديدة.');
 }
 
@@ -45,11 +46,11 @@ if (!navigation.includes("navigator.serviceWorker.register('/sw.js'")) {
   throw new Error('الصفحة الرئيسية لا تطلب تحديث التخزين المؤقت.');
 }
 
-if (!worker.includes("const VERSION = 'emad-realestate-v11'")) {
+if (!worker.includes("const VERSION = 'emad-realestate-v15-update-safe'")) {
   throw new Error('نسخة التخزين المؤقت لم تُحدّث.');
 }
 
-if (!worker.includes(`/assets/js/luxury-home.js?${assetVersion}`)) {
+if (!worker.includes(`/assets/js/luxury-home.js?${homeScriptVersion}`)) {
   throw new Error('عامل الخدمة لا يخزن ملف التنقل الجديد.');
 }
 
@@ -75,10 +76,12 @@ if (!header.includes('/* رأس الهوية الفخم — الشعار وال�
 
 for (const marker of [
   '.topbar .navlinks,.topbar .actions,.topbar .menu-btn,.topbar .mobile-menu{display:none!important}',
-  'width:min(570px,calc(100% - 24px))!important',
+  'width:min(680px,calc(100% - 24px))!important',
   '.topbar .brand span{',
   'color:#d9bb78!important',
-  'width:52px!important'
+  'width:52px!important',
+  '.topbar .header-portal-mini{',
+  '.topbar .header-portal-mini-icon{'
 ]) {
   if (!header.includes(marker)) {
     throw new Error(`تنسيق رأس الهوية الفخم غير مكتمل: ${marker}`);
