@@ -27,7 +27,7 @@
           <h1 id="portalPreviewTitle">بوابة العملاء</h1>
           <p>تصفّح أقسام البوابة وتعرّف على الخدمات المتاحة. تفاصيل الطلبات والصفقات والمواعيد خاصة بعملاء المكتب ولا تظهر إلا بعد تسجيل الدخول.</p>
         </div>
-        <a class="button primary" href="sign-in.html?redirect_url=%2Fcustomer-account.html">تسجيل الدخول</a>
+        <a class="portal-login-card" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء وملاك العقارات"><span>تسجيل دخول</span><strong>العملاء ومُلّاك العقارات</strong></a>
       </section>
 
       <div class="portal-preview-note" role="note">
@@ -37,22 +37,22 @@
 
       <div class="portal-preview-grid">
         <button class="portal-preview-card" type="button" data-private-section="متابعة الطلبات">
-          <span class="preview-lock">خاص بالعملاء</span><strong>متابعة الطلبات</strong><span class="preview-description">معرفة مرحلة الطلب والمستندات الناقصة والخطوة التالية والموعد المتوقع.</span><span class="preview-action">عرض التفاصيل</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>متابعة الطلبات</strong><span class="preview-description">معرفة مرحلة الطلب والمستندات الناقصة والخطوة التالية والموعد المتوقع.</span><span class="preview-action">عرض التفاصيل</span>
         </button>
         <button class="portal-preview-card" type="button" data-private-section="غرفة الصفقة العقارية">
-          <span class="preview-lock">خاص بالعملاء</span><strong>غرفة الصفقة العقارية</strong><span class="preview-description">متابعة مراحل الصفقة والأطراف والمواعيد والإجراءات المتبقية.</span><span class="preview-action">فتح غرفة الصفقة</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>غرفة الصفقة العقارية</strong><span class="preview-description">متابعة مراحل الصفقة والأطراف والمواعيد والإجراءات المتبقية.</span><span class="preview-action">فتح غرفة الصفقة</span>
         </button>
         <button class="portal-preview-card" type="button" data-private-section="سجل المعاينات">
-          <span class="preview-lock">خاص بالعملاء</span><strong>سجل المعاينات</strong><span class="preview-description">مراجعة مواعيد الزيارات ونتائج المعاينات والملاحظات والإجراء التالي.</span><span class="preview-action">عرض السجل</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>سجل المعاينات</strong><span class="preview-description">مراجعة مواعيد الزيارات ونتائج المعاينات والملاحظات والإجراء التالي.</span><span class="preview-action">عرض السجل</span>
         </button>
         <button class="portal-preview-card" type="button" data-private-section="مركز التنبيهات">
-          <span class="preview-lock">خاص بالعملاء</span><strong>مركز التنبيهات</strong><span class="preview-description">تنبيهات المواعيد والعقود والمستندات والصيانة ومهل المتابعة.</span><span class="preview-action">عرض التنبيهات</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>مركز التنبيهات</strong><span class="preview-description">تنبيهات المواعيد والعقود والمستندات والصيانة ومهل المتابعة.</span><span class="preview-action">عرض التنبيهات</span>
         </button>
         <button class="portal-preview-card" type="button" data-private-section="إنشاء طلب جديد">
-          <span class="preview-lock">خاص بالعملاء</span><strong>إنشاء طلب جديد</strong><span class="preview-description">إنشاء طلب خدمة وحفظ المسودة وتجهيزها للإرسال إلى المكتب.</span><span class="preview-action">إنشاء طلب</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>إنشاء طلب جديد</strong><span class="preview-description">إنشاء طلب خدمة وحفظ المسودة وتجهيزها للإرسال إلى المكتب.</span><span class="preview-action">إنشاء طلب</span>
         </button>
         <button class="portal-preview-card" type="button" data-private-section="حجز موعد التواصل">
-          <span class="preview-lock">خاص بالعملاء</span><strong>حجز موعد التواصل</strong><span class="preview-description">اختيار التاريخ والفترة وطريقة التواصل ثم طلب تأكيد المكتب.</span><span class="preview-action">حجز موعد</span>
+          <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span><strong>حجز موعد التواصل</strong><span class="preview-description">اختيار التاريخ والفترة وطريقة التواصل ثم طلب تأكيد المكتب.</span><span class="preview-action">حجز موعد</span>
         </button>
       </div>
 
@@ -263,7 +263,7 @@
     <dialog class="portal-access-modal" id="portalAccessModal" aria-labelledby="portalAccessTitle" aria-describedby="portalAccessText">
       <div class="portal-access-dialog" role="document">
         <button class="portal-access-close" id="portalAccessClose" type="button" aria-label="إغلاق التنبيه">×</button>
-        <span class="preview-lock">خاص بالعملاء</span>
+        <span class="preview-lock"><span aria-hidden="true">🔒</span> مقفل · خاص بالعملاء</span>
         <h2 id="portalAccessTitle">سجّل دخولك لعرض التفاصيل</h2>
         <p id="portalAccessText">هذه البوابة خاصة بعملاء المكتب. يمكنك تصفح أقسامها، أما السجلات والتفاصيل فتتطلب تسجيل الدخول.</p>
         <div class="portal-access-actions">
