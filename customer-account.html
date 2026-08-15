@@ -15,7 +15,7 @@
   <link href="assets/css/customer-auth.css" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العملاء</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a></div></header>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>مكتب عماد عدن العقاري</strong><span>بوابة العملاء</span></a><a class="button secondary" href="index.html">الصفحة الرئيسية</a><a class="portal-login-card" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء وملاك العقارات"><span>تسجيل دخول</span><strong>العملاء ومُلّاك العقارات</strong></a></div></header>
 
   <main class="auth-main portal-main"><div class="wrap">
     <div class="loader" id="accountLoader" aria-live="polite"><span>جارٍ تجهيز البوابة…</span></div>
@@ -23,17 +23,12 @@
     <section class="portal-preview" id="portalPreview" hidden aria-labelledby="portalPreviewTitle">
       <section class="portal-preview-hero">
         <div class="portal-preview-copy">
-          <span class="status public">عرض تعريفي متاح للجميع</span>
+          <span class="status public">عرض تعريفي للزوار</span>
           <h1 id="portalPreviewTitle">بوابة العملاء</h1>
-          <p>تصفّح أقسام البوابة وتعرّف على الخدمات المتاحة. تفاصيل الطلبات والصفقات والمواعيد خاصة بعملاء المكتب ولا تظهر إلا بعد تسجيل الدخول.</p>
+          <p>استعرض أقسام البوابة، وسجّل الدخول لفتح الطلبات والصفقات والمواعيد الخاصة بحسابك.</p>
+          <div class="portal-inline-privacy" role="note"><strong>خصوصيتك محفوظة</strong><span>لا تظهر أي سجلات أو تفاصيل خاصة للزوار.</span></div>
         </div>
-        <a class="portal-login-card" href="sign-in.html?redirect_url=%2Fcustomer-account.html" aria-label="تسجيل دخول العملاء وملاك العقارات"><span>تسجيل دخول</span><strong>العملاء ومُلّاك العقارات</strong></a>
       </section>
-
-      <div class="portal-preview-note" role="note">
-        <strong>خصوصيتك محفوظة</strong>
-        <span>يمكن لأي زائر استعراض أقسام البوابة، لكن لا يمكنه فتح أي سجل أو تفاصيل خاصة بحساب عميل.</span>
-      </div>
 
       <div class="portal-preview-grid">
         <button class="portal-preview-card" type="button" data-private-section="متابعة الطلبات">
